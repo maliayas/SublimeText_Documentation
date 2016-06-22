@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Vintage Mode - Sublime Text 3 Documentation</title>
+<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+</head>
+<body>
+
+<p class="contents"><a href="index.html">Contents</a></p>
+
+<h1>Vintage Mode</h1>
+
+<h3>Overview</h3>
+
+<p>Vintage is a vi mode editing package for Sublime Text. It allows you to combine vi's command mode with Sublime Text's features, including multiple selections.
+
+<p>Vintage mode is developed in the open, and patches are more than welcome. If you'd like to contribute, details are on the <a href="https://github.com/sublimehq/Vintage">GitHub</a> page.
+
+<h2>Enabling Vintage</h2>
+
+Vintage is disabled by default, via the <span class="setting">ignored_packages</span> setting. If you remove "Vintage" from the list of ignored packages, you'll be able to edit with vi keys:
+
+<ol>
+	<li>Select the <span class="Menu">Preferences/Settings - Default</span> menu item</li>
+	<li>Edit the <span class="settings">ignored_packages</span> setting, changing it from:</li>
+<pre class="code">
+	"ignored_packages": ["Vintage"]
+</pre>
+	to:
+<pre class="code">
+	"ignored_packages": []
+</pre>
+	now save the file.
+	</li>
+	<li>Vintage mode is now enabled - you'll see "INSERT MODE" listed in the status bar</li>
+</ol>
+
+<p>Vintage starts in insert mode by default. This can be changed by adding:
+
+<pre class="code">
+	"vintage_start_in_command_mode": true
+</pre>
+
+to your User Settings.
+
+<h2>What's Included</h2>
+
+<p>Vintage includes most basic actions: d (delete), y (copy), c (change), gu (lower case), gU (upper case), g~ (swap case), g? (rot13), &lt; (unindent), and &gt; (indent).
+
+<p>It also includes many motions, including l, h, j, k, W, w, e, E, b, B, alt+w (move by sub-words), alt+W (move backwards by sub-words), $, ^, %, 0, G, gg, f, F, t, T, ^f, ^b, H, M, and L.
+
+<p>Text objects are supported, including words, quotes, brackets and tags.
+
+<p>Repeat ('.') is in there, as is specifying counts for commands and motions. Registers are supported, as are macros and bookmarks. Many other miscellaneous commands are supported too, such and *, /, n, N, s, S and more.
+
+<h2>What's Not</h2>
+
+<p>Insert mode is regular Sublime Text editing, with the usual Sublime Text key bindings: vi insert mode key bindings are not emulated.
+
+<p>Ex commands are not implemented, apart from :w and :e, which work via the command palette.
+
+<h2>Under the Hood</h2>
+
+<p>Vintage mode is implemented entirely via key bindings and the plugin API - feel free to browse through the Vintage package and see how it's put together. As an example, if you'd like to bind "jj" to exit insert mode, you can add this key binding:
+
+<pre class="code">
+{ "keys": ["j", "j"], "command": "exit_insert_mode",
+	"context":
+	[
+		{ "key": "setting.command_mode", "operand": false },
+		{ "key": "setting.is_widget", "operand": false }
+	]
+}
+</pre>
+
+<h2>OS X Lion</h2>
+
+<p>In Lion, holding down a key won't repeat it, but will instead show a popup menu to select between character variations. This doesn't work well with command mode, so you may want to disable it. This can be done via entering this at the terminal:
+
+<pre class="code">
+defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false
+</pre>
+
+<h2>Ctrl Keys</h2>
+
+<p>Vintage supports these ctrl key bindings:
+
+<ul>
+<li><span class="key">Ctrl+[</span>: Escape
+<li><span class="key">Ctrl+R</span>: Redo
+<li><span class="key">Ctrl+Y</span>: Scroll down one line
+<li><span class="key">Ctrl+E</span>: Scroll up one line
+<li><span class="key">Ctrl+F</span>: Page Down
+<li><span class="key">Ctrl+B</span>: Page Up
+</ul>
+
+However, because they conflict with other Sublime Text key bindings, these are disabled by default on Windows and Linux. They can be enabled with the vintage_ctrl_keys setting:
+
+<pre class="code">
+	"vintage_ctrl_keys": true
+</pre>
+
+<h2>Ex Mode</h2>
+
+<p>Please take a look at <a href="https://github.com/SublimeText/VintageEx">VintageEx</a> for an Ex mode for Vintage
+
+</body>
+</html>

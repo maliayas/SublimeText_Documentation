@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Porting Guide - Sublime Text 3 Documentation</title>
+<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+</head>
+<body>
+
+<p class="contents"><a href="index.html">Contents</a></p>
+
+<h1>Plugin Porting Guide</h1>
+
+<h3>Overview</h3>
+
+<p>Sublime Text 3 contains some important differences from Sublime Text 2 when it comes to plugins, and most plugins will require at least a small amount porting to work. The changes are:</p>
+
+<ul>
+    <li>Python 3.3</li>
+    <li>Out of Process Plugins</li>
+    <li>Asynchronous Events</li>
+    <li>Restricted begin_edit() and end_edit()</li>
+    <li>Zipped Packages</li>
+    <li>Importing Modules</li>
+</ul>
+
+<h3>Python 3.3</h3>
+
+<p>Sublime Text 3 uses Python 3.3, while Sublime Text 2 used Python 2.6. Furthermore, on OS X, the system build of Python is no longer used, instead Sublime Text is bundled with its own version. Windows and Linux are also bundled with their own version, as they were previously.</p>
+
+<h3>Out of Process Plugins</h3>
+
+<p>Plugins are now run in a separate process, <tt>plugin_host</tt>. From a plugin authors perspective, there should be no observable difference, except that a crash in the plugin host will no longer bring down the main application.</p>
+
+<h3>Asynchronous Events</h3>
+
+<p>In Sublime Text 2, only the set_timeout method was thread-safe. In Sublime Text 3, every API method is thread-safe. Furthermore, there are now asynchronous event handlers, to make writing non-blocking code easier:
+
+<ul>
+    <li>on_modified_async</li>
+    <li>on_selection_modified_async</li>
+    <li>on_pre_save_async</li>
+    <li>on_post_save_async</li>
+    <li>on_activated_async</li>
+    <li>on_deactivated_async</li>
+    <li>on_new_async</li>
+    <li>on_load_async</li>
+    <li>on_clone_async</li>
+    <li>set_timeout_async</li>
+</ul>
+
+<p>When writing threaded code, keep in mind that the buffer will be changing underneath you as your function runs.</p>
+
+<h3>Restricted begin_edit() and end_edit()</h3>
+
+<p>begin_end() and end_edit() are no longer directly accessible, except in some special circumstances. The only way to get a valid instance of an Edit object is to place your code in a TextCommand subclass. In general, most code can be refactored by placing the code between begin_edit() and end_edit() in a TextCommand, and then calling run_command on that TextCommand.</p>
+
+<p>This approach removes the issue of dangling Edit objects, and ensures the repeat command and macros work as they should.</p>
+
+<h3>Zipped Packages</h3>
+
+<p>Packages in Sublime Text 3 are able to be run from <tt>.sublime-package</tt> (i.e., renamed <tt>.zip</tt> files) files directly, in contrast to Sublime Text 2, which unzipped them prior to running.</p>
+
+<p>While in most changes this should lead to no differences, it is important to keep this in mind if you are accessing files in your package.</p>
+
+<h3>Importing Modules</h3>
+
+<p>Importing other Plugins is simpler and more robust in Sublime Text 3, and can be done with a regular import statement, e.g., <tt>import Default.comment</tt> will import <tt>Packages/Default/Comment.py</tt></p>
+
+<h3>Restricted API Usage at Startup</h3>
+
+<p>Due to the <tt>plugin_host</tt> loading asynchronously, it is not possible to use the Sublime Text API at import time. This means that all top-level statements in your module must not call any functions from the <tt>sublime</tt> module. During startup, the API is in a dormant state, and will silently ignore any requests made.</p>
+
+</body>
+</html>

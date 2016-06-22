@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Projects - Sublime Text 3 Documentation</title>
+<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+</head>
+<body>
+
+<p class="contents"><a href="index.html">Contents</a></p>
+
+<h1>Projects</h1>
+
+<h3>Overview</h3>
+
+<p>Projects in Sublime Text are made up of two files: the sublime-project file, which contains the project definition, and the sublime-workspace file, which contains user specific data, such as the open files and the modifications to each.
+
+<p>As a general rule, the sublime-project file would be checked into version control, while the sublime-workspace file would not.
+
+<h2>Project Format</h2>
+
+<p>sublime-project files are JSON, and support three top level sections: <span class="setting">folders</span>, for the included folders, <span class="setting">settings</span>, for file-setting overrides, and <span class="setting">build_systems</span>, for project specific build systems. An example:
+
+<pre class="code">
+{
+    "folders":
+    [
+        {
+            "path": "src",
+            "folder_exclude_patterns": ["backup"],
+            "follow_symlinks": true
+        },
+        {
+            "path": "docs",
+            "name": "Documentation",
+            "file_exclude_patterns": ["*.css"]
+        }
+    ],
+    "settings":
+    {
+        "tab_size": 8
+    },
+    "build_systems":
+    [
+        {
+            "name": "List",
+            "shell_cmd": "ls -l"
+        }
+    ]
+}
+</pre>
+
+<h3>Folders</h3>
+
+<p>Each folder must have a path, and may optionally have settings file_exclude_patterns, file_include_patterns, folder_exclude_patterns, folder_include_patterns and follow_symlinks. The path may be relative to the project directory, or a fully qualified path. Folders may also be given a name setting, to set how they're displayed on the side bar.
+
+<p>Converted projects from earlier versions may have a <span class="setting">mount_points</span> entry under <span class="setting">folders</span>. If you wish to use the exclude patterns, you'll need to change to the above format.
+
+<h3>Settings</h3>
+
+<p><a href="settings.html">Settings</a> may be specified here using the <span class="setting">settings</span> key, and will override regular user settings. Note that they will not override syntax specific settings.
+
+<h3>Build Systems</h3>
+
+<p>Build Systems specifices an array of inline <a href="http://sublimetext.info/docs/en/reference/build_systems.html">Build Systems</a> definitions. In addition to the regular build system settings, a <span class="setting">name</span> must be specified for each one. Build Systems listed here will be available via the regular <span class="menu">Tools/Build Systems</span> menu.
+
+</body>
+</html>

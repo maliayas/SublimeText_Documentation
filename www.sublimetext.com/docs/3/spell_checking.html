@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Spell Checking - Sublime Text 3 Documentation</title>
+<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+</head>
+<body>
+
+<p class="contents"><a href="index.html">Contents</a></p>
+
+<h1>Spell Checking</h1>
+
+<h3>Overview</h3>
+
+<p>Sublime Text uses <a href="http://hunspell.sourceforge.net/">Hunspell</a> for its spell checking support. Additional dictionaries can be obtained from the <a href="http://extensions.services.openoffice.org/en/dictionaries">OpenOffice.org Extension List</a>
+
+<p>Dictionaries in a format ready to be used by Sublime Text are available at <a href="https://github.com/SublimeText/Dictionaries">https://github.com/SublimeText/Dictionaries</a>
+
+<h2>Dictionaries</h2>
+
+<p>Sublime Text currently only supports UTF-8 encoded dictionaries. Most dictionaries are not encoded in UTF-8, instead using a more compact encoding for the language in question. To use a dictionary with Sublime Text, it'll first need to be converted into UTF-8.
+
+<p>Once you have a UTF-8 encoded dictionary, it can be installed by placing it in a package, for example, <span class="file">Packages/User</span>, which you can access from the <span class="menu">Preferences/Browse Packages</span> menu item. Once the file is in place, you can select the dictionary from the <span class="menu">View/Dictionary</span> menu.
+
+<h2>Settings</h2>
+
+<p>There are two <a href="settings.html">settings</a> that effect the spell checking: <span class="setting">spell_check</span>, which controls if spell checking is enabled, and <span class="setting">dictionary</span>, which gives the path to the dictionary file to use. For example:
+
+<pre class="code">
+"spell_check": true,
+"dictionary": "Packages/Language - English/en_US.dic"
+</pre>
+
+<p>Added and ignored words are stored in the user settings under the <span class="setting">added_words</span> and <span class="setting">ignored_words</span> keys.
+
+<h2>Commands</h2>
+
+<ul>
+<li><span class="command">next_misspelling</span>: Select the next misspelling
+<li><span class="command">prev_misspelling</span>: Select the previous misspelling
+<li><span class="command">add_word</span>: Adds the word given by the <span class="command">word</span> argument to the add list
+<li><span class="command">ignore_word</span>: Adds the word given by the <span class="command">word</span> argument to the ignore list
+</ul>
+
+</body>
+</html>

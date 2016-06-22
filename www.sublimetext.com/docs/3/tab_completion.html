@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Tab Completion - Sublime Text 3 Documentation</title>
+<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+</head>
+<body>
+
+<p class="contents"><a href="index.html">Contents</a></p>
+
+<h1>Tab Completion</h1>
+
+<h3>Overview</h3>
+
+<p>Tab Completion allows quickly completing words by pressing the tab key. When enabled, pressing tab will expand the text to the left of the cursor into the best match, using Sublime Text's fuzzy matching algorithm.
+
+<p>Tab Completion is enabled by default.
+
+
+<h2>Disabling Tab Completion</h2>
+
+<p>Sometimes tab completion isn't desirable. To turn it off, add this line to <tt>Preferences/File Settings - User</tt>:
+
+<pre class="code">
+"tab_completion": false
+</pre>
+
+<h2>Inserting Literal Tabs</h2>
+
+<p>To insert a tab rather than a completion, press <tt>shift+tab</tt>.
+
+<h2>Changing the Completion</h2>
+
+<p>Sometimes the completed text isn't what's desired: to change to an alternative, press <tt>ctrl+space</tt>. This will roll back the completion, and display the standard auto complete list.
+
+<p>Alternatively, tab can be pressed again to cycle to the next completion.
+
+<h2>Completion Sources</h2>
+
+<p>Information on completion sources, and creating your own completions, is available at <a href="http://sublimetext.info/docs/en/extensibility/completions.html">sublimetext.info</a>.
+
+
+</body>
+</html>
