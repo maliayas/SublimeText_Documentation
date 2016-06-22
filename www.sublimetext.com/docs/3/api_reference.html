@@ -125,7 +125,6 @@ th:first-child
 <tr><th>Methods</th><th>Return Value</th><th>Description</th></tr>
 <tr><td class="mth">set_timeout(callback, delay)</td><td class="rtn">None</td><td class="dsc">Runs the callback in the main thread after the given delay (in milliseconds). Callbacks with an equal delay will be run in the order they were added.</td>
 <tr><td class="mth">set_async_timeout(callback, delay)</td><td class="rtn">None</td><td class="dsc">Runs the callback on an alternate thread after the given delay (in milliseconds).</td>
-<tr><td class="mth">status_message(string)</td><td class="rtn">None</td><td class="dsc">Sets the message that appears in the status bar.</td>
 <tr><td class="mth">error_message(string)</td><td class="rtn">None</td><td class="dsc">Displays an error dialog to the user.</td>
 <tr><td class="mth">message_dialog(string)</td><td class="rtn">None</td><td class="dsc">Displays a message dialog to the user.</td>
 <tr><td class="mth">ok_cancel_dialog(string, &lt;ok_title&gt;)</td><td class="rtn">bool</td><td class="dsc">Displays an ok / cancel question dialog to the user. If ok_title is provided, this may be used as the text on the ok button. Returns True if the user presses the ok button.</td>
@@ -326,10 +325,34 @@ Represents a view into a text buffer. Note that multiple views may refer to the 
 
 <tr><td class="mth">show_popup_menu(items, on_done, &lt;flags&gt;)</td class="rtn"><td class="rtn">None</td><td class="dsc">Shows a pop up menu at the caret, to select an item in a list. on_done will be called once, with the index of the selected item. If the pop up menu was cancelled, on_done will be called with an argument of -1.
 
-<p>Items is an array of strings.</p>
+<p><tt>items</tt> is an array of strings.</p>
 
-<p>Flags currently only has no option.</p>
+<p><tt>flags</tt> currently only has no option.</p>
 </td></tr>
+
+<tr><td class="mth">show_popup(content, &lt;flags&gt;, &lt;location&gt;, &lt;max_width&gt;, &lt;max_height&gt;, &lt;on_navigate&gt;, &lt;on_hide&gt;)</td class="rtn"><td class="rtn">None</td><td class="dsc">Shows a popup displaying HTML content.
+
+<p><tt>flags</tt> is a bitwise combination of the following:</p>
+
+<ul>
+<li><tt>sublime.COOPERATE_WITH_AUTO_COMPLETE</tt>. Causes the popup to display next to the auto complete menu</li>
+<li><tt>sublime.HIDE_ON_MOUSE_MOVE</tt>. Causes the popup to hide when the mouse is moved, clicked or scrolled</li>
+<li><tt>sublime.HIDE_ON_MOUSE_MOVE_AWAY</tt>. Causes the popup to hide when the mouse is moved (unless towards the popup), or when clicked or scrolled</li>
+</ul>
+
+<p>The default <tt>location</tt> of <tt>-1</tt> will display the popup at the cursor, otherwise a text point should be passed.</p>
+
+<p><tt>max_width</tt> and <tt>max_height</tt> set the maximum dimensions for the popup, after which scroll bars will be displayed.</p>
+
+<p><tt>on_navigate</tt> is a callback that should accept a string contents of the <tt>href</tt> attribute on the link the user clicked.</p>
+
+<p><tt>on_hide</tt> is called when the popup is hidden.</p>
+</td></tr>
+
+<tr><td class="mth">update_popup(content)</td class="rtn"><td class="rtn">None</td><td class="dsc">Updates the contents of the currently visible popup.</td></tr>
+<tr><td class="mth">is_popup_visible()</td class="rtn"><td class="rtn">bool</td><td class="dsc">Returns if the popup is currently shown.</td></tr>
+<tr><td class="mth">hide_popup()</td class="rtn"><td class="rtn">None</td><td class="dsc">Hides the popup.</td></tr>
+<tr><td class="mth">is_auto_complete_visible()</td class="rtn"><td class="rtn">bool</td><td class="dsc">Returns if the auto complete menu is currently visible.</td></tr>
 
 </table>
 
@@ -427,8 +450,18 @@ Represents an area of the buffer. Empty regions, where a == b are valid.
 <tr><td class="mth">get_view_index(view)</td><td class="rtn">(group, index)</td><td class="dsc">Returns the group, and index within the group of the view. Returns -1 if not found.</td>
 <tr><td class="mth">set_view_index(view, group, index)</td><td class="rtn">None</td><td class="dsc">Moves the view to the given group and index.</td>
 
+<tr><td class="mth">status_message(string)</td><td class="rtn">None</td><td class="dsc">Show a message in the status bar.</td>
+
+<tr><td class="mth">is_menu_visible()</td><td class="rtn">bool</td><td class="dsc">Returns true if the menu is visible.</td>
+<tr><td class="mth">set_menu_visible(flag)</td><td class="rtn">None</td><td class="dsc">Controls if the menu is visible.</td>
 <tr><td class="mth">is_sidebar_visible()</td><td class="rtn">bool</td><td class="dsc">Returns true if the sidebar will be shown when contents are available.</td>
 <tr><td class="mth">set_sidebar_visible(flag)</td><td class="rtn">None</td><td class="dsc">Sets the sidebar to be shown or hidden when contents are available.</td>
+<tr><td class="mth">get_tabs_visible()</td><td class="rtn">bool</td><td class="dsc">Returns true if tabs will be shown for open files.</td>
+<tr><td class="mth">set_tabs_visible(flag)</td><td class="rtn">None</td><td class="dsc">Controls if tabs will be shown for open files.</td>
+<tr><td class="mth">is_minimap_visible()</td><td class="rtn">bool</td><td class="dsc">Returns true if the minimap is enabled.</td>
+<tr><td class="mth">set_minimap_visible(flag)</td><td class="rtn">None</td><td class="dsc">Controls the visibility of the minimap.</td>
+<tr><td class="mth">is_status_bar_visible()</td><td class="rtn">bool</td><td class="dsc">Returns true if the status bar will be shown.</td>
+<tr><td class="mth">set_status_bar_visible(flag)</td><td class="rtn">None</td><td class="dsc">Controls the visibility of the status bar.</td>
 
 <tr><td class="mth">folders()</td><td class="rtn">[String]</td><td class="dsc">Returns a list of the currently open folders.</td>
 <tr><td class="mth">project_file_name()</td><td class="rtn">String</td><td class="dsc">Returns name of the currently opened project file, if any.</td>
@@ -508,8 +541,6 @@ Represents an area of the buffer. Empty regions, where a == b are valid.
 <tr><td class="mth">active_panel()</td class="rtn"><td class="rtn">string or None</td><td class="dsc">Returns the name of the currently open panel, or None if no panel is open. Will return built-in panel names (e.g. "console", "find", etc) in addition to output panels.
 
 <tr><td class="mth">panels()</td class="rtn"><td class="rtn">[string]</td><td class="dsc">Returns a list of the names of all panels that have not been marked as unlisted. Includes certain built-in panels in addition to output panels.
-
-<tr><td class="mth">create_output_panel(name)</td class="rtn"><td class="rtn">View</td><td class="dsc">Returns the view associated with the named output panel, created it if required. The output panel can be shown by running the <tt>show_panel</tt> window command, with the <tt>panel</tt> argument set to the name with an  "output." prefix.
 
 <tr><td class="mth">lookup_symbol_in_index(symbol)</td class="rtn"><td class="rtn">[Location]</td><td class="dsc">Returns all locations where the symbol is defined across files in the current project.</td>
 <tr><td class="mth">lookup_symbol_in_open_files(symbol)</td class="rtn"><td class="rtn">[Location]</td><td class="dsc">Returns all locations where the symbol is defined across open files.</td>
@@ -595,9 +626,22 @@ Note that many of these events are triggered by the buffer underlying the view, 
 <li><tt>sublime.OP_NOT_REGEX_CONTAINS</tt>. Does the value of the context not contain a substring matching the regex given in operand?
 </ul>
 
-<p><tt>match_all</tt> should be used if the context relates to the selections: does every selection have to match (match_all = True), or is at least one matching enough (match_all = Fals)?
+<p><tt>match_all</tt> should be used if the context relates to the selections: does every selection have to match (match_all = True), or is at least one matching enough (match_all = False)?
 
 
+</td>
+
+<tr><td class="mth">on_hover(view, point, hover_zone)</td><td class="rtn">None</td><td class="dsc">Called when the user's mouse hovers over a view for a short period.
+
+<tt>point</tt> is the closest point in the view to the mouse location. The mouse may not actually be located adjacent based on the value of
+
+<tt>hover_zone</tt>:
+
+<ul>
+<li><tt>sublime.HOVER_TEXT</tt>. When the mouse is hovered over text.
+<li><tt>sublime.HOVER_GUTTER</tt>. When the mouse is hovered over the gutter.
+<li><tt>sublime.HOVER_MARGIN</tt>. When the mouse is hovered in whitespace to the right of a line.
+</ul>
 </td>
 </table>
 
