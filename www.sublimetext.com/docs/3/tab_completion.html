@@ -1,44 +1,67 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Tab Completion - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>Distraction Free Mode – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <script src="prism.js"></script>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<h1>Tab Completion</h1>
+            <h1>Tab Completion</h1>
+        </section>
+    </header>
 
-<h3>Overview</h3>
+    <section>
+        <p>
+            Tab Completion allows quickly completing words by pressing the tab key. When enabled, pressing tab will expand the text to the left of the cursor into the best match, using Sublime Text's fuzzy matching algorithm.
+        </p>
 
-<p>Tab Completion allows quickly completing words by pressing the tab key. When enabled, pressing tab will expand the text to the left of the cursor into the best match, using Sublime Text's fuzzy matching algorithm.
+        <p>
+            Tab Completion is enabled by default.
+        </p>
 
-<p>Tab Completion is enabled by default.
+        <h2>Disabling Tab Completion</h2>
 
+        <p>
+            Sometimes tab completion isn't desirable. To turn it off, add this line to the right-hand pane of <span class="menu">Preferences &#9656; Settings</span>:
+        </p>
 
-<h2>Disabling Tab Completion</h2>
+        <pre><code class="language-js">"tab_completion": false</code></pre>
 
-<p>Sometimes tab completion isn't desirable. To turn it off, add this line to <tt>Preferences/File Settings - User</tt>:
+        <h2>Inserting Literal Tabs</h2>
 
-<pre class="code">
-"tab_completion": false
-</pre>
+        <p>
+            To insert a tab rather than a completion, press <span class="key">shift+tab</span>.
+        </p>
 
-<h2>Inserting Literal Tabs</h2>
+        <h2>Changing the Completion</h2>
 
-<p>To insert a tab rather than a completion, press <tt>shift+tab</tt>.
+        <p>
+            Sometimes the completed text isn't what's desired: to change to an alternative, press <span class="key">ctrl+space</span>. This will roll back the completion, and display the standard auto complete list.
+        </p>
 
-<h2>Changing the Completion</h2>
+        <p>
+            Alternatively, tab can be pressed again to cycle to the next completion.
+        </p>
 
-<p>Sometimes the completed text isn't what's desired: to change to an alternative, press <tt>ctrl+space</tt>. This will roll back the completion, and display the standard auto complete list.
+        <h2>Completion Sources</h2>
 
-<p>Alternatively, tab can be pressed again to cycle to the next completion.
-
-<h2>Completion Sources</h2>
-
-<p>Information on completion sources, and creating your own completions, is available at <a href="http://sublimetext.info/docs/en/extensibility/completions.html">sublimetext.info</a>.
-
+        <p>
+            Information on completion sources, and creating your own completions, is available at <a href="http://docs.sublimetext.info/en/latest/extensibility/completions.html">docs.sublimetext.info</a>.
+        </p>
+    </section>
 
 </body>
 </html>

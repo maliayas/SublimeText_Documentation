@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>minihtml Reference – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+</head>
+<body>
+    <script src="prism.js"></script>
+
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
+
+            <h1>minihtml Reference</h1>
+        </section>
+    </header>
+
+    <section>
+        <p>
+            Sublime Text contains a custom HTML and CSS engine, named
+            <span class="proper">minihtml</span>, for displaying stylized
+            content in editor panes. HTML content can be displayed in both
+            popup windows and phantoms.
+        </p>
+
+        <p>
+            <span class="proper">minihtml</span> provides a limited subset of
+            HTML and CSS features found in most web browsers. While only
+            certain CSS and HTML features may be implemented, they are designed
+            to be standards compliant. Any feature implemented should function
+            the same way in <span class="proper">minihtml</span> as in a
+            browser.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="html">HTML</h2>
+
+        <p>The following tags are styled by the default style sheet:</p>
+
+        <ul>
+            <li>
+                <code>&lt;html&gt;</code>
+            </li>
+            <li>
+                <code>&lt;head&gt;</code>, <code>&lt;style&gt;</code>
+            </li>
+            <li>
+                <code>&lt;body&gt;</code>
+            </li>
+            <li>
+                <code>&lt;h1&gt;</code>,
+                <code>&lt;h2&gt;</code>,
+                <code>&lt;h3&gt;</code>,
+                <code>&lt;h4&gt;</code>,
+                <code>&lt;h5&gt;</code>,
+                <code>&lt;h6&gt;</code>
+            </li>
+            <li>
+                <code>&lt;div&gt;</code>
+            </li>
+            <li>
+                <code>&lt;p&gt;</code>
+            </li>
+            <li>
+                <code>&lt;ul&gt;</code>,
+                <code>&lt;ol&gt;</code>,
+                <code>&lt;li&gt;</code>
+            </li>
+            <li>
+                <code>&lt;b&gt;</code>, <code>&lt;strong&gt;</code>
+            </li>
+            <li>
+                <code>&lt;i&gt;</code>, <code>&lt;em&gt;</code>
+            </li>
+            <li>
+                <code>&lt;u&gt;</code>
+            </li>
+            <li>
+                <code>&lt;big&gt;</code>, <code>&lt;small&gt;</code>
+            </li>
+            <li>
+                <code>&lt;a&gt;</code>
+            </li>
+            <li>
+                <code>&lt;code&gt;</code>,
+                <code>&lt;var&gt;</code>,
+                <code>&lt;tt&gt;</code>
+            </li>
+        </ul>
+
+        <p>Special behavior is implemented for a few tags:</p>
+
+        <ul>
+            <li>
+                <code>&lt;a&gt;</code> – a callback can be specified via the
+                API to handle clicks on anchor tags
+            </li>
+            <li>
+                <code>&lt;img&gt;</code> – supports PNG, JPG and GIF images
+                from <code>http://</code>, <code>file://</code>,
+                <code>res://</code> and <code>data:</code> URLs
+            </li>
+            <li>
+                <code>&lt;ul&gt;</code> – bullets are displayed for
+                <code>&lt;li&gt;</code> tags
+            </li>
+        </ul>
+
+        <p>
+            Other HTML tags with special behavior are not implemented. This
+            includes tags such as <code>&lt;input&gt;</code>,
+            <code>&lt;button&gt;</code>, <code>&lt;table&gt;</code>, etc.
+        </p>
+
+        <h3 id="html_best_practices">Best Practices</h3>
+
+        <p>
+            To allow color scheme authors to tweak the look of popups and
+            phantoms, it is best to add a unique <code>id=&quot;&quot;</code>
+            attribute to the <code>&lt;body&gt;</code> tag of your plugin's
+            HTML.
+        </p>
+
+        <p>
+            Within the <code>&lt;body&gt;</code> tag, add a
+            <code>&lt;style&gt;</code> tag containing selectors that do not
+            use the <code>id</code>. Leave that for selectors in color schemes
+            to be able to override the plugin.
+        </p>
+
+        <pre><code class="language-html">&lt;body id=&quot;my-plugin-feature&quot;&gt;
+    &lt;style&gt;
+        div.error {
+            background-color: red;
+            padding: 5px;
+        }
+    &lt;/style&gt;
+    &lt;div class=&quot;error&quot;&gt;&lt;/div&gt;
+&lt;/body&gt;</code></pre>
+
+
+    </section>
+
+    <section>
+        <h2 id="css">CSS</h2>
+
+        <p>
+            The following list provides an overview of supported properties and
+            values:
+        </p>
+
+        <ul>
+            <li>
+                <code>display</code>: <em><code>inline</code>,
+                <code>block</code>, <code>list-item</code>,
+                <code>none</code></em>
+            </li>
+            <li>
+                <code>margin</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>margin-top</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>margin-right</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>margin-bottom</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>margin-left</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em>
+            </li>
+            <li>
+                <code>position</code>: <em><code>static</code>,
+                <code>relative</code></em>
+            </li>
+            <li>
+                <code>top</code>: <em>positive and negative
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>right</code>: <em>positive and negative
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>bottom</code>: <em>positive and negative
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>left</code>: <em>positive and negative
+                <a href="minihtml.html#units">units</a></em>
+            </li>
+            <li>
+                <code>background-color</code>: <a href="minihtml.html#colors">colors</a>
+            </li>
+            <li>
+                <code>font-family</code>:
+                <em>comma-separated list of font families</em><br>
+                <code>font-size</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>font-style</code>: <em><code>normal</code>,
+                <code>italic</code></em><br>
+                <code>font-weight</code>: <em><code>normal</code>,
+                <code>bold</code></em><br>
+                <code>line-height</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>text-decoration</code>: <em><code>none</code>,
+                <code>underline</code></em>
+            </li>
+            <li>
+                <code>color</code>: <a href="minihtml.html#colors">colors</a>
+            </li>
+            <li>
+                <code>padding</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>padding-top</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>padding-right</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>padding-bottom</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>padding-left</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em>
+            </li>
+            <li>
+                <code>border-radius</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>border-top-left-radius</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>border-top-right-radius</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>border-bottom-right-radius</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em><br>
+                <code>border-bottom-left-radius</code>: <em>positive
+                <a href="minihtml.html#units">units</a></em>
+            </li>
+        </ul>
+
+        <h3 id="units">Units</h3>
+
+        <p>Supported units of measurement include:</p>
+
+        <ul>
+            <li><code>rem</code></li>
+            <li><code>em</code></li>
+            <li><code>px</code></li>
+            <li><code>pt</code></li>
+        </ul>
+
+        <p>
+            <code>rem</code> units are recommended because they are based on the
+            user's <code>font_size</code> setting, and they will not cascade.
+        </p>
+
+        <h3 id="colors">Colors</h3>
+
+        <p>Colors may be specified via:</p>
+
+        <ul>
+            <li>Named colors: <code>white</code>, <code>tan</code>, etc</li>
+            <li>Shorthand hex: <code>#fff</code></li>
+            <li>Shorthand hex with alpha: <code>#fff8</code></li>
+            <li>Full hex: <code>#ffffff</code></li>
+            <li>Full hex with alpha: <code>#ffffff80</code></li>
+            <li>RGB functional notation: <code>rgb(255, 255, 255)</code></li>
+            <li>RGBA functional notation: <code>rgba(255, 255, 255, 0.5)</code></li>
+            <li>HSL functional notation: <code>hsl(0, 100%, 100%)</code></li>
+            <li>HSLA functional notation: <code>hsla(0, 100%, 100%, 0.5)</code></li>
+            <li><code>transparent</code></li>
+        </ul>
+
+        <p>Additionally, color values may be blended using the CSS Color Module Level 4 <a href="https://drafts.csswg.org/css-color-4/#modifying-colors">color-mod function</a> with the <code>blend()</code> and <code>blenda()</code> adjusters.</p>
+
+        <pre><code class="language-css">.error {
+    background-color: color(var(--background) blend(red, 50%));
+}</code></pre>
+
+        <p>The color-mod function will be most useful in combination with <a href="minihtml.html#variables">variables</a>.</p>
+
+        <h3 id="variables">Variables</h3>
+
+        <p>CSS variables are also supported using custom properties and the <code>var()</code> functional notation. <em>Custom properties are those starting with <code>--</code>.</em></p>
+
+        <pre><code class="language-css">html {
+    --fg: #f00;
+}
+.error {
+    background-color: var(--fg);
+}</code></pre>
+
+        <p>The one limitation is that the <code>var()</code> notation can not be used for part of a multi-number value, such as <code>padding</code> or <code>margin</code>. With those aggregate properties, the <code>var()</code> notation must be used for the complete value.</p>
+
+        <h4>Predefined Variables</h4>
+
+        <p>When a color scheme is loaded, the background and foreground colors are set to CSS variables, along with the closest color found to a handful of basic colors. These are all set in an <code>html { }</code> rule set in the default CSS style sheet.</p>
+
+        <ul>
+            <li><code>var(--background)</code></li>
+            <li><code>var(--foreground)</code></li>
+            <li><code>var(--redish)</code></li>
+            <li><code>var(--orangish)</code></li>
+            <li><code>var(--yellowish)</code></li>
+            <li><code>var(--greenish)</code></li>
+            <li><code>var(--bluish)</code></li>
+            <li><code>var(--purplish)</code></li>
+            <li><code>var(--pinkish)</code></li>
+        </ul>
+
+        <p>The algorithm to pick the colors uses the HSL color space and uses several heuristics to try and pick colors that are suitable for foreground use. In the case that the automatic color selection is undesirable, color scheme authors may override the appropriate values with their own <code>html { }</code> rule set contained in the
+        <code>popupCss</code> or <code>phantomCss</code> settings.</p>
+    </section>
+</body>
+</html>

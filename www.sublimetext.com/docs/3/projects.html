@@ -1,27 +1,44 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Projects - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>Projects – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <script src="prism.js"></script>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<h1>Projects</h1>
+            <h1>Projects</h1>
+        </section>
+    </header>
 
-<h3>Overview</h3>
+    <section>
+        <p>
+            Projects in Sublime Text are made up of two files: the <span class="file">.sublime-project</span> file, which contains the project definition, and the <span class="file">.sublime-workspace</span> file, which contains user specific data, such as the open files and the modifications to each.
+        </p>
 
-<p>Projects in Sublime Text are made up of two files: the sublime-project file, which contains the project definition, and the sublime-workspace file, which contains user specific data, such as the open files and the modifications to each.
+        <p>
+            As a general rule, the <span class="file">.sublime-project</span> file would be checked into version control, while the <span class="file">.sublime-workspace</span> file would not.
+        </p>
 
-<p>As a general rule, the sublime-project file would be checked into version control, while the sublime-workspace file would not.
+        <h2>Project Format</h2>
 
-<h2>Project Format</h2>
+        <p>
+            <span class="file">.sublime-project</span> files are JSON, and support three top level sections: <span class="setting">folders</span>, for the included folders, <span class="setting">settings</span>, for file-setting overrides, and <span class="setting">build_systems</span>, for project specific build systems. An example:
+        </p>
 
-<p>sublime-project files are JSON, and support three top level sections: <span class="setting">folders</span>, for the included folders, <span class="setting">settings</span>, for file-setting overrides, and <span class="setting">build_systems</span>, for project specific build systems. An example:
-
-<pre class="code">
-{
+        <pre><code class="language-js">{
     "folders":
     [
         {
@@ -47,21 +64,30 @@
         }
     ]
 }
-</pre>
+</code></pre>
 
-<h3>Folders</h3>
+        <h3>Folders</h3>
 
-<p>Each folder must have a path, and may optionally have settings file_exclude_patterns, file_include_patterns, folder_exclude_patterns, folder_include_patterns and follow_symlinks. The path may be relative to the project directory, or a fully qualified path. Folders may also be given a name setting, to set how they're displayed on the side bar.
+        <p>
+            Each folder must have a path, and may optionally have settings <span class="setting">file_exclude_patterns</span>, <span class="setting">file_include_patterns</span>, <span class="setting">folder_exclude_patterns</span>, <span class="setting">folder_include_patterns</span> and <span class="setting">follow_symlinks</span>. The path may be relative to the project directory, or a fully qualified path. Folders may also be given a <span class="setting">name</span> setting, to set how they're displayed on the side bar.
+        </p>
 
-<p>Converted projects from earlier versions may have a <span class="setting">mount_points</span> entry under <span class="setting">folders</span>. If you wish to use the exclude patterns, you'll need to change to the above format.
+        <p>
+            Converted projects from earlier versions may have a <span class="setting">mount_points</span> entry under <span class="setting">folders</span>. If you wish to use the exclude patterns, you'll need to change to the above format.
+        </p>
 
-<h3>Settings</h3>
+        <h3>Settings</h3>
 
-<p><a href="settings.html">Settings</a> may be specified here using the <span class="setting">settings</span> key, and will override regular user settings. Note that they will not override syntax specific settings.
+        <p>
+            <a href="settings.html">Settings</a> may be specified here using the <span class="setting">settings</span> key, and will override regular user settings. Note that they will not override syntax-specific settings.
+        </p>
 
-<h3>Build Systems</h3>
+        <h3>Build Systems</h3>
 
-<p>Build Systems specifices an array of inline <a href="http://sublimetext.info/docs/en/reference/build_systems.html">Build Systems</a> definitions. In addition to the regular build system settings, a <span class="setting">name</span> must be specified for each one. Build Systems listed here will be available via the regular <span class="menu">Tools/Build Systems</span> menu.
+        <p>
+            <span class="setting">build_systems</span> specifices a list of inline <a href="http://docs.sublimetext.info/en/latest/file_processing/build_systems.html">Build Systems</a> definitions. In addition to the regular build system settings, a <span class="setting">name</span> must be specified for each one. Build systems listed here will be available via the regular <span class="menu">Tools &#9656; Build Systems</span> menu.
+        </p>
+    </section>
 
 </body>
 </html>

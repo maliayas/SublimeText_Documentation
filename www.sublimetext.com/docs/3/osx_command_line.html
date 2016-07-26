@@ -1,33 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>OS X Command Line - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>OS X Command Line – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+            <h1>OS X Command Line</h1>
+        </section>
+    </header>
 
-<h1>OS X Command Line</h1>
+    <section>
+        <p>
+            Sublime Text includes a command line tool, <tt>subl</tt>, to work with files on the command line. This can be used to open files and projects in Sublime Text, as well working as an <tt>EDITOR</tt> for unix tools, such as git and subversion.
+        </p>
 
-<h3>Overview</h3>
+        <h2>Setup</h2>
 
-<p>Sublime Text includes a command line tool, <tt>subl</tt>, to work with files on the command line. This can be used to open files and projects in Sublime Text, as well working as an <tt>EDITOR</tt> for unix tools, such as git and subversion.
+        <p>
+            The first task is to make a symlink to <tt>subl</tt>. Assuming you've placed Sublime Text in the Applications folder, and that you have a <tt>~/bin</tt> directory in your path, you can run:
+        </p>
 
-<h2>Setup</h2>
+        <pre><code>ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+</code></pre>
 
-<p>The first task is to make a symlink to <tt>subl</tt>. Assuming you've placed Sublime Text in the Applications folder, and that you have a <tt>~/bin</tt> directory in your path, you can run:
+        <h2>Usage</h2>
 
-<pre class="code">
-ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-</pre>
+        <p>
+            Run <tt>subl --help</tt>,
+        </p>
 
-<h2>Usage</h2>
-
-Run <tt>subl --help</tt>,
-
-<pre class="code">
-Usage: subl [arguments] [files]         edit the given files
+        <pre><code>Usage: subl [arguments] [files]         edit the given files
    or: subl [arguments] [directories]   open the given directories
    or: subl [arguments] -               edit stdin
 
@@ -47,17 +61,21 @@ to the terminal when a file is closed (only relevant if waiting for a file).
 
 Filenames may be given a :line or :line:column suffix to open at a specific
 location.
-</pre>
+</code></pre>
 
-<h2>EDITOR</h2>
+        <h2>EDITOR</h2>
 
-<p>To use Sublime Text as the editor for many commands that prompt for input, set your <tt>EDITOR</tt> environment variable:
+        <p>
+            To use Sublime Text as the editor for many commands that prompt for input, set your <tt>EDITOR</tt> environment variable:
+        </p>
 
-<pre class="code">
-export EDITOR='subl -w'
-</pre>
+        <pre><code>export EDITOR='subl -w'
+</code></pre>
 
-<p>Specifying -w will cause the <tt>subl</tt> command to not exit until the file is closed.
+        <p>
+            Specifying <tt>-w</tt> will cause the <tt>subl</tt> command to not exit until the file is closed.
+        </p>
+    </section>
 
 </body>
 </html>

@@ -1,42 +1,63 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Reverting to a freshly installed state - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>Reverting to a Freshly Installed State – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+            <h1>Reverting to a Freshly Installed State</h1>
+        </section>
+    </header>
 
-<h1>Reverting to a Freshly Installed State</h1>
+    <section>
+        <p>
+            Sublime Text can be reverted to a freshly installed state by removing your data folder. Depending on your operating system, this folder is located in:
+        </p>
 
-<h3>Overview</h3>
+        <ul>
+            <li>OS X: <span class="file">~/Library/Application Support/Sublime Text 3</span></li>
+            <li>Windows: <span class="file">%APPDATA%\Sublime Text 3</span></li>
+            <li>Linux: <span class="file">~/.config/sublime-text-3</span></li>
+        </ul>
 
-<p>Sublime Text can be reverted to a freshly installed state by removing your data folder. Depending on your operating system, this folder is located in:</p>
+        <p>
+            To revert to a freshly installed state, you can:
+        </p>
 
-<ul>
-    <li>OS X: <tt>~/Library/Application Support/Sublime Text 3</tt></li>
-    <li>Windows: <tt>%APPDATA%\Sublime Text 3</tt></li>
-    <li>Linux: <tt>~/.config/sublime-text-3</tt></li>
-</ul>
+        <ol>
+            <li>Exit Sublime Text</li>
+            <li>Move the data folder to a backup location</li>
+            <li>Start Sublime Text</li>
+        </ol>
 
-<p>To revert to a freshly installed state, you can:
+        <p>
+            When restarted, a fresh data folder will be created, just as it was the first time you ran Sublime Text. Keep in mind that this will also remove all of your settings and packages. The backup copy of your data folder can be used to retrieve configuration, or custom packages that can not be reinstalled.
+        </p>
 
-<ol>
-    <li>Exit Sublime Text</li>
-    <li>Delete (or move) the data folder, as listed above</li>
-    <li>Start Sublime Text</li>
-</ol>
+        <h3>OS X</h3>
 
-<p>When restarted, a fresh data folder will be created, just as it was the first time you ran Sublime Text. Keep in mind that this will also remove all of your settings and packages.</p>
+        <p>
+            On OS X, the <tt>~/Library</tt> folder is hidden by default. To navigate there, select the <span class="menu">Go &#9656; Go to Folder</span> menu item in Finder, and type in <tt>~/Library</tt>.
+        </p>
 
-<h3>OS X Lion</h3>
+        <h3>Windows</h3>
 
-<p>In Lion, the ~/Library folder is hidden by default. To navigate there, select the <span class="menu">Go/Go to Folder</span> menu item in Finder, and type in ~/Library.
-
-<h3>Windows</h3>
-
-<p>In Windows, cache files are stored in a separate location, <tt>%LOCALAPPDATA%\Sublime Text 3</tt></li>, to improve performance with roaming profiles.
+        <p>
+            In Windows, cache files are stored in a separate location, <tt>%LOCALAPPDATA%\Sublime Text 3</tt>, to improve performance with roaming profiles.
+        </p>
+    </section>
 
 </body>
 </html>

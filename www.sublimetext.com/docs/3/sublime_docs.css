@@ -1,33 +1,95 @@
 body
 {
-    margin: 1em 5% 1em 5%;
+    color: #333;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.45;
+    margin: 0 1.5rem 3rem;
+}
 
-    font-family: "lucida sans unicode", "lucida grande";
+section
+{
+    margin: 0 auto;
+    max-width: 1200px;
+    clear: both;
+}
+
+div.column
+{
+    float: left;
+    margin-right: 4em;
+    margin-bottom: 1em;
+}
+div.column:last-child
+{
+    margin-left: 0;
+}
+div.column h3
+{
+    margin-top: 0;
+}
+
+div.column.half
+{
+    margin-right: 4%;
+    width: 48%;
+}
+div.column.half.odd
+{
+    clear: left;
+}
+div.column.half.even
+{
+    margin-right: 0;
+}
+
+@media (max-width: 1024px)
+{
+    div.column,
+    div.column.half,
+    div.column.half.odd,
+    div.column.half.even
+    {
+        clear: none;
+        float: none;
+        margin: 0;
+        width: auto;
+    }
+}
+
+header
+{
+    background-color: #DAE1E3;
+    background: linear-gradient(135deg, #e2e7e9 0%, #d8d9de 100%);
+    padding: 1rem 1.5rem;
+    margin: 0 -1.5rem 2rem;
 }
 
 h1
 {
-    color: #2461AA;
-    border-bottom: 2px solid #C3D9FF
+    font-size: 2.2rem;
+    margin: -0.2rem 0 0;
+}
+h1.no_index
+{
+    font-weight: normal;
+}
+h1.no_index span
+{
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 h2
 {
-    color: #2461AA;
-    font-size: 14pt;
-    margin: 0px;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    border-bottom: 1px solid #C3D9FF
+    color: #555;
+    margin: 1.4rem 0 0.6rem;
+    border-bottom: 1px solid #ddd;
 }
 
-h3
+h3, h4, h5
 {
-    font-size: 12pt;
-    color: #2461AA;
-    margin: 0px;
-    margin-top: 1em;
-    margin-bottom: 1em;
+    color: #555;
+    margin: 1.4rem 0 0.6rem;
 }
 
 ul
@@ -35,9 +97,156 @@ ul
     list-style-type: square
 }
 
-.contents
+a:link, a:visited, a:active
 {
-    float: right
+    color: #6A9ABA;
+}
+a:hover
+{
+    color: #3e96d0;
+}
+
+p
+{
+    margin: 0.8rem 0;
+}
+
+code,
+tt,
+span.setting,
+span.command
+{
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    color: #000;
+    font-size: 15px;
+    padding: 0.05rem 0.3rem 0.1rem;
+    font-family: Menlo, Consolas, "Ubuntu Mono", monospace;
+}
+
+h2 code,
+h3 code
+{
+    color: #555;
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+h2 code
+{
+    font-size: 24px;
+}
+h3 code
+{
+    font-size: 19px;
+}
+
+pre
+{
+    background-color: #f3f3f3;
+    border-radius: 2px;
+    padding: 0.3rem 0.6rem;
+}
+pre code
+{
+    font-size: 15px;
+    background-color: transparent;
+    padding: 0;
+}
+
+nav
+{
+    float: right;
+}
+nav a
+{
+    padding-left: 1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+div.index
+{
+    text-transform: uppercase;
+}
+div.index a
+{
+    text-decoration: none;
+}
+div.index a span
+{
+    font-weight: bold;
+    color: #777;
+}
+
+span.proper
+{
+    font-weight: 700;
+    color: #555;
+}
+
+div.variants
+{
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+table
+{
+    padding-top: 1em;
+    width: 100%;
+}
+
+th
+{
+    background-color: #eee;
+    padding: 5px 6px;
+    text-align: left;
+    vertical-align: top;
+}
+
+th:first-child
+{
+    width: 30%;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+th:last-child
+{
+    width: 56%;
+
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+td
+{
+    padding: 5px 6px;
+    vertical-align: top;
+    font-size: 0.9em;
+    border-bottom: solid 1px #ddd;
+}
+
+table
+{
+    border-spacing: 0;
+    margin-bottom: 1em;
+}
+
+td.mth
+{
+    font-weight: 600;
+}
+td.dsc tt,
+td.dsc code
+{
+    font-size: 14px;
+}
+td.dsc p:first-child
+{
+    margin-top: 0;
 }
 
 .key
@@ -45,24 +254,17 @@ ul
     font-style: italic
 }
 
-.file
+span.file
 {
-    font-family: monospace;
-}
-
-.setting
-{
-    font-family: monospace;
-}
-
-.command
-{
-    font-family: monospace;
+    border-bottom: 2px solid #ddd;
 }
 
 .menu
 {
-    font-style: italic;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    padding: 0 0.3em;
+    font-weight: 600;
 }
 
 .settings
@@ -78,6 +280,78 @@ ul
 
 .code
 {
-    background-color: #d3e9ff;
-    border: 1px solid #C3D9FF;
+    background-color: #e3e3e3;
+    border-radius: 2px;
+    padding: 0.5em;
 }
+
+
+/* CSS for prism.js */
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #777;
+}
+
+.token.punctuation {
+  color: #444;
+}
+
+.token.null,
+.token.operator,
+.token.boolean {
+  color: #7a69ba;
+} 
+.token.property { 
+  color: #6a9aba;
+}
+.token.number,
+.token.tag { 
+  color: #ba6991;
+} 
+.token.string {
+  color: #69bab3;
+} 
+.token.selector { 
+  color: #7a69ba;
+}
+.token.attr-name { 
+  color: #d39a50;
+} 
+.token.entity,
+.token.url, 
+.language-css .token.string,
+.style .token.string {
+  color: #69bab3;
+}
+
+.token.attr-value,
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit {
+  color: #69bab3;
+} 
+
+.token.statement,
+.token.regex, 
+.token.atrule { 
+  color: #69bab3;
+}
+
+.token.placeholder,
+.token.variable {
+  color: #6a9aba;
+} 
+
+.token.important {
+  color: #ba6991;
+  font-weight: bold;
+} 
+
+.token.entity {
+  cursor: help;
+} 
+

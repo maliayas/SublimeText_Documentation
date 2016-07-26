@@ -1,115 +1,151 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Indentation Settings - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>Indentation Settings – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <script src="prism.js"></script>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<h1>Indentation Settings</h1>
+            <h1>Indentation Settings</h1>
+        </section>
+    </header>
 
-<h3>Overview</h3>
+    <section>
+        <p>
+            Indentation settings determine the size of the tab stops, and control whether the tab key should insert tabs or spaces. In addition to the automatic detection, they can be customized globally, per-file type, or per-file.
+        </p>
 
-<p>Indentation Settings determine the size of the tab stops, and control whether the tab key should insert tabs or spaces. In addition to the automatic detection, they can be customized globally, per-file type, or per-file.
+        <h2>Settings</h2>
 
-<h2>Settings</h2>
+        <table class="settings">
+            <tr>
+                <td class="setting">tab_size</td>
+                <td class="dsc">
+                    Integer. The number of spaces a tab is considered equal to
+                </td>
+            </tr>
+            <tr>
+                <td class="setting">translate_tabs_to_spaces</td>
+                <td class="dsc">
+                    Boolean, if <tt>true</tt>, spaces will be inserted up to the next tab stop when tab is pressed, rather than inserting a tab character
+                </td>
+            </tr>
+            <tr>
+                <td class="setting">detect_indentation</td>
+                <td class="dsc">
+                    Boolean, if <tt>true</tt> (the default), <span class="setting">tab_size</span> and <span class="setting">translate_tabs_to_spaces</span> will be calculated automatically when loading a file
+                </td>
+            </tr>
+            <tr>
+                <td class="setting">use_tab_stops</td>
+                <td class="dsc">
+                    Boolean, If <span class="setting">translate_tabs_to_spaces</span> is <tt>true</tt>, <span class="setting">use_tab_stops</span> will make tab and backspace insert/delete up to the next tab stop
+                </td>
+            </tr>
+        </table>
 
-<table class="settings">
-<tr>
-<td class="setting">tab_size</td>
-<td class="description">Integer. The number of spaces a tab is considered equal to</td>
-</tr>
+        <h3>Settings Files</h3>
 
-<tr>
-<td class="setting">translate_tabs_to_spaces</td>
-<td class="description">Boolean, if true, spaces will be inserted up to the next tab stop when tab is pressed, rather than inserting a tab character</td>
-</tr>
+        <p>
+            Settings files are consulted in this order:
+        </p>
 
-<tr>
-<td class="setting">detect_indentation</td>
-<td class="description">Boolean, if true (the default), tab_size and translate_tabs_to_spaces will be calculated automatically when loading a file</td>
-</tr>
+        <ol>
+            <li>
+                <span class="file">Packages/Default/Preferences.sublime-settings</span>
+            </li>
+            <li>
+                <span class="file">Packages/Default/Preferences (&lt;platform&gt;).sublime-settings</span>
+            </li>
+            <li>
+                <span class="file"><strong>Packages/User/Preferences.sublime-settings</strong></span>
+            </li>
+            <li>
+                <span class="file">Packages/&lt;syntax&gt;/&lt;syntax&gt;.sublime-settings</span>
+            </li>
+            <li>
+                <span class="file"><strong>Packages/User/&lt;syntax&gt;.sublime-settings</strong></span>
+            </li>
+        </ol>
 
-<tr>
-<td class="setting">use_tab_stops</td>
-<td class="description">Boolean, If translate_tabs_to_spaces is true, use_tab_stops will make tab and backspace insert/delete up to the next tab stop</td>
-</tr>
+        <p>
+            In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>.
+        </p>
 
-</table>
+        <h3>Per-syntax Settings</h3>
 
-<h3>Settings Files</h3>
+        <p>
+            Settings may be specified on a per-syntax basis. You can edit the settings for the current syntax using the <span class="menu">Preferences &#9656; Settings – Syntax Specific</span> menu.
+        </p>
 
-<p>Settings files are consulted in this order:
+        <h2>Indentation Detection</h2>
 
-<ol>
-<li class="file">Packages/Default/Preferences.sublime-settings
-<li class="file">Packages/Default/Preferences (&lt;platform&gt;).sublime-settings
-<li class="file"><strong>Packages/User/Preferences.sublime-settings</strong>
-<li class="file">Packages/&lt;syntax&gt;/&lt;syntax&gt;.sublime-settings
-<li class="file"><strong>Packages/User/&lt;syntax&gt;.sublime-settings</strong>
-</ol>
+        <p>
+            When a file is loaded, its contents are examined, and the <span class="setting">tab_size</span> and <span class="setting">translate_tabs_to_spaces</span> settings are set for that file. The status area will report when this happens. While this generally works well, you may want to disable it. You can do that with the <span class="setting">detect_indentation</span> setting.
+        </p>
 
-<p>In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>.
+        <p>
+            Indentation detection can be run manually via the <span class="menu">View &#9656; Indentation &#9656; Guess Settings From Buffer</span> menu, which runs the <span class="command">detect_indentation</span> command.
+        </p>
 
-<h3>Example Settings File</h3>
+        <h2>Converting Between Tabs and Spaces</h2>
 
-<p>Try saving this as <span class="file">Packages/User/Preferences.sublime-settings</span>
+        <p>
+            The <span class="menu">View &#9656; Indentation</span> menu has commands to convert leading whitespace in the current file between tabs and spaces. These menu items run the <span class="command">expand_tabs</span> and <span class="command">unexpand_tabs</span> commands.
+        </p>
 
-<pre class="code">
-{
-    "tab_size": 4,
-    "translate_tabs_to_spaces": false
-}
-</pre>
+        <h2>Automatic Indentation</h2>
 
-<h3>Per-syntax Settings</h3>
+        <p>
+            Automatic indentation guesses the amount of leading whitespace to insert on each line when you press enter. It's controlled with these settings:
+        </p>
 
-<p>Settings may be specified on a per-syntax basis. You can edit the settings for the current syntax using the <span class="menu">Preferences/Settings - More/Syntax Specific - User</span> menu.
+        <table class="settings">
+            <tr>
+                <td class="setting">auto_indent</td>
+                <td class="description">
+                    Boolean, enabled by default. Enables auto indent
+                </td>
+            </tr>
+            <tr>
+                <td class="setting">smart_indent</td>
+                <td class="description">
+                    Boolean, enabled by default. Makes auto indent a little smarter, e.g., by indenting the next line after an if statement in C.
+                </td>
+            </tr>
+            <tr>
+                <td class="setting">trim_automatic_white_space</td>
+                <td class="description">
+                    Boolean, enabled by default. Trims white space added by <span class="setting">auto_indent</span> when moving the caret off the line.
+                </td>
+            </tr>
+            <tr>
+                <td class="setting">indent_to_bracket</td>
+                <td class="description">
+                    <p>
+                        Boolean, disabled by default. Adds whitespace up to the first open bracket when indenting. Use when indenting like this:
+                    </p>
 
-<h2>Indentation Detection</h2>
-
-<p>When a file is loaded, its contents are examined, and the <span class="setting">tab_size</span> and <span class="setting">translate_tabs_to_spaces</span> settings are set for that file. The status area will report when this happens. While this generally works well, you may want to disable it. You can do that with the <span class="setting">detect_indentation</span> setting.
-
-<p>Indentation detection can be run manually via the <span class="menu">View/Indentation/Guess Settings From Buffer</span> menu, which runs the <span class="command">detect_indentation</span> command.
-
-<h2>Converting Between Tabs and Spaces</h2>
-
-<p>The <span class="menu">View/Indentation</span> menu has commands to convert leading whitespace in the current file between tabs and spaces. These menu items run the <span class="command">expand_tabs</span> and <span class="command">unexpand_tabs</span> commands.
-
-<h2>Automatic Indentation</h2>
-
-<p>Automatic indentation guesses the amount of leading whitespace to insert on each line when you press enter. It's controlled with these settings:
-
-<table class="settings">
-<tr>
-<td class="setting">auto_indent</td>
-<td class="description">Boolean, enabled by default. Enables auto indent</td>
-</tr>
-
-<tr>
-<td class="setting">smart_indent</td>
-<td class="description">Boolean, enabled by default. Makes auto indent a little smarter, e.g., by indenting the next line after an if statement in C.</td>
-</tr>
-
-<tr>
-<td class="setting">trim_automatic_white_space</td>
-<td class="description">Boolean, enabled by default. Trims white space added by auto_indent when moving the caret off the line.</td>
-</tr>
-
-<tr>
-<td class="setting">indent_to_bracket</td>
-<td class="description">Boolean, disabled by default. Adds whitespace up to the first open bracket when indenting. Use when indenting like this:
-
-<pre class="code">
-use_indent_to_bracket(to_indent,
+                    <pre><code class="language-clike">use_indent_to_bracket(to_indent,
                       like_this);
-</pre>
-
-</td>
-</tr>
-
+</code></pre>
+                </td>
+            </tr>
+        </table>
+    </section>
 
 </body>
 </html>

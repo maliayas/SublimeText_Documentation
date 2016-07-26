@@ -1,55 +1,87 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Packages - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>Packages – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+            <h1>Packages</h1>
+        </section>
+    </header>
 
-<h1>Packages</h1>
+    <section>
+        <p>
+            Packages are a collection of resource files used by Sublime Text: plugins, syntax highlighting definitions, menus, snippets and more. Sublime Text ships with several packages, and more user created ones are available.
+        </p>
 
-<h3>Overview</h3>
+        <p>
+            Packages are stored in <tt>.sublime-package</tt> files, which are <tt>zip</tt> files with a different extension. Packages may also be stored unzipped within a directory, or a mix of the two: any loose files in the package directory will override files stored in the <tt>.sublime-package</tt> file.
+        </p>
 
-<p>Packages are a collection of resource files used by Sublime Text: plugins, syntax highlighting definitions, menus, snippets and more. Sublime Text ships with several packages, and more user created ones are available</p>
+        <h2>Locations</h2>
 
-<p>Packages are stored in <tt>.sublime-package</tt> files, which are <tt>zip</tt> files with a different extension. Packages may also be stored unzipped within a directory, or a mix of the two: any loose files in the package directory will override files stored in the <tt>.sublime-package</tt> file.
+        <p>
+            Zipped packages may be stored in:
+        </p>
 
-<h3>Locations</h3>
+        <ul>
+            <li><tt>&lt;executable_path&gt;/Packages</tt></li>
+            <li><tt>&lt;data_path&gt;/Installed Packages</tt></li>
+        </ul>
 
-<p>Zipped packages may be stored in:
+        <p>
+            Loose packages may be stored in:
+        </p>
 
-<ul>
-    <li><tt>&lt;executable_path&gt;/Packages</tt></li>
-    <li><tt>&lt;data_path&gt;/Installed Packages</tt></li>
-</ul>
+        <ul>
+            <li><tt>&lt;data_path&gt;/Packages</tt></li>
+        </ul>
 
-<p>Loose packages may be stored in:
+        <p>
+            For example, the package <tt>Python</tt> is stored in <tt>&lt;executable_path&gt;/Packages/Python.sublime-package</tt>, and any files in the <tt>&lt;data_path&gt;/Packages/Python</tt> directory will override those stored in the <tt>.sublime-package</tt> file.
+        </p>
 
-<ul>
-    <li><tt>&lt;data_path&gt;/Packages</tt></li>
-</ul>
+        <p>
+            In general, <tt>&lt;executable_path&gt;/Packages</tt> is for packages that ship with Sublime Text, and <tt>&lt;data_path&gt;/Installed Packages</tt> is for packages installed by the user.
+        </p>
 
-<p>For example, the package <tt>Python</tt> is stored in <tt>&lt;executable_path&gt;/Packages/Python.sublime-package</tt>, and any files in the <tt>&lt;data_path&gt;/Packages/Python</tt> directory will override those stored in the <tt>.sublime-package</tt> file.
+        <h2>Special Packages</h2>
 
-<p>In general, <tt>&lt;executable_path&gt;/Packages</tt> is for packages that ship with Sublime Text, and <tt>&lt;data_path&gt;/Installed Packages</tt> is for packages installed by the user.
+        <p>
+            There are two special packages: <tt>Default</tt> and <tt>User</tt>. <tt>Default</tt> is always ordered first, and <tt>User</tt> is always ordered last. Package ordering comes into effect when merging files between packages, for example <tt>Main.sublime-menu</tt>. Any package may contain a file called <tt>Main.sublime-menu</tt>, however this won't override the main menu, instead the files will be merged according to the order of the packages.
+        </p>
 
-<h3>Special Packages</h3>
+        <p>
+            Packages other than <tt>Default</tt> and <tt>User</tt> are ordered alphabetically.
+        </p>
 
-<p>There are two special packages: <tt>Default</tt> and <tt>User</tt>. <tt>Default</tt> is always ordered first, and <tt>User</tt> is always ordered last. Package ordering comes into effect when merging files between packages, for example <tt>Main.sublime-menu</tt>. Any package may contain a file called <tt>Main.sublime-menu</tt>, however this won't override the main menu, instead the files will be merged according to the order of the packages.
+        <h2>Creating a New Package</h2>
 
-<p>Packages other than <tt>Default</tt> and <tt>User</tt> are ordered alphabetically.
+        <p>
+            To create a new package, simply create a new directory under <tt>&lt;data_path&gt;/Installed Packages</tt>. You can access this directory from the <i>Preferences/Browse Packages</i> menu.
+        </p>
 
-<h3>Creating a New Package</h3>
+        <h2>Overriding Files From a Zipped Package</h2>
 
-<p>To create a new package, simply create a new directory under <tt>&lt;data_path&gt;/Installed Packages</tt>. You can access this directory from the <i>Preferences/Browse Packages</i> menu.
+        <p>
+            To override a file in an existing package, just create a file with the same name under the <tt>Packages/&lt;Package Name&gt;</tt> directory.
+        </p>
 
-<h3>Overriding Files From a Zipped Package</h3>
-
-<p>To override a file in an existing package, just create a file with the same name under the <tt>Packages/&lt;Package Name&gt;</tt> directory.</p>
-
-<p>For example to override the file <tt>function.sublime-snippet</tt> in the <tt>Python.sublime-package</tt> package that ships with Sublime Text, create a directory called <tt>Python</tt> under the <tt>&lt;data_path&gt;/Packages</tt> directory, and place your <tt>function.sublime-snippet</tt> file there.
-
+        <p>
+            For example to override the file <tt>function.sublime-snippet</tt> in the <tt>Python.sublime-package</tt> package that ships with Sublime Text, create a directory called <tt>Python</tt> under the <tt>&lt;data_path&gt;/Packages</tt> directory, and place your <tt>function.sublime-snippet</tt> file there.
+        </p>
+    </section>
 </body>
 </html>

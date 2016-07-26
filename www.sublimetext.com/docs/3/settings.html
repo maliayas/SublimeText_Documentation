@@ -1,72 +1,100 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Settings - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>Settings – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <script src="prism.js"></script>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<h1>Settings</h1>
+            <h1>Settings</h1>
+        </section>
+    </header>
 
-<h3>Overview</h3>
+    <section>
+        <p>
+            Sublime Text has many different settings to customize its behavior. Settings are changed by editing text files: while this is a little trickier than using a GUI, you're rewarded with a flexible system.
+        </p>
 
-<p>Sublime Text has many different settings to customize its behavior. Settings are changed by editing text files: while this is a little trickier than using a GUI, you're rewarded with aflexible system.
+        <h2>Settings</h2>
 
-<h2>Settings</h2>
+        <p>
+            Settings are accessed via the <span class="menu">Preferences &#9656; Settings</span> menu item. The left-hand pane contains all of the default settings, along with a description of each. The right-hand pane is where customization can be saved.
+        </p>
 
-<p>To see what settings are available, and a description of each, take a look at <span class="file">Packages/Default/Preferences.sublime-settings</span>. You can access this file from the <span class="menu">Preferences/Settings - Default</span> menu item.
+        <h3>Settings Files</h3>
 
-<p>When you've found some settings you'd like to change, add them to your User Settings (accessible from the <span class="menu">Preferences/Settings - User</span> menu), so they're preserved when upgrading.
+        <p>Settings files are consulted in this order:
 
-<h3>Settings Files</h3>
+        <ol>
+            <li>
+                <span class="file">Packages/Default/Preferences.sublime-settings</span>
+            </li>
+            <li>
+                <span class="file">Packages/Default/Preferences (&lt;platform&gt;).sublime-settings</span>
+            </li>
+            <li>
+                <span class="file"><strong>Packages/User/Preferences.sublime-settings</strong></span>
+            </li>
+            <li>
+                &lt;Project Settings&gt;
+            </li>
+            <li>
+                <span class="file">Packages/&lt;syntax&gt;/&lt;syntax&gt;.sublime-settings</span>
+            </li>
+            <li>
+                <span class="file"><strong>Packages/User/&lt;syntax&gt;.sublime-settings</strong></span>
+            </li>
+            <li>
+                &lt;Buffer Specific Settings&gt;
+            </li>
+        </ol>
 
-<p>Settings files are consulted in this order:
+        <p>
+            In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>, which is opened in the right-hand pane when selecting the menu item <span class="menu">Preferences &#9656; Settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>. This can be accessed via the right-hand pane when a Python file is open, and the menu item <span class="menu">Preferences &#9656; Settings – Syntax Specific</span> is selected.
+        </p>
 
-<ol>
-<li class="file">Packages/Default/Preferences.sublime-settings
-<li class="file">Packages/Default/Preferences (&lt;platform&gt;).sublime-settings
-<li class="file"><strong>Packages/User/Preferences.sublime-settings</strong>
-<li class="file">&lt;Project Settings&gt;
-<li class="file">Packages/&lt;syntax&gt;/&lt;syntax&gt;.sublime-settings
-<li class="file"><strong>Packages/User/&lt;syntax&gt;.sublime-settings</strong>
-<li class="file">&lt;Buffer Specific Settings&gt;</strong>
-</ol>
+        <h3>Per-syntax Settings</h3>
 
-<p>In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>.
+        <p>
+            Settings may be specified on a per-syntax basis. Common uses for this are to have different indentation settings or the color scheme vary by file type.
+        </p>
 
-<h3>Example Settings File</h3>
+        <p>
+            You can edit the settings for the syntax of the current file by selecting the <span class="menu">Preferences &#9656; Settings – Syntax Specific</span> menu item.
+        </p>
 
-<p>Try saving this as <span class="file">Packages/User/Preferences.sublime-settings</span>
+        <h3>Per-project Settings</h3>
 
-<pre class="code">
-{
-    "tab_size": 4,
-    "translate_tabs_to_spaces": false
-}
-</pre>
+        <p>
+            Settings can be set on a per-project basis, details are in the <a href="projects.html">Project Documentation</a>.
+        </p>
 
-<h3>Per-syntax Settings</h3>
+        <h3>Distraction Free Settings</h3>
 
-<p>Settings may be specified on a per-syntax basis. Common uses for this are to have different indentation settings or the color scheme vary by file type.</p>
+        <p>
+            <a href="distraction_free.html">Distraction Free Mode</a> has an additional settings file applied (<span class="file">Distraction Free.sublime-settings</span>). You can place file settings in here to have them only apply when in Distraction Free Mode – access it from the <span class="menu">Preferences &#9656; Settings – Distraction Free</span> menu item.
+        </p>
 
-<p>You can edit the settings for the current syntax using the <span class="menu">Preferences/Settings - More/Syntax Specific - User</span> menu.
+        <h3>Changing Settings with a Key Binding</h3>
 
-<h3>Per-project Settings</h3>
+        <p>
+            The <span class="command">toggle_setting</span> command can be used to toggle a setting. For example, to make a key binding that toggles the <span class="setting">word_wrap</span> setting on the current file, you can use (in <span class="menu">Preferences &#9656; Key Bindings</span>):
+        </p>
 
-<p>Settings can be set on a per-project basis, details are in the <a href="projects.html">Project Documentation</a></p>
-
-<h3>Distraction Free Settings</h3>
-
-<p><a href="distraction_free.html">Distraction Free Mode</a> has an additional settings file applied (<span class="file">Distraction Free.sublime-settings</span>). You can place file settings in here to have them only apply when in Distraction Free Mode - access it from the <span class="menu">Preferences/Settings - More/Distraction Free - User</span> menu.
-
-<h3>Changing Settings with a Key Binding</h3>
-
-<p>The <span class="command">toggle_setting</span> command can be used to toggle a setting. For example, to make a key binding that toggles the <span class="setting">word_wrap</span> setting on the current file, you can use (in <span class="menu">Preferences/Key Bindings - User</span>):
-
-<pre class="code">
-{
+        <pre><code class="language-js">{
     "keys": ["alt+w"],
     "command": "toggle_setting",
     "args":
@@ -74,12 +102,13 @@
         "setting": "word_wrap"
     }
 }
-</pre>
+</code></pre>
 
-<p>The <span class="command">set_setting</span> command can be used to set a setting to a specific value. For example, this key binding makes the current file use the Cobalt color scheme:
+        <p>
+            The <span class="command">set_setting</span> command can be used to set a setting to a specific value. For example, this key binding makes the current file use the Cobalt color scheme:
+        </p>
 
-<pre class="code">
-{
+        <pre><code class="language-js">{
     "keys": ["ctrl+k", "ctrl+c"],
     "command": "set_setting",
     "args":
@@ -88,17 +117,20 @@
         "value": "Packages/Color Scheme - Default/Cobalt.tmTheme"
     }
 }
-</pre>
+</code></pre>
 
-<p>The settings modified here are buffer specific settings: they override any settings placed in a settings file, but apply to the current file only.
+        <p>
+            The settings modified here are buffer specific settings: they override any settings placed in a settings file, but apply to the current file only.
+        </p>
 
-<h3>Troubleshooting</h3>
+        <h3>Troubleshooting</h3>
 
-<p>As settings can be specified in several different places, sometimes in can be helpful to view the applied setting that's actually being used by the current file. You can do this by using the console:
+        <p>
+            As settings can be specified in several different places, sometimes in can be helpful to view the applied setting that's actually being used by the current file. You can do this by using the console:
+        </p>
 
-<pre class="code">
-view.settings().get('font_face')
-</pre>
+        <pre><code class="language-python">view.settings().get('font_face')</code></pre>
+    </section>
 
 </body>
 </html>

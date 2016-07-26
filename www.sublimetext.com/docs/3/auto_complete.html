@@ -1,38 +1,61 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html>
 <html>
 <head>
-<title>Auto Complete - Sublime Text 3 Documentation</title>
-<link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <title>Auto Complete – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
 </head>
 <body>
+    <script src="prism.js"></script>
 
-<p class="contents"><a href="index.html">Contents</a></p>
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
 
-<h1>Auto Complete</h1>
+            <h1>Auto Complete</h1>
+        </section>
+    </header>
 
-<h3>Overview</h3>
+    <section>
+        <p>
+            Auto complete shows the completion popup as you type, so you can fill in long words by typing only a few characters. It's enabled by default for source code and HTML (but only after entering a &lt; character).
+        </p>
 
-<p>Auto complete shows the completion popup as you type, so you can fill in long words by typing only a few characters. It's enabled by default for source code and HTML (but only after entering a &lt; character).
+        <h2>Disabling Auto Complete</h2>
 
-<h2>Disabling Auto Complete</h2>
+        <p>
+            Auto complete can be disabled with the <span class="setting">auto_complete</span> setting. To disable it, add this line to the right-hand pane of <span class="menu">Preferences &#9656; Settings</span>:
+        </p>
 
-<p>Auto complete can be disabled with the <tt>auto_complete</tt> setting. To disable it, add this line to <tt>Preferences/File Settings - User</tt>:
+        <pre><code class="language-js">"auto_complete": false</code></pre>
 
-<pre class="code">
-"auto_complete": false
-</pre>
+        <p>
+            If auto complete is disabled, the completion popup can be shown manually, or tab can be used to insert the highest ranking completion without showing the popup.
+        </p>
 
-<p>If auto complete is disabled, the completion popup can be shown manually, or tab can be used to insert the highest ranking completion without showing the popup.
+        <h2>Manually Showing Completions</h2>
 
-<h2>Manually Showing Completions</h2>
+        <p>
+            Pressing <span class="key">ctrl+space</span> will show the completion popup if it's not currently showing. If it is showing, it'll select the next item.
+        </p>
 
-<p>Pressing <tt>Ctrl+Space</tt> will show the completion popup if it's not currently showing. If it is showing, it'll select the next item.
+        <h2>Commit on Tab</h2>
 
-<h2>Commit on Tab</h2>
+        <p>
+            By default, the selected item in the completion popup will be committed when enter is pressed. This can create ambiguity between committing the completion, and inserting a newline. By setting the <span class="setting">auto_complete_commit_on_tab</span> setting to <tt>true</tt>, enter will insert a newline, and tab will commit the current completion. There are other benefits, too: because Sublime Text knows there is no ambiguity, it will show a more curated list of completions, with the one you want more likely to be in first place.
+        </p>
 
-<p>By default, the selected item in the completion popup will be committed when enter is pressed. This can create ambiguity between committing the completion, and inserting a newline. By setting the <tt>auto_complete_commit_on_tab</tt> setting to true, enter will insert a newline, and tab will commit the current completion. There are other benefits, too: because Sublime Text knows there is no ambiguity, it will show a more curated list of completions, with the one you want more likely to be in first place.
-
-<p>Enabling Commit on Tab is recommended, but it will take a short time to get used to.
+        <p>
+            Enabling Commit on Tab is recommended, but it will take a short time to get used to.
+        </p>
+    </section>
 
 </body>
 </html>
