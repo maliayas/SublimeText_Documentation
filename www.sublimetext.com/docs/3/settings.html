@@ -1,0 +1,54 @@
+
+
+Settings
+Sublime Text has many different settings to customize its behavior. Settings are changed by editing text files: while this is a little trickier than using a GUI, you're rewarded with aflexible system.
+Settings
+To see what settings are available, and a description of each, take a look at Packages/Default/Preferences.sublime-settings. You can access this file from the Preferences/Settings - Default menu item.
+When you've found some settings you'd like to change, add them to your User Settings (accessible from the Preferences/Settings - User menu), so they're preserved when upgrading.
+Settings Files
+Settings files are consulted in this order:
+Packages/Default/Preferences.sublime-settings
+Packages/Default/Preferences (&lt;platform&gt;).sublime-settings
+Packages/User/Preferences.sublime-settings
+&lt;Project Settings&gt;
+Packages/&lt;syntax&gt;/&lt;syntax&gt;.sublime-settings
+Packages/User/&lt;syntax&gt;.sublime-settings
+&lt;Buffer Specific Settings&gt;
+In general, you should place your settings in Packages/User/Preferences.sublime-settings. If you want to specify settings for a certain file type, for example, Python, you should place them in Packages/User/Python.sublime-settings.
+Example Settings File
+Try saving this as Packages/User/Preferences.sublime-settings
+{
+"tab_size": 4,
+"translate_tabs_to_spaces": false
+}
+Per-syntax Settings
+Settings may be specified on a per-syntax basis. Common uses for this are to have different indentation settings or the color scheme vary by file type.
+You can edit the settings for the current syntax using the Preferences/Settings - More/Syntax Specific - User menu.
+Per-project Settings
+Settings can be set on a per-project basis, details are in the Project Documentation
+Distraction Free Settings
+Distraction Free Mode has an additional settings file applied (Distraction Free.sublime-settings). You can place file settings in here to have them only apply when in Distraction Free Mode - access it from the Preferences/Settings - More/Distraction Free - User menu.
+Changing Settings with a Key Binding
+The toggle_setting command can be used to toggle a setting. For example, to make a key binding that toggles the word_wrap setting on the current file, you can use (in Preferences/Key Bindings - User):
+{
+"keys": ["alt+w"],
+"command": "toggle_setting",
+"args":
+{
+"setting": "word_wrap"
+}
+}
+The set_setting command can be used to set a setting to a specific value. For example, this key binding makes the current file use the Cobalt color scheme:
+{
+"keys": ["ctrl+k", "ctrl+c"],
+"command": "set_setting",
+"args":
+{
+"setting": "color_scheme",
+"value": "Packages/Color Scheme - Default/Cobalt.tmTheme"
+}
+}
+The settings modified here are buffer specific settings: they override any settings placed in a settings file, but apply to the current file only.
+Troubleshooting
+As settings can be specified in several different places, sometimes in can be helpful to view the applied setting that's actually being used by the current file. You can do this by using the console:
+view.settings().get('font_face')

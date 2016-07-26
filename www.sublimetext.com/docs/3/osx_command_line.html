@@ -1,0 +1,30 @@
+
+
+OS X Command Line
+Sublime Text includes a command line tool, subl, to work with files on the command line. This can be used to open files and projects in Sublime Text, as well working as an EDITOR for unix tools, such as git and subversion.
+Setup
+The first task is to make a symlink to subl. Assuming you've placed Sublime Text in the Applications folder, and that you have a ~/bin directory in your path, you can run:
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+Usage
+Run subl --help,
+Usage: subl [arguments] [files]         edit the given files
+or: subl [arguments] [directories]   open the given directories
+or: subl [arguments] -               edit stdin
+Arguments:
+--project &lt;project&gt;: Load the given project
+--command &lt;command&gt;: Run the given command
+-n or --new-window:  Open a new window
+-a or --add:         Add folders to the current window
+-w or --wait:        Wait for the files to be closed before returning
+-b or --background:  Don't activate the application
+-s or --stay:        Keep the application activated after closing the file
+-h or --help:        Show help (this message) and exit
+-v or --version:     Show version and exit
+--wait is implied if reading from stdin. Use --stay to not switch back
+to the terminal when a file is closed (only relevant if waiting for a file).
+Filenames may be given a :line or :line:column suffix to open at a specific
+location.
+EDITOR
+To use Sublime Text as the editor for many commands that prompt for input, set your EDITOR environment variable:
+export EDITOR='subl -w'
+Specifying -w will cause the subl command to not exit until the file is closed.
