@@ -1,10 +1,10 @@
 
 
 Projects
-Projects in Sublime Text are made up of two files: the sublime-project file, which contains the project definition, and the sublime-workspace file, which contains user specific data, such as the open files and the modifications to each.
-As a general rule, the sublime-project file would be checked into version control, while the sublime-workspace file would not.
+Projects in Sublime Text are made up of two files: the .sublime-project file, which contains the project definition, and the .sublime-workspace file, which contains user specific data, such as the open files and the modifications to each.
+As a general rule, the .sublime-project file would be checked into version control, while the .sublime-workspace file would not.
 Project Format
-sublime-project files are JSON, and support three top level sections: folders, for the included folders, settings, for file-setting overrides, and build_systems, for project specific build systems. An example:
+.sublime-project files are JSON, and support three top level sections: folders, for the included folders, settings, for file-setting overrides, and build_systems, for project specific build systems. An example:
 {
 "folders":
 [
@@ -35,6 +35,6 @@ Folders
 Each folder must have a path, and may optionally have settings file_exclude_patterns, file_include_patterns, folder_exclude_patterns, folder_include_patterns and follow_symlinks. The path may be relative to the project directory, or a fully qualified path. Folders may also be given a name setting, to set how they're displayed on the side bar.
 Converted projects from earlier versions may have a mount_points entry under folders. If you wish to use the exclude patterns, you'll need to change to the above format.
 Settings
-Settings may be specified here using the settings key, and will override regular user settings. Note that they will not override syntax specific settings.
+Settings may be specified here using the settings key, and will override regular user settings. Note that they will not override syntax-specific settings.
 Build Systems
-Build Systems specifices an array of inline Build Systems definitions. In addition to the regular build system settings, a name must be specified for each one. Build Systems listed here will be available via the regular Tools/Build Systems menu.
+build_systems specifices a list of inline Build Systems definitions. In addition to the regular build system settings, a name must be specified for each one. Build systems listed here will be available via the regular Tools/Build Systems menu.

@@ -1,10 +1,9 @@
 
 
 Settings
-Sublime Text has many different settings to customize its behavior. Settings are changed by editing text files: while this is a little trickier than using a GUI, you're rewarded with aflexible system.
+Sublime Text has many different settings to customize its behavior. Settings are changed by editing text files: while this is a little trickier than using a GUI, you're rewarded with a flexible system.
 Settings
-To see what settings are available, and a description of each, take a look at Packages/Default/Preferences.sublime-settings. You can access this file from the Preferences/Settings - Default menu item.
-When you've found some settings you'd like to change, add them to your User Settings (accessible from the Preferences/Settings - User menu), so they're preserved when upgrading.
+Settings are accessed via the Preferences/Settings menu item. The left-hand pane contains all of the default settings, along with a description of each. The right-hand pane is where customization can be saved.
 Settings Files
 Settings files are consulted in this order:
 Packages/Default/Preferences.sublime-settings
@@ -14,22 +13,16 @@ Packages/User/Preferences.sublime-settings
 Packages/&lt;syntax&gt;/&lt;syntax&gt;.sublime-settings
 Packages/User/&lt;syntax&gt;.sublime-settings
 &lt;Buffer Specific Settings&gt;
-In general, you should place your settings in Packages/User/Preferences.sublime-settings. If you want to specify settings for a certain file type, for example, Python, you should place them in Packages/User/Python.sublime-settings.
-Example Settings File
-Try saving this as Packages/User/Preferences.sublime-settings
-{
-"tab_size": 4,
-"translate_tabs_to_spaces": false
-}
+In general, you should place your settings in Packages/User/Preferences.sublime-settings, which is opened in the right-hand pane when selecting the menu item Preferences/Settings. If you want to specify settings for a certain file type, for example, Python, you should place them in Packages/User/Python.sublime-settings. This can be accessed via the right-hand pane when a Python file is open, and the menu item Preferences/Settings – Syntax Specific is selected.
 Per-syntax Settings
 Settings may be specified on a per-syntax basis. Common uses for this are to have different indentation settings or the color scheme vary by file type.
-You can edit the settings for the current syntax using the Preferences/Settings - More/Syntax Specific - User menu.
+You can edit the settings for the syntax of the current file by selecting the Preferences/Settings – Syntax Specific menu item.
 Per-project Settings
-Settings can be set on a per-project basis, details are in the Project Documentation
+Settings can be set on a per-project basis, details are in the Project Documentation.
 Distraction Free Settings
-Distraction Free Mode has an additional settings file applied (Distraction Free.sublime-settings). You can place file settings in here to have them only apply when in Distraction Free Mode - access it from the Preferences/Settings - More/Distraction Free - User menu.
+Distraction Free Mode has an additional settings file applied (Distraction Free.sublime-settings). You can place file settings in here to have them only apply when in Distraction Free Mode – access it from the Preferences/Settings – Distraction Free menu item.
 Changing Settings with a Key Binding
-The toggle_setting command can be used to toggle a setting. For example, to make a key binding that toggles the word_wrap setting on the current file, you can use (in Preferences/Key Bindings - User):
+The toggle_setting command can be used to toggle a setting. For example, to make a key binding that toggles the word_wrap setting on the current file, you can use (in Preferences/Key Bindings):
 {
 "keys": ["alt+w"],
 "command": "toggle_setting",

@@ -3,11 +3,11 @@
 Auto Complete
 Auto complete shows the completion popup as you type, so you can fill in long words by typing only a few characters. It's enabled by default for source code and HTML (but only after entering a &lt; character).
 Disabling Auto Complete
-Auto complete can be disabled with the auto_complete setting. To disable it, add this line to Preferences/File Settings - User:
+Auto complete can be disabled with the auto_complete setting. To disable it, add this line to the right-hand pane of Preferences/Settings:
 "auto_complete": false
 If auto complete is disabled, the completion popup can be shown manually, or tab can be used to insert the highest ranking completion without showing the popup.
 Manually Showing Completions
-Pressing Ctrl+Space will show the completion popup if it's not currently showing. If it is showing, it'll select the next item.
+Pressing ctrl+space will show the completion popup if it's not currently showing. If it is showing, it'll select the next item.
 Commit on Tab
 By default, the selected item in the completion popup will be committed when enter is pressed. This can create ambiguity between committing the completion, and inserting a newline. By setting the auto_complete_commit_on_tab setting to true, enter will insert a newline, and tab will commit the current completion. There are other benefits, too: because Sublime Text knows there is no ambiguity, it will show a more curated list of completions, with the one you want more likely to be in first place.
 Enabling Commit on Tab is recommended, but it will take a short time to get used to.

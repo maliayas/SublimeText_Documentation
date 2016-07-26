@@ -1,7 +1,7 @@
 
 
 Indentation Settings
-Indentation Settings determine the size of the tab stops, and control whether the tab key should insert tabs or spaces. In addition to the automatic detection, they can be customized globally, per-file type, or per-file.
+Indentation settings determine the size of the tab stops, and control whether the tab key should insert tabs or spaces. In addition to the automatic detection, they can be customized globally, per-file type, or per-file.
 Settings
 tab_size
 Integer. The number of spaces a tab is considered equal to
@@ -19,14 +19,8 @@ Packages/User/Preferences.sublime-settings
 Packages/&lt;syntax&gt;/&lt;syntax&gt;.sublime-settings
 Packages/User/&lt;syntax&gt;.sublime-settings
 In general, you should place your settings in Packages/User/Preferences.sublime-settings. If you want to specify settings for a certain file type, for example, Python, you should place them in Packages/User/Python.sublime-settings.
-Example Settings File
-Try saving this as Packages/User/Preferences.sublime-settings
-{
-"tab_size": 4,
-"translate_tabs_to_spaces": false
-}
 Per-syntax Settings
-Settings may be specified on a per-syntax basis. You can edit the settings for the current syntax using the Preferences/Settings - More/Syntax Specific - User menu.
+Settings may be specified on a per-syntax basis. You can edit the settings for the current syntax using the Preferences/Settings – Syntax Specific menu.
 Indentation Detection
 When a file is loaded, its contents are examined, and the tab_size and translate_tabs_to_spaces settings are set for that file. The status area will report when this happens. While this generally works well, you may want to disable it. You can do that with the detect_indentation setting.
 Indentation detection can be run manually via the View/Indentation/Guess Settings From Buffer menu, which runs the detect_indentation command.

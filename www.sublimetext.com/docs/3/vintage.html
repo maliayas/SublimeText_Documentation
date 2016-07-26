@@ -2,19 +2,18 @@
 
 Vintage Mode
 Vintage is a vi mode editing package for Sublime Text. It allows you to combine vi's command mode with Sublime Text's features, including multiple selections.
-Vintage mode is developed in the open, and patches are more than welcome. If you'd like to contribute, details are on the GitHub page.
+Vintage mode is developed in the open, and patches are more than welcome. If you'd like to contribute, details are in the GitHub repo.
 Enabling Vintage
 Vintage is disabled by default, via the ignored_packages setting. If you remove "Vintage" from the list of ignored packages, you'll be able to edit with vi keys:
-Select the Preferences/Settings - Default menu item
+Select the Preferences/Settings menu item
 Edit the ignored_packages setting, changing it from:
 "ignored_packages": ["Vintage"]
 to:
 "ignored_packages": []
 now save the file.
-Vintage mode is now enabled - you'll see "INSERT MODE" listed in the status bar
-Vintage starts in insert mode by default. This can be changed by adding:
+Vintage mode is now enabled – you'll see "INSERT MODE" listed in the status bar
+Vintage starts in insert mode by default. This can be changed by adding the following setting to your user settings:
 "vintage_start_in_command_mode": true
-to your User Settings.
 What's Included
 Vintage includes most basic actions: d (delete), y (copy), c (change), gu (lower case), gU (upper case), g~ (swap case), g? (rot13), &lt; (unindent), and &gt; (indent).
 It also includes many motions, including l, h, j, k, W, w, e, E, b, B, alt+w (move by sub-words), alt+W (move backwards by sub-words), $, ^, %, 0, G, gg, f, F, t, T, ^f, ^b, H, M, and L.
@@ -24,8 +23,10 @@ What's Not
 Insert mode is regular Sublime Text editing, with the usual Sublime Text key bindings: vi insert mode key bindings are not emulated.
 Ex commands are not implemented, apart from :w and :e, which work via the command palette.
 Under the Hood
-Vintage mode is implemented entirely via key bindings and the plugin API - feel free to browse through the Vintage package and see how it's put together. As an example, if you'd like to bind "jj" to exit insert mode, you can add this key binding:
-{ "keys": ["j", "j"], "command": "exit_insert_mode",
+Vintage mode is implemented entirely via key bindings and the plugin API – feel free to browse through the Vintage package and see how it's put together. As an example, if you'd like to bind "jj" to exit insert mode, you can add this key binding:
+{
+"keys": ["j", "j"],
+"command": "exit_insert_mode",
 "context":
 [
 { "key": "setting.command_mode", "operand": false },

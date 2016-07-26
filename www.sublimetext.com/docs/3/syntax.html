@@ -1,6 +1,6 @@
 
 
-Syntax
+Syntax Definitions
 Sublime Text can use both .sublime-syntax and .tmLanguage files for syntax highlighting. This document describes .sublime-syntax files.
 Sublime Syntax files are YAML files with a small header, followed by a list of contexts. Each context has a list of patterns that describe how to highlight text in that context, and how to change the current text.
 Here's a small example of a syntax file designed to highlight C.
@@ -43,19 +43,20 @@ string:
 scope: constant.character.escape.c
 - match: '"'
 pop: true
-A second pattern has been added to the main context that matches a double quote character (note that '"' is used for this, as a standalone quote would be a YAML syntax error), and pushes a new context, string, onto the context stack. This means the rest of the file will be processing using the string context, and not the main context, until the string context is poped off the stack
+A second pattern has been added to the main context that matches a double quote character (note that '"' is used for this, as a standalone quote would be a YAML syntax error), and pushes a new context, string, onto the context stack. This means the rest of the file will be processing using the string context, and not the main context, until the string context is popped off the stack.
 The string context introduces a new pattern: meta_scope. This will assign the string.quoted.double.c scope to all text while the string context is on the stack.
 While editing in Sublime Text, you can check what scopes have been applied to the text under the caret by pressing control+shift+p (OSX) or ctrl+alt+shift+p (Windows and Linux).
-The string context has two patterns: the first matches a backslash character followed by any other, and the second matches a quote character. Note that the last pattern specifies an action: when as unescaped quote is encountered, the string context will be poped off the context stack, returning to assigning scopes using the main context.
+The string context has two patterns: the first matches a backslash character followed by any other, and the second matches a quote character. Note that the last pattern specifies an action: when as unescaped quote is encountered, the string context will be popped off the context stack, returning to assigning scopes using the main context.
 When a context has multiple patterns, the leftmost one will be found. When multiple patterns match at the same position, the first defined pattern will be selected.
 Meta Patterns
 meta_scope. This assigns the given scope to all text within this context, including the patterns that push the context onto the stack and pop it off.
 meta_content_scope. As above, but does not apply to the text that triggers the context (e.g., in the above string example, the content scope would not get applied to the quote characters).
 meta_include_prototype. Used to stop the current context from automatically including the prototype context.
+clear_scopes. This setting allows removing scope names from the current stack. It can be an integer, or the value true to remove all scope names. It is applied before meta_scope and meta_content_scope. This is typically only used when one syntax is embedding another.
 Meta patterns must be listed first in the context, before any match or include patterns.
 Match Patterns
 A match pattern can include the following keys:
-match. The regex used to match against the text. YAML allows many strings to be written without quotes, which can help make the regex clearer, but it's important to understand when you need to quote the regex. If your regex includes the characters #, :, -, {, [ or > then you likely need to quote it. Regexes are only ever run against a single line of text at a time.
+match. The regex used to match against the text. YAML allows many strings to be written without quotes, which can help make the regex clearer, but it's important to understand when you need to quote the regex. If your regex includes the characters #, :, -, {, [ or &gt; then you likely need to quote it. Regexes are only ever run against a single line of text at a time.
 scope. The scope assigned to the matched text.
 captures. A mapping of numbers to scope, assigning scopes to captured portions of the match regex. See below for an example.
 push. The contexts to push onto the stack. This may be either a single context name, a list of context names, or an inline, anonymous context.
@@ -98,7 +99,7 @@ scope: punctuation.definition.tag.begin
 - match: "&gt;"
 scope: punctuation.definition.tag.end
 Note the first rule above. It indicates that when we encounter a &lt;script&gt; tag, the main context within JavaScript.sublime-syntax should be pushed onto the context stack. It also defines another key, with_prototype. This contains a list of patterns that will be inserted into every context defined within JavaScript.sublime-syntax. Note that with_prototype is conceptually similar to the prototype context, however it will be always be inserted into every referenced context irrespective of their meta_include_prototype setting.
-In this case, the pattern that's inserted will pop off the current context while the next text is a &lt;/script&gt; tag. Note that it doesn't actually match the &lt;/script&gt; tag, it's just using a lookahead assertion, which plays two key roles here: It both allows the HTML rules to match against the end tag, highlighting it as-per normal, and it will ensure that all the JavaScript contexts will get poped off. The context stack may be in the middle of a JavaScript string, for example, but when the &lt;/script&gt; is encoutered, both the JavaScript string and main contexts will get poped off.
+In this case, the pattern that's inserted will pop off the current context while the next text is a &lt;/script&gt; tag. Note that it doesn't actually match the &lt;/script&gt; tag, it's just using a lookahead assertion, which plays two key roles here: It both allows the HTML rules to match against the end tag, highlighting it as-per normal, and it will ensure that all the JavaScript contexts will get popped off. The context stack may be in the middle of a JavaScript string, for example, but when the &lt;/script&gt; is encountered, both the JavaScript string and main contexts will get popped off.
 Note that while Sublime Text supports both .sublime-syntax and .tmLanguage files, it's not possible to include a .tmLanguage file within a .sublime-syntax one.
 Another common scenario is a templating language including HTML. Here's an example of that, this time with a subset of Jinja:
 scope: text.jinja
@@ -116,7 +117,7 @@ pop: true
 scope: keyword.control
 This is quite different from the HTML-embedding-JavaScript example, because templating languages tend to operate from the inside out: by default, it needs to act as HTML, only escaping to the underlying templating language on certain expressions.
 In the example above, we can see it operates in HTML mode by default: the main context includes a single pattern that always matches, consuming no text, just including the HTML syntax.
-Where the HTML syntax is included, the Jinja syntax directives ("{{ ... }}" ) are included via the with_prototype key, and thus get injected into every context in the HTML syntax (and JavaScript, by transitivity).
+Where the HTML syntax is included, the Jinja syntax directives ({{ ... }}) are included via the with_prototype key, and thus get injected into every context in the HTML syntax (and JavaScript, by transitivity).
 Variables
 It's not uncommon for several regexes to have parts in common. To avoid repetitious typing, you can use variables:
 variables:
@@ -192,7 +193,7 @@ typedef_after_typename:
 scope: entity.name.type
 pop: true
 In the above example, typename is a reusable context, that will read in a typename and pop itself off the stack when it's done. It can be used in any context where a type needs to be consumed, such as within a typedef, or as a function argument.
-The main context uses a match pattern that pushes two contexts on the stack, with the rightmost context in the list becoming the topmost context on the stack. Once the typename context has poped itself off, the typedef_after_typename context will be at the top of the stack.
+The main context uses a match pattern that pushes two contexts on the stack, with the rightmost context in the list becoming the topmost context on the stack. Once the typename context has popped itself off, the typedef_after_typename context will be at the top of the stack.
 Also note above the use of anonymous contexts for brevity within the typename context.
 PHP Heredocs
 This example shows how to match against Heredocs in PHP. The match pattern in the main context captures the heredoc identifier, and the corresponding pop pattern in the heredoc context refers to this captured text with the \1 symbol:
@@ -235,7 +236,7 @@ return x * x;
 // ^ string.quoted.double
 //                  ^ string.quoted.double - comment
 To make one, follow these rules
-Ensure the file name starts with "syntax_test".
+Ensure the file name starts with syntax_test_.
 Ensure the file is saved somewhere within the Packages directory: next to the corresponding .sublime-syntax file is a good choice.
 Ensure the first line of the file starts with: &lt;comment_token&gt; SYNTAX TEST "&lt;syntax_file&gt;". Note that the syntax file can either be a .sublime-syntax or .tmLanguage file.
 Once the above conditions are met, running the build command with a syntax test or syntax definition file selected will run all the Syntax Tests, and show the results in an output panel. Next Result (F4) can be used to navigate to the first failing test.
