@@ -57,6 +57,9 @@
                     <a href="api_reference.html#sublime_plugin.EventListener"><code>EventListener</code> Class</a>
                 </li>
                 <li>
+                    <a href="api_reference.html#sublime_plugin.ViewEventListener"><code>ViewEventListener</code> Class</a>
+                </li>
+                <li>
                     <a href="api_reference.html#sublime_plugin.ApplicationCommand"><code>ApplicationCommand</code> Class</a>
                 </li>
                 <li>
@@ -160,7 +163,7 @@
                 </td>
             </tr>
             <tr>
-                <td class="mth">set_async_timeout(callback, delay)</td>
+                <td class="mth">set_timeout_async(callback, delay)</td>
                 <td class="rtn">None</td>
                 <td class="dsc">
                     Runs the <tt>callback</tt> on an alternate thread after the given <tt>delay</tt> (in milliseconds).
@@ -383,6 +386,13 @@
                 <td class="rtn">int</td>
                 <td class="dsc">
                     Returns a number that uniquely identifies the buffer underlying this view.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">is_primary()</td>
+                <td class="rtn">bool</td>
+                <td class="dsc">
+                    If the view is the primary view into a file. Will only be <tt>False</tt> if the user has opened multiple views into a file.
                 </td>
             </tr>
             <tr>
@@ -662,6 +672,13 @@
                 <td class="rtn">str</td>
                 <td class="dsc">
                     Returns the syntax scope name assigned to the character at the given <tt>point</tt>.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">match_selector(point, selector)</td>
+                <td class="rtn">bool</td>
+                <td class="dsc">
+                    Checks the <tt>selector</tt> against the scope at the given <tt>point</tt>, returning a bool if they match.
                 </td>
             </tr>
             <tr>
@@ -1874,31 +1891,28 @@
                 </td>
             </tr>
             <tr>
-                <td class="mth">on_text_command(view, command_name, args)</td>
-                <td class="rtn">(str, dict)</td>
-                <td class="dsc">
-                    Called when a text command is issued. The listener may return a <tt>(command, arguments)</tt> tuple to rewrite the command, or <tt>None</tt> to run the command unmodified.
-                </td>
-            </tr>
-            <tr>
-                <td class="mth">on_window_command(window, command_name, args)</td>
-                <td class="rtn">(str, dict)</td>
-                <td class="dsc">
-                    Called when a window command is issued. The listener may return a <tt>(command, arguments)</tt> tuple to rewrite the command, or <tt>None</tt> to run the command unmodified.
-                </td>
-            </tr>
-            <tr>
-                <td class="mth">post_text_command(view, command_name, args)</td>
+                <td class="mth">on_hover(view, point, hover_zone)</td>
                 <td class="rtn">None</td>
                 <td class="dsc">
-                    Called after a text command has been executed.
-                </td>
-            </tr>
-            <tr>
-                <td class="mth">post_window_command(window, command_name, args)</td>
-                <td class="rtn">None</td>
-                <td class="dsc">
-                    Called after a window command has been executed.
+                    <p>
+                        Called when the user's mouse hovers over a view for a short period.
+                    </p>
+
+                    <p>
+                        <tt>point</tt> is the closest point in the view to the mouse location. The mouse may not actually be located adjacent based on the value of <tt>hover_zone</tt>:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <tt>sublime.HOVER_TEXT</tt>: When the mouse is hovered over text.
+                        </li>
+                        <li>
+                            <tt>sublime.HOVER_GUTTER</tt>: When the mouse is hovered over the gutter.
+                        </li>
+                        <li>
+                            <tt>sublime.HOVER_MARGIN</tt>: When the mouse is hovered in whitespace to the right of a line.
+                        </li>
+                    </ul>
                 </td>
             </tr>
             <tr>
@@ -1940,11 +1954,213 @@
                 </td>
             </tr>
             <tr>
-                <td class="mth">on_hover(view, point, hover_zone)</td>
+                <td class="mth">on_query_completions(view, prefix, locations)</td>
+                <td class="rtn">list<em>,</em> tuple <em>or</em> None</td>
+                <td class="dsc">
+                    <p>
+                        Called whenever completions are to be presented to the user. The <tt>prefix</tt> is a unicode string of the text to complete.
+                    </p>
+
+                    <p>
+                        <tt>locations</tt> is a list of <a href="api_reference.html#type-point">points</a>. Since this method is called for all completions in every view no matter the syntax, <code class="language-python">view.match_selector(point, relevant_scope)</code> should be called to determine if the point is relevant.
+                    </p>
+
+                    <p>
+                        The return value must be one of the following formats:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <p>
+                                <tt>None</tt>: no completions are provided
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return None</code></pre>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                A list of 2-element lists/tuples. The first element is a unicode string of the completion trigger, the second is the unicode replacement text.
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return [["me1", "method1()"], ["me2", "method2()"]]</code></pre>
+                            </p>
+                            <p>
+                                The trigger may contain a tab character (<tt>\t</tt>) followed by a hint to display in the right-hand side of the completion box.
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return [
+    ["me1\tmethod", "method1()"],
+    ["me2\tmethod", "method2()"]
+]</code></pre>
+                            </p>
+                            <p>
+                                The replacement text may contain dollar-numeric fields such as a snippet does, e.g. <tt>$0</tt>, <tt>$1</tt>.
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return [
+    ["fn", "def ${1:name}($2) { $0 }"],
+    ["for", "for ($1; $2; $3) { $0 }"]
+]</code></pre>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                A 2-element tuple with the first element being the list format documented above, and the second element being bit flags from the following list:
+                            </p>
+                            <ul>
+                                <li>
+                                    <tt>sublime.INHIBIT_WORD_COMPLETIONS</tt>: prevent Sublime Text from showing completions based on the contents of the view
+                                </li>
+                                <li>
+                                    <tt>sublime.INHIBIT_EXPLICIT_COMPLETIONS</tt>: prevent Sublime Text from showing completions based on <tt>.sublime-completions</tt> files
+                                </li>
+                            </ul>
+                            <p>
+                                <pre><code class="language-python">return (
+    [
+        ["me1", "method1()"],
+        ["me2", "method2()"]
+    ],
+    sublime.INHIBIT_WORD_COMPLETIONS | sublime.INHIBIT_EXPLICIT_COMPLETIONS
+)</code></pre>
+                            </p>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_text_command(view, command_name, args)</td>
+                <td class="rtn">(str, dict)</td>
+                <td class="dsc">
+                    Called when a text command is issued. The listener may return a <tt>(command, arguments)</tt> tuple to rewrite the command, or <tt>None</tt> to run the command unmodified.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_window_command(window, command_name, args)</td>
+                <td class="rtn">(str, dict)</td>
+                <td class="dsc">
+                    Called when a window command is issued. The listener may return a <tt>(command, arguments)</tt> tuple to rewrite the command, or <tt>None</tt> to run the command unmodified.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_post_text_command(view, command_name, args)</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after a text command has been executed.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_post_window_command(window, command_name, args)</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after a window command has been executed.
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2 id="sublime_plugin.ViewEventListener"><code>sublime_plugin.ViewEventListener</code> Class</h2>
+
+        <p>
+            A class that provides similar event handling to <a href="api_reference.html#sublime.EventListener">EventListener</a>, but bound to a specific view. Provides class method-based filtering to control what views objects are created for.
+        </p>
+
+        <p>
+            The view is passed as a single parameter to the constructor. The default implementation makes the view available via <tt>self.view</tt>.
+        </p>
+
+        <table class="functions">
+            <tr>
+                <th>Class Methods</th>
+                <th>Return Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">is_applicable(settings)</td>
+                <td class="rtn">bool</td>
+                <td class="dsc">
+                    A <tt>@classmethod</tt> that receives a <a href="api_reference.html#sublime.Settings">Settings</a> object and should return a bool indicating if this class applies to a view with those settings
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">applies_to_primary_view_only()</td>
+                <td class="rtn">bool</td>
+                <td class="dsc">
+                    A <tt>@classmethod</tt> that should return a bool indicating if this class applies only to the primary view for a file. A view is considered primary if it is the only, or first, view into a file.
+                </td>
+            </tr>
+        </table>
+
+        <table class="functions">
+            <tr>
+                <th>Methods</th>
+                <th>Return Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">on_modified()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after changes have been made to the view.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_modified_async()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after changes have been made to the view. Runs in a separate thread, and does not block the application.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_selection_modified()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after the selection has been modified in the view.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_selection_modified_async()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after the selection has been modified in the view. Runs in a separate thread, and does not block the application.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_activated()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when a view gains input focus.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_activated_async()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the view gains input focus. Runs in a separate thread, and does not block the application.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_deactivated()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the view loses input focus.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_deactivated_async()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the view loses input focus. Runs in a separate thread, and does not block the application.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_hover(point, hover_zone)</td>
                 <td class="rtn">None</td>
                 <td class="dsc">
                     <p>
-                        Called when the user's mouse hovers over a view for a short period.
+                        Called when the user's mouse hovers over the view for a short period.
                     </p>
 
                     <p>
@@ -1960,6 +2176,119 @@
                         </li>
                         <li>
                             <tt>sublime.HOVER_MARGIN</tt>: When the mouse is hovered in whitespace to the right of a line.
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_query_context(key, operator, operand, match_all)</td>
+                <td class="rtn">bool <em>or</em> None</td>
+                <td class="dsc">
+                    <p>
+                        Called when determining to trigger a key binding with the given context <tt>key</tt>. If the plugin knows how to respond to the context, it should return either <tt>True</tt> of <tt>False</tt>. If the context is unknown, it should return <tt>None</tt>.
+                    </p>
+
+                    <p>
+                        <tt>operator</tt> is one of:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <tt>sublime.OP_EQUAL</tt>: Is the value of the context equal to the operand?
+                        </li>
+                        <li>
+                            <tt>sublime.OP_NOT_EQUAL</tt>: Is the value of the context not equal to the operand?
+                        </li>
+                        <li>
+                            <tt>sublime.OP_REGEX_MATCH</tt>: Does the value of the context match the regex given in operand?
+                        </li>
+                        <li>
+                            <tt>sublime.OP_NOT_REGEX_MATCH</tt>: Does the value of the context not match the regex given in operand?
+                        </li>
+                        <li>
+                            <tt>sublime.OP_REGEX_CONTAINS</tt>: Does the value of the context contain a substring matching the regex given in operand?
+                        </li>
+                        <li>
+                            <tt>sublime.OP_NOT_REGEX_CONTAINS</tt>: Does the value of the context not contain a substring matching the regex given in operand?
+                        </li>
+                    </ul>
+
+                    <p>
+                        <tt>match_all</tt> should be used if the context relates to the selections: does every selection have to match (<tt>match_all == True</tt>), or is at least one matching enough (<tt>match_all == False</tt>)?
+                    </p>
+                </td>
+                <tr>
+                <td class="mth">on_query_completions(prefix, locations)</td>
+                <td class="rtn">list<em>,</em> tuple <em>or</em> None</td>
+                <td class="dsc">
+                    <p>
+                        Called whenever completions are to be presented to the user. The <tt>prefix</tt> is a unicode string of the text to complete.
+                    </p>
+
+                    <p>
+                        <tt>locations</tt> is a list of <a href="api_reference.html#type-point">points</a>. Since this method is called for all completions no matter the syntax, <code class="language-python">self.view.match_selector(point, relevant_scope)</code> should be called to determine if the point is relevant.
+                    </p>
+
+                    <p>
+                        The return value must be one of the following formats:
+                    </p>
+
+                    <ul>
+                        <li>
+                            <p>
+                                <tt>None</tt>: no completions are provided
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return None</code></pre>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                A list of 2-element lists/tuples. The first element is a unicode string of the completion trigger, the second is the unicode replacement text.
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return [["me1", "method1()"], ["me2", "method2()"]]</code></pre>
+                            </p>
+                            <p>
+                                The trigger may contain a tab character (<tt>\t</tt>) followed by a hint to display in the right-hand side of the completion box.
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return [
+    ["me1\tmethod", "method1()"],
+    ["me2\tmethod", "method2()"]
+]</code></pre>
+                            </p>
+                            <p>
+                                The replacement text may contain dollar-numeric fields such as a snippet does, e.g. <tt>$0</tt>, <tt>$1</tt>.
+                            </p>
+                            <p>
+                                <pre><code class="language-python">return [
+    ["fn", "def ${1:name}($2) { $0 }"],
+    ["for", "for ($1; $2; $3) { $0 }"]
+]</code></pre>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                A 2-element tuple with the first element being the list format documented above, and the second element being bit flags from the following list:
+                            </p>
+                            <ul>
+                                <li>
+                                    <tt>sublime.INHIBIT_WORD_COMPLETIONS</tt>: prevent Sublime Text from showing completions based on the contents of the view
+                                </li>
+                                <li>
+                                    <tt>sublime.INHIBIT_EXPLICIT_COMPLETIONS</tt>: prevent Sublime Text from showing completions based on <tt>.sublime-completions</tt> files
+                                </li>
+                            </ul>
+                            <p>
+                                <pre><code class="language-python">return (
+    [
+        ["me1", "method1()"],
+        ["me2", "method2()"]
+    ],
+    sublime.INHIBIT_WORD_COMPLETIONS | sublime.INHIBIT_EXPLICIT_COMPLETIONS
+)</code></pre>
+                            </p>
                         </li>
                     </ul>
                 </td>
