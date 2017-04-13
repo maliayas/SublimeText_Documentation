@@ -88,8 +88,22 @@ h2
 
 h3, h4, h5
 {
-    color: #555;
     margin: 1.4rem 0 0.6rem;
+}
+h3
+{
+    color: #555;
+    font-size: 1.3rem;
+}
+h4
+{
+    color: #777;
+    font-size: 1.15rem;
+}
+h5
+{
+    font-size: 1.0rem;
+    color: #999;
 }
 
 ul
@@ -114,7 +128,8 @@ p
 code,
 tt,
 span.setting,
-span.command
+span.command,
+dl.enum dt
 {
     background-color: #f3f3f3;
     border-radius: 2px;
@@ -285,6 +300,105 @@ span.file
     padding: 0.5em;
 }
 
+dl.enum
+{
+    margin-left: 20px;
+    max-width: 800px;
+}
+a.properties,
+a.attributes
+{
+    display: block;
+    margin: 5px 0 0 20px;
+}
+dl.enum.properties,
+dl.enum.attributes,
+dl.enum.settings
+{
+    background-color: #f3f3f3;
+    padding: 12px;
+}
+/* clear children */
+dl.enum:after,
+dl.enum dl:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+dl.enum dt
+{
+    display: block;
+    margin: 12px 0 8px 0;
+    background: none;
+    border-bottom: 1px solid #ccc;
+    float: left;
+    clear: left;
+}
+dl.enum dt:first-child,
+dl.enum dt + dt
+{
+    margin-top: 0;
+}
+dl.enum dt:last-child
+{
+    margin-bottom: 0;
+}
+dl.enum dt em,
+dl.enum dd code em
+{
+    opacity: 0.5;
+}
+dl.enum dd
+{
+    clear: left;
+    margin-left: 25px;
+}
+dl.enum dd p:first-child
+{
+    margin-top: 0;
+}
+dl.enum dd p,
+dl.enum dd ul
+{
+    margin: 0.5em 0;
+}
+dl.enum dd h4
+{
+    margin: 0.5em 0 0 0;
+    font-weight: normal;
+    opacity: 0.8;
+    font-style: italic;
+}
+dl.enum dd div.example
+{
+    font-style: italic;
+    opacity: 0.8;
+    border-left: 1px solid #ddd;
+    padding-left: 10px;
+}
+dl.enum dd dl
+{
+    margin: 10px 0 5px 20px;
+    background-color: #f3f3f3;
+    padding: 12px;
+    opacity: 0.8;
+}
+dl.enum dd dl dt
+{
+    margin: 5px 0 0 0;
+}
+dl.enum dd dl dt a
+{
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+}
+dl.enum dd dl dd
+{
+
+}
 
 /* CSS for prism.js */
 

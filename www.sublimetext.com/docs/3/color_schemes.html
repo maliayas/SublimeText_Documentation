@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Schemes – Sublime Text 3 Documentation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+</head>
+<body>
+    <script src="prism.js"></script>
+
+    <header>
+        <section>
+            <nav>
+                <a href="https://sublimetext.com">Website</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+            <div class="index">
+                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
+            </div>
+
+            <h1>Color Schemes</h1>
+        </section>
+    </header>
+
+    <section>
+        <p>
+            The highlighting of source code and prose in Sublime Text is
+            controlled by a color scheme. A <em>color scheme</em> assigns
+            colors and font styles to <em>scopes</em>, which are assigned to
+            the text by the syntax. The rest of the look of the user
+            interface is controlled by the <a href="themes.html">theme</a>.
+            The theme controls such elements as buttons select lists, the
+            sidebar and tabs.
+        </p>
+
+        <p>
+            Sublime Text color schemes are implemented via the
+            <code>.tmTheme</code> format created by TextMate. It is an XML
+            format split into a global settings and scope styles.
+        </p>
+
+        <ul>
+            <li><a href="color_schemes.html#example">Example</a></li>
+            <li><a href="color_schemes.html#colors">Colors</a></li>
+            <li><a href="color_schemes.html#global_settings">Global Settings</a></li>
+            <li><a href="color_schemes.html#scope_styles">Scope Styles</a></li>
+            <li><a href="color_schemes.html#x11_colors">Appendix: X11 Colors</a></li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h2 id="example">Example</h2>
+
+        <p>
+            <em>The following is an example of the format of a
+            <code>.tmTheme</code> file. A complete color scheme will have
+            many more scope styles to cover the standard scope names.</em>
+        </p>
+
+        <pre><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?>
+&lt;!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+&lt;plist version="1.0">
+&lt;dict>
+    &lt;key>name&lt;/key>
+    &lt;string>Example Color Scheme&lt;/string>
+    &lt;key>settings&lt;/key>
+    &lt;array>
+        &lt;!-- Global settings -->
+        &lt;dict>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>background&lt;/key>
+                &lt;string>#222222&lt;/string>
+                &lt;key>foreground&lt;/key>
+                &lt;string>#EEEEEE&lt;/string>
+                &lt;key>caret&lt;/key>
+                &lt;string>#FFFFFF&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;!-- Scope styles -->
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Comment&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>comment&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>#888888&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>String&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>string&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>#FFD500&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+        &lt;dict>
+            &lt;key>name&lt;/key>
+            &lt;string>Number&lt;/string>
+            &lt;key>scope&lt;/key>
+            &lt;string>constant.numeric&lt;/string>
+            &lt;key>settings&lt;/key>
+            &lt;dict>
+                &lt;key>foreground&lt;/key>
+                &lt;string>#7F00FF&lt;/string>
+            &lt;/dict>
+        &lt;/dict>
+    &lt;/array>
+&lt;/dict></code></pre>
+    </section>
+
+    <section>
+        <h2 id="colors">Colors</h2>
+
+        <p>
+            Colors in color schemes may be specified using of three formats: hex RGB,
+            hex RGBA or (X11) named.
+        </p>
+        <p>
+            The hex RGB format consists of the first two characters representing
+            the red channel, the second two green and the final two represent blue.
+            The specify red in hex RGB, write <code>#FF0000</code>.
+        </p>
+        <p>
+            The hex RGBA format starts the same as hex RGB, but adds a fourth pair of
+            hex characters that control the opacity. To specify red with 50% opacity
+            in hex RGBA, write <code>#FF000080</code>.
+        </p>
+        <p>
+            Named colors use <a href="color_schemes.html#x11_colors">X11 color names</a>. <em>Please
+            note that while some share names with CSS named colors, the actual colors
+            tend to differ.</em>
+        </p>
+    </section>
+
+    <section>
+        <h2 id="global_settings">Global Settings</h2>
+
+        <p>
+            The following global settings go in the first <code>&lt;dict></code>,
+            and are specified using <code>&lt;key></code>/<code>&lt;string></code>
+            pairs.
+        </p>
+
+        <dl class="enum settings">
+            <dt>background</dt>
+            <dd>
+                The default background color
+            </dd>
+            <dt>foreground</dt>
+            <dd>
+                The default color for text
+            </dd>
+            <dt>caret</dt>
+            <dd>
+                The color of the caret
+            </dd>
+            <dt>lineHighlight</dt>
+            <dd>
+                The background color of the line containing the caret. <em>Only used
+                when the <code>highlight_line</code> setting is enabled.</em>
+            </dd>
+        </dl>
+
+        <h3>Accents</h3>
+        <dl class="enum settings">
+            <dt>misspelling</dt>
+            <dd>
+                The color to use for the squiggly underline drawn under
+                misspelled words.
+            </dd>
+            <dt>minimapBorder</dt>
+            <dd>
+                The color of the border drawn around the viewport
+                area of the minimap when the setting
+                <code>draw_minimap_border</code> is enabled. <em>Note
+                that the viewport is normally only visible on
+                hover, unless the <code>always_show_minimap_viewport</code>
+                setting is enabled.</em>
+            </dd>
+            <dt>accent</dt>
+            <dd>
+                A color made available for use by the theme. <em>The Default
+                theme uses this to highlight modified tabs when the
+                <code>highlight_modified_tabs</code> setting is enabled.</em>
+            </dd>
+        </dl>
+
+        <h3>CSS</h3>
+        <p>
+            CSS is applied to <a href="minihtml.html">minihtml</a> content
+            created via the popups and phantoms functionality that is exposed
+            through the API. Supported CSS properties are discussed in the
+            <a href="minihtml.html#css">minihtml CSS reference</a>.
+        </p>
+        <p>
+            Plugins that use minihtml are encouraged to set a unique <code>id</code>
+            attribute on the <code>&lt;body></code> tag of generated HTML
+            to allow color schemes to override default plugin styles.
+        </p>
+        <dl class="enum settings">
+            <dt>popupCss</dt>
+            <dd>
+                CSS passed to popups.
+            </dd>
+            <dt>phantomCss</dt>
+            <dd>
+                CSS passed to phantoms. <em>If not specified, uses
+                <code>popupCss</code>.</em>
+            </dd>
+        </dl>
+
+        <h3>Gutter</h3>
+        <dl class="enum settings">
+            <dt>gutter</dt>
+            <dd>
+                The background color of the gutter
+            </dd>
+            <dt>gutterForeground</dt>
+            <dd>
+                The color of line numbers in the gutter
+            </dd>
+        </dl>
+
+        <h3>Selection</h3>
+        <dl class="enum settings">
+            <dt>selection</dt>
+            <dd>
+                The background color of selected text
+            </dd>
+            <dt>selectionForeground</dt>
+            <dd>
+                A color that will override the scope-based text color
+                of the selection
+            </dd>
+            <dt>selectionBorder</dt>
+            <dd>
+                The color for the border of the selection
+            </dd>
+            <dt>inactiveSelection</dt>
+            <dd>
+                The background color of a selection in a view that
+                is not currently focused
+            </dd>
+            <dt>inactiveSelectionForeground</dt>
+            <dd>
+                A color that will override the scope-based text color
+                of the selection in a view that is not currently focused
+            </dd>
+        </dl>
+
+        <h3>Find</h3>
+        <dl class="enum settings">
+            <dt>highlight</dt>
+            <dd>
+                The border color for "other" matches when the
+                <em>Highlight matches</em> option is selected
+                in the Find panel. Also used to highlight matches
+                in Find in Files results.
+            </dd>
+            <dt>findHighlight</dt>
+            <dd>
+                The background color of text matched by the Find panel
+            </dd>
+            <dt>findHighlightForeground</dt>
+            <dd>
+                A color that will override the scope-based text color
+                of text matched by the Find panel
+            </dd>
+        </dl>
+
+        <h3>Guides</h3>
+        <p>
+            Guides are controlled globally by the <code>draw_indent_guides</code>
+            setting.
+        </p>
+        <dl class="enum settings">
+            <dt>guide</dt>
+            <dd>
+                The color used to draw indent guides. <em>Only used if
+                the option <code>"draw_normal"</code> is present in
+                the setting <code>indent_guide_options</code>.</em>
+            </dd>
+            <dt>activeGuide</dt>
+            <dd>
+                The color used to draw the indent guides for the
+                indentation levels containing the caret. <em>Only used
+                if the option <code>"draw_active"</code> is present in
+                the setting <code>indent_guide_options</code>.</em>
+            </dd>
+            <dt>stackGuide</dt>
+            <dd>
+                The color used to draw the indent guides for the
+                parent indentation levels of the indentation level
+                containing the caret. <em>Only used if the option
+                <code>"draw_active"</code> is present in
+                the setting <code>indent_guide_options</code>.</em>
+            </dd>
+        </dl>
+
+        <h3>Brackets</h3>
+        <p>
+            Bracket matching is controlled globally by the
+            <code>match_brackets</code> setting.
+        </p>
+        <dl class="enum settings">
+            <dt>bracketsOptions</dt>
+            <dd>
+                <p>
+                    How brackets are highlighted when the caret is next to
+                    one. Accepts a space-separated list from the following:
+                </p>
+                <ul>
+                    <li><code>underline</code></li>
+                    <li><code>stippled_underline</code></li>
+                    <li><code>squiggly_underline</code></li>
+                    <li><code>foreground</code></li>
+                </ul>
+            </dd>
+            <dt>bracketsForeground</dt>
+            <dd>
+                The color to use when drawing the style specified by
+                <code>bracketsOptions</code>.
+            </dd>
+            <dt>bracketsContentsOptions</dt>
+            <dd>
+                <p>
+                    How brackets are highlighted when the caret is
+                    positioned in between a pair of brackets. Accepts a
+                    space-separated list from the following:
+                </p>
+                <ul>
+                    <li><code>underline</code></li>
+                    <li><code>stippled_underline</code></li>
+                    <li><code>squiggly_underline</code></li>
+                    <li><code>foreground</code></li>
+                </ul>
+            </dd>
+            <dt>bracketsContentsForeground</dt>
+            <dd>
+                The color to use when drawing the style specified by
+                <code>bracketsContentsOptions</code>.
+            </dd>
+        </dl>
+
+        <h3>Tags</h3>
+        <p>
+            Tag matching is controlled globally by the
+            <code>match_tags</code> setting.
+        </p>
+        <dl class="enum settings">
+            <dt>tagsOptions</dt>
+            <dd>
+                <p>
+                    How tags are highlighted when the caret is inside of
+                    one. Accepts a space-separated list from the following:
+                </p>
+                <ul>
+                    <li><code>underline</code></li>
+                    <li><code>stippled_underline</code></li>
+                    <li><code>squiggly_underline</code></li>
+                    <li><code>foreground</code></li>
+                </ul>
+            </dd>
+            <dt>tagsForeground</dt>
+            <dd>
+                The color to use when drawing the style specified by
+                <code>tagsOptions</code>.
+            </dd>
+        </dl>
+
+        <h3>Shadows</h3>
+        <dl class="enum settings">
+            <dt>shadow</dt>
+            <dd>
+                The color of the shadow used to show when a text area
+                can be horizontally scrolled
+            </dd>
+            <dt>shadowWidth</dt>
+            <dd>
+                The width of the shadow in device-independent pixels
+            </dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2 id="scope_styles">Scope Styles</h2>
+
+        <p>
+            Color schemes interact with the text in a file via scopes. Scopes are set
+            to code or prose tokens via the <em>syntax</em>. Scopes are dotted strings,
+            specified from least-to-most specific. For example, the <code>if</code>
+            keyword in PHP could be specified via the scope name
+            <code>keyword.control.php</code>.
+        </p>
+
+        <h3>Matching</h3>
+        <p>
+            Color schemes apply colors and font styles to the scopes by matching the
+            dotted labels, starting with the first. Prefix matching is the standard
+            way to have a color scheme apply to multiple syntaxes. Instead of matching
+            <code>keyword.control.php</code>, most color schemes will instead assign
+            a color to <code>keyword</code>. Matching the first one or two labels
+            in a scope is most common. Including the final label, the syntax name, is
+            uncommon unless a syntax-specific override is desired.
+        </p>
+
+        <h3>Naming</h3>
+        <p>
+            Author of syntaxes can assign whatever scopes they want to a given token.
+            This combined with the fact that there are hundreds of community-maintained
+            syntaxes means that is can be hard to know what scopes to target. The
+            <a href="scope_naming.html">official Scope
+            Naming guidelines</a> were established to help syntax and color scheme
+            authors use a common set, for better interoperability. The
+            <a href="scope_naming.html#color_schemes">Usage
+            in Color Schemes</a> section provides a baseline set of scopes that color
+            scheme authors should strive to handle.
+        </p>
+
+        <h3>Style Rules</h3>
+        <p>
+            Each scope style rule consists of a <code>&lt;dict></code> tag containing
+            three pairs of <code>&lt;key></code>/<code>&lt;string></code> tags, with
+            the following keys:
+        </p>
+        <ul>
+            <li><code>name</code> – the (arbitrary) name for the scope rule</li>
+            <li><code>scope</code> – the scope to apply the settings to</li>
+            <li><code>settings</code> – a <code>&lt;dict></code> of settings</li>
+        </ul>
+        <p>
+            The <code>settings</code> <code>&lt;dict></code> tag may contain one
+            or more of the following <code>&lt;key></code> tags:
+        </p>
+        <ul>
+            <li><code>foreground</code> – the text color</li>
+            <li><code>background</code> – the background color</li>
+            <li><code>fontStyle</code> – zero or more of <code>bold</code>, <code>italic</code>, separated by spaces</li>
+        </ul>
+
+        <h3>Examples</h3>
+        <p>
+            The following scope style rule will color all strings as green:
+        </p>
+
+        <pre><code class="language-xml">&lt;dict>
+    &lt;key>name&lt;/key>
+    &lt;string>Strings&lt;/string>
+    &lt;key>scope&lt;/key>
+    &lt;string>string&lt;/string>
+    &lt;key>settings&lt;/key>
+    &lt;dict>
+        &lt;key>foreground&lt;/key>
+        &lt;string>#00FF00&lt;/string>
+    &lt;/dict>
+&lt;/dict></code></pre>
+
+        <p>
+            To style all numbers as bold, italic red, use:
+        </p>
+
+        <pre><code class="language-xml">&lt;dict>
+    &lt;key>name&lt;/key>
+    &lt;string>Numbers&lt;/string>
+    &lt;key>scope&lt;/key>
+    &lt;string>constant.numeric&lt;/string>
+    &lt;key>settings&lt;/key>
+    &lt;dict>
+        &lt;key>foreground&lt;/key>
+        &lt;string>#FF0000&lt;/string>
+        &lt;key>fontStyle&lt;/key>
+        &lt;string>bold italic&lt;/string>
+    &lt;/dict>
+&lt;/dict></code></pre>
+    </section>
+
+    <section>
+        <h2 id="x11_colors">Appendix: X11 Colors</h2>
+        <style>
+        span.color-block {
+            width: 50px;
+            height: 20px;
+            display: inline-block;
+            position: relative;top: 5px;
+        }
+        div.col {
+            float: left;
+            width: 20%;
+        }
+        </style>
+
+        <div class="col">
+            <span style="background-color: #f0f8ff;" class="color-block"></span> <span>aliceblue</span><br>
+            <span style="background-color: #faebd7;" class="color-block"></span> <span>antiquewhite</span><br>
+            <span style="background-color: #ffefdb;" class="color-block"></span> <span>antiquewhite1</span><br>
+            <span style="background-color: #eedfcc;" class="color-block"></span> <span>antiquewhite2</span><br>
+            <span style="background-color: #cdc0b0;" class="color-block"></span> <span>antiquewhite3</span><br>
+            <span style="background-color: #8b8378;" class="color-block"></span> <span>antiquewhite4</span><br>
+            <span style="background-color: #7fffd4;" class="color-block"></span> <span>aquamarine</span><br>
+            <span style="background-color: #7fffd4;" class="color-block"></span> <span>aquamarine1</span><br>
+            <span style="background-color: #76eec6;" class="color-block"></span> <span>aquamarine2</span><br>
+            <span style="background-color: #66cdaa;" class="color-block"></span> <span>aquamarine3</span><br>
+            <span style="background-color: #458b74;" class="color-block"></span> <span>aquamarine4</span><br>
+            <span style="background-color: #f0ffff;" class="color-block"></span> <span>azure</span><br>
+            <span style="background-color: #f0ffff;" class="color-block"></span> <span>azure1</span><br>
+            <span style="background-color: #e0eeee;" class="color-block"></span> <span>azure2</span><br>
+            <span style="background-color: #c1cdcd;" class="color-block"></span> <span>azure3</span><br>
+            <span style="background-color: #838b8b;" class="color-block"></span> <span>azure4</span><br>
+            <span style="background-color: #feeed4;" class="color-block"></span> <span>barely blushing</span><br>
+            <span style="background-color: #f5f5dc;" class="color-block"></span> <span>beige</span><br>
+            <span style="background-color: #ffe4c4;" class="color-block"></span> <span>bisque</span><br>
+            <span style="background-color: #ffe4c4;" class="color-block"></span> <span>bisque1</span><br>
+            <span style="background-color: #eed5b7;" class="color-block"></span> <span>bisque2</span><br>
+            <span style="background-color: #eed5b7;" class="color-block"></span> <span>bisque2</span><br>
+            <span style="background-color: #cdb79e;" class="color-block"></span> <span>bisque3</span><br>
+            <span style="background-color: #8b7d6b;" class="color-block"></span> <span>bisque4</span><br>
+            <span style="background-color: #000000;" class="color-block"></span> <span>black</span><br>
+            <span style="background-color: #ffebcd;" class="color-block"></span> <span>blanchedalmond</span><br>
+            <span style="background-color: #0000ff;" class="color-block"></span> <span>blue</span><br>
+            <span style="background-color: #0000ff;" class="color-block"></span> <span>blue1</span><br>
+            <span style="background-color: #0000ee;" class="color-block"></span> <span>blue2</span><br>
+            <span style="background-color: #0000cd;" class="color-block"></span> <span>blue3</span><br>
+            <span style="background-color: #00008b;" class="color-block"></span> <span>blue4</span><br>
+            <span style="background-color: #8a2be2;" class="color-block"></span> <span>blueviolet</span><br>
+            <span style="background-color: #a52a2a;" class="color-block"></span> <span>brown</span><br>
+            <span style="background-color: #ff4040;" class="color-block"></span> <span>brown1</span><br>
+            <span style="background-color: #ee3b3b;" class="color-block"></span> <span>brown2</span><br>
+            <span style="background-color: #cd3333;" class="color-block"></span> <span>brown3</span><br>
+            <span style="background-color: #8b2323;" class="color-block"></span> <span>brown4</span><br>
+            <span style="background-color: #deb887;" class="color-block"></span> <span>burlywood</span><br>
+            <span style="background-color: #ffd39b;" class="color-block"></span> <span>burlywood1</span><br>
+            <span style="background-color: #eec591;" class="color-block"></span> <span>burlywood2</span><br>
+            <span style="background-color: #cdaa7d;" class="color-block"></span> <span>burlywood3</span><br>
+            <span style="background-color: #8b7355;" class="color-block"></span> <span>burlywood4</span><br>
+            <span style="background-color: #5f9ea0;" class="color-block"></span> <span>cadetblue</span><br>
+            <span style="background-color: #98f5ff;" class="color-block"></span> <span>cadetblue1</span><br>
+            <span style="background-color: #8ee5ee;" class="color-block"></span> <span>cadetblue2</span><br>
+            <span style="background-color: #7ac5cd;" class="color-block"></span> <span>cadetblue3</span><br>
+            <span style="background-color: #53868b;" class="color-block"></span> <span>cadetblue4</span><br>
+            <span style="background-color: #fef0c9;" class="color-block"></span> <span>carmel tan</span><br>
+            <span style="background-color: #7fff00;" class="color-block"></span> <span>chartreuse</span><br>
+            <span style="background-color: #7fff00;" class="color-block"></span> <span>chartreuse1</span><br>
+            <span style="background-color: #76ee00;" class="color-block"></span> <span>chartreuse2</span><br>
+            <span style="background-color: #66cd00;" class="color-block"></span> <span>chartreuse3</span><br>
+            <span style="background-color: #458b00;" class="color-block"></span> <span>chartreuse4</span><br>
+            <span style="background-color: #d2691e;" class="color-block"></span> <span>chocolate</span><br>
+            <span style="background-color: #ff7f24;" class="color-block"></span> <span>chocolate1</span><br>
+            <span style="background-color: #ee7621;" class="color-block"></span> <span>chocolate2</span><br>
+            <span style="background-color: #cd661d;" class="color-block"></span> <span>chocolate3</span><br>
+            <span style="background-color: #8b4513;" class="color-block"></span> <span>chocolate4</span><br>
+            <span style="background-color: #ff7f50;" class="color-block"></span> <span>coral</span><br>
+            <span style="background-color: #ff7256;" class="color-block"></span> <span>coral1</span><br>
+            <span style="background-color: #ee6a50;" class="color-block"></span> <span>coral2</span><br>
+            <span style="background-color: #cd5b45;" class="color-block"></span> <span>coral3</span><br>
+            <span style="background-color: #8b3e2f;" class="color-block"></span> <span>coral4</span><br>
+            <span style="background-color: #6495ed;" class="color-block"></span> <span>cornflowerblue</span><br>
+            <span style="background-color: #fff8dc;" class="color-block"></span> <span>cornsilk</span><br>
+            <span style="background-color: #fff8dc;" class="color-block"></span> <span>cornsilk1</span><br>
+            <span style="background-color: #eee8cd;" class="color-block"></span> <span>cornsilk2</span><br>
+            <span style="background-color: #cdc8b1;" class="color-block"></span> <span>cornsilk3</span><br>
+            <span style="background-color: #8b8878;" class="color-block"></span> <span>cornsilk4</span><br>
+            <span style="background-color: #dc143c;" class="color-block"></span> <span>crimson</span><br>
+            <span style="background-color: #00ffff;" class="color-block"></span> <span>cyan</span><br>
+            <span style="background-color: #00ffff;" class="color-block"></span> <span>cyan1</span><br>
+            <span style="background-color: #00eeee;" class="color-block"></span> <span>cyan2</span><br>
+            <span style="background-color: #00cdcd;" class="color-block"></span> <span>cyan3</span><br>
+            <span style="background-color: #008b8b;" class="color-block"></span> <span>cyan4</span><br>
+            <span style="background-color: #00008b;" class="color-block"></span> <span>darkblue</span><br>
+            <span style="background-color: #008b8b;" class="color-block"></span> <span>darkcyan</span><br>
+            <span style="background-color: #b8860b;" class="color-block"></span> <span>darkgoldenrod</span><br>
+            <span style="background-color: #ffb90f;" class="color-block"></span> <span>darkgoldenrod1</span><br>
+            <span style="background-color: #eead0e;" class="color-block"></span> <span>darkgoldenrod2</span><br>
+            <span style="background-color: #cd950c;" class="color-block"></span> <span>darkgoldenrod3</span><br>
+            <span style="background-color: #8b6508;" class="color-block"></span> <span>darkgoldenrod4</span><br>
+            <span style="background-color: #a9a9a9;" class="color-block"></span> <span>darkgray</span><br>
+            <span style="background-color: #006400;" class="color-block"></span> <span>darkgreen</span><br>
+            <span style="background-color: #a9a9a9;" class="color-block"></span> <span>darkgrey</span><br>
+            <span style="background-color: #bdb76b;" class="color-block"></span> <span>darkkhaki</span><br>
+            <span style="background-color: #8b008b;" class="color-block"></span> <span>darkmagenta</span><br>
+            <span style="background-color: #556b2f;" class="color-block"></span> <span>darkolivegreen</span><br>
+            <span style="background-color: #caff70;" class="color-block"></span> <span>darkolivegreen1</span><br>
+            <span style="background-color: #bcee68;" class="color-block"></span> <span>darkolivegreen2</span><br>
+            <span style="background-color: #a2cd5a;" class="color-block"></span> <span>darkolivegreen3</span><br>
+            <span style="background-color: #6e8b3d;" class="color-block"></span> <span>darkolivegreen4</span><br>
+            <span style="background-color: #ff8c00;" class="color-block"></span> <span>darkorange</span><br>
+            <span style="background-color: #ff7f00;" class="color-block"></span> <span>darkorange1</span><br>
+            <span style="background-color: #ee7600;" class="color-block"></span> <span>darkorange2</span><br>
+            <span style="background-color: #cd6600;" class="color-block"></span> <span>darkorange3</span><br>
+            <span style="background-color: #8b4500;" class="color-block"></span> <span>darkorange4</span><br>
+            <span style="background-color: #9932cc;" class="color-block"></span> <span>darkorchid</span><br>
+            <span style="background-color: #bf3eff;" class="color-block"></span> <span>darkorchid1</span><br>
+            <span style="background-color: #b23aee;" class="color-block"></span> <span>darkorchid2</span><br>
+            <span style="background-color: #9a32cd;" class="color-block"></span> <span>darkorchid3</span><br>
+            <span style="background-color: #68228b;" class="color-block"></span> <span>darkorchid4</span><br>
+            <span style="background-color: #8b0000;" class="color-block"></span> <span>darkred</span><br>
+            <span style="background-color: #e9967a;" class="color-block"></span> <span>darksalmon</span><br>
+            <span style="background-color: #8fbc8f;" class="color-block"></span> <span>darkseagreen</span><br>
+            <span style="background-color: #c1ffc1;" class="color-block"></span> <span>darkseagreen1</span><br>
+            <span style="background-color: #b4eeb4;" class="color-block"></span> <span>darkseagreen2</span><br>
+            <span style="background-color: #9bcd9b;" class="color-block"></span> <span>darkseagreen3</span><br>
+            <span style="background-color: #698b69;" class="color-block"></span> <span>darkseagreen4</span><br>
+            <span style="background-color: #483d8b;" class="color-block"></span> <span>darkslateblue</span><br>
+            <span style="background-color: #2f4f4f;" class="color-block"></span> <span>darkslategray</span><br>
+            <span style="background-color: #97ffff;" class="color-block"></span> <span>darkslategray1</span><br>
+            <span style="background-color: #8deeee;" class="color-block"></span> <span>darkslategray2</span><br>
+            <span style="background-color: #79cdcd;" class="color-block"></span> <span>darkslategray3</span><br>
+            <span style="background-color: #528b8b;" class="color-block"></span> <span>darkslategray4</span><br>
+            <span style="background-color: #2f4f4f;" class="color-block"></span> <span>darkslategrey</span><br>
+            <span style="background-color: #00ced1;" class="color-block"></span> <span>darkturquoise</span><br>
+            <span style="background-color: #9400d3;" class="color-block"></span> <span>darkviolet</span><br>
+            <span style="background-color: #ff1493;" class="color-block"></span> <span>deeppink</span><br>
+            <span style="background-color: #ff1493;" class="color-block"></span> <span>deeppink1</span><br>
+            <span style="background-color: #ee1289;" class="color-block"></span> <span>deeppink2</span><br>
+            <span style="background-color: #cd1076;" class="color-block"></span> <span>deeppink3</span><br>
+            <span style="background-color: #8b0a50;" class="color-block"></span> <span>deeppink4</span><br>
+            <span style="background-color: #00bfff;" class="color-block"></span> <span>deepskyblue</span><br>
+            <span style="background-color: #00bfff;" class="color-block"></span> <span>deepskyblue1</span><br>
+            <span style="background-color: #00b2ee;" class="color-block"></span> <span>deepskyblue2</span><br>
+            <span style="background-color: #009acd;" class="color-block"></span> <span>deepskyblue3</span><br>
+            <span style="background-color: #00688b;" class="color-block"></span> <span>deepskyblue4</span><br>
+            <span style="background-color: #696969;" class="color-block"></span> <span>dimgray</span><br>
+            <span style="background-color: #696969;" class="color-block"></span> <span>dimgrey</span><br>
+            <span style="background-color: #1e90ff;" class="color-block"></span> <span>dodgerblue</span><br>
+            <span style="background-color: #1e90ff;" class="color-block"></span> <span>dodgerblue1</span><br>
+            <span style="background-color: #1c86ee;" class="color-block"></span> <span>dodgerblue2</span><br>
+            <span style="background-color: #1874cd;" class="color-block"></span> <span>dodgerblue3</span><br>
+            <span style="background-color: #104e8b;" class="color-block"></span> <span>dodgerblue4</span><br>
+            <span style="background-color: #fee0c6;" class="color-block"></span> <span>dove beige</span><br>
+            <span style="background-color: #feeecd;" class="color-block"></span> <span>dusted pink</span><br>
+            <span style="background-color: #fef1e1;" class="color-block"></span> <span>dusty trail</span><br>
+            <span style="background-color: #fefef2;" class="color-block"></span> <span>eggshell cream</span><br>
+            <span style="background-color: #ecf1ef;" class="color-block"></span> <span>far horizon</span><br>
+            <span style="background-color: #b22222;" class="color-block"></span> <span>firebrick</span><br>
+            <span style="background-color: #ff3030;" class="color-block"></span> <span>firebrick1</span><br>
+            <span style="background-color: #ee2c2c;" class="color-block"></span> <span>firebrick2</span><br>
+            <span style="background-color: #cd2626;" class="color-block"></span> <span>firebrick3</span><br>
+            <span style="background-color: #8b1a1a;" class="color-block"></span> <span>firebrick4</span><br>
+            <span style="background-color: #fffaf0;" class="color-block"></span> <span>floralwhite</span><br>
+            <span style="background-color: #228b22;" class="color-block"></span> <span>forestgreen</span><br>
+            <span style="background-color: #f6f9ed;" class="color-block"></span> <span>frosted lime</span><br>
+            <span style="background-color: #fcf8dc;" class="color-block"></span> <span>frosted peach</span><br>
+            <span style="background-color: #dcdcdc;" class="color-block"></span> <span>gainsboro</span><br>
+            <span style="background-color: #f8f8ff;" class="color-block"></span> <span>ghostwhite</span><br>
+            <span style="background-color: #ffd700;" class="color-block"></span> <span>gold</span><br>
+            <span style="background-color: #ffd700;" class="color-block"></span> <span>gold1</span><br>
+        </div>
+        <div class="col">
+            <span style="background-color: #eec900;" class="color-block"></span> <span>gold2</span><br>
+            <span style="background-color: #cdad00;" class="color-block"></span> <span>gold3</span><br>
+            <span style="background-color: #8b7500;" class="color-block"></span> <span>gold4</span><br>
+            <span style="background-color: #daa520;" class="color-block"></span> <span>goldenrod</span><br>
+            <span style="background-color: #ffc125;" class="color-block"></span> <span>goldenrod1</span><br>
+            <span style="background-color: #eeb422;" class="color-block"></span> <span>goldenrod2</span><br>
+            <span style="background-color: #cd9b1d;" class="color-block"></span> <span>goldenrod3</span><br>
+            <span style="background-color: #8b6914;" class="color-block"></span> <span>goldenrod4</span><br>
+            <span style="background-color: #bebebe;" class="color-block"></span> <span>gray</span><br>
+            <span style="background-color: #ebece4;" class="color-block"></span> <span>gray cliffs</span><br>
+            <span style="background-color: #000000;" class="color-block"></span> <span>gray0</span><br>
+            <span style="background-color: #030303;" class="color-block"></span> <span>gray1</span><br>
+            <span style="background-color: #1a1a1a;" class="color-block"></span> <span>gray10</span><br>
+            <span style="background-color: #ffffff;" class="color-block"></span> <span>gray100</span><br>
+            <span style="background-color: #1c1c1c;" class="color-block"></span> <span>gray11</span><br>
+            <span style="background-color: #1f1f1f;" class="color-block"></span> <span>gray12</span><br>
+            <span style="background-color: #212121;" class="color-block"></span> <span>gray13</span><br>
+            <span style="background-color: #242424;" class="color-block"></span> <span>gray14</span><br>
+            <span style="background-color: #262626;" class="color-block"></span> <span>gray15</span><br>
+            <span style="background-color: #292929;" class="color-block"></span> <span>gray16</span><br>
+            <span style="background-color: #2b2b2b;" class="color-block"></span> <span>gray17</span><br>
+            <span style="background-color: #2e2e2e;" class="color-block"></span> <span>gray18</span><br>
+            <span style="background-color: #303030;" class="color-block"></span> <span>gray19</span><br>
+            <span style="background-color: #050505;" class="color-block"></span> <span>gray2</span><br>
+            <span style="background-color: #333333;" class="color-block"></span> <span>gray20</span><br>
+            <span style="background-color: #363636;" class="color-block"></span> <span>gray21</span><br>
+            <span style="background-color: #383838;" class="color-block"></span> <span>gray22</span><br>
+            <span style="background-color: #3b3b3b;" class="color-block"></span> <span>gray23</span><br>
+            <span style="background-color: #3d3d3d;" class="color-block"></span> <span>gray24</span><br>
+            <span style="background-color: #404040;" class="color-block"></span> <span>gray25</span><br>
+            <span style="background-color: #424242;" class="color-block"></span> <span>gray26</span><br>
+            <span style="background-color: #454545;" class="color-block"></span> <span>gray27</span><br>
+            <span style="background-color: #474747;" class="color-block"></span> <span>gray28</span><br>
+            <span style="background-color: #4a4a4a;" class="color-block"></span> <span>gray29</span><br>
+            <span style="background-color: #080808;" class="color-block"></span> <span>gray3</span><br>
+            <span style="background-color: #4d4d4d;" class="color-block"></span> <span>gray30</span><br>
+            <span style="background-color: #4f4f4f;" class="color-block"></span> <span>gray31</span><br>
+            <span style="background-color: #525252;" class="color-block"></span> <span>gray32</span><br>
+            <span style="background-color: #545454;" class="color-block"></span> <span>gray33</span><br>
+            <span style="background-color: #575757;" class="color-block"></span> <span>gray34</span><br>
+            <span style="background-color: #595959;" class="color-block"></span> <span>gray35</span><br>
+            <span style="background-color: #5c5c5c;" class="color-block"></span> <span>gray36</span><br>
+            <span style="background-color: #5e5e5e;" class="color-block"></span> <span>gray37</span><br>
+            <span style="background-color: #616161;" class="color-block"></span> <span>gray38</span><br>
+            <span style="background-color: #636363;" class="color-block"></span> <span>gray39</span><br>
+            <span style="background-color: #0a0a0a;" class="color-block"></span> <span>gray4</span><br>
+            <span style="background-color: #666666;" class="color-block"></span> <span>gray40</span><br>
+            <span style="background-color: #696969;" class="color-block"></span> <span>gray41</span><br>
+            <span style="background-color: #6b6b6b;" class="color-block"></span> <span>gray42</span><br>
+            <span style="background-color: #6e6e6e;" class="color-block"></span> <span>gray43</span><br>
+            <span style="background-color: #707070;" class="color-block"></span> <span>gray44</span><br>
+            <span style="background-color: #737373;" class="color-block"></span> <span>gray45</span><br>
+            <span style="background-color: #757575;" class="color-block"></span> <span>gray46</span><br>
+            <span style="background-color: #787878;" class="color-block"></span> <span>gray47</span><br>
+            <span style="background-color: #7a7a7a;" class="color-block"></span> <span>gray48</span><br>
+            <span style="background-color: #7d7d7d;" class="color-block"></span> <span>gray49</span><br>
+            <span style="background-color: #0d0d0d;" class="color-block"></span> <span>gray5</span><br>
+            <span style="background-color: #7f7f7f;" class="color-block"></span> <span>gray50</span><br>
+            <span style="background-color: #828282;" class="color-block"></span> <span>gray51</span><br>
+            <span style="background-color: #858585;" class="color-block"></span> <span>gray52</span><br>
+            <span style="background-color: #878787;" class="color-block"></span> <span>gray53</span><br>
+            <span style="background-color: #8a8a8a;" class="color-block"></span> <span>gray54</span><br>
+            <span style="background-color: #8c8c8c;" class="color-block"></span> <span>gray55</span><br>
+            <span style="background-color: #8f8f8f;" class="color-block"></span> <span>gray56</span><br>
+            <span style="background-color: #919191;" class="color-block"></span> <span>gray57</span><br>
+            <span style="background-color: #949494;" class="color-block"></span> <span>gray58</span><br>
+            <span style="background-color: #969696;" class="color-block"></span> <span>gray59</span><br>
+            <span style="background-color: #0f0f0f;" class="color-block"></span> <span>gray6</span><br>
+            <span style="background-color: #999999;" class="color-block"></span> <span>gray60</span><br>
+            <span style="background-color: #9c9c9c;" class="color-block"></span> <span>gray61</span><br>
+            <span style="background-color: #9e9e9e;" class="color-block"></span> <span>gray62</span><br>
+            <span style="background-color: #a1a1a1;" class="color-block"></span> <span>gray63</span><br>
+            <span style="background-color: #a3a3a3;" class="color-block"></span> <span>gray64</span><br>
+            <span style="background-color: #a6a6a6;" class="color-block"></span> <span>gray65</span><br>
+            <span style="background-color: #a8a8a8;" class="color-block"></span> <span>gray66</span><br>
+            <span style="background-color: #ababab;" class="color-block"></span> <span>gray67</span><br>
+            <span style="background-color: #adadad;" class="color-block"></span> <span>gray68</span><br>
+            <span style="background-color: #b0b0b0;" class="color-block"></span> <span>gray69</span><br>
+            <span style="background-color: #121212;" class="color-block"></span> <span>gray7</span><br>
+            <span style="background-color: #b3b3b3;" class="color-block"></span> <span>gray70</span><br>
+            <span style="background-color: #b5b5b5;" class="color-block"></span> <span>gray71</span><br>
+            <span style="background-color: #b8b8b8;" class="color-block"></span> <span>gray72</span><br>
+            <span style="background-color: #bababa;" class="color-block"></span> <span>gray73</span><br>
+            <span style="background-color: #bdbdbd;" class="color-block"></span> <span>gray74</span><br>
+            <span style="background-color: #bfbfbf;" class="color-block"></span> <span>gray75</span><br>
+            <span style="background-color: #c2c2c2;" class="color-block"></span> <span>gray76</span><br>
+            <span style="background-color: #c4c4c4;" class="color-block"></span> <span>gray77</span><br>
+            <span style="background-color: #c7c7c7;" class="color-block"></span> <span>gray78</span><br>
+            <span style="background-color: #c9c9c9;" class="color-block"></span> <span>gray79</span><br>
+            <span style="background-color: #141414;" class="color-block"></span> <span>gray8</span><br>
+            <span style="background-color: #cccccc;" class="color-block"></span> <span>gray80</span><br>
+            <span style="background-color: #cfcfcf;" class="color-block"></span> <span>gray81</span><br>
+            <span style="background-color: #d1d1d1;" class="color-block"></span> <span>gray82</span><br>
+            <span style="background-color: #d4d4d4;" class="color-block"></span> <span>gray83</span><br>
+            <span style="background-color: #d6d6d6;" class="color-block"></span> <span>gray84</span><br>
+            <span style="background-color: #d9d9d9;" class="color-block"></span> <span>gray85</span><br>
+            <span style="background-color: #dbdbdb;" class="color-block"></span> <span>gray86</span><br>
+            <span style="background-color: #dedede;" class="color-block"></span> <span>gray87</span><br>
+            <span style="background-color: #e0e0e0;" class="color-block"></span> <span>gray88</span><br>
+            <span style="background-color: #e3e3e3;" class="color-block"></span> <span>gray89</span><br>
+            <span style="background-color: #171717;" class="color-block"></span> <span>gray9</span><br>
+            <span style="background-color: #e5e5e5;" class="color-block"></span> <span>gray90</span><br>
+            <span style="background-color: #e8e8e8;" class="color-block"></span> <span>gray91</span><br>
+            <span style="background-color: #ebebeb;" class="color-block"></span> <span>gray92</span><br>
+            <span style="background-color: #ededed;" class="color-block"></span> <span>gray93</span><br>
+            <span style="background-color: #f0f0f0;" class="color-block"></span> <span>gray94</span><br>
+            <span style="background-color: #f2f2f2;" class="color-block"></span> <span>gray95</span><br>
+            <span style="background-color: #f5f5f5;" class="color-block"></span> <span>gray96</span><br>
+            <span style="background-color: #f7f7f7;" class="color-block"></span> <span>gray97</span><br>
+            <span style="background-color: #fafafa;" class="color-block"></span> <span>gray98</span><br>
+            <span style="background-color: #fcfcfc;" class="color-block"></span> <span>gray99</span><br>
+            <span style="background-color: #00ff00;" class="color-block"></span> <span>green</span><br>
+            <span style="background-color: #eef3e2;" class="color-block"></span> <span>green veil</span><br>
+            <span style="background-color: #00ff00;" class="color-block"></span> <span>green1</span><br>
+            <span style="background-color: #00ee00;" class="color-block"></span> <span>green2</span><br>
+            <span style="background-color: #00cd00;" class="color-block"></span> <span>green3</span><br>
+            <span style="background-color: #008b00;" class="color-block"></span> <span>green4</span><br>
+            <span style="background-color: #adff2f;" class="color-block"></span> <span>greenyellow</span><br>
+            <span style="background-color: #bebebe;" class="color-block"></span> <span>grey</span><br>
+            <span style="background-color: #000000;" class="color-block"></span> <span>grey0</span><br>
+            <span style="background-color: #030303;" class="color-block"></span> <span>grey1</span><br>
+            <span style="background-color: #1a1a1a;" class="color-block"></span> <span>grey10</span><br>
+            <span style="background-color: #ffffff;" class="color-block"></span> <span>grey100</span><br>
+            <span style="background-color: #1c1c1c;" class="color-block"></span> <span>grey11</span><br>
+            <span style="background-color: #1f1f1f;" class="color-block"></span> <span>grey12</span><br>
+            <span style="background-color: #212121;" class="color-block"></span> <span>grey13</span><br>
+            <span style="background-color: #242424;" class="color-block"></span> <span>grey14</span><br>
+            <span style="background-color: #262626;" class="color-block"></span> <span>grey15</span><br>
+            <span style="background-color: #292929;" class="color-block"></span> <span>grey16</span><br>
+            <span style="background-color: #2b2b2b;" class="color-block"></span> <span>grey17</span><br>
+            <span style="background-color: #2e2e2e;" class="color-block"></span> <span>grey18</span><br>
+            <span style="background-color: #303030;" class="color-block"></span> <span>grey19</span><br>
+            <span style="background-color: #050505;" class="color-block"></span> <span>grey2</span><br>
+            <span style="background-color: #333333;" class="color-block"></span> <span>grey20</span><br>
+            <span style="background-color: #363636;" class="color-block"></span> <span>grey21</span><br>
+            <span style="background-color: #383838;" class="color-block"></span> <span>grey22</span><br>
+            <span style="background-color: #3b3b3b;" class="color-block"></span> <span>grey23</span><br>
+            <span style="background-color: #3d3d3d;" class="color-block"></span> <span>grey24</span><br>
+            <span style="background-color: #404040;" class="color-block"></span> <span>grey25</span><br>
+            <span style="background-color: #424242;" class="color-block"></span> <span>grey26</span><br>
+            <span style="background-color: #454545;" class="color-block"></span> <span>grey27</span><br>
+            <span style="background-color: #474747;" class="color-block"></span> <span>grey28</span><br>
+            <span style="background-color: #4a4a4a;" class="color-block"></span> <span>grey29</span><br>
+            <span style="background-color: #080808;" class="color-block"></span> <span>grey3</span><br>
+            <span style="background-color: #4d4d4d;" class="color-block"></span> <span>grey30</span><br>
+            <span style="background-color: #4f4f4f;" class="color-block"></span> <span>grey31</span><br>
+            <span style="background-color: #525252;" class="color-block"></span> <span>grey32</span><br>
+            <span style="background-color: #545454;" class="color-block"></span> <span>grey33</span><br>
+            <span style="background-color: #575757;" class="color-block"></span> <span>grey34</span><br>
+            <span style="background-color: #595959;" class="color-block"></span> <span>grey35</span><br>
+            <span style="background-color: #5c5c5c;" class="color-block"></span> <span>grey36</span><br>
+            <span style="background-color: #5e5e5e;" class="color-block"></span> <span>grey37</span><br>
+            <span style="background-color: #616161;" class="color-block"></span> <span>grey38</span><br>
+        </div>
+        <div class="col">
+            <span style="background-color: #636363;" class="color-block"></span> <span>grey39</span><br>
+            <span style="background-color: #0a0a0a;" class="color-block"></span> <span>grey4</span><br>
+            <span style="background-color: #666666;" class="color-block"></span> <span>grey40</span><br>
+            <span style="background-color: #696969;" class="color-block"></span> <span>grey41</span><br>
+            <span style="background-color: #6b6b6b;" class="color-block"></span> <span>grey42</span><br>
+            <span style="background-color: #6e6e6e;" class="color-block"></span> <span>grey43</span><br>
+            <span style="background-color: #707070;" class="color-block"></span> <span>grey44</span><br>
+            <span style="background-color: #737373;" class="color-block"></span> <span>grey45</span><br>
+            <span style="background-color: #757575;" class="color-block"></span> <span>grey46</span><br>
+            <span style="background-color: #787878;" class="color-block"></span> <span>grey47</span><br>
+            <span style="background-color: #7a7a7a;" class="color-block"></span> <span>grey48</span><br>
+            <span style="background-color: #7d7d7d;" class="color-block"></span> <span>grey49</span><br>
+            <span style="background-color: #0d0d0d;" class="color-block"></span> <span>grey5</span><br>
+            <span style="background-color: #7f7f7f;" class="color-block"></span> <span>grey50</span><br>
+            <span style="background-color: #828282;" class="color-block"></span> <span>grey51</span><br>
+            <span style="background-color: #858585;" class="color-block"></span> <span>grey52</span><br>
+            <span style="background-color: #878787;" class="color-block"></span> <span>grey53</span><br>
+            <span style="background-color: #8a8a8a;" class="color-block"></span> <span>grey54</span><br>
+            <span style="background-color: #8c8c8c;" class="color-block"></span> <span>grey55</span><br>
+            <span style="background-color: #8f8f8f;" class="color-block"></span> <span>grey56</span><br>
+            <span style="background-color: #919191;" class="color-block"></span> <span>grey57</span><br>
+            <span style="background-color: #949494;" class="color-block"></span> <span>grey58</span><br>
+            <span style="background-color: #969696;" class="color-block"></span> <span>grey59</span><br>
+            <span style="background-color: #0f0f0f;" class="color-block"></span> <span>grey6</span><br>
+            <span style="background-color: #999999;" class="color-block"></span> <span>grey60</span><br>
+            <span style="background-color: #9c9c9c;" class="color-block"></span> <span>grey61</span><br>
+            <span style="background-color: #9e9e9e;" class="color-block"></span> <span>grey62</span><br>
+            <span style="background-color: #a1a1a1;" class="color-block"></span> <span>grey63</span><br>
+            <span style="background-color: #a3a3a3;" class="color-block"></span> <span>grey64</span><br>
+            <span style="background-color: #a6a6a6;" class="color-block"></span> <span>grey65</span><br>
+            <span style="background-color: #a8a8a8;" class="color-block"></span> <span>grey66</span><br>
+            <span style="background-color: #ababab;" class="color-block"></span> <span>grey67</span><br>
+            <span style="background-color: #adadad;" class="color-block"></span> <span>grey68</span><br>
+            <span style="background-color: #b0b0b0;" class="color-block"></span> <span>grey69</span><br>
+            <span style="background-color: #121212;" class="color-block"></span> <span>grey7</span><br>
+            <span style="background-color: #b3b3b3;" class="color-block"></span> <span>grey70</span><br>
+            <span style="background-color: #b5b5b5;" class="color-block"></span> <span>grey71</span><br>
+            <span style="background-color: #b8b8b8;" class="color-block"></span> <span>grey72</span><br>
+            <span style="background-color: #bababa;" class="color-block"></span> <span>grey73</span><br>
+            <span style="background-color: #bdbdbd;" class="color-block"></span> <span>grey74</span><br>
+            <span style="background-color: #bfbfbf;" class="color-block"></span> <span>grey75</span><br>
+            <span style="background-color: #c2c2c2;" class="color-block"></span> <span>grey76</span><br>
+            <span style="background-color: #c4c4c4;" class="color-block"></span> <span>grey77</span><br>
+            <span style="background-color: #c7c7c7;" class="color-block"></span> <span>grey78</span><br>
+            <span style="background-color: #c9c9c9;" class="color-block"></span> <span>grey79</span><br>
+            <span style="background-color: #141414;" class="color-block"></span> <span>grey8</span><br>
+            <span style="background-color: #cccccc;" class="color-block"></span> <span>grey80</span><br>
+            <span style="background-color: #cfcfcf;" class="color-block"></span> <span>grey81</span><br>
+            <span style="background-color: #d1d1d1;" class="color-block"></span> <span>grey82</span><br>
+            <span style="background-color: #d4d4d4;" class="color-block"></span> <span>grey83</span><br>
+            <span style="background-color: #d6d6d6;" class="color-block"></span> <span>grey84</span><br>
+            <span style="background-color: #d9d9d9;" class="color-block"></span> <span>grey85</span><br>
+            <span style="background-color: #dbdbdb;" class="color-block"></span> <span>grey86</span><br>
+            <span style="background-color: #dedede;" class="color-block"></span> <span>grey87</span><br>
+            <span style="background-color: #e0e0e0;" class="color-block"></span> <span>grey88</span><br>
+            <span style="background-color: #e3e3e3;" class="color-block"></span> <span>grey89</span><br>
+            <span style="background-color: #171717;" class="color-block"></span> <span>grey9</span><br>
+            <span style="background-color: #e5e5e5;" class="color-block"></span> <span>grey90</span><br>
+            <span style="background-color: #e8e8e8;" class="color-block"></span> <span>grey91</span><br>
+            <span style="background-color: #ebebeb;" class="color-block"></span> <span>grey92</span><br>
+            <span style="background-color: #ededed;" class="color-block"></span> <span>grey93</span><br>
+            <span style="background-color: #f0f0f0;" class="color-block"></span> <span>grey94</span><br>
+            <span style="background-color: #f2f2f2;" class="color-block"></span> <span>grey95</span><br>
+            <span style="background-color: #f5f5f5;" class="color-block"></span> <span>grey96</span><br>
+            <span style="background-color: #f7f7f7;" class="color-block"></span> <span>grey97</span><br>
+            <span style="background-color: #fafafa;" class="color-block"></span> <span>grey98</span><br>
+            <span style="background-color: #fcfcfc;" class="color-block"></span> <span>grey99</span><br>
+            <span style="background-color: #f0fff0;" class="color-block"></span> <span>honeydew</span><br>
+            <span style="background-color: #f0fff0;" class="color-block"></span> <span>honeydew1</span><br>
+            <span style="background-color: #e0eee0;" class="color-block"></span> <span>honeydew2</span><br>
+            <span style="background-color: #c1cdc1;" class="color-block"></span> <span>honeydew3</span><br>
+            <span style="background-color: #838b83;" class="color-block"></span> <span>honeydew4</span><br>
+            <span style="background-color: #ff69b4;" class="color-block"></span> <span>hotpink</span><br>
+            <span style="background-color: #ff6eb4;" class="color-block"></span> <span>hotpink1</span><br>
+            <span style="background-color: #ee6aa7;" class="color-block"></span> <span>hotpink2</span><br>
+            <span style="background-color: #cd6090;" class="color-block"></span> <span>hotpink3</span><br>
+            <span style="background-color: #8b3a62;" class="color-block"></span> <span>hotpink4</span><br>
+            <span style="background-color: #cd5c5c;" class="color-block"></span> <span>indianred</span><br>
+            <span style="background-color: #ff6a6a;" class="color-block"></span> <span>indianred1</span><br>
+            <span style="background-color: #ee6363;" class="color-block"></span> <span>indianred2</span><br>
+            <span style="background-color: #cd5555;" class="color-block"></span> <span>indianred3</span><br>
+            <span style="background-color: #8b3a3a;" class="color-block"></span> <span>indianred4</span><br>
+            <span style="background-color: #4b0082;" class="color-block"></span> <span>indigo</span><br>
+            <span style="background-color: #218868;" class="color-block"></span> <span>indigo2</span><br>
+            <span style="background-color: #fffff0;" class="color-block"></span> <span>ivory</span><br>
+            <span style="background-color: #fdfcdc;" class="color-block"></span> <span>ivory tusk</span><br>
+            <span style="background-color: #fffff0;" class="color-block"></span> <span>ivory1</span><br>
+            <span style="background-color: #eeeee0;" class="color-block"></span> <span>ivory2</span><br>
+            <span style="background-color: #cdcdc1;" class="color-block"></span> <span>ivory3</span><br>
+            <span style="background-color: #8b8b83;" class="color-block"></span> <span>ivory4</span><br>
+            <span style="background-color: #f0e68c;" class="color-block"></span> <span>khaki</span><br>
+            <span style="background-color: #fff68f;" class="color-block"></span> <span>khaki1</span><br>
+            <span style="background-color: #eee685;" class="color-block"></span> <span>khaki2</span><br>
+            <span style="background-color: #cdc673;" class="color-block"></span> <span>khaki3</span><br>
+            <span style="background-color: #8b864e;" class="color-block"></span> <span>khaki4</span><br>
+            <span style="background-color: #e6e6fa;" class="color-block"></span> <span>lavender</span><br>
+            <span style="background-color: #fff0f5;" class="color-block"></span> <span>lavenderblush</span><br>
+            <span style="background-color: #fff0f5;" class="color-block"></span> <span>lavenderblush1</span><br>
+            <span style="background-color: #eee0e5;" class="color-block"></span> <span>lavenderblush2</span><br>
+            <span style="background-color: #cdc1c5;" class="color-block"></span> <span>lavenderblush3</span><br>
+            <span style="background-color: #8b8386;" class="color-block"></span> <span>lavenderblush4</span><br>
+            <span style="background-color: #7cfc00;" class="color-block"></span> <span>lawngreen</span><br>
+            <span style="background-color: #fffacd;" class="color-block"></span> <span>lemonchiffon</span><br>
+            <span style="background-color: #fffacd;" class="color-block"></span> <span>lemonchiffon1</span><br>
+            <span style="background-color: #eee9bf;" class="color-block"></span> <span>lemonchiffon2</span><br>
+            <span style="background-color: #cdc9a5;" class="color-block"></span> <span>lemonchiffon3</span><br>
+            <span style="background-color: #8b8970;" class="color-block"></span> <span>lemonchiffon4</span><br>
+            <span style="background-color: #ffeeca;" class="color-block"></span> <span>light adobe</span><br>
+            <span style="background-color: #feffef;" class="color-block"></span> <span>light sand</span><br>
+            <span style="background-color: #add8e6;" class="color-block"></span> <span>lightblue</span><br>
+            <span style="background-color: #bfefff;" class="color-block"></span> <span>lightblue1</span><br>
+            <span style="background-color: #b2dfee;" class="color-block"></span> <span>lightblue2</span><br>
+            <span style="background-color: #9ac0cd;" class="color-block"></span> <span>lightblue3</span><br>
+            <span style="background-color: #68838b;" class="color-block"></span> <span>lightblue4</span><br>
+            <span style="background-color: #f08080;" class="color-block"></span> <span>lightcoral</span><br>
+            <span style="background-color: #e0ffff;" class="color-block"></span> <span>lightcyan</span><br>
+            <span style="background-color: #e0ffff;" class="color-block"></span> <span>lightcyan1</span><br>
+            <span style="background-color: #d1eeee;" class="color-block"></span> <span>lightcyan2</span><br>
+            <span style="background-color: #b4cdcd;" class="color-block"></span> <span>lightcyan3</span><br>
+            <span style="background-color: #7a8b8b;" class="color-block"></span> <span>lightcyan4</span><br>
+            <span style="background-color: #eedd82;" class="color-block"></span> <span>lightgoldenrod</span><br>
+            <span style="background-color: #ffec8b;" class="color-block"></span> <span>lightgoldenrod1</span><br>
+            <span style="background-color: #eedc82;" class="color-block"></span> <span>lightgoldenrod2</span><br>
+            <span style="background-color: #cdbe70;" class="color-block"></span> <span>lightgoldenrod3</span><br>
+            <span style="background-color: #8b814c;" class="color-block"></span> <span>lightgoldenrod4</span><br>
+            <span style="background-color: #fafad2;" class="color-block"></span> <span>lightgoldenrodyellow</span><br>
+            <span style="background-color: #d3d3d3;" class="color-block"></span> <span>lightgray</span><br>
+            <span style="background-color: #90ee90;" class="color-block"></span> <span>lightgreen</span><br>
+            <span style="background-color: #d3d3d3;" class="color-block"></span> <span>lightgrey</span><br>
+            <span style="background-color: #ffb6c1;" class="color-block"></span> <span>lightpink</span><br>
+            <span style="background-color: #ffaeb9;" class="color-block"></span> <span>lightpink1</span><br>
+            <span style="background-color: #eea2ad;" class="color-block"></span> <span>lightpink2</span><br>
+            <span style="background-color: #cd8c95;" class="color-block"></span> <span>lightpink3</span><br>
+            <span style="background-color: #8b5f65;" class="color-block"></span> <span>lightpink4</span><br>
+            <span style="background-color: #ffa07a;" class="color-block"></span> <span>lightsalmon</span><br>
+            <span style="background-color: #ffa07a;" class="color-block"></span> <span>lightsalmon1</span><br>
+            <span style="background-color: #ee9572;" class="color-block"></span> <span>lightsalmon2</span><br>
+            <span style="background-color: #cd8162;" class="color-block"></span> <span>lightsalmon3</span><br>
+            <span style="background-color: #8b5742;" class="color-block"></span> <span>lightsalmon4</span><br>
+            <span style="background-color: #20b2aa;" class="color-block"></span> <span>lightseagreen</span><br>
+            <span style="background-color: #87cefa;" class="color-block"></span> <span>lightskyblue</span><br>
+            <span style="background-color: #b0e2ff;" class="color-block"></span> <span>lightskyblue1</span><br>
+            <span style="background-color: #a4d3ee;" class="color-block"></span> <span>lightskyblue2</span><br>
+            <span style="background-color: #8db6cd;" class="color-block"></span> <span>lightskyblue3</span><br>
+            <span style="background-color: #607b8b;" class="color-block"></span> <span>lightskyblue4</span><br>
+            <span style="background-color: #8470ff;" class="color-block"></span> <span>lightslateblue</span><br>
+            <span style="background-color: #778899;" class="color-block"></span> <span>lightslategray</span><br>
+            <span style="background-color: #778899;" class="color-block"></span> <span>lightslategrey</span><br>
+            <span style="background-color: #b0c4de;" class="color-block"></span> <span>lightsteelblue</span><br>
+            <span style="background-color: #cae1ff;" class="color-block"></span> <span>lightsteelblue1</span><br>
+            <span style="background-color: #bcd2ee;" class="color-block"></span> <span>lightsteelblue2</span><br>
+            <span style="background-color: #a2b5cd;" class="color-block"></span> <span>lightsteelblue3</span><br>
+            <span style="background-color: #6e7b8b;" class="color-block"></span> <span>lightsteelblue4</span><br>
+        </div>
+        <div class="col">
+            <span style="background-color: #ffffe0;" class="color-block"></span> <span>lightyellow</span><br>
+            <span style="background-color: #ffffe0;" class="color-block"></span> <span>lightyellow1</span><br>
+            <span style="background-color: #eeeed1;" class="color-block"></span> <span>lightyellow2</span><br>
+            <span style="background-color: #cdcdb4;" class="color-block"></span> <span>lightyellow3</span><br>
+            <span style="background-color: #8b8b7a;" class="color-block"></span> <span>lightyellow4</span><br>
+            <span style="background-color: #32cd32;" class="color-block"></span> <span>limegreen</span><br>
+            <span style="background-color: #faf0e6;" class="color-block"></span> <span>linen</span><br>
+            <span style="background-color: #ff00ff;" class="color-block"></span> <span>magenta</span><br>
+            <span style="background-color: #ff00ff;" class="color-block"></span> <span>magenta1</span><br>
+            <span style="background-color: #ee00ee;" class="color-block"></span> <span>magenta2</span><br>
+            <span style="background-color: #cd00cd;" class="color-block"></span> <span>magenta3</span><br>
+            <span style="background-color: #8b008b;" class="color-block"></span> <span>magenta4</span><br>
+            <span style="background-color: #b03060;" class="color-block"></span> <span>maroon</span><br>
+            <span style="background-color: #ff34b3;" class="color-block"></span> <span>maroon1</span><br>
+            <span style="background-color: #ee30a7;" class="color-block"></span> <span>maroon2</span><br>
+            <span style="background-color: #cd2990;" class="color-block"></span> <span>maroon3</span><br>
+            <span style="background-color: #8b1c62;" class="color-block"></span> <span>maroon4</span><br>
+            <span style="background-color: #66cdaa;" class="color-block"></span> <span>mediumaquamarine</span><br>
+            <span style="background-color: #0000cd;" class="color-block"></span> <span>mediumblue</span><br>
+            <span style="background-color: #ba55d3;" class="color-block"></span> <span>mediumorchid</span><br>
+            <span style="background-color: #e066ff;" class="color-block"></span> <span>mediumorchid1</span><br>
+            <span style="background-color: #d15fee;" class="color-block"></span> <span>mediumorchid2</span><br>
+            <span style="background-color: #b452cd;" class="color-block"></span> <span>mediumorchid3</span><br>
+            <span style="background-color: #7a378b;" class="color-block"></span> <span>mediumorchid4</span><br>
+            <span style="background-color: #9370db;" class="color-block"></span> <span>mediumpurple</span><br>
+            <span style="background-color: #ab82ff;" class="color-block"></span> <span>mediumpurple1</span><br>
+            <span style="background-color: #9f79ee;" class="color-block"></span> <span>mediumpurple2</span><br>
+            <span style="background-color: #8968cd;" class="color-block"></span> <span>mediumpurple3</span><br>
+            <span style="background-color: #5d478b;" class="color-block"></span> <span>mediumpurple4</span><br>
+            <span style="background-color: #3cb371;" class="color-block"></span> <span>mediumseagreen</span><br>
+            <span style="background-color: #7b68ee;" class="color-block"></span> <span>mediumslateblue</span><br>
+            <span style="background-color: #00fa9a;" class="color-block"></span> <span>mediumspringgreen</span><br>
+            <span style="background-color: #48d1cc;" class="color-block"></span> <span>mediumturquoise</span><br>
+            <span style="background-color: #c71585;" class="color-block"></span> <span>mediumvioletred</span><br>
+            <span style="background-color: #191970;" class="color-block"></span> <span>midnightblue</span><br>
+            <span style="background-color: #f5fffa;" class="color-block"></span> <span>mintcream</span><br>
+            <span style="background-color: #ffe4e1;" class="color-block"></span> <span>mistyrose</span><br>
+            <span style="background-color: #ffe4e1;" class="color-block"></span> <span>mistyrose1</span><br>
+            <span style="background-color: #eed5d2;" class="color-block"></span> <span>mistyrose2</span><br>
+            <span style="background-color: #cdb7b5;" class="color-block"></span> <span>mistyrose3</span><br>
+            <span style="background-color: #8b7d7b;" class="color-block"></span> <span>mistyrose4</span><br>
+            <span style="background-color: #ffe4b5;" class="color-block"></span> <span>moccasin</span><br>
+            <span style="background-color: #fdf2ee;" class="color-block"></span> <span>morning fog</span><br>
+            <span style="background-color: #ffdead;" class="color-block"></span> <span>navajowhite</span><br>
+            <span style="background-color: #ffdead;" class="color-block"></span> <span>navajowhite1</span><br>
+            <span style="background-color: #eecfa1;" class="color-block"></span> <span>navajowhite2</span><br>
+            <span style="background-color: #cdb38b;" class="color-block"></span> <span>navajowhite3</span><br>
+            <span style="background-color: #8b795e;" class="color-block"></span> <span>navajowhite4</span><br>
+            <span style="background-color: #000080;" class="color-block"></span> <span>navy</span><br>
+            <span style="background-color: #000080;" class="color-block"></span> <span>navyblue</span><br>
+            <span style="background-color: #fdf5e6;" class="color-block"></span> <span>oldlace</span><br>
+            <span style="background-color: #6b8e23;" class="color-block"></span> <span>olivedrab</span><br>
+            <span style="background-color: #c0ff3e;" class="color-block"></span> <span>olivedrab1</span><br>
+            <span style="background-color: #b3ee3a;" class="color-block"></span> <span>olivedrab2</span><br>
+            <span style="background-color: #9acd32;" class="color-block"></span> <span>olivedrab3</span><br>
+            <span style="background-color: #698b22;" class="color-block"></span> <span>olivedrab4</span><br>
+            <span style="background-color: #ffa500;" class="color-block"></span> <span>orange</span><br>
+            <span style="background-color: #ffa500;" class="color-block"></span> <span>orange1</span><br>
+            <span style="background-color: #ee9a00;" class="color-block"></span> <span>orange2</span><br>
+            <span style="background-color: #cd8500;" class="color-block"></span> <span>orange3</span><br>
+            <span style="background-color: #8b5a00;" class="color-block"></span> <span>orange4</span><br>
+            <span style="background-color: #ff4500;" class="color-block"></span> <span>orangered</span><br>
+            <span style="background-color: #ff4500;" class="color-block"></span> <span>orangered1</span><br>
+            <span style="background-color: #ee4000;" class="color-block"></span> <span>orangered2</span><br>
+            <span style="background-color: #cd3700;" class="color-block"></span> <span>orangered3</span><br>
+            <span style="background-color: #8b2500;" class="color-block"></span> <span>orangered4</span><br>
+            <span style="background-color: #da70d6;" class="color-block"></span> <span>orchid</span><br>
+            <span style="background-color: #ff83fa;" class="color-block"></span> <span>orchid1</span><br>
+            <span style="background-color: #ee7ae9;" class="color-block"></span> <span>orchid2</span><br>
+            <span style="background-color: #cd69c9;" class="color-block"></span> <span>orchid3</span><br>
+            <span style="background-color: #8b4789;" class="color-block"></span> <span>orchid4</span><br>
+            <span style="background-color: #fef1e9;" class="color-block"></span> <span>ostrich feather</span><br>
+            <span style="background-color: #fbf5e6;" class="color-block"></span> <span>pale olive</span><br>
+            <span style="background-color: #eee8aa;" class="color-block"></span> <span>palegoldenrod</span><br>
+            <span style="background-color: #98fb98;" class="color-block"></span> <span>palegreen</span><br>
+            <span style="background-color: #9aff9a;" class="color-block"></span> <span>palegreen1</span><br>
+            <span style="background-color: #90ee90;" class="color-block"></span> <span>palegreen2</span><br>
+            <span style="background-color: #7ccd7c;" class="color-block"></span> <span>palegreen3</span><br>
+            <span style="background-color: #548b54;" class="color-block"></span> <span>palegreen4</span><br>
+            <span style="background-color: #afeeee;" class="color-block"></span> <span>paleturquoise</span><br>
+            <span style="background-color: #bbffff;" class="color-block"></span> <span>paleturquoise1</span><br>
+            <span style="background-color: #aeeeee;" class="color-block"></span> <span>paleturquoise2</span><br>
+            <span style="background-color: #96cdcd;" class="color-block"></span> <span>paleturquoise3</span><br>
+            <span style="background-color: #668b8b;" class="color-block"></span> <span>paleturquoise4</span><br>
+            <span style="background-color: #db7093;" class="color-block"></span> <span>palevioletred</span><br>
+            <span style="background-color: #ff82ab;" class="color-block"></span> <span>palevioletred1</span><br>
+            <span style="background-color: #ee799f;" class="color-block"></span> <span>palevioletred2</span><br>
+            <span style="background-color: #cd6889;" class="color-block"></span> <span>palevioletred3</span><br>
+            <span style="background-color: #8b475d;" class="color-block"></span> <span>palevioletred4</span><br>
+            <span style="background-color: #ffefd5;" class="color-block"></span> <span>papayawhip</span><br>
+            <span style="background-color: #ffdab9;" class="color-block"></span> <span>peachpuff</span><br>
+            <span style="background-color: #ffdab9;" class="color-block"></span> <span>peachpuff1</span><br>
+            <span style="background-color: #eecbad;" class="color-block"></span> <span>peachpuff2</span><br>
+            <span style="background-color: #cdaf95;" class="color-block"></span> <span>peachpuff3</span><br>
+            <span style="background-color: #8b7765;" class="color-block"></span> <span>peachpuff4</span><br>
+            <span style="background-color: #fffff2;" class="color-block"></span> <span>pearly gates</span><br>
+            <span style="background-color: #cd853f;" class="color-block"></span> <span>peru</span><br>
+            <span style="background-color: #ffc0cb;" class="color-block"></span> <span>pink</span><br>
+            <span style="background-color: #ffb5c5;" class="color-block"></span> <span>pink1</span><br>
+            <span style="background-color: #eea9b8;" class="color-block"></span> <span>pink2</span><br>
+            <span style="background-color: #cd919e;" class="color-block"></span> <span>pink3</span><br>
+            <span style="background-color: #8b636c;" class="color-block"></span> <span>pink4</span><br>
+            <span style="background-color: #fffffe;" class="color-block"></span> <span>plantation white</span><br>
+            <span style="background-color: #dda0dd;" class="color-block"></span> <span>plum</span><br>
+            <span style="background-color: #ffbbff;" class="color-block"></span> <span>plum1</span><br>
+            <span style="background-color: #eeaeee;" class="color-block"></span> <span>plum2</span><br>
+            <span style="background-color: #cd96cd;" class="color-block"></span> <span>plum3</span><br>
+            <span style="background-color: #8b668b;" class="color-block"></span> <span>plum4</span><br>
+            <span style="background-color: #fef9ed;" class="color-block"></span> <span>porcelain white</span><br>
+            <span style="background-color: #b0e0e6;" class="color-block"></span> <span>powderblue</span><br>
+            <span style="background-color: #a020f0;" class="color-block"></span> <span>purple</span><br>
+            <span style="background-color: #9b30ff;" class="color-block"></span> <span>purple1</span><br>
+            <span style="background-color: #912cee;" class="color-block"></span> <span>purple2</span><br>
+            <span style="background-color: #7d26cd;" class="color-block"></span> <span>purple3</span><br>
+            <span style="background-color: #551a8b;" class="color-block"></span> <span>purple4</span><br>
+            <span style="background-color: #ff0000;" class="color-block"></span> <span>red</span><br>
+            <span style="background-color: #ff0000;" class="color-block"></span> <span>red1</span><br>
+            <span style="background-color: #ee0000;" class="color-block"></span> <span>red2</span><br>
+            <span style="background-color: #cd0000;" class="color-block"></span> <span>red3</span><br>
+            <span style="background-color: #8b0000;" class="color-block"></span> <span>red4</span><br>
+            <span style="background-color: #bc8f8f;" class="color-block"></span> <span>rosybrown</span><br>
+            <span style="background-color: #ffc1c1;" class="color-block"></span> <span>rosybrown1</span><br>
+            <span style="background-color: #eeb4b4;" class="color-block"></span> <span>rosybrown2</span><br>
+            <span style="background-color: #cd9b9b;" class="color-block"></span> <span>rosybrown3</span><br>
+            <span style="background-color: #8b6969;" class="color-block"></span> <span>rosybrown4</span><br>
+            <span style="background-color: #4169e1;" class="color-block"></span> <span>royalblue</span><br>
+            <span style="background-color: #4876ff;" class="color-block"></span> <span>royalblue1</span><br>
+            <span style="background-color: #436eee;" class="color-block"></span> <span>royalblue2</span><br>
+            <span style="background-color: #3a5fcd;" class="color-block"></span> <span>royalblue3</span><br>
+            <span style="background-color: #27408b;" class="color-block"></span> <span>royalblue4</span><br>
+            <span style="background-color: #8b4513;" class="color-block"></span> <span>saddlebrown</span><br>
+            <span style="background-color: #fa8072;" class="color-block"></span> <span>salmon</span><br>
+            <span style="background-color: #ff8c69;" class="color-block"></span> <span>salmon1</span><br>
+            <span style="background-color: #ee8262;" class="color-block"></span> <span>salmon2</span><br>
+            <span style="background-color: #cd7054;" class="color-block"></span> <span>salmon3</span><br>
+            <span style="background-color: #8b4c39;" class="color-block"></span> <span>salmon4</span><br>
+            <span style="background-color: #fef5ca;" class="color-block"></span> <span>sand box</span><br>
+            <span style="background-color: #f4a460;" class="color-block"></span> <span>sandybrown</span><br>
+            <span style="background-color: #2e8b57;" class="color-block"></span> <span>seagreen</span><br>
+            <span style="background-color: #54ff9f;" class="color-block"></span> <span>seagreen1</span><br>
+            <span style="background-color: #4eee94;" class="color-block"></span> <span>seagreen2</span><br>
+            <span style="background-color: #43cd80;" class="color-block"></span> <span>seagreen3</span><br>
+            <span style="background-color: #2e8b57;" class="color-block"></span> <span>seagreen4</span><br>
+            <span style="background-color: #fff5ee;" class="color-block"></span> <span>seashell</span><br>
+            <span style="background-color: #fff5ee;" class="color-block"></span> <span>seashell1</span><br>
+            <span style="background-color: #eee5de;" class="color-block"></span> <span>seashell2</span><br>
+            <span style="background-color: #cdc5bf;" class="color-block"></span> <span>seashell3</span><br>
+            <span style="background-color: #8b8682;" class="color-block"></span> <span>seashell4</span><br>
+            <span style="background-color: #8e388e;" class="color-block"></span> <span>sgibeet</span><br>
+            <span style="background-color: #c5c1aa;" class="color-block"></span> <span>sgibrightgray</span><br>
+            <span style="background-color: #c5c1aa;" class="color-block"></span> <span>sgibrightgrey</span><br>
+            <span style="background-color: #71c671;" class="color-block"></span> <span>sgichartreuse</span><br>
+            <span style="background-color: #555555;" class="color-block"></span> <span>sgidarkgray</span><br>
+        </div>
+        <div class="col">
+            <span style="background-color: #555555;" class="color-block"></span> <span>sgidarkgrey</span><br>
+            <span style="background-color: #000000;" class="color-block"></span> <span>sgigray0</span><br>
+            <span style="background-color: #ffffff;" class="color-block"></span> <span>sgigray100</span><br>
+            <span style="background-color: #1e1e1e;" class="color-block"></span> <span>sgigray12</span><br>
+            <span style="background-color: #282828;" class="color-block"></span> <span>sgigray16</span><br>
+            <span style="background-color: #333333;" class="color-block"></span> <span>sgigray20</span><br>
+            <span style="background-color: #3d3d3d;" class="color-block"></span> <span>sgigray24</span><br>
+            <span style="background-color: #474747;" class="color-block"></span> <span>sgigray28</span><br>
+            <span style="background-color: #515151;" class="color-block"></span> <span>sgigray32</span><br>
+            <span style="background-color: #5b5b5b;" class="color-block"></span> <span>sgigray36</span><br>
+            <span style="background-color: #0a0a0a;" class="color-block"></span> <span>sgigray4</span><br>
+            <span style="background-color: #666666;" class="color-block"></span> <span>sgigray40</span><br>
+            <span style="background-color: #707070;" class="color-block"></span> <span>sgigray44</span><br>
+            <span style="background-color: #7a7a7a;" class="color-block"></span> <span>sgigray48</span><br>
+            <span style="background-color: #848484;" class="color-block"></span> <span>sgigray52</span><br>
+            <span style="background-color: #8e8e8e;" class="color-block"></span> <span>sgigray56</span><br>
+            <span style="background-color: #999999;" class="color-block"></span> <span>sgigray60</span><br>
+            <span style="background-color: #a3a3a3;" class="color-block"></span> <span>sgigray64</span><br>
+            <span style="background-color: #adadad;" class="color-block"></span> <span>sgigray68</span><br>
+            <span style="background-color: #b7b7b7;" class="color-block"></span> <span>sgigray72</span><br>
+            <span style="background-color: #c1c1c1;" class="color-block"></span> <span>sgigray76</span><br>
+            <span style="background-color: #141414;" class="color-block"></span> <span>sgigray8</span><br>
+            <span style="background-color: #cccccc;" class="color-block"></span> <span>sgigray80</span><br>
+            <span style="background-color: #d6d6d6;" class="color-block"></span> <span>sgigray84</span><br>
+            <span style="background-color: #e0e0e0;" class="color-block"></span> <span>sgigray88</span><br>
+            <span style="background-color: #eaeaea;" class="color-block"></span> <span>sgigray92</span><br>
+            <span style="background-color: #f4f4f4;" class="color-block"></span> <span>sgigray96</span><br>
+            <span style="background-color: #000000;" class="color-block"></span> <span>sgigrey0</span><br>
+            <span style="background-color: #ffffff;" class="color-block"></span> <span>sgigrey100</span><br>
+            <span style="background-color: #1e1e1e;" class="color-block"></span> <span>sgigrey12</span><br>
+            <span style="background-color: #282828;" class="color-block"></span> <span>sgigrey16</span><br>
+            <span style="background-color: #333333;" class="color-block"></span> <span>sgigrey20</span><br>
+            <span style="background-color: #3d3d3d;" class="color-block"></span> <span>sgigrey24</span><br>
+            <span style="background-color: #474747;" class="color-block"></span> <span>sgigrey28</span><br>
+            <span style="background-color: #515151;" class="color-block"></span> <span>sgigrey32</span><br>
+            <span style="background-color: #5b5b5b;" class="color-block"></span> <span>sgigrey36</span><br>
+            <span style="background-color: #0a0a0a;" class="color-block"></span> <span>sgigrey4</span><br>
+            <span style="background-color: #666666;" class="color-block"></span> <span>sgigrey40</span><br>
+            <span style="background-color: #707070;" class="color-block"></span> <span>sgigrey44</span><br>
+            <span style="background-color: #7a7a7a;" class="color-block"></span> <span>sgigrey48</span><br>
+            <span style="background-color: #848484;" class="color-block"></span> <span>sgigrey52</span><br>
+            <span style="background-color: #8e8e8e;" class="color-block"></span> <span>sgigrey56</span><br>
+            <span style="background-color: #999999;" class="color-block"></span> <span>sgigrey60</span><br>
+            <span style="background-color: #a3a3a3;" class="color-block"></span> <span>sgigrey64</span><br>
+            <span style="background-color: #adadad;" class="color-block"></span> <span>sgigrey68</span><br>
+            <span style="background-color: #b7b7b7;" class="color-block"></span> <span>sgigrey72</span><br>
+            <span style="background-color: #c1c1c1;" class="color-block"></span> <span>sgigrey76</span><br>
+            <span style="background-color: #141414;" class="color-block"></span> <span>sgigrey8</span><br>
+            <span style="background-color: #cccccc;" class="color-block"></span> <span>sgigrey80</span><br>
+            <span style="background-color: #d6d6d6;" class="color-block"></span> <span>sgigrey84</span><br>
+            <span style="background-color: #e0e0e0;" class="color-block"></span> <span>sgigrey88</span><br>
+            <span style="background-color: #eaeaea;" class="color-block"></span> <span>sgigrey92</span><br>
+            <span style="background-color: #f4f4f4;" class="color-block"></span> <span>sgigrey96</span><br>
+            <span style="background-color: #7d9ec0;" class="color-block"></span> <span>sgilightblue</span><br>
+            <span style="background-color: #aaaaaa;" class="color-block"></span> <span>sgilightgray</span><br>
+            <span style="background-color: #aaaaaa;" class="color-block"></span> <span>sgilightgrey</span><br>
+            <span style="background-color: #848484;" class="color-block"></span> <span>sgimediumgray</span><br>
+            <span style="background-color: #848484;" class="color-block"></span> <span>sgimediumgrey</span><br>
+            <span style="background-color: #8e8e38;" class="color-block"></span> <span>sgiolivedrab</span><br>
+            <span style="background-color: #c67171;" class="color-block"></span> <span>sgisalmon</span><br>
+            <span style="background-color: #7171c6;" class="color-block"></span> <span>sgislateblue</span><br>
+            <span style="background-color: #388e8e;" class="color-block"></span> <span>sgiteal</span><br>
+            <span style="background-color: #282828;" class="color-block"></span> <span>sgiverydarkgray</span><br>
+            <span style="background-color: #282828;" class="color-block"></span> <span>sgiverydarkgrey</span><br>
+            <span style="background-color: #d6d6d6;" class="color-block"></span> <span>sgiverylightgray</span><br>
+            <span style="background-color: #d6d6d6;" class="color-block"></span> <span>sgiverylightgrey</span><br>
+            <span style="background-color: #a0522d;" class="color-block"></span> <span>sienna</span><br>
+            <span style="background-color: #ff8247;" class="color-block"></span> <span>sienna1</span><br>
+            <span style="background-color: #ee7942;" class="color-block"></span> <span>sienna2</span><br>
+            <span style="background-color: #cd6839;" class="color-block"></span> <span>sienna3</span><br>
+            <span style="background-color: #8b4726;" class="color-block"></span> <span>sienna4</span><br>
+            <span style="background-color: #87ceeb;" class="color-block"></span> <span>skyblue</span><br>
+            <span style="background-color: #87ceff;" class="color-block"></span> <span>skyblue1</span><br>
+            <span style="background-color: #7ec0ee;" class="color-block"></span> <span>skyblue2</span><br>
+            <span style="background-color: #6ca6cd;" class="color-block"></span> <span>skyblue3</span><br>
+            <span style="background-color: #4a708b;" class="color-block"></span> <span>skyblue4</span><br>
+            <span style="background-color: #6a5acd;" class="color-block"></span> <span>slateblue</span><br>
+            <span style="background-color: #836fff;" class="color-block"></span> <span>slateblue1</span><br>
+            <span style="background-color: #7a67ee;" class="color-block"></span> <span>slateblue2</span><br>
+            <span style="background-color: #6959cd;" class="color-block"></span> <span>slateblue3</span><br>
+            <span style="background-color: #473c8b;" class="color-block"></span> <span>slateblue4</span><br>
+            <span style="background-color: #708090;" class="color-block"></span> <span>slategray</span><br>
+            <span style="background-color: #c6e2ff;" class="color-block"></span> <span>slategray1</span><br>
+            <span style="background-color: #b9d3ee;" class="color-block"></span> <span>slategray2</span><br>
+            <span style="background-color: #9fb6cd;" class="color-block"></span> <span>slategray3</span><br>
+            <span style="background-color: #6c7b8b;" class="color-block"></span> <span>slategray4</span><br>
+            <span style="background-color: #708090;" class="color-block"></span> <span>slategrey</span><br>
+            <span style="background-color: #fffafa;" class="color-block"></span> <span>snow</span><br>
+            <span style="background-color: #fffafa;" class="color-block"></span> <span>snow1</span><br>
+            <span style="background-color: #eee9e9;" class="color-block"></span> <span>snow2</span><br>
+            <span style="background-color: #cdc9c9;" class="color-block"></span> <span>snow3</span><br>
+            <span style="background-color: #8b8989;" class="color-block"></span> <span>snow4</span><br>
+            <span style="background-color: #00ff7f;" class="color-block"></span> <span>springgreen</span><br>
+            <span style="background-color: #00ff7f;" class="color-block"></span> <span>springgreen1</span><br>
+            <span style="background-color: #00ee76;" class="color-block"></span> <span>springgreen2</span><br>
+            <span style="background-color: #00cd66;" class="color-block"></span> <span>springgreen3</span><br>
+            <span style="background-color: #008b45;" class="color-block"></span> <span>springgreen4</span><br>
+            <span style="background-color: #4682b4;" class="color-block"></span> <span>steelblue</span><br>
+            <span style="background-color: #63b8ff;" class="color-block"></span> <span>steelblue1</span><br>
+            <span style="background-color: #5cacee;" class="color-block"></span> <span>steelblue2</span><br>
+            <span style="background-color: #4f94cd;" class="color-block"></span> <span>steelblue3</span><br>
+            <span style="background-color: #36648b;" class="color-block"></span> <span>steelblue4</span><br>
+            <span style="background-color: #fefff1;" class="color-block"></span> <span>subtle white</span><br>
+            <span style="background-color: #d2b48c;" class="color-block"></span> <span>tan</span><br>
+            <span style="background-color: #ffa54f;" class="color-block"></span> <span>tan1</span><br>
+            <span style="background-color: #ee9a49;" class="color-block"></span> <span>tan2</span><br>
+            <span style="background-color: #cd853f;" class="color-block"></span> <span>tan3</span><br>
+            <span style="background-color: #8b5a2b;" class="color-block"></span> <span>tan4</span><br>
+            <span style="background-color: #d8bfd8;" class="color-block"></span> <span>thistle</span><br>
+            <span style="background-color: #ffe1ff;" class="color-block"></span> <span>thistle1</span><br>
+            <span style="background-color: #eed2ee;" class="color-block"></span> <span>thistle2</span><br>
+            <span style="background-color: #cdb5cd;" class="color-block"></span> <span>thistle3</span><br>
+            <span style="background-color: #8b7b8b;" class="color-block"></span> <span>thistle4</span><br>
+            <span style="background-color: #f1edc2;" class="color-block"></span> <span>toasted meringue</span><br>
+            <span style="background-color: #ff6347;" class="color-block"></span> <span>tomato</span><br>
+            <span style="background-color: #ff6347;" class="color-block"></span> <span>tomato1</span><br>
+            <span style="background-color: #ee5c42;" class="color-block"></span> <span>tomato2</span><br>
+            <span style="background-color: #cd4f39;" class="color-block"></span> <span>tomato3</span><br>
+            <span style="background-color: #8b3626;" class="color-block"></span> <span>tomato4</span><br>
+            <span style="background-color: #40e0d0;" class="color-block"></span> <span>turquoise</span><br>
+            <span style="background-color: #00f5ff;" class="color-block"></span> <span>turquoise1</span><br>
+            <span style="background-color: #00e5ee;" class="color-block"></span> <span>turquoise2</span><br>
+            <span style="background-color: #00c5cd;" class="color-block"></span> <span>turquoise3</span><br>
+            <span style="background-color: #00868b;" class="color-block"></span> <span>turquoise4</span><br>
+            <span style="background-color: #ffffff;" class="color-block"></span> <span>ultra pure white</span><br>
+            <span style="background-color: #ee82ee;" class="color-block"></span> <span>violet</span><br>
+            <span style="background-color: #d02090;" class="color-block"></span> <span>violetred</span><br>
+            <span style="background-color: #ff3e96;" class="color-block"></span> <span>violetred1</span><br>
+            <span style="background-color: #ee3a8c;" class="color-block"></span> <span>violetred2</span><br>
+            <span style="background-color: #cd3278;" class="color-block"></span> <span>violetred3</span><br>
+            <span style="background-color: #8b2252;" class="color-block"></span> <span>violetred4</span><br>
+            <span style="background-color: #fef6e4;" class="color-block"></span> <span>warm shadow</span><br>
+            <span style="background-color: #fcf6cf;" class="color-block"></span> <span>warm summer</span><br>
+            <span style="background-color: #fffffd;" class="color-block"></span> <span>wedding veil</span><br>
+            <span style="background-color: #f5deb3;" class="color-block"></span> <span>wheat</span><br>
+            <span style="background-color: #ffe7ba;" class="color-block"></span> <span>wheat1</span><br>
+            <span style="background-color: #eed8ae;" class="color-block"></span> <span>wheat2</span><br>
+            <span style="background-color: #cdba96;" class="color-block"></span> <span>wheat3</span><br>
+            <span style="background-color: #8b7e66;" class="color-block"></span> <span>wheat4</span><br>
+            <span style="background-color: #ffffff;" class="color-block"></span> <span>white</span><br>
+            <span style="background-color: #fdfdf0;" class="color-block"></span> <span>white orchid</span><br>
+            <span style="background-color: #fffff3;" class="color-block"></span> <span>white sail</span><br>
+            <span style="background-color: #f5f5f5;" class="color-block"></span> <span>whitesmoke</span><br>
+            <span style="background-color: #ffff00;" class="color-block"></span> <span>yellow</span><br>
+            <span style="background-color: #ffff00;" class="color-block"></span> <span>yellow1</span><br>
+            <span style="background-color: #eeee00;" class="color-block"></span> <span>yellow2</span><br>
+            <span style="background-color: #cdcd00;" class="color-block"></span> <span>yellow3</span><br>
+            <span style="background-color: #8b8b00;" class="color-block"></span> <span>yellow4</span><br>
+            <span style="background-color: #9acd32;" class="color-block"></span> <span>yellowgreen</span><br>
+        </div>
+
+    </section>
+</body>
+</html>
