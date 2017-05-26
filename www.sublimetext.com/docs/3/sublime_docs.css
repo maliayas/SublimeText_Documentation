@@ -400,6 +400,32 @@ dl.enum dd dl dd
 
 }
 
+dl.repositories
+{
+
+}
+dl.repositories dt
+{
+    margin-left: 20px;
+    font-weight: bold;
+    color: #777;
+}
+dl.repositories dd
+{
+    margin-left: 20px;
+}
+dl.repositories dd pre
+{
+    margin-top: 8px;
+    white-space: pre-wrap;
+}
+
+pre.gpg-key
+{
+    margin-left: 20px;
+    white-space: pre-wrap;
+}
+
 /* CSS for prism.js */
 
 .token.comment,
