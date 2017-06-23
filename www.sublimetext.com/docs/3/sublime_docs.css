@@ -108,7 +108,12 @@ h5
 
 ul
 {
-    list-style-type: square
+    list-style-type: square;
+}
+ul ul
+{
+    padding-left: 20px;
+    list-style-type: circle;
 }
 
 a:link, a:visited, a:active
@@ -420,7 +425,8 @@ dl.repositories dd pre
     white-space: pre-wrap;
 }
 
-pre.gpg-key
+pre.gpg-key,
+pre.install
 {
     margin-left: 20px;
     white-space: pre-wrap;

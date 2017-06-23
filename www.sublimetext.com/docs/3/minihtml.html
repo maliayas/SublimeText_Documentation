@@ -39,6 +39,24 @@
             the same way in <span class="proper">minihtml</span> as in a
             browser.
         </p>
+
+        <ul>
+            <li>
+                <a href="minihtml.html#html">HTML</a>
+                <ul>
+                    <li><a href="minihtml.html#best_practices">Best Practices</a></li>
+                    <li><a href="minihtml.html#predefined_classes">Predefined Classes</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="minihtml.html#css">CSS</a>
+                <ul>
+                    <li><a href="minihtml.html#units">Units</a></li>
+                    <li><a href="minihtml.html#colors">Colors</a></li>
+                    <li><a href="minihtml.html#variables">Variables</a></li>
+                </ul>
+            </li>
+        </ul>
     </section>
 
     <section>
@@ -106,7 +124,7 @@
             </li>
             <li>
                 <code>&lt;img&gt;</code> – supports PNG, JPG and GIF images
-                from <code>http://</code>, <code>file://</code>,
+                from <code>file://</code>,
                 <code>res://</code> and <code>data:</code> URLs
             </li>
             <li>
@@ -121,7 +139,7 @@
             <code>&lt;button&gt;</code>, <code>&lt;table&gt;</code>, etc.
         </p>
 
-        <h3 id="html_best_practices">Best Practices</h3>
+        <h3 id="best_practices">Best Practices</h3>
 
         <p>
             To allow color scheme authors to tweak the look of popups and
@@ -147,6 +165,21 @@
     &lt;div class=&quot;error&quot;&gt;&lt;/div&gt;
 &lt;/body&gt;</code></pre>
 
+        <h3 id="predefined_classes">Predefined Classes</h3>
+
+        <p>
+            When minihtml processes the HTML markup, it will automatically
+            add a single class name to the <code>&lt;html&gt;</code> tag.
+            The class name will be <code>dark</code> or <code>light</code>,
+            and is designed to allow for advanced use of CSS in styling
+            phantoms and popups.
+        </p>
+        <p>
+            Which class is added is based on the lightness, in the HSL color space, of the background color of the current color scheme. If
+            the lightness is less than 0.5, <code>dark</code> will be added.
+            If the lightness is greater than or equal to 0.5, <code>light</code>
+            will be added.
+        </p>
 
     </section>
 
