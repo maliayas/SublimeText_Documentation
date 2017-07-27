@@ -114,8 +114,9 @@
             rule object contains a <code>class</code> key used to match to
             an element. In addition to the <code>class</code>, matching can
             be further restricted by specifying <code>attributes</code>,
-            <code>settings</code> and <code>parents</code> keys.
-            <em>Properties</em> affect the look or behavior of the element.
+            <code>settings</code>, <code>parents</code> and
+            <code>platforms</code> keys. <em>Properties</em> affect the look
+            or behavior of the element.
         </p>
 
         <p>
@@ -151,9 +152,16 @@
         </p>
 
         <p>
-            The <code>parents</code> key is an arrays of objects specifying
+            The <code>parents</code> key is an array of objects specifying
             the <code>class</code> and <code>attributes</code> that must
             be matched in a parent element.
+        </p>
+
+        <p>
+            The <code>platforms</code> key is an array of strings
+            specifying the what operating systems to apply the rule to.
+            Valid options include <code>"osx"</code>, <code>"windows"</code>,
+            and <code>"linux"</code>.
         </p>
 
         <p>
