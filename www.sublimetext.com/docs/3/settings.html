@@ -2,26 +2,64 @@
 <html>
 <head>
     <title>Settings – Sublime Text 3 Documentation</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Mono:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css">
+    <link rel="icon" href="http://www.sublimetext.com/favicon.ico">
+    <link rel="icon" size="64x64" href="http://www.sublimetext.com/favicon.ico">
+    <link rel="icon" sizes="192x192" href="http://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="http://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
 </head>
-<body>
-    <script src="prism.js"></script>
-
+<body class="docs">
     <header>
         <section>
+            <a id="logo" href="http://www.sublimetext.com/">
+                <img src="../../images/logo.svg" alt="Sublime Text">
+            </a>
             <nav>
-                <a href="https://sublimetext.com">Website</a>
+                <a href="http://www.sublimetext.com/3">Download</a>
+                <a href="http://www.sublimetext.com/buy?v=3.0">Buy</a>
+                <a href="http://www.sublimetext.com/blog/">News</a>
                 <a href="https://forum.sublimetext.com">Forum</a>
+                <a href="http://www.sublimetext.com/support">Support</a>
             </nav>
-            <div class="index">
-                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
-            </div>
-
-            <h1>Settings</h1>
         </section>
     </header>
+    <main>
+    <section>
+    <script src="prism.js"></script>
+
+    <h1><span>
+        <a href="index.html">Documentation</a>
+        Settings
+    </span></h1>
 
     <section>
         <p>
@@ -31,7 +69,7 @@
         <h2>Settings</h2>
 
         <p>
-            Settings are accessed via the <span class="menu">Preferences &#9656; Settings</span> menu item. The left-hand pane contains all of the default settings, along with a description of each. The right-hand pane is where customization can be saved.
+            Settings are accessed via the <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings</span> menu item. The left-hand pane contains all of the default settings, along with a description of each. The right-hand pane is where customization can be saved.
         </p>
 
         <h3>Settings Files</h3>
@@ -63,7 +101,7 @@
         </ol>
 
         <p>
-            In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>, which is opened in the right-hand pane when selecting the menu item <span class="menu">Preferences &#9656; Settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>. This can be accessed via the right-hand pane when a Python file is open, and the menu item <span class="menu">Preferences &#9656; Settings – Syntax Specific</span> is selected.
+            In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>, which is opened in the right-hand pane when selecting the menu item <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>. This can be accessed via the right-hand pane when a Python file is open, and the menu item <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings – Syntax Specific</span> is selected.
         </p>
 
         <h3>Per-syntax Settings</h3>
@@ -73,7 +111,7 @@
         </p>
 
         <p>
-            You can edit the settings for the syntax of the current file by selecting the <span class="menu">Preferences &#9656; Settings – Syntax Specific</span> menu item.
+            You can edit the settings for the syntax of the current file by selecting the <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings – Syntax Specific</span> menu item.
         </p>
 
         <h3>Per-project Settings</h3>
@@ -85,13 +123,13 @@
         <h3>Distraction Free Settings</h3>
 
         <p>
-            <a href="distraction_free.html">Distraction Free Mode</a> has an additional settings file applied (<span class="file">Distraction Free.sublime-settings</span>). You can place file settings in here to have them only apply when in Distraction Free Mode – access it from the <span class="menu">Preferences &#9656; Settings – Distraction Free</span> menu item.
+            <a href="distraction_free.html">Distraction Free Mode</a> has an additional settings file applied (<span class="file">Distraction Free.sublime-settings</span>). You can place file settings in here to have them only apply when in Distraction Free Mode – access it from the <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings – Distraction Free</span> menu item.
         </p>
 
         <h3>Changing Settings with a Key Binding</h3>
 
         <p>
-            The <span class="command">toggle_setting</span> command can be used to toggle a setting. For example, to make a key binding that toggles the <span class="setting">word_wrap</span> setting on the current file, you can use (in <span class="menu">Preferences &#9656; Key Bindings</span>):
+            The <span class="command">toggle_setting</span> command can be used to toggle a setting. For example, to make a key binding that toggles the <span class="setting">word_wrap</span> setting on the current file, you can use (in <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Key Bindings</span>):
         </p>
 
         <pre><code class="language-js">{
@@ -132,5 +170,18 @@
         <pre><code class="language-python">view.settings().get('font_face')</code></pre>
     </section>
 
+    </section>
+    </main>
+    <footer>
+        <section>
+            © Sublime HQ Pty Ltd
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
 </body>
 </html>

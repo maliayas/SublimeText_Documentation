@@ -2,28 +2,67 @@
 <html>
 <head>
     <title>API Reference – Sublime Text 3 Documentation</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Mono:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css">
+    <link rel="icon" href="http://www.sublimetext.com/favicon.ico">
+    <link rel="icon" size="64x64" href="http://www.sublimetext.com/favicon.ico">
+    <link rel="icon" sizes="192x192" href="http://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="http://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
 </head>
-<body>
-    <script src="prism.js"></script>
-
+<body class="docs">
     <header>
         <section>
+            <a id="logo" href="http://www.sublimetext.com/">
+                <img src="../../images/logo.svg" alt="Sublime Text">
+            </a>
             <nav>
-                <a href="https://sublimetext.com">Website</a>
+                <a href="http://www.sublimetext.com/3">Download</a>
+                <a href="http://www.sublimetext.com/buy?v=3.0">Buy</a>
+                <a href="http://www.sublimetext.com/blog/">News</a>
                 <a href="https://forum.sublimetext.com">Forum</a>
+                <a href="http://www.sublimetext.com/support">Support</a>
             </nav>
-            <div class="index">
-                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
-            </div>
-
-            <h1>API Reference</h1>
         </section>
     </header>
 
+    <main>
     <section>
+    <script src="prism.js"></script>
+
+    <h1><span>
+        <a href="index.html">Documentation</a>
+        API Reference
+    </span></h1>
+
+    <section class="wide">
         <div class="column">
             <h3>General Information</h3>
             <ul>
@@ -157,10 +196,10 @@
         </ul>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime"><code>sublime</code> Module</h2>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -328,6 +367,13 @@
                 </td>
             </tr>
             <tr>
+                <td class="mth">get_macro()</td>
+                <td class="rtn">[dict]</td>
+                <td class="dsc">
+                    Returns a list of the commands and args that compromise the currently recorded macro. Each <tt>dict</tt> will contain the keys <tt>command</tt> and <tt>args</tt>.
+                </td>
+            </tr>
+            <tr>
                 <td class="mth">log_commands(flag)</td>
                 <td class="rtn">None</td>
                 <td class="dsc">
@@ -372,14 +418,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.Sheet"><code>sublime.Sheet</code> Class</h2>
 
         <p>
             Represents a content container, i.e. a tab, within a window. Sheets may contain a <a href="api_reference.html#sublime.View">View</a>, or an image preview.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -409,14 +455,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.View"><code>sublime.View</code> Class</h2>
 
         <p>
             Represents a view into a text buffer. Note that multiple views may refer to the same buffer, but they have their own unique selection and geometry.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -1127,14 +1173,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.Selection"><code>sublime.Selection</code> Class</h2>
 
         <p>
             Maintains a set of Regions, ensuring that none overlap. The regions are kept in sorted order.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -1178,14 +1224,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.Region"><code>sublime.Region</code> Class</h2>
 
         <p>
-            Represents an area of the buffer. Empty regions, where a == b are valid.
+            Represents an area of the buffer. Empty regions, where <code>a == b</code> are valid.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Constructors</th>
                 <th>Description</th>
@@ -1198,7 +1244,7 @@
             </tr>
         </table>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Properties</th>
                 <th>Type</th>
@@ -1227,7 +1273,7 @@
             </tr>
         </table>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th><th>Return Value</th><th>Description</th></tr>
             <tr>
@@ -1296,7 +1342,7 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.Phantom"><code>sublime.Phantom</code> Class</h2>
 
         <p>
@@ -1304,7 +1350,7 @@
             phantoms to the View. Once a Phantom has been constructed and added to the View, changes to the attributes will have no effect.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Constructors</th>
                 <th>Description</th>
@@ -1338,14 +1384,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.PhantomSet"><code>sublime.PhantomSet</code> Class</h2>
 
         <p>
             A collection that manages Phantoms and the process of adding them, updating them and removing them from the View.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Constructors</th>
                 <th>Description</th>
@@ -1358,7 +1404,7 @@
             </tr>
         </table>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th><th>Return Value</th><th>Description</th></tr>
             <tr>
@@ -1376,7 +1422,7 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.Edit"><code>sublime.Edit</code> Class</h2>
 
         <p>
@@ -1387,7 +1433,7 @@
             Edit objects are passed to <a href="api_reference.html#sublime.TextCommand">TextCommand</a>s, and can not be created by the user. Using an invalid Edit object, or an Edit object from a different View, will cause the functions that require them to fail.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -1401,10 +1447,10 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.Window"><code>sublime.Window</code> Class</h2>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -1777,10 +1823,10 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime.Settings"><code>sublime.Settings</code> Class</h2>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -1831,10 +1877,10 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime_plugin"><code>sublime_plugin</code> Module</h2>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -1848,14 +1894,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime_plugin.EventListener"><code>sublime_plugin.EventListener</code> Class</h2>
 
         <p>
             Note that many of these events are triggered by the buffer underlying the view, and thus the method is only called once, with the first view as the parameter.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -2171,7 +2217,7 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime_plugin.ViewEventListener"><code>sublime_plugin.ViewEventListener</code> Class</h2>
 
         <p>
@@ -2182,7 +2228,7 @@
             The view is passed as a single parameter to the constructor. The default implementation makes the view available via <tt>self.view</tt>.
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Class Methods</th>
                 <th>Return Value</th>
@@ -2204,7 +2250,7 @@
             </tr>
         </table>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -2328,7 +2374,8 @@
                         <tt>match_all</tt> should be used if the context relates to the selections: does every selection have to match (<tt>match_all == True</tt>), or is at least one matching enough (<tt>match_all == False</tt>)?
                     </p>
                 </td>
-                <tr>
+            </tr>
+            <tr>
                 <td class="mth">on_query_completions(prefix, locations)</td>
                 <td class="rtn">list<em>,</em> tuple <em>or</em> None</td>
                 <td class="dsc">
@@ -2407,10 +2454,10 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime_plugin.ApplicationCommand"><code>sublime_plugin.ApplicationCommand</code> Class</h2>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -2454,14 +2501,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime_plugin.WindowCommand"><code>sublime_plugin.WindowCommand</code>Class</h2>
 
         <p>
             WindowCommands are instantiated once per window. The Window object may be retrieved via <tt>self.window</tt>
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -2498,14 +2545,14 @@
         </table>
     </section>
 
-    <section>
+    <section class="wide">
         <h2 id="sublime_plugin.TextCommand"><code>sublime_plugin.TextCommand</code> Class</h2>
 
         <p>
             TextCommands are instantiated once per view. The View object may be retrieved via <tt>self.view</tt>
         </p>
 
-        <table class="functions">
+        <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
@@ -2549,5 +2596,18 @@
         </table>
     </section>
 
+    </section>
+    </main>
+    <footer>
+        <section>
+            © Sublime HQ Pty Ltd
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
 </body>
 </html>

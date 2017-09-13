@@ -2,26 +2,64 @@
 <html>
 <head>
     <title>Color Schemes – Sublime Text 3 Documentation</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="sublime_docs.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Mono:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css">
+    <link rel="icon" href="http://www.sublimetext.com/favicon.ico">
+    <link rel="icon" size="64x64" href="http://www.sublimetext.com/favicon.ico">
+    <link rel="icon" sizes="192x192" href="http://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="http://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
 </head>
-<body>
-    <script src="prism.js"></script>
-
+<body class="docs">
     <header>
         <section>
+            <a id="logo" href="http://www.sublimetext.com/">
+                <img src="../../images/logo.svg" alt="Sublime Text">
+            </a>
             <nav>
-                <a href="https://sublimetext.com">Website</a>
+                <a href="http://www.sublimetext.com/3">Download</a>
+                <a href="http://www.sublimetext.com/buy?v=3.0">Buy</a>
+                <a href="http://www.sublimetext.com/blog/">News</a>
                 <a href="https://forum.sublimetext.com">Forum</a>
+                <a href="http://www.sublimetext.com/support">Support</a>
             </nav>
-            <div class="index">
-                <a href="index.html"><span>Sublime Text 3</span> Documentation</a>
-            </div>
-
-            <h1>Color Schemes</h1>
         </section>
     </header>
+    <main>
+    <section>
+    <script src="prism.js"></script>
+
+    <h1><span>
+        <a href="index.html">Documentation</a>
+        Color Schemes
+    </span></h1>
 
     <section>
         <p>
@@ -36,8 +74,8 @@
 
         <p>
             Sublime Text color schemes are implemented via the
-            <code>.tmTheme</code> format created by TextMate. It is an XML
-            format split into a global settings and scope styles.
+            <span class="file">.tmTheme</span> format created by TextMate.
+            It is an XML format split into a global settings and scope styles.
         </p>
 
         <ul>
@@ -50,12 +88,12 @@
     </section>
 
 
-    <section>
+    <section class="wide">
         <h2 id="example">Example</h2>
 
         <p>
             <em>The following is an example of the format of a
-            <code>.tmTheme</code> file. A complete color scheme will have
+            <span class="file">.tmTheme</span> file. A complete color scheme will have
             many more scope styles to cover the standard scope names.</em>
         </p>
 
@@ -1271,5 +1309,19 @@
         </div>
 
     </section>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © Sublime HQ Pty Ltd
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
 </body>
 </html>
