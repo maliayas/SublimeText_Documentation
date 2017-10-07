@@ -226,6 +226,15 @@ main > section:after
     clear: both;
 }
 
+div.primary
+{
+    float: left;
+}
+div.primary > section
+{
+    max-width: 800px;
+}
+
 header
 {
     background-color: #4B4B4B;
@@ -294,12 +303,11 @@ footer > section
     min-height: 128px;
 }
 
-aside,
-a.rss
+aside
 {
-    float: right;
-    width: 256px;
-    margin-left: 64px;
+    float: left;
+    max-width: calc(100% - 848px);
+    margin-left: 48px;
     margin-bottom: 32px;
 }
 aside h3
@@ -322,8 +330,10 @@ kbd
 {
     font-family: "Roboto Mono", monospace;
     background-color: #f3f3f3;
+    color: #333;
     border-radius: 2px;
     padding: 1px 5px;
+    font-size: 14px;
 }
 
 span.keys span.mouse
@@ -413,21 +423,9 @@ html.plat_osx span.keys.pc
     {
         margin-left: 20px;
     }
-    aside
-    {
-        display: none;
-    }
 }
 @media only screen and (max-width: 1160px)
 {
-    aside,
-    a.rss
-    {
-        width: 190px;
-        margin-left: 20px;
-        margin-bottom: 20px;
-    }
-
     main > section
     {
         background-position: right 20px bottom 0;
@@ -450,6 +448,17 @@ html.plat_osx span.keys.pc
         padding-left: 20px;
         padding-right: 20px;
         max-width: 100%;
+    }
+}
+@media only screen and (max-width: 1100px)
+{
+    aside
+    {
+        float: none;
+        clear: both;
+        max-width: 100%;
+        margin: 0;
+        padding: 20px 0;
     }
 }
 
@@ -487,7 +496,7 @@ div#masthead section
 }
 div#masthead section.screencast
 {
-    
+
 }
 div#masthead section.screencast div.wrap
 {
@@ -510,6 +519,7 @@ html.plat_linux div#masthead section.screencast div.wrap
 #anim_container
 {
     position: relative;
+    overflow: hidden;
 }
 #fallback
 {
@@ -1019,10 +1029,11 @@ h1 + div.meta
     margin-top: -1.1em;
     margin-bottom: 1em;
 }
-a.rss
+div.rss
 {
-    display: block;
     padding-top: 20px;
+    float: right;
+    width: calc(100% - 848px);
     margin-bottom: 0;
 }
 a.rss img
@@ -1035,17 +1046,32 @@ a.rss img
     padding-right: 5px;
     display: inline;
 }
-@media only screen and (max-width: 800px)
+@media only screen and (max-width: 1100px)
 {
-    a.rss
+    div.rss
     {
         width: auto;
-        display: inline-block;
+        padding-right: calc(100% - 800px);
+        float: right;
+        box-sizing: border-box;
     }
+    a.rss
+    {
+    }
+}
+@media only screen and (max-width: 840px)
+{
+
 }
 aside section.archives h3
 {
     margin-top: 0;
+}
+div.primary:after
+{
+    content: "";
+    display: table;
+    clear: both;
 }
 a.blog_nav.left
 {
@@ -1478,25 +1504,25 @@ table.settings td.setting
 .token.operator,
 .token.boolean {
     color: #ba8baf;
-} 
-.token.property { 
+}
+.token.property {
     color: #3c97dd;
 }
 .token.number,
-.token.tag { 
+.token.tag {
     color: #d2322d;
-} 
+}
 .token.string {
     color: #9dbf40;
-} 
-.token.selector { 
+}
+.token.selector {
     color: #ba8baf;
 }
-.token.attr-name { 
+.token.attr-name {
     color: #f09642;
-} 
+}
 .token.entity,
-.token.url, 
+.token.url,
 .language-css .token.string,
 .style .token.string {
     color: #9dbf40;
@@ -1508,23 +1534,23 @@ table.settings td.setting
 .token.directive,
 .token.unit {
     color: #9dbf40;
-} 
+}
 
 .token.statement,
-.token.regex, 
-.token.atrule { 
+.token.regex,
+.token.atrule {
     color: #9dbf40;
 }
 
 .token.placeholder,
 .token.variable {
     color: #3c97dd;
-} 
+}
 
 .token.important {
     color: #d2322d;
     font-weight: bold;
-} 
+}
 
 .token.entity {
     cursor: help;
