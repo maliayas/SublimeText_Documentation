@@ -1369,8 +1369,17 @@ dl.enum.properties,
 dl.enum.attributes,
 dl.enum.settings
 {
-    background-color: #f6f6f6;
-    padding: 12px;
+    background-color: #fbfbfb;
+    border: 1px solid #eee;
+    padding: 12px 18px
+}
+dl.properties dd > code,
+dl.attributes dd > code,
+dl.enum.properties dd > code,
+dl.enum.attributes dd >code,
+dl.enum.settings dd > code
+{
+    background-color: #ececec;
 }
 /* clear children */
 dl.enum:after,
@@ -1434,8 +1443,9 @@ dl.enum dd div.example
 dl.enum dd dl
 {
     margin: 10px 0 5px 20px;
-    background-color: #f6f6f6;
-    padding: 12px;
+    background-color: #fbfbfb;
+    border: 1px solid #eee;
+    padding: 12px 18px;
 }
 dl.enum dd dl dt
 {
@@ -1485,6 +1495,78 @@ table.settings td.setting
     font-family: "Roboto Mono", monospace;
     font-size: 14px;
     padding-right: 1em;
+}
+
+table.controls
+{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+table.controls.min
+{
+    width: auto;
+}
+table.controls.min th,
+table.controls.min td
+{
+    padding-left: 25px;
+    padding-right: 25px;
+}
+table.controls th,
+table.controls td
+{
+    padding: 4px 5px;
+    text-align: center;
+    border-left: 1px solid #ddd;
+}
+table.controls th:first-child,
+table.controls td:first-child
+{
+    border-left: none;
+}
+table.controls thead
+{
+    border-bottom: 1px solid #ddd;
+}
+table.controls thead th
+{
+    background-color: #f3f3f3;
+    font-weight: bold;
+}
+table.controls th.platform
+{
+    color: #777;
+    font-size: 0.9em;
+    font-style: italic;
+    padding-bottom: 0;
+}
+table.controls td.keys
+{
+    padding-bottom: 8px;
+}
+table.controls tr.command td.keys
+{
+    padding-top: 8px;
+}
+table.controls th.command
+{
+    vertical-align: middle;
+}
+table.controls tr.command td,
+table.controls tr.command th
+{
+    border-bottom: 1px solid #ddd;
+}
+table.controls tr.command:last-child td,
+table.controls tr.command:last-child th
+{
+    border-bottom: none;
+}
+table.controls td.menu,
+table.controls td.palette
+{
+    vertical-align: middle;
 }
 
 /* CSS for prism.js */
