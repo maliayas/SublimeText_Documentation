@@ -115,6 +115,12 @@
                 <li>
                     <a href="api_reference.html#sublime_plugin.TextCommand"><code>TextCommand</code> Class</a>
                 </li>
+                <li>
+                    <a href="api_reference.html#sublime_plugin.TextInputHandler"><code>TextInputHandler</code> Class</a>
+                </li>
+                <li>
+                    <a href="api_reference.html#sublime_plugin.ListInputHandler"><code>ListInputHandler</code> Class</a>
+                </li>
             </ul>
         </div>
     </section>
@@ -152,6 +158,9 @@
             </li>
             <li>
                 <span class="file">Packages/Default/trim_trailing_whitespace.py</span> Modifies a buffer just before its saved
+            </li>
+            <li>
+                <span class="file">Packages/Default/arithmetic.py</span> Accepts an input from the user when run via the Command Palette
             </li>
         </ul>
 
@@ -198,6 +207,9 @@
             </li>
             <li>
                 <strong><tt id="type-vector">vector</tt></strong>: a tuple of <tt>(dip, dip)</tt> representing <tt>x</tt> and <tt>y</tt> coordinates.
+            </li>
+            <li>
+                <strong><tt id="type-CommandInputHandler">CommandInputHandler</tt></strong>: a subclass of either <a href="api_reference.html#sublime_plugin.TextInputHandler">TextInputHandler</a> or <a href="api_reference.html#sublime_plugin.ListInputHandler">ListInputHandler</a>.
             </li>
         </ul>
     </section>
@@ -2504,6 +2516,13 @@
                     Returns a description of the command with the given arguments. Used in the menu, if no caption is provided. Return <tt>None</tt> to get the default description.
                 </td>
             </tr>
+            <tr>
+                <td class="mth">input(args)</td>
+                <td class="rtn"><a href="api_reference.html#type-CommandInputHandler">CommandInputHandler</a> <em>or</em> None</td>
+                <td class="dsc">
+                    If this returns something other than None, the user will be prompted for an input before the command is run in the Command Palette.
+                </td>
+            </tr>
         </table>
     </section>
 
@@ -2546,6 +2565,13 @@
                 <td class="rtn">str</td>
                 <td class="dsc">
                     Returns a description of the command with the given arguments. Used in the menu, if no caption is provided. Return <tt>None</tt> to get the default description.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">input(args)</td>
+                <td class="rtn"><a href="api_reference.html#type-CommandInputHandler">CommandInputHandler</a> <em>or</em> None</td>
+                <td class="dsc">
+                    If this returns something other than None, the user will be prompted for an input before the command is run in the Command Palette.
                 </td>
             </tr>
         </table>
@@ -2597,6 +2623,180 @@
                 <td class="rtn">bool</td>
                 <td class="dsc">
                     Return <tt>True</tt> to receive an <tt>event</tt> argument when the command is triggered by a mouse action. The event information allows commands to determine which portion of the view was clicked on. The default implementation returns <tt>False</tt>.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">input(args)</td>
+                <td class="rtn"><a href="api_reference.html#type-CommandInputHandler">CommandInputHandler</a> <em>or</em> None</td>
+                <td class="dsc">
+                    If this returns something other than None, the user will be prompted for an input before the command is run in the Command Palette.
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide">
+        <h2 id="sublime_plugin.TextInputHandler"><code>sublime_plugin.TextInputHandler</code> Class</h2>
+
+        <p>
+            TextInputHandlers can be used to accept textual input in the Command Palette. Return a subclass of this from the <tt>input()</tt> method of a command.
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Methods</th>
+                <th>Return Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">name()</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    The command argument name this input handler is editing. Defaults to <em>foo_bar</em> for an input handler named <em>FooBarInputHandler</em>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">placeholder()</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    Placeholder text is shown in the text entry box before the user has entered anything. Empty by default.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">initial_text()</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    Initial text shown in the text entry box. Empty by default.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">preview(text)</td>
+                <td class="rtn">str <em>or</em> sublime.Html(str)</td>
+                <td class="dsc">
+                    Called whenever the user changes the text in the entry box. The returned value (either plain text or HTML) will be shown in the preview area of the Command Palette.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">validate(text)</td>
+                <td class="rtn">bool</td>
+                <td class="dsc">
+                    Called whenever the user presses enter in the text entry box. Return <tt>False</tt> to disallow the current value.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">cancel()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the input handler is canceled, either by the user pressing backspace or escape.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">confirm(text)</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the input is accepted, after the user has pressed enter and the text has been validated.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">next_input(args)</td>
+                <td class="rtn"><a href="api_reference.html#type-CommandInputHandler">CommandInputHandler</a> <em>or</em> None</td>
+                <td class="dsc">
+                    Returns the next input after the user has completed this one. May return <tt>None</tt> to indicate no more input is required, or <tt>sublime_plugin.Back()</tt> to indicate that the input handler should be poped off the stack instead.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">description(text)</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    The text to show in the Command Palette when this input handler is not at the top of the input handler stack. Defaults to the text the user entered.
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide">
+        <h2 id="sublime_plugin.ListInputHandler"><code>sublime_plugin.ListInputHandler</code> Class</h2>
+
+        <p>
+            ListInputHandlers can be used to accept a choice input from a list items in the Command Palette. Return a subclass of this from the <tt>input()</tt> method of a command.
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Methods</th>
+                <th>Return Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">name()</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    The command argument name this input handler is editing. Defaults to <em>foo_bar</em> for an input handler named <em>FooBarInputHandler</em>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">list_items()</td>
+                <td class="rtn">[str] <em>or</em> [(str,value)]</td>
+                <td class="dsc">
+                    The items to show in the list. If returning a list of (str, value) tuples, then the str will be shown to the user, while the value will be used as the command argument.
+
+                    <p>Optionally return a tuple of (list_items, selected_item_index) to indicate an initial selection.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">placeholder()</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    Placeholder text is shown in the text entry box before the user has entered anything. Empty by default.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">initial_text()</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    Initial text shown in the filter box. Empty by default.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">preview(value)</td>
+                <td class="rtn">str <em>or</em> sublime.Html(str)</td>
+                <td class="dsc">
+                    Called whenever the user changes the selected item. The returned value (either plain text or HTML) will be shown in the preview area of the Command Palette.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">validate(value)</td>
+                <td class="rtn">bool</td>
+                <td class="dsc">
+                    Called whenever the user presses enter in the text entry box. Return <tt>False</tt> to disallow the current value.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">cancel()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the input handler is canceled, either by the user pressing backspace or escape.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">confirm(value)</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the input is accepted, after the user has pressed enter and the item has been validated.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">next_input(args)</td>
+                <td class="rtn"><a href="api_reference.html#type-CommandInputHandler">CommandInputHandler</a> <em>or</em> None</td>
+                <td class="dsc">
+                    Returns the next input after the user has completed this one. May return <tt>None</tt> to indicate no more input is required, or <tt>sublime_plugin.Back()</tt> to indicate that the input handler should be poped off the stack instead.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">description(value, text)</td>
+                <td class="rtn">str</td>
+                <td class="dsc">
+                    The text to show in the Command Palette when this input handler is not at the top of the input handler stack. Defaults to the text of the list item the user selected.
                 </td>
             </tr>
         </table>
