@@ -921,7 +921,7 @@
                     </p>
 
                     <p>
-                        The optional <tt>icon</tt> name, if given, will draw the named icons in the gutter next to each region. The <tt>icon</tt> will be tinted using the color associated with the scope. Valid icon names are <tt>dot</tt>, <tt>circle</tt>, <tt>bookmark</tt> and <tt>cross</tt>. The icon name may also be a full package relative path, such as <tt>Packages/Theme - Default/dot.png</tt>.
+                        The optional <tt>icon</tt> name, if given, will draw the named icons in the gutter next to each region. The <tt>icon</tt> will be tinted using the color associated with the scope. Valid icon names are <tt>dot</tt>, <tt>circle</tt> and <tt>bookmark</tt>. The icon name may also be a full package relative path, such as <tt>Packages/Theme - Default/dot.png</tt>.
                     </p>
 
                     <p>
@@ -2275,6 +2275,62 @@
                 <th>Description</th>
             </tr>
             <tr>
+                <td class="mth">on_load()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the file is finished loading.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_load_async()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when the file is finished loading. Runs in a separate thread, and does not block the application.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_pre_close()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when a view is about to be closed. The view will still be in the window at this point.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_close()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called when a view is closed (note, there may still be other views into the same buffer).
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_pre_save()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called just before a view is saved.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_pre_save_async()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called just before a view is saved. Runs in a separate thread, and does not block the application.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_post_save()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after a view has been saved.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_post_save_async()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after a view has been saved. Runs in a separate thread, and does not block the application.
+                </td>
+            </tr>
+            <tr>
                 <td class="mth">on_modified()</td>
                 <td class="rtn">None</td>
                 <td class="dsc">
@@ -2467,6 +2523,20 @@
                             </p>
                         </li>
                     </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_text_command(command_name, args)</td>
+                <td class="rtn">(str, dict)</td>
+                <td class="dsc">
+                    Called when a text command is issued. The listener may return a <tt>(command, arguments)</tt> tuple to rewrite the command, or <tt>None</tt> to run the command unmodified.
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">on_post_text_command(command_name, args)</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Called after a text command has been executed.
                 </td>
             </tr>
         </table>

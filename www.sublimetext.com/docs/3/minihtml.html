@@ -404,7 +404,11 @@
             <li><code>transparent</code></li>
         </ul>
 
-        <p>Additionally, color values may be blended using the CSS Color Module Level 4 <a href="https://drafts.csswg.org/css-color-4/#modifying-colors">color-mod function</a> with the <code>blend()</code> and <code>blenda()</code> adjusters.</p>
+        <p>Additionally, color values may be modified using the CSS Color Module Level 4 <a href="https://drafts.csswg.org/css-color-4/#modifying-colors">color-mod function</a> with the <code>alpha()</code>/<code>a()</code>, <code>blend()</code> and <code>blenda()</code> adjusters.</p>
+
+        <pre><code class="language-css">.error {
+    background-color: color(var(--background) alpha(0.25));
+}</code></pre>
 
         <pre><code class="language-css">.error {
     background-color: color(var(--background) blend(red 50%));
