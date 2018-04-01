@@ -113,8 +113,34 @@
         <h3>Folders</h3>
 
         <p>
-            Each folder must have a path, and may optionally have settings <span class="setting">file_exclude_patterns</span>, <span class="setting">file_include_patterns</span>, <span class="setting">folder_exclude_patterns</span>, <span class="setting">folder_include_patterns</span> and <span class="setting">follow_symlinks</span>. The path may be relative to the project directory, or a fully qualified path. Folders may also be given a <span class="setting">name</span> setting, to set how they're displayed on the side bar.
+            Each folder must have a <span class="setting">path</span> key, which may be relative to the project directory, or a fully qualified path. Additional optional keys include:
         </p>
+        <ul>
+            <li>
+                <span class="setting">name</span> - A string used in place of the folder name in the side bar.
+            </li>
+            <li>
+                <span class="setting">file_include_patterns</span> -  A list of strings for filenames to include from the folder. Anything not matching these patterns will be excluded. This is checked before <span class="setting">file_exclude_patterns</span>.
+            </li>
+            <li>
+                <span class="setting">file_exclude_patterns</span> - A list of strings for filenames to exclude from the folder. This is added to the global setting of the same name. This is checked after <span class="setting">file_include_patterns</span>.
+            </li>
+            <li>
+                <span class="setting">folder_include_patterns</span> -  A list of strings for subfolder paths to include from the folder. Anything not matching these patterns will be excluded. This is checked before <span class="setting">folder_exclude_patterns</span>.
+            </li>
+            <li>
+                <span class="setting">folder_exclude_patterns</span> - A list of strings for subfolder paths to exclude from the folder. This is added to the global setting of the same name. This is checked after <span class="setting">folder_include_patterns</span>.
+            </li>
+            <li>
+                <span class="setting">index_include_patterns</span> -  A list of strings for full file paths to index in the folder. This is added to the global setting of the same name. Anything not matching these patterns will be excluded from the index. This is checked before <span class="setting">index_exclude_patterns</span>.
+            </li>
+            <li>
+                <span class="setting">index_exclude_patterns</span> - A list of strings for file full paths to index in the folder. This is added to the global setting of the same name. This is checked after <span class="setting">index_include_patterns</span>.
+            </li>
+            <li>
+                <span class="setting">follow_symlinks</span> - If symlinks should be followed when building the folder tree.
+            </li>
+        </ul>
 
         <p>
             Converted projects from earlier versions may have a <span class="setting">mount_points</span> entry under <span class="setting">folders</span>. If you wish to use the exclude patterns, you'll need to change to the above format.
@@ -123,7 +149,11 @@
         <h3>Settings</h3>
 
         <p>
-            <a href="settings.html">Settings</a> may be specified here using the <span class="setting">settings</span> key, and will override regular user settings. Note that they will not override syntax-specific settings.
+            <a href="settings.html">Settings</a> may be specified here using the <span class="setting">settings</span> key, and will override regular user settings. They will not, however, override syntax specific settings.
+        </p>
+
+        <p>
+            <i>Note that only settings in the category <a href="settings.html#categories">Editor Settings</a> may be controlled by a project.</i>
         </p>
 
         <h3>Build Systems</h3>

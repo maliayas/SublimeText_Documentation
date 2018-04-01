@@ -78,6 +78,25 @@
             Settings are accessed via the <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings</span> menu item. The left-hand pane contains all of the default settings, along with a description of each. The right-hand pane is where customization can be saved.
         </p>
 
+        <h3 id="categories">Categories</h3>
+        <p>
+            The settings in Sublime Text are organized into three categories. The default settings file organizes the settings into sections for easier distinction.
+        </p>
+        <ul>
+            <li>
+                <strong>Editor Settings</strong>: These settings affect the behavior and functionality presented when editing text in a file. Examples include the <span class="setting">font_face</span>, <span class="setting">tab_size</span> and <span class="setting">spell_check</span>. These settings are presented in the first section of the default settings file.
+            </li>
+            <li>
+                <strong>User Interface Settings</strong>: These settings affect the general user interface, across all open windows. Examples include the <span class="setting">theme</span>, <span class="setting">animation_enabled</span> and <span class="setting">overlay_scroll_bars</span>. These settings are presented in the second section of the default settings file.
+            </li>
+            <li>
+                <strong>Application Behavior Settings</strong>: These settings affect the behavior of the application, across all open windows. Examples include the <span class="setting">hot_exit</span>, <span class="setting">index_files</span> and <span class="setting">ignored_packages</span>. These settings are presented in the third section of the default settings file.
+            </li>
+        </ul>
+        <p>
+            <i>The User Interface Settings and Application Behavior Settings are global to the entire application and can not be controlled by a syntax specific settings file, nor the <span class="setting">settings</span> key in a <span class="file">.sublime-project</span>.</i>
+        </p>
+
         <h3>Settings Files</h3>
 
         <p>Settings files are consulted in this order:
@@ -110,7 +129,7 @@
             In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>, which is opened in the right-hand pane when selecting the menu item <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>. This can be accessed via the right-hand pane when a Python file is open, and the menu item <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings – Syntax Specific</span> is selected.
         </p>
 
-        <h3>Per-syntax Settings</h3>
+        <h3>Syntax Specific Settings</h3>
 
         <p>
             Settings may be specified on a per-syntax basis. Common uses for this are to have different indentation settings or the color scheme vary by file type.
@@ -120,10 +139,18 @@
             You can edit the settings for the syntax of the current file by selecting the <span class="menu">Preferences <img src="../../images/right.svg" alt="▶"> Settings – Syntax Specific</span> menu item.
         </p>
 
+        <p>
+            <i>Note that only Editor Settings can be specified in syntax specific settings.</i>
+        </p>
+
         <h3>Per-project Settings</h3>
 
         <p>
             Settings can be set on a per-project basis, details are in the <a href="projects.html">Project Documentation</a>.
+        </p>
+
+        <p>
+            <i>Note that only Editor Settings can be specified in project settings.</i>
         </p>
 
         <h3>Distraction Free Settings</h3>

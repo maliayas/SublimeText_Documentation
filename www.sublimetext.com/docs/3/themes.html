@@ -102,6 +102,7 @@
             <li><a href="themes.html#elements">Elements</a></li>
             <li><a href="themes.html#deprecated">Deprecated</a></li>
             <li><a href="themes.html#obsolete">Obsolete</a></li>
+            <li><a href="themes.html#customization">Customization</a></li>
         </ul>
     </section>
 
@@ -2288,6 +2289,39 @@
             pixel data behind an element, however it is not currently supported
             for implementation reasons.
         </p>
+    </section>
+
+    <section>
+        <h2 id="customization">Customization</h2>
+
+        <p>
+            Users can customize a theme by creating a file with new rules that
+            will be appended to the original theme definition.
+        </p>
+
+        <p>
+            To create a user-specific customization of a theme, create a new
+            file with the same filename as the theme, but save it in the
+            <span class="file">Packages/User/</span> directory.
+        </p>
+
+        <p>
+            For example, to customize the Default theme, create a file named
+            <span class="file">Packages/User/Default.sublime-theme</span>.
+            Adding the following rules to that file will increase the size of
+            the text in the sidebar.
+        </p>
+
+        <pre><code class="language-js">[
+    {
+        "class": "sidebar_heading",
+        "font.size": 15,
+    },
+    {
+        "class": "sidebar_label",
+        "font.size": 14
+    }
+]</code></pre>
     </section>
 
     </section>
