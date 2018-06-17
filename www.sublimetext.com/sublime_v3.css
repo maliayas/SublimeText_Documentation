@@ -908,6 +908,16 @@ section#changelog article h3
 {
     margin-top: 0;
 }
+section#changelog article h4,
+article.post h4
+{
+    margin: 0.7em 0 0.3em;
+}
+section#changelog article ul.topic,
+article.post ul.topic
+{
+    margin: 0.3em 0;
+}
 section#changelog article.current
 {
     border-left: 3px solid #A8B3C2;

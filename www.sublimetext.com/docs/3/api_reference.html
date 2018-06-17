@@ -1188,6 +1188,20 @@
                     Returns if the auto complete menu is currently visible.
                 </td>
             </tr>
+            <tr>
+                <td class="mth">style()</td>
+                <td class="rtn">dict</td>
+                <td class="dsc">
+                    Returns a <tt>dict</tt> of the global style settings for the view. <i>All colors are normalized to the six character hex form with a leading hash, e.g. <tt>#ff0000</tt>.</i>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">style_for_scope(scope_name)</td>
+                <td class="rtn">dict</td>
+                <td class="dsc">
+                    Accepts a string scope name and returns a <tt>dict</tt> of style information, include the keys <tt>foreground</tt>, <tt>bold</tt>, <tt>italic</tt>, <tt>source_line</tt>, <tt>source_column</tt> and <tt>source_file</tt>. If the scope has a background color set, the key <tt>background</tt> will be present. <i>The foreground and background colors are normalized to the six character hex form with a leading hash, e.g. <tt>#ff0000</tt>.</i>
+                </td>
+            </tr>
         </table>
     </section>
 
@@ -2771,7 +2785,7 @@
                 <td class="mth">next_input(args)</td>
                 <td class="rtn"><a href="api_reference.html#type-CommandInputHandler">CommandInputHandler</a> <em>or</em> None</td>
                 <td class="dsc">
-                    Returns the next input after the user has completed this one. May return <tt>None</tt> to indicate no more input is required, or <tt>sublime_plugin.Back()</tt> to indicate that the input handler should be poped off the stack instead.
+                    Returns the next input after the user has completed this one. May return <tt>None</tt> to indicate no more input is required, or <tt>sublime_plugin.BackInputHandler()</tt> to indicate that the input handler should be poped off the stack instead.
                 </td>
             </tr>
             <tr>
@@ -2859,7 +2873,7 @@
                 <td class="mth">next_input(args)</td>
                 <td class="rtn"><a href="api_reference.html#type-CommandInputHandler">CommandInputHandler</a> <em>or</em> None</td>
                 <td class="dsc">
-                    Returns the next input after the user has completed this one. May return <tt>None</tt> to indicate no more input is required, or <tt>sublime_plugin.Back()</tt> to indicate that the input handler should be poped off the stack instead.
+                    Returns the next input after the user has completed this one. May return <tt>None</tt> to indicate no more input is required, or <tt>sublime_plugin.BackInputHandler()</tt> to indicate that the input handler should be poped off the stack instead.
                 </td>
             </tr>
             <tr>

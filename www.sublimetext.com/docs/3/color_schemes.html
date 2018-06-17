@@ -89,8 +89,30 @@
             <li><a href="color_schemes.html#example">Example</a></li>
             <li><a href="color_schemes.html#colors">Colors</a></li>
             <li><a href="color_schemes.html#variables">Variables</a></li>
-            <li><a href="color_schemes.html#global_settings">Global Settings</a></li>
-            <li><a href="color_schemes.html#scope_rules">Scope Rules</a></li>
+            <li>
+                <a href="color_schemes.html#global_settings">Global Settings</a>
+                <ul>
+                    <li><a href="color_schemes.html#global_settings-accents">Accents</a></li>
+                    <li><a href="color_schemes.html#global_settings-css">CSS</a></li>
+                    <li><a href="color_schemes.html#global_settings-gutter">Gutter</a></li>
+                    <li><a href="color_schemes.html#global_settings-selection">Selection</a></li>
+                    <li><a href="color_schemes.html#global_settings-find">Find</a></li>
+                    <li><a href="color_schemes.html#global_settings-guides">Guides</a></li>
+                    <li><a href="color_schemes.html#global_settings-brackets">Brackets</a></li>
+                    <li><a href="color_schemes.html#global_settings-tags">Tags</a></li>
+                    <li><a href="color_schemes.html#global_settings-shadows">Shadows</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="color_schemes.html#scope_rules">Scope Rules</a>
+                <ul>
+                    <li><a href="color_schemes.html#matching">Matching</a></li>
+                    <li><a href="color_schemes.html#naming">Naming</a></li>
+                    <li><a href="color_schemes.html#style_rules">Style Rules</a></li>
+                    <li><a href="color_schemes.html#hashed_syntax_highlighting">Hashed Syntax Highlighting</a></li>
+                    <li><a href="color_schemes.html#examples">Examples</a></li>
+                </ul>
+            </li>
             <li><a href="color_schemes.html#customization">Customization</a></li>
             <li><a href="color_schemes.html#css_colors">Appendix: CSS Colors</a></li>
         </ul>
@@ -317,7 +339,7 @@
             </dd>
         </dl>
 
-        <h3>Accents</h3>
+        <h3 id="global_settings-accents">Accents</h3>
         <dl class="enum settings">
             <dt>misspelling</dt>
             <dd>
@@ -346,7 +368,7 @@
             </dd>
         </dl>
 
-        <h3>CSS</h3>
+        <h3 id="global_settings-css">CSS</h3>
         <p>
             CSS is applied to <a href="minihtml.html">minihtml</a> content
             created via the popups and phantoms functionality that is exposed
@@ -370,7 +392,7 @@
             </dd>
         </dl>
 
-        <h3>Gutter</h3>
+        <h3 id="global_settings-gutter">Gutter</h3>
         <dl class="enum settings">
             <dt>gutter</dt>
             <dd>
@@ -382,7 +404,7 @@
             </dd>
         </dl>
 
-        <h3>Selection</h3>
+        <h3 id="global_settings-selection">Selection</h3>
         <dl class="enum settings">
             <dt>selection</dt>
             <dd>
@@ -425,7 +447,7 @@
             </dd>
         </dl>
 
-        <h3>Find</h3>
+        <h3 id="global_settings-find">Find</h3>
         <dl class="enum settings">
             <dt>highlight</dt>
             <dd>
@@ -445,7 +467,7 @@
             </dd>
         </dl>
 
-        <h3>Guides</h3>
+        <h3 id="global_settings-guides">Guides</h3>
         <p>
             Guides are controlled globally by the <code>draw_indent_guides</code>
             setting.
@@ -474,7 +496,7 @@
             </dd>
         </dl>
 
-        <h3>Brackets</h3>
+        <h3 id="global_settings-brackets">Brackets</h3>
         <p>
             Bracket matching is controlled globally by the
             <code>match_brackets</code> setting.
@@ -491,6 +513,8 @@
                     <li><code>stippled_underline</code></li>
                     <li><code>squiggly_underline</code></li>
                     <li><code>foreground</code></li>
+                    <li><code>bold</code></li>
+                    <li><code>italic</code></li>
                 </ul>
             </dd>
             <dt>brackets_foreground</dt>
@@ -519,7 +543,7 @@
             </dd>
         </dl>
 
-        <h3>Tags</h3>
+        <h3 id="global_settings-tags">Tags</h3>
         <p>
             Tag matching is controlled globally by the
             <code>match_tags</code> setting.
@@ -545,7 +569,7 @@
             </dd>
         </dl>
 
-        <h3>Shadows</h3>
+        <h3 id="global_settings-shadows">Shadows</h3>
         <dl class="enum settings">
             <dt>shadow</dt>
             <dd>
@@ -570,7 +594,7 @@
             <code>keyword.control.php</code>.
         </p>
 
-        <h3>Matching</h3>
+        <h3 id="matching">Matching</h3>
         <p>
             Color schemes apply colors and font styles to the scopes by matching the
             dotted labels, starting with the first. Prefix matching is the standard
@@ -581,7 +605,7 @@
             uncommon unless a syntax-specific override is desired.
         </p>
 
-        <h3>Naming</h3>
+        <h3 id="naming">Naming</h3>
         <p>
             Author of syntaxes can assign whatever scopes they want to a given token.
             This combined with the fact that there are hundreds of community-maintained
@@ -594,7 +618,7 @@
             scheme authors should strive to handle.
         </p>
 
-        <h3>Style Rules</h3>
+        <h3 id="style_rules">Style Rules</h3>
         <p>
             Each scope style rule consists of an object containing a <code>scope</code>
             key, along with one or more of the following optional keys:
@@ -603,10 +627,11 @@
             <li><code>name</code> – the (arbitrary) name for the scope rule</li>
             <li><code>foreground</code> – the text color</li>
             <li><code>background</code> – the background color</li>
+            <li><code>selection_foreground</code> – the text color when selected</li>
             <li><code>font_style</code> – zero or more of <code>bold</code>, <code>italic</code>, separated by spaces</li>
         </ul>
 
-        <h3>Hashed Syntax Highlighting</h3>
+        <h3 id="hashed_syntax_highlighting">Hashed Syntax Highlighting</h3>
         <p>
             The <code>foreground</code> key supports a special mode called
             Hashed Syntax Highlighting, where each token matching the scope
@@ -641,7 +666,7 @@
     "foreground": ["hsl(200, 60%, 70%)", "hsl(330, 60%, 70%)"]
 }</code></pre>
 
-        <h3>Examples</h3>
+        <h3 id="examples">Examples</h3>
         <p>
             The following scope style rule will color all strings as green:
         </p>
