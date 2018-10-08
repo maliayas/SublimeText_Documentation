@@ -238,7 +238,7 @@ div.primary > section
 header
 {
     background-color: #4B4B4B;
-    padding: 18px 0;
+    padding: 18px 0 12px;
 }
 
 header > section:after
@@ -254,8 +254,8 @@ header a#logo
 }
 header a#logo img
 {
-    width: 199px;
-    height: 22px;
+    width: 220px;
+    height: 28px;
     display: block;
     border: none;
     transition: opacity 0.15s ease-in-out;
