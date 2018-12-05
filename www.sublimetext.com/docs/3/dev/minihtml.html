@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>minihtml Reference – Sublime Text 3 Documentation</title>
+    <title>minihtml Reference – Dev Build Documentation – Sublime Text 3 Documentation</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Mono:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css">
+    <link rel="stylesheet" type="text/css" href="../../../sublime_v3.css">
     <link rel="icon" href="https://www.sublimetext.com/favicon.ico">
     <link rel="icon" size="64x64" href="https://www.sublimetext.com/favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -43,11 +43,11 @@
     </style>
     <![endif]-->
 </head>
-<body class="docs">
+<body class="docs dev-build">
     <header>
         <section>
             <a id="logo" href="https://www.sublimetext.com/">
-                <img src="../../images/logo.svg" alt="Sublime Text">
+                <img src="../../../images/logo.svg" alt="Sublime Text">
             </a>
             <nav>
                 <a href="https://www.sublimetext.com/3">Download</a>
@@ -61,10 +61,10 @@
     </header>
     <main>
     <section>
-    <script src="dev/prism.js"></script>
+    <script src="prism.js"></script>
 
     <h1><span>
-        <a href="index.html">Documentation</a>
+        <a href="index.html">Dev Build Documentation</a>
         minihtml Reference
     </span></h1>
 
@@ -101,6 +101,9 @@
                     <li><a href="minihtml.html#colors">Colors</a></li>
                     <li><a href="minihtml.html#variables">Variables</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="minihtml.html#changelog">Changelog</a>
             </li>
         </ul>
     </section>
@@ -406,7 +409,17 @@
             <li><code>transparent</code></li>
         </ul>
 
-        <p>Additionally, color values may be modified using the CSS Color Module Level 4 <a href="https://www.w3.org/TR/css-color-4/#modifying-colors">color-mod function</a> with the <code>alpha()</code>/<code>a()</code>, <code>blend()</code> and <code>blenda()</code> adjusters.</p>
+        <h4 id="color-mod_function"><code>color()</code> Mod Function</h3>
+
+        <p>Additionally, color values may be modified using the CSS Color Module Level 4 <a href="https://www.w3.org/TR/css-color-4/#modifying-colors">color-mod function</a> with the following adjusters:</p>
+
+        <ul>
+            <li><code>alpha()</code>/<code>a()</code></li>
+            <li><code>saturation()</code>/<code>s()</code></li>
+            <li><code>lightness()</code>/<code>l()</code></li>
+            <li><code>blend()</code></li>
+            <li><code>blenda()</code></li>
+        </ul>
 
         <pre><code class="language-css">.error {
     background-color: color(var(--background) alpha(0.25));
@@ -431,17 +444,19 @@
 
         <p>The one limitation is that the <code>var()</code> notation can not be used for part of a multi-number value, such as <code>padding</code> or <code>margin</code>. With those aggregate properties, the <code>var()</code> notation must be used for the complete value.</p>
 
-        <h4>Predefined Variables</h4>
+        <h4 id="predefined_variables">Predefined Variables</h4>
 
         <p>When a color scheme is loaded, the background and foreground colors are set to CSS variables, along with the closest color found to a handful of basic colors. These are all set in an <code>html { }</code> rule set in the default CSS style sheet.</p>
 
         <ul>
             <li><code>var(--background)</code></li>
             <li><code>var(--foreground)</code></li>
+            <li><code>var(--accent)</code></li>
             <li><code>var(--redish)</code></li>
             <li><code>var(--orangish)</code></li>
             <li><code>var(--yellowish)</code></li>
             <li><code>var(--greenish)</code></li>
+            <li><code>var(--cyanish)</code></li>
             <li><code>var(--bluish)</code></li>
             <li><code>var(--purplish)</code></li>
             <li><code>var(--pinkish)</code></li>
@@ -449,15 +464,41 @@
 
         <p>The algorithm to pick the colors uses the HSL color space and uses several heuristics to try and pick colors that are suitable for foreground use. In the case that the automatic color selection is undesirable, color scheme authors may override the appropriate values with their own <code>html { }</code> rule set contained in the
         <code>popupCss</code> or <code>phantomCss</code> settings.</p>
+
+        <p>If a variable with one of the predefined names is set in the selected <span class="file">.sublime-color-scheme</span>, that value will be used instead of trying to find a match from the colors used in the color scheme.</p>
+    </section>
+
+    <section>
+        <h2 id="changelog">Changelog</h2>
+
+        <dl>
+            <dt><h4>Build 3179</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        Added support for <code>saturation()</code>/<code>s()</code> and
+                        <code>lightness()</code>/<code>l()</code> adjusters to
+                        <code>color()</code> mod function
+                    </li>
+                    <li>
+                        Added the <code>var(--cyanish)</code> and <code>var(--accent)</code> predefined variables
+                    </li>
+                    <li>
+                        When a <span class="file">.sublime-color-scheme</span> defines one of the predefined variable names, that color value is used
+                    </li>
+                </ul>
+            </dd>
+        </dl>
     </section>
     </div>
 
     <aside>
-        <h3>Dev Build Version</h3>
+        <h3>Stable Build Version</h3>
         <p>
-            <em>The dev build of Sublime Text contains changes to minihtml.
-            See the <a href="dev/minihtml.html">Dev Build minihtml
-            Reference</a> for changes.</em>
+            <em>The stable build of Sublime Text does not contain all of the
+            same functionality in regards to minhtml. See the
+            <a href="../minihtml.html">minihtml Reference</a> for stable
+            builds.</em>
         </p>
     </aside>
 

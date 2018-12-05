@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Mono:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css">
+    <link rel="stylesheet" type="text/css" href="../../../sublime_v3.css">
     <link rel="icon" href="https://www.sublimetext.com/favicon.ico">
     <link rel="icon" size="64x64" href="https://www.sublimetext.com/favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -43,11 +43,11 @@
     </style>
     <![endif]-->
 </head>
-<body class="docs">
+<body class="docs dev-build">
     <header>
         <section>
             <a id="logo" href="https://www.sublimetext.com/">
-                <img src="../../images/logo.svg" alt="Sublime Text">
+                <img src="../../../images/logo.svg" alt="Sublime Text">
             </a>
             <nav>
                 <a href="https://www.sublimetext.com/3">Download</a>
@@ -61,10 +61,10 @@
     </header>
     <main>
     <section>
-    <script src="dev/prism.js"></script>
+    <script src="prism.js"></script>
 
     <h1><span>
-        <a href="index.html">Documentation</a>
+        <a href="index.html">Dev Build Documentation</a>
         Color Schemes
     </span></h1>
 
@@ -84,7 +84,7 @@
             Sublime Text color schemes are implemented using
             <span class="file">.sublime-color-scheme</span> files, containing
             JSON. Sublime Text also supports a subset of features using the
-            TextMate <a href="dev/color_schemes_tmtheme.html">.tmTheme format</a>.
+            TextMate <a href="color_schemes_tmtheme.html">.tmTheme format</a>.
         </p>
 
         <ul>
@@ -117,6 +117,7 @@
             </li>
             <li><a href="color_schemes.html#customization">Customization</a></li>
             <li><a href="color_schemes.html#css_colors">Appendix: CSS Colors</a></li>
+            <li><a href="color_schemes.html#changelog">Changelog</a></li>
         </ul>
     </section>
 
@@ -226,10 +227,11 @@
             Additionally, colors may be specified as a
             <a href="color_schemes.html#variables">variable</a>, and then referenced via the syntax
             <code>var(example_var_name)</code>. Variable references are
-            particularly useful when combined with CSS Color Module Level 4
-            <a href="https://drafts.csswg.org/css-color-4/#modifying-colors">color-mod
-            function</a> and the supported <code>blend()</code>, <code>blenda()</code>
-            and <code>alpha()</code> adjusters.
+            particularly useful when combined with the
+            <a href="minihtml.html#color-mod_function">minihtml
+            <code>color()</code> mod function</a> and the supported
+            <code>blend()</code>, <code>blenda()</code>, <code>alpha()</code>,
+            <code>saturation()</code> and <code>lightness()</code> adjusters.
         </p>
         <ul>
             <li>
@@ -257,6 +259,26 @@
                 Setting the alpha channel to 90%:
                 <code>color(var(base_green) alpha(0.9))</code>. <i>A shorthand
                 name of <code>a()</code> is also available for this adjuster.</i>
+            </li>
+            <li>
+                <strong>saturation() adjuster</strong>: Changes the saturation
+                channel of the base color, in the HSL color space, to the value
+                specified, from <code>0%</code> to <code>100%</code>.
+                Setting the saturation to 90%:
+                <code>color(var(base_green) saturation(0.9))</code>. Increasing
+                the saturation by 10%:
+                <code>color(var(base_green) s(+ 10%))</code>. <i>A shorthand
+                name of <code>s()</code> is also available for this adjuster.</i>
+            </li>
+            <li>
+                <strong>lightness() adjuster</strong>: Changes the lightness
+                channel of the base color, in the HSL color space, to the value
+                specified, from <code>0%</code> to <code>100%</code>.
+                Setting the lightness to 90%:
+                <code>color(var(base_green) lightness(0.9))</code>. Decreasing
+                the lightness by 10%:
+                <code>color(var(base_green) l(- 10%))</code>. <i>A shorthand
+                name of <code>l()</code> is also available for this adjuster.</i>
             </li>
         </ul>
     </section>
@@ -612,10 +634,10 @@
             Author of syntaxes can assign whatever scopes they want to a given token.
             This combined with the fact that there are hundreds of community-maintained
             syntaxes means that is can be hard to know what scopes to target. The
-            <a href="dev/scope_naming.html">official Scope
+            <a href="scope_naming.html">official Scope
             Naming guidelines</a> were established to help syntax and color scheme
             authors use a common set, for better interoperability. The
-            <a href="dev/scope_naming.html#color_schemes">Usage
+            <a href="scope_naming.html#color_schemes">Usage
             in Color Schemes</a> section provides a baseline set of scopes that color
             scheme authors should strive to handle.
         </p>
@@ -629,9 +651,20 @@
             <li><code>name</code> – the (arbitrary) name for the scope rule</li>
             <li><code>foreground</code> – the text color</li>
             <li><code>background</code> – the background color</li>
+            <li><code>foreground_adjust</code> – adjustment to the <code>foreground</code> color, only valid with <code>background</code></li>
             <li><code>selection_foreground</code> – the text color when selected</li>
             <li><code>font_style</code> – zero or more of <code>bold</code>, <code>italic</code>, separated by spaces</li>
         </ul>
+
+        <p>
+            The <code>foreground_adjust</code> key accepts a space-separated
+            list of adjusters that are supported by the
+            <a href="minihtml.html#color-mod_function">minihtml
+            <code>color()</code> mod function</a>. It is only supported when the
+            <code>background</code> key is also specified, and thus allows
+            modifying all foregrounds used in combination with the background,
+            without having to create different rules for every permutation.
+        </p>
 
         <h3 id="hashed_syntax_highlighting">Hashed Syntax Highlighting</h3>
         <p>
@@ -743,9 +776,15 @@
         </p>
     </section>
 
-    <section>
+    <section id="css_colors-section">
         <h2 id="css_colors">Appendix: CSS Colors</h2>
         <style>
+        section#css_colors-section:after
+        {
+            content: "";
+            display: table;
+            clear: both;
+        }
         span.color-block {
             width: 50px;
             height: 20px;
@@ -913,14 +952,33 @@
             <span style="background-color: #9acd32;" class="color-block"></span> <span>yellowgreen</span><br>
         </div>
     </section>
+
+    <section>
+        <h2 id="changelog">Changelog</h2>
+
+        <dl>
+            <dt><h4>Build 3179</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        Added the <code>saturation()</code> and <code>lightness()</code> adjusters
+                    </li>
+                    <li>
+                        Added the <code>foreground_adjust</code> key for style rules
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
     </div>
 
     <aside>
-        <h3>Dev Build Version</h3>
+        <h3>Stable Build Version</h3>
         <p>
-            <em>The dev build of Sublime Text contains changes to color schemes.
-            See the <a href="dev/color_schemes.html">Dev Build Color
-            Schemes Documentation</a> for changes.</em>
+            <em>The stable build of Sublime Text does not contain all of the
+            same functionality in regards to color schemes. See the
+            <a href="../color_schemes.html">Color Scheme Documentation</a>
+            for stable builds.</em>
         </p>
     </aside>
 

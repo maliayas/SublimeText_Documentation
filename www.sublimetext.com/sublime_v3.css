@@ -81,6 +81,36 @@ span.command
     padding: 1px 5px;
 }
 
+table.selectors
+{
+    width: 100%;
+}
+
+table.selectors td,
+table.selectors th
+{
+    padding: 5px 3px;
+    line-height: 26px; /* provides a consistent baseline with <code> and text */
+    border-bottom: 1px solid #ddd;
+}
+
+table.selectors td.scope_name
+{
+    width: 35%;
+}
+table.selectors td.selector
+{
+    width: 35%;
+}
+
+table.selectors td.scope_name,
+table.selectors td.selector
+{
+    padding-right: 20px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 14px;
+}
+
 input[type=text],
 input[type=email],
 input[type=number],
@@ -226,6 +256,11 @@ main > section:after
     clear: both;
 }
 
+html.hq main > section
+{
+    background-image: none;
+}
+
 div.primary
 {
     float: left;
@@ -233,6 +268,12 @@ div.primary
 div.primary > section
 {
     max-width: 800px;
+}
+/* This emulates the margin collapsing when the div.primary is not present */
+div.primary > p:first-child,
+div.primary > section:first-child > p:first-child
+{
+    margin-top: 0;
 }
 
 header
@@ -266,6 +307,33 @@ header a#logo:hover img
     opacity: 0.8;
 }
 
+/*
+The Sublime HQ logo doesn't have symbol, so the space
+for that is empty compared to Sublime Text and Sublime
+Merge. We relatively position it when space gets tight
+so that there isn't an unnatural gap. We leave the space
+in the logo for desktop browsers so the word "Sublime"
+is always aligned between the three sites. */
+@media only screen and (max-width: 1200px)
+{
+    html.hq > section
+    {
+        max-width: 1140px;
+    }
+    html.hq a#logo
+    {
+        position: relative;
+        left: -30px;
+    }
+}
+@media only screen and (max-width: 1140px)
+{
+    html.hq > section
+    {
+        max-width: 100%;
+    }
+}
+
 header nav
 {
     float: right;
@@ -292,6 +360,16 @@ header nav a:first-child
     margin-left: 0;
 }
 
+header nav span.vr
+{
+    display: inline-block;
+    width: 1px;
+    margin-left: 32px;
+    background-color: rgba(255, 255, 255, 0.5);
+    height: 22px;
+    vertical-align: bottom;
+}
+
 footer > section
 {
     width: 1140px;
@@ -301,6 +379,11 @@ footer > section
     background-position: right 32px top 0;
     background-size: 256px auto;
     min-height: 128px;
+}
+
+html.hq footer > section
+{
+    background-image: none;
 }
 
 aside
@@ -314,9 +397,17 @@ aside h3
 {
     margin-bottom: 0.5em;
 }
+aside > h3:first-child
+{
+    margin-top: 0;
+}
 aside p
 {
     margin: 0.5em 0;
+}
+aside > p:first-child
+{
+    margin-top: 0;
 }
 
 main > section > section,
@@ -407,9 +498,26 @@ html.plat_osx span.keys.pc
     display: none;
 }
 
-@media only screen and (max-width: 800px)
+@media only screen and (max-width: 550px)
 {
-    header
+    header nav span.vr.sub-nav
+    {
+        margin-left: 0px;
+        width: 0;
+        height: 8px;
+        display: block;
+    }
+    header nav span.vr.sub-nav + a
+    {
+        margin-left: 0px;
+    }
+}
+@media only screen and (max-width: 820px)
+{
+    /*
+    This has to be defined like this so it has greater specificity than
+    later rules in other stylesheets that do not apply to narrow windows */
+    body header
     {
         padding: 15px 0;
     }
@@ -420,6 +528,10 @@ html.plat_osx span.keys.pc
         padding-top: 15px;
     }
     header nav a
+    {
+        margin-left: 20px;
+    }
+    header nav span.vr
     {
         margin-left: 20px;
     }
@@ -786,7 +898,7 @@ h2.love span
     border-radius: 3px;
 }
 
-@media only screen and (max-width: 800px)
+@media only screen and (max-width: 820px)
 {
     div.feature.odd,
     div.feature.even
@@ -1069,10 +1181,6 @@ a.rss img
     {
     }
 }
-@media only screen and (max-width: 840px)
-{
-
-}
 aside section.archives h3
 {
     margin-top: 0;
@@ -1226,13 +1334,15 @@ pre.license_key
 
 body.docs h1
 {
-    margin-bottom: 1em;
+    margin-bottom: 22px;
 }
-body.docs h1 span
+body.docs:not(.top-level) h1 span
 {
-    position: relative;
+    display: inline-block;
+    line-height: 42px;
+    top: 4px;
     padding-top: 18px;
-    top: 16px;
+    min-width: 125px;
 }
 body.docs h1 span a
 {
@@ -1243,6 +1353,10 @@ body.docs h1 span a
     color: #888;
     position: absolute;
     text-transform: uppercase;
+}
+body.docs.dev-build h1 span
+{
+    min-width: 200px;
 }
 body.docs.top-level h1
 {

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menus – Sublime Text 3 Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Mono:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css">
+    <link rel="icon" href="https://www.sublimetext.com/favicon.ico">
+    <link rel="icon" size="64x64" href="https://www.sublimetext.com/favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimetext.com/buy?v=3.0">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+    <script src="dev/prism.js"></script>
+
+    <h1><span>
+        <a href="index.html">Documentation</a>
+        Menus
+    </span></h1>
+
+    <div class="primary">
+    <section>
+        <p>
+            Menus in Sublime Text are defined by files ending in
+            <span class="file">.sublime-menu</span>. Menus use JSON,
+            with the top-level structure being an array. Each binding is a JSON
+            object containing information to define the text of the menu
+            entry and what action it should perform.
+        </p>
+
+        <ul>
+            <li><a href="menus.html#example">Example</a></li>
+            <li><a href="menus.html#entries">Entries</a></li>
+            <li><a href="menus.html#available_menus">Available Menus</a></li>
+            <li><a href="menus.html#adding_to_submenus">Adding to Submenus</a></li>
+            <li><a href="menus.html#customization">Customization</a></li>
+        </ul>
+    </section>
+
+    <section class="wide">
+        <h2 id="example">Example</h2>
+
+        <p>
+            <em>The following is an example of the format of a
+            <span class="file">.sublime-menu</span> file.</em>
+        </p>
+
+        <pre><code class="language-js">[
+    {
+        "caption": "File",
+        "mnemonic": "F",
+        "id": "file",
+        "children":
+        [
+            { "command": "new_file", "caption": "New File", "mnemonic": "N" },
+
+            { "command": "prompt_open_file", "caption": "Open File…", "mnemonic": "O", "platform": "!OSX" },
+            { "command": "prompt_open_folder", "caption": "Open Folder…", "platform": "!OSX" },
+            { "command": "prompt_open", "caption": "Open…", "platform": "OSX" }
+        ]
+    }
+]</code></pre>
+    </section>
+
+    <section>
+        <h2 id="entries">Entries</h2>
+
+        <p>
+            Each menu entry is a JSON object with one or more keys. The list of
+            supported keys includes:
+        </p>
+
+        <dl class="enum properties">
+            <dt>"caption"</dt>
+            <dd>
+                The text of the menu entry
+            </dd>
+            <dt>"mnemonic"</dt>
+            <dd>
+                The character to use as the key to press to activate the entry.
+                Only applies to Windows and Linux. Must match the case of the
+                character in the <code>"caption"</code>.
+            </dd>
+            <dt>"command"</dt>
+            <dd>
+                A string of the command to execute when the entry is activated
+            </dd>
+            <dt>"args"</dt>
+            <dd>
+                A JSON object of args to send to the command
+            </dd>
+            <dt>"children"</dt>
+            <dd>
+                A JSON array of entries to create a submenu from
+            </dd>
+            <dt>"id"</dt>
+            <dd>
+                A unique string for the menu entry. Used for menu entries with
+                <code>"children"</code> to allow adding additional child
+                entries.
+            </dd>
+            <dt>"platform"</dt>
+            <dd>
+                One of the strings: <code>"OSX"</code>, <code>"!OSX"</code>,
+                <code>"Windows"</code>, <code>"!Windows"</code>,
+                <code>"Linux"</code> or <code>"!Linux"</code>. Controls what
+                platforms the entry is shown on.
+            </dd>
+        </dl>
+
+        <p>
+            Each menu entry requires at minimum, the key <code>"caption"</code>
+            for a non-functionality entry, or <code>"command"</code> for an
+            entry that performs an action.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="available_menus">Available Menus</h2>
+
+        <p>
+            Sublime Text has seven menus that may be customized:
+        </p>
+
+        <dl class="enum">
+            <dt>Main.sublime-menu</dt>
+            <dd>Primary menu for the application</dd>
+            <dt>Side Bar Mount Point.sublime-menu</dt>
+            <dd>Context menu for top-level folders in the side bar</dd>
+            <dt>Side Bar.sublime-menu</dt>
+            <dd>
+                <p>
+                    Context menu for files and folders in the side bar. Has
+                    "magic" args for passing file and folder names to commands.
+                </p>
+
+                <p>
+                    Entries with an arg <code>"files": []</code> will be
+                    enabled for files and will pass file names to the command
+                    via the arg <code>files</code>. Entries with an arg
+                    <code>"dirs": []</code> will be enabled for folders and
+                    will pass file names to the command via the arg
+                    <code>dirs</code>. Entries with an arg
+                    <code>"paths": []</code> will be enabled for files and
+                    folders and will pass file and folder names to the command
+                    via the arg <code>paths</code>.
+                </p>
+            </dd>
+            <dt>Tab Context.sublime-menu</dt>
+            <dd>Context menu for file tabs</dd>
+            <dt>Context.sublime-menu</dt>
+            <dd>Context menu for text areas</dd>
+            <dt>Find in Files.sublime-menu</dt>
+            <dd>Menu shown when clicking the <code>...</code> button in Find in Files panel</dd>
+            <dt>Widget Context.sublime-menu</dt>
+            <dd>Context menu for text inputs in various panels. <em>Technically this file name can be changed via the <code>"context_menu"</code> setting inside of <span class="file">Widget.sublime-settings</span>.</em></dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2 id="adding_to_submenus">Adding to Submenus</h2>
+
+        <p>
+            Using the <code>"id"</code> key of an entry, it is possible to add
+            entries to submenus. When adding submenu entries, specify only the
+            <code>"id"</code> and <code>"children"</code> keys of the parent
+            entry, and set the value of <code>"children"</code> to an array of
+            entries to append to the submenu.
+        </p>
+
+        <p>
+            For example, to add a new layout to the <span class="menu">View
+            <img src="../../images/right.svg" alt="▶"> Layout</span> menu, create an
+            entry such as:
+        </p>
+
+        <pre><code class="language-js">[
+    {
+        "id": "layout",
+        "children":
+        [
+            {
+                "caption": "Grid: 9",
+                "command": "set_layout",
+                "args":
+                {
+                    "cols": [0.0, 0.33, 0.66, 1.0],
+                    "rows": [0.0, 0.33, 0.66, 1.0],
+                    "cells":
+                    [
+                        [0, 0, 1, 1], [1, 0, 2, 1], [2, 0, 3, 1],
+                        [0, 1, 1, 2], [1, 1, 2, 2], [2, 1, 3, 2],
+                        [0, 2, 1, 3], [1, 2, 2, 3], [2, 2, 3, 3]
+                    ]
+                }
+            },
+        ]
+    }
+]</code></pre>
+
+        <p>
+            To find the <code>"id"</code> of entries in the
+            <span class="file">Main.sublime-menu</span>, use the
+            <span class="command">View Package File</span> command from the
+            command palette and select <kbd>Default/Main.sublime-menu</kbd>.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="customization">Customization</h2>
+
+        <p>
+            Users can customize the available menus by creating an
+            appropriately-named file in their
+            <span class="file">Packages/User/</span> directory.
+        </p>
+
+        <p>
+            For example, to customize the context menu for files and folders in
+            the side bar, create a file named
+            <span class="file">Packages/User/Side Bar.sublime-menu</span>.
+            Adding the following would create an entry that would execute a
+            (hypothetical) command that would copy the path to the clipboard.
+        </p>
+
+        <pre><code class="language-js">[
+    {
+        "caption": "Copy Full Path",
+        "mnemonic": "y",
+        "command": "copy_path",
+        "args": {"paths": []}
+    }
+]</code></pre>
+    </section>
+    </div>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Double Bay, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>
