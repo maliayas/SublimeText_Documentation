@@ -99,7 +99,7 @@
             <li><a href="themes.html#terminology">Terminology</a></li>
             <li><a href="themes.html#general_information">General Information</a></li>
             <li><a href="themes.html#variables">Variables</a></li>
-            <li><a href="themes.html#color-values">Colors</a></li>
+            <li><a href="themes.html#color_values">Colors</a></li>
             <li><a href="themes.html#attributes">Attributes</a></li>
             <li><a href="themes.html#settings">Settings</a></li>
             <li><a href="themes.html#properties">Properties</a></li>
@@ -963,6 +963,26 @@
                 <a href="themes.html#padding_margin">padding &amp; margins</a>
             </dd>
         </dl>
+
+        <h3 id="styled_label_properties">Styled Label Properties</h3>
+
+        <p>
+            Certain labels allow for additional control over their appearance.
+            They support the properties:
+        </p>
+
+        <dl class="enum properties">
+            <dt>border_color</dt>
+            <dd>
+                a <a href="themes.html#color_values">color value</a> for
+                the border of the label
+            </dd>
+            <dt>background_color</dt>
+            <dd>
+                a <a href="themes.html#color_values">color value</a> for
+                the background of the label
+            </dd>
+        </dl>
     </section>
 
     <section>
@@ -1148,6 +1168,82 @@
                     </dd>
                 </dl>
             </dd>
+            <dt>file_system_entry</dt>
+            <dd>
+                <p>
+                    The container holding information about a file or folder
+                    in the sidebar. Contains different controls based on which
+                    section of the sidebar it is within.
+                </p>
+                <p>
+                    Within the <em>Open Files</em> section, this control
+                    will contain a <code>sidebar_label</code> with the file
+                    name, plus possibly a <code>vcs_status_badge</code>.
+                </p>
+                <p>
+                    Within the <em>Folders</em> section, this control
+                    will contain a folder or file icon (either
+                    <code>icon_folder</code>, <code>icon_folder_loading</code>,
+                    <code>icon_folder_dup</code> or
+                    <code>icon_file_type</code>), a <code>sidebar_label</code>
+                    with the file or folder name, plus possibly a
+                    <code>vcs_status_badge</code>.
+                </p>
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt>ignored</dt>
+                    <dd>
+                        <b>Files:</b> when a file is ignored<br>
+                        <b>Folders:</b> when the entire folder is ignored
+                    </dd>
+                    <dt>untracked</dt>
+                    <dd>
+                        <b>Files:</b> when a file is new or not recognized<br>
+                        <b>Folders:</b> when a folder contains one or more untracked files
+                    </dd>
+                    <dt>modified</dt>
+                    <dd>
+                        <b>Files:</b> when a file has been changed on disk<br>
+                        <b>Folders:</b> when a folder contains one or more modified files
+                    </dd>
+                    <dt>missing</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files is no longer on disk
+                    </dd>
+                    <dt>added</dt>
+                    <dd>
+                        <b>Files:</b> when a new file has been newly added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more added files
+                    </dd>
+                    <dt>staged</dt>
+                    <dd>
+                        <b>Files:</b> when a modified file has been added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more staged files
+                    </dd>
+                    <dt>deleted</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files has been added to the index for removal
+                    </dd>
+                    <dt>unmerged</dt>
+                    <dd>
+                        <b>Files:</b> when a file is in a conflict state and needs to be resolved<br>
+                        <b>Folders:</b> when a folder contains one or more unmerged files
+                    </dd>
+                </dl>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        the <a href="themes.html#padding_margin">margin</a> around
+                        the contained controls
+                    </dd>
+                    <dt>spacing</dt>
+                    <dd>
+                        an integer number of pixels between each contained
+                        control
+                    </dd>
+                </dl>
+            </dd>
             <dt>sidebar_label</dt>
             <dd>
                 <p>
@@ -1246,6 +1342,70 @@
                     <code>icon</code> setting provided by
                     <em>.tmPreferences</em> files.
                 </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        for icons, the <a href="themes.html#padding_margin">margin</a>
+                        specifies the dimensions
+                    </dd>
+                </dl>
+            </dd>
+            <dt>vcs_status_badge</dt>
+            <dd>
+                <p>
+                    An icon contained within <code>file_system_entry</code> that
+                    is used to display the status of a file or folder with
+                    regards to a Git repository it is contained in. This icon
+                    will only be shown if the setting
+                    <code>show_git_status</code> is <code>true</code>, the file
+                    is contained within a Git repository, and the file has some
+                    sort of special state within the repository. <em>A file that
+                    is not shown via <code>git status</code> and is not ignored
+                    via a <span class="filename">.gitignore</span> rule will
+                    have no icon.</em>
+                </p>
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt>ignored</dt>
+                    <dd>
+                        <b>Files:</b> when a file is ignored<br>
+                        <b>Folders:</b> when the entire folder is ignored
+                    </dd>
+                    <dt>untracked</dt>
+                    <dd>
+                        <b>Files:</b> when a file is new or not recognized<br>
+                        <b>Folders:</b> when a folder contains one or more untracked files
+                    </dd>
+                    <dt>modified</dt>
+                    <dd>
+                        <b>Files:</b> when a file has been changed on disk<br>
+                        <b>Folders:</b> when a folder contains one or more modified files
+                    </dd>
+                    <dt>missing</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files is no longer on disk
+                    </dd>
+                    <dt>added</dt>
+                    <dd>
+                        <b>Files:</b> when a new file has been newly added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more added files
+                    </dd>
+                    <dt>staged</dt>
+                    <dd>
+                        <b>Files:</b> when a modified file has been added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more staged files
+                    </dd>
+                    <dt>deleted</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files has been added to the index for removal
+                    </dd>
+                    <dt>unmerged</dt>
+                    <dd>
+                        <b>Files:</b> when a file is in a conflict state and needs to be resolved<br>
+                        <b>Folders:</b> when a folder contains one or more unmerged files
+                    </dd>
+                </dl>
                 <h4>Properties</h4>
                 <dl class="properties">
                     <dt>content_margin</dt>
@@ -1876,6 +2036,52 @@
                     </dd>
                 </dl>
             </dd>
+            <dt>vcs_status</dt>
+            <dd>
+                <p>
+                    The container holding the <code>vcs_branch_icon</code>,
+                    <code>label_control</code> with the current branch name,
+                    and <code>vcs_changes_annotation</code> control
+                </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        the <a href="themes.html#padding_margin">margin</a> around
+                        the contained controls
+                    </dd>
+                    <dt>spacing</dt>
+                    <dd>
+                        an integer number of pixels between each contained
+                        control
+                    </dd>
+                </dl>
+            </dd>
+            <dt>vcs_branch_icon</dt>
+            <dd>
+                <p>
+                    An icon shown to the left of the current branch name
+                </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        for icons, the <a href="themes.html#padding_margin">margin</a>
+                        specifies the dimensions
+                    </dd>
+                </dl>
+            </dd>
+            <dt>vcs_changes_annotation</dt>
+            <dd>
+                <p>
+                    Displays the number of files that have been added, modified
+                    or deleted
+                </p>
+                <h4>Properties</h4>
+                <a class="properties" href="themes.html#font_properties">font properties</a>
+                <a class="properties" href="themes.html#shadow_properties">shadow properties</a>
+                <a class="properties" href="themes.html#styled_label_properties">styled label properties</a>
+            </dd>
         </dl>
 
         <h3 id="elements-dialogs">Dialogs</h3>
@@ -1921,6 +2127,17 @@
                     The scroll area contains the element being scrolled,
                     along with the bar, track and puck.
                 </p>
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt>scrollable</dt>
+                    <dd>
+                        when the control can be scrolled vertically
+                    </dd>
+                    <dt>hscrollable</dt>
+                    <dd>
+                        when the control can be scrolled horizontally
+                    </dd>
+                </dl>
                 <h4>Properties</h4>
                 <dl class="properties">
                     <dt>content_margin</dt>
@@ -2492,26 +2709,58 @@
         <h2 id="changelog">Changelog</h2>
 
         <dl>
+            <dt><h4>Build 3186</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        <code>scroll_area_control</code> gained the
+                        <code>scrollable</code> and <code>hscrollable</code>
+                        attributes
+                    </li>
+                </ul>
+            </dd>
+            <dt><h4>Build 3181</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        Added the <code>file_system_entry</code> and
+                        <code>vcs_status_badge</code> controls to the sidebar
+                    </li>
+                    <li>
+                        Added the <code>vcs_status</code>,
+                        <code>vcs_branch_icon</code> and
+                        <code>vcs_changes_annotation</code> controls to the
+                        status bar
+                    </li>
+                </ul>
+            </dd>
             <dt><h4>Build 3179</h4></dt>
             <dd>
                 <ul>
                     <li>
-                        Format now supports JSON object as top-level container, instead of an array
+                        Format now supports JSON object as top-level container,
+                        instead of an array
                     </li>
                     <li>
                         Added support for variables
                     </li>
                     <li>
-                        Allow colors to be specified using CSS syntax from <a href="../minihtml.html">minihtml</a>
+                        Allow colors to be specified using CSS syntax from
+                        <a href="../minihtml.html">minihtml</a>
                     </li>
                     <li>
-                        The <code>sidebar_heading</code> element now has the <code>case</code> property
+                        The <code>sidebar_heading</code> element now has the
+                        <code>case</code> property
                     </li>
                     <li>
-                        Removed note about animation of opacity causing issues due to sequential rule application. Duplicate property values  are now ignored, and only the final value found is applied.
+                        Removed note about animation of opacity causing issues
+                        due to sequential rule application. Duplicate property
+                        values  are now ignored, and only the final value found
+                        is applied.
                     </li>
                     <li>
-                        <code>scroll_area_control</code> gained the ability to set shadows on any side that can be scrolled
+                        <code>scroll_area_control</code> gained the ability to
+                        set shadows on any side that can be scrolled
                     </li>
                 </ul>
             </dd>

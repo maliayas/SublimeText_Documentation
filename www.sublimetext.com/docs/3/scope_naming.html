@@ -77,6 +77,19 @@
         <p>
             This is a living document that attempts to document best practices for using scope names in syntax definitions and color schemes. All of the Sublime Text default packages strive to adhere to these recommendations.
         </p>
+
+        <ul>
+            <li>
+                <a href="dev/scope_naming.html#syntax_definitions">Usage in Syntax Definitions</a>
+                <ul>
+                    <li><a href="dev/scope_naming.html#example_syntaxes">Example Syntaxes</a></li>
+                    <li><a href="dev/scope_naming.html#alphabetical_reference">Alphabetical Reference</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="dev/scope_naming.html#color_schemes">Usage in Color Schemes</a>
+            </li>
+        </ul>
     </section>
 
     <section>
@@ -90,13 +103,18 @@
             In this documentation, the syntax name is omitted from the end of the dotted scope name. When writing a syntax, unless otherwise noted, the syntax name should be the final segment of a dotted name. For example, a control keyword in Ruby would be <code>keyword.control.ruby</code>, whereas in Python it would be <code>keyword.control.python</code>.
         </p>
 
+        <h3 id="example_syntaxes">Example Syntaxes</h3>
+
         <p>
-            It is an on-going process to improve and expand upon the default syntaxes that are shipped with Sublime Text. As of mid-2016, the following syntaxes have been recently re-worked, and may be used as a reference:
+            It is an on-going process to improve and expand upon the default syntaxes that are shipped with Sublime Text. As of early-2019, the following syntaxes have been recently re-worked, and may be used as a reference:
         </p>
 
         <ul>
             <li>
                 <a href="https://github.com/sublimehq/Packages/blob/master/CSS/CSS.sublime-syntax">CSS</a>
+            </li>
+            <li>
+                <a href="https://github.com/sublimehq/Packages/blob/master/Python/Python.sublime-syntax">Python</a>
             </li>
             <li>
                 <a href="https://github.com/sublimehq/Packages/blob/master/Go/Go.sublime-syntax">Go</a>
@@ -108,11 +126,11 @@
                 <a href="https://github.com/sublimehq/Packages/blob/master/PHP/PHP.sublime-syntax">PHP</a>
             </li>
             <li>
-                <a href="https://github.com/sublimehq/Packages/blob/master/Rust/Rust.sublime-syntax">Rust</a>
+                <a href="https://github.com/sublimehq/Packages/blob/master/C#/C#.sublime-syntax">C#</a>
             </li>
         </ul>
 
-        <h3>Top-Level Scope Index</h3>
+        <h3 id="alphabetical_reference">Alphabetical Reference</h3>
 
         <p>
             The following, top-level, list of scopes is sorted alphabetically. It is recommended to read through the entire list at least once before writing or modifying a syntax.
@@ -171,7 +189,7 @@
     </section>
 
     <section>
-        <h3 id="comment"><code>comment.</code></h3>
+        <h4 id="comment"><code>comment.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -218,7 +236,7 @@
     </section>
 
     <section>
-        <h3 id="constant"><code>constant.</code></h3>
+        <h4 id="constant"><code>constant.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -232,16 +250,51 @@
                     <code>constant.numeric.integer</code>
                 </li>
                 <li>
+                    <code>constant.numeric.integer.binary</code>
+                </li>
+                <li>
+                    <code>constant.numeric.integer.octal</code>
+                </li>
+                <li>
+                    <code>constant.numeric.integer.decimal</code>
+                </li>
+                <li>
+                    <code>constant.numeric.integer.hexadecimal</code>
+                </li>
+                <li>
+                    <code>constant.numeric.integer.other</code>
+                </li>
+                <li>
                     <code>constant.numeric.float</code>
                 </li>
                 <li>
-                    <code>constant.numeric.hex</code>
+                    <code>constant.numeric.float.binary</code>
                 </li>
                 <li>
-                    <code>constant.numeric.octal</code>
+                    <code>constant.numeric.float.octal</code>
+                </li>
+                <li>
+                    <code>constant.numeric.float.decimal</code>
+                </li>
+                <li>
+                    <code>constant.numeric.float.hexadecimal</code>
+                </li>
+                <li>
+                    <code>constant.numeric.float.other</code>
+                </li>
+                <li>
+                    <code>constant.numeric.complex</code>
+                </li>
+                <li>
+                    <code>constant.numeric.complex.real</code>
+                </li>
+                <li>
+                    <code>constant.numeric.complex.imaginary</code>
                 </li>
             </ul>
+        </div>
 
+        <div class="column half even">
             <p>
                 Constants that are built into the language, such as booleans and null values, should use:
             </p>
@@ -250,9 +303,7 @@
                     <code>constant.language</code>
                 </li>
             </ul>
-        </div>
 
-        <div class="column half even">
             <p>
                 Character escapes in strings, e.g. <code>\n</code> and <code>\x20</code>, should use:
             </p>
@@ -283,7 +334,7 @@
     </section>
 
     <section>
-        <h3 id="entity"><code>entity.</code></h3>
+        <h4 id="entity"><code>entity.</code></h4>
 
         <p>
             The entity scopes are generally assigned to the names of data structures, types and other uniquely-identifiable constructs in code and markup. The notable exceptions are <code>entity.name.tag</code> and <code>entity.other.attribute-name</code>, which are used in HTML and XML tags.
@@ -314,6 +365,9 @@
                 </li>
                 <li>
                     <code>entity.name.interface</code>
+                </li>
+                <li>
+                    <code>entity.name.impl</code>
                 </li>
                 <li>
                     <code>entity.name.type</code>
@@ -413,7 +467,7 @@
     </section>
 
     <section>
-        <h3 id="invalid"><code>invalid.</code></h3>
+        <h4 id="invalid"><code>invalid.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -439,7 +493,7 @@
     </section>
 
     <section>
-        <h3 id="keyword"><code>keyword.</code></h3>
+        <h4 id="keyword"><code>keyword.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -510,7 +564,7 @@
     </section>
 
     <section>
-        <h3 id="markup"><code>markup.</code></h3>
+        <h4 id="markup"><code>markup.</code></h4>
 
         <p>
             Markup scopes are used for content, as opposed to code. This includes syntaxes such as Markdown and Textile.
@@ -609,7 +663,7 @@
     </section>
 
     <section>
-        <h3 id="meta"><code>meta.</code></h3>
+        <h4 id="meta"><code>meta.</code></h4>
 
         <p>
             Meta scopes are used to scope larger sections of code or markup, generally containing multiple, more specific scopes. These are not intended to be styled by a color scheme, but used by preferences and plugins.
@@ -637,6 +691,9 @@
                 </li>
                 <li>
                     <code>meta.interface</code>
+                </li>
+                <li>
+                    <code>meta.impl</code>
                 </li>
                 <li>
                     <code>meta.type</code>
@@ -677,6 +734,24 @@
             </ul>
 
             <p>
+                Annotations, attributes and decorator statements that are used to modify the behavior or implementation of a class, method or function should use one of the following <code>meta</code> scopes for each component of the annotation. That is to say, there should never be more than one <code>meta.annotation*</code> scope on the stack at any given time. See <code>variable.annotation</code> for scoping the identifier.
+            </p>
+            <ul>
+                <li>
+                    <code>meta.annotation</code>
+                </li>
+                <li>
+                    <code>meta.annotation.identifier</code>
+                </li>
+                <li>
+                    <code>meta.annotation.parameters</code>
+                </li>
+                <li>
+                    <code>punctuation.definition.annotation</code>
+                </li>
+            </ul>
+
+            <p>
                 Complete identifiers, including namespace names, should use the following scope. Such identifiers are the fully-qualified forms of variable, function and class names. For example, in C++ a path may look like <code>myns::myclass</code>, whereas in PHP it would appears such as <code>\MyNS\MyClass</code>.
             </p>
             <ul>
@@ -684,7 +759,9 @@
                     <code>meta.path</code>
                 </li>
             </ul>
+        </div>
 
+        <div class="column half even">
             <p>
                 Function names, including the full path, and all parameters should receive the following scope. The name of the function or method should be <code>variable.function</code>, unless the function is scoped with <code>support.function</code>.
             </p>
@@ -693,9 +770,7 @@
                     <code>meta.function-call</code>
                 </li>
             </ul>
-        </div>
 
-        <div class="column half even">
             <p>
                 Sections of code delineated by curly braces should use one the following <code>meta</code> scopes, based on appropriate semantics. The <code>{</code> and <code>}</code> characters should additionally use the <code>punctuation</code> scopes.
             </p>
@@ -795,7 +870,7 @@
     </section>
 
     <section>
-        <h3 id="punctuation"><code>punctuation.</code></h3>
+        <h4 id="punctuation"><code>punctuation.</code></h4>
 
         <p>
             The following scopes are punctuation scopes that are not embedded within other scopes. For instance, the <a href="dev/scope_naming.html#string"><code>string.</code></a> section includes documentation about scopes for string punctuation.
@@ -843,7 +918,7 @@
     </section>
 
     <section>
-        <h3 id="source"><code>source.</code></h3>
+        <h4 id="source"><code>source.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -858,20 +933,18 @@
     </section>
 
     <section>
-        <h3 id="storage"><code>storage.</code></h3>
+        <h4 id="storage"><code>storage.</code></h4>
 
         <div class="column half odd">
             <p>
-                Types and definition/declaration keywords should use the following scope. Examples include <code>int</code>, <code>bool</code>, <code>char</code>, <code>func</code>, <code>function</code>, <code>class</code> and <code>def</code>. Depending on the language and semantics, <code>const</code> may be this or <code>storage.modifier</code>.
+                Types should use the following scope. Examples include <code>int</code>, <code>bool</code> and <code>char</code>.
             </p>
             <ul>
                 <li>
                     <code>storage.type</code>
                 </li>
             </ul>
-        </div>
 
-        <div class="column half even">
             <p>
                 Keywords that affect the storage of a variable, function or data structure should use the following scope. Examples include <code>static</code>, <code>inline</code>, <code>const</code>, <code>public</code> and <code>private</code>.
             </p>
@@ -880,11 +953,54 @@
                     <code>storage.modifier</code>
                 </li>
             </ul>
+
+            <p>
+                Keywords for functions or methods should use the following scopes. Example keywords include <code>func</code>, <code>function</code> and <code>def</code>. <em>This includes <code>storage.type</code> for backwards compatibility with older color schemes.</em>
+            </p>
+
+            <ul>
+                <li>
+                    <code>storage.type.function keyword.declaration.function</code>
+                </li>
+            </ul>
+        </div>
+
+        <div class="column half even">
+            <p>
+                Keywords for classes, structs, interfaces, etc should use the following scopes – this list is not exhaustive. Example keywords include <code>class</code>, <code>struct</code>, <code>impl</code> and <code>typedef</code>. <em>This includes <code>storage.type</code> for backwards compatibility with older color schemes.</em>
+            </p>
+
+            <ul>
+                <li>
+                    <code>storage.type.class keyword.declaration.class</code>
+                </li>
+                <li>
+                    <code>storage.type.struct keyword.declaration.struct</code>
+                </li>
+                <li>
+                    <code>storage.type.enum keyword.declaration.enum</code>
+                </li>
+                <li>
+                    <code>storage.type.union keyword.declaration.union</code>
+                </li>
+                <li>
+                    <code>storage.type.trait keyword.declaration.trait</code>
+                </li>
+                <li>
+                    <code>storage.type.interface keyword.declaration.interface</code>
+                </li>
+                <li>
+                    <code>storage.type.impl keyword.declaration.impl</code>
+                </li>
+                <li>
+                    <code>storage.type keyword.declaration.type</code>
+                </li>
+            </ul>
         </div>
     </section>
 
     <section>
-        <h3 id="string"><code>string.</code></h3>
+        <h4 id="string"><code>string.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -910,9 +1026,16 @@
                     <code>string.quoted.other</code>
                 </li>
             </ul>
-        </div>
 
-        <div class="column half even">
+            <p>
+                The entirety of a string, along with all punctuation, prefixes, suffixes and interpolations should use:
+            </p>
+            <ul>
+                <li>
+                    <code>meta.string</code>
+                </li>
+            </ul>
+
             <p>
                 Punctuation at the beginning and end of strings should use:
             </p>
@@ -943,10 +1066,42 @@
                 </li>
             </ul>
         </div>
+
+        <div class="column half even">
+            <p>
+                When a string contain interpolated code, such as a variable or expression, the <code>string.*</code> scope should be removed using <code>clear_scopes:</code>, and the following should be added to the entirety of the interpolation, including punctuation:
+            </p>
+            <ul>
+                <li>
+                    <code>meta.interpolation</code>
+                </li>
+            </ul>
+
+            <p>
+                The punctuation for an interpolated expression should be:
+            </p>
+            <ul>
+                <li>
+                    <code>punctuation.section.interpolation.begin</code>
+                </li>
+                <li>
+                    <code>punctuation.section.interpolation.end</code>
+                </li>
+            </ul>
+
+            <p>
+                Between the punctuation, the interpolated expression should get:
+            </p>
+            <ul>
+                <li>
+                    <code>source.<em>language-suffix</em>.embedded</code>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <section>
-        <h3 id="support"><code>support.</code></h3>
+        <h4 id="support"><code>support.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -981,7 +1136,7 @@
     </section>
 
     <section>
-        <h3 id="text"><code>text.</code></h3>
+        <h4 id="text"><code>text.</code></h4>
 
         <p>
             Programming languages use <a href="dev/scope_naming.html#source"><code>source.</code></a> as their base scope, whereas content uses <code>text.</code>. One of the biggest differences is the fact that many plugins and other dynamic functionality is disabled within <code>text.</code> scopes. <a href="dev/scope_naming.html#markup"><code>markup.</code></a> scopes are typically used within text.
@@ -1011,7 +1166,7 @@
     </section>
 
     <section>
-        <h3 id="variable"><code>variable.</code></h3>
+        <h4 id="variable"><code>variable.</code></h4>
 
         <div class="column half odd">
             <p>
@@ -1052,9 +1207,7 @@
                     <code>variable.language</code>
                 </li>
             </ul>
-        </div>
 
-        <div class="column half even">
             <p>
                 Parameters to a function or methods should use the following scope. This may also be used for other parameter-like variables, such as receivers or named return values in Go.
             </p>
@@ -1063,7 +1216,9 @@
                     <code>variable.parameter</code>
                 </li>
             </ul>
+        </div>
 
+        <div class="column half even">
             <p>
                 Fields, properties, members and attributes of a class or other data structure should use:
             </p>
@@ -1079,6 +1234,25 @@
             <ul>
                 <li>
                     <code>variable.function</code>
+                </li>
+            </ul>
+
+            <p>
+                The final label in an identifier that is part of an annotation should use the following. For the entire identifier, the <code>meta.path</code> scope should be used. The entire annotation should get <code>meta.annotation</code>.
+            </p>
+            <ul>
+                <li>
+                    <code>variable.annotation</code>
+                </li>
+            </ul>
+
+            <p>
+                The leading symbol used to delineate an annotation should use:
+            </p>
+
+            <ul>
+                <li>
+                    <code>punctuation.definition.annotation</code>
                 </li>
             </ul>
         </div>
@@ -1117,6 +1291,7 @@
             <li><code>keyword</code></li>
             <li><code>keyword.control</code></li>
             <li><code>keyword.operator</code></li>
+            <li><code>keyword.declaration</code></li>
             <li><code>string</code></li>
             <li><code>comment</code></li>
             <li><code>invalid</code></li>
