@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i|Roboto+Mono:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css">
+    <link rel="stylesheet" type="text/css" href="../../sublime_v3.css@d=190313.css">
     <link rel="icon" href="https://www.sublimetext.com/favicon.ico">
     <link rel="icon" size="64x64" href="https://www.sublimetext.com/favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -43,7 +43,7 @@
     </style>
     <![endif]-->
 </head>
-<body class="docs">
+<body class="docs dev-build">
     <header>
         <section>
             <a id="logo" href="https://www.sublimetext.com/">
@@ -61,7 +61,7 @@
     </header>
     <main>
     <section>
-    <script src="dev/prism.js"></script>
+    <script src="prism.js"></script>
 
     <h1><span>
         <a href="index.html">Documentation</a>
@@ -84,7 +84,7 @@
             Sublime Text color schemes are implemented using
             <span class="file">.sublime-color-scheme</span> files, containing
             JSON. Sublime Text also supports a subset of features using the
-            TextMate <a href="dev/color_schemes_tmtheme.html">.tmTheme format</a>.
+            TextMate <a href="color_schemes_tmtheme.html">.tmTheme format</a>.
         </p>
 
         <ul>
@@ -618,10 +618,10 @@
             Author of syntaxes can assign whatever scopes they want to a given token.
             This combined with the fact that there are hundreds of community-maintained
             syntaxes means that is can be hard to know what scopes to target. The
-            <a href="dev/scope_naming.html">official Scope
+            <a href="scope_naming.html">official Scope
             Naming guidelines</a> were established to help syntax and color scheme
             authors use a common set, for better interoperability. The
-            <a href="dev/scope_naming.html#color_schemes">Usage
+            <a href="scope_naming.html#color_schemes">Usage
             in Color Schemes</a> section provides a baseline set of scopes that color
             scheme authors should strive to handle.
         </p>
@@ -749,9 +749,15 @@
         </p>
     </section>
 
-    <section>
+    <section id="css_colors-section">
         <h2 id="css_colors">Appendix: CSS Colors</h2>
         <style>
+        section#css_colors-section:after
+        {
+            content: "";
+            display: table;
+            clear: both;
+        }
         span.color-block {
             width: 50px;
             height: 20px;
