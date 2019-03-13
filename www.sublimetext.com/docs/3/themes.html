@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Themes – Sublime Text 3 Documentation</title>
+    <title>Themes – Dev Build Documentation – Sublime Text 3 Documentation</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
@@ -64,7 +64,7 @@
     <script src="prism.js"></script>
 
     <h1><span>
-        <a href="index.html">Documentation</a>
+        <a href="dev/index.html">Dev Build Documentation</a>
         Themes
     </span></h1>
 
@@ -98,6 +98,8 @@
             <li><a href="themes.html#example">Example</a></li>
             <li><a href="themes.html#terminology">Terminology</a></li>
             <li><a href="themes.html#general_information">General Information</a></li>
+            <li><a href="themes.html#variables">Variables</a></li>
+            <li><a href="themes.html#color_values">Colors</a></li>
             <li><a href="themes.html#attributes">Attributes</a></li>
             <li><a href="themes.html#settings">Settings</a></li>
             <li><a href="themes.html#properties">Properties</a></li>
@@ -105,6 +107,7 @@
             <li><a href="themes.html#deprecated">Deprecated</a></li>
             <li><a href="themes.html#obsolete">Obsolete</a></li>
             <li><a href="themes.html#customization">Customization</a></li>
+            <li><a href="themes.html#changelog">Changelog</a></li>
         </ul>
     </section>
 
@@ -118,52 +121,65 @@
             many more rules to cover all elements used in the UI.</em>
         </p>
 
-        <pre><code class="language-js">[
-    // Set up the textures for a button
+        <pre><code class="language-js">{
+    "variables":
     {
-        "class": "button_control",
-        "layer0.tint": [0, 0, 0],
-        "layer0.opacity": 1.0,
-        "layer1.texture": "Theme - Example/textures/button_background.png",
-        "layer1.inner_margin": 4,
-        "layer1.opacity": 1.0,
-        "layer2.texture": "Theme - Example/textures/button_highlight.png",
-        "layer2.inner_margin": 4,
-        "layer2.opacity": 0.0,
-        "content_margin": [4, 8, 4, 8]
+        "light_gray": "rgb(240, 240, 240)"
     },
-    // Show the highlight texture when the button is hovered
-    {
-        "class": "button_control",
-        "attributes": ["hover"],
-        "layer2.opacity": 1.0
-    },
-    // Basic text label style
-    {
-        "class": "label_control",
-        "fg": [240, 240, 240],
-        "font.bold": true
-    },
-    // Brighten labels contained in a button on hover
-    {
-        "class": "label_control",
-        "parents": [{"class": "button_control", "attributes": ["hover"]}],
-        "fg": [255, 255, 255]
-    }
-]</code></pre>
+    "rules":
+    [
+        // Set up the textures for a button
+        {
+            "class": "button_control",
+            "layer0.tint": "#000",
+            "layer0.opacity": 1.0,
+            "layer1.texture": "Theme - Example/textures/button_background.png",
+            "layer1.inner_margin": 4,
+            "layer1.opacity": 1.0,
+            "layer2.texture": "Theme - Example/textures/button_highlight.png",
+            "layer2.inner_margin": 4,
+            "layer2.opacity": 0.0,
+            "content_margin": [4, 8, 4, 8]
+        },
+        // Show the highlight texture when the button is hovered
+        {
+            "class": "button_control",
+            "attributes": ["hover"],
+            "layer2.opacity": 1.0
+        },
+        // Basic text label style
+        {
+            "class": "label_control",
+            "fg": "var(light_gray)",
+            "font.bold": true
+        },
+        // Brighten labels contained in a button on hover
+        {
+            "class": "label_control",
+            "parents": [{"class": "button_control", "attributes": ["hover"]}],
+            "fg": "white"
+        }
+    ]
+}</code></pre>
     </section>
 
     <section>
         <h2 id="terminology">Terminology</h2>
 
         <p>
-            A theme is a JSON array of objects, called <em>rules</em>. Each
-            rule object contains a <code>class</code> key used to match to
-            an element. In addition to the <code>class</code>, matching can
-            be further restricted by specifying <code>attributes</code>,
-            <code>settings</code>, <code>parents</code> and
-            <code>platforms</code> keys. <em>Properties</em> affect the look
-            or behavior of the element.
+            A theme is a JSON object that specifies <em>rules</em> and,
+            optionally, <em>variables</em>. Each <em>rule</em> object contains a
+            <code>class</code> key used to match to an element. In addition to
+            the <code>class</code>, matching can be further restricted by
+            specifying <code>attributes</code>, <code>settings</code>,
+            <code>parents</code> and <code>platforms</code> keys.
+            <em>Properties</em> affect the look or behavior of the element.
+        </p>
+
+        <p>
+            <em>Variables</em> allow reusing values throughout different
+            <em>rules</em>. Variables may contain any type of syntax, but may
+            only be referenced by top-level keys in a <em>rule</em>.
         </p>
 
         <p>
@@ -247,12 +263,8 @@
             double the DPI, with <code>@2x</code> added to the filename right
             before the extension. Sublime Text will automatically use the
             <code>@2x</code> version when being displayed on a high-DPI screen.
-        </p>
-
-        <p>
-            Although currently not implemented, the increasing resolution of
-            displays will likely result in support for <code>@3x</code>
-            variants at some point in the future.
+            It is also possible to specify <code>@3x</code> variants of
+            textures for screens running at 300% scale or higher.
         </p>
 
         <p>
@@ -289,11 +301,99 @@
                 order, to the left, top, right and bottom
             </li>
         </ul>
+    </section>
 
-        <h3 id="color_values">Color Values</h3>
+    <section>
+        <h2 id="variables">Variables</h2>
 
         <p>
-            Colors may be specified in a number of different formats:
+            Reusable variables may be defined by a JSON object under the
+            top-level key <code>"variables"</code>. Variable names are strings,
+            however the value may be a string, number, boolean, array or object.
+            Using a variable requires specifying a string in the format
+            <code>var(example_variable_name)</code>.
+        </p>
+
+            <pre><code class="language-js">{
+    "variables":
+    {
+        "light_gray": "rgb(240, 240, 240)"
+    },
+    "rules":
+    [
+        {
+            "class": "label_control",
+            "fg": "var(light_gray)"
+        }
+    ]
+}</code></pre>
+
+        <p>
+            Variables may be used as the value for any
+            <a href="themes.html#properties">property</a>, but the variable must be the
+            entire value, it may not be embedded within another variable. The
+            only exception to this rule is that variables may be used as the
+            base color for the CSS <code>color()</code> mod function.
+        </p>
+
+    </section>
+
+    <section>
+        <h2 id="color_values">Colors</h2>
+
+        <p>
+            Colors may be specified by CSS or legacy color syntax:
+        </p>
+
+        <h3>CSS Color Syntax</h3>
+
+        <p>
+            Since Sublime Text build 3177, colors in themes may now be
+            specified using CSS syntax, as supported by
+            <a href="minihtml.html">minihtml</a>. This includes support
+            for hex, <code>rgb()</code>, <code>hsl()</code>, variables and
+            the color mod function. Additionally, all
+            <a href="minihtml.html#predefined_variables">predefined
+            variables</a> that are derived from the color scheme are available
+            for use.
+        </p>
+
+        <p>
+            <em>The color white, as hex</em>
+        </p>
+
+        <pre><code class="language-css">#fff</code></pre>
+
+        <p>
+            <em>The color white, using <code>rgb()</code> functional notation</em>
+        </p>
+
+        <pre><code class="language-css">rgb(255, 255, 255)</code></pre>
+
+        <p>
+            <em>50% opacity white, using <code>hsla()</code> functional notation</em>
+        </p>
+
+        <pre><code class="language-css">hsla(0, 100%, 100%, 0.5)</code></pre>
+
+        <p>
+            <em>The closest color to red, as defined in the color scheme</em>
+        </p>
+
+        <pre><code class="language-css">var(--redish)</code></pre>
+
+        <p>
+            <em>50% opacity of the closest color to red, as defined in the color scheme</em>
+        </p>
+
+        <pre><code class="language-css">color(var(--redish) a(0.5))</code></pre>
+
+        <h3>Legacy Color Syntax</h3>
+
+        <p>
+            Prior to supporting CSS syntax for colors, themes were only
+            able to specify colors using the following formats, which are now
+            deprecated.
         </p>
 
         <h4 id="colors-rgb">RGB</h4>
@@ -526,9 +626,9 @@
         <h2 id="properties">Properties</h2>
 
         <p>
-            A <code>.sublime-theme</code> file is a JSON array of objects
-            describing how UI elements should be styled. Every element in the
-            UI supports the following keys:
+            The <code>"rules"</code> key of a <code>.sublime-theme</code> file
+            is a JSON array of of objects describing how UI elements should be
+            styled. Every element in the UI supports the following keys:
         </p>
 
         <dl class="enum properties">
@@ -681,14 +781,6 @@
                 </div>
             </dd>
         </dl>
-
-        <p>
-            <em>Since rules are applied sequentially, it is possible to try
-            and set a base opacity and then have a subsequent rule that
-            specifies an attribute or parent try to apply an animation. This
-            will often lead to the value being reset to the base amount, and
-            then the animation seemingly not working.</em>
-        </p>
 
         <h4>Texture Animation</h4>
 
@@ -871,6 +963,26 @@
                 <a href="themes.html#padding_margin">padding &amp; margins</a>
             </dd>
         </dl>
+
+        <h3 id="styled_label_properties">Styled Label Properties</h3>
+
+        <p>
+            Certain labels allow for additional control over their appearance.
+            They support the properties:
+        </p>
+
+        <dl class="enum properties">
+            <dt>border_color</dt>
+            <dd>
+                a <a href="themes.html#color_values">color value</a> for
+                the border of the label
+            </dd>
+            <dt>background_color</dt>
+            <dd>
+                a <a href="themes.html#color_values">color value</a> for
+                the background of the label
+            </dd>
+        </dl>
     </section>
 
     <section>
@@ -1043,6 +1155,93 @@
                         a <a href="themes.html#color_values">color
                         value</a> to use for the text
                     </dd>
+                    <dt>case</dt>
+                    <dd>
+                        <p>
+                            the case modification to use for the heading -
+                            <code>"upper"</code>, <code>"lower"</code> or
+                            <code>"title"</code>.
+                        </p>
+                        <div class="example">
+                            Default: <code>"upper"</code>
+                        </div>
+                    </dd>
+                </dl>
+            </dd>
+            <dt>file_system_entry</dt>
+            <dd>
+                <p>
+                    The container holding information about a file or folder
+                    in the sidebar. Contains different controls based on which
+                    section of the sidebar it is within.
+                </p>
+                <p>
+                    Within the <em>Open Files</em> section, this control
+                    will contain a <code>sidebar_label</code> with the file
+                    name, plus possibly a <code>vcs_status_badge</code>.
+                </p>
+                <p>
+                    Within the <em>Folders</em> section, this control
+                    will contain a folder or file icon (either
+                    <code>icon_folder</code>, <code>icon_folder_loading</code>,
+                    <code>icon_folder_dup</code> or
+                    <code>icon_file_type</code>), a <code>sidebar_label</code>
+                    with the file or folder name, plus possibly a
+                    <code>vcs_status_badge</code>.
+                </p>
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt>ignored</dt>
+                    <dd>
+                        <b>Files:</b> when a file is ignored<br>
+                        <b>Folders:</b> when the entire folder is ignored
+                    </dd>
+                    <dt>untracked</dt>
+                    <dd>
+                        <b>Files:</b> when a file is new or not recognized<br>
+                        <b>Folders:</b> when a folder contains one or more untracked files
+                    </dd>
+                    <dt>modified</dt>
+                    <dd>
+                        <b>Files:</b> when a file has been changed on disk<br>
+                        <b>Folders:</b> when a folder contains one or more modified files
+                    </dd>
+                    <dt>missing</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files is no longer on disk
+                    </dd>
+                    <dt>added</dt>
+                    <dd>
+                        <b>Files:</b> when a new file has been newly added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more added files
+                    </dd>
+                    <dt>staged</dt>
+                    <dd>
+                        <b>Files:</b> when a modified file has been added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more staged files
+                    </dd>
+                    <dt>deleted</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files has been added to the index for removal
+                    </dd>
+                    <dt>unmerged</dt>
+                    <dd>
+                        <b>Files:</b> when a file is in a conflict state and needs to be resolved<br>
+                        <b>Folders:</b> when a folder contains one or more unmerged files
+                    </dd>
+                </dl>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        the <a href="themes.html#padding_margin">margin</a> around
+                        the contained controls
+                    </dd>
+                    <dt>spacing</dt>
+                    <dd>
+                        an integer number of pixels between each contained
+                        control
+                    </dd>
                 </dl>
             </dd>
             <dt>sidebar_label</dt>
@@ -1143,6 +1342,70 @@
                     <code>icon</code> setting provided by
                     <em>.tmPreferences</em> files.
                 </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        for icons, the <a href="themes.html#padding_margin">margin</a>
+                        specifies the dimensions
+                    </dd>
+                </dl>
+            </dd>
+            <dt>vcs_status_badge</dt>
+            <dd>
+                <p>
+                    An icon contained within <code>file_system_entry</code> that
+                    is used to display the status of a file or folder with
+                    regards to a Git repository it is contained in. This icon
+                    will only be shown if the setting
+                    <code>show_git_status</code> is <code>true</code>, the file
+                    is contained within a Git repository, and the file has some
+                    sort of special state within the repository. <em>A file that
+                    is not shown via <code>git status</code> and is not ignored
+                    via a <span class="filename">.gitignore</span> rule will
+                    have no icon.</em>
+                </p>
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt>ignored</dt>
+                    <dd>
+                        <b>Files:</b> when a file is ignored<br>
+                        <b>Folders:</b> when the entire folder is ignored
+                    </dd>
+                    <dt>untracked</dt>
+                    <dd>
+                        <b>Files:</b> when a file is new or not recognized<br>
+                        <b>Folders:</b> when a folder contains one or more untracked files
+                    </dd>
+                    <dt>modified</dt>
+                    <dd>
+                        <b>Files:</b> when a file has been changed on disk<br>
+                        <b>Folders:</b> when a folder contains one or more modified files
+                    </dd>
+                    <dt>missing</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files is no longer on disk
+                    </dd>
+                    <dt>added</dt>
+                    <dd>
+                        <b>Files:</b> when a new file has been newly added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more added files
+                    </dd>
+                    <dt>staged</dt>
+                    <dd>
+                        <b>Files:</b> when a modified file has been added to the index<br>
+                        <b>Folders:</b> when a folder contains one or more staged files
+                    </dd>
+                    <dt>deleted</dt>
+                    <dd>
+                        <b>Folders:</b> when one or more of a folder‘s files has been added to the index for removal
+                    </dd>
+                    <dt>unmerged</dt>
+                    <dd>
+                        <b>Files:</b> when a file is in a conflict state and needs to be resolved<br>
+                        <b>Folders:</b> when a folder contains one or more unmerged files
+                    </dd>
+                </dl>
                 <h4>Properties</h4>
                 <dl class="properties">
                     <dt>content_margin</dt>
@@ -1516,8 +1779,6 @@
                     color scheme applied to the view the popup is
                     displayed in.
                 </p>
-                <h4>Attributes</h4>
-                <a class="attributes" href="themes.html#luminosity_attributes">luminosity attributes</a>
                 <h4>Properties</h4>
                 <a class="properties" href="themes.html#data_table_properties">data table properties</a>
                 <a class="properties" href="themes.html#texture_tinting_properties">texture tinting properties</a>
@@ -1775,6 +2036,52 @@
                     </dd>
                 </dl>
             </dd>
+            <dt>vcs_status</dt>
+            <dd>
+                <p>
+                    The container holding the <code>vcs_branch_icon</code>,
+                    <code>label_control</code> with the current branch name,
+                    and <code>vcs_changes_annotation</code> control
+                </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        the <a href="themes.html#padding_margin">margin</a> around
+                        the contained controls
+                    </dd>
+                    <dt>spacing</dt>
+                    <dd>
+                        an integer number of pixels between each contained
+                        control
+                    </dd>
+                </dl>
+            </dd>
+            <dt>vcs_branch_icon</dt>
+            <dd>
+                <p>
+                    An icon shown to the left of the current branch name
+                </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>content_margin</dt>
+                    <dd>
+                        for icons, the <a href="themes.html#padding_margin">margin</a>
+                        specifies the dimensions
+                    </dd>
+                </dl>
+            </dd>
+            <dt>vcs_changes_annotation</dt>
+            <dd>
+                <p>
+                    Displays the number of files that have been added, modified
+                    or deleted
+                </p>
+                <h4>Properties</h4>
+                <a class="properties" href="themes.html#font_properties">font properties</a>
+                <a class="properties" href="themes.html#shadow_properties">shadow properties</a>
+                <a class="properties" href="themes.html#styled_label_properties">styled label properties</a>
+            </dd>
         </dl>
 
         <h3 id="elements-dialogs">Dialogs</h3>
@@ -1820,6 +2127,17 @@
                     The scroll area contains the element being scrolled,
                     along with the bar, track and puck.
                 </p>
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt>scrollable</dt>
+                    <dd>
+                        when the control can be scrolled vertically
+                    </dd>
+                    <dt>hscrollable</dt>
+                    <dd>
+                        when the control can be scrolled horizontally
+                    </dd>
+                </dl>
                 <h4>Properties</h4>
                 <dl class="properties">
                     <dt>content_margin</dt>
@@ -1831,6 +2149,50 @@
                     <dd>
                         sets the scroll bars to be rendered on
                         top of the content
+                    </dd>
+                    <dt>left_shadow</dt>
+                    <dd>
+                        a <a href="themes.html#color_values">color value</a> to use when
+                        drawing a shadow to indicate the area can be scrolled
+                        to the left
+                    </dd>
+                    <dt>left_shadow_size</dt>
+                    <dd>
+                        in integer of the width of the shadow to draw when the
+                        area can be scrolled to the left
+                    </dd>
+                    <dt>top_shadow</dt>
+                    <dd>
+                        a <a href="themes.html#color_values">color value</a> to use when
+                        drawing a shadow to indicate the area can be scrolled
+                        to the top
+                    </dd>
+                    <dt>top_shadow_size</dt>
+                    <dd>
+                        in integer of the height of the shadow to draw when the
+                        area can be scrolled to the top
+                    </dd>
+                    <dt>right_shadow</dt>
+                    <dd>
+                        a <a href="themes.html#color_values">color value</a> to use when
+                        drawing a shadow to indicate the area can be scrolled
+                        to the right
+                    </dd>
+                    <dt>right_shadow_size</dt>
+                    <dd>
+                        in integer of the width of the shadow to draw when the
+                        area can be scrolled to the right
+                    </dd>
+                    <dt>bottom_shadow</dt>
+                    <dd>
+                        a <a href="themes.html#color_values">color value</a> to use when
+                        drawing a shadow to indicate the area can be scrolled
+                        to the bottom
+                    </dd>
+                    <dt>bottom_shadow_size</dt>
+                    <dd>
+                        in integer of the height of the shadow to draw when the
+                        area can be scrolled to the bottom
                     </dd>
                 </dl>
             </dd>
@@ -1889,6 +2251,21 @@
             </dd>
             <dt>scroll_corner_control</dt>
             <dd>
+                <p>
+                    The dead space in the bottom right of a
+                    <code>scroll_area_control</code> when both the vertical and
+                    horizontal scroll bars are being shown.
+                </p>
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt>dark</dt>
+                    <dd>
+                        when the scroll area content is dark,
+                        necessitating a light scroll bar
+                    </dd>
+                </dl>
+                <h4>Properties</h4>
+                <a class="properties" href="themes.html#texture_tinting_properties">texture tinting properties</a>
             </dd>
             <dt>puck_control</dt>
             <dd>
@@ -2327,14 +2704,85 @@
     }
 ]</code></pre>
     </section>
+
+    <section>
+        <h2 id="changelog">Changelog</h2>
+
+        <dl>
+            <dt><h4>Build 3186</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        <code>scroll_area_control</code> gained the
+                        <code>scrollable</code> and <code>hscrollable</code>
+                        attributes
+                    </li>
+                </ul>
+            </dd>
+            <dt><h4>Build 3181</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        Added the <code>file_system_entry</code> and
+                        <code>vcs_status_badge</code> controls to the sidebar
+                    </li>
+                    <li>
+                        Added the <code>vcs_status</code>,
+                        <code>vcs_branch_icon</code> and
+                        <code>vcs_changes_annotation</code> controls to the
+                        status bar
+                    </li>
+                </ul>
+            </dd>
+            <dt><h4>Build 3179</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        Format now supports JSON object as top-level container,
+                        instead of an array
+                    </li>
+                    <li>
+                        Added support for variables
+                    </li>
+                    <li>
+                        Allow colors to be specified using CSS syntax from
+                        <a href="minihtml.html">minihtml</a>
+                    </li>
+                    <li>
+                        The <code>sidebar_heading</code> element now has the
+                        <code>case</code> property
+                    </li>
+                    <li>
+                        Removed note about animation of opacity causing issues
+                        due to sequential rule application. Duplicate property
+                        values  are now ignored, and only the final value found
+                        is applied.
+                    </li>
+                    <li>
+                        <code>scroll_area_control</code> gained the ability to
+                        set shadows on any side that can be scrolled
+                    </li>
+                </ul>
+            </dd>
+            <dt><h4>Build 3167</h4></dt>
+            <dd>
+                <ul>
+                    <li>
+                        Added support for <code>@3x</code> textures
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+    </section>
     </div>
 
     <aside>
-        <h3>Dev Build Version</h3>
+        <h3>Stable Build Version</h3>
         <p>
-            <em>The dev build of Sublime Text contains changes to the theme
-            engine. See the <a href="dev/themes.html">Dev Build Themes
-            Documentation</a> for changes.</em>
+            <em>The stable build of Sublime Text does not contain all of the
+            same functionality in regards to the theme engine. See the
+            <a href="themes.html">Themes Documentation</a> for stable
+            builds.</em>
         </p>
     </aside>
 

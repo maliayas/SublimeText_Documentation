@@ -1203,6 +1203,20 @@
                     Accepts a string scope name and returns a <tt>dict</tt> of style information, include the keys <tt>foreground</tt>, <tt>bold</tt>, <tt>italic</tt>, <tt>source_line</tt>, <tt>source_column</tt> and <tt>source_file</tt>. If the scope has a background color set, the key <tt>background</tt> will be present. <i>The foreground and background colors are normalized to the six character hex form with a leading hash, e.g. <tt>#ff0000</tt>.</i>
                 </td>
             </tr>
+            <tr>
+                <td class="mth">set_reference_document(reference)</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Uses the string <tt>reference</tt> to calculate the initial diff for the <a href="incremental_diff.html">incremental diff</a>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">reset_reference_document()</td>
+                <td class="rtn">None</td>
+                <td class="dsc">
+                    Clears the state of the <a href="incremental_diff.html">incremental diff</a> for the view
+                </td>
+            </tr>
         </table>
     </section>
 
