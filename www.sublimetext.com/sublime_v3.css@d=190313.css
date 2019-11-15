@@ -1360,6 +1360,7 @@ article.changelog > h3:first-child
  * Buy
  */
 
+section.form,
 form section
 {
     background-color: #fff;
@@ -1369,14 +1370,17 @@ form section
     width: 400px;
     margin: 1.5em 0;
 }
+section.form > h3:first-child,
 form section > h3:first-child
 {
     margin-top: 0;
 }
+section.form *:last-child,
 form section *:last-child
 {
     margin-bottom: 0;
 }
+section.form h3,
 form section h3
 {
     margin-bottom: 0.3em;
