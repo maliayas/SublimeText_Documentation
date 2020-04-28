@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Completions – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+
+    <main>
+    <section>
+
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Completions
+    </span></h1>
+
+    <div class="versions">
+        Ver<span class="expanded">sion</span>:<br>
+        <a href="completions.html#ver-dev" class="ver-sel">Dev</a>
+        <a href="completions.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
+        <a href="completions.html#ver-3.1" class="ver-sel">3.1</a>
+        <a href="completions.html#ver-3.0" class="ver-sel">3.0</a>
+    </div>
+
+    <section>
+        <p>
+            Sublime Text includes a few methods to save typing and time by
+            finishing words or inserting boilerplate. Completions include the 
+            following sources:
+        </p>
+
+        <ul>
+            <li>Words from the current file</li>
+            <li class="build-4050">
+                Context-aware suggestions
+                <span class="build" title="Added in build 4050">4050</span>
+            </li>
+            <li>Completion files</li>
+            <li>Snippet files</li>
+            <li>Plugins</li>
+        </ul>
+
+        <p>
+            Various settings exist to customize the behavior of completions.
+            Users can write their own snippets or completions files, and many
+            third-party packages exist to provide completions.
+        </p>
+
+        <ul id="toc">
+            <li><a href="completions.html#usage">Usage</a></li>
+            <li class="build-4050">
+                <a href="completions.html#context-aware_suggestions">Context-Aware Suggestions</a>
+                <span class="build" title="Added in build 4050">4050</span>
+            </li>
+            <li class="build-4050">
+                <a href="completions.html#completion_details">Completion Details</a>
+                <span class="build" title="Added in build 4050">4050</span>
+            </li>
+            <li>
+                <a href="completions.html#customization">Customization</a>
+                <ul>
+                    <li><a href="completions.html#completion_files">Completion Files</a></li>
+                    <li>
+                        <a href="completions.html#snippets">Snippets</a>
+                        <ul>
+                            <li><a href="completions.html#snippet_fields">Fields</a></li>
+                            <li><a href="completions.html#snippet_variables">Variables</a></li>
+                            <li><a href="completions.html#variable_substitution">Variable Substitution</a></li>
+                            <li><a href="completions.html#snippet_escaping">Escaping</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="completions.html#plugins">Plugins</a></li>
+                </ul>
+            </li>
+            <li><a href="completions.html#settings">Settings</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="usage">Usage</h2>
+
+        <p>
+            By default, Sublime Text will automatically show the completions popup when a user is editing source code or markup, but not within prose in comments, strings or markups.
+        </p>
+
+        <p>
+            Pressing the <span class="keys"><b>Esc</b></span> key will hide the completions popup. To manually show the completions popup, press <span class="keys"><b>Ctrl</b><i>+</i><b>Space</b></span>. <em>If no completions are available, the message <code>No available completions</code> will be displayed in the status bar.</em>
+        </p>
+    </section>
+
+    <section class="build-4050">
+        <h2 id="context-aware_suggestions">
+            Context-Aware Suggestions
+            <span class="build" title="Added in build 4050">4050</span>
+        </h2>
+
+        <p>
+            The completion engine in Sublime Text uses background processes
+            to scan all of the files in a project to build a completion index.
+            This index is used to provide suggested completions to the user,
+            based on patterns in existing code.
+        </p>
+
+        <p>
+            Some examples:
+        </p>
+
+        <ul>
+            <li>
+                if a property is frequently set to a boolean value, the suggestions will include <code>true</code> or <code>false</code>
+            </li>
+            <li>
+                if an identifier is typically "called", the name will be suggested with <code>()</code> appended
+            </li>
+        </ul>
+
+        <p>
+            The exact completions offered are based on various heuristics, and are derived from existing code in a project. <em>Since completions are based on analysing existing code, words not used in a project will not be suggested.</em>
+        </p>
+    </section>
+
+    <section class="build-4050">
+        <h2 id="completion_details">
+            Completion Details
+            <span class="build" title="Added in build 4050">4050</span>
+        </h2>
+
+        <p>
+            In addition to their textual contents, completions may also
+            provide additional details to users. These include the metadata
+            about the <em>kind</em> of element the completion represents, a
+            short <em>annotation</em> to help in picking a completion, and
+            <em>details</em> that may contain links to additional resources.
+        </p>
+
+        <table class="completions_popup">
+            <tr>
+                <td style="padding: 0 0 0.5em 0.3em" colspan="3" class="help">
+                    <svg width="32" height="20" viewBox="0 0 32 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="position: relative; bottom: -6px;">
+                        <g transform="matrix(1,0,0,1,0,-1)">
+                            <g>
+                                <path d="M7.25,15.5L7.25,10C7.25,9.586 7.586,9.25 8,9.25L28,9.25C28.414,9.25 28.75,9.586 28.75,10C28.75,10.414 28.414,10.75 28,10.75L8.75,10.75L8.75,15.5L12,15.5C12.202,15.5 12.385,15.622 12.462,15.809C12.539,15.995 12.497,16.211 12.354,16.354L8.354,20.354C8.158,20.549 7.842,20.549 7.646,20.354L3.646,16.354C3.503,16.211 3.461,15.995 3.538,15.809C3.615,15.622 3.798,15.5 4,15.5L7.25,15.5Z" style="fill:rgb(85,85,85);"/>
+                            </g>
+                        </g>
+                    </svg>
+                    <em>Kind metadata</em>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="kind"><span class="kind_container" title="Function"><span class="kind" style="background-color: #ec5f6622; color: #ec5f66;">f</span></td>
+                <td class="trigger"><b>a</b>pply()</td>
+                <td class="annotation"></td>
+                <td></td>
+            </tr>
+            <tr class="selected">
+                <td class="kind"><span class="kind_container" title="Struct"><span class="kind" style="background-color: #c695c622; color: #c695c6;">s</span></td>
+                <td class="trigger"><b>a</b>pplication</td>
+                <td class="annotation"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="kind"><span class="kind_container" title="Method"><span class="kind" style="background-color: #ec5f6622; color: #ec5f66;">m</span></td>
+                <td class="trigger"><b>a</b>bsolute()</td>
+                <td class="annotation"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="kind"><span class="kind_container" title="Snippet"><span class="kind" style="background-color: #99c79422; color: #99c794;">s</span></td>
+                <td class="trigger"><b>a</b>cls</td>
+                <td class="annotation">abstract class</td>
+                <td class="help">
+                    <svg width="32" height="16" viewBox="0 0 32 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="">
+                        <g transform="matrix(1,0,0,1,0,-29)">
+                            <g>
+                                <path d="M8.5,39.75L8.5,43C8.5,43.202 8.378,43.385 8.191,43.462C8.005,43.539 7.789,43.497 7.646,43.354L3.646,39.354C3.451,39.158 3.451,38.842 3.646,38.646L7.646,34.646C7.789,34.503 8.005,34.461 8.191,34.538C8.378,34.615 8.5,34.798 8.5,35L8.5,38.25L28,38.25C28.414,38.25 28.75,38.586 28.75,39C28.75,39.414 28.414,39.75 28,39.75L8.5,39.75Z" style="fill:rgb(85,85,85);"/>
+                            </g>
+                        </g>
+                    </svg>
+                    <em>Annotation</em>
+                </td>
+            </tr>
+            <tr>
+                <td class="kind"><span class="kind_container" title="Class"><span class="kind" style="background-color: #c695c622; color: #c695c6;">c</span></td>
+                <td class="trigger"><b>a</b>gent</td>
+                <td class="annotation"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="details" colspan="3">
+                    <span class="kind_name">Struct</span>
+                    <a>2 Definitions</a>
+                </td>
+                <td class="help">
+                    <svg width="32" height="16" viewBox="0 0 32 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="">
+                        <g transform="matrix(1,0,0,1,0,-29)">
+                            <g>
+                                <path d="M8.5,39.75L8.5,43C8.5,43.202 8.378,43.385 8.191,43.462C8.005,43.539 7.789,43.497 7.646,43.354L3.646,39.354C3.451,39.158 3.451,38.842 3.646,38.646L7.646,34.646C7.789,34.503 8.005,34.461 8.191,34.538C8.378,34.615 8.5,34.798 8.5,35L8.5,38.25L28,38.25C28.414,38.25 28.75,38.586 28.75,39C28.75,39.414 28.414,39.75 28,39.75L8.5,39.75Z" style="fill:rgb(85,85,85);"/>
+                            </g>
+                        </g>
+                    </svg>
+                    <em>Details</em>
+                </td>
+            </tr>
+        </table>
+
+        <h3>Kind Metadata</h3>
+
+        <p>
+            Completions may provide <em>kind</em> metadata to be presented
+            with the completion trigger. This metadata includes high-level
+            categories, an identifying letter, and a name. The following are
+            some of the most common kinds:
+        </p>
+
+        <table class="kinds">
+            <tr>
+                <th class="icon">Icon</th>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Keyword"><span class="kind" style="background-color: #ec5f9822; color: #ec5f98;">k</span></td>
+                <td>Keyword</td>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Type"><span class="kind" style="background-color: #c695c622; color: #c695c6;">t</span></td>
+                <td>Type</td>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Function"><span class="kind" style="background-color: #ec5f6622; color: #ec5f66;">f</span></td>
+                <td>Function</td>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Namespace"><span class="kind" style="background-color: #6699cc22; color: #6699cc;">a</span></td>
+                <td>Namespace</td>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Navigation"><span class="kind" style="background-color: #f9d15822; color: #f9d158;">n</span></td>
+                <td>Navigation</td>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Markup"><span class="kind" style="background-color: #f9ae5822; color: #f9ae58;">m</span></td>
+                <td>Markup</td>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Variable"><span class="kind" style="background-color: #5fb4b422; color: #5fb4b4;">v</span></td>
+                <td>Variable</td>
+            </tr>
+            <tr>
+                <td><span class="kind_container" title="Snippet"><span class="kind" style="background-color: #99c79422; color: #99c794;">s</span></td>
+                <td>Snippet</td>
+            </tr>
+        </table>
+
+        <p>
+            <em>Both in this documentation and in Sublime Text, hovering the mouse over a kind letter will show a tooltip with the full name. The color of kind metadata is determined by the theme, and may not match what is shown above.</em>
+        </p>
+
+        <p>
+            <span class="file">.sublime-completions</span> files and plugins can use combinations of any category listed above, along with any Unicode character and name for a custom presentation.
+        </p>
+
+        <h3>Annotations</h3>
+
+        <p>
+            Annotations are displayed on the right-hand edge of the completions popup, and may contain any information the author deems useful. Typically the annotations will be a word or two.
+        </p>
+
+        <h3>
+            Details
+            <span class="build" title="Added in build 4073">4073</span>
+        </h3>
+
+        <p>
+            The details field of a completion may contain a rich text description with links. The details for a completion is shown at the bottom of the completions popup when the completion is selected.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="customization">Customization</h2>
+
+        <p>
+            There exist a number of ways in which the engine can be augmented with new completions:
+        </p>
+
+        <ul>
+            <li><a href="completions.html#completion_files">Completion Files</a></li>
+            <li><a href="completions.html#snippets">Snippets</a></li>
+            <li><a href="completions.html#plugins">Plugins</a></li>
+        </ul>
+
+        <h3 id="completion_files">Completion Files</h3>
+
+        <p>
+            The most basic form of adding completions to Sublime Text is by creating a <span class="file">.sublime-completions</span> file. Completions files use the JSON format, and contain an object with the keys <span class="key">"scope"</span> and <span class="key">"completions"</span>.
+        </p>
+
+        <p>
+            The <span class="key">"scope"</span> key’s value is a string containing a <a href="selectors.html">selector</a> of the syntax the completions apply to. The <span class="key">"completions"</span> value is an array of completions. Each entry in the array represents a single completion, and may be a string or an object.
+        </p>
+
+        <h4>Simple Format</h4>
+
+        <p>
+            When a completion is a string, the string reprents both the trigger text and the completion contents.
+        </p>
+
+        <p>
+            <em>A basic <span class="file">.sublime-completions</span> file:</em>
+        </p>
+
+        <pre><code class="syntax-json"><span style="color: #333333">{
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">completions</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">class</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">None</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">True</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">False</span><span style="color: #5fb4b4">&quot;</span>
+    ]
+}</span></code></pre>
+
+        <h4>Rich Format</h4>
+
+        <p>
+            When a completion is an object, the valid keys include:
+        </p>
+
+        <dl class="enum keys">
+            <dt>
+                <span class="key">trigger</span>
+                <span class="data-type">string</span>
+                <span class="required">required</span>
+            </dt>
+            <dd>
+                <p>
+                    The text the user must enter to match the completion
+                </p>
+            </dd>
+            <dt>
+                <span class="key">contents</span>
+                <span class="data-type">string</span>
+                <span class="required">required</span>
+            </dt>
+            <dd>
+                <p>
+                    The contents that will be inserted into the file. Supports snippet <a href="completions.html#snippet_fields">fields</a> and <a href="completions.html#snippet_variables">variables</a>.
+                </p>
+            </dd>
+            <dt class="build-4073">
+                <span class="key">annotation</span>
+                <span class="build" title="Adding in build 4073">4073</span>
+                <span class="data-type">string</span>
+            </dt>
+            <dd class="build-4073">
+                <p>
+                    The annotation to display for the completion.
+                </p>
+            </dd>
+            <dt class="build-4073">
+                <span class="key">kind</span>
+                <span class="build" title="Adding in build 4073">4073</span>
+                <span class="data-type">string, 3-element array of strings</span>
+            </dt>
+            <dd class="build-4073">
+                <p>
+                    The kind metadata for the completion.
+                </p>
+                <p>
+                    If the value is a string, it must be one of:
+                </p>
+                <ul>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">ambiguous</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">function</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">keyword</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">markup</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">namespace</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">navigation</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">snippet</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">type</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">variable</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                </ul>
+                <div class="example">
+                    Example:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">function</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                </div>
+                <p>
+                    If the value is a 3-element array of strings, the must be:
+                </p>
+                <ol>
+                    <li>A string from the list above, which is used by the theme to select the color of the kind metadata</li>
+                    <li>A single Unicode character to be shown to the left of the trigger</li>
+                    <li>A description of the kind, viewable in the kind letter tool tip, and the detail pane (when visible)</li>
+                </ol>
+                <div class="example">
+                    Example:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span>: [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">function</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">m</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Method</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
+                </div>
+            </dd>
+            <dt class="build-4073">
+                <span class="key">details</span>
+                <span class="build" title="Adding in build 4073">4073</span>
+                <span class="data-type">string</span>
+            </dt>
+            <dd class="build-4073">
+                <p>
+                    A single line description of the completion. May contain the following HTML tags for basic formatting:
+                </p>
+                <ul>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span> <span style="color: #c695c6">href</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span></span></code> – <a href="minihtml.html#protocols">protocols</a></li>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">b</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">strong</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">i</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">em</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">u</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tt</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                    <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">code</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                </ul>
+                <p>
+                    <em>No other attributes or tags are supported other than those listed above.</em>
+                </p>
+                <div class="example">
+                    Example:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">details</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Wraps selection in a &lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt; tag</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                </div>
+            </dd>
+        </dl>
+
+        <p>
+            <em>A <span class="file">.sublime-completions</span> file with examples of each field:</em>
+        </p>
+
+        <pre><code class="syntax-json"><span style="color: #333333">{
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">completions</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
+        {
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">trigger</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">contents</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">keyword</span><span style="color: #5fb4b4">&quot;</span>
+        }<span style="color: #ac7a68">,</span>
+        {
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">trigger</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">fun</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">annotation</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">basic function</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">contents</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def ${1:name}($2):</span><span style="color: #c695c6">\n</span><span style="color: #99c794">    $0</span><span style="color: #c695c6">\n</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">snippet</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">details</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">A simple, non-&lt;code&gt;async&lt;/code&gt; function definition</span><span style="color: #5fb4b4">&quot;</span>
+        }
+    ]
+}</span></code></pre>
+
+        <h3 id="snippets">Snippets</h3>
+
+        <p>
+            Snippets are typically used for boilerplate-type content that isn’t easily authored using the <span class="file">.sublime-completions</span> format due to spanning multiple lines.
+        </p>
+
+        <p>
+            Snippets are XML files with the extension <span class="file">.sublime-snippet</span>. They have a top-level tag <code class="syntax-xml"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">snippet</span><span style="color: #5fb4b4">&gt;</span></span></code>, containing the following tags:
+        </p>
+
+        <dl class="enum keys">
+            <dt>
+                <span class="key">scope</span>
+            </dt>
+            <dd>
+                <p>
+                    The <a href="selectors.html">selector</a> of the syntax the snippet should be enabled for</p>
+                </p>
+            </dd>
+            <dt>
+                <span class="key">tabTrigger</span>
+            </dt>
+            <dd>
+                <p>
+                    The text used to match the snippet in the completions popup
+                </p>
+            </dd>
+            <dt>
+                <span class="key">contents</span>
+            </dt>
+            <dd>
+                <p>
+                    The text to insert into the document when the snippet it applied. Supports <a href="completions.html#snippet_fields">fields</a> and <a href="completions.html#snippet_variables">variables</a>.
+                </p>
+                <p>
+                    Typically the contents of this tag are wrapped in <code class="syntax-xml"><span style="color: #333333"><span style="color: #5fb4b4">&lt;![</span><span style="color: #c695c6">CDATA</span><span style="color: #5fb4b4">[</span></span></code> and <code class="syntax-xml"><span style="color: #333333">]]&gt;</span></code> so that the contents do not need to be XML-escaped.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">description</span>
+            </dt>
+            <dd>
+                <p>
+                    An optional description of the snippet, which is shown in the <span class="feature">Command Palette</span>
+                </p>
+            </dd>
+        </dl>
+
+        <p>
+            <em>An example <span class="file">.sublime-snippet</span> file:</em>
+        </p>
+
+        <pre><code class="syntax-xml"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">snippet</span><span style="color: #5fb4b4">&gt;</span>
+    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">scope</span><span style="color: #5fb4b4">&gt;</span>source.python<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">scope</span><span style="color: #5fb4b4">&gt;</span>
+    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tabTrigger</span><span style="color: #5fb4b4">&gt;</span>fun<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">tabTrigger</span><span style="color: #5fb4b4">&gt;</span>
+    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">content</span><span style="color: #5fb4b4">&gt;</span><span style="color: #5fb4b4">&lt;![</span><span style="color: #c695c6">CDATA</span><span style="color: #5fb4b4">[</span><span style="color: #99c794">def ${1:name}($2):
+    ${0:pass}</span><span style="color: #5fb4b4">]]&gt;</span><span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">content</span><span style="color: #5fb4b4">&gt;</span>
+    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">description</span><span style="color: #5fb4b4">&gt;</span>function, non-async<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">description</span><span style="color: #5fb4b4">&gt;</span>
+<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">snippet</span><span style="color: #5fb4b4">&gt;</span>
+</span></code></pre>
+
+        <h4 id="snippet_fields">Fields</h4>
+
+        <p>
+            Snippets support <em>fields</em>, locations within the snippet that the user may <span class="keys"><b>Tab</b></span> through after inserting the snippet. Fields may be simple positions, but may also provide default content.
+        </p>
+
+        <p>
+            Simple fields are a <code>$</code> followed by an integer. Field <code>$0</code> is where the selection will be placed once the snippet is completed. Fields <code>$1</code> through <code>$n</code> are all filled in before moving to <code>$0</code>.
+        </p>
+
+        <pre><code>Name: $1
+Email: $2
+Description: $0
+</code></pre>
+
+        <p>
+            Fields with default content use the format <code>${1:default text}</code>. Default content may be literal text, or it may contain <a href="completions.html#snippet_variables">variables</a>.
+        </p>
+
+        <pre><code>Name: ${1:first} ${2:last}
+Email: ${3:user}@${4:example.com}</code></pre>
+
+        <p>
+            If a snippet does not contain field <code>$0</code>, it is implicitly added at the end.
+        </p>
+
+        <h4 id="snippet_variables">Variables</h4>
+
+        <p>
+            The following variables may be added to a snippet to include information from the file the snippet is being inserted into:
+        </p>
+
+        <table class="enum">
+            <tr>
+                <th>Variable</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>$SELECTION</code></td>
+                <td>The current selection</td>
+            </tr>
+            <tr>
+                <td><code>$TM_SELECTED_TEXT</code></td>
+                <td>The current selection</td>
+            </tr>
+            <tr>
+                <td><code>$TM_LINE_INDEX</code></td>
+                <td>The 0-based line number of the current line</td>
+            </tr>
+            <tr>
+                <td><code>$TM_LINE_NUMBER</code></td>
+                <td>The 1-based line number of the current line</td>
+            </tr>
+            <tr>
+                <td><code>$TM_DIRECTORY</code></td>
+                <td>The path to the directory containing the file</td>
+            </tr>
+            <tr>
+                <td><code>$TM_FILEPATH</code></td>
+                <td>The path to the file</td>
+            </tr>
+            <tr>
+                <td><code>$TM_FILENAME</code></td>
+                <td>The file name of the file</td>
+            </tr>
+            <tr>
+                <td><code>$TM_CURRENT_WORD</code></td>
+                <td>The contents of the current word</td>
+            </tr>
+            <tr>
+                <td><code>$TM_CURRENT_LINE</code></td>
+                <td>The contents of the current line</td>
+            </tr>
+            <tr>
+                <td><code>$TM_TAB_SIZE</code></td>
+                <td>The number of spaces per tab</td>
+            </tr>
+            <tr>
+                <td><code>$TM_SOFT_TABS</code></td>
+                <td><code>YES</code> or <code>NO</code> – if tabs should be translated to spaces</td>
+            </tr>
+            <tr>
+                <td><code>$TM_SCOPE</code></td>
+                <td>The base scope name of the file’s syntax</td>
+            </tr>
+        </table>
+
+        <p>
+            In addition to the named variables above, fields may also be used as variables, allowing a user to enter a single value and have it repeated in multiple places.
+        </p>
+
+
+        <pre><code>Name: ${1:first} ${2:last}
+Email: ${3:$1}@${4:example.com}</code></pre>
+
+        <h4 id="variable_substitution">Variable Substitution</h4>
+
+        <p>
+            Variables can be directly referenced, or they may be modified using a regular expression. Variables with substitutions are written in the format <code>${<em>name</em>/<em>regex</em>/<em>replace</em>/<em>flags</em>}</code>.
+        </[ul]>
+
+        <p>
+            The <em>regex</em> segment supports <a href="https://www.boost.org/doc/libs/1_64_0/libs/regex/doc/html/boost_regex/syntax/perl_syntax.html">regular expressions</a>. The <em>replace</em> segment supports a corresponding <a href="https://www.boost.org/doc/libs/1_64_0/libs/regex/doc/html/boost_regex/format/boost_format_syntax.html">replace format</a>. The <em>flags</em> segment will contain zero letters from:
+        </p>
+
+        <ul>
+            <li><code>g</code> – all occurences, rather than just the first, should be replaced</li>
+            <li><code>i</code> – case insensitive matching</li>
+            <li><code>m</code> – multiline mode, where <code>^</code> matches the beginning of each line</li>
+        </ul>
+
+        <p>
+            Often times variable substitutions are combined with numeric variables referencing fields.
+        </p>
+
+        <p>
+            <em>The following uses the first field as the default content of the second field, after removing the first whitespace and everything after:</em>
+        </p>
+
+        <pre><code>Name: ${1:name}
+Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
+
+        <h4 id="snippet_escaping">Escaping</h4>
+
+        <p>
+            Since snippets can contain variables, which start with a <code>$</code>, literal <code>$</code> characters must be written as <code>\$</code>.
+        </p>
+
+        <p>
+            When performing variable substitution, literal <code>/</code> characters must be written as <code>\/</code>.</em>
+        </p>
+
+        <h3 id="plugins">Plugins</h3>
+
+        <p>
+            The most powerful tool for adding completions are Python plugins.
+        </p>
+
+        <p>
+            Writing a plugin to provide completions involves implementing the method <span class="method">on_query_completions()</span> on a class that extends <a href="api_reference.html#sublime_plugin.EventListener"><span class="data-type">EventListener</span></a> or <a href="api_reference.html#sublime_plugin.ViewEventListener"><span class="data-type">ViewEventListener</span></a>.
+        </p>
+
+        <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">import</span> sublime
+<span style="color: #c695c6">import</span> sublime_plugin
+
+
+<span style="color: #c695c6; font-style: italic">class</span> <span style="color: #f9ae58">MyCompletions</span>(<span style="color: #5fb4b4; font-style: italic">sublime_plugin</span><span style="color: #f97b58; font-style: italic">.</span><span style="color: #5fb4b4; font-style: italic">EventListener</span>):
+    <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">on_query_completions</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">view</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">prefix</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">locations</span>):
+        <span style="color: #c695c6">if</span> <span style="color: #f97b58">not</span> view<span style="color: #f97b58">.</span><span style="color: #6699cc">match_selector</span>(locations[<span style="color: #f9ae58">0</span>]<span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span>):
+            <span style="color: #c695c6">return</span> []
+        
+        available_completions <span style="color: #f97b58">=</span> [
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">class</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">None</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">True</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">False</span><span style="color: #5fb4b4">&quot;</span>
+        ]
+        
+        prefix <span style="color: #f97b58">=</span> prefix<span style="color: #f97b58">.</span><span style="color: #6699cc">lower</span>()
+
+        out <span style="color: #f97b58">=</span> []
+        <span style="color: #c695c6">for</span> comp <span style="color: #c695c6">in</span> available_completions:
+            <span style="color: #c695c6">if</span> comp<span style="color: #f97b58">.</span><span style="color: #6699cc">lower</span>()<span style="color: #f97b58">.</span><span style="color: #6699cc">startswith</span>(prefix):
+                out<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(comp)
+        
+        <span style="color: #c695c6">return</span> out
+
+</span></code></pre>
+
+        <p class="build-4050">
+            Asynchronous completions can be provided by <span class="method">on_query_completions()</span> returning a <a href="api_reference.html#sublime.CompletionList"><span class="data-type">CompletionList</span></a> object. <span class="build" title="Adding in build 4050">4050</span>
+        </p>
+
+        <p class="build-4050">
+            Completion details, including kind metadata, are provided by returning <a href="api_reference.html#sublime.CompletionItem"><span class="data-type">CompletionItem</span></a> objects from <span class="method">on_query_completions()</span>. <span class="build" title="Adding in build 4050">4050</span>
+        </p>
+
+    </section>
+
+    <section>
+        <h2 id="settings">Settings</h2>
+
+        <dl class="enum settings">
+            <dt>
+                <span class="setting">tab_completion</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    When enabled, pressing <span class="keys"><b>Tab</b></span> will insert the best matching completion. When disabled, <span class="keys"><b>Tab</b></span> will only trigger snippets or insert a tab character. <span class="keys"><b>Shift</b><i>+</i><b>Tab</b></span> can be used to insert an explicit tab when <span class="setting">tab_completion</span> is enabled.
+                </p>
+                <p>
+                    <em>Disabling this setting will not implicitly disable <span class="setting">auto_complete</span>.</em>
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    Automatically show the completions popup when typing.
+                </p>
+                <p>
+                    <em>This behavior is not influenced by the setting <span class="setting">tab_completion</span>.</em>
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_size_limit</span>
+                <span class="data-type">integer</span>
+            </dt>
+            <dd>
+                <p>
+                    If the filesize in bytes of the current file is larger than this, the completions popup will not be automatically shown.
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_delay</span>
+                <span class="data-type">integer</span>
+            </dt>
+            <dd>
+                <p>
+                    The number of milliseconds to wait before showing the completions popup automatically.
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_selector</span>
+                <span class="data-type">string</span>
+            </dt>
+            <dd>
+                <p>
+                    A <a href="selectors.html">selector</a> to limit when the completions popup will be automatically shown.
+                </p>
+                <div class="example">
+                    Example:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">meta.tag, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                </div>
+                <p>
+                    <em>The <span class="setting">auto_complete_triggers"</span> setting may be used to re-enable the automatic completions popup in specific situations.</em>
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_triggers</span>
+                <span class="data-type">array of objects</span>
+            </dt>
+            <dd>
+                <p>
+                    Provides explicit triggers for when to automatically show the completions popup.
+                </p>
+                <p>
+                    Each object must contain the keys <code>"selector"</code> with a string value containing a <a href="selectors.html">selector</a> to match the caret position against, and a <code>"characters"</code> key with a string value specifying what characters must be present to the left of the caret.
+                </p>
+                <div class="example">
+                    Example:
+                    <pre><code class="syntax-json"><span style="color: #333333">[
+    {
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">text.html</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">characters</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">&lt;</span><span style="color: #5fb4b4">&quot;</span>
+    }
+]</span></code></pre>
+                </div>
+                <p>
+                    <em>Triggers will override the setting <span class="setting">auto_complete_selector</span>.</em>
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_commit_on_tab</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    By default, auto complete will commit the current completion on <span class="keys"><b>Enter</b></span>. This setting can be used to make it complete on <span class="keys"><b>Tab</b></span> instead.
+                </p>
+                <p>
+                    Completing on <span class="keys"><b>Tab</b></span> is generally a superior option, as it removes ambiguity between committing the completion and inserting a newline.
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_with_fields</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    Controls if the completions popup is automatically shown when snippet fields are active. Only relevant if <span class="setting">auto_complete_commit_on_tab</span> is enabled.
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_cycle</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    Controls what happens when pressing <span class="keys"><b>⬆</b></span> while the first item in the completions popup is selected: if <code>false</code>, the popup is hidden, otherwise the last completion in the popup is selected.
+                </p>
+                <p>
+                    Also causes the first completion to be selected when <span class="keys"><b>⬇</b></span> is pressed on the last completion.
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">auto_complete_use_history</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    If previously-selected completions should be automatically selected
+                </p>
+            </dd>
+            <dt class="build-4052">
+                <span class="setting">auto_complete_use_index</span>
+                <span class="build" title="Added in build 4052">4052</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4052">
+                <p>
+                    When enabled, the completions popup will show context-aware suggestions based on other files in the project
+                </p>
+            </dd>
+            <dt class="build-4052">
+                <span class="setting">auto_complete_preserve_order</span>
+                <span class="build" title="Added in build 4052">4052</span>
+                <span class="data-type">string</span>
+            </dt>
+            <dd class="build-4052">
+                <p>
+                    Controls how the auto complete results are reordered when typing:
+                </p>
+                <ul>
+                    <li>
+                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">none</span><span style="color: #5fb4b4">&quot;</span></span></code> – fully reorder the results according to how well the completion matches the typed text
+                    </li>
+                    <li>
+                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">some</span><span style="color: #5fb4b4">&quot;</span></span></code> – partially reorder the results, taking into account how well the completion matches whats typed, and likelihood of the completion
+                    </li>
+                    <li>
+                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">strict</span><span style="color: #5fb4b4">&quot;</span></span></code> – never reorder the results
+                    </li>
+                </ul>
+            </dd>
+            <dt class="build-4050">
+                <span class="setting">auto_complete_trailing_symbols</span>
+                <span class="build" title="Added in build 4050">4050</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    Add trailing symbols (e.g., <code>.</code>, <code>()</code>) if the completion engine thinks they‘re likely enough
+                </p>
+            </dd>
+            <dt class="build-4050">
+                <span class="setting">auto_complete_trailing_spaces</span>
+                <span class="build" title="Added in build 4050">4050</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    Add a space after completions if the completion engine thinks they‘re likely enough
+                </p>
+            </dd>
+            <dt class="build-4050">
+                <span class="setting">auto_complete_include_snippets</span>
+                <span class="build" title="Added in build 4050">4050</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    Controls if snippets will not be included in the completions popup.
+                </p>
+                <p>
+                    <em>When disabled, snippets can still be triggered by typing their tab trigger in, and pressing <span class="keys"><b>Tab</b></span> when the completion popup is not showing.</em>
+                </p>
+            </dd>
+            <dt class="build-4052">
+                <span class="setting">auto_complete_include_snippets_when_typing</span>
+                <span class="build" title="Added in build 4052">4052</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4052">
+                <p>
+                    When this is set to <code>false</code>, snippets won‘t be present in the completions popup when it is automatically triggered. They will be shown if it is manually triggered.
+                </p>
+            </dd>
+            <dt class="build-4050">
+                <span class="setting">ignored_snippets</span>
+                <span class="build" title="Added in build 4050">4050</span>
+                <span class="data-type">array of strings</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    <a href="file_patterns.html">File patterns</a> specifying which snippet files to ignore.
+                </p>
+                <p>
+                    <em>For example, to ignore all the default C++ snippets:</em>
+                </p>
+                <pre><code class="syntax-json"><span style="color: #333333">[
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">C++/*</span><span style="color: #5fb4b4">&quot;</span>
+]</span></code></pre>
+            </dd>
+        </ul>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

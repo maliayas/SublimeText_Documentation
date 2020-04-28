@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Incremental Diff – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Incremental Diff
+    </span></h1>
+
+    <div class="primary">
+    <section>
+        <p>
+            Sublime Text includes a built-in diff functionality that tracks changes to files being edited. The diff calculation is incremental, tracking each buffer modification as it is performed. It does not require the file be stored in a version control system, such as Git.
+        </p>
+
+        <p>
+            The exact location of each addition, modification and deletion is tracked. This is used to display markers in the gutter, allow navigation between each change, display inline diffs and allow for reverting changes.
+        </p>
+
+        <p>
+            Diffs are calculated against the version of the file on disk, but <a href="git_integration.html#diff_markers">Git repositories</a> can be configured to diff against HEAD, and the API allows files to be diffed against any content.
+        </p>
+
+        <ul id="toc">
+            <li><a href="incremental_diff.html#diff_markers">Diff Markers</a></li>
+            <li><a href="incremental_diff.html#navigation">Navigation</a></li>
+            <li><a href="incremental_diff.html#inline_diffs">Inline Diffs</a></li>
+            <li><a href="incremental_diff.html#reverting">Reverting</a></li>
+            <li><a href="incremental_diff.html#settings">Settings</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="diff_markers">Diff Markers</h2>
+
+        <p>
+            The following is an example of diff markers displayed when using the Mariana color scheme:
+        </p>
+
+        <style>
+            .incremental_diff
+            {
+                background-color: hsl(210, 15%, 24%);
+                color: hsl(219, 28%, 88%);
+                padding: 5px;
+                font-family: "Roboto Mono", monospace;
+                line-height: 1.3;
+                border-radius: 2px;
+            }
+            .incremental_diff .line_number
+            {
+                width: 40px;
+                text-align: right;
+                padding-right: 15px;
+                opacity: 0.5;
+            }
+            .incremental_diff .diff_marker
+            {
+                width: 4px;
+            }
+            .incremental_diff .deleted-before,
+            .incremental_diff .deleted-after,
+            .incremental_diff .added,
+            .incremental_diff .modified
+            {
+                position: relative;
+            }
+            .incremental_diff .added:after
+            {
+                content: ' ';
+                display: block;
+                width: 3px;
+                height: 100%;
+                background-color: hsl(114, 31%, 68%);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .incremental_diff .modified:after
+            {
+                content: ' ';
+                display: block;
+                width: 3px;
+                height: 100%;
+                background-color: hsl(32, 93%, 66%);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+           .incremental_diff .deleted-before:after
+            {
+                content: ' ';
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border: 2px solid transparent;
+                border-left-color: hsl(357, 79%, 65%);
+                border-bottom-color: hsl(357, 79%, 65%);
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+            .incremental_diff .deleted-after:after
+            {
+                content: ' ';
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border: 2px solid transparent;
+                border-left-color: hsl(357, 79%, 65%);
+                border-top-color: hsl(357, 79%, 65%);
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        </style>
+
+        <div class="incremental_diff">
+            <table>
+                <colgroup>
+                    <col class="diff_marker">
+                    <col class="line_numbers">
+                    <col class="text">
+                </colgroup>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td class="line_number">27</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="added"></td>
+                        <td class="line_number">28</td>
+                        <td>A line that was added</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="line_number">29</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="modified"></td>
+                        <td class="line_number">30</td>
+                        <td>A modified line</td>
+                    </tr>
+                    <tr>
+                        <td class="modified"></td>
+                        <td class="line_number">31</td>
+                        <td>followed by another modified line</td>
+                    </tr>
+                    <tr>
+                        <td class="deleted-before"></td>
+                        <td class="line_number">32</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td class="deleted-after"></td>
+                        <td class="line_number">33</td>
+                        <td>The line before this was deleted</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td class="line_number">34</td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>
+            See the <a href="color_schemes.html#global_settings-diff">color schemes documentation</a> for information on customizing the colors and width of the diff markers.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="navigation">Navigation</h2>
+
+        <p>
+            Users can jump to the next or previous modification using the following methods:
+        </p>
+
+        <ul>
+            <li>
+                <span class="keys"><b>Ctrl</b><i>+</i><b>.</b></span>
+            </li>
+            <li>
+                <span class="keys"><b>Ctrl</b><i>+</i><b>,</b></span>
+            </li>
+            <li>
+                <span class="menu">Goto <img src="../images/right.svg" alt="▶"> Next Modification</span>
+            </li>
+            <li>
+                <span class="menu">Goto <img src="../images/right.svg" alt="▶"> Previous Modification</span>
+            </li>
+        </ul>
+
+        <p>
+            <em>The keyboard shortcuts tend to be a very natural way to jump around a file being edited.</em>
+        </p>
+    </section>
+
+    <section>
+        <h2 id="inline_diffs">Inline Diffs</h2>
+
+        <p>
+            In addition to tracking which lines have been modified, the incremental diff also tracks the exact changes. This allows displaying the original version of the text.
+        </p>
+
+        <h3>Toggling</h3>
+
+        <p>
+            When right-clicking on a modified region of a file, a menu entry <span class="menu">Show Diff Hunk</span> will be available. This menu item will display the previous content inline beneath the current content. Right-clicking again will show a menu item <span class="menu">Hide Diff Hunk</span> to hide the inline diff.
+        </p>
+
+        <p>
+            Toggling an inline diff may be performed via the <span class="menu">Edit <img src="../images/right.svg" alt="▶"> Text <img src="../images/right.svg" alt="▶"> Toggle Hunk Diff</span> menu.
+        </p>
+
+        <p>
+            In addition to menu-based activation, diffs may also be toggled via keyboard shortcut:
+        </p>
+
+        <ul>
+            <li>
+                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>K</b>, <b>Ctrl</b><i>+</i><b>/</b></span>
+            </li>
+            <li>
+                Mac: <span class="keys"><b>⌘</b><i>+</i><b>K</b>, <b>⌘</b><i>+</i><b>/</b></span>
+            </li>
+        </ul>
+
+        <p>
+            To toggle the diff for a region, while hiding all other diffs, press:
+        </p>
+
+        <ul>
+            <li>
+                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>K</b>, <b>Ctrl</b><i>+</i><b>;</b></span>
+            </li>
+            <li>
+                Mac: <span class="keys"><b>⌘</b><i>+</i><b>K</b>, <b>⌘</b><i>+</i><b>;</b></span>
+            </li>
+        </ul>
+
+        <h3>Styling</h3>
+
+        <p>
+            The styles used for displaying inline diffs are automatically generated for color schemes that have not created their own rules. For custom styles, add rules with the following selectors:
+        </p>
+
+        <ul>
+            <li><code>diff.deleted</code></li>
+            <li><code>diff.deleted.char</code></li>
+            <li><code>diff.inserted</code></li>
+            <li><code>diff.inserted.char</code></li>
+        </ul>
+
+        <p>
+            Generally each rule will set the <code>background</code> and <code>foreground_adjust</code> properties.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="reverting">Reverting</h2>
+
+        <p>
+            A modification may be reverted to the original text by the keyboard shortcut:
+        </p>
+
+        <ul>
+            <li>
+                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>K</b>, <b>Ctrl</b><i>+</i><b>Z</b></span>
+            </li>
+            <li>
+                Mac: <span class="keys"><b>⌘</b><i>+</i><b>K</b>, <b>⌘</b><i>+</i><b>Z</b></span>
+            </li>
+        </ul>
+
+        <p>
+            Alternatively, the menu <span class="menu">Edit <img src="../images/right.svg" alt="▶"> Text <img src="../images/right.svg" alt="▶"> Revert Modification</span> may be used.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="settings">Settings</h2>
+
+        <dl class="enum settings">
+            <dt>
+                <span class="setting">mini_diff</span>
+                <span class="data-type">boolean, string</span>
+            </dt>
+            <dd>
+                <p>
+                    If the incremental diff functionality should be enabled. Valid values include:
+                </p>
+                <ul>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code> – always enable incremental diff</li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">auto</span><span style="color: #5fb4b4">&quot;</span></span></code> – enable incremental diff for files in a Git repository</li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">false</span></span></code> – disable incremental diff</li>
+                </ul>
+                <div class="example">
+                    Default:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
+                </div>
+            </dd>
+            <dt>
+                <span class="setting">git_diff_target</span>
+                <span class="data-type">string</span>
+            </dt>
+            <dd>
+                <p>
+                    Controls the behavior of incremental diff for files in a Git repository. Valid values include:
+                </p>
+                <ul>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">index</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the Git index</li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">head</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the file at HEAD</li>
+                </ul>
+                <div class="example">
+                    Default:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">index</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                </div>
+            </dd>
+        </dl>
+    </section>
+    </div>
+
+    <aside>
+        <div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+    </aside>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menus – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Menus
+    </span></h1>
+
+    <section>
+        <p>
+            Menus in Sublime Text are defined by files ending in <span class="file">.sublime-menu</span>. Menus use JSON, with the top-level structure being an array. Each binding is a JSON object containing information to define the text of the menu entry and what action it should perform.
+        </p>
+
+        <ul id="toc">
+            <li><a href="menus.html#example">Example</a></li>
+            <li><a href="menus.html#entries">Entries</a></li>
+            <li><a href="menus.html#available_menus">Available Menus</a></li>
+            <li><a href="menus.html#adding_to_submenus">Adding to Submenus</a></li>
+            <li><a href="menus.html#customization">Customization</a></li>
+        </ul>
+    </section>
+
+    <section class="wide">
+        <h2 id="example">Example</h2>
+
+        <p>
+            <em>The following is an example of the format of a
+            <span class="file">.sublime-menu</span> file.</em>
+        </p>
+
+        <pre><code class="syntax-json"><span style="color: #333333">[
+    {
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">caption</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">File</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">mnemonic</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">F</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">id</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">file</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">children</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
+        [
+            { <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">new_file</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">caption</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">New File</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">mnemonic</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">N</span><span style="color: #5fb4b4">&quot;</span> }<span style="color: #ac7a68">,</span>
+
+            { <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">prompt_open_file</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">caption</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Open File…</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">mnemonic</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">O</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">platform</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">!OSX</span><span style="color: #5fb4b4">&quot;</span> }<span style="color: #ac7a68">,</span>
+            { <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">prompt_open_folder</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">caption</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Open Folder…</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">platform</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">!OSX</span><span style="color: #5fb4b4">&quot;</span> }<span style="color: #ac7a68">,</span>
+            { <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">prompt_open</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">caption</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Open…</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">platform</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">OSX</span><span style="color: #5fb4b4">&quot;</span> }
+        ]
+    }
+]</span></code></pre>
+    </section>
+
+    <section>
+        <h2 id="entries">Entries</h2>
+
+        <p>
+            Each menu entry is a JSON object with one or more keys. The list of
+            supported keys includes:
+        </p>
+
+        <dl class="enum keys">
+            <dt>
+                <span class="key">"caption"</span>
+            </dt>
+            <dd>
+                <p>
+                    The text of the menu entry
+                </p>
+            </dd>
+            <dt>
+                <span class="key">"mnemonic"</span>
+            </dt>
+            <dd>
+                <p>
+                    The character to use as the key to press to activate the entry. Only applies to Windows and Linux. Must match the case of the character in the <span class="key">"caption"</span>.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">"command"</span>
+            </dt>
+            <dd>
+                <p>
+                    A string of the command to execute when the entry is activated
+                </p>
+            </dd>
+            <dt>
+                <span class="key">"args"</span>
+            </dt>
+            <dd>
+                <p>
+                    A JSON object of args to send to the command
+                </p>
+            </dd>
+            <dt>
+                <span class="key">"children"</span>
+            </dt>
+            <dd>
+                <p>
+                    A JSON array of entries to create a submenu from
+                </p>
+            </dd>
+            <dt>
+                <span class="key">"id"</span>
+            </dt>
+            <dd>
+                <p>
+                    A unique string for the menu entry. Used for menu entries with <span class="key">"children"</span> to allow adding additional child entries.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">"platform"</span>
+            </dt>
+            <dd>
+                <p>
+                    One of the strings: <code>"OSX"</code>, <code>"!OSX"</code>, <code>"Windows"</code>, <code>"!Windows"</code>, <code>"Linux"</code> or <code>"!Linux"</code>. Controls what platforms the entry is shown on.
+                </p>
+            </dd>
+        </dl>
+
+        <p>
+            Each menu entry requires at minimum, the key <code>"caption"</code>
+            for a non-functionality entry, or <code>"command"</code> for an
+            entry that performs an action.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="available_menus">Available Menus</h2>
+
+        <p>
+            Sublime Text has seven menus that may be customized:
+        </p>
+
+        <dl class="enum">
+            <dt>
+                <span class="file">Main.sublime-menu</span>
+            </dt>
+            <dd>
+                <p>
+                    Primary menu for the application
+                </p>
+            </dd>
+            <dt>
+                <span class="file">Side Bar Mount Point.sublime-menu</span>
+            </dt>
+            <dd>
+                <p>
+                    Context menu for top-level folders in the side bar
+                </p>
+            </dd>
+            <dt>
+                <span class="file">Side Bar.sublime-menu</span>
+            </dt>
+            <dd>
+                <p>
+                    Context menu for files and folders in the side bar. Has "magic" args for passing file and folder names to commands.
+                </p>
+                <p>
+                    Entries with an arg <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">files</span><span style="color: #5fb4b4">&quot;</span>: []</span></code> will be enabled for files and will pass file names to the command via the arg <code>files</code>. Entries with an arg <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">dirs</span><span style="color: #5fb4b4">&quot;</span>: []</span></code> will be enabled for folders and will pass file names to the command via the arg <code>dirs</code>. Entries with an arg <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">paths</span><span style="color: #5fb4b4">&quot;</span>: []</span></code> will be enabled for files and folders and will pass file and folder names to the command via the arg <code>paths</code>.
+                </p>
+            </dd>
+            <dt>
+                <span class="file">Tab Context.sublime-menu</span>
+            </dt>
+            <dd>
+                <p>
+                    Context menu for file tabs
+                </p>
+            </dd>
+            <dt>
+                <span class="file">Context.sublime-menu</span>
+            </dt>
+            <dd>
+                <p>
+                    Context menu for text areas
+                </p>
+            </dd>
+            <dt>
+                <span class="file">Find in Files.sublime-menu</span>
+            </dt>
+            <dd>
+                <p>
+                    Menu shown when clicking the <code>...</code> button in Find in Files panel
+                </p>
+            </dd>
+            <dt>
+                <span class="file">Widget Context.sublime-menu</span>
+            </dt>
+            <dd>
+                <p>
+                    Context menu for text inputs in various panels. <em>Technically this file name can be changed via the <span class="setting">context_menu</span> setting inside</em> of <span class="file">Widget.sublime-settings</span>.</em>
+                </p>
+            </dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2 id="adding_to_submenus">Adding to Submenus</h2>
+
+        <p>
+            Using the <span class="key">"id"</span> key of an entry, it is possible to add entries to submenus. When adding submenu entries, specify only the <span class="key">"id"</span> and <span class="key">"children"</span> keys of the parent entry, and set the value of <span class="key">"children"</span> to an array of entries to append to the submenu.
+        </p>
+
+        <p>
+            For example, to add a new layout to the <span class="menu">View <img src="../images/right.svg" alt="▶"> Layout</span> menu, create an entry such as:
+        </p>
+
+        <pre><code class="syntax-json"><span style="color: #333333">[
+    {
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">id</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">layout</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">children</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
+        [
+            {
+                <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">caption</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Grid: 9</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+                <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">set_layout</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+                <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">args</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
+                {
+                    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cols</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">33</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">66</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span>]<span style="color: #ac7a68">,</span>
+                    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">rows</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">33</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">66</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span>]<span style="color: #ac7a68">,</span>
+                    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cells</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
+                    [
+                        [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span>]<span style="color: #ac7a68">,</span>
+                        [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span>]<span style="color: #ac7a68">,</span>
+                        [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span>]
+                    ]
+                }
+            }<span style="color: #ac7a68">,</span>
+        ]
+    }
+]</span></code></pre>
+
+        <p>
+            To find the <span class="key">"id"</span> of entries in the <span class="file">Main.sublime-menu</span>, use the <span class="command">View Package File</span> command from the command palette and select <kbd>Default/Main.sublime-menu</kbd>.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="customization">Customization</h2>
+
+        <p>
+            Users can customize the available menus by creating an appropriately-named file in their <span class="file">Packages/User/</span> directory.
+        </p>
+
+        <p>
+            For example, to customize the context menu for files and folders in the side bar, create a file named <span class="file">Packages/User/Side Bar.sublime-menu</span>. Adding the following would create an entry that would execute a (hypothetical) command that would copy the path to the clipboard.
+        </p>
+
+        <pre><code class="syntax-json"><span style="color: #333333">[
+    {
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">caption</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Copy Full Path</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">mnemonic</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">y</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">copy_path</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">args</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">paths</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> []}
+    }
+]</span></code></pre>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

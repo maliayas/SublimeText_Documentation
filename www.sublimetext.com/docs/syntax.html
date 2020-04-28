@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Syntax Definitions – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Syntax Definitions
+    </span></h1>
+
+    <div class="versions">
+        Ver<span class="expanded">sion</span>:<br>
+        <a href="syntax.html#ver-dev" class="ver-sel">Dev</a>
+        <a href="syntax.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
+        <a href="syntax.html#ver-3.1" class="ver-sel">3.1</a>
+        <a href="syntax.html#ver-3.0" class="ver-sel">3.0</a>
+    </div>
+
+    <section>
+        <p>
+            Sublime Text can use both <span class="file">.sublime-syntax</span> and <span class="file">.tmLanguage</span> files for syntax highlighting. This document describes <span class="file">.sublime-syntax</span> files.
+        </p>
+
+        <ul id="toc">
+            <li><a href="syntax.html#overview">Overview</a></li>
+            <li><a href="syntax.html#header">Header</a></li>
+            <li>
+                <a href="syntax.html#contexts">Contexts</a>
+                <ul>
+                    <li><a href="syntax.html#meta_patterns">Meta Patterns</a></li>
+                    <li><a href="syntax.html#match_patterns">Match Patterns</a></li>
+                    <li><a href="syntax.html#include_patterns">Include Patterns</a></li>
+                </ul>
+            </li>
+            <li><a href="syntax.html#include-syntax">Including Other Files</a></li>
+            <li><a href="syntax.html#variables">Variables</a></li>
+            <li><a href="syntax.html#examples">Selected Examples</a></li>
+            <li><a href="syntax.html#testing">Testing</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="overview">Overview</h2>
+
+        <p>
+            Sublime Syntax files are <a href="http://yaml.org">YAML</a> files with a small header, followed by a list of contexts. Each context has a list of patterns that describe how to highlight text in that context, and how to change the current text.
+        </p>
+
+        <p>
+            Here's a small example of a syntax file designed to highlight C.
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">%</span><span style="color: #c695c6">YAML</span> <span style="color: #f9ae58">1.2</span>
+---
+<span style="color: #5fb4b4">name</span><span style="color: #ac7a68">:</span> C
+<span style="color: #5fb4b4">file_extensions</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">[</span>c<span style="color: #ac7a68">,</span> h<span style="color: #5fb4b4">]</span>
+<span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> source.c
+
+<span style="color: #5fb4b4">contexts</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b(if|else|for|while)\b
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> keyword.control.c
+</span></code></pre>
+
+        <p>
+            At its core, a syntax definition assigns scopes (e.g., <tt>keyword.control.c</tt>) to areas of the text. These scopes are used by color schemes to highlight the text.
+        </p>
+
+        <p>
+            This syntax file contains one context, <tt>main</tt>, that matches the words <tt>[if, else, for, while]</tt>, and assigns them the scope <tt>keyword.control.c</tt>. The context name <tt>main</tt> special: every syntax must define a main context, as it will be used at the start of the file.
+        </p>
+
+        <p>
+            The <span class="key">match</span> key is a regex, supporting features from the <a href="https://raw.githubusercontent.com/kkos/oniguruma/v6.9.1/doc/RE">Oniguruma regex engine</a>. In the above example, <tt>\b</tt> is used to ensure only word boundaries are matched, to ensure that words such as <tt>elsewhere</tt> are not considered keywords.
+        </p>
+
+        <p>
+            Note that due to the YAML syntax, tab characters are not allowed within <span class="file">.sublime-syntax</span> files.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="header">Header</h2>
+
+        <p>
+            The allowed keys in the header area are:
+        </p>
+
+        <dl class="enum keys">
+            <dt>
+                <span class="key">name</span>
+            </dt>
+            <dd>
+                <p>
+                    This defines the name shown for the syntax in the menu. It's optional, and will be derived from the file name if not used.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">file_extensions</span>
+            </dt>
+            <dd>
+                <p>
+                    A list of strings, defining what file extensions this syntax should be used for
+                </p>
+            </dd>
+            <dt>
+                <span class="key">first_line_match</span>
+            </dt>
+            <dd>
+                <p>
+                    When a file is opened without a recognized extension, the first line of the file contents will be tested against this regex, to see if the syntax should be applied.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">scope</span>
+            </dt>
+            <dd>
+                <p>
+                    The default scope assigned to all text in the file
+                </p>
+            </dd>
+            <dt>
+                <span class="key">hidden</span>
+            </dt>
+            <dd>
+                <p>
+                    Hidden syntax definitions won't be shown in the menu, but can still be assigned by plugins, or included by other syntax definitions.
+                </p>
+            </dd>
+        </dl>
+    </section>
+
+    <section>
+        <h2 id="contexts">Contexts</h2>
+
+        <p>
+            For most languages, you'll need more than one context. For example, in C, we don't want a <tt>for</tt> word in the middle of a string to be highlighted as a keyword. Here's an example of how to handle this:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">%</span><span style="color: #c695c6">YAML</span> <span style="color: #f9ae58">1.2</span>
+---
+<span style="color: #5fb4b4">name</span><span style="color: #ac7a68">:</span> C
+<span style="color: #5fb4b4">file_extensions</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">[</span>c<span style="color: #ac7a68">,</span> h<span style="color: #5fb4b4">]</span>
+<span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> source.c
+
+<span style="color: #5fb4b4">contexts</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b(if|else|for|while)\b
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> keyword.control.c
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">&quot;</span><span style="color: #5fb4b4">&#x27;</span>
+      <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> string
+
+  <span style="color: #5fb4b4">string</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">meta_scope</span><span style="color: #ac7a68">:</span> string.quoted.double.c
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \\.
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> constant.character.escape.c
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">&quot;</span><span style="color: #5fb4b4">&#x27;</span>
+      <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+</span></code></pre>
+
+        <p>
+            A second pattern has been added to the main context that matches a double quote character (note that <tt>'"'</tt> is used for this, as a standalone quote would be a YAML syntax error), and pushes a new context, <tt>string</tt>, onto the context stack. This means the rest of the file will be processing using the string context, and not the main context, until the string context is popped off the stack.
+        </p>
+
+        <p>
+            The string context introduces a new key: <span class="key">meta_scope</span>. This will assign the <tt>string.quoted.double.c</tt> scope to all text while the <tt>string</tt> context is on the stack.
+        </p>
+
+        <p>
+            While editing in Sublime Text, you can check what scopes have been applied to the text under the caret by pressing <span class="keys"><b>control</b><i>+</i><b>shift</b><i>+</i><b>p</b></span> (Mac) or <span class="keys"><b>ctrl</b><i>+</i><b>alt</b><i>+</i><b>shift</b><i>+</i><b>p</b></span> (Windows/Linux).
+        </p>
+
+        <p>
+            The <tt>string</tt> context has two patterns: the first matches a backslash character followed by any other, and the second matches a quote character. Note that the last pattern specifies an action when an unescaped quote is encountered, the string context will be popped off the context stack, returning to assigning scopes using the main context.
+        </p>
+
+        <p>
+            When a context has multiple patterns, the leftmost one will be found. When multiple patterns match at the same position, the first defined pattern will be selected.
+        </p>
+
+        <h3 id="meta_patterns">Meta Patterns</h3>
+
+        <dl class="enum keys">
+            <dt>
+                <span class="key">meta_scope</span>
+            </dt>
+            <dd>
+                <p>
+                    This assigns the given scope to all text within this context, including the patterns that push the context onto the stack and pop it off.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">meta_content_scope</span>
+            </dt>
+            <dd>
+                <p>
+                    As above, but does not apply to the text that triggers the context (e.g., in the above string example, the content scope would not get applied to the quote characters).
+                </p>
+            </dd>
+            <dt>
+                <span class="key">meta_include_prototype</span>
+            </dt>
+            <dd>
+                <p>
+                    Used to stop the current context from automatically including the <tt>prototype</tt> context.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">clear_scopes</span>
+            </dt>
+            <dd>
+                <p>
+                    This setting allows removing scope names from the current stack. It can be an integer, or the value <code class="syntax-yaml"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code> to remove all scope names. It is applied before <span class="key">meta_scope</span> and <span class="key">meta_content_scope</span>. This is typically only used when one syntax is embedding another.
+                </p>
+            </dd>
+        </dl>
+
+        <p>
+            Meta patterns must be listed first in the context, before any match or include patterns.
+        </p>
+
+        <h3 id="match_patterns">Match Patterns</h3>
+
+        <p>
+            A <em>match</em> pattern can include the following keys:
+        </p>
+
+        <dl class="enum keys">
+            <dt>
+                <span class="key">match</span>
+            </dt>
+            <dd>
+                <p>
+                    The <a href="https://raw.githubusercontent.com/kkos/oniguruma/5.9.6/doc/RE">regex</a> used to match against the text. YAML allows many strings to be written without quotes, which can help make the regex clearer, but it's important to understand when you need to quote the regex. If your regex includes the characters <tt>#</tt>, <tt>:</tt>, <tt>-</tt>, <tt>{</tt>, <tt>[</tt> or <tt>&gt;</tt> then you likely need to quote it. Regexes are only ever run against a single line of text at a time.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">scope</span>
+            </dt>
+            <dd>
+                <p>
+                    The scope assigned to the matched text.
+                </p>
+            </d>
+            <dt>
+                <span class="key">captures</span>
+            </dt>
+            <dd>
+                <p>
+                    A mapping of numbers to scope, assigning scopes to captured portions of the match regex. See below for an example.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">push</span>
+            </dt>
+            <dd>
+                <p>
+                    The contexts to push onto the stack. This may be either a single context name, a list of context names, or an inline, anonymous context.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">pop</span>
+            </dt>
+            <dd>
+                <p>
+                    Pops contexts off the stack. The value <code class="syntax-yaml"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code> will pop a single context. <span class="build-4050">An integer greater than zero will pop the corresponding number of contexts. <span class="build" title="The ability to pop more than one context was added in build 4050">4050</span></span>
+                </p>
+            </dd>
+            <dt>
+                <span class="key">set</span>
+            </dt>
+            <dd>
+                <p>
+                    Accepts the same arguments as push, but will first pop this context off, and then push the given context(s) onto the stack.
+                </p>
+            </dd>
+            <dt class="build-3153">
+                <span class="key">embed</span>
+                <span class="build" title="Added in build 3153">3153</span>
+            </dt>
+            <dd class="build-3153">
+                <p>
+                    Accepts the name of a single context to push into. While similar to <span class="key">push</span>, it pops out of any number of nested contexts as soon as the <span class="key">escape</span> pattern is found. This makes it an ideal tool for embedding one syntax within another.
+                </p>
+                <dl class="keys">
+                    <dt>
+                        <span class="key">escape</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            This key is required if <span class="key">embed</span> is used, and is a regex used to exit from the embedded context. Any backreferences in this pattern will refer to capture groups in the <span class="key">match</span> regex.
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="key">embed_scope</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            A scope assigned to all text matched after the <span class="key">match</span> and before the <span class="key">escape</span>. Similar in concept to <span class="key">meta_content_scope</span>.
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="key">escape_captures</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            A mapping of capture groups to scope names, for the <span class="key">escape</span> pattern. Use capture group <tt>0</tt> to apply a scope to the entire escape match.
+                        </p>
+                    </dd>
+                </dl>
+            </dd>
+            <dt class="build-4050">
+                <span class="key">branch</span>
+                <span class="build" title="Added in build 4050">4050</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    Accepts the names of two or more contexts, which are attempted in order. If a <span class="key">fail</span> action is encountered, the highlighting of the file will be restarted at the character where the <span class="key">branch</span> occured, and the next context will be attempted.
+                </p>
+                <dl class="keys">
+                    <dt>
+                        <span class="key">branch_point</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            This is the unique identifier for the <span class="key">branch</span> and is specified when a match uses the <span class="key">fail</span> action.
+                        </p>
+                    </dd>
+                </dl>
+                <p>
+                    The <spann class="key">branch</span> action allows for handling syntax constructs that are ambiguous, and also allows handling constructs that span multiple lines.
+                </p>
+                <p>
+                    For ideal performance, the contexts should be listed in the order of how likely they are to be accepted. <em>Note: because highlighting with branches requires reprocessing an entire branch upon each change to the document, the highlighting engine will not rewind more than 128 lines when a <span class="key">fail</span> occurs.</em>
+                </p>
+            </dd>
+            <dt class="build-4050">
+                <span class="key">fail</span>
+                <span class="build" title="Added in build 4050">4050</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    Accepts the name of a <span class="key">branch_point</span> to rewind to and retry the next context of. If a <span class="key">fail</span> action specifies a <span class="key">branch_point</span> that was never pushed on the stack, or has already been popped off of the stack, it will have no effect.
+                </p>
+            </dd>
+        </ul>
+
+        <p>
+            Note that the actions: <span class="key">push</span>, <span class="key">pop</span>, <span class="key">set</span>, <span class="key">embed</span>, <span class="key">branch</span> and <span class="key">fail</span> are exclusive, and only one of them may be used within a single match pattern.
+        </p>
+
+        <h4>Match Examples</h4>
+
+        <p>
+            A basic match assigning a single scope to the entire match:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \w+
+  <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> variable.parameter.c++
+</span></code></pre>
+
+        <p>
+            Assigning different scopes to the regex capture groups:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> ^\\s*(#)\\s*\\b(include)\\b
+  <span style="color: #5fb4b4">captures</span><span style="color: #ac7a68">:</span>
+    <span style="color: #f9ae58">1</span><span style="color: #ac7a68">:</span> meta.preprocessor.c++
+    <span style="color: #f9ae58">2</span><span style="color: #ac7a68">:</span> keyword.control.include.c++
+</span></code></pre>
+
+        <p>
+            Pushing into another context named <tt>function-parameters</tt>:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b\w+(?=\()
+  <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> entity.name.function.c++
+  <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> function-parameters
+</span></code></pre>
+
+        <p>
+            Popping out of a context:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+  <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.section.parens.end.c++
+  <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+</span></code></pre>
+
+        <p>
+            Popping out of the current context and pushing into another:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \}
+  <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.section.block.end.c++
+  <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span> file-global
+</span></code></pre>
+
+        <p>
+            <span class="build-3153">Embedding another syntax
+            <span class="build" title="The embed action was added in build 3153">3153</span>:</span>
+        </p>
+
+        <pre class="build-3153"><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> (```)(js|javascript)
+  <span style="color: #5fb4b4">captures</span><span style="color: #ac7a68">:</span>
+    <span style="color: #f9ae58">1</span><span style="color: #ac7a68">:</span> punctuation.section.code.begin.markdown
+    <span style="color: #f9ae58">2</span><span style="color: #ac7a68">:</span> constant.other.markdown
+  <span style="color: #5fb4b4">embed</span><span style="color: #ac7a68">:</span> scope:source.js
+  <span style="color: #5fb4b4">embed_scope</span><span style="color: #ac7a68">:</span> meta.embedded.js.markdown
+  <span style="color: #5fb4b4">escape</span><span style="color: #ac7a68">:</span> ^```
+  <span style="color: #5fb4b4">escape_captures</span><span style="color: #ac7a68">:</span>
+    <span style="color: #f9ae58">0</span><span style="color: #ac7a68">:</span> punctuation.section.code.end.markdown
+</span></code></pre>
+
+        <p>
+            <span class="build-4050">Using <span class="key">branch</span> to attempt one highlighting, with the ability to fallback to another.
+            <span class="build" title="The embed action was added in build 4050">4050</span>:</span>
+        </p>
+
+        <pre class="build-4050"><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">expression</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> (?=\()
+    <span style="color: #5fb4b4">branch_point</span><span style="color: #ac7a68">:</span> open_parens
+    <span style="color: #5fb4b4">branch</span><span style="color: #ac7a68">:</span>
+      <span style="color: #5fb4b4">-</span> paren_group
+      <span style="color: #5fb4b4">-</span> arrow_function
+
+<span style="color: #5fb4b4">paren_group</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \(
+    <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.section.parens.begin.js
+    <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span>
+      <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">include</span><span style="color: #ac7a68">:</span> expressions
+      <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+        <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.section.parens.begin.js
+        <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span>
+          <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> =&gt;
+            <span style="color: #5fb4b4">fail</span><span style="color: #ac7a68">:</span> open_parens
+          <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> (?=\S)
+            <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #f9ae58">2</span>
+
+<span style="color: #5fb4b4">arrow_function</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \(
+    <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.section.parens.begin.js
+    <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span>
+      <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \w+
+        <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> variable.parameter.js
+      <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">,</span><span style="color: #5fb4b4">&#x27;</span>
+        <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.separator.comma.js
+      <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+        <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.section.parens.begin.js
+        <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span>
+          <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> =&gt;
+            <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> storage.type.function.arrow.js
+            <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> arrow_function_body
+
+</span></code></pre>
+
+        <h3 id="include_patterns">Include Patterns</h3>
+
+        <p>
+            Frequently it's convenient to include the contents of one context within another. For example, you may define several different contexts for parsing the C language, and almost all of them can include comments. Rather than copying the relevant match patterns into each of these contexts, you can include them:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">expr</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">include</span><span style="color: #ac7a68">:</span> comments
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b[0-9]+\b
+    <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> constant.numeric.c
+  <span style="color: #ac7a68">.</span><span style="color: #f9ae58">..</span>
+</span></code></pre>
+
+        <p>
+            Here, all the match patterns and include patterns defined in the comments context will be pulled in. They'll be inserted at the position of the include pattern, so you can still control the pattern order. Any meta patterns defined in the comments context will be ignored.
+        </p>
+
+        <p>
+            With elements such as comments, it's so common to include them that it's simpler to make them included automatically in every context, and just list the exceptions instead. You can do this by creating a context named <tt>prototype</tt>, it will be included automatically at the top of every other context, unless the context contains the <span class="key">meta_include_prototype</span> key. For example:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">prototype</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">include</span><span style="color: #ac7a68">:</span> comments
+
+<span style="color: #5fb4b4">string</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">meta_include_prototype</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">false</span>
+  <span style="color: #ac7a68">.</span><span style="color: #f9ae58">..</span>
+</span></code></pre>
+
+        <p>
+            In C, a <tt>/*</tt> inside a string does not start a comment, so the string context indicates that the prototype should not be included.
+        </p>
+
+        <h2 id="include-syntax">Including Other Files</h2>
+
+        <p>
+            Sublime Syntax files support the notion of one syntax definition including another. For example, HTML can contain embedded JavaScript. Here's an example of a basic syntax defintion for HTML that does so:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> text.html
+
+<span style="color: #5fb4b4">contexts</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> &lt;script&gt;
+      <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> Packages/JavaScript/JavaScript.sublime-syntax
+      <span style="color: #5fb4b4">with_prototype</span><span style="color: #ac7a68">:</span>
+        <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> (?=&lt;/script&gt;)
+          <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">&lt;</span><span style="color: #5fb4b4">&quot;</span>
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.definition.tag.begin
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">&gt;</span><span style="color: #5fb4b4">&quot;</span>
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> punctuation.definition.tag.end
+</span></code></pre>
+
+        <p>
+            Note the first rule above. It indicates that when we encounter a <tt>&lt;script&gt;</tt> tag, the main context within <span class="file">JavaScript.sublime-syntax</span> should be pushed onto the context stack. It also defines another key, <span class="key">with_prototype</span>. This contains a list of patterns that will be inserted into every context defined within <span class="file">JavaScript.sublime-syntax</span>. Note that <tt>with_prototype</tt> is conceptually similar to the <tt>prototype</tt> context, however it will be always be inserted into every referenced context irrespective of their <span class="key">meta_include_prototype</span> key.
+        </p>
+
+        <p>
+            In this case, the pattern that's inserted will pop off the current context while the next text is a <tt>&lt;/script&gt;</tt> tag. Note that it doesn't actually match the <tt>&lt;/script&gt;</tt> tag, it's just using a lookahead assertion, which plays two key roles here: It both allows the HTML rules to match against the end tag, highlighting it as-per normal, and it will ensure that all the JavaScript contexts will get popped off. The context stack may be in the middle of a JavaScript string, for example, but when the <tt>&lt;/script&gt;</tt> is encountered, both the JavaScript string and main contexts will get popped off.
+        </p>
+
+        <p>
+            Note that while Sublime Text supports both <span class="file">.sublime-syntax</span> and <span class="file">.tmLanguage</span> files, it's not possible to include a <span class="file">.tmLanguage</span> file within a <span class="file">.sublime-syntax</span> one.
+        </p>
+
+        <p>
+            Another common scenario is a templating language including HTML. Here's an example of that, this time with a subset of <a href="http://jinja.pocoo.org/">Jinja</a>:
+        </p>
+
+        
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> text.jinja
+<span style="color: #5fb4b4">contexts</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&quot;</span>
+      <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/HTML/HTML.sublime-syntax</span><span style="color: #5fb4b4">&quot;</span>
+      <span style="color: #5fb4b4">with_prototype</span><span style="color: #ac7a68">:</span>
+        <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">{{</span><span style="color: #5fb4b4">&quot;</span>
+          <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> expr
+
+  <span style="color: #5fb4b4">expr</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">}}</span><span style="color: #5fb4b4">&quot;</span>
+      <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b(if|else)\b
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> keyword.control
+</span></code></pre>
+
+        <p>
+            This is quite different from the HTML-embedding-JavaScript example, because templating languages tend to operate from the inside out: by default, it needs to act as HTML, only escaping to the underlying templating language on certain expressions.
+        </p>
+
+        <p>
+            In the example above, we can see it operates in HTML mode by default: the main context includes a single pattern that always matches, consuming no text, just including the HTML syntax.
+        <p>
+
+        <p>
+            Where the HTML syntax is included, the Jinja syntax directives (<tt>{{ ... }}</tt>) are included via the <span class="key">with_prototype</span> key, and thus get injected into every context in the HTML syntax (and JavaScript, by transitivity).
+        </p>
+        
+    </section>
+
+    <section>
+        <h2 id="variables">Variables</h2>
+
+        <p>It's not uncommon for several regexes to have parts in common. To avoid repetitious typing, you can use variables:
+
+        
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">variables</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">ident</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">[A-Za-z_][A-Za-z_0-9]*</span><span style="color: #5fb4b4">&#x27;</span>
+<span style="color: #5fb4b4">contexts</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">\b{{ident}}\b</span><span style="color: #5fb4b4">&#x27;</span>
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> keyword.control
+</span></code></pre>
+
+        <p>
+            Variables must be defined at the top level of the <span class="file">.sublime-syntax</span> file, and are referenced within regxes via <tt>{{varname}}</tt>. Variables may themselves include other variables. Note that any text that doesn't match <tt>{{[A-Za-z0-9_]+}}</tt> won't be considered as a variable, so regexes can still include literal <tt>{{</tt> characers, for example.
+        </p>
+        
+    </section>
+
+    <section>
+        <h2 id="examples">Selected Examples</h2>
+
+        <h3>Bracket Balancing</h3>
+
+        <p>
+            This example highlights closing brackets without a corresponding open bracket:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">name</span><span style="color: #ac7a68">:</span> C
+<span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> source.c
+
+<span style="color: #5fb4b4">contexts</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \(
+      <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> brackets
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+      <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> invalid.illegal.stray-bracket-end
+
+  <span style="color: #5fb4b4">brackets</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+      <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">include</span><span style="color: #ac7a68">:</span> main
+</span></code></pre>
+
+        <h3>Sequential Contexts</h3>
+
+        <p>
+            This example will highlight a C style for statement containing too many semicolons:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">for_stmt</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \(
+    <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span> for_stmt_expr1
+<span style="color: #5fb4b4">for_stmt_expr1</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">;</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span> for_stmt_expr2
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+    <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">include</span><span style="color: #ac7a68">:</span> expr
+<span style="color: #5fb4b4">for_stmt_expr2</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">;</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span> for_stmt_expr3
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+    <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">include</span><span style="color: #ac7a68">:</span> expr
+<span style="color: #5fb4b4">for_stmt_expr3</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \)
+    <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">;</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> invalid.illegal.stray-semi-colon
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">include</span><span style="color: #ac7a68">:</span> expr
+</span></code></pre>
+
+        <h3>Advanced Stack Usage</h3>
+
+        <p>
+            In C, symbols are often defined with the <tt>typedef</tt> keyword. So that <i>Goto Definition</i> can pick these up, the symbols should have the <tt>entity.name.type</tt> scope attached to them.
+        </p>
+
+        <p>
+            Doing this can be a little tricky, as while typedefs are sometimes simple, they can get quite complex:
+        </p>
+
+        <pre><code class="syntax-c"><span style="color: #333333"><span style="color: #c695c6; font-style: italic">typedef</span> <span style="color: #c695c6; font-style: italic">int</span> <span style="color: #f9ae58">coordinate_t</span><span style="color: #ac7a68">;</span>
+
+<span style="color: #c695c6; font-style: italic">typedef</span> <span style="color: #c695c6; font-style: italic">struct</span>
+{
+    <span style="color: #c695c6; font-style: italic">int</span> x<span style="color: #ac7a68">;</span>
+    <span style="color: #c695c6; font-style: italic">int</span> y<span style="color: #ac7a68">;</span>
+} <span style="color: #f9ae58">point_t</span><span style="color: #ac7a68">;</span>
+</span></code></pre>
+
+        <p>
+            To recognise these, after matching the typedef keyword, two contexts will be pushed onto the stack: the first will recognise a typename, and then pop off, while the second will recognise the introduced name for the type:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \btypedef\b
+    <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> keyword.control.c
+    <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">[</span>typedef_after_typename<span style="color: #ac7a68">,</span> typename<span style="color: #5fb4b4">]</span>
+
+<span style="color: #5fb4b4">typename</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \bstruct\b
+    <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span>
+      <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">{</span><span style="color: #5fb4b4">&quot;</span>
+        <span style="color: #5fb4b4">set</span><span style="color: #ac7a68">:</span>
+          <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">}</span><span style="color: #5fb4b4">&quot;</span>
+            <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b[A-Za-z_][A-Za-z_0-9]*\b
+    <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+
+<span style="color: #5fb4b4">typedef_after_typename</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b[A-Za-z_][A-Za-z_0-9]*\b
+    <span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> entity.name.type
+    <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+</span></code></pre>
+
+        <p>
+            In the above example, <tt>typename</tt> is a reusable context, that will read in a typename and pop itself off the stack when it's done. It can be used in any context where a type needs to be consumed, such as within a typedef, or as a function argument.
+        </p>
+
+        <p>
+            The <tt>main</tt> context uses a match pattern that pushes two contexts on the stack, with the rightmost context in the list becoming the topmost context on the stack. Once the <tt>typename</tt> context has popped itself off, the <tt>typedef_after_typename</tt> context will be at the top of the stack.
+        </p>
+
+        <p>
+            Also note above the use of anonymous contexts for brevity within the <tt>typename</tt> context.
+        </p>
+
+        <h3>PHP Heredocs</h3>
+
+        <p>
+            This example shows how to match against <a href="http://php.net/language.types.string#language.types.string.syntax.heredoc">Heredocs</a> in PHP. The match pattern in the main context captures the heredoc identifier, and the corresponding pop pattern in the heredoc context refers to this captured text with the <tt>\1</tt> symbol:
+        </p>
+
+        <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">name</span><span style="color: #ac7a68">:</span> PHP
+<span style="color: #5fb4b4">scope</span><span style="color: #ac7a68">:</span> source.php
+
+<span style="color: #5fb4b4">contexts</span><span style="color: #ac7a68">:</span>
+  <span style="color: #5fb4b4">main</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> &lt;&lt;&lt;([A-Za-z][A-Za-z0-9_]*)
+      <span style="color: #5fb4b4">push</span><span style="color: #ac7a68">:</span> heredoc
+
+  <span style="color: #5fb4b4">heredoc</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">meta_scope</span><span style="color: #ac7a68">:</span> string.unquoted.heredoc
+    <span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> ^\1;
+        <span style="color: #5fb4b4">pop</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+</span></code></pre>
+    </section>
+
+    <section>
+        <h2 id="testing">Testing</h2>
+
+        <p>
+            When building a syntax definition, rather than manually checking scopes with the <tt>show_scope_name</tt> command, you can define a syntax test file that will do the checking for you:
+        </p>
+
+        <pre><code class="syntax-c"><span style="color: #333333"><span style="color: #999999">//</span><span style="color: #999999"> SYNTAX TEST &quot;Packages/C/C.sublime-syntax&quot;
+</span><span style="color: #c695c6">#pragma</span> once
+<span style="color: #999999">//</span><span style="color: #999999"> &lt;- source.c meta.preprocessor.c++
+</span> <span style="color: #999999">//</span><span style="color: #999999"> &lt;- keyword.control.import
+</span>
+<span style="color: #999999">//</span><span style="color: #999999"> foo
+</span><span style="color: #999999">//</span><span style="color: #999999"> ^ source.c comment.line
+</span><span style="color: #999999">//</span><span style="color: #999999"> &lt;- punctuation.definition.comment
+</span>
+<span style="color: #999999">/*</span><span style="color: #999999"> foo </span><span style="color: #999999">*/</span>
+<span style="color: #999999">//</span><span style="color: #999999"> ^ source.c comment.block
+</span><span style="color: #999999">//</span><span style="color: #999999"> &lt;- punctuation.definition.comment.begin
+</span><span style="color: #999999">//</span><span style="color: #999999">     ^ punctuation.definition.comment.end
+</span>
+<span style="color: #c695c6">#include</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">stdio.h</span><span style="color: #5fb4b4">&quot;</span>
+<span style="color: #999999">//</span><span style="color: #999999"> &lt;- meta.preprocessor.include.c++
+</span><span style="color: #999999">//</span><span style="color: #999999">       ^ meta string punctuation.definition.string.begin
+</span><span style="color: #999999">//</span><span style="color: #999999">               ^ meta string punctuation.definition.string.end
+</span><span style="color: #c695c6; font-style: italic">int</span> <span style="color: #5fb4b4">square</span>(<span style="color: #c695c6; font-style: italic">int</span> <span style="color: #f9ae58">x</span>)
+<span style="color: #999999">//</span><span style="color: #999999"> &lt;- storage.type
+</span><span style="color: #999999">//</span><span style="color: #999999">  ^ meta.function entity.name.function
+</span><span style="color: #999999">//</span><span style="color: #999999">         ^ storage.type
+</span>{
+    <span style="color: #c695c6">return</span> x <span style="color: #f97b58">*</span> x<span style="color: #ac7a68">;</span>
+<span style="color: #999999">//</span><span style="color: #999999">  ^^^^^^ keyword.control
+</span>}
+
+<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Hello, World! // not a comment</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">;</span>
+<span style="color: #999999">//</span><span style="color: #999999"> ^ string.quoted.double
+</span><span style="color: #999999">//</span><span style="color: #999999">                  ^ string.quoted.double - comment
+</span></span></code></pre>
+
+        <p>
+            To make one, follow these rules
+        </p>
+
+        <ol>
+            <li>
+                Ensure the file name starts with <span class="file">syntax_test_</span>.
+            </li>
+            <li>
+                Ensure the file is saved somewhere within the Packages directory: next to the corresponding .sublime-syntax file is a good choice.
+            </li>
+            <li>
+                Ensure the first line of the file starts with: <tt>&lt;comment_token&gt; SYNTAX TEST "&lt;syntax_file&gt;"</tt>. Note that the syntax file can either be a <span class="file">.sublime-syntax</span> or <span class="file">.tmLanguage</span> file.
+            </li>
+        </ol>
+
+        <p>
+            Once the above conditions are met, running the <tt>build</tt> command with a syntax test or syntax definition file selected will run all the Syntax Tests, and show the results in an output panel. <i>Next Result</i> (F4) can be used to navigate to the first failing test.
+        </p>
+
+        <p>
+            Each test in the syntax test file must first start the comment token (established on the first line, it doesn't actually have to be a comment according to the syntax), and then either a <tt>^</tt> or <tt>&lt;-</tt> token.
+        </p>
+
+        <p>
+            The two types of tests are:
+        </p>
+
+        <ul>
+            <li>
+                Caret: <tt>^</tt> this will test the following selector against the scope on the most recent non-test line. It will test it at the same column the <tt>^</tt> is in. Consecutive <tt>^</tt>s will test each column against the selector.
+            </li>
+            <li>
+                Arrow: <tt>&lt;-</tt> this will test the following selector against the scope on the most recent non-test line. It will test it at the same column as the comment character is in.
+            </li>
+        </ul>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

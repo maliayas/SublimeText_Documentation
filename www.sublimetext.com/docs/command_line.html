@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Command Line Interface – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+    
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Command Line Interface
+    </span></h1>
+
+    <div class="versions">
+        Ver<span class="expanded">sion</span>:<br>
+        <a href="command_line.html#ver-dev" class="ver-sel">Dev</a>
+        <a href="command_line.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
+        <a href="command_line.html#ver-3.1" class="ver-sel">3.1</a>
+        <a href="command_line.html#ver-3.0" class="ver-sel">3.0</a>
+    </div>
+
+    <section>
+        <p>
+            Sublime Text includes a command line tool, <tt>subl</tt>, to work with files on the command line. This can be used to open files and projects in Sublime Text, as well working as an <tt>EDITOR</tt> for unix tools, such as git and subversion.
+        </p>
+
+        <ul id="toc">
+            <li>
+                <a href="command_line.html#setup">Setup</a>
+                <ul>
+                    <li><a href="command_line.html#windows">Windows</a></li>
+                    <li><a href="command_line.html#mac">Mac</a></li>
+                    <li><a href="command_line.html#linux">Linux</a></li>
+                </ul>
+            </li>
+            <li><a href="command_line.html#usage">Usage</a>
+                <ul>
+                    <li><a href="command_line.html#editor">Configuring as <tt>EDITOR</tt></a></li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="setup">Setup</h2>
+
+        <p>
+            Some operating systems and installation methods will require a configuration change to make <tt>subl</tt> available on the <tt>PATH</tt>.
+        </p>
+
+        <h3 id="windows">Windows</h3>
+
+        <p>
+            On Windows, the command line helper is <tt>subl.exe</tt>. To use this from the <em>Command Prompt</em> or <em>Powershell</em>, the Sublime Text installation folder needs to be added to the <tt>Path</tt> environment variable:
+        </p>
+
+        <h4 class="tab" id="windows-10">Windows 10</h4>
+        <div class="tab-content" id="content-windows-10">
+            <em class="switchers">Show instructions for: <a class="tab-switch" href="command_line.html#windows-8">Windows 8</a>, <a class="tab-switch" href="command_line.html#windows-7">Windows 7</a></em>
+            <ul>
+                <li>Open the <em>Start Menu</em> and type <tt>environ</tt></li>
+                <li>Select the item <em>Edit the system environment variables</em></li>
+                <li>Click the button <em>Environment Variables</em> at the bottom of the <em>System Properties</em> dialog</li>
+                <li>
+                    Select, or create, the <tt>Path</tt> environment variable in the appropriate section:
+                    <ul>
+                        <li>
+                            For the current user, select <tt>Path</tt> in the <em>User variables for {username}</em> section
+                        </li>
+                        <li>
+                            For all users, select <tt>Path</tt> in the <em>System variables</em> section
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Click the <em>New</em> button and add an entry with the Sublime Text installation directory
+                    <ul>
+                        <li>64bit installs are typically in <span class="file">C:\Program Files\Sublime Text\</span></li>
+                        <li>32bit installs on a 64bit version of Windows will be in <span class="file">C:\Program Files (x86)\Sublime Text\</span></li>
+                        <li>32bit installs on a 32bit version of Windows will be in <span class="file">C:\Program Files\Sublime Text\</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h4 class="tab" id="windows-8">Windows 8</h4>
+        <div class="tab-content" id="content-windows-8">
+            <em class="switchers">Show instructions for: <a class="tab-switch" href="command_line.html#windows-10">Windows 10</a>, <a class="tab-switch" href="command_line.html#windows-7">Windows 7</a></em>
+            <ul>
+                <li>Press the <em>Windows Key</em> and type <tt>environ</tt></li>
+                <li>Select the item <em>Edit the system environment variables</em></li>
+                <li>Click the button <em>Environment Variables</em> at the bottom of the <em>System Properties</em> dialog</li>
+                <li>
+                    Select, or create, the <tt>Path</tt> environment variable in the appropriate section:
+                    <ul>
+                        <li>
+                            For the current user, select <tt>Path</tt> in the <em>User variables for {username}</em> section
+                        </li>
+                        <li>
+                            For all users, select <tt>Path</tt> in the <em>System variables</em> section
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    In the <em>Variable value</em> input, add an entry with the Sublime Text installation directory. <em>If there is an existing value, add a <tt>;</tt> before the Sublime Text directory.</em>
+                    <ul>
+                        <li>64bit installs are typically in <span class="file">C:\Program Files\Sublime Text\</span></li>
+                        <li>32bit installs on a 64bit version of Windows will be in <span class="file">C:\Program Files (x86)\Sublime Text\</span></li>
+                        <li>32bit installs on a 32bit version of Windows will be in <span class="file">C:\Program Files\Sublime Text\</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h4 class="tab" id="windows-7">Windows 7</h4>
+        <div class="tab-content" id="content-windows-7">
+            <em class="switchers">Show instructions for: <a class="tab-switch" href="command_line.html#windows-10">Windows 10</a>, <a class="tab-switch" href="command_line.html#windows-8">Windows 8</a></em>
+            <ul>
+                <li>Open the <em>Start Menu</em></li>
+                <li>Right-click on <em>Computer</em> and select <em>Properties</em></li>
+                <li>Click on <em>Advanced System Settings</em> in the left-hand sidebar</li>
+                <li>Click the button <em>Environment Variables</em> at the bottom of the <em>System Properties</em> dialog</li>
+                <li>
+                    Select, or create, the <tt>Path</tt> environment variable in the appropriate section:
+                    <ul>
+                        <li>
+                            For the current user, select <tt>Path</tt> in the <em>User variables for {username}</em> section
+                        </li>
+                        <li>
+                            For all users, select <tt>Path</tt> in the <em>System variables</em> section
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    In the <em>Variable value</em> input, add an entry with the Sublime Text installation directory. <em>If there is an existing value, add a <tt>;</tt> before the Sublime Text directory.</em>
+                    <ul>
+                        <li>64bit installs are typically in <span class="file">C:\Program Files\Sublime Text\</span></li>
+                        <li>32bit installs on a 64bit version of Windows will be in <span class="file">C:\Program Files (x86)\Sublime Text\</span></li>
+                        <li>32bit installs on a 32bit version of Windows will be in <span class="file">C:\Program Files\Sublime Text\</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h3 id="mac">Mac</h3>
+        <p>
+            To use <tt>subl</tt>, the Sublime Text <span class="file">bin</span> folder needs to be added to the path. For a typical installation of Sublime Text, this will be located at <span class="file">/Applications/Sublime Text.app/Contents/SharedSupport/bin</span>.
+        </p>
+
+        <h4>Bash</h4>
+        <p>
+            If using Bash, the default before macOS 10.15, the following command will add the <span class="file">bin</span> folder to the <tt>PATH</tt> environment variable:
+        </p>
+
+        <pre class="cli"><code>echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.bash_profile
+</code></pre>
+
+        <h4>Zsh</h4>
+        <p>
+            If using Zsh, the default starting with macOS 10.15, the following command will add the <span class="file">bin</span> folder to the <tt>PATH</tt> environment variable:
+        </p>
+
+        <pre class="cli"><code>echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
+</code></pre>
+
+        <h3 id="linux">Linux</h3>
+
+        <p>
+            If Sublime Text is installed via one of the <a href="linux_repositories.html">Linux Package Manager Repositories</a> or a package, a <tt>subl</tt> symlink will automatically be installed into the <tt>/usr/bin/</tt> directory.
+        </p>
+
+        <p>
+            If installing from a tarball, the <tt>sublime_text</tt> executable should be symlinked to <tt>subl</tt>, with a command such as:
+        </p>
+
+        <pre class="cli"><code>sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl
+</code></pre>
+
+        <p>
+            The exact details of the symlink command will depend on the installation location. Most default <tt>PATH</tt> environment variable values should contain <span class="file">/usr/local/bin</span>, so no further commands should be necessary.
+        </p>
+
+    </section>
+
+    <section>
+        <h2 id="usage">Usage</h2>
+
+        <p>
+            To see the available flags, run <tt>subl --help</tt>. <em>The available flags will vary per operating system – the following example is from a Mac.</em>
+        </p>
+
+        <pre class="build-4050 hide_on_filter"><code>Sublime Text build 4XXX
+
+Usage: subl [arguments] [files]         Edit the given files
+   or: subl [arguments] [directories]   Open the given directories
+   or: subl [arguments] -- [files]      Edit files that may start with '-'
+   or: subl [arguments] -               Edit stdin
+
+Arguments:
+  --project <project>: Load the given project
+  --command <command>: Run the given command
+  -n or --new-window:  Open a new window
+  -a or --add:         Add folders to the current window
+  -w or --wait:        Wait for the files to be closed before returning
+  -b or --background:  Don't activate the application
+  -s or --stay:        Keep the application activated after closing the file
+  --safe-mode:         Launch using a sandboxed (clean) environment
+  -h or --help:        Show help (this message) and exit
+  -v or --version:     Show version and exit
+
+--wait is implied if reading from stdin. Use --stay to not switch back
+to the terminal when a file is closed (only relevant if waiting for a file).
+
+Filenames may be given a :line or :line:column suffix to open at a specific
+location.
+</code></pre>
+
+         <pre class="build-4050-removed hide_on_filter"><code>Sublime Text build 3211
+
+Usage: %s [arguments] [files]         Edit the given files
+   or: %s [arguments] [directories]   Open the given directories
+   or: %s [arguments] -               Edit stdin
+
+Arguments:
+  --project <project>: Load the given project
+  --command <command>: Run the given command
+  -n or --new-window:  Open a new window
+  -a or --add:         Add folders to the current window
+  -w or --wait:        Wait for the files to be closed before returning
+  -b or --background:  Don't activate the application
+
+  -s or --stay:        Keep the application activated after closing the file
+  -h or --help:        Show help (this message) and exit
+  -v or --version:     Show version and exit
+
+--wait is implied if reading from stdin. Use --stay to not switch back
+to the terminal when a file is closed (only relevant if waiting for a file).
+
+Filenames may be given a :line or :line:column suffix to open at a specific location.
+</code></pre>
+
+        <h3 id="editor">Configuring as EDITOR</h3>
+
+        <p>
+            To use Sublime Text as the editor for many commands that prompt for input, set your <tt>EDITOR</tt> environment variable:
+        </p>
+
+        <pre><code>export EDITOR='subl -w'
+</code></pre>
+
+        <p>
+            Specifying <tt>-w</tt> will cause the <tt>subl</tt> command to not exit until the file is closed.
+        </p>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+    <script>
+        var tabs = document.querySelectorAll('h4.tab');
+        var tabContents = document.querySelectorAll('.tab-content');
+        
+
+        function contentForTab(tab)
+        {
+            return document.getElementById('content-' + tab.id);
+        }
+
+        function showTab(tab)
+        {
+            for (var i = 0; i < tabs.length; ++i)
+                addClass(tabs[i], 'filtered');
+            for (var i = 0; i < tabContents.length; ++i)
+                addClass(tabContents[i], 'filtered');
+            removeClass(tab, 'filtered');
+            removeClass(
+                contentForTab(tab),
+                'filtered'
+            );
+        }
+
+        var hash = window.location.hash.replace(/#/, '');
+        var selectedTab = null;
+        for (var i = 0; i < tabs.length; ++i)
+        {
+            if (hash == tabs[i].id)
+                selectedTab = tabs[i];
+        }
+        if (!selectedTab)
+            selectedTab = tabs[0];
+        showTab(selectedTab);
+
+        var tabLinks = document.querySelectorAll('a.tab-switch');
+        for (var i = 0; i < tabLinks.length; ++i)
+        {
+            tabLinks[i].addEventListener(
+                'click',
+                function(e) {
+                    var id = e.target.href.replace(/^[^#]+#/, '');
+                    showTab(document.getElementById(id));
+                }
+            );
+        }
+
+        var switchers = document.querySelectorAll('em.switchers');
+        for (var i = 0; i < switchers.length; ++i)
+        {
+            addClass(switchers[i], 'enabled');
+        }
+    </script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

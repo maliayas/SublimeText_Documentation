@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Settings
+    </span></h1>
+
+    <section>
+        <p>
+            Sublime Text has many different settings to customize its behavior. Settings are changed by editing text files: while this is a little trickier than using a GUI, you're rewarded with a flexible system.
+        </p>
+
+        <p>
+            Settings are accessed via the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span> menu item. The left-hand pane contains all of the default settings, along with a description of each. The right-hand pane is where customization can be saved.
+        </p>
+
+        <ul id="toc">
+            <li><a href="settings.html#categories">Categories</a></li>
+            <li><a href="settings.html#settings_files">Settings Files</a></li>
+            <li><a href="settings.html#syntax-specific_settings">Syntax-Specific Settings</a></li>
+            <li><a href="settings.html#project_settings">Project Settings</a></li>
+            <li><a href="settings.html#distraction_free_settings">Distraction Free Settings</a></li>
+            <li><a href="settings.html#key_bindings">Key Bindings</a></li>
+            <li><a href="settings.html#troubleshooting">Troubleshooting</a></li>
+        </ul>
+
+        <h2 id="categories">Categories</h2>
+        <p>
+            The settings in Sublime Text are organized into three categories. The default settings file organizes the settings into sections for easier distinction.
+        </p>
+        <ul>
+            <li>
+                <strong>Editor Settings</strong>: These settings affect the behavior and functionality presented when editing text in a file. Examples include the <span class="setting">font_face</span>, <span class="setting">tab_size</span> and <span class="setting">spell_check</span>. These settings are presented in the first section of the default settings file.
+            </li>
+            <li>
+                <strong>User Interface Settings</strong>: These settings affect the general user interface, across all open windows. Examples include the <span class="setting">theme</span>, <span class="setting">animation_enabled</span> and <span class="setting">overlay_scroll_bars</span>. These settings are presented in the second section of the default settings file.
+            </li>
+            <li>
+                <strong>Application Behavior Settings</strong>: These settings affect the behavior of the application, across all open windows. Examples include the <span class="setting">hot_exit</span>, <span class="setting">index_files</span> and <span class="setting">ignored_packages</span>. These settings are presented in the third section of the default settings file.
+            </li>
+        </ul>
+        <p>
+            <i>The User Interface Settings and Application Behavior Settings are global to the entire application and can not be controlled by a syntax specific settings file, nor the <span class="setting">settings</span> key in a <span class="file">.sublime-project</span>.</i>
+        </p>
+
+        <h2 id="settings_files">Settings Files</h2>
+
+        <p>Settings files are consulted in this order:
+
+        <ol>
+            <li>
+                <span class="file">Packages/Default/Preferences.sublime-settings</span>
+            </li>
+            <li>
+                <span class="file">Packages/Default/Preferences (<em>&lt;platform&gt;</em>).sublime-settings</span>
+            </li>
+            <li>
+                <span class="file"><strong>Packages/User/Preferences.sublime-settings</strong></span>
+            </li>
+            <li>
+                <span class="file"><em>&lt;Project settings&gt;</em></span>
+            </li>
+            <li>
+                <span class="file">Packages/<em>&lt;syntax&gt;</em>/<em>&lt;syntax&gt;</em>.sublime-settings</span>
+            </li>
+            <li>
+                <span class="file"><strong>Packages/User/<em>&lt;syntax&gt;</em>.sublime-settings</strong></span>
+            </li>
+            <li>
+                <span class="file"><em>&lt;Buffer-specific settings&gt;</em></span>
+            </li>
+        </ol>
+
+        <p>
+            In general, you should place your settings in <span class="file">Packages/User/Preferences.sublime-settings</span>, which is opened in the right-hand pane when selecting the menu item <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span>. If you want to specify settings for a certain file type, for example, Python, you should place them in <span class="file">Packages/User/Python.sublime-settings</span>. This can be accessed via the right-hand pane when a Python file is open, and the menu item <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings – Syntax Specific</span> is selected.
+        </p>
+
+        <h2 id="syntax-specific_settings">Syntax-Specific Settings</h2>
+
+        <p>
+            Settings may be specified on a per-syntax basis. Common uses for this are to have different indentation settings or the color scheme vary by file type.
+        </p>
+
+        <p>
+            You can edit the settings for the syntax of the current file by selecting the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings – Syntax Specific</span> menu item.
+        </p>
+
+        <p>
+            <i>Note that only Editor Settings can be specified in syntax-specific settings.</i>
+        </p>
+
+        <h2 id="project_settings">Project Settings</h2>
+
+        <p>
+            Settings can be set on a per-project basis, details are in the <a href="projects.html">Project Documentation</a>.
+        </p>
+
+        <p>
+            <i>Note that only Editor Settings can be specified in project settings.</i>
+        </p>
+
+        <h2 id="distraction_free_settings">Distraction Free Settings</h2>
+
+        <p>
+            <a href="distraction_free.html">Distraction Free Mode</a> has an additional settings file applied (<span class="file">Distraction Free.sublime-settings</span>). You can place file settings in here to have them only apply when in Distraction Free Mode – access it from the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings – Distraction Free</span> menu item.
+        </p>
+
+        <h2 id="key_bindings">Changing Settings with a Key Binding</h2>
+
+        <p>
+            The <span class="command">toggle_setting</span> command can be used to toggle a setting. For example, to make a key binding that toggles the <span class="setting">word_wrap</span> setting on the current file, you can use (in <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Key Bindings</span>):
+        </p>
+
+        <pre><code class="syntax-json"><span style="color: #333333">{
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">alt+w</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">toggle_setting</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">args</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
+    {
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">setting</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">word_wrap</span><span style="color: #5fb4b4">&quot;</span>
+    }
+}
+</span></code></pre>
+
+        <p>
+            The <span class="command">set_setting</span> command can be used to set a setting to a specific value. For example, this key binding makes the current file use the Cobalt color scheme:
+        </p>
+
+        <pre><code class="syntax-json"><span style="color: #333333">{
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">ctrl+k</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">ctrl+c</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">set_setting</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">args</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
+    {
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">setting</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">color_scheme</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">value</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/Color Scheme - Default/Cobalt.tmTheme</span><span style="color: #5fb4b4">&quot;</span>
+    }
+}
+</span></code></pre>
+
+        <p>
+            The settings modified here are buffer specific settings: they override any settings placed in a settings file, but apply to the current file only.
+        </p>
+
+        <h2 id="troubleshooting">Troubleshooting</h2>
+
+        <p>
+            As settings can be specified in several different places, sometimes in can be helpful to view the applied setting that's actually being used by the current file. You can do this by using the console:
+        </p>
+
+        <code class="syntax-python"><span style="color: #333333">view<span style="color: #f97b58">.</span><span style="color: #6699cc">settings</span>()<span style="color: #f97b58">.</span><span style="color: #6699cc">get</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">font_face</span><span style="color: #5fb4b4">&#x27;</span>)</span></code>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

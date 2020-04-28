@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Patterns – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+    
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        File Patterns
+    </span></h1>
+
+    <div class="versions">
+        Ver<span class="expanded">sion</span>:<br>
+        <a href="file_patterns.html#ver-dev" class="ver-sel">Dev</a>
+        <a href="file_patterns.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
+        <a href="file_patterns.html#ver-3.1" class="ver-sel">3.1</a>
+        <a href="file_patterns.html#ver-3.0" class="ver-sel">3.0</a>
+    </div>
+
+    <section>
+        <p>
+            Various features in Sublime Text use file patterns. These patterns are used to match against file/directory names and paths. They are similar in functionality to shell glob patterns, but have some unique behavior.
+        </p>
+
+        <ul id="toc">
+            <li><a href="file_patterns.html#syntax">Basic Syntax</a></li>
+            <li><a href="file_patterns.html#path_rules">Path Rules</a></li>
+            <li><a href="file_patterns.html#uses">Uses</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="syntax">Basic Syntax</h2>
+
+        <p>
+            File patterns allow two matching operators:
+        </p>
+
+        <ul>
+            <li><strong><tt>*</tt>:</strong> matches zero or more characters, except <tt>/</tt></li>
+            <li><strong><tt>?</tt>:</strong> matches exactly one character, except <tt>/</tt></li>
+        </ul>
+
+        <p>
+            <em>Neither character classes, <tt>[abc]</tt>, nor the globstar operator, <tt>**</tt>, from Bash are supported.</em>
+        </p>
+
+        <h3>Examples</h3>
+
+        <ul>
+            <li>The pattern <tt>abc</tt> will match <tt>abc</tt> but not <tt>abcd</tt></li>
+            <li>The pattern <tt>a?c</tt> will match <tt>abc</tt> but not <tt>ac</tt></li>
+            <li>The pattern <tt>a*c</tt> will match <tt>abc</tt>, <tt>ac</tt> and <tt>abdc</tt></li>
+        </ul>
+
+        <h2 id="path_rules">Path Rules</h2>
+
+        <p>
+            When <tt>/</tt> <em>is not present</em> in a pattern, it is only compared against the file or directory name and only the basic syntax applies. When a <tt>/</tt> <em>is included</em> in a pattern, it changes the behavior to:
+        </p>
+
+        <ul>
+            <li>The pattern is matched against the entire file or directory path</li>
+            <li>In a <tt>*/</tt> prefix or <tt>/*</tt> suffix, the <tt>*</tt> will match <tt>/</tt> characters</li>
+            <li><tt>*/</tt> will be implicitly prefixed if the pattern does not start with a <tt>/</tt> or <tt>*</tt></li>
+            <li class="build-4066-removed hide_on_filter"><tt>*</tt> will be implicitly suffixed if the pattern does not start with a <tt>/</tt> or <tt>*</tt> <span class="build" title="Removed in build 4066"><4066</span></li>
+            <li>If the pattern ends in <tt>/</tt> it will be treated as a directory pattern, and will match <span class="build-4066">both a directory with that name and <span class="build" title="Added in build 4066">4066</span></span> any contained files or subdirectories</li>
+            <li>If a pattern begins with a single <tt>/</tt>, it will be compared as an absolute path</li>
+            <li class="build-4066">If pattern begins with <tt>//</tt>, it will be compared as a relative path from the project root <span class="build" title="Added in build 4066">4066</span></li>
+        </ul>
+
+        <h3>Examples</h3>
+
+        <ul>
+            <li>The pattern <tt>mydir/one</tt> will match <tt>/parent/mydir/one</tt>, <tt>/mydir/one</tt> and <tt>/mydir/one/sub</tt></li>
+            <li class="build-4066-removed hide_on_filter">The pattern <tt>mydir/two</tt> will match <tt>/parent/mydir/two</tt> and <tt>/parent/mydir/two_sub</tt></li>
+            <li class="build-4066 hide_on_filter">The pattern <tt>mydir/two</tt> will match <tt>/parent/mydir/two</tt> but not <tt>/parent/mydir/two_sub</tt></li>
+            <li>The pattern <tt>/mydir/three</tt> will match <tt>/mydir/three</tt> but not <tt>/nested/mydir/three</tt></li>
+            <li class="build-4066-removed hide_on_filter">The pattern <tt>mydir/three/</tt> will match <tt>/parent/mydir/three/sub</tt> but not <tt>/parent/mydir/three</tt></li>
+            <li class="build-4066 hide_on_filter">The pattern <tt>mydir/four/</tt> will match <tt>/parent/mydir/four</tt> and <tt>/parent/mydir/four/sub</tt></li>
+            <li class="build-4066">The pattern <tt>//mydir/five</tt> will match <tt>/project1/mydir/five</tt> and <tt>/project2/mydir/five</tt> but not <tt>/project1/nested/mydir/five</tt> <span class="build" title="Added in build 4066">4066</span></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="uses">Uses</h2>
+
+        <p>
+            File patterns are used in:
+        </p>
+
+        <ul>
+            <li><em>Find in Files</em> panel <em>Where</em> input</li>
+            <li>
+                Various settings
+                <ul>
+                    <li>
+                        <span class="setting">folder_exclude_patterns</span>:
+                        <em><a href="settings.html">Settings</a></em> and <em><a href="projects.html#folders">Project Folders</a></em>
+                    </li>
+                    <li>
+                        <span class="setting">folder_include_patterns</span>:
+                        <em><a href="projects.html#folders">Project Folders</a></em>
+                    </li>
+                    <li>
+                        <span class="setting">file_exclude_patterns</span>:
+                        <em><a href="settings.html">Settings</a></em> and <em><a href="projects.html#folders">Project Folders</a></em>
+                    </li>
+                    <li>
+                        <span class="setting">file_include_patterns</span>:
+                        <em><a href="projects.html#folders">Project Folders</a></em>
+                    </li>
+                    <li>
+                        <span class="setting">binary_file_patterns</span>:
+                        <em><a href="settings.html">Settings</a></em> and <em><a href="projects.html#folders">Project Folders</a></em>
+                    </li>
+                    <li>
+                        <span class="setting">index_exclude_patterns</span>:
+                        <em><a href="settings.html">Settings</a></em> and <em><a href="projects.html#folders">Project Folders</a></em>
+                    </li>
+                    <li>
+                        <span class="setting">index_include_patterns</span>:
+                        <em><a href="settings.html">Settings</a></em> and <em><a href="projects.html#folders">Project Folders</a></em>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

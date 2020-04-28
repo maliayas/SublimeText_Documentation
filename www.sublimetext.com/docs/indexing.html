@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indexing – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+    
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Indexing
+    </span></h1>
+
+    <div class="versions">
+        Ver<span class="expanded">sion</span>:<br>
+        <a href="indexing.html#ver-dev" class="ver-sel">Dev</a>
+        <a href="indexing.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
+        <a href="indexing.html#ver-3.1" class="ver-sel">3.1</a>
+        <a href="indexing.html#ver-3.0" class="ver-sel">3.0</a>
+    </div>
+
+    <section>
+        <p>
+            Sublime Text includes an indexing engine that scans all of the files and folders in a window/project and uses that information to provide the ability to jump to definitions <span class="build-4050 filtered">and provide context-aware completions <span class="build" title="Added in build 4050">4050</span></span>.
+        </p>
+
+        <ul id="toc">
+            <li>
+                <a href="indexing.html#features">Features</a>
+                <ul>
+                    <li><a href="indexing.html#goto_definition">Goto Definition</a></li>
+                    <li class="build-4050">
+                        <a href="indexing.html#context-aware_completions">Context-Aware Completions</a>
+                        <span class="build" title="Added in build 4050">4050</span>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="indexing.html#status">Status</a></li>
+            <li><a href="indexing.html#settings">Settings</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="features">Features</h2>
+
+        <h3 id="goto_definition">Goto Definition</h3>
+
+        <p>
+            When scanning the files in a project, the indexing engine records a list of every symbol and its location. Each syntax has the ability to define what is classified as a symbol, but typically functions, methods, classes and other data types are indexed. In addition to recording the location of definitions, the indexer records references – calls or invocations of known symbols.
+        </p>
+
+        <p>
+            The index of symbols can be accessed via:
+        </p>
+
+        <ul>
+            <li>
+                Hovering over a word to show the <em>Goto Definition Popup</em>
+            </li>
+            <li>
+                Invoking <em>Goto Symbol in Project</em> to fuzzy-search through symbols
+                <ul>
+                    <li>
+                        <strong>Windows/Linux:</strong>
+                        <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>R</b></span>
+                    </li>
+                    <li>
+                        <strong>Mac:</strong>
+                        <span class="keys"><b>⌘</b><i>+</i><b>Shift</b><i>+</i><b>R</b></span>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Executing <em>Goto Definition</em> for the word under the caret
+                <ul>
+                    <li>
+                        <strong>All OSes:</strong>
+                        <span class="keys"><b>F12</b></span>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                Executing <em>Goto Reference</em> for the word under the caret
+                <ul>
+                    <li>
+                        <strong>All OSes:</strong>
+                        <span class="keys"><b>Shift</b><i>+</i><b>F12</b></span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+        <p>
+            All of the <em>Goto</em> commands can also be invoked via the <span class="menu">Goto</span> menu.
+        </p>
+
+        <div class="build-4050">
+            <h3 id="context-aware_completions">
+                Context-Aware Completions
+                <span class="build" title="Added in build 4050">4050</span>
+            </h3>
+
+            <p>
+                In addition to providing information about symbols, the index is used to provide context-aware completions. The indexer makes a list of all words present in the project, along with information about sequences of words and any trailing punctuation.
+            </p>
+
+            <p>
+                When completions are shown, the index is queried to provide intelligent suggestions. Without the index, Sublime Text will only suggest matching words from the current file. With the index, it provides completions from all files, uses the preceeeding words to help suggest better matches and will suggest trailing punctuation when appropriate.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2 id="status">Status</h2>
+
+        <p>
+            The current status and activity of the indexing engine can be seen via the <span class="menu">Help <img src="../images/right.svg" alt="▶"> Indexing Status…</span> menu entry. This will show a window with the current status, progress bar and log of indexing messages.
+        </p>
+
+        <p>
+            When the indexing engine is active, the status bar will contain a text label with a percentage. This percentage indicates indexing is active, and how far along in the process it is. Clicking the percentage will open the <em>Indexing Status</em> window.
+        </p>
+    </section>
+
+    <section>
+        <h2 id="settings">Settings</h2>
+
+        <p>
+            The indexing engine uses low-priority background processes to load and analyse the files in the project. Depending on the machine and available resources, it may be desirable to modify the configuration to ensure the processes don't interfere with other usage of the machine.
+        </p>
+
+        <dl class="enum settings">
+            <dt>
+                <span class="setting">index_files</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    If the indexing engine is enabled
+                    <div class="example">
+                        Default:
+                        <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
+                    </div>
+                </p>
+            </dd>
+            <dt>
+                <span class="setting">index_workers</span>
+                <span class="data-type">integer</span>
+            </dt>
+            <dd>
+                <p>
+                    The number of background processes to use. A value of <tt>0</tt> causes Sublime Text to automatically pick the number of porcesses based on the number of CPU cores.
+                </p>
+                <div class="example">
+                    Default: <code class="syntax-json"><span style="color: #333333"><span style="color: #f9ae58">0</span></span></code>
+                </div>
+            </dd>
+            <dt class="build-4050">
+                <span class="setting">index_exclude_gitignore</span>
+                <span class="build" title="Added in build 4050">4050</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    If files ignored via <span class="file">.gitignore</span> are excluded from indexing
+                </p>
+                <div class="example">
+                    Default:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
+                </div>
+            </dd>
+            <dt class="build-4050">
+                <span class="setting">index_skip_unknown_extensions</span>
+                <span class="build" title="Added in build 4050">4050</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    If files with unknown extensions are excluded from indexing
+                </p>
+                <div class="example">
+                    Default:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
+                </div>
+            </dd>
+            <dt>
+                <span class="setting">index_exclude_patterns</span>
+                <span class="data-type">array of strings</span>
+            </dt>
+            <dd>
+                <p>
+                    <a href="file_patterns.html">File patterns</a> used to exclude files from indexing
+                </p>
+                <div class="example">
+                    Default:
+                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">*.log</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
+                </div>
+            </dd>
+            <dt>
+                <span class="setting">show_definitions</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd>
+                <p>
+                    If the <em>Goto Definition</em> popup will appear when hovering the mouse over a word that has been indexed
+                </p>
+                <div class="example">
+                    Default:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
+                </div>
+            </dd>
+            <dt class="build-4050">
+                <span class="setting">auto_complete_use_index</span>
+                <span class="build" title="Added in build 4050">4050</span>
+                <span class="data-type">boolean</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    If completions should utilize information from the index
+                </p>
+                <div class="example">
+                    Default:
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
+                </div>
+            </dd>
+        </dl>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

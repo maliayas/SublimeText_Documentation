@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Packages – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+    
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Packages
+    </span></h1>
+
+    <section>
+        <p>
+            Packages are a collection of resource files used by Sublime Text: plugins, syntax highlighting definitions, menus, snippets and more. Sublime Text ships with several packages, and more user created ones are available.
+        </p>
+
+        <p>
+            Packages are stored in <span class="file">.sublime-package</span> files, which are zip files with a different extension. Packages may also be stored unzipped within a directory, or a mix of the two: any loose files in the package directory will override files stored in the <span class="file">.sublime-package</span> file.
+        </p>
+
+        <ul id="toc">
+            <li><a href="packages.html#locations">Locations</a></li>
+            <li><a href="packages.html#special_packages">Special Packages</a></li>
+            <li><a href="packages.html#creating_a_new_package">Creating a New Package</a></li>
+            <li><a href="packages.html#overriding_files_from_a_zipped_package">Overriding Files From a Zipped Package</a></li>
+        </ul>
+
+        <h2 id="locations">Locations</h2>
+
+        <p>
+            Zipped packages may be stored in:
+        </p>
+
+        <ul>
+            <li><span class="file"><em>&lt;executable_path&gt;</em>/Packages/</span></li>
+            <li><span class="file"><em>&lt;data_path&gt;</em>/Installed Packages/</span></li>
+        </ul>
+
+        <p>
+            Loose packages may be stored in:
+        </p>
+
+        <ul>
+            <li><span class="file"><em>&lt;data_path&gt;</em>/Packages/</span></li>
+        </ul>
+
+        <p>
+            For example, the package <span class="file">Python</span> is stored in <span class="file"><em>&lt;executable_path&gt;</em>/Packages/Python.sublime-package</span>, and any files in the <span class="file"><em>&lt;data_path&gt;</em>/Packages/Python/</span> directory will override those stored in the <span class="file">.sublime-package</span> file.
+        </p>
+
+        <p>
+            In general, <span class="file"><em>&lt;executable_path&gt;</em>/Packages/</span> is for packages that ship with Sublime Text, and <span class="file"><em>&lt;data_path&gt;</em>/Installed Packages/</span> is for packages installed by the user.
+        </p>
+
+        <h2 id="special_packages">Special Packages</h2>
+
+        <p>
+            There are two special packages: <span class="file">Default</span> and <span class="file">User</span>. <span class="file">Default</span> is always ordered first, and <span class="file">User</span> is always ordered last. Package ordering comes into effect when merging files between packages, for example <span class="file">Main.sublime-menu</span>. Any package may contain a file called <span class="file">Main.sublime-menu</span>, however this won't override the main menu, instead the files will be merged according to the order of the packages.
+        </p>
+
+        <p>
+            Packages other than <span class="file">Default</span> and <span class="file">User</span> are ordered alphabetically.
+        </p>
+
+        <h2 id="creating_a_new_package">Creating a New Package</h2>
+
+        <p>
+            To create a new package, simply create a new directory under <span class="file"><em>&lt;data_path&gt;</em>/Installed Packages/</span>. You can access this directory from the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Browse Packages</span> menu.
+        </p>
+
+        <h2 id="overriding_files_from_a_zipped_package">Overriding Files From a Zipped Package</h2>
+
+        <p>
+            To override a file in an existing package, just create a file with the same name under the <span class="file">Packages/<em>&lt;Package Name&gt;</em>/</span> directory.
+        </p>
+
+        <p>
+            For example to override the file <span class="file">function.sublime-snippet</span> in the <span class="file">Python.sublime-package</span> package that ships with Sublime Text, create a directory called <span class="file">Python</span> under the <span class="file"><em>&lt;data_path&gt;</em>/Packages/</span> directory, and place your <span class="file">function.sublime-snippet</span> file there.
+        </p>
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>

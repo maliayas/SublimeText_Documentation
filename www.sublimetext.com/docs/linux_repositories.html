@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linux Package Manager Repositories – Sublime Text Documentation</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 && document.body.clientWidth > 1024 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/3">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+    <main>
+    <section>
+
+    <h1><span>
+        <nav>
+            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+        </nav>
+        Linux Package Manager Repositories
+    </span></h1>
+
+    <section>
+        <p>
+            Sublime Text includes an auto-upgrade mechanism on Windows and
+            Mac to make upgrades a snap. Instead of going against the grain
+            of the Linux ecosystem, packages and package repositories are
+            provided for most of the major distributions.
+        </p>
+
+        <p class="note">
+            Builds listed in the dev channel are only available to licensed users. Users who are evaluating Sublime Text before purchase will need to use the stable channel.
+        </p>
+
+        <ul id="toc">
+            <li><a href="linux_repositories.html#apt">apt</a> - <em>Ubuntu, Debian</em></li>
+            <li><a href="linux_repositories.html#pacman">pacman</a> - <em>Arch</em></li>
+            <li><a href="linux_repositories.html#yum">yum</a> - <em>CentOS</em></li>
+            <li><a href="linux_repositories.html#dnf">dnf</a> - <em>Fedora</em></li>
+            <li><a href="linux_repositories.html#zypper">zypper</a> - <em>openSUSE</em></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2 id="apt">apt</h2>
+
+        <p>
+            Install the GPG key:
+        </p>
+
+        <pre class="gpg-key"><code>wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
+</code></pre>
+
+        <p>
+            Ensure apt is set up to work with https sources:
+        </p>
+
+        <pre class="install"><code>sudo apt-get install apt-transport-https
+</code></pre>
+
+        <p>
+            Select the channel to use:
+        </p>
+
+        <dl class="repositories">
+            <dt>Stable</dt>
+            <dd><pre><code>echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+</code></pre></dd>
+            <dt>Dev</dt>
+            <dd><pre><code>echo "deb https://download.sublimetext.com/ apt/dev/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+</code></pre></dd>
+        </dl>
+
+        <p>
+            Update apt sources and install Sublime Text
+        </p>
+
+        <pre class="install"><code>sudo apt-get update
+sudo apt-get install sublime-text
+</code></pre>
+    </section>
+
+    <section>
+        <h2 id="pacman">pacman</h2>
+
+        <p>
+            Install the GPG key:
+        </p>
+
+        <pre class="gpg-key"><code>curl -O https://download.sublimetext.com/sublimehq-pub.gpg &amp;&amp; sudo pacman-key --add sublimehq-pub.gpg &amp;&amp; sudo pacman-key --lsign-key 8A8F901A &amp;&amp; rm sublimehq-pub.gpg
+</code></pre>
+
+        <p>
+            Select the channel to use:
+        </p>
+
+        <dl class="repositories">
+            <dt>Stable</dt>
+            <dd><pre><code>echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
+</code></pre></dd>
+            <dt>Dev</dt>
+            <dd><pre><code>echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee -a /etc/pacman.conf
+</code></pre></dd>
+        </dl>
+
+        <p>
+            Update pacman and install Sublime Text
+        </p>
+
+        <pre class="install"><code>sudo pacman -Syu sublime-text
+</code></pre>
+    </section>
+
+    <section>
+        <h2 id="yum">yum</h2>
+
+        <p>
+            Install the GPG key:
+        </p>
+
+        <pre class="gpg-key"><code>sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+</code></pre>
+
+        <p>
+            Select the channel to use:
+        </p>
+
+        <dl class="repositories">
+            <dt>Stable</dt>
+            <dd><pre><code>sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+</code></pre></dd>
+            <dt>Dev</dt>
+            <dd><pre><code>sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
+</code></pre></dd>
+        </dl>
+
+        <p>
+            Update yum and install Sublime Text
+        </p>
+
+        <pre class="install"><code>sudo yum install sublime-text
+</code></pre>
+    </section>
+
+    <section>
+        <h2 id="dnf">dnf</h2>
+
+        <p>
+            Install the GPG key:
+        </p>
+
+        <pre class="gpg-key"><code>sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+</code></pre>
+
+        <p>
+            Select the channel to use:
+        </p>
+
+        <dl class="repositories">
+            <dt>Stable</dt>
+            <dd><pre><code>sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+</code></pre></dd>
+            <dt>Dev</dt>
+            <dd><pre><code>sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
+</code></pre></dd>
+        </dl>
+
+        <p>
+            Update dnf and install Sublime Text
+        </p>
+
+        <pre class="install"><code>sudo dnf install sublime-text
+</code></pre>
+
+    </section>
+
+    <section>
+        <h2 id="zypper">zypper</h2>
+
+        <p>
+            Install the GPG key:
+        </p>
+
+        <pre class="gpg-key"><code>sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+</code></pre>
+
+        <p>
+            Select the channel to use:
+        </p>
+
+        <dl class="repositories">
+            <dt>Stable</dt>
+            <dd><pre><code>sudo zypper addrepo -g -f https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+</code></pre></dd>
+            <dt>Dev</dt>
+            <dd><pre><code>sudo zypper addrepo -g -f https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
+</code></pre></dd>
+        </dl>
+
+        <p>
+            Update zypper and install Sublime Text
+        </p>
+
+        <pre class="install"><code>sudo zypper install sublime-text
+</code></pre>
+
+    </section>
+
+    <script type="text/javascript" src="docs.js"></script>
+
+    </section>
+    </main>
+    <footer>
+        <section>
+            © <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a>
+
+            <p>Woollahra, Sydney.
+        </section>
+    </footer>
+    <!--[if lt IE 9]>
+    <script>
+        var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+        logo_img.src = logo_img.src.replace('.svg', '.png')
+    </script>
+    <![endif]-->
+</body>
+</html>
