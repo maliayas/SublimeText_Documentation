@@ -64,7 +64,7 @@
 
     <h1><span>
         <nav>
-            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+            <a href="index.html">Documentation</a>
         </nav>
         API Environments
     </span></h1>
@@ -105,19 +105,19 @@
         <h2 id="overview">Overview</h2>
 
         <p>
-            Sublime Text runs plugins in a separate process from the main editor UI. This process runs an executable named <tt>plugin_host</tt>.
+            Sublime Text runs plugins in a separate process from the main editor UI. This process runs an executable named <span class="file">plugin_host</span>.
         </p>
 
         <p>
-            Running plugins in a separate process ensures the entire editor will not crash due to a poorly written plugin. If a plugin does cause the <tt>plugin_host</tt> to crash, a user may still save their work before re-starting Sublime Text.
+            Running plugins in a separate process ensures the entire editor will not crash due to a poorly written plugin. If a plugin does cause the <span class="file">plugin_host</span> to crash, a user may still save their work before re-starting Sublime Text.
         </p>
 
         <p>
-            All plugins are run in a single <tt>plugin_host</tt> process, and share a single Python environment. Each plugin is loaded as a sub-module of a module named after the package. For example, a plugin in the file <tt>MyPackage/my_plugin.py</tt> will be loaded as the Python module <tt>MyPackage.my_plugin</tt>.
+            All plugins are run in a single <span class="file">plugin_host</span> process, and share a single Python environment. Each plugin is loaded as a sub-module of a module named after the package. For example, a plugin in the file <span class="file">MyPackage/my_plugin.py</span> will be loaded as the Python module <code>MyPackage.my_plugin</code>.
         </p>
 
         <p>
-            The <tt>plugin_host</tt> process contains an embedded version of the Python programming language, and exposes an <a href="api_reference.html">API</a> to plugins. The <tt>plugin_host</tt> executable always uses its own embedded version of Python, even if the end-user has Python installed on their machine.
+            The <span class="file">plugin_host</span> process contains an embedded version of the Python programming language, and exposes an <a href="api_reference.html">API</a> to plugins. The <span class="file">plugin_host</span> executable always uses its own embedded version of Python, even if the end-user has Python installed on their machine.
         </p>
     </section>
 
@@ -125,7 +125,7 @@
         <h2 id="python_version">Python Version</h2>
 
         <p>
-            By default, all plugins are run using Python 3.3.6. <em>Sublime Text‘s build of Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix issues with unicode paths and crashes with the <tt>ctypes</tt> module on 64bit versions of Windows.</em>
+            By default, all plugins are run using Python 3.3.6. <em>Sublime Text‘s build of Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix issues with unicode paths and crashes with the <code>ctypes</code> module on 64bit versions of Windows.</em>
         </p>
 
         <p>
@@ -143,11 +143,11 @@
             </p>
 
             <p>
-                Any package that wishes to use Python 3.8 must create a file named <tt>.python-version</tt> in the root of the packages. This file should contain either the text <tt>3.3</tt> or <tt>3.8</tt> to select the version of Python to use. <em>If a file named <tt>.python-version</tt> is not present, or it contains any value other than <tt>3.8</tt>, then Python 3.3 will be used.</em>
+                Any package that wishes to use Python 3.8 must create a file named <span class="file">.python-version</span> in the root of the packages. This file should contain either the text <code>3.3</code> or <code>3.8</code> to select the version of Python to use. <em>If a file named <span class="file">.python-version</span> is not present, or it contains any value other than <code>3.8</code>, then Python 3.3 will be used.</em>
             </p>
 
             <p>
-                All plugins in a package will use the same version of Python. <em>Any package with a <tt>.python-version</tt> file containing <tt>3.8</tt> loaded in older builds of Sublime Text will try to run the plugins using Python 3.3.</em>
+                All plugins in a package will use the same version of Python. <em>Any package with a <span class="file">.python-version</span> file containing <code>3.8</code> loaded in older builds of Sublime Text will try to run the plugins using Python 3.3.</em>
             </p>
         </div>
     </section>
@@ -156,7 +156,7 @@
         <h2 id="modules">Modules</h2>
 
         <p>
-            The Python environment within <tt>plugin_host</tt> contains all of the modules in <a href="https://docs.python.org/3.3/library/">The Python Standard Library</a>, except for:
+            The Python environment within <span class="file">plugin_host</span> contains all of the modules in <a href="https://docs.python.org/3.3/library/">The Python Standard Library</a>, except for:
         </p>
 
         <div class="column">

@@ -64,7 +64,7 @@
 
     <h1><span>
         <nav>
-            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+            <a href="index.html">Documentation</a>
         </nav>
         API Reference
     </span></h1>
@@ -1078,7 +1078,7 @@
                     [<a href="api_reference.html#sublime.Region"><span class="data-type">Region</span></a>]
                 </td>
                 <td class="dsc">
-                    Splits the <span class="parameter">region</spam> up such that each region returned exists on exactly one line.
+                    Splits the <span class="parameter">region</span> up such that each region returned exists on exactly one line.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1871,7 +1871,7 @@
                     </p>
 
                     <p>
-                        <span class="parameter">on_navigate</span> is a callback that should accept a string contents of the <tt>href</tt> attribute on the link the user clicked.
+                        <span class="parameter">on_navigate</span> is a callback that should accept a string contents of the <code>href</code> attribute on the link the user clicked.
                     </p>
 
                     <p>
@@ -2242,7 +2242,7 @@
                         </li>
                     </ul>
                     <p>
-                        <span class="parameter">on_navigate</span> is an optional callback that should accept a single string parameter, that is the <tt>href</tt> attribute of the link clicked.
+                        <span class="parameter">on_navigate</span> is an optional callback that should accept a single string parameter, that is the <code>href</code> attribute of the link clicked.
                     </p>
                 </td>
             </tr>
@@ -2418,40 +2418,37 @@
 
         <ul>
             <li>
-                <tt>str</tt>
+                <span class="data-type">str</span>
                 <p>
                     A unicode string that is both the trigger and the replacement
                 </p>
-                <p>
-                    <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
+                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
     <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>
 ]</span></code></pre>
-                </p>
             </li>
             <li>
-                2-element <span class="data-type">list</span>/<span class="data-type">tuple</span>
+                <p>
+                    2-element <span class="data-type">list</span>/<span class="data-type">tuple</span>
+                </p>
                 <p>
                     A pair of unicode strings, the trigger and the replacement.
                 </p>
-                <p>
-                    <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
+                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
-                </p>
-                If a <code>\t</code> is present in the trigger, all subsequent text is treated as an annotation.
                 <p>
-                    <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
+                    If a <code>\t</code> is present in the trigger, all subsequent text is treated as an annotation.
+                </p>
+                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #c695c6">\t</span><span style="color: #99c794">method</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #c695c6">\t</span><span style="color: #99c794">method</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
-                </p>
                 <p>
                     The replacement text may contain dollar-numeric fields such as a snippet does, e.g. <code>$0</code>, <code>$1</code>.
                 </p>
-                <p>
-                    <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
+                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">fn</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def ${1:name}($2) { $0 }</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">for</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">for ($1; $2; $3) { $0 }</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
@@ -2462,8 +2459,7 @@
                 <p>
                     An object containing trigger, replacement, annotation, and kind metadata
                 </p>
-                <p>
-                    <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
+                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">CompletionItem</span>(
         <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">fn</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
         <span style="color: #f9ae58">annotation</span><span style="color: #f97b58">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
@@ -2726,42 +2722,42 @@
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_KEYWORD</span></code><br>
                     When the completion represents a keyword.<br>
-                    <em>Letter:</em> <tt>k</tt>, <em>theme class:</em> <code>kind_keyword</code>
+                    <em>Letter:</em> <code>k</code>, <em>theme class:</em> <code>kind_keyword</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_TYPE</span></code><br>
                     When the completion represents a data type, class, struct, interface, enum, trait, etc.<br>
-                    <em>Letter:</em> <tt>t</tt>, <em>theme class:</em> <code>kind_type</code>
+                    <em>Letter:</em> <code>t</code>, <em>theme class:</em> <code>kind_type</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_FUNCTION</span></code><br>
                     When the completion represents a function, method, constructor or subroutine.<br>
-                    <em>Letter:</em> <tt>f</tt>, <em>theme class:</em> <code>kind_function</code>
+                    <em>Letter:</em> <code>f</code>, <em>theme class:</em> <code>kind_function</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_NAMESPACE</span></code><br>
                     When the completion represents a namespace or module.<br>
-                    <em>Letter:</em> <tt>a</tt>, <em>theme class:</em> <code>kind_namespace</code>
+                    <em>Letter:</em> <code>a</code>, <em>theme class:</em> <code>kind_namespace</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_NAVIGATION</span></code><br>
                     When the completion represents a definition, label or section.<br>
-                    <em>Letter:</em> <tt>n</tt>, <em>theme class:</em> <code>kind_navigation</code>
+                    <em>Letter:</em> <code>n</code>, <em>theme class:</em> <code>kind_navigation</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_MARKUP</span></code><br>
                     When the completion represents a markup component, including HTML tags and CSS selectors.<br>
-                    <em>Letter:</em> <tt>m</tt>, <em>theme class:</em> <code>kind_markup</code>
+                    <em>Letter:</em> <code>m</code>, <em>theme class:</em> <code>kind_markup</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_VARIABLE</span></code><br>
                     When the completion represents a variable, member, attribute, constant or parameter.<br>
-                    <em>Letter:</em> <tt>v</tt>, <em>theme class:</em> <code>kind_variable</code>
+                    <em>Letter:</em> <code>v</code>, <em>theme class:</em> <code>kind_variable</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_SNIPPET</span></code><br>
                     When the completion contains a snippet.<br>
-                    <em>Letter:</em> <tt>s</tt>, <em>theme class:</em> <code>kind_snippet</code>
+                    <em>Letter:</em> <code>s</code>, <em>theme class:</em> <code>kind_snippet</code>
                 </li>
             </ul>
         </div>
@@ -2865,6 +2861,10 @@
                                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>DYNAMIC_COMPLETIONS</span></code>: if completions should be re-queried as the user types
                                     <span class="build" title="Added in build 4057">4057</span>
                                 </li>
+                                <li class="build-4074">
+                                    <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>INHIBIT_REORDER</span></code>: prevent Sublime Text from changing the completion order
+                                    <span class="build" title="Added in build 4074">4074</span>
+                                </li>
                             </ul>
                         </dd>
                     </dl>
@@ -2901,6 +2901,10 @@
                         <li class="build-4057">
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>DYNAMIC_COMPLETIONS</span></code>: if completions should be re-queried as the user types
                             <span class="build" title="Added in build 4057">4057</span>
+                        </li>
+                        <li class="build-4074">
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>INHIBIT_REORDER</span></code>: prevent Sublime Text from changing the completion order
+                            <span class="build" title="Added in build 4074">4074</span>
                         </li>
                     </ul>
                 </td>
@@ -4085,20 +4089,16 @@
                             <p>
                                 <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>: no completions are provided
                             </p>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> <span style="color: #ec5f66; font-style: italic">None</span></span></code></pre>
-                            </p>
+                            <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> <span style="color: #ec5f66; font-style: italic">None</span></span></code></pre>
                         </li>
                         <li>
                             <p>
                                 A list of <a href="api_reference.html#type-completion">completion</a> values
                             </p>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
+                            <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
-                            </p>
                         </li>
                         <li>
                             <p>
@@ -4115,9 +4115,12 @@
                                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>DYNAMIC_COMPLETIONS</span></code>: if completions should be re-queried as the user types
                                     <span class="build" title="Added in build 4057">4057</span>
                                 </li>
+                                <li class="build-4074">
+                                    <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>INHIBIT_REORDER</span></code>: prevent Sublime Text from changing the completion order
+                                    <span class="build" title="Added in build 4074">4074</span>
+                                </li>
                             </ul>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> (
+                            <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> (
     [
         [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
         [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
@@ -4125,18 +4128,15 @@
     sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS
     <span style="color: #f97b58">|</span> sublime<span style="color: #f97b58">.</span>INHIBIT_EXPLICIT_COMPLETIONS
 )</span></code></pre>
-                            </p>
                         </li>
                         <li class="build-4050">
                             <p>
                                 A <a href="api_reference.html#sublime.CompletionList">CompletionList</a> object
                                 <span class="build" title="Added in build 4050">4050</span>
                             </p>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333">cl <span style="color: #f97b58">=</span> sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">CompletionList</span>(<span style="color: #f9ae58">flags</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS)
+                            <pre><code class="syntax-python"><span style="color: #333333">cl <span style="color: #f97b58">=</span> sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">CompletionList</span>(<span style="color: #f9ae58">flags</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS)
 <span style="color: #6699cc">start_background_fetch</span>(cl)
 <span style="color: #c695c6">return</span> cl</span></code></pre>
-                            </p>
                         </li>
                     </ul>
                 </td>
@@ -4325,7 +4325,7 @@
         </p>
 
         <p>
-            The view is passed as a single parameter to the constructor. The default implementation makes the view available via <tt>self.view</tt>.
+            The view is passed as a single parameter to the constructor. The default implementation makes the view available via <code class="syntax-python">self.view</code>.
         </p>
 
         <table class="functions api">
@@ -4755,20 +4755,16 @@
                             <p>
                                 <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>: no completions are provided
                             </p>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> <span style="color: #ec5f66; font-style: italic">None</span></span></code></pre>
-                            </p>
+                            <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> <span style="color: #ec5f66; font-style: italic">None</span></span></code></pre>
                         </li>
                         <li>
                             <p>
                                 A list of <a href="api_reference.html#type-completion">completion</a> values
                             </p>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
+                            <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
     [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
-                            </p>
                         </li>
                         <li>
                             <p>
@@ -4785,9 +4781,12 @@
                                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>DYNAMIC_COMPLETIONS</span></code>: if completions should be re-queried as the user types
                                     <span class="build" title="Added in build 4057">4057</span>
                                 </li>
+                                <li class="build-4074">
+                                    <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>INHIBIT_REORDER</span></code>: prevent Sublime Text from changing the completion order
+                                    <span class="build" title="Added in build 4074">4074</span>
+                                </li>
                             </ul>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> (
+                            <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> (
     [
         [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
         [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
@@ -4795,18 +4794,15 @@
     sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS
     <span style="color: #f97b58">|</span> sublime<span style="color: #f97b58">.</span>INHIBIT_EXPLICIT_COMPLETIONS
 )</span></code></pre>
-                            </p>
                         </li>
                         <li class="build-4050">
                             <p>
                                 A <a href="api_reference.html#sublime.CompletionList">CompletionList</a> object
                                 <span class="build" title="Added in build 4050">4050</span>
                             </p>
-                            <p>
-                                <pre><code class="syntax-python"><span style="color: #333333">cl <span style="color: #f97b58">=</span> sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">CompletionList</span>(<span style="color: #f9ae58">flags</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS)
+                            <pre><code class="syntax-python"><span style="color: #333333">cl <span style="color: #f97b58">=</span> sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">CompletionList</span>(<span style="color: #f9ae58">flags</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS)
 <span style="color: #6699cc">start_background_fetch</span>(cl)
 <span style="color: #c695c6">return</span> cl</span></code></pre>
-                            </p>
                         </li>
                     </ul>
                 </td>

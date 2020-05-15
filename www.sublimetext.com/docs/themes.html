@@ -63,7 +63,7 @@
 
     <h1><span>
         <nav>
-            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+            <a href="index.html">Documentation</a>
         </nav>
         Themes
     </span></h1>
@@ -680,9 +680,9 @@
                 <span class="property">layer3.<em>*</em></span>
             </dt>
             <dd>
-                <o>
+                <p>
                     the fourth texture <a href="themes.html#layer_properties">layer</a> for the element
-                </o>
+                </p>
             </dd>
             <dt>
                 <span class="property">hit_test_level</span>
@@ -2864,17 +2864,39 @@
                     </dt>
                     <dd>
                         <p>
-                            the <a href="themes.html#padding_margin">margin</a> around the <span class="element">panel_button_control</span>, <span class="element">status_container</span> and <span class="element">status_buttons</span>s
+                            the <a href="themes.html#padding_margin">margin</a> around the <span class="element">sidebar_button_control</span>, <span class="element">status_container</span> and <span class="element">status_buttons</span>s
                         </p>
                     </dd>
                 </dl>
             </dd>
-            <dt>
+            <dt class="build-4050-removed">
                 <span class="element">panel_button_control</span>
+                <span class="build" title="Removed in build 4050">&lt;4050</span>
             </dt>
-            <dd>
+            <dd class="build-4050-removed">
                 <p>
                     The panel switcher button on the left side of
+                    the status bar
+                </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>
+                        <span class="property">content_margin</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            for buttons, the <a href="themes.html#padding_margin">margin</a> specifies the dimensions
+                        </p>
+                    </dd>
+                </dl>
+            </dd>
+            <dt class="build-4050">
+                <span class="element">sidebar_button_control</span>
+                <span class="build" title="Added in build 4050">4050</span>
+            </dt>
+            <dd class="build-4050">
+                <p>
+                    The sidebar/panel switcher button on the left side of
                     the status bar
                 </p>
                 <h4>Properties</h4>
@@ -3412,9 +3434,9 @@
                         <span class="attribute">selected</span>
                     </dt>
                     <dd>
-                        <o>
+                        <p>
                             when an icon button is toggled on
-                        </o>
+                        </p>
                     </dd>
                     <dt>
                         <span class="attribute">left</span>
@@ -3728,6 +3750,10 @@
         </p>
 
         <h3>Elements</h3>
+
+        <p class="build-4050">
+            The <span class="element">panel_button_control</span> element was removed from the status bar and replaced by <span class="element">sidebar_button_control</span>. <span class="build" title="Removed in build 4050">4050</span>
+        </p>
 
         <p>
             The <span class="element">sheet_container_control</span> element is never visible

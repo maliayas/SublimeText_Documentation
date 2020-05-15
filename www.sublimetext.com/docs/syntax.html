@@ -63,7 +63,7 @@
 
     <h1><span>
         <nav>
-            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+            <a href="index.html">Documentation</a>
         </nav>
         Syntax Definitions
     </span></h1>
@@ -123,15 +123,15 @@
 </span></code></pre>
 
         <p>
-            At its core, a syntax definition assigns scopes (e.g., <tt>keyword.control.c</tt>) to areas of the text. These scopes are used by color schemes to highlight the text.
+            At its core, a syntax definition assigns scopes (e.g., <code>keyword.control.c</code>) to areas of the text. These scopes are used by color schemes to highlight the text.
         </p>
 
         <p>
-            This syntax file contains one context, <tt>main</tt>, that matches the words <tt>[if, else, for, while]</tt>, and assigns them the scope <tt>keyword.control.c</tt>. The context name <tt>main</tt> special: every syntax must define a main context, as it will be used at the start of the file.
+            This syntax file contains one context, <code>main</code>, that matches the words <code>[if, else, for, while]</code>, and assigns them the scope <code>keyword.control.c</code>. The context name <code>main</code> special: every syntax must define a main context, as it will be used at the start of the file.
         </p>
 
         <p>
-            The <span class="key">match</span> key is a regex, supporting features from the <a href="https://raw.githubusercontent.com/kkos/oniguruma/v6.9.1/doc/RE">Oniguruma regex engine</a>. In the above example, <tt>\b</tt> is used to ensure only word boundaries are matched, to ensure that words such as <tt>elsewhere</tt> are not considered keywords.
+            The <span class="key">match</span> key is a regex, supporting features from the <a href="https://raw.githubusercontent.com/kkos/oniguruma/v6.9.1/doc/RE">Oniguruma regex engine</a>. In the above example, <code>\b</code> is used to ensure only word boundaries are matched, to ensure that words such as <code>elsewhere</code> are not considered keywords.
         </p>
 
         <p>
@@ -194,7 +194,7 @@
         <h2 id="contexts">Contexts</h2>
 
         <p>
-            For most languages, you'll need more than one context. For example, in C, we don't want a <tt>for</tt> word in the middle of a string to be highlighted as a keyword. Here's an example of how to handle this:
+            For most languages, you'll need more than one context. For example, in C, we don't want a <code>for</code> word in the middle of a string to be highlighted as a keyword. Here's an example of how to handle this:
         </p>
 
         <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">%</span><span style="color: #c695c6">YAML</span> <span style="color: #f9ae58">1.2</span>
@@ -219,11 +219,11 @@
 </span></code></pre>
 
         <p>
-            A second pattern has been added to the main context that matches a double quote character (note that <tt>'"'</tt> is used for this, as a standalone quote would be a YAML syntax error), and pushes a new context, <tt>string</tt>, onto the context stack. This means the rest of the file will be processing using the string context, and not the main context, until the string context is popped off the stack.
+            A second pattern has been added to the main context that matches a double quote character (note that <code>'"'</code> is used for this, as a standalone quote would be a YAML syntax error), and pushes a new context, <code>string</code>, onto the context stack. This means the rest of the file will be processing using the string context, and not the main context, until the string context is popped off the stack.
         </p>
 
         <p>
-            The string context introduces a new key: <span class="key">meta_scope</span>. This will assign the <tt>string.quoted.double.c</tt> scope to all text while the <tt>string</tt> context is on the stack.
+            The string context introduces a new key: <span class="key">meta_scope</span>. This will assign the <code>string.quoted.double.c</code> scope to all text while the <code>string</code> context is on the stack.
         </p>
 
         <p>
@@ -231,7 +231,7 @@
         </p>
 
         <p>
-            The <tt>string</tt> context has two patterns: the first matches a backslash character followed by any other, and the second matches a quote character. Note that the last pattern specifies an action when an unescaped quote is encountered, the string context will be popped off the context stack, returning to assigning scopes using the main context.
+            The <code>string</code> context has two patterns: the first matches a backslash character followed by any other, and the second matches a quote character. Note that the last pattern specifies an action when an unescaped quote is encountered, the string context will be popped off the context stack, returning to assigning scopes using the main context.
         </p>
 
         <p>
@@ -262,7 +262,7 @@
             </dt>
             <dd>
                 <p>
-                    Used to stop the current context from automatically including the <tt>prototype</tt> context.
+                    Used to stop the current context from automatically including the <code>prototype</code> context.
                 </p>
             </dd>
             <dt>
@@ -291,7 +291,7 @@
             </dt>
             <dd>
                 <p>
-                    The <a href="https://raw.githubusercontent.com/kkos/oniguruma/5.9.6/doc/RE">regex</a> used to match against the text. YAML allows many strings to be written without quotes, which can help make the regex clearer, but it's important to understand when you need to quote the regex. If your regex includes the characters <tt>#</tt>, <tt>:</tt>, <tt>-</tt>, <tt>{</tt>, <tt>[</tt> or <tt>&gt;</tt> then you likely need to quote it. Regexes are only ever run against a single line of text at a time.
+                    The <a href="https://raw.githubusercontent.com/kkos/oniguruma/5.9.6/doc/RE">regex</a> used to match against the text. YAML allows many strings to be written without quotes, which can help make the regex clearer, but it's important to understand when you need to quote the regex. If your regex includes the characters <code>#</code>, <code>:</code>, <code>-</code>, <code>{</code>, <code>[</code> or <code>&gt;</code> then you likely need to quote it. Regexes are only ever run against a single line of text at a time.
                 </p>
             </dd>
             <dt>
@@ -364,7 +364,7 @@
                     </dt>
                     <dd>
                         <p>
-                            A mapping of capture groups to scope names, for the <span class="key">escape</span> pattern. Use capture group <tt>0</tt> to apply a scope to the entire escape match.
+                            A mapping of capture groups to scope names, for the <span class="key">escape</span> pattern. Use capture group <code>0</code> to apply a scope to the entire escape match.
                         </p>
                     </dd>
                 </dl>
@@ -388,7 +388,7 @@
                     </dd>
                 </dl>
                 <p>
-                    The <spann class="key">branch</span> action allows for handling syntax constructs that are ambiguous, and also allows handling constructs that span multiple lines.
+                    The <span class="key">branch</span> action allows for handling syntax constructs that are ambiguous, and also allows handling constructs that span multiple lines.
                 </p>
                 <p>
                     For ideal performance, the contexts should be listed in the order of how likely they are to be accepted. <em>Note: because highlighting with branches requires reprocessing an entire branch upon each change to the document, the highlighting engine will not rewind more than 128 lines when a <span class="key">fail</span> occurs.</em>
@@ -403,7 +403,7 @@
                     Accepts the name of a <span class="key">branch_point</span> to rewind to and retry the next context of. If a <span class="key">fail</span> action specifies a <span class="key">branch_point</span> that was never pushed on the stack, or has already been popped off of the stack, it will have no effect.
                 </p>
             </dd>
-        </ul>
+        </dl>
 
         <p>
             Note that the actions: <span class="key">push</span>, <span class="key">pop</span>, <span class="key">set</span>, <span class="key">embed</span>, <span class="key">branch</span> and <span class="key">fail</span> are exclusive, and only one of them may be used within a single match pattern.
@@ -430,7 +430,7 @@
 </span></code></pre>
 
         <p>
-            Pushing into another context named <tt>function-parameters</tt>:
+            Pushing into another context named <code>function-parameters</code>:
         </p>
 
         <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">match</span><span style="color: #ac7a68">:</span> \b\w+(?=\()
@@ -532,7 +532,7 @@
         </p>
 
         <p>
-            With elements such as comments, it's so common to include them that it's simpler to make them included automatically in every context, and just list the exceptions instead. You can do this by creating a context named <tt>prototype</tt>, it will be included automatically at the top of every other context, unless the context contains the <span class="key">meta_include_prototype</span> key. For example:
+            With elements such as comments, it's so common to include them that it's simpler to make them included automatically in every context, and just list the exceptions instead. You can do this by creating a context named <code>prototype</code>, it will be included automatically at the top of every other context, unless the context contains the <span class="key">meta_include_prototype</span> key. For example:
         </p>
 
         <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">prototype</span><span style="color: #ac7a68">:</span>
@@ -544,7 +544,7 @@
 </span></code></pre>
 
         <p>
-            In C, a <tt>/*</tt> inside a string does not start a comment, so the string context indicates that the prototype should not be included.
+            In C, a <code>/*</code> inside a string does not start a comment, so the string context indicates that the prototype should not be included.
         </p>
 
         <h2 id="include-syntax">Including Other Files</h2>
@@ -569,11 +569,11 @@
 </span></code></pre>
 
         <p>
-            Note the first rule above. It indicates that when we encounter a <tt>&lt;script&gt;</tt> tag, the main context within <span class="file">JavaScript.sublime-syntax</span> should be pushed onto the context stack. It also defines another key, <span class="key">with_prototype</span>. This contains a list of patterns that will be inserted into every context defined within <span class="file">JavaScript.sublime-syntax</span>. Note that <tt>with_prototype</tt> is conceptually similar to the <tt>prototype</tt> context, however it will be always be inserted into every referenced context irrespective of their <span class="key">meta_include_prototype</span> key.
+            Note the first rule above. It indicates that when we encounter a <code>&lt;script&gt;</code> tag, the main context within <span class="file">JavaScript.sublime-syntax</span> should be pushed onto the context stack. It also defines another key, <span class="key">with_prototype</span>. This contains a list of patterns that will be inserted into every context defined within <span class="file">JavaScript.sublime-syntax</span>. Note that <span class="key">with_prototype</span> is conceptually similar to the <code>prototype</code> context, however it will be always be inserted into every referenced context irrespective of their <span class="key">meta_include_prototype</span> key.
         </p>
 
         <p>
-            In this case, the pattern that's inserted will pop off the current context while the next text is a <tt>&lt;/script&gt;</tt> tag. Note that it doesn't actually match the <tt>&lt;/script&gt;</tt> tag, it's just using a lookahead assertion, which plays two key roles here: It both allows the HTML rules to match against the end tag, highlighting it as-per normal, and it will ensure that all the JavaScript contexts will get popped off. The context stack may be in the middle of a JavaScript string, for example, but when the <tt>&lt;/script&gt;</tt> is encountered, both the JavaScript string and main contexts will get popped off.
+            In this case, the pattern that's inserted will pop off the current context while the next text is a <code>&lt;/script&gt;</code> tag. Note that it doesn't actually match the <code>&lt;/script&gt;</code> tag, it's just using a lookahead assertion, which plays two key roles here: It both allows the HTML rules to match against the end tag, highlighting it as-per normal, and it will ensure that all the JavaScript contexts will get popped off. The context stack may be in the middle of a JavaScript string, for example, but when the <code>&lt;/script&gt;</code> is encountered, both the JavaScript string and main contexts will get popped off.
         </p>
 
         <p>
@@ -607,10 +607,10 @@
 
         <p>
             In the example above, we can see it operates in HTML mode by default: the main context includes a single pattern that always matches, consuming no text, just including the HTML syntax.
-        <p>
+        </p>
 
         <p>
-            Where the HTML syntax is included, the Jinja syntax directives (<tt>{{ ... }}</tt>) are included via the <span class="key">with_prototype</span> key, and thus get injected into every context in the HTML syntax (and JavaScript, by transitivity).
+            Where the HTML syntax is included, the Jinja syntax directives (<code>{{ ... }}</code>) are included via the <span class="key">with_prototype</span> key, and thus get injected into every context in the HTML syntax (and JavaScript, by transitivity).
         </p>
         
     </section>
@@ -630,7 +630,7 @@
 </span></code></pre>
 
         <p>
-            Variables must be defined at the top level of the <span class="file">.sublime-syntax</span> file, and are referenced within regxes via <tt>{{varname}}</tt>. Variables may themselves include other variables. Note that any text that doesn't match <tt>{{[A-Za-z0-9_]+}}</tt> won't be considered as a variable, so regexes can still include literal <tt>{{</tt> characers, for example.
+            Variables must be defined at the top level of the <span class="file">.sublime-syntax</span> file, and are referenced within regxes via <code>{{varname}}</code>. Variables may themselves include other variables. Note that any text that doesn't match <code>{{[A-Za-z0-9_]+}}</code> won't be considered as a variable, so regexes can still include literal <code>{{</code> characers, for example.
         </p>
         
     </section>
@@ -692,7 +692,7 @@
         <h3>Advanced Stack Usage</h3>
 
         <p>
-            In C, symbols are often defined with the <tt>typedef</tt> keyword. So that <i>Goto Definition</i> can pick these up, the symbols should have the <tt>entity.name.type</tt> scope attached to them.
+            In C, symbols are often defined with the <code>typedef</code> keyword. So that <i>Goto Definition</i> can pick these up, the symbols should have the <code>entity.name.type</code> scope attached to them.
         </p>
 
         <p>
@@ -734,21 +734,21 @@
 </span></code></pre>
 
         <p>
-            In the above example, <tt>typename</tt> is a reusable context, that will read in a typename and pop itself off the stack when it's done. It can be used in any context where a type needs to be consumed, such as within a typedef, or as a function argument.
+            In the above example, <code>typename</code> is a reusable context, that will read in a typename and pop itself off the stack when it's done. It can be used in any context where a type needs to be consumed, such as within a typedef, or as a function argument.
         </p>
 
         <p>
-            The <tt>main</tt> context uses a match pattern that pushes two contexts on the stack, with the rightmost context in the list becoming the topmost context on the stack. Once the <tt>typename</tt> context has popped itself off, the <tt>typedef_after_typename</tt> context will be at the top of the stack.
+            The <code>main</code> context uses a match pattern that pushes two contexts on the stack, with the rightmost context in the list becoming the topmost context on the stack. Once the <code>typename</code> context has popped itself off, the <code>typedef_after_typename</code> context will be at the top of the stack.
         </p>
 
         <p>
-            Also note above the use of anonymous contexts for brevity within the <tt>typename</tt> context.
+            Also note above the use of anonymous contexts for brevity within the <code>typename</code> context.
         </p>
 
         <h3>PHP Heredocs</h3>
 
         <p>
-            This example shows how to match against <a href="http://php.net/language.types.string#language.types.string.syntax.heredoc">Heredocs</a> in PHP. The match pattern in the main context captures the heredoc identifier, and the corresponding pop pattern in the heredoc context refers to this captured text with the <tt>\1</tt> symbol:
+            This example shows how to match against <a href="http://php.net/language.types.string#language.types.string.syntax.heredoc">Heredocs</a> in PHP. The match pattern in the main context captures the heredoc identifier, and the corresponding pop pattern in the heredoc context refers to this captured text with the <code>\1</code> symbol:
         </p>
 
         <pre><code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">name</span><span style="color: #ac7a68">:</span> PHP
@@ -770,7 +770,7 @@
         <h2 id="testing">Testing</h2>
 
         <p>
-            When building a syntax definition, rather than manually checking scopes with the <tt>show_scope_name</tt> command, you can define a syntax test file that will do the checking for you:
+            When building a syntax definition, rather than manually checking scopes with the <span class="command">show_scope_name</span> command, you can define a syntax test file that will do the checking for you:
         </p>
 
         <pre><code class="syntax-c"><span style="color: #333333"><span style="color: #999999">//</span><span style="color: #999999"> SYNTAX TEST &quot;Packages/C/C.sublime-syntax&quot;
@@ -817,16 +817,16 @@
                 Ensure the file is saved somewhere within the Packages directory: next to the corresponding .sublime-syntax file is a good choice.
             </li>
             <li>
-                Ensure the first line of the file starts with: <tt>&lt;comment_token&gt; SYNTAX TEST "&lt;syntax_file&gt;"</tt>. Note that the syntax file can either be a <span class="file">.sublime-syntax</span> or <span class="file">.tmLanguage</span> file.
+                Ensure the first line of the file starts with: <code>&lt;comment_token&gt; SYNTAX TEST "&lt;syntax_file&gt;"</code>. Note that the syntax file can either be a <span class="file">.sublime-syntax</span> or <span class="file">.tmLanguage</span> file.
             </li>
         </ol>
 
         <p>
-            Once the above conditions are met, running the <tt>build</tt> command with a syntax test or syntax definition file selected will run all the Syntax Tests, and show the results in an output panel. <i>Next Result</i> (F4) can be used to navigate to the first failing test.
+            Once the above conditions are met, running the <span class="command">build</span> command with a syntax test or syntax definition file selected will run all the Syntax Tests, and show the results in an output panel. <i>Next Result</i> (F4) can be used to navigate to the first failing test.
         </p>
 
         <p>
-            Each test in the syntax test file must first start the comment token (established on the first line, it doesn't actually have to be a comment according to the syntax), and then either a <tt>^</tt> or <tt>&lt;-</tt> token.
+            Each test in the syntax test file must first start the comment token (established on the first line, it doesn't actually have to be a comment according to the syntax), and then either a <code>^</code> or <code>&lt;-</code> token.
         </p>
 
         <p>
@@ -835,10 +835,10 @@
 
         <ul>
             <li>
-                Caret: <tt>^</tt> this will test the following selector against the scope on the most recent non-test line. It will test it at the same column the <tt>^</tt> is in. Consecutive <tt>^</tt>s will test each column against the selector.
+                Caret: <code>^</code> this will test the following selector against the scope on the most recent non-test line. It will test it at the same column the <code>^</code> is in. Consecutive <code>^</code>s will test each column against the selector.
             </li>
             <li>
-                Arrow: <tt>&lt;-</tt> this will test the following selector against the scope on the most recent non-test line. It will test it at the same column as the comment character is in.
+                Arrow: <code>&lt;-</code> this will test the following selector against the scope on the most recent non-test line. It will test it at the same column as the comment character is in.
             </li>
         </ul>
     </section>

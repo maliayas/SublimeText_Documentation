@@ -63,7 +63,7 @@
     
     <h1><span>
         <nav>
-            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+            <a href="index.html">Documentation</a>
         </nav>
         Command Line Interface
     </span></h1>
@@ -78,7 +78,7 @@
 
     <section>
         <p>
-            Sublime Text includes a command line tool, <tt>subl</tt>, to work with files on the command line. This can be used to open files and projects in Sublime Text, as well working as an <tt>EDITOR</tt> for unix tools, such as git and subversion.
+            Sublime Text includes a command line tool, <code>subl</code>, to work with files on the command line. This can be used to open files and projects in Sublime Text, as well working as an <code>EDITOR</code> for unix tools, such as git and subversion.
         </p>
 
         <ul id="toc">
@@ -92,7 +92,7 @@
             </li>
             <li><a href="command_line.html#usage">Usage</a>
                 <ul>
-                    <li><a href="command_line.html#editor">Configuring as <tt>EDITOR</tt></a></li>
+                    <li><a href="command_line.html#editor">Configuring as <code>EDITOR</code></a></li>
                 </ul>
             </li>
         </ul>
@@ -102,30 +102,30 @@
         <h2 id="setup">Setup</h2>
 
         <p>
-            Some operating systems and installation methods will require a configuration change to make <tt>subl</tt> available on the <tt>PATH</tt>.
+            Some operating systems and installation methods will require a configuration change to make <code>subl</code> available on the <code>PATH</code>.
         </p>
 
         <h3 id="windows">Windows</h3>
 
         <p>
-            On Windows, the command line helper is <tt>subl.exe</tt>. To use this from the <em>Command Prompt</em> or <em>Powershell</em>, the Sublime Text installation folder needs to be added to the <tt>Path</tt> environment variable:
+            On Windows, the command line helper is <code>subl.exe</code>. To use this from the <em>Command Prompt</em> or <em>Powershell</em>, the Sublime Text installation folder needs to be added to the <code>Path</code> environment variable:
         </p>
 
         <h4 class="tab" id="windows-10">Windows 10</h4>
         <div class="tab-content" id="content-windows-10">
             <em class="switchers">Show instructions for: <a class="tab-switch" href="command_line.html#windows-8">Windows 8</a>, <a class="tab-switch" href="command_line.html#windows-7">Windows 7</a></em>
             <ul>
-                <li>Open the <em>Start Menu</em> and type <tt>environ</tt></li>
+                <li>Open the <em>Start Menu</em> and type <kbd>environ</kbd></li>
                 <li>Select the item <em>Edit the system environment variables</em></li>
                 <li>Click the button <em>Environment Variables</em> at the bottom of the <em>System Properties</em> dialog</li>
                 <li>
-                    Select, or create, the <tt>Path</tt> environment variable in the appropriate section:
+                    Select, or create, the <code>Path</code> environment variable in the appropriate section:
                     <ul>
                         <li>
-                            For the current user, select <tt>Path</tt> in the <em>User variables for {username}</em> section
+                            For the current user, select <code>Path</code> in the <em>User variables for {username}</em> section
                         </li>
                         <li>
-                            For all users, select <tt>Path</tt> in the <em>System variables</em> section
+                            For all users, select <code>Path</code> in the <em>System variables</em> section
                         </li>
                     </ul>
                 </li>
@@ -144,22 +144,22 @@
         <div class="tab-content" id="content-windows-8">
             <em class="switchers">Show instructions for: <a class="tab-switch" href="command_line.html#windows-10">Windows 10</a>, <a class="tab-switch" href="command_line.html#windows-7">Windows 7</a></em>
             <ul>
-                <li>Press the <em>Windows Key</em> and type <tt>environ</tt></li>
+                <li>Press the <em>Windows Key</em> and type <kbd>environ</kbd></li>
                 <li>Select the item <em>Edit the system environment variables</em></li>
                 <li>Click the button <em>Environment Variables</em> at the bottom of the <em>System Properties</em> dialog</li>
                 <li>
-                    Select, or create, the <tt>Path</tt> environment variable in the appropriate section:
+                    Select, or create, the <code>Path</code> environment variable in the appropriate section:
                     <ul>
                         <li>
-                            For the current user, select <tt>Path</tt> in the <em>User variables for {username}</em> section
+                            For the current user, select <code>Path</code> in the <em>User variables for {username}</em> section
                         </li>
                         <li>
-                            For all users, select <tt>Path</tt> in the <em>System variables</em> section
+                            For all users, select <code>Path</code> in the <em>System variables</em> section
                         </li>
                     </ul>
                 </li>
                 <li>
-                    In the <em>Variable value</em> input, add an entry with the Sublime Text installation directory. <em>If there is an existing value, add a <tt>;</tt> before the Sublime Text directory.</em>
+                    In the <em>Variable value</em> input, add an entry with the Sublime Text installation directory. <em>If there is an existing value, add a <code>;</code> before the Sublime Text directory.</em>
                     <ul>
                         <li>64bit installs are typically in <span class="file">C:\Program Files\Sublime Text\</span></li>
                         <li>32bit installs on a 64bit version of Windows will be in <span class="file">C:\Program Files (x86)\Sublime Text\</span></li>
@@ -178,18 +178,18 @@
                 <li>Click on <em>Advanced System Settings</em> in the left-hand sidebar</li>
                 <li>Click the button <em>Environment Variables</em> at the bottom of the <em>System Properties</em> dialog</li>
                 <li>
-                    Select, or create, the <tt>Path</tt> environment variable in the appropriate section:
+                    Select, or create, the <code>Path</code> environment variable in the appropriate section:
                     <ul>
                         <li>
-                            For the current user, select <tt>Path</tt> in the <em>User variables for {username}</em> section
+                            For the current user, select <code>Path</code> in the <em>User variables for {username}</em> section
                         </li>
                         <li>
-                            For all users, select <tt>Path</tt> in the <em>System variables</em> section
+                            For all users, select <code>Path</code> in the <em>System variables</em> section
                         </li>
                     </ul>
                 </li>
                 <li>
-                    In the <em>Variable value</em> input, add an entry with the Sublime Text installation directory. <em>If there is an existing value, add a <tt>;</tt> before the Sublime Text directory.</em>
+                    In the <em>Variable value</em> input, add an entry with the Sublime Text installation directory. <em>If there is an existing value, add a <code>;</code> before the Sublime Text directory.</em>
                     <ul>
                         <li>64bit installs are typically in <span class="file">C:\Program Files\Sublime Text\</span></li>
                         <li>32bit installs on a 64bit version of Windows will be in <span class="file">C:\Program Files (x86)\Sublime Text\</span></li>
@@ -201,12 +201,12 @@
 
         <h3 id="mac">Mac</h3>
         <p>
-            To use <tt>subl</tt>, the Sublime Text <span class="file">bin</span> folder needs to be added to the path. For a typical installation of Sublime Text, this will be located at <span class="file">/Applications/Sublime Text.app/Contents/SharedSupport/bin</span>.
+            To use <span class="file">subl</span>, the Sublime Text <span class="file">bin</span> folder needs to be added to the path. For a typical installation of Sublime Text, this will be located at <span class="file">/Applications/Sublime Text.app/Contents/SharedSupport/bin</span>.
         </p>
 
         <h4>Bash</h4>
         <p>
-            If using Bash, the default before macOS 10.15, the following command will add the <span class="file">bin</span> folder to the <tt>PATH</tt> environment variable:
+            If using Bash, the default before macOS 10.15, the following command will add the <span class="file">bin</span> folder to the <code>PATH</code> environment variable:
         </p>
 
         <pre class="cli"><code>echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.bash_profile
@@ -214,7 +214,7 @@
 
         <h4>Zsh</h4>
         <p>
-            If using Zsh, the default starting with macOS 10.15, the following command will add the <span class="file">bin</span> folder to the <tt>PATH</tt> environment variable:
+            If using Zsh, the default starting with macOS 10.15, the following command will add the <span class="file">bin</span> folder to the <code>PATH</code> environment variable:
         </p>
 
         <pre class="cli"><code>echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
@@ -223,18 +223,18 @@
         <h3 id="linux">Linux</h3>
 
         <p>
-            If Sublime Text is installed via one of the <a href="linux_repositories.html">Linux Package Manager Repositories</a> or a package, a <tt>subl</tt> symlink will automatically be installed into the <tt>/usr/bin/</tt> directory.
+            If Sublime Text is installed via one of the <a href="linux_repositories.html">Linux Package Manager Repositories</a> or a package, a <span class="file">subl</span> symlink will automatically be installed into the <span class="file">/usr/bin/</span> directory.
         </p>
 
         <p>
-            If installing from a tarball, the <tt>sublime_text</tt> executable should be symlinked to <tt>subl</tt>, with a command such as:
+            If installing from a tarball, the <span class="file">sublime_text</span> executable should be symlinked to <span class="file">subl</span>, with a command such as:
         </p>
 
         <pre class="cli"><code>sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl
 </code></pre>
 
         <p>
-            The exact details of the symlink command will depend on the installation location. Most default <tt>PATH</tt> environment variable values should contain <span class="file">/usr/local/bin</span>, so no further commands should be necessary.
+            The exact details of the symlink command will depend on the installation location. Most default <code>PATH</code> environment variable values should contain <span class="file">/usr/local/bin</span>, so no further commands should be necessary.
         </p>
 
     </section>
@@ -243,7 +243,7 @@
         <h2 id="usage">Usage</h2>
 
         <p>
-            To see the available flags, run <tt>subl --help</tt>. <em>The available flags will vary per operating system – the following example is from a Mac.</em>
+            To see the available flags, run <code>subl --help</code>. <em>The available flags will vary per operating system – the following example is from a Mac.</em>
         </p>
 
         <pre class="build-4050 hide_on_filter"><code>Sublime Text build 4XXX
@@ -254,8 +254,8 @@ Usage: subl [arguments] [files]         Edit the given files
    or: subl [arguments] -               Edit stdin
 
 Arguments:
-  --project <project>: Load the given project
-  --command <command>: Run the given command
+  --project &lt;project&gt;: Load the given project
+  --command &lt;command&gt;: Run the given command
   -n or --new-window:  Open a new window
   -a or --add:         Add folders to the current window
   -w or --wait:        Wait for the files to be closed before returning
@@ -279,8 +279,8 @@ Usage: %s [arguments] [files]         Edit the given files
    or: %s [arguments] -               Edit stdin
 
 Arguments:
-  --project <project>: Load the given project
-  --command <command>: Run the given command
+  --project &lt;project&gt;: Load the given project
+  --command &lt;command&gt;: Run the given command
   -n or --new-window:  Open a new window
   -a or --add:         Add folders to the current window
   -w or --wait:        Wait for the files to be closed before returning
@@ -299,14 +299,14 @@ Filenames may be given a :line or :line:column suffix to open at a specific loca
         <h3 id="editor">Configuring as EDITOR</h3>
 
         <p>
-            To use Sublime Text as the editor for many commands that prompt for input, set your <tt>EDITOR</tt> environment variable:
+            To use Sublime Text as the editor for many commands that prompt for input, set your <code>EDITOR</code> environment variable:
         </p>
 
         <pre><code>export EDITOR='subl -w'
 </code></pre>
 
         <p>
-            Specifying <tt>-w</tt> will cause the <tt>subl</tt> command to not exit until the file is closed.
+            Specifying <code>-w</code> will cause the <code>subl</code> command to not exit until the file is closed.
         </p>
     </section>
 

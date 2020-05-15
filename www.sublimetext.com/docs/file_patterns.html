@@ -63,7 +63,7 @@
     
     <h1><span>
         <nav>
-            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+            <a href="index.html">Documentation</a>
         </nav>
         File Patterns
     </span></h1>
@@ -96,48 +96,48 @@
         </p>
 
         <ul>
-            <li><strong><tt>*</tt>:</strong> matches zero or more characters, except <tt>/</tt></li>
-            <li><strong><tt>?</tt>:</strong> matches exactly one character, except <tt>/</tt></li>
+            <li><strong><code>*</code>:</strong> matches zero or more characters, except <code>/</code></li>
+            <li><strong><code>?</code>:</strong> matches exactly one character, except <code>/</code></li>
         </ul>
 
         <p>
-            <em>Neither character classes, <tt>[abc]</tt>, nor the globstar operator, <tt>**</tt>, from Bash are supported.</em>
+            <em>Neither character classes, <code>[abc]</code>, nor the globstar operator, <code>**</code>, from Bash are supported.</em>
         </p>
 
         <h3>Examples</h3>
 
         <ul>
-            <li>The pattern <tt>abc</tt> will match <tt>abc</tt> but not <tt>abcd</tt></li>
-            <li>The pattern <tt>a?c</tt> will match <tt>abc</tt> but not <tt>ac</tt></li>
-            <li>The pattern <tt>a*c</tt> will match <tt>abc</tt>, <tt>ac</tt> and <tt>abdc</tt></li>
+            <li>The pattern <code>abc</code> will match <code>abc</code> but not <code>abcd</code></li>
+            <li>The pattern <code>a?c</code> will match <code>abc</code> but not <code>ac</code></li>
+            <li>The pattern <code>a*c</code> will match <code>abc</code>, <code>ac</code> and <code>abdc</code></li>
         </ul>
 
         <h2 id="path_rules">Path Rules</h2>
 
         <p>
-            When <tt>/</tt> <em>is not present</em> in a pattern, it is only compared against the file or directory name and only the basic syntax applies. When a <tt>/</tt> <em>is included</em> in a pattern, it changes the behavior to:
+            When <code>/</code> <em>is not present</em> in a pattern, it is only compared against the file or directory name and only the basic syntax applies. When a <code>/</code> <em>is included</em> in a pattern, it changes the behavior to:
         </p>
 
         <ul>
             <li>The pattern is matched against the entire file or directory path</li>
-            <li>In a <tt>*/</tt> prefix or <tt>/*</tt> suffix, the <tt>*</tt> will match <tt>/</tt> characters</li>
-            <li><tt>*/</tt> will be implicitly prefixed if the pattern does not start with a <tt>/</tt> or <tt>*</tt></li>
-            <li class="build-4066-removed hide_on_filter"><tt>*</tt> will be implicitly suffixed if the pattern does not start with a <tt>/</tt> or <tt>*</tt> <span class="build" title="Removed in build 4066"><4066</span></li>
-            <li>If the pattern ends in <tt>/</tt> it will be treated as a directory pattern, and will match <span class="build-4066">both a directory with that name and <span class="build" title="Added in build 4066">4066</span></span> any contained files or subdirectories</li>
-            <li>If a pattern begins with a single <tt>/</tt>, it will be compared as an absolute path</li>
-            <li class="build-4066">If pattern begins with <tt>//</tt>, it will be compared as a relative path from the project root <span class="build" title="Added in build 4066">4066</span></li>
+            <li>In a <code>*/</code> prefix or <code>/*</code> suffix, the <code>*</code> will match <code>/</code> characters</li>
+            <li><code>*/</code> will be implicitly prefixed if the pattern does not start with a <code>/</code> or <code>*</code></li>
+            <li class="build-4066-removed hide_on_filter"><code>*</code> will be implicitly suffixed if the pattern does not start with a <code>/</code> or <code>*</code> <span class="build" title="Removed in build 4066"><4066</span></li>
+            <li>If the pattern ends in <code>/</code> it will be treated as a directory pattern, and will match <span class="build-4066">both a directory with that name and <span class="build" title="Added in build 4066">4066</span></span> any contained files or subdirectories</li>
+            <li>If a pattern begins with a single <code>/</code>, it will be compared as an absolute path</li>
+            <li class="build-4066">If pattern begins with <code>//</code>, it will be compared as a relative path from the project root <span class="build" title="Added in build 4066">4066</span></li>
         </ul>
 
         <h3>Examples</h3>
 
         <ul>
-            <li>The pattern <tt>mydir/one</tt> will match <tt>/parent/mydir/one</tt>, <tt>/mydir/one</tt> and <tt>/mydir/one/sub</tt></li>
-            <li class="build-4066-removed hide_on_filter">The pattern <tt>mydir/two</tt> will match <tt>/parent/mydir/two</tt> and <tt>/parent/mydir/two_sub</tt></li>
-            <li class="build-4066 hide_on_filter">The pattern <tt>mydir/two</tt> will match <tt>/parent/mydir/two</tt> but not <tt>/parent/mydir/two_sub</tt></li>
-            <li>The pattern <tt>/mydir/three</tt> will match <tt>/mydir/three</tt> but not <tt>/nested/mydir/three</tt></li>
-            <li class="build-4066-removed hide_on_filter">The pattern <tt>mydir/three/</tt> will match <tt>/parent/mydir/three/sub</tt> but not <tt>/parent/mydir/three</tt></li>
-            <li class="build-4066 hide_on_filter">The pattern <tt>mydir/four/</tt> will match <tt>/parent/mydir/four</tt> and <tt>/parent/mydir/four/sub</tt></li>
-            <li class="build-4066">The pattern <tt>//mydir/five</tt> will match <tt>/project1/mydir/five</tt> and <tt>/project2/mydir/five</tt> but not <tt>/project1/nested/mydir/five</tt> <span class="build" title="Added in build 4066">4066</span></li>
+            <li>The pattern <code>mydir/one</code> will match <code>/parent/mydir/one</code>, <code>/mydir/one</code> and <code>/mydir/one/sub</code></li>
+            <li class="build-4066-removed hide_on_filter">The pattern <code>mydir/two</code> will match <code>/parent/mydir/two</code> and <code>/parent/mydir/two_sub</code></li>
+            <li class="build-4066 hide_on_filter">The pattern <code>mydir/two</code> will match <code>/parent/mydir/two</code> but not <code>/parent/mydir/two_sub</code></li>
+            <li>The pattern <code>/mydir/three</code> will match <code>/mydir/three</code> but not <code>/nested/mydir/three</code></li>
+            <li class="build-4066-removed hide_on_filter">The pattern <code>mydir/three/</code> will match <code>/parent/mydir/three/sub</code> but not <code>/parent/mydir/three</code></li>
+            <li class="build-4066 hide_on_filter">The pattern <code>mydir/four/</code> will match <code>/parent/mydir/four</code> and <code>/parent/mydir/four/sub</code></li>
+            <li class="build-4066">The pattern <code>//mydir/five</code> will match <code>/project1/mydir/five</code> and <code>/project2/mydir/five</code> but not <code>/project1/nested/mydir/five</code> <span class="build" title="Added in build 4066">4066</span></li>
         </ul>
     </section>
 

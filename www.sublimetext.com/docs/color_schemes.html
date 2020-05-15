@@ -63,7 +63,7 @@
 
     <h1><span>
         <nav>
-            <a href="https://www.sublimetext.com/docs/">Documentation</a>
+            <a href="index.html">Documentation</a>
         </nav>
         Color Schemes
     </span></h1>
@@ -211,7 +211,7 @@
                 The first is an integer in the range <code>0</code> to <code>360</code> specifying the
                 hue. The second is a percentage specifying the saturation. The
                 third is a percentage specifying the lightness. Red is written
-                as <code>hsl(0, 100%, 100%)</code>.
+                as <code>hsl(0, 100%, 50%)</code>.
             </li>
             <li>
                 <strong>HSLA functional notation</strong>:
@@ -219,7 +219,7 @@
                 function is <code>hsla</code> and a fourth parameter is added
                 accepting a value from <code>0.0</code> to <code>1.0</code>
                 specifying the alpha channel. Red with 50% opacity is written
-                as <code>hsla(0, 100%, 100%, 0.5)</code>.
+                as <code>hsla(0, 100%, 50%, 0.5)</code>.
             </li>
             <li class="build-3181">
                 <strong>HWB functional notation</strong> <span class="build" title="Added in build 3181">3181</span>:
@@ -581,6 +581,14 @@
                 The background color of a selection in a view that
                 is not currently focused
             </dd>
+            <dt class="build-4074">
+                <span class="key">"inactive_selection_border"</span>
+                <span class="build" title="Added in build 4074">4074</span>
+            </dt>
+            <dd class="build-4074">
+                The color for the border of the selection in a view that is
+                not currently focused
+            </dd>
             <dt>
                 <span class="key">"inactive_selection_foreground"</span>
             </dt>
@@ -857,13 +865,17 @@
             <dd>
                 <p>
                     Zero or more of the following, separated by spaces:
-                <p>
+                </p>
                 <ul>
                     <li><code>bold</code></li>
                     <li><code>italic</code></li>
                     <li class="build-4050">
                         <code>glow</code>
                         <span class="build" title="Added in build 4050">4050</span>
+                    </li>
+                    <li class="build-4074">
+                        <code>underline</code>
+                        <span class="build" title="Added in build 4074">4074</span>
                     </li>
                 </ul>
             </dd>
@@ -1014,158 +1026,158 @@
         </style>
 
         <div class="col">
-            <span style="background-color: #f0f8ff;" class="color-block"></span> <span>aliceblue</span><br>
-            <span style="background-color: #faebd7;" class="color-block"></span> <span>antiquewhite</span><br>
-            <span style="background-color: #00ffff;" class="color-block"></span> <span>aqua</span><br>
-            <span style="background-color: #7fffd4;" class="color-block"></span> <span>aquamarine</span><br>
-            <span style="background-color: #f0ffff;" class="color-block"></span> <span>azure</span><br>
-            <span style="background-color: #f5f5dc;" class="color-block"></span> <span>beige</span><br>
-            <span style="background-color: #ffe4c4;" class="color-block"></span> <span>bisque</span><br>
-            <span style="background-color: #000000;" class="color-block"></span> <span>black</span><br>
-            <span style="background-color: #ffebcd;" class="color-block"></span> <span>blanchedalmond</span><br>
-            <span style="background-color: #0000ff;" class="color-block"></span> <span>blue</span><br>
-            <span style="background-color: #8a2be2;" class="color-block"></span> <span>blueviolet</span><br>
-            <span style="background-color: #a52a2a;" class="color-block"></span> <span>brown</span><br>
-            <span style="background-color: #deb887;" class="color-block"></span> <span>burlywood</span><br>
-            <span style="background-color: #5f9ea0;" class="color-block"></span> <span>cadetblue</span><br>
-            <span style="background-color: #7fff00;" class="color-block"></span> <span>chartreuse</span><br>
-            <span style="background-color: #d2691e;" class="color-block"></span> <span>chocolate</span><br>
-            <span style="background-color: #ff7f50;" class="color-block"></span> <span>coral</span><br>
-            <span style="background-color: #6495ed;" class="color-block"></span> <span>cornflowerblue</span><br>
-            <span style="background-color: #fff8dc;" class="color-block"></span> <span>cornsilk</span><br>
-            <span style="background-color: #dc143c;" class="color-block"></span> <span>crimson</span><br>
-            <span style="background-color: #00ffff;" class="color-block"></span> <span>cyan</span><br>
-            <span style="background-color: #00008b;" class="color-block"></span> <span>darkblue</span><br>
-            <span style="background-color: #008b8b;" class="color-block"></span> <span>darkcyan</span><br>
-            <span style="background-color: #b8860b;" class="color-block"></span> <span>darkgoldenrod</span><br>
-            <span style="background-color: #a9a9a9;" class="color-block"></span> <span>darkgray</span><br>
-            <span style="background-color: #006400;" class="color-block"></span> <span>darkgreen</span><br>
-            <span style="background-color: #a9a9a9;" class="color-block"></span> <span>darkgrey</span><br>
-            <span style="background-color: #bdb76b;" class="color-block"></span> <span>darkkhaki</span><br>
-            <span style="background-color: #8b008b;" class="color-block"></span> <span>darkmagenta</span><br>
-            <span style="background-color: #556b2f;" class="color-block"></span> <span>darkolivegreen</span><br>
-            <span style="background-color: #ff8c00;" class="color-block"></span> <span>darkorange</span><br>
-            <span style="background-color: #9932cc;" class="color-block"></span> <span>darkorchid</span><br>
-            <span style="background-color: #8b0000;" class="color-block"></span> <span>darkred</span><br>
-            <span style="background-color: #e9967a;" class="color-block"></span> <span>darksalmon</span><br>
-            <span style="background-color: #8fbc8f;" class="color-block"></span> <span>darkseagreen</span><br>
-            <span style="background-color: #483d8b;" class="color-block"></span> <span>darkslateblue</span><br>
-            <span style="background-color: #2f4f4f;" class="color-block"></span> <span>darkslategray</span><br>
-            <span style="background-color: #2f4f4f;" class="color-block"></span> <span>darkslategrey</span><br>
-            <span style="background-color: #00ced1;" class="color-block"></span> <span>darkturquoise</span><br>
-            <span style="background-color: #9400d3;" class="color-block"></span> <span>darkviolet</span><br>
-            <span style="background-color: #ff1493;" class="color-block"></span> <span>deeppink</span><br>
-            <span style="background-color: #00bfff;" class="color-block"></span> <span>deepskyblue</span><br>
-            <span style="background-color: #696969;" class="color-block"></span> <span>dimgray</span><br>
-            <span style="background-color: #696969;" class="color-block"></span> <span>dimgrey</span><br>
-            <span style="background-color: #1e90ff;" class="color-block"></span> <span>dodgerblue</span><br>
-            <span style="background-color: #b22222;" class="color-block"></span> <span>firebrick</span><br>
-            <span style="background-color: #fffaf0;" class="color-block"></span> <span>floralwhite</span><br>
-            <span style="background-color: #228b22;" class="color-block"></span> <span>forestgreen</span><br>
-            <span style="background-color: #ff00ff;" class="color-block"></span> <span>fuchsia</span><br>
-            <span style="background-color: #dcdcdc;" class="color-block"></span> <span>gainsboro</span><br>
+            <span style="background-color: #f0f8ff;" class="color-block">&nbsp;</span> <span>aliceblue</span><br>
+            <span style="background-color: #faebd7;" class="color-block">&nbsp;</span> <span>antiquewhite</span><br>
+            <span style="background-color: #00ffff;" class="color-block">&nbsp;</span> <span>aqua</span><br>
+            <span style="background-color: #7fffd4;" class="color-block">&nbsp;</span> <span>aquamarine</span><br>
+            <span style="background-color: #f0ffff;" class="color-block">&nbsp;</span> <span>azure</span><br>
+            <span style="background-color: #f5f5dc;" class="color-block">&nbsp;</span> <span>beige</span><br>
+            <span style="background-color: #ffe4c4;" class="color-block">&nbsp;</span> <span>bisque</span><br>
+            <span style="background-color: #000000;" class="color-block">&nbsp;</span> <span>black</span><br>
+            <span style="background-color: #ffebcd;" class="color-block">&nbsp;</span> <span>blanchedalmond</span><br>
+            <span style="background-color: #0000ff;" class="color-block">&nbsp;</span> <span>blue</span><br>
+            <span style="background-color: #8a2be2;" class="color-block">&nbsp;</span> <span>blueviolet</span><br>
+            <span style="background-color: #a52a2a;" class="color-block">&nbsp;</span> <span>brown</span><br>
+            <span style="background-color: #deb887;" class="color-block">&nbsp;</span> <span>burlywood</span><br>
+            <span style="background-color: #5f9ea0;" class="color-block">&nbsp;</span> <span>cadetblue</span><br>
+            <span style="background-color: #7fff00;" class="color-block">&nbsp;</span> <span>chartreuse</span><br>
+            <span style="background-color: #d2691e;" class="color-block">&nbsp;</span> <span>chocolate</span><br>
+            <span style="background-color: #ff7f50;" class="color-block">&nbsp;</span> <span>coral</span><br>
+            <span style="background-color: #6495ed;" class="color-block">&nbsp;</span> <span>cornflowerblue</span><br>
+            <span style="background-color: #fff8dc;" class="color-block">&nbsp;</span> <span>cornsilk</span><br>
+            <span style="background-color: #dc143c;" class="color-block">&nbsp;</span> <span>crimson</span><br>
+            <span style="background-color: #00ffff;" class="color-block">&nbsp;</span> <span>cyan</span><br>
+            <span style="background-color: #00008b;" class="color-block">&nbsp;</span> <span>darkblue</span><br>
+            <span style="background-color: #008b8b;" class="color-block">&nbsp;</span> <span>darkcyan</span><br>
+            <span style="background-color: #b8860b;" class="color-block">&nbsp;</span> <span>darkgoldenrod</span><br>
+            <span style="background-color: #a9a9a9;" class="color-block">&nbsp;</span> <span>darkgray</span><br>
+            <span style="background-color: #006400;" class="color-block">&nbsp;</span> <span>darkgreen</span><br>
+            <span style="background-color: #a9a9a9;" class="color-block">&nbsp;</span> <span>darkgrey</span><br>
+            <span style="background-color: #bdb76b;" class="color-block">&nbsp;</span> <span>darkkhaki</span><br>
+            <span style="background-color: #8b008b;" class="color-block">&nbsp;</span> <span>darkmagenta</span><br>
+            <span style="background-color: #556b2f;" class="color-block">&nbsp;</span> <span>darkolivegreen</span><br>
+            <span style="background-color: #ff8c00;" class="color-block">&nbsp;</span> <span>darkorange</span><br>
+            <span style="background-color: #9932cc;" class="color-block">&nbsp;</span> <span>darkorchid</span><br>
+            <span style="background-color: #8b0000;" class="color-block">&nbsp;</span> <span>darkred</span><br>
+            <span style="background-color: #e9967a;" class="color-block">&nbsp;</span> <span>darksalmon</span><br>
+            <span style="background-color: #8fbc8f;" class="color-block">&nbsp;</span> <span>darkseagreen</span><br>
+            <span style="background-color: #483d8b;" class="color-block">&nbsp;</span> <span>darkslateblue</span><br>
+            <span style="background-color: #2f4f4f;" class="color-block">&nbsp;</span> <span>darkslategray</span><br>
+            <span style="background-color: #2f4f4f;" class="color-block">&nbsp;</span> <span>darkslategrey</span><br>
+            <span style="background-color: #00ced1;" class="color-block">&nbsp;</span> <span>darkturquoise</span><br>
+            <span style="background-color: #9400d3;" class="color-block">&nbsp;</span> <span>darkviolet</span><br>
+            <span style="background-color: #ff1493;" class="color-block">&nbsp;</span> <span>deeppink</span><br>
+            <span style="background-color: #00bfff;" class="color-block">&nbsp;</span> <span>deepskyblue</span><br>
+            <span style="background-color: #696969;" class="color-block">&nbsp;</span> <span>dimgray</span><br>
+            <span style="background-color: #696969;" class="color-block">&nbsp;</span> <span>dimgrey</span><br>
+            <span style="background-color: #1e90ff;" class="color-block">&nbsp;</span> <span>dodgerblue</span><br>
+            <span style="background-color: #b22222;" class="color-block">&nbsp;</span> <span>firebrick</span><br>
+            <span style="background-color: #fffaf0;" class="color-block">&nbsp;</span> <span>floralwhite</span><br>
+            <span style="background-color: #228b22;" class="color-block">&nbsp;</span> <span>forestgreen</span><br>
+            <span style="background-color: #ff00ff;" class="color-block">&nbsp;</span> <span>fuchsia</span><br>
+            <span style="background-color: #dcdcdc;" class="color-block">&nbsp;</span> <span>gainsboro</span><br>
         </div>
         <div class="col">
-            <span style="background-color: #f8f8ff;" class="color-block"></span> <span>ghostwhite</span><br>
-            <span style="background-color: #ffd700;" class="color-block"></span> <span>gold</span><br>
-            <span style="background-color: #daa520;" class="color-block"></span> <span>goldenrod</span><br>
-            <span style="background-color: #808080;" class="color-block"></span> <span>gray</span><br>
-            <span style="background-color: #008000;" class="color-block"></span> <span>green</span><br>
-            <span style="background-color: #adff2f;" class="color-block"></span> <span>greenyellow</span><br>
-            <span style="background-color: #808080;" class="color-block"></span> <span>grey</span><br>
-            <span style="background-color: #f0fff0;" class="color-block"></span> <span>honeydew</span><br>
-            <span style="background-color: #ff69b4;" class="color-block"></span> <span>hotpink</span><br>
-            <span style="background-color: #cd5c5c;" class="color-block"></span> <span>indianred</span><br>
-            <span style="background-color: #4b0082;" class="color-block"></span> <span>indigo</span><br>
-            <span style="background-color: #fffff0;" class="color-block"></span> <span>ivory</span><br>
-            <span style="background-color: #f0e68c;" class="color-block"></span> <span>khaki</span><br>
-            <span style="background-color: #e6e6fa;" class="color-block"></span> <span>lavender</span><br>
-            <span style="background-color: #fff0f5;" class="color-block"></span> <span>lavenderblush</span><br>
-            <span style="background-color: #7cfc00;" class="color-block"></span> <span>lawngreen</span><br>
-            <span style="background-color: #fffacd;" class="color-block"></span> <span>lemonchiffon</span><br>
-            <span style="background-color: #add8e6;" class="color-block"></span> <span>lightblue</span><br>
-            <span style="background-color: #f08080;" class="color-block"></span> <span>lightcoral</span><br>
-            <span style="background-color: #e0ffff;" class="color-block"></span> <span>lightcyan</span><br>
-            <span style="background-color: #fafad2;" class="color-block"></span> <span>lightgoldenrodyellow</span><br>
-            <span style="background-color: #d3d3d3;" class="color-block"></span> <span>lightgray</span><br>
-            <span style="background-color: #90ee90;" class="color-block"></span> <span>lightgreen</span><br>
-            <span style="background-color: #d3d3d3;" class="color-block"></span> <span>lightgrey</span><br>
-            <span style="background-color: #ffb6c1;" class="color-block"></span> <span>lightpink</span><br>
-            <span style="background-color: #ffa07a;" class="color-block"></span> <span>lightsalmon</span><br>
-            <span style="background-color: #20b2aa;" class="color-block"></span> <span>lightseagreen</span><br>
-            <span style="background-color: #87cefa;" class="color-block"></span> <span>lightskyblue</span><br>
-            <span style="background-color: #778899;" class="color-block"></span> <span>lightslategray</span><br>
-            <span style="background-color: #778899;" class="color-block"></span> <span>lightslategrey</span><br>
-            <span style="background-color: #b0c4de;" class="color-block"></span> <span>lightsteelblue</span><br>
-            <span style="background-color: #ffffe0;" class="color-block"></span> <span>lightyellow</span><br>
-            <span style="background-color: #00ff00;" class="color-block"></span> <span>lime</span><br>
-            <span style="background-color: #32cd32;" class="color-block"></span> <span>limegreen</span><br>
-            <span style="background-color: #faf0e6;" class="color-block"></span> <span>linen</span><br>
-            <span style="background-color: #ff00ff;" class="color-block"></span> <span>magenta</span><br>
-            <span style="background-color: #800000;" class="color-block"></span> <span>maroon</span><br>
-            <span style="background-color: #66cdaa;" class="color-block"></span> <span>mediumaquamarine</span><br>
-            <span style="background-color: #0000cd;" class="color-block"></span> <span>mediumblue</span><br>
-            <span style="background-color: #ba55d3;" class="color-block"></span> <span>mediumorchid</span><br>
-            <span style="background-color: #9370db;" class="color-block"></span> <span>mediumpurple</span><br>
-            <span style="background-color: #3cb371;" class="color-block"></span> <span>mediumseagreen</span><br>
-            <span style="background-color: #7b68ee;" class="color-block"></span> <span>mediumslateblue</span><br>
-            <span style="background-color: #00fa9a;" class="color-block"></span> <span>mediumspringgreen</span><br>
-            <span style="background-color: #48d1cc;" class="color-block"></span> <span>mediumturquoise</span><br>
-            <span style="background-color: #c71585;" class="color-block"></span> <span>mediumvioletred</span><br>
-            <span style="background-color: #191970;" class="color-block"></span> <span>midnightblue</span><br>
-            <span style="background-color: #f5fffa;" class="color-block"></span> <span>mintcream</span><br>
-            <span style="background-color: #ffe4e1;" class="color-block"></span> <span>mistyrose</span><br>
-            <span style="background-color: #ffe4b5;" class="color-block"></span> <span>moccasin</span><br>
+            <span style="background-color: #f8f8ff;" class="color-block">&nbsp;</span> <span>ghostwhite</span><br>
+            <span style="background-color: #ffd700;" class="color-block">&nbsp;</span> <span>gold</span><br>
+            <span style="background-color: #daa520;" class="color-block">&nbsp;</span> <span>goldenrod</span><br>
+            <span style="background-color: #808080;" class="color-block">&nbsp;</span> <span>gray</span><br>
+            <span style="background-color: #008000;" class="color-block">&nbsp;</span> <span>green</span><br>
+            <span style="background-color: #adff2f;" class="color-block">&nbsp;</span> <span>greenyellow</span><br>
+            <span style="background-color: #808080;" class="color-block">&nbsp;</span> <span>grey</span><br>
+            <span style="background-color: #f0fff0;" class="color-block">&nbsp;</span> <span>honeydew</span><br>
+            <span style="background-color: #ff69b4;" class="color-block">&nbsp;</span> <span>hotpink</span><br>
+            <span style="background-color: #cd5c5c;" class="color-block">&nbsp;</span> <span>indianred</span><br>
+            <span style="background-color: #4b0082;" class="color-block">&nbsp;</span> <span>indigo</span><br>
+            <span style="background-color: #fffff0;" class="color-block">&nbsp;</span> <span>ivory</span><br>
+            <span style="background-color: #f0e68c;" class="color-block">&nbsp;</span> <span>khaki</span><br>
+            <span style="background-color: #e6e6fa;" class="color-block">&nbsp;</span> <span>lavender</span><br>
+            <span style="background-color: #fff0f5;" class="color-block">&nbsp;</span> <span>lavenderblush</span><br>
+            <span style="background-color: #7cfc00;" class="color-block">&nbsp;</span> <span>lawngreen</span><br>
+            <span style="background-color: #fffacd;" class="color-block">&nbsp;</span> <span>lemonchiffon</span><br>
+            <span style="background-color: #add8e6;" class="color-block">&nbsp;</span> <span>lightblue</span><br>
+            <span style="background-color: #f08080;" class="color-block">&nbsp;</span> <span>lightcoral</span><br>
+            <span style="background-color: #e0ffff;" class="color-block">&nbsp;</span> <span>lightcyan</span><br>
+            <span style="background-color: #fafad2;" class="color-block">&nbsp;</span> <span>lightgoldenrodyellow</span><br>
+            <span style="background-color: #d3d3d3;" class="color-block">&nbsp;</span> <span>lightgray</span><br>
+            <span style="background-color: #90ee90;" class="color-block">&nbsp;</span> <span>lightgreen</span><br>
+            <span style="background-color: #d3d3d3;" class="color-block">&nbsp;</span> <span>lightgrey</span><br>
+            <span style="background-color: #ffb6c1;" class="color-block">&nbsp;</span> <span>lightpink</span><br>
+            <span style="background-color: #ffa07a;" class="color-block">&nbsp;</span> <span>lightsalmon</span><br>
+            <span style="background-color: #20b2aa;" class="color-block">&nbsp;</span> <span>lightseagreen</span><br>
+            <span style="background-color: #87cefa;" class="color-block">&nbsp;</span> <span>lightskyblue</span><br>
+            <span style="background-color: #778899;" class="color-block">&nbsp;</span> <span>lightslategray</span><br>
+            <span style="background-color: #778899;" class="color-block">&nbsp;</span> <span>lightslategrey</span><br>
+            <span style="background-color: #b0c4de;" class="color-block">&nbsp;</span> <span>lightsteelblue</span><br>
+            <span style="background-color: #ffffe0;" class="color-block">&nbsp;</span> <span>lightyellow</span><br>
+            <span style="background-color: #00ff00;" class="color-block">&nbsp;</span> <span>lime</span><br>
+            <span style="background-color: #32cd32;" class="color-block">&nbsp;</span> <span>limegreen</span><br>
+            <span style="background-color: #faf0e6;" class="color-block">&nbsp;</span> <span>linen</span><br>
+            <span style="background-color: #ff00ff;" class="color-block">&nbsp;</span> <span>magenta</span><br>
+            <span style="background-color: #800000;" class="color-block">&nbsp;</span> <span>maroon</span><br>
+            <span style="background-color: #66cdaa;" class="color-block">&nbsp;</span> <span>mediumaquamarine</span><br>
+            <span style="background-color: #0000cd;" class="color-block">&nbsp;</span> <span>mediumblue</span><br>
+            <span style="background-color: #ba55d3;" class="color-block">&nbsp;</span> <span>mediumorchid</span><br>
+            <span style="background-color: #9370db;" class="color-block">&nbsp;</span> <span>mediumpurple</span><br>
+            <span style="background-color: #3cb371;" class="color-block">&nbsp;</span> <span>mediumseagreen</span><br>
+            <span style="background-color: #7b68ee;" class="color-block">&nbsp;</span> <span>mediumslateblue</span><br>
+            <span style="background-color: #00fa9a;" class="color-block">&nbsp;</span> <span>mediumspringgreen</span><br>
+            <span style="background-color: #48d1cc;" class="color-block">&nbsp;</span> <span>mediumturquoise</span><br>
+            <span style="background-color: #c71585;" class="color-block">&nbsp;</span> <span>mediumvioletred</span><br>
+            <span style="background-color: #191970;" class="color-block">&nbsp;</span> <span>midnightblue</span><br>
+            <span style="background-color: #f5fffa;" class="color-block">&nbsp;</span> <span>mintcream</span><br>
+            <span style="background-color: #ffe4e1;" class="color-block">&nbsp;</span> <span>mistyrose</span><br>
+            <span style="background-color: #ffe4b5;" class="color-block">&nbsp;</span> <span>moccasin</span><br>
         </div>
         <div class="col">
-            <span style="background-color: #ffdead;" class="color-block"></span> <span>navajowhite</span><br>
-            <span style="background-color: #000080;" class="color-block"></span> <span>navy</span><br>
-            <span style="background-color: #fdf5e6;" class="color-block"></span> <span>oldlace</span><br>
-            <span style="background-color: #808000;" class="color-block"></span> <span>olive</span><br>
-            <span style="background-color: #6b8e23;" class="color-block"></span> <span>olivedrab</span><br>
-            <span style="background-color: #ffa500;" class="color-block"></span> <span>orange</span><br>
-            <span style="background-color: #ff4500;" class="color-block"></span> <span>orangered</span><br>
-            <span style="background-color: #da70d6;" class="color-block"></span> <span>orchid</span><br>
-            <span style="background-color: #eee8aa;" class="color-block"></span> <span>palegoldenrod</span><br>
-            <span style="background-color: #98fb98;" class="color-block"></span> <span>palegreen</span><br>
-            <span style="background-color: #afeeee;" class="color-block"></span> <span>paleturquoise</span><br>
-            <span style="background-color: #db7093;" class="color-block"></span> <span>palevioletred</span><br>
-            <span style="background-color: #ffefd5;" class="color-block"></span> <span>papayawhip</span><br>
-            <span style="background-color: #ffdab9;" class="color-block"></span> <span>peachpuff</span><br>
-            <span style="background-color: #cd853f;" class="color-block"></span> <span>peru</span><br>
-            <span style="background-color: #ffc0cb;" class="color-block"></span> <span>pink</span><br>
-            <span style="background-color: #dda0dd;" class="color-block"></span> <span>plum</span><br>
-            <span style="background-color: #b0e0e6;" class="color-block"></span> <span>powderblue</span><br>
-            <span style="background-color: #800080;" class="color-block"></span> <span>purple</span><br>
-            <span style="background-color: #663399;" class="color-block"></span> <span>rebeccapurple</span><br>
-            <span style="background-color: #ff0000;" class="color-block"></span> <span>red</span><br>
-            <span style="background-color: #bc8f8f;" class="color-block"></span> <span>rosybrown</span><br>
-            <span style="background-color: #4169e1;" class="color-block"></span> <span>royalblue</span><br>
-            <span style="background-color: #8b4513;" class="color-block"></span> <span>saddlebrown</span><br>
-            <span style="background-color: #fa8072;" class="color-block"></span> <span>salmon</span><br>
-            <span style="background-color: #f4a460;" class="color-block"></span> <span>sandybrown</span><br>
-            <span style="background-color: #2e8b57;" class="color-block"></span> <span>seagreen</span><br>
-            <span style="background-color: #fff5ee;" class="color-block"></span> <span>seashell</span><br>
-            <span style="background-color: #a0522d;" class="color-block"></span> <span>sienna</span><br>
-            <span style="background-color: #c0c0c0;" class="color-block"></span> <span>silver</span><br>
-            <span style="background-color: #87ceeb;" class="color-block"></span> <span>skyblue</span><br>
-            <span style="background-color: #6a5acd;" class="color-block"></span> <span>slateblue</span><br>
-            <span style="background-color: #708090;" class="color-block"></span> <span>slategray</span><br>
-            <span style="background-color: #708090;" class="color-block"></span> <span>slategrey</span><br>
-            <span style="background-color: #fffafa;" class="color-block"></span> <span>snow</span><br>
-            <span style="background-color: #00ff7f;" class="color-block"></span> <span>springgreen</span><br>
-            <span style="background-color: #4682b4;" class="color-block"></span> <span>steelblue</span><br>
-            <span style="background-color: #d2b48c;" class="color-block"></span> <span>tan</span><br>
-            <span style="background-color: #008080;" class="color-block"></span> <span>teal</span><br>
-            <span style="background-color: #d8bfd8;" class="color-block"></span> <span>thistle</span><br>
-            <span style="background-color: #ff6347;" class="color-block"></span> <span>tomato</span><br>
-            <span style="background-color: #40e0d0;" class="color-block"></span> <span>turquoise</span><br>
-            <span style="background-color: #ee82ee;" class="color-block"></span> <span>violet</span><br>
-            <span style="background-color: #f5deb3;" class="color-block"></span> <span>wheat</span><br>
-            <span style="background-color: #ffffff;" class="color-block"></span> <span>white</span><br>
-            <span style="background-color: #f5f5f5;" class="color-block"></span> <span>whitesmoke</span><br>
-            <span style="background-color: #ffff00;" class="color-block"></span> <span>yellow</span><br>
-            <span style="background-color: #9acd32;" class="color-block"></span> <span>yellowgreen</span><br>
+            <span style="background-color: #ffdead;" class="color-block">&nbsp;</span> <span>navajowhite</span><br>
+            <span style="background-color: #000080;" class="color-block">&nbsp;</span> <span>navy</span><br>
+            <span style="background-color: #fdf5e6;" class="color-block">&nbsp;</span> <span>oldlace</span><br>
+            <span style="background-color: #808000;" class="color-block">&nbsp;</span> <span>olive</span><br>
+            <span style="background-color: #6b8e23;" class="color-block">&nbsp;</span> <span>olivedrab</span><br>
+            <span style="background-color: #ffa500;" class="color-block">&nbsp;</span> <span>orange</span><br>
+            <span style="background-color: #ff4500;" class="color-block">&nbsp;</span> <span>orangered</span><br>
+            <span style="background-color: #da70d6;" class="color-block">&nbsp;</span> <span>orchid</span><br>
+            <span style="background-color: #eee8aa;" class="color-block">&nbsp;</span> <span>palegoldenrod</span><br>
+            <span style="background-color: #98fb98;" class="color-block">&nbsp;</span> <span>palegreen</span><br>
+            <span style="background-color: #afeeee;" class="color-block">&nbsp;</span> <span>paleturquoise</span><br>
+            <span style="background-color: #db7093;" class="color-block">&nbsp;</span> <span>palevioletred</span><br>
+            <span style="background-color: #ffefd5;" class="color-block">&nbsp;</span> <span>papayawhip</span><br>
+            <span style="background-color: #ffdab9;" class="color-block">&nbsp;</span> <span>peachpuff</span><br>
+            <span style="background-color: #cd853f;" class="color-block">&nbsp;</span> <span>peru</span><br>
+            <span style="background-color: #ffc0cb;" class="color-block">&nbsp;</span> <span>pink</span><br>
+            <span style="background-color: #dda0dd;" class="color-block">&nbsp;</span> <span>plum</span><br>
+            <span style="background-color: #b0e0e6;" class="color-block">&nbsp;</span> <span>powderblue</span><br>
+            <span style="background-color: #800080;" class="color-block">&nbsp;</span> <span>purple</span><br>
+            <span style="background-color: #663399;" class="color-block">&nbsp;</span> <span>rebeccapurple</span><br>
+            <span style="background-color: #ff0000;" class="color-block">&nbsp;</span> <span>red</span><br>
+            <span style="background-color: #bc8f8f;" class="color-block">&nbsp;</span> <span>rosybrown</span><br>
+            <span style="background-color: #4169e1;" class="color-block">&nbsp;</span> <span>royalblue</span><br>
+            <span style="background-color: #8b4513;" class="color-block">&nbsp;</span> <span>saddlebrown</span><br>
+            <span style="background-color: #fa8072;" class="color-block">&nbsp;</span> <span>salmon</span><br>
+            <span style="background-color: #f4a460;" class="color-block">&nbsp;</span> <span>sandybrown</span><br>
+            <span style="background-color: #2e8b57;" class="color-block">&nbsp;</span> <span>seagreen</span><br>
+            <span style="background-color: #fff5ee;" class="color-block">&nbsp;</span> <span>seashell</span><br>
+            <span style="background-color: #a0522d;" class="color-block">&nbsp;</span> <span>sienna</span><br>
+            <span style="background-color: #c0c0c0;" class="color-block">&nbsp;</span> <span>silver</span><br>
+            <span style="background-color: #87ceeb;" class="color-block">&nbsp;</span> <span>skyblue</span><br>
+            <span style="background-color: #6a5acd;" class="color-block">&nbsp;</span> <span>slateblue</span><br>
+            <span style="background-color: #708090;" class="color-block">&nbsp;</span> <span>slategray</span><br>
+            <span style="background-color: #708090;" class="color-block">&nbsp;</span> <span>slategrey</span><br>
+            <span style="background-color: #fffafa;" class="color-block">&nbsp;</span> <span>snow</span><br>
+            <span style="background-color: #00ff7f;" class="color-block">&nbsp;</span> <span>springgreen</span><br>
+            <span style="background-color: #4682b4;" class="color-block">&nbsp;</span> <span>steelblue</span><br>
+            <span style="background-color: #d2b48c;" class="color-block">&nbsp;</span> <span>tan</span><br>
+            <span style="background-color: #008080;" class="color-block">&nbsp;</span> <span>teal</span><br>
+            <span style="background-color: #d8bfd8;" class="color-block">&nbsp;</span> <span>thistle</span><br>
+            <span style="background-color: #ff6347;" class="color-block">&nbsp;</span> <span>tomato</span><br>
+            <span style="background-color: #40e0d0;" class="color-block">&nbsp;</span> <span>turquoise</span><br>
+            <span style="background-color: #ee82ee;" class="color-block">&nbsp;</span> <span>violet</span><br>
+            <span style="background-color: #f5deb3;" class="color-block">&nbsp;</span> <span>wheat</span><br>
+            <span style="background-color: #ffffff;" class="color-block">&nbsp;</span> <span>white</span><br>
+            <span style="background-color: #f5f5f5;" class="color-block">&nbsp;</span> <span>whitesmoke</span><br>
+            <span style="background-color: #ffff00;" class="color-block">&nbsp;</span> <span>yellow</span><br>
+            <span style="background-color: #9acd32;" class="color-block">&nbsp;</span> <span>yellowgreen</span><br>
         </div>
     </section>
 
