@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200414.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@d=200723.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -220,7 +220,7 @@
         <h3 id="plugin_lifecycle">Plugin Lifecycle</h3>
 
         <p>
-            At importing time, plugins may not call any API functions, with the exception of <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">version</span>()</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">platform</span>()</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">architecture</span>()</span></code> and <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">channel</span>()</span></code>.
+            At importing time, plugins may not call any API functions, with the exception of <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">version</span>()</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">platform</span>()</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">arch</span>()</span></code> and <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">channel</span>()</span></code>.
         </p>
 
         <p>
@@ -367,6 +367,180 @@
                 </td>
                 <td class="tags"></td>
             </tr>
+            <tr class="build-4075">
+                <td class="mth">open_dialog(callback, &lt;file_types&gt;, &lt;directory&gt;, &lt;multi_select&gt;, &lt;allow_folders&gt;)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Presents the user with a file dialog for the purpose of opening a file, and passes the resulting file path to <span class="parameter">callback</span>.
+                    </p>
+                    <dl class="parameters">
+                        <dt>
+                            <span class="parameter">callback</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A callback to accept the result of the user’s choice. If the user cancels the dialog, <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> will be passed. If a file is selected, a <span class="data-type">str</span> containing the path will be passed. If the parameter <span class="parameter">multi_select</span> is <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code>, a <span class="data-type">list</span> of <span class="data-type">str</span> file paths will be passed.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">file_types</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A specification of allowable file types. This parameter should be a <span class="data-type">list</span> containing 2-element <span class="data-type">tuple</span>s:
+                            </p>
+                            <ul>
+                                <li>A <span class="data-type">str</span> containing a description</li>
+                                <li>A <span class="data-type">list</span> of <span class="data-type">str</span> with valid file extensions</li>
+                            </ul>
+                            <p>
+                                <em>Example:</em>
+                                <pre><code class="syntax-python"><span style="color: #333333">[
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">Python source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py3</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">pyw</span><span style="color: #5fb4b4">&#x27;</span>])<span style="color: #ac7a68">,</span>
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">C source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">c</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">h</span><span style="color: #5fb4b4">&#x27;</span>])
+]</span></code></pre>
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">directory</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">str</span> of the directory to open the file dialog to. If not specified, will use the directory of the current view.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">multi_select</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">bool</span> to indicate that the user should be allowed to select multiple files
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">allow_folders</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">bool</span> to indicate that the user should be allowed to select folders
+                            </p>
+                        </dd>
+                    </dl>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">save_dialog(callback, &lt;file_types&gt;, &lt;directory&gt;, &lt;name&gt;, &lt;extension&gt;)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Presents the user with file dialog for the purpose of saving a file, and passes the result to <span class="parameter">callback</span>.
+                    </p>
+                    <dl class="parameters">
+                        <dt>
+                            <span class="parameter">callback</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A callback to accept the result of the user’s choice. If the user cancels the dialog, <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> will be passed. If a file is selected, a <span class="data-type">str</span> containing the path will be passed.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">file_types</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A specification of allowable file types. This parameter should be a <span class="data-type">list</span> containing 2-element <span class="data-type">tuple</span>s:
+                            </p>
+                            <ul>
+                                <li>A <span class="data-type">str</span> containing a description</li>
+                                <li>A <span class="data-type">list</span> of <span class="data-type">str</span> with valid file extensions</li>
+                            </ul>
+                            <p>
+                                <em>Example:</em>
+                                <pre><code class="syntax-python"><span style="color: #333333">[
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">Python source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py3</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">pyw</span><span style="color: #5fb4b4">&#x27;</span>])<span style="color: #ac7a68">,</span>
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">C source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">c</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">h</span><span style="color: #5fb4b4">&#x27;</span>])
+]</span></code></pre>
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">directory</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">str</span> of the directory to open the file dialog to. If not specified, will use the directory of the current view.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">name</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">str</span> with the default file name
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">extension</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">str</span> containing the default file extension
+                            </p>
+                        </dd>
+                    </dl>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">select_folder_dialog(callback, &lt;directory&gt;, &lt;multi_select&gt;)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Presents the user with a file dialog for the purpose of selecting a folder, and passes the result to <span class="parameter">callback</span>.
+                    </p>
+                    <dl class="parameters">
+                        <dt>
+                            <span class="parameter">callback</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A callback to accept the result of the user’s choice. If the user cancels the dialog, <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> will be passed. If a folder is selected, a <span class="data-type">str</span> containing the path will be passed. If the parameter <span class="parameter">multi_select</span> is <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code>, a <span class="data-type">list</span> of <span class="data-type">str</span> folder paths will be passed.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">directory</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">str</span> of the directory to open the file dialog to. If not specified, will use the directory of the current view.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">multi_select</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">bool</span> to indicate that the user should be allowed to select multiple folders
+                            </p>
+                        </dd>
+                    </dl>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
+            </tr>
             <tr>
                 <td class="mth">load_resource(name)</td>
                 <td class="rtn">
@@ -452,6 +626,30 @@
                     Expands any variables in the string <span class="parameter">value</span> using the variables defined in the dictionary <span class="parameter">variables</span>. <span class="parameter">value</span> may also be a <span class="data-type">list</span> or <span class="data-type">dict</span>, in which case the structure will be recursively expanded. Strings should use snippet syntax, for example: <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">expand_variables</span>(<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Hello, $</span><span style="color: #5fb4b4">{</span><span style="color: #c695c6">name</span><span style="color: #5fb4b4">}</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Foo</span><span style="color: #5fb4b4">&quot;</span>})</span></code>
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr id="sublime.format_command" class="build-4075">
+                <td class="mth">format_command(cmd, &lt;args&gt;)</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    Create a "command string" from a <span class="data-type">str</span> <span class="parameter">cmd</span> name, and an optional <span class="data-type">dict</span> of <span class="parameter">args</span>. This is used when constructing a command-based <a href="api_reference.html#sublime.CompletionItem"><code>CompletionItem</code></a>.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">command_url(cmd, &lt;args&gt;)</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    Creates a <a href="minihtml.html#protocols"><code>subl:</code>-protocol</a> URL for executing a command in a <a href="minihtml.html">minihtml</a> link.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">load_settings(base_name)</td>
@@ -642,6 +840,16 @@
                 </td>
                 <td class="dsc">
                     Returns the CPU architecture, which may be <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">x32</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">x64</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr>
+                <td class="mth">channel()</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    Returns the release channel this build of Sublime Text is from: <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">dev</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">stable</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1210,34 +1418,73 @@
                 </td>
             </tr>
             <tr>
-                <td class="mth">text_point(row, col)</td>
+                <td class="mth">text_point(row, col, &lt;clamp_column&gt;)</td>
                 <td class="rtn">
                     <span class="data-type">int</span>
                 </td>
                 <td class="dsc">
-                    Calculates the character offset of the given, 0-based, <span class="parameter">row</span> and <span class="parameter">col</span>. <em><span class="parameter">col</span> is interpreted as the number of Unicode characters to advance past the beginning of the row.</em>
+                    <p>
+                        Calculates the character offset of the given, 0-based, <span class="parameter">row</span> and <span class="parameter">col</span>. <em><span class="parameter">col</span> is interpreted as the number of Unicode characters to advance past the beginning of the row.</em>
+                    </p>
+                    <dl class="parameters">
+                        <dt class="build-4075">
+                            <span class="parameter">clamp_column</span>
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </dt>
+                        <dd class="build-4075">
+                            <p>
+                                A <span class="data-type">bool</span>, if <span class="parameter">col</span> should be restricted to valid values for the given <span class="parameter">row</span>
+                            </p>
+                        </dd>
+                    </dl>
                 </td>
                 <td class="tags"></td>
             </tr>
             <tr class="build-4069">
-                <td class="mth">text_point_utf8(row, col)</td>
+                <td class="mth">text_point_utf8(row, col, &lt;clamp_column&gt;)</td>
                 <td class="rtn">
                     <span class="data-type">int</span>
                 </td>
                 <td class="dsc">
-                    Calculates the character offset of the given, 0-based, <span class="parameter">row</span> and <span class="parameter">col</span>. <em><span class="parameter">col</span> is interpreted as the number of UTF-8 code units, i.e. bytes, to advance past the beginning of the row.</em>
+                    <p>
+                        Calculates the character offset of the given, 0-based, <span class="parameter">row</span> and <span class="parameter">col</span>. <em><span class="parameter">col</span> is interpreted as the number of UTF-8 code units, i.e. bytes, to advance past the beginning of the row.</em>
+                    </p>
+                    <dl class="parameters">
+                        <dt class="build-4075">
+                            <span class="parameter">clamp_column</span>
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </dt>
+                        <dd class="build-4075">
+                            <p>
+                                A <span class="data-type">bool</span>, if <span class="parameter">col</span> should be restricted to valid values for the given <span class="parameter">row</span>
+                            </p>
+                        </dd>
+                    </dl>
                 </td>
                 <td class="tags">
                     <span class="build" title="Added in build 4069">4069</span>
                 </td>
             </tr>
             <tr class="build-4069">
-                <td class="mth">text_point_utf16(row, col)</td>
+                <td class="mth">text_point_utf16(row, col, &lt;clamp_column&gt;)</td>
                 <td class="rtn">
                     <span class="data-type">int</span>
                 </td>
                 <td class="dsc">
-                    Calculates the character offset of the given, 0-based, <span class="parameter">row</span> and <span class="parameter">col</span>. <em><span class="parameter">col</span> is interpreted as the number of UTF-16 code units, i.e. byte pairs, to advance past the beginning of the row.</em>
+                    <p>
+                        Calculates the character offset of the given, 0-based, <span class="parameter">row</span> and <span class="parameter">col</span>. <em><span class="parameter">col</span> is interpreted as the number of UTF-16 code units, i.e. byte pairs, to advance past the beginning of the row.</em>
+                    </p>
+                    <dl class="parameters">
+                        <dt class="build-4075">
+                            <span class="parameter">clamp_column</span>
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </dt>
+                        <dd class="build-4075">
+                            <p>
+                                A <span class="data-type">bool</span>, if <span class="parameter">col</span> should be restricted to valid values for the given <span class="parameter">row</span>
+                            </p>
+                        </dd>
+                    </dl>
                 </td>
                 <td class="tags">
                     <span class="build" title="Added in build 4069">4069</span>
@@ -1304,12 +1551,50 @@
                 <td class="tags"></td>
             </tr>
             <tr>
-                <td class="mth">show(location, &lt;show_surrounds&gt;)</td>
+                <td class="mth">show(location, &lt;show_surrounds&gt;, &lt;keep_to_left&gt;, &lt;animate&gt;)</td>
                 <td class="rtn">
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
                 <td class="dsc">
-                    Scroll the view to show the given <span class="parameter">location</span>, which may be a <a href="api_reference.html#type-point"><span class="data-type">point</span></a>, <a href="api_reference.html#sublime.Region"><span class="data-type">Region</span></a> or <a href="api_reference.html#sublime.Selection"><span class="data-type">Selection</span></a>.
+                    <p>
+                        Scroll the view to show the given location.
+                    </p>
+                    <dl class="parameters">
+                        <dt>
+                            <span class="parameter">location</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <a href="api_reference.html#type-point"><span class="data-type">point</span></a>, <a href="api_reference.html#sublime.Region"><span class="data-type">Region</span></a> or <a href="api_reference.html#sublime.Selection"><span class="data-type">Selection</span></a> to scroll the view to.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">show_surrounds</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <span class="data-type">bool</span>, scroll the view far enough that surrounding conent is visible also
+                            </p>
+                        </dd>
+                        <dt class="build-4075">
+                            <span class="parameter">keep_to_left</span>
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </dt>
+                        <dd class="build-4075">
+                            <p>
+                                A <span class="data-type">bool</span>, if the view should be kept to the left, if horizontal scrolling is possible
+                            </p>
+                        </dd>
+                        <dt class="build-4075">
+                            <span class="parameter">animate</span>
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </dt>
+                        <dd class="build-4075">
+                            <p>
+                                A <span class="data-type">bool</span>, if the scroll should be animated
+                            </p>
+                        </dd>
+                    </dl>
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1860,6 +2145,10 @@
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KEEP_ON_SELECTION_MODIFIED</span></code>: prevent the popup from hiding when the selection is modified
                             <span class="build" title="Added in build 4057">4057</span>
                         </li>
+                        <li class="build-4075">
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>HIDE_ON_CHARACTER_EVENT</span></code>: hide the popup when a character is typed
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </li>
                     </ul>
 
                     <p>
@@ -1961,6 +2250,18 @@
                         <li class="build-4063">
                             <span class="key">"glow"</span>
                             <span class="build" title="Added in build 4063">4063</span>
+                        </li>
+                        <li class="build-4075">
+                            <span class="key">"underline"</span>
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </li>
+                        <li class="build-4075">
+                            <span class="key">"stippled_underline"</span>
+                            <span class="build" title="Added in build 4075">4075</span>
+                        </li>
+                        <li class="build-4075">
+                            <span class="key">"squiggly_underline"</span>
+                            <span class="build" title="Added in build 4075">4075</span>
                         </li>
                         <li><span class="key">"source_line"</span></li>
                         <li><span class="key">"source_column"</span></li>
@@ -2122,6 +2423,7 @@
                 <th>Methods</th>
                 <th>Return Value</th>
                 <th>Description</th>
+                <th class="tags"></th>
             </tr>
             <tr>
                 <td class="mth">begin()</td>
@@ -2131,6 +2433,7 @@
                 <td class="dsc">
                     Returns the minimum of a and b.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">end()</td>
@@ -2140,6 +2443,7 @@
                 <td class="dsc">
                     Returns the maximum of a and b.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">size()</td>
@@ -2149,6 +2453,7 @@
                 <td class="dsc">
                     Returns the number of characters spanned by the region. Always >= 0.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">empty()</td>
@@ -2158,6 +2463,7 @@
                 <td class="dsc">
                     Returns <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code> iff <span class="method">begin()</span> == <span class="method">end()</span>.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">cover(region)</td>
@@ -2167,6 +2473,7 @@
                 <td class="dsc">
                     Returns a Region spanning both this and the given regions.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">intersection(region)</td>
@@ -2176,6 +2483,7 @@
                 <td class="dsc">
                     Returns the set intersection of the two regions.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">intersects(region)</td>
@@ -2185,6 +2493,7 @@
                 <td class="dsc">
                     Returns <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code> iff self == <span class="parameter">region</span> or both include one or more positions in common.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">contains(region)</td>
@@ -2194,6 +2503,7 @@
                 <td class="dsc">
                     Returns <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code> iff the given <span class="parameter">region</span> is a subset.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">contains(point)</td>
@@ -2202,6 +2512,25 @@
                 </td>
                 <td class="dsc">
                     Returns <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code> iff <span class="method">begin()</span> &lt;= <span class="parameter">point</span> &lt;= <span class="method">end()</span>.
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">to_tuple()</td>
+                <td class="rtn">
+                    <span class="data-type">tuple</span>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Returns a 2-element <span class="data-type">tuple</span> of:
+                    </p>
+                    <ol class="tuple">
+                        <li><span class="property">.a</span>, an <span class="data-type">int</span></li>
+                        <li><span class="property">.b</span>, an <span class="data-type">int</span></li>
+                    </ol>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
                 </td>
             </tr>
         </table>
@@ -2244,6 +2573,35 @@
                     <p>
                         <span class="parameter">on_navigate</span> is an optional callback that should accept a single string parameter, that is the <code>href</code> attribute of the link clicked.
                     </p>
+                </td>
+            </tr>
+        </table>
+
+        <table class="functions api">
+            <tr>
+                <th>Methods</th>
+                <th>Return Value</th>
+                <th>Description</th>
+                <th class="tags"></th>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">to_tuple()</td>
+                <td class="rtn">
+                    <span class="data-type">tuple</span>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Returns a 4-element <span class="data-type">tuple</span> of:
+                    </p>
+                    <ol class="tuple">
+                        <li><span class="property">.region</span>, as a 2-element <span class="data-type">tuple</span></li>
+                        <li><span class="property">.content</span>, a <span class="data-type">str</span></li>
+                        <li><span class="property">.layout</span>, an <span class="data-type">int</span></li>
+                        <li><span class="property">.on_navigate</span>, a <span class="data-type">callback</span> or <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code></li>
+                    </ol>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
                 </td>
             </tr>
         </table>
@@ -2332,6 +2690,7 @@
                 <th>Properties</th>
                 <th>Type</th>
                 <th>Description</th>
+                <th class="tags"></th>
             </tr>
             <tr>
                 <td class="mth">a</td>
@@ -2341,6 +2700,7 @@
                 <td class="dsc">
                     The beginning point of the region that was modified
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">b</td>
@@ -2349,6 +2709,31 @@
                 </td>
                 <td class="dsc">
                     The ending point of the region that was modified
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">len_utf16</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    The length of the old contents, in UTF-16 code units
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">len_utf8</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    The length of the old contents, in UTF-8 code units (i.e. bytes)
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
                 </td>
             </tr>
             <tr>
@@ -2359,6 +2744,7 @@
                 <td class="dsc">
                     A unicode string of the <em>new</em> contents of the region specified by <span class="attribute">.a</span> and <span class="attribute">.b</span>.
                 </td>
+                <td class="tags"></td>
             </tr>
         </table>
     </section>
@@ -2403,7 +2789,31 @@
                     <span class="data-type">int</span>
                 </td>
                 <td class="dsc">
-                    The column the <span class="attribute">.pt</span> was in when the <span class="data-type">HistoricPosition</span> was recorded
+                    The column the <span class="attribute">.pt</span> was in when the <span class="data-type">HistoricPosition</span> was recorded, in Unicode characters
+                </td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">col_utf16</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    The value of <span class="property">.col</span>, but in UTF-16 code units
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">col_utf8</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    The value of <span class="property">.col</span>, but in UTF-8 code units (i.e. bytes)</em>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
                 </td>
             </tr>
         </table>
@@ -2536,7 +2946,7 @@
                                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>COMPLETION_FORMAT_SNIPPET</span></code>: A snippet, with <code>$</code> variables. See also the <a href="api_reference.html#sublime.CompletionItem.snippet_completion"><span class="method">CompletionItem.snippet_completion()</span></a> class method.
                                 </li>
                                 <li>
-                                    <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>COMPLETION_FORMAT_COMMAND</span></code>: A command name, optionally followed by space and args encoded via <a href="api_reference.html#sublime.encode_value">encode_value()</a>. E.g. <code>my_command {"repeat": 2, "value": "ABC"}</code>. See also the <a href="api_reference.html#sublime.CompletionItem.command_completion"><span class="method">CompletionItem.command_completion()</span></a> class method.
+                                    <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>COMPLETION_FORMAT_COMMAND</span></code>: A command string, encoded via <a href="api_reference.html#sublime.format_command">format_command()</a>. See also the <a href="api_reference.html#sublime.CompletionItem.command_completion"><span class="method">CompletionItem.command_completion()</span></a> class method.
                                 </li>
                             </ul>
                         </dd>
@@ -2967,6 +3377,9 @@
                         </li>
                         <li class="build-4050">
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>ADD_TO_SELECTION</span></code> <span class="build" title="Added in build 4050">4050</span>: Add the file to the currently selected sheets in this group
+                        </li>
+                        <li class="build-4075">
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>ADD_TO_SELECTION_SEMI_TRANSIENT</span></code> <span class="build" title="Added in build 4075">4075</span>: Add the file to the currently selected sheets in this group, as a semi-transient view
                         </li>
                     </ul>
                     <p>
@@ -3558,6 +3971,7 @@
                 <th>Methods</th>
                 <th>Return Value</th>
                 <th>Description</th>
+                <th class="tags"></th>
             </tr>
             <tr>
                 <td class="mth">get(name, &lt;default&gt;)</td>
@@ -3567,6 +3981,7 @@
                 <td class="dsc">
                     Returns the named setting, or <span class="parameter">default</span> if it's not defined. If not passed, <span class="parameter">default</span> will have a value of <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">set(name, value)</td>
@@ -3576,6 +3991,7 @@
                 <td class="dsc">
                     Sets the named setting. Only primitive types, <span class="data-type">list</span>s, and <span class="data-type">dict</span>s are accepted.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">erase(name)</td>
@@ -3585,6 +4001,7 @@
                 <td class="dsc">
                     Removes the named setting. Does not remove it from any parent Settings.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">has(name)</td>
@@ -3594,6 +4011,7 @@
                 <td class="dsc">
                     Returns <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code> iff the named option exists in this set of Settings or one of its parents.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">add_on_change(key, on_change)</td>
@@ -3603,6 +4021,7 @@
                 <td class="dsc">
                     Register a callback to be run whenever a setting in this object is changed.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">clear_on_change(key)</td>
@@ -3611,6 +4030,42 @@
                 </td>
                 <td class="dsc">
                     Remove all callbacks registered with the given <span class="parameter">key</span>.
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr class="build-4078">
+                <td class="mth">to_dict()</td>
+                <td class="rtn">
+                    <span class="data-type">dict</span>
+                </td>
+                <td class="dsc">
+                    Returns a copy of the settings as a <span class="data-type">dict</span>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4078">4078</span>
+                    <span class="python" title="Only available in Python 3.8">3.8</span>
+                </td>
+            </tr>
+            <tr class="build-4078">
+                <td class="mth">update(pairs)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Update the settings from <span class="parameter">pairs</span>, which may be any of the following:
+                    </p>
+                    <ul>
+                        <li>A <span class="data-type">dict</span></li>
+                        <li>An implementation of <span class="data-type">collections.abc.Mapping</span></li>
+                        <li>An object that has a <span class="method">keys()</span> method</li>
+                        <li>An object that provides key/value pairs when iterated</li>
+                        <li>Keyword arguments</li>
+                    </ul>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4078">4078</span>
+                    <span class="python" title="Only available in Python 3.8">3.8</span>
                 </td>
             </tr>
         </table>
@@ -4325,7 +4780,7 @@
         </p>
 
         <p>
-            The view is passed as a single parameter to the constructor. The default implementation makes the view available via <code class="syntax-python">self.view</code>.
+            The view is passed as a single parameter to the constructor. The default implementation makes the view available via <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>view</span></code>.
         </p>
 
         <table class="functions api">
