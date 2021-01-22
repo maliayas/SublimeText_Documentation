@@ -171,6 +171,9 @@
                 <p>
                     A list of strings, defining file extensions this syntax should be used for. <em>Extensions listed here will be shown in file dialog dropdowns on some operating systems.</em>
                 </p>
+                <p>
+                    If a file does not have a basename, e.g. <span class="file">.gitignore</span>, the entirety of the filename including the leading <code>.</code> should be specified.
+                </p>
             </dd>
             <dt class="build-4075">
                 <span class="key">hidden_file_extensions</span>
@@ -808,6 +811,24 @@
                 <code class="syntax-yaml"><span style="color: #333333"><span style="color: #5fb4b4">-</span> <span style="color: #5fb4b4">meta_append</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span></span></code><br>
                 all of the patterns in the extending syntax will be inserted after those in the parent syntax.
             </li>
+        </ul>
+
+        <h3 class="build-4086">
+            Multiple Inheritance
+            <span class="build">4086</span>
+        </h3>
+
+        <p class="build-4086">
+            When a syntax is derived from a combination of two other syntaxes, multiple inheritance may be used. This allows the key <span class="key">extends</span> to be a list of packages paths to two or more parent syntaxes. The parent syntaxes will be processed in order, from top to bottom, and must be derived from the same base.
+        </p>
+
+        <p class="build-4086">
+            Two examples of multiple inheritance in the default syntaxes are:
+        </p>
+
+        <ul>
+            <li><strong>Objective-C++</strong>: extends <em>C++</em> and <em>Objective-C</em>, both which extend <em>C</em></li>
+            <li><strong>TSX</strong>: extends <em>JSX</em> and <em>TypeScript</em>, both which extend <em>JavaScript</em></li>
         </ul>
 
         <h3>Limitations</h3>

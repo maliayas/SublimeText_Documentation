@@ -107,6 +107,10 @@
                 <li>
                     <a href="api_reference.html#sublime.Sheet"><code>Sheet</code> Class</a>
                 </li>
+                <li class="build-4081">
+                    <a href="api_reference.html#sublime.Buffer"><code>Buffer</code> Class</a>
+                    <span class="build" title="Added in build 4081">4081</span>
+                </li>
                 <li>
                     <a href="api_reference.html#sublime.View"><code>View</code> Class</a>
                 </li>
@@ -125,6 +129,10 @@
                 <li>
                     <a href="api_reference.html#sublime.Edit"><code>Edit</code> Class</a>
                 </li>
+                <li class="build-4081">
+                    <a href="api_reference.html#sublime.Syntax"><code>Syntax</code> Class</a>
+                    <span class="build" title="Added in build 4081">4081</span>
+                </li>
                 <li class="build-4050">
                     <a href="api_reference.html#sublime.TextChange"><code>TextChange</code> Class</a>
                     <span class="build" title="Added in build 4050">4050</span>
@@ -139,18 +147,34 @@
                     <span class="build" title="Added in build 4050">4050</span>
                 </li>
                 <li class="build-4050">
-                    <a href="api_reference.html#type-completion_kind"><code>completion_kind</code> Tuple</a>
+                    <a href="api_reference.html#type-kind_tuple"><code>kind</code> Tuple</a>
                     <span class="build" title="Added in build 4050">4050</span>
                 </li>
                 <li class="build-4050">
                     <a href="api_reference.html#sublime.CompletionList"><code>CompletionList</code> Class</a>
                     <span class="build" title="Added in build 4050">4050</span>
                 </li>
+                <li class="build-4083">
+                    <a href="api_reference.html#sublime.QuickPanelItem"><code>QuickPanelItem</code> Class</a>
+                    <span class="build" title="Added in build 4083">4083</span>
+                </li>
+                <li class="build-4085">
+                    <a href="api_reference.html#sublime.SymbolRegion"><code>SymbolRegion</code> Class</a>
+                    <span class="build" title="Added in build 4085">4085</span>
+                </li>
                 <li>
                     <a href="api_reference.html#sublime.Window"><code>Window</code> Class</a>
                 </li>
+                <li class="build-4085">
+                    <a href="api_reference.html#sublime.SymbolLocation"><code>SymbolLocation</code> Class</a>
+                    <span class="build" title="Added in build 4085">4085</span>
+                </li>
                 <li>
                     <a href="api_reference.html#sublime.Settings"><code>Settings</code> Class</a>
+                </li>
+                <li class="build-4095">
+                    <a href="api_reference.html#sublime.ListInputItem"><code>ListInputItem</code> Class</a>
+                    <span class="build" title="Added in build 4095">4095</span>
                 </li>
             </ul>
         </div>
@@ -165,6 +189,10 @@
                 </li>
                 <li>
                     <a href="api_reference.html#sublime_plugin.ViewEventListener"><code>ViewEventListener</code> Class</a>
+                </li>
+                <li class="build-4081">
+                    <a href="api_reference.html#sublime.TextChangeListener"><code>TextChangeListener</code> Class</a>
+                    <span class="build" title="Added in build 4081">4081</span>
                 </li>
                 <li>
                     <a href="api_reference.html#sublime_plugin.ApplicationCommand"><code>ApplicationCommand</code> Class</a>
@@ -220,8 +248,38 @@
         <h3 id="plugin_lifecycle">Plugin Lifecycle</h3>
 
         <p>
-            At importing time, plugins may not call any API functions, with the exception of <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">version</span>()</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">platform</span>()</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">arch</span>()</span></code> and <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">channel</span>()</span></code>.
+            At importing time, plugins may not call any API functions, with the exception of:
         </p>
+        <ul>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">version</span>()</span></code>
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">platform</span>()</span></code>
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">arch</span>()</span></code>
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">channel</span>()</span></code>
+            </li>
+            <li class="build-4081">
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">executable_path</span>()</span></code>
+                <span class="build" title="Added in build 4081">4081</span>
+            </li>
+            <li class="build-4081">
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">packages_path</span>()</span></code>
+                <span class="build" title="Added in build 4081">4081</span>
+            </li>
+            <li class="build-4081">
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">installed_packages_path</span>()</span></code>
+                <span class="build" title="Added in build 4081">4081</span>
+            </li>
+            <li class="build-4081">
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">cache_path</span>()</span></code>
+                <span class="build" title="Added in build 4081">4081</span>
+            </li>
+        </ul>
 
         <p>
             If a plugin defines a module level function <span class="method">plugin_loaded()</span>, this will be called when the API is ready to use. Plugins may also define <span class="method">plugin_unloaded()</span>, to get notified just before the plugin is unloaded.
@@ -571,30 +629,72 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr class="build-4050">
+            <tr class="build-4081">
                 <td class="mth">list_syntaxes()</td>
                 <td class="rtn">
-                    [<span class="data-type">dict</span>]
+                    [<a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>]
                 </td>
                 <td class="dsc">
-                    Returns a list of all available syntaxes. Each <span class="data-type">dict</span> will have the keys <span class="key">"path"</span>, <span class="key">"name"</span>, <span class="key">"hidden"</span> and <span class="key">"scope"</span>.
+                    Returns a list of all available syntaxes
                 </td>
                 <td class="tags">
-                    <span class="build" title="Added in build 4050">4050</span>
+                    <span class="build" title="Added in build 4081">4081</span>
                 </td>
             </tr>
-            <tr class="build-4050">
-                <td class="mth">find_syntax(fname, &lt;first_line&gt;)</td>
+            <tr class="build-4081">
+                <td class="mth">syntax_from_path(path)</td>
                 <td class="rtn">
-                    <span class="data-type">str</span>
+                    <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>
                     <em>or</em>
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
                 <td class="dsc">
-                    Returns the path to the syntax that will be used when opening a file with the name <span class="parameter">fname</span>. The <span class="parameter">first_line</span> of file contents may also be provided if available.
+                    Returns the the <span class="data-type">Syntax</span>, if any, at the unicode string <span class="parameter">path</span> specified
                 </td>
                 <td class="tags">
-                    <span class="build" title="Added in build 4050">4050</span>
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">find_syntax_by_name(name)</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>
+                    <em>or</em>
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Returns the the <span class="data-type">Syntax</span>, if any, with the unicode string <span class="parameter">name</span> specified
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">find_syntax_by_scope(scope)</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>
+                    <em>or</em>
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Returns the the <span class="data-type">Syntax</span>, if any, with the unicode string base <span class="parameter">scope</span> specified
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">find_syntax_for_file(fname, &lt;first_line&gt;)</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>
+                    <em>or</em>
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Returns the the <span class="data-type">Syntax</span> that will be used when opening a file with the name <span class="parameter">fname</span>. The <span class="parameter">first_line</span> of file contents may also be provided if available.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
                 </td>
             </tr>
             <tr id="sublime.encode_value">
@@ -633,7 +733,7 @@
                     <span class="data-type">str</span>
                 </td>
                 <td class="dsc">
-                    Create a "command string" from a <span class="data-type">str</span> <span class="parameter">cmd</span> name, and an optional <span class="data-type">dict</span> of <span class="parameter">args</span>. This is used when constructing a command-based <a href="api_reference.html#sublime.CompletionItem"><code>CompletionItem</code></a>.
+                    Create a "command string" from a <span class="data-type">str</span> <span class="parameter">cmd</span> name, and an optional <span class="data-type">dict</span> of <span class="parameter">args</span>. This is used when constructing a command-based <a href="api_reference.html#sublime.CompletionItem"><span class="data-type">CompletionItem</span></a>.
                 </td>
                 <td class="tags">
                     <span class="build" title="Added in build 4075">4075</span>
@@ -727,9 +827,21 @@
                     <span class="data-type">str</span>
                 </td>
                 <td class="dsc">
-                    Returns the contents of the clipboard. <span class="parameter">size_limit</span> is there to protect against unnecessarily large data, defaults to 16,777,216 characters
+                    <em>DEPRECATED - use <code>get_clipboard_async()</code> when possible.</em> Returns the contents of the clipboard. <span class="parameter">size_limit</span> protects against unnecessarily large data, and defaults to 16,777,216 bytes. If the clipboard is larger than <span class="parameter">size_limit</span>, an empty string will be returned.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">get_clipboard_async(callback, &lt;size_limit&gt;)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Calls <span class="parameter">callback</span> with the contents of the clipboard. <span class="parameter">size_limit</span> protects against unnecessarily large data, and defaults to 16,777,216 bytes. If the clipboard is larger than <span class="parameter">size_limit</span>, an empty string will be passed.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">set_clipboard(string)</td>
@@ -811,6 +923,18 @@
                 </td>
                 <td class="tags">
                     <span class="build" title="Added in build 4064">4064</span>
+                </td>
+            </tr>
+            <tr class="build-4075">
+                <td class="mth">log_fps(flag)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    When enabled, logs the number of frames per second being rendered for the user interface
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4075">4075</span>
                 </td>
             </tr>
             <tr>
@@ -918,6 +1042,84 @@
                     <span class="build" title="Added in build 4050">4050</span>
                 </td>
             </tr>
+            <tr class="build-4088">
+                <td class="mth">close()</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Closes the sheet
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4088">4088</span>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide build-4081">
+        <h2 id="sublime.Buffer">
+            <code>sublime.Buffer</code> Class
+            <span class="build" title="Added in build 4081">4081</span>
+        </h2>
+
+        <p>
+            Represents a text buffer. Multiple <a href="api_reference.html#sublime.View"><span class="data-type">View</span></a> objects may share the same buffer.
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Methods</th>
+                <th>Return Value</th>
+                <th>Description</th>
+                <th class="tags"></th>
+            </tr>
+            <tr class="build-4083">
+                <td class="mth">id()</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    Returns a number that uniquely identifies this buffer.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4083">4083</span>
+                </td>
+            </tr>
+            <tr class="build-4083">
+                <td class="mth">file_name()</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                    <em>or</em>
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    The full name file the file associated with the buffer, or <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> if it doesn't exist on disk.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4083">4083</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">views()</td>
+                <td class="rtn">
+                    [<a href="api_reference.html#sublime.View"><span class="data-type">View</span></a>]
+                </td>
+                <td class="dsc">
+                    Returns a list of all views that are associated with this buffer
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr>
+                <td class="mth">primary_view()</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.View"><span class="data-type">View</span></a>
+                </td>
+                <td class="dsc">
+                    The primary view associated with this buffer.
+                </td>
+                <td class="tags"></td>
+            </tr>
         </table>
     </section>
 
@@ -974,6 +1176,16 @@
                 </td>
                 <td class="dsc">
                     The full name file the file associated with the buffer, or <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> if it doesn't exist on disk.
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr>
+                <td class="mth">close()</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Closes the view
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1067,6 +1279,16 @@
                 </td>
                 <td class="tags"></td>
             </tr>
+            <tr>
+                <td class="mth">meta_info(key, pt)</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.Settings"><a href="api_reference.html#type-value"><span class="data-type">value</span></a></a>
+                </td>
+                <td class="dsc">
+                    Returns data from <span class="file">.tmPreferences</span> files. Looks up the preference named <span class="parameter">key</span> for the scope of the token at the <a href="api_reference.html#type-point"><span class="data-type">point</span></a> <span class="parameter">pt</span>. Preference names may be any string defined in a <span class="file">.tmPreferences</span> file. Some examples include: <code>TM_COMMENT_START</code>, <code>TM_COMMENT_END</code>, <code>showInSymbolList</code> and <code>showInIndexedSymbolList</code>.
+                </td>
+                <td class="tags"></td>
+            </tr>
             <tr class="build-4050">
                 <td class="mth">element()</td>
                 <td class="rtn">
@@ -1150,13 +1372,39 @@
                 </td>
                 <td class="tags"></td>
             </tr>
+            <tr class="build-4083">
+                <td class="mth">sheet()</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a>
+                    <em>or</em>
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Returns the Sheet for this View, if displayed in a sheet
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4083">4083</span>
+                </td>
+            </tr>
+            <tr class="build-4083">
+                <td class="mth">sheet_id()</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    Returns the ID of the Sheet for this View, or <code class="syntax-python">0</code> if not part of a sheet
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4083">4083</span>
+                </td>
+            </tr>
             <tr>
                 <td class="mth">run_command(string, &lt;args&gt;)</td>
                 <td class="rtn">
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
                 <td class="dsc">
-                    Runs the named <a href="api_reference.html#sublime.TextCommand"><span class="data-type">TextCommand</span></a> with the (optional) given <span class="parameter">args</span>.
+                    Runs the named <a href="api_reference.html#sublime_plugin.TextCommand"><span class="data-type">TextCommand</span></a> with the (optional) given <span class="parameter">args</span>.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1369,7 +1617,7 @@
                     <a href="api_reference.html#sublime.Region"><span class="data-type">Region</span></a>
                 </td>
                 <td class="dsc">
-                    Returns the first region matching the regex <span class="parameter">pattern</span>, starting from <span class="parameter">start_point</span>, or <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> if it can't be found. The optional <span class="parameter">flags</span> parameter may be <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>LITERAL</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>IGNORECASE</span></code>, or the two ORed together.
+                    Returns the first region matching the regex <span class="parameter">pattern</span>, starting from <span class="parameter">start_point</span>, or <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">Region</span>(<span style="color: #f97b58">-</span><span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f97b58">-</span><span style="color: #f9ae58">1</span>)</span></code> if it can't be found. The optional <span class="parameter">flags</span> parameter may be <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>LITERAL</span></code>, <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>IGNORECASE</span></code>, or the two ORed together.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1491,14 +1739,38 @@
                 </td>
             </tr>
             <tr>
+                <td class="mth">assign_syntax(syntax)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Changes the syntax used by the view. <span class="parameter">syntax</span> may be a <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a> object, packages path to a syntax file, or <code>scope:</code> specifier string.
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr>
                 <td class="mth">set_syntax_file(syntax_file)</td>
                 <td class="rtn">
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
                 <td class="dsc">
-                    Changes the syntax used by the view. <span class="parameter">syntax_file</span> should be a name along the lines of <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/Python/Python.tmLanguage</span><span style="color: #5fb4b4">&quot;</span></span></code>. To retrieve the current syntax, use <code class="syntax-python"><span style="color: #333333">view<span style="color: #f97b58">.</span><span style="color: #6699cc">settings</span>()<span style="color: #f97b58">.</span><span style="color: #6699cc">get</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">syntax</span><span style="color: #5fb4b4">&#x27;</span>)</span></code>.
+                    <em>DEPRECATED - use <code>assign_syntax()</code> when possible.</em> Changes the syntax used by the view. <span class="parameter">syntax_file</span> should be a name along the lines of <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/Python/Python.tmLanguage</span><span style="color: #5fb4b4">&quot;</span></span></code>. To retrieve the current syntax, use <code class="syntax-python"><span style="color: #333333">view<span style="color: #f97b58">.</span><span style="color: #6699cc">settings</span>()<span style="color: #f97b58">.</span><span style="color: #6699cc">get</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">syntax</span><span style="color: #5fb4b4">&#x27;</span>)</span></code>.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">syntax()</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>
+                    <em>or</em>
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Returns the syntax for this view
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">extract_scope(point)</td>
@@ -2093,9 +2365,33 @@
                     [(<a href="api_reference.html#sublime.Region"><span class="data-type">Region</span></a>, str)]
                 </td>
                 <td class="dsc">
-                    Extract all the symbols defined in the buffer.
+                    <em>DEPRECATED - use <code>symbol_regions()</code> when possible.</em> Extract all the symbols defined in the buffer.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4085">
+                <td class="mth">symbol_regions()</td>
+                <td class="rtn">
+                    [<a href="api_reference.html#sublime.SymbolRegion"><span class="data-type">SymbolRegion</span></a>]
+                </td>
+                <td class="dsc">
+                    Returns info about symbols that are part of the local symbol list
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4085">4085</span>
+                </td>
+            </tr>
+            <tr class="build-4085">
+                <td class="mth">indexed_symbol_regions()</td>
+                <td class="rtn">
+                    [<a href="api_reference.html#sublime.SymbolRegion"><span class="data-type">SymbolRegion</span></a>]
+                </td>
+                <td class="dsc">
+                    Returns info about symbols that are indexed
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4085">4085</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">show_popup_menu(items, on_done, &lt;flags&gt;)</td>
@@ -2297,6 +2593,35 @@
                 </td>
                 <td class="tags">
                     <span class="build" title="Added in build 3190">3190</span>
+                </td>
+            </tr>
+            <tr class="build-4092">
+                <td class="mth">export_to_html(&lt;regions&gt;, &lt;minihtml&gt;, &lt;enclosing_tags&gt;, &lt;font_size&gt;, &lt;font_family&gt;)</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Generates an HTML string of the current view contents
+                    </p>
+                    <p>
+                        <span class="parameter">regions</span> - restrict the generated HTML to a <span class="#sublime.Region">Region</span> or <span class="data-type">list</span> of regions.
+                    </p>
+                    <p>
+                        <span class="parameter">minihtml</span> - a boolean that causes the exported HTML to be compatiable with <a href="minihtml.html">minihtml</a>.
+                    </p>
+                    <p>
+                        <span class="parameter">enclosing_tags</span> - a boolean that adds a <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">div</span><span style="color: #5fb4b4">&gt;</span></span></code> tag with base styles around the markup.
+                    </p>
+                    <p>
+                        <span class="parameter">font_size</span> - a boolean that controls adding <code>font-size</code> to the markup generated when <span class="parameter">enclosing_tags</span> is <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code>.
+                    </p>
+                    <p>
+                        <span class="parameter">font_family</span> - a boolean that controls adding <code>font-family</code> to the markup generated when <span class="parameter">enclosing_tags</span> is <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code>.
+                    </p>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4092">4092</span>
                 </td>
             </tr>
         </table>
@@ -2658,7 +2983,7 @@
         </p>
 
         <p>
-            Edit objects are passed to <a href="api_reference.html#sublime.TextCommand"><span class="data-type">TextCommand</span></a>s, and can not be created by the user. Using an invalid Edit object, or an Edit object from a different View, will cause the functions that require them to fail.
+            Edit objects are passed to <a href="api_reference.html#sublime_plugin.TextCommand"><span class="data-type">TextCommand</span></a>s, and can not be created by the user. Using an invalid Edit object, or an Edit object from a different View, will cause the functions that require them to fail.
         </p>
 
         <table class="functions api">
@@ -2671,6 +2996,182 @@
                 <td class="mth">(no methods)</td>
                 <td class="rtn"></td>
                 <td class="dsc"></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide build-4081">
+        <h2 id="sublime.TextChangeListener">
+            <code>sublime.TextChangeListener</code> Class
+            <span class="build" title="Added in build 4081">4081</span>
+        </h2>
+
+        <p>
+            A class that provides event handling about text changes made to a specific <a href="api_reference.html#sublime_plugin.Buffer"><code>Buffer</code></a>. <em>Is seperate from <a href="api_reference.html#sublime_plugin.ViewEventListener"><code>ViewEventListener</code></a> since multiple views can share a single buffer.</em>
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Properties</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th class="tags"></th>
+            </tr>
+            <tr>
+                <td class="mth">buffer</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.HistoricPosition"><a href="api_reference.html#sublime_plugin.Buffer"><code>Buffer</code></a></a>
+                </td>
+                <td class="dsc">
+                    The buffer this <code>TextChangeListener</code> is listening to
+                </td>
+                <td class="tags"></td>
+            </tr>
+        </table>
+
+        <table class="functions api">
+            <tr>
+                <th>Methods</th>
+                <th>Return Value</th>
+                <th>Description</th>
+                <th class="tags"></th>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">on_text_changed([changes])</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Called once after changes has been made to a buffer, with detailed information about what has changed.
+                    </p>
+                    <p>
+                        <span class="parameter">changes</span> is a <span class="data-type">list</span> of <a href="api_reference.html#sublime.TextChange">TextChange</a> objects.
+                    </p>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">on_text_changed_async([changes])</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    <p>
+                        Called once after changes has been made to a buffer, with detailed information about what has changed. Runs in a separate thread, and does not block the application.
+                    </p>
+                    <p>
+                        <span class="parameter">changes</span> is a <span class="data-type">list</span> of <a href="api_reference.html#sublime.TextChange">TextChange</a> objects.
+                    </p>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">on_revert()</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Called when the buffer is reverted.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">on_revert_async()</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Called when the buffer is reverted. Runs in a separate thread, and does not block the application.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">on_reload()</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Called when the buffer is reloaded.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">on_reload_async()</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Called when the buffer is reloaded. Runs in a separate thread, and does not block the application.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide build-4081">
+        <h2 id="sublime.Syntax">
+            <code>sublime.Syntax</code> Class
+            <span class="build" title="Added in build 4081">4081</span>
+        </h2>
+
+        <p>
+            Contains information about a syntax.
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Properties</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">path</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The packages path to the syntax file
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">name</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The name of the syntax
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">hidden</td>
+                <td class="rtn">
+                    <span class="data-type">bool</span>
+                </td>
+                <td class="dsc">
+                    If the syntax is hidden from the user
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">scope</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The base scope name of the syntax
+                </td>
             </tr>
         </table>
     </section>
@@ -2955,7 +3456,7 @@
                         </dt>
                         <dd>
                             <p>
-                                An optional <a href="api_reference.html#type-completion_kind"><span class="data-type">completion_kind</span></a> tuple that controls the presentation in the auto-complete window – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code></em>.
+                                An optional <a href="api_reference.html#type-kind_tuple"><span class="data-type">kind</span> tuple</a> that controls the presentation in the auto-complete window – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code></em>.
                             </p>
                         </dd>
                         <dt>
@@ -2966,16 +3467,6 @@
                             <p>
                                 An optional HTML description of the completion, shown in the detail pane at the bottom of the auto complete window. Only supports limited inline HTML, including the tags:
                             </p>
-                            <ul>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span> <span style="color: #c695c6">href</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span></span></code> – <a href="minihtml.html#protocols">protocols</a></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">b</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">strong</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">i</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">em</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">u</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tt</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">code</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                            </ul>
                         </dd>
                     </dl>
                 </td>
@@ -3013,7 +3504,7 @@
                         </dt>
                         <dd>
                             <p>
-                                An optional <a href="api_reference.html#type-completion_kind"><span class="data-type">completion_kind</span></a> tuple that controls the presentation in the auto-complete window – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_SNIPPET</span></code></em>.
+                                An optional <a href="api_reference.html#type-kind_tuple"><span class="data-type">kind</span> tuple</a> that controls the presentation in the auto-complete window – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_SNIPPET</span></code></em>.
                             </p>
                         </dd>
                         <dt>
@@ -3022,18 +3513,8 @@
                         </dt>
                         <dd>
                             <p>
-                                An optional HTML description of the completion, shown in the detail pane at the bottom of the auto complete window. Only supports limited inline HTML, including the tags:
+                                An optional HTML description of the completion, shown in the detail pane at the bottom of the auto complete window. Only supports <a href="https://www.sublimetext.com/docs/minihtml.#inline_formatting">limited inline HTML</a>.
                             </p>
-                            <ul>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span> <span style="color: #c695c6">href</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span></span></code> – <a href="minihtml.html#protocols">protocols</a></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">b</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">strong</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">i</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">em</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">u</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tt</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">code</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                            </ul>
                         </dd>
                     </dl>
                 </td>
@@ -3079,7 +3560,7 @@
                         </dt>
                         <dd>
                             <p>
-                                An optional <a href="api_reference.html#type-completion_kind"><span class="data-type">completion_kind</span></a> tuple that controls the presentation in the auto-complete window – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code></em>.
+                                An optional <a href="api_reference.html#type-kind_tuple"><span class="data-type">kind</span> tuple</a> that controls the presentation in the auto-complete window – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code></em>.
                             </p>
                         </dd>
                         <dt>
@@ -3108,13 +3589,13 @@
     </section>
 
     <section class="wide build-4050">
-        <h2 id="type-completion_kind">
-            <code>completion_kind</code> Tuple
+        <h2 id="type-kind_tuple">
+            <code>kind</code> Tuple
             <span class="build" title="Added in build 4050">4050</span>
         </h2>
 
         <p>
-            Metadata about the kind of a <a href="api_reference.html#sublime.CompletionItem"><span class="data-type">CompletionItem</span></a>. Controls the color and letter shown in the "icon" presented to the left of the trigger.
+            Metadata about the kind of a symbol, <a href="api_reference.html#sublime.CompletionItem"><span class="data-type">CompletionItem</span></a>, <a href="api_reference.html#sublime.QuickPanelItem"><span class="data-type">QuickPanelItem</span></a> or <a href="api_reference.html#sublime.ListInputItem"><span class="data-type">ListInputItem</span></a>. Controls the color and letter shown in the "icon" presented to the left of the item.
         </p>
         <p>
             Options include pre-constructed combinations, or completely custom values.
@@ -3126,47 +3607,47 @@
             <ul>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code><br>
-                    When there source of the completion is unknown – <em>the default</em>.<br>
+                    When there source of the item is unknown – <em>the default</em>.<br>
                     <em>Letter: none, theme class:</em> <code>kind_ambiguous</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_KEYWORD</span></code><br>
-                    When the completion represents a keyword.<br>
+                    When the item represents a keyword.<br>
                     <em>Letter:</em> <code>k</code>, <em>theme class:</em> <code>kind_keyword</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_TYPE</span></code><br>
-                    When the completion represents a data type, class, struct, interface, enum, trait, etc.<br>
+                    When the item represents a data type, class, struct, interface, enum, trait, etc.<br>
                     <em>Letter:</em> <code>t</code>, <em>theme class:</em> <code>kind_type</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_FUNCTION</span></code><br>
-                    When the completion represents a function, method, constructor or subroutine.<br>
+                    When the item represents a function, method, constructor or subroutine.<br>
                     <em>Letter:</em> <code>f</code>, <em>theme class:</em> <code>kind_function</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_NAMESPACE</span></code><br>
-                    When the completion represents a namespace or module.<br>
+                    When the item represents a namespace or module.<br>
                     <em>Letter:</em> <code>a</code>, <em>theme class:</em> <code>kind_namespace</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_NAVIGATION</span></code><br>
-                    When the completion represents a definition, label or section.<br>
+                    When the item represents a definition, label or section.<br>
                     <em>Letter:</em> <code>n</code>, <em>theme class:</em> <code>kind_navigation</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_MARKUP</span></code><br>
-                    When the completion represents a markup component, including HTML tags and CSS selectors.<br>
+                    When the item represents a markup component, including HTML tags and CSS selectors.<br>
                     <em>Letter:</em> <code>m</code>, <em>theme class:</em> <code>kind_markup</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_VARIABLE</span></code><br>
-                    When the completion represents a variable, member, attribute, constant or parameter.<br>
+                    When the item represents a variable, member, attribute, constant or parameter.<br>
                     <em>Letter:</em> <code>v</code>, <em>theme class:</em> <code>kind_variable</code>
                 </li>
                 <li>
                     <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_SNIPPET</span></code><br>
-                    When the completion contains a snippet.<br>
+                    When the item contains a snippet.<br>
                     <em>Letter:</em> <code>s</code>, <em>theme class:</em> <code>kind_snippet</code>
                 </li>
             </ul>
@@ -3180,39 +3661,39 @@
                     <ul>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_AMBIGUOUS</span></code><br>
-                            When there source of the completion is unknown
+                            When there source of the item is unknown
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_KEYWORD</span></code><br>
-                            When the completion represents a keyword
+                            When the item represents a keyword
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_TYPE</span></code><br>
-                            When the completion represents a data type
+                            When the item represents a data type
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_FUNCTION</span></code><br>
-                            When the completion represents a function, method, constructor or subroutine
+                            When the item represents a function, method, constructor or subroutine
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_NAMESPACE</span></code><br>
-                            When the completion represents a namespace or module
+                            When the item represents a namespace or module
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_NAVIGATION</span></code><br>
-                            When the completion represents a definition, label or section
+                            When the item represents a definition, label or section
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_MARKUP</span></code><br>
-                            When the completion represents a markup component, including HTML tags and CSS selectors
+                            When the item represents a markup component, including HTML tags and CSS selectors
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_VARIABLE</span></code><br>
-                            When the completion represents a variable, member, attribute, constant or parameter
+                            When the item represents a variable, member, attribute, constant or parameter
                         </li>
                         <li>
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_SNIPPET</span></code><br>
-                            When the completion contains a snippet
+                            When the item contains a snippet
                         </li>
                     </ul>
                 </li>
@@ -3220,10 +3701,56 @@
                     A unicode string containing a single unicode character. This is shown as an "icon" to the left of the <code>trigger</code>.
                 </li>
                 <li>
-                    An optional unicode string to describe the kind, shown in the detail pane at the bottom of the auto-complete window.
+                    An optional unicode string to describe the kind, shown in the detail pane at the bottom of the auto-complete window, or via tooltip when hovering over the "icon".
                 </li>
             </ol>
         </div>
+        <p class="build-4095" style="clear: both">
+            For <a href="api_reference.html#sublime.QuickPanelItem"><span class="data-type">QuickPanelItem</span></a> and <a href="api_reference.html#sublime.ListInputItem"><span class="data-type">ListInputItem</span></a>objects, a custom tuple may also use one of the following kind ids, which are pulled from the user's global color scheme. These are intended to help build semantic user interactions, such as using green for "Yes" and red for "No".
+            <span class="build" title="Added in build 4095">4095</span>
+        </p>
+        <ul class="build-4095">
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_REDISH</span></code><br>
+                The closest color in the color scheme to red
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_ORANGISH</span></code><br>
+                The closest color in the color scheme to orange
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_YELLOWISH</span></code><br>
+                The closest color in the color scheme to yellow
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_GREENISH</span></code><br>
+                The closest color in the color scheme to green
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_CYANISH</span></code><br>
+                The closest color in the color scheme to cyan
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_BLUISH</span></code><br>
+                The closest color in the color scheme to blue
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_PURPLISH</span></code><br>
+                The closest color in the color scheme to purple
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_PINKISH</span></code><br>
+                The closest color in the color scheme to pink
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_DARK</span></code><br>
+                A dark grey or black color, as defined by the user's theme
+            </li>
+            <li>
+                <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_ID_COLOR_LIGHT</span></code><br>
+                A light grey or white color, as defined by the user's theme
+            </li>
+        </ul>
     </section>
 
     <section class="wide build-4050">
@@ -3319,6 +3846,133 @@
                     </ul>
                 </td>
                 <td class="tags"></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide build-4083">
+        <h2 id="sublime.QuickPanelItem">
+            <code>sublime.QuickPanelItem</code> Class
+            <span class="build" title="Added in build 4083">4083</span>
+        </h2>
+
+        <p>
+            Represents a row in the quick panel, shown via <a href="api_reference.html#sublime.Window.show_quick_panel"><code>show_quick_panel()</code></a>.
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Constructor</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">QuickPanelItem(trigger, &lt;details&gt;, &lt;annotation&gt;, &lt;kind&gt;)</td>
+                <td class="dsc">
+                    <dl class="parameters">
+                        <dt>
+                            <span class="parameter">trigger</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A unicode string of the text to match against the user's input.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">details</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                An optional unicode string, or list of unicode strings, containing <a href="minihtml.html#inline_formatting">limited inline HTML</a>. Displayed below the trigger.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">annotation</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                An optional unicode string of a hint to draw to the right-hand side of the row.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">kind</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                An optional <a href="api_reference.html#type-kind_info"><span class="data-type">kind</span> tuple</a> – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code></em>.
+                            </p>
+                        </dd>
+                    </dl>
+                </td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide build-4085">
+        <h2 id="sublime.SymbolRegion">
+            <code>sublime.SymbolRegion</code> Class
+            <span class="build" title="Added in build 4085">4085</span>
+        </h2>
+
+        <p>
+            Contains information about a region of a View that contains a symbol
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Properties</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">name</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The symbol
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">region</td>
+                <td class="rtn">
+                    <a href="api_reference.html#sublime.Region"><span class="data-type">Region</span></a>
+                </td>
+                <td class="dsc">
+                    The location of the symbol within the view
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">syntax</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The name of the syntax for the symbol
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">type</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    <p>
+                        The type of the symbol location - one of the following values:
+                    </p>
+                    <ul>
+                        <li><code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_TYPE_DEFINITION</span></code></li>
+                        <li><code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_TYPE_REFERENCE</span></code></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">kind</td>
+                <td class="rtn">
+                    <a href="api_reference.html#type-kind_tuple"><span class="data-type">kind</span> tuple</a>
+                </td>
+                <td class="dsc">
+                    The kind info for the symbol. References will always be <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code>.
+                </td>
             </tr>
         </table>
     </section>
@@ -3504,6 +4158,18 @@
                 </td>
                 <td class="tags"></td>
             </tr>
+            <tr class="build-4083">
+                <td class="mth">selected_sheets()</td>
+                <td class="rtn">
+                    [<a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a>]
+                </td>
+                <td class="dsc">
+                    Returns all selected sheets in the window, across all groups
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4083">4083</span>
+                </td>
+            </tr>
             <tr>
                 <td class="mth">sheets_in_group(group)</td>
                 <td class="rtn">
@@ -3513,6 +4179,30 @@
                     Returns all open sheets in the given <span class="parameter">group</span>.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4083">
+                <td class="mth">selected_sheets_in_group(group)</td>
+                <td class="rtn">
+                    [<a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a>]
+                </td>
+                <td class="dsc">
+                    Returns all selected sheets in the given <span class="parameter">group</span>.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4083">4083</span>
+                </td>
+            </tr>
+            <tr class="build-4083">
+                <td class="mth">select_sheets(sheets)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Changes the selected sheets for the entire Windows. <span class="parameter">sheets</span> should be a <span class="data-type">list</span> of <a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a> objects.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4083">4083</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">views()</td>
@@ -3820,8 +4510,8 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr>
-                <td class="mth">show_quick_panel(items, on_done, &lt;flags&gt;, &lt;selected_index&gt;, &lt;on_highlighted&gt;)</td>
+            <tr id="sublime.Window.show_quick_panel">
+                <td class="mth">show_quick_panel(items, on_done, &lt;flags&gt;, &lt;selected_index&gt;, &lt;on_highlighted&gt;, &lt;placeholder&gt;)</td>
                 <td class="rtn">
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
@@ -3830,13 +4520,29 @@
                         Shows a quick panel, to select an item in a list. <span class="parameter">on_done</span> will be called once, with the index of the selected item. If the quick panel was cancelled, <span class="parameter">on_done</span> will be called with an argument of <code class="syntax-python"><span style="color: #333333"><span style="color: #f97b58">-</span><span style="color: #f9ae58">1</span></span></code>.
                     </p>
                     <p>
-                        <span class="parameter">items</span> may be a list of strings, or a list of string lists. In the latter case, each entry in the quick panel will show multiple rows.
+                        <span class="parameter">items</span> may be one of the following:
                     </p>
+                    <ul>
+                        <li>
+                            a list of unicode strings
+                        </li>
+                        <li>
+                            a list of unicode string lists, where the first is the trigger, and all subsequent strings are details shown below the trigger
+                        </li>
+                        <li class="build-4083">
+                            a list of <a href="api_reference.html#sublime.QuickPanelItem"><span class="data-type">QuickPanelItem</span></a> items
+                            <span class="build" title="Added in build 4083">4083</span>
+                        </li>
+                    </ul>
                     <p>
                         <span class="parameter">flags</span> is a bitwise OR of <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>MONOSPACE_FONT</span></code> and <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KEEP_OPEN_ON_FOCUS_LOST</span></code>
                     </p>
                     <p>
                         <span class="parameter">on_highlighted</span>, if given, will be called every time the highlighted item in the quick panel is changed.
+                    </p>
+                    <p class="build-4081">
+                        <span class="parameter">placeholder</span> is text displayed in the input until the user enters at least one character
+                        <span class="build" title="Added in build 4081">4081</span>
                     </p>
                 </td>
                 <td class="tags"></td>
@@ -3916,7 +4622,7 @@
                     [<a href="api_reference.html#type-location"><span class="data-type">location</span></a>]
                 </td>
                 <td class="dsc">
-                    Returns all locations where the symbol is defined across files in the current project.
+                    <em>DEPRECATED - use <code>symbol_locations()</code> when possible.</em> Returns all locations where the symbol is defined across files in the current project.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -3926,9 +4632,57 @@
                     [<a href="api_reference.html#type-location"><span class="data-type">location</span></a>]
                 </td>
                 <td class="dsc">
-                    Returns all locations where the symbol is defined across open files.
+                    <em>DEPRECATED - use <code>symbol_locations()</code> when possible.</em> Returns all locations where the symbol is defined across open files.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4085">
+                <td class="mth">symbol_locations(sym, &lt;source&gt;, &lt;type&gt;, &lt;kind_id&gt;, &lt;kind_letter&gt;)</td>
+                <td class="rtn">
+                    [<a href="api_reference.html#sublime.SymbolLocation"><span class="data-type">SymbolLocation</span></a>]
+                </td>
+                <td class="dsc">
+                    <p>
+                        Finds all locations where the symbol <span class="parameter">sym</span> is located.
+                    </p>
+                    <p>
+                        <span class="parameter">source</span> controls where definitions are sourced from, and may be one of:
+                    </p>
+                    <ul>
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_SOURCE_ANY</span></code> - locations in the index, or in open files
+                        </li>
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_SOURCE_INDEX</span></code> - locations in the index, i.e. files saved to disk in a project folder
+                        </li>
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_SOURCE_OPEN_FILES</span></code> - locations in open files, even in unsaved or outside of the project
+                        </li>
+                    </ul>
+                    <p>
+                        <span class="parameter">type</span> controls which type of symbol locations are returned, and may be one of:
+                    </p>
+                    <ul>
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_TYPE_ANY</span></code> - locations that are definitions or references
+                        </li>
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_TYPE_DEFINITION</span></code> - locations that are symbol definitions
+                        </li>
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_TYPE_REFERENCE</span></code> - locations that are symbol references
+                        </li>
+                    </ul>
+                    <p>
+                        <span class="parameter">kind_id</span> filters symbol locations by their kind. References will always be <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code>. See <a href="api_reference.html#type-kind_tuple"><span class="data-type">kind</span> tuple</a> for valid values.
+                    </p>
+                    <p>
+                        <span class="parameter">kind_letter</span> filters symbol locations additionally by the unicode character representing their kind.
+                    </p>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4085">4085</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">extract_variables()</td>
@@ -3959,6 +4713,94 @@
                     </p>
                 </td>
                 <td class="tags"></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide build-4085">
+        <h2 id="sublime.SymbolLocation">
+            <code>sublime.SymbolLocation</code> Class
+            <span class="build" title="Added in build 4085">4085</span>
+        </h2>
+
+        <p>
+            Contains information about a file that contains a symbol
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Properties</th>
+                <th>Type</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">path</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The filesystem path to the file containing the symbol
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">display_name</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The project-relative path to the file containing the symbol
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">row</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    The row of the file the symbol is contained on
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">col</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    The column of the row that the symbol is contained on
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">syntax</td>
+                <td class="rtn">
+                    <span class="data-type">str</span>
+                </td>
+                <td class="dsc">
+                    The name of the syntax for the symbol
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">type</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    <p>
+                        The type of the symbol location - one of the following values:
+                    </p>
+                    <ul>
+                        <li><code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_TYPE_DEFINITION</span></code></li>
+                        <li><code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SYMBOL_TYPE_REFERENCE</span></code></li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td class="mth">kind</td>
+                <td class="rtn">
+                    <a href="api_reference.html#type-kind_tuple"><span class="data-type">kind</span> tuple</a>
+                </td>
+                <td class="dsc">
+                    The kind info for the symbol. References will always be <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code>.
+                </td>
             </tr>
         </table>
     </section>
@@ -4132,7 +4974,7 @@
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
                 <td class="dsc">
-                    Called when a new buffer is created.
+                    Called when a new file is created.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -4145,6 +4987,30 @@
                     Called when a new buffer is created. Runs in a separate thread, and does not block the application.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4084">
+                <td class="mth">on_associate_buffer(buffer)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Called when a buffer is associated with a file. <span class="parameter">buffer</span> will be a <a href="api_reference.html#sublime.Buffer"><span class="data-type">Buffer</span></a> object.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4084">4084</span>
+                </td>
+            </tr>
+            <tr class="build-4084">
+                <td class="mth">on_associate_buffer_async(buffer)</td>
+                <td class="rtn">
+                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                </td>
+                <td class="dsc">
+                    Called when a buffer is associated with file. Runs in a separate thread, and does not block the application. <span class="parameter">buffer</span> will be a <a href="api_reference.html#sublime.Buffer"><span class="data-type">Buffer</span></a> object.
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4084">4084</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">on_clone(view)</td>
@@ -4349,40 +5215,6 @@
                     Called after changes have been made to a view. Runs in a separate thread, and does not block the application.
                 </td>
                 <td class="tags"></td>
-            </tr>
-            <tr class="build-4050">
-                <td class="mth">on_text_changed(view, [changes])</td>
-                <td class="rtn">
-                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
-                </td>
-                <td class="dsc">
-                    <p>
-                        Called once after changes has been made to a view, with detailed information about what has changed.
-                    </p>
-                    <p>
-                        <span class="parameter">changes</span> is a <span class="data-type">list</span> of <a href="api_reference.html#sublime.TextChange">TextChange</a> objects.
-                    </p>
-                </td>
-                <td class="tags">
-                    <span class="build" title="Added in build 4050">4050</span>
-                </td>
-            </tr>
-            <tr class="build-4050">
-                <td class="mth">on_text_changed_async(view, [changes])</td>
-                <td class="rtn">
-                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
-                </td>
-                <td class="dsc">
-                    <p>
-                        Called once after changes has been made to a view, with detailed information about what has changed. Runs in a separate thread, and does not block the application.
-                    </p>
-                    <p>
-                        <span class="parameter">changes</span> is a <span class="data-type">list</span> of <a href="api_reference.html#sublime.TextChange">TextChange</a> objects.
-                    </p>
-                </td>
-                <td class="tags">
-                    <span class="build" title="Added in build 4050">4050</span>
-                </td>
             </tr>
             <tr>
                 <td class="mth">on_selection_modified(view)</td>
@@ -5565,11 +6397,16 @@
             TextInputHandlers can be used to accept textual input in the <span class="feature">Command Palette</span>. Return a subclass of this from the <span class="method">input()</span> method of a command.
         </p>
 
+        <p>
+            <em>For an input handler to be shown to the user, the command returning the input handler <strong>MUST</strong> be made available in the Command Palette by adding the command to a <span class="file">Default.sublime-commands</span> file.</em>
+        </p>
+
         <table class="functions api">
             <tr>
                 <th>Methods</th>
                 <th>Return Value</th>
                 <th>Description</th>
+                <th class="tags"></th>
             </tr>
             <tr>
                 <td class="mth">name()</td>
@@ -5579,6 +6416,7 @@
                 <td class="dsc">
                     The command argument name this input handler is editing. Defaults to <code>foo_bar</code> for an input handler named <code>FooBarInputHandler</code>
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">placeholder()</td>
@@ -5588,6 +6426,7 @@
                 <td class="dsc">
                     Placeholder text is shown in the text entry box before the user has entered anything. Empty by default.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">initial_text()</td>
@@ -5596,6 +6435,19 @@
                 </td>
                 <td class="dsc">
                     Initial text shown in the text entry box. Empty by default.
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">initial_selection()</td>
+                <td class="rtn">
+                    [<span class="data-type">tuple</span>]
+                </td>
+                <td class="dsc">
+                    A list of 2-element tuplues, defining the initially selected parts of the initial text
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
                 </td>
             </tr>
             <tr>
@@ -5608,6 +6460,7 @@
                 <td class="dsc">
                     Called whenever the user changes the text in the entry box. The returned value (either plain text or HTML) will be shown in the preview area of the Command Palette.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">validate(text)</td>
@@ -5617,6 +6470,7 @@
                 <td class="dsc">
                     Called whenever the user presses enter in the text entry box. Return <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">False</span></span></code> to disallow the current value.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">cancel()</td>
@@ -5626,6 +6480,7 @@
                 <td class="dsc">
                     Called when the input handler is canceled, either by the user pressing backspace or escape.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">confirm(text)</td>
@@ -5635,6 +6490,7 @@
                 <td class="dsc">
                     Called when the input is accepted, after the user has pressed enter and the text has been validated.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">next_input(args)</td>
@@ -5646,6 +6502,7 @@
                 <td class="dsc">
                     Returns the next input after the user has completed this one. May return <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> to indicate no more input is required, or <code class="syntax-python"><span style="color: #333333">sublime_plugin<span style="color: #f97b58">.</span><span style="color: #6699cc">BackInputHandler</span>()</span></code> to indicate that the input handler should be poped off the stack instead.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">description(text)</td>
@@ -5655,6 +6512,7 @@
                 <td class="dsc">
                     The text to show in the Command Palette when this input handler is not at the top of the input handler stack. Defaults to the text the user entered.
                 </td>
+                <td class="tags"></td>
             </tr>
         </table>
     </section>
@@ -5666,7 +6524,11 @@
         </h2>
 
         <p>
-            ListInputHandlers can be used to accept a choice input from a list items in the Command Palette. Return a subclass of this from the <span class="method">input()</span> method of a command.
+            ListInputHandler objects can be used to accept a choice input from a list items in the Command Palette. Return a subclass of this from the <span class="method">input()</span> method of a command.
+        </p>
+
+        <p>
+            <em>For an input handler to be shown to the user, the command returning the input handler <strong>MUST</strong> be made available in the Command Palette by adding the command to a <span class="file">Default.sublime-commands</span> file.</em>
         </p>
 
         <table class="functions api">
@@ -5683,23 +6545,47 @@
                 <td class="dsc">
                     The command argument name this input handler is editing. Defaults to <code>foo_bar</code> for an input handler named <code>FooBarInputHandler</code>
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">list_items()</td>
                 <td class="rtn">
                     [<span class="data-type">str</span>]
                     <em>or</em>
+                    ([<span class="data-type">str</span>], int)
+                    <em>or</em>
                     [(<span class="data-type">str</span>, <a href="api_reference.html#type-value"><span class="data-type">value</span></a>)]
+                    <em>or</em>
+                    ([(<span class="data-type">str</span>, <a href="api_reference.html#type-value"><span class="data-type">value</span></a>)], int)
+                    <em>or</em>
+                    [<a href="api_reference.html#sublime.ListInputItem"><span class="data-type">ListInputItem</span></a>]
+                    <em>or</em>
+                    ([<a href="api_reference.html#sublime.ListInputItem"><span class="data-type">ListInputItem</span></a>], int)
                 </td>
                 <td class="dsc">
                     <p>
-                        The items to show in the list. If returning a list of (str, value) tuples, then the str will be shown to the user, while the value will be used as the command argument.
+                        This method should return the items to show in the list.
                     </p>
-
                     <p>
-                        Optionally return a tuple of (list_items, selected_item_index) to indicate an initial selection.
+                        The returned value may be a <span class="data-type">list</span> of item, or a 2-element <span class="data-type">tuple</span> containing a list of items, and an <span class="data-type">int</span> index of the item to pre-select.
                     </p>
+                    <p>
+                        The each item in the list may be one of:
+                    </p>
+                    <ul>
+                        <li>
+                            A unicode string - used for both the row text and the value passed to the command
+                        </li>
+                        <li>
+                            A 2-element <span class="data-type">tuple</span> containing a unicode string for the row text, and a <a href="api_reference.html#type-value"><span class="data-type">value</span></a> to pass to the command
+                        </li>
+                        <li class="build-4095">
+                            A <a href="api_reference.html#sublime.ListInputItem"><span class="data-type">ListInputItem</span> object
+                            <span class="build" title="Added in build 4095">4095</span>
+                        </li>
+                    </ul>
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">placeholder()</td>
@@ -5709,6 +6595,7 @@
                 <td class="dsc">
                     Placeholder text is shown in the text entry box before the user has entered anything. Empty by default.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">initial_text()</td>
@@ -5717,6 +6604,19 @@
                 </td>
                 <td class="dsc">
                     Initial text shown in the filter box. Empty by default.
+                </td>
+                <td class="tags"></td>
+            </tr>
+            <tr class="build-4081">
+                <td class="mth">initial_selection()</td>
+                <td class="rtn">
+                    [<span class="data-type">tuple</span>]
+                </td>
+                <td class="dsc">
+                    A list of 2-element tuplues, defining the initially selected parts of the initial text
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4081">4081</span>
                 </td>
             </tr>
             <tr>
@@ -5729,6 +6629,7 @@
                 <td class="dsc">
                     Called whenever the user changes the selected item. The returned value (either plain text or HTML) will be shown in the preview area of the Command Palette.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">validate(value)</td>
@@ -5738,6 +6639,7 @@
                 <td class="dsc">
                     Called whenever the user presses enter in the text entry box. Return <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">False</span></span></code> to disallow the current value.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">cancel()</td>
@@ -5747,6 +6649,7 @@
                 <td class="dsc">
                     Called when the input handler is canceled, either by the user pressing backspace or escape.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">confirm(value)</td>
@@ -5756,6 +6659,7 @@
                 <td class="dsc">
                     Called when the input is accepted, after the user has pressed enter and the item has been validated.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">next_input(args)</td>
@@ -5767,6 +6671,7 @@
                 <td class="dsc">
                     Returns the next input after the user has completed this one. May return <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> to indicate no more input is required, or <code class="syntax-python"><span style="color: #333333">sublime_plugin<span style="color: #f97b58">.</span><span style="color: #6699cc">BackInputHandler</span>()</span></code> to indicate that the input handler should be poped off the stack instead.
                 </td>
+                <td class="tags"></td>
             </tr>
             <tr>
                 <td class="mth">description(value, text)</td>
@@ -5775,6 +6680,72 @@
                 </td>
                 <td class="dsc">
                     The text to show in the Command Palette when this input handler is not at the top of the input handler stack. Defaults to the text of the list item the user selected.
+                </td>
+                <td class="tags"></td>
+            </tr>
+        </table>
+    </section>
+
+    <section class="wide build-4095">
+        <h2 id="sublime.ListInputItem">
+            <code>sublime.ListInputItem</code> Class
+            <span class="build" title="Added in build 4095">4095</span>
+        </h2>
+
+        <p>
+            Represents a row shown via <a href="api_reference.html#sublime_plugin.ListInputHandler"><span class="data-type">ListInputHandler</span></a>.
+        </p>
+
+        <table class="functions api">
+            <tr>
+                <th>Constructor</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td class="mth">ListInputItem(text, value, &lt;details&gt;, &lt;annotation&gt;, &lt;kind&gt;)</td>
+                <td class="dsc">
+                    <dl class="parameters">
+                        <dt>
+                            <span class="parameter">text</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A unicode string of the text to match against the user's input.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">value</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                A <a href="api_reference.html#type-value"><span class="data-type">value</span></a> to pass to the command if the row is selected
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">details</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                An optional unicode string, or list of unicode strings, containing <a href="minihtml.html#inline_formatting">limited inline HTML</a>. Displayed below the text.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">annotation</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                An optional unicode string of a hint to draw to the right-hand side of the row.
+                            </p>
+                        </dd>
+                        <dt>
+                            <span class="parameter">kind</span>
+                        </dt>
+                        <dd>
+                            <p>
+                                An optional <a href="api_reference.html#type-kind_info"><span class="data-type">kind</span> tuple</a> – <em>defaults to <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KIND_AMBIGUOUS</span></code></em>.
+                            </p>
+                        </dd>
+                    </dl>
                 </td>
             </tr>
         </table>

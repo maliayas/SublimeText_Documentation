@@ -106,6 +106,7 @@
                     <li><a href="color_schemes.html#global_settings-diff">Diff</a></li>
                     <li><a href="color_schemes.html#global_settings-selection">Selection</a></li>
                     <li><a href="color_schemes.html#global_settings-find">Find</a></li>
+                    <li><a href="color_schemes.html#global_settings-rulers">Rulers</a></li>
                     <li><a href="color_schemes.html#global_settings-guides">Guides</a></li>
                     <li><a href="color_schemes.html#global_settings-brackets">Brackets</a></li>
                     <li><a href="color_schemes.html#global_settings-tags">Tags</a></li>
@@ -391,6 +392,37 @@
             <dd class="build-3190">
                 The color of the caret when using a block caret
             </dd>
+            <dt class="build-4086">
+                <span class="key">"block_caret_border"</span>
+                <span class="build" title="Added in build 4086">4086</span>
+            </dt>
+            <dd class="build-4086">
+                The color of the border for a block caret
+            </dd>
+            <dt class="build-4086">
+                <span class="key">"block_caret_underline"</span>
+                <span class="build" title="Added in build 4086">4086</span>
+            </dt>
+            <dd class="build-4086">
+                The color of the underline the block caret is drawn as when overlapping with a selection
+            </dd>
+            <dt class="build-4086">
+                <span class="key">"block_caret_corner_style"</span>
+                <span class="build" title="Added in build 4086">4086</span>
+            </dt>
+            <dd class="build-4086">
+                The style of corners to use for block carets. Options include:
+                <code>round</code> (the default), <code>cut</code> or
+                <code>square</code>.
+            </dd>
+            <dt class="build-4086">
+                <span class="key">"block_caret_corner_radius"</span>
+                <span class="build" title="Added in build 4086">4086</span>
+            </dt>
+            <dd class="build-4086">
+                The radius to use when the <code>block_caret_corner_style</code>
+                is <code>round</code> or <code>cut</code>.
+            </dd>
             <dt>
                 <span class="key">"line_highlight"</span>
             </dt>
@@ -426,20 +458,6 @@
                 that the viewport is normally only visible on
                 hover, unless the <code>always_show_minimap_viewport</code>
                 setting is enabled.</em>
-            </dd>
-            <dt class="build-4050">
-                <span class="key">"scroll_highlight"</span>
-                <span class="build" title="Added in build 4050">4050</span>
-            </dt>
-            <dd class="build-4050">
-                The color search result positions drawn on top of the scroll bar.</em>
-            </dd>
-            <dt class="build-4050">
-                <span class="key">"scroll_selected_highlight"</span>
-                <span class="build" title="Added in build 4050">4050</span>
-            </dt>
-            <dd class="build-4050">
-                The color of the selected search result position drawn on top of the scroll bar.</em>
             </dd>
             <dt>
                 <span class="key">"accent"</span>
@@ -636,6 +654,33 @@
             <dd>
                 A color that will override the scope-based text color
                 of text matched by the Find panel
+            </dd>
+            <dt class="build-4050">
+                <span class="key">"scroll_highlight"</span>
+                <span class="build" title="Added in build 4050">4050</span>
+            </dt>
+            <dd class="build-4050">
+                The color search result positions drawn on top of the scroll bar.</em>
+            </dd>
+            <dt class="build-4050">
+                <span class="key">"scroll_selected_highlight"</span>
+                <span class="build" title="Added in build 4050">4050</span>
+            </dt>
+            <dd class="build-4050">
+                The color of the selected search result position drawn on top of the scroll bar.</em>
+            </dd>
+        </dl>
+
+        <h3 id="global_settings-rulers">Rulers</h3>
+        <p>
+            Ruler locations are set by the <code>rulers</code>setting.
+        </p>
+        <dl class="enum keys">
+            <dt>
+                <span class="key">"rulers"</span>
+            </dt>
+            <dd>
+                The color used to draw rulers.
             </dd>
         </dl>
 

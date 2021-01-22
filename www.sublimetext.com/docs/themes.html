@@ -215,8 +215,23 @@
         </p>
 
         <p>
-            <span class="key">"settings"</span> are user-controlled values that can be changed at run-time. The value is an array of strings which are the names of boolean settings pulled from <span class="file">.sublime-settings</span> files. To check for a <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">false</span></span></code> value, prefix the setting name with a <code>!</code> Themes may also create their own settings to allow users to change the style. Examples include <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">bold_folder_labels</span><span style="color: #5fb4b4">&quot;</span></span></code> and <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">!always_show_minimap_viewport</span><span style="color: #5fb4b4">&quot;</span></span></code>.
+            <span class="key">"settings"</span> uses values from <span class="file">.sublime-settings</span> files to filter rules. This allowing theme authors to give users the ability to tweak a theme. Themes may define their own settings, but there are a handful of "default" settings that should be supported if possible. See <a href="themes.html#settings">Settings</a> for more details.
         </p>
+        <p>
+            The value for the <span class="key">"settings"</span> key may be one of:
+        </p>
+        <ul>
+            <li>
+                <strong>array of strings</strong><br>
+                Each string is the name of boolean settings. To check for a <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">false</span></span></code> value, prefix the setting name with a <code>!</code>.<br>
+                Example: <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">bold_folder_labels</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">!always_show_minimap_viewport</span><span style="color: #5fb4b4">&quot;</span>]</span></code>.
+            </li>
+            <li>
+                <strong>object</strong><br>
+                Each key is the name of a setting. A value may be a boolean, string, or array of strings. If an array of strings is used, the setting will be matched if any of the strings in the array matches the user’s value. When comparing to a string, the user’s setting will be coerced to an empty string when not set.<br>
+                Example: <code class="syntax-json"><span style="color: #333333">{<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">bold_folder_labels</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">file_tab_style</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">rounded</span><span style="color: #5fb4b4">&quot;</span>}</span></code>.
+            </li>
+        </ul>
 
         <p>
             The <span class="key">"parents"</span> key is an array of objects specifying the <span class="key">"class"</span> and <span class="key">"attributes"</span> that must be matched in a parent element.
@@ -1646,6 +1661,7 @@
                 <h4>Attributes</h4>
                 <a class="attributes" href="themes.html#luminosity_attributes">luminosity attributes</a>
                 <h4>Properties</h4>
+                <a class="properties" href="themes.html#texture_tinting_properties">texture tinting properties</a>
                 <dl class="properties">
                     <dt>
                         <span class="property">content_margin</span>
@@ -1728,8 +1744,99 @@
                             when the associate view is a preview and not fully opened
                         </p>
                     </dd>
+                    <dt class="build-4050">
+                        highlighted
+                        <span class="build" title="Added in build 4050">4050</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is for the sheet with input focus
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        left
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is the left-most tab in the tabset
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        right
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is the right-most tab in the tabset
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        multiple
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is part of a sheet multi-selection
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        left_of_selected
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is to the left of a selected tab
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        left_of_hover
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is to the left of a hovered tab
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        right_of_selected
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is to the right of a selected tab
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        right_of_hover
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is to the right of a hovered tab
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        left_overhang
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is overhanging to the left of its sheet, which can occur during sheet multi-selection
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        right_overhang
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is overhanging to the right of its sheet, which can occur during sheet multi-selection
+                        </p>
+                    </dd>
                 </dl>
                 <h4>Properties</h4>
+                <a class="properties" href="themes.html#texture_tinting_properties">texture tinting properties</a>
                 <dl class="properties">
                     <dt>
                         <span class="property">content_margin</span>
@@ -1872,6 +1979,35 @@
                         </p>
                     </dd>
                 </dl>
+            </dd>
+            <dt class="build-4095">
+                <span class="element">tab_connector</span>
+                <span class="build" title="Added in build 4095">4095</span>
+            </dt>
+            <dd class="build-4095">
+                <h4>Attributes</h4>
+                <dl class="attributes">
+                    <dt class="build-4095">
+                        left_overhang
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is overhanging to the left of its sheet, which can occur during sheet multi-selection
+                        </p>
+                    </dd>
+                    <dt class="build-4095">
+                        right_overhang
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the tab is overhanging to the right of its sheet, which can occur during sheet multi-selection
+                        </p>
+                    </dd>
+                </dl>
+                <h4>Properties</h4>
+                <a class="properties" href="themes.html#texture_tinting_properties">texture tinting properties</a>
             </dd>
         </dl>
 
@@ -2035,7 +2171,7 @@
                 </p>
                 <h4>Specializations</h4>
                 <p>
-                    The element <span class="element">kind_container</span> is always paired with a second class name indicating the general category the kind belongs to. There are eight pre-defined categories:
+                    The element <span class="element">kind_container</span> is always paired with a second class name indicating the general category the kind belongs to. The categories for usage in the quick panel are as follows:
                 </p>
                 <dl class="elements">
                     <dt>
@@ -2043,7 +2179,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the kind of the item is unknown
+                            When the kind of the item is unknown <em>– no color</em>
                         </p>
                     </dd>
                     <dt>
@@ -2051,7 +2187,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a keyword
+                            When the item is a keyword <em>– typically pink</em>
                         </p>
                     </dd>
                     <dt>
@@ -2059,7 +2195,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a data type, class, struct, interface, enum, trait, etc
+                            When the item is a data type, class, struct, interface, enum, trait, etc <em>– typically purple</em>
                         </p>
                     </dd>
                     <dt>
@@ -2067,7 +2203,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a function, method, constructor or subroutine
+                            When the item is a function, method, constructor or subroutine <em>– typically red</em>
                         </p>
                     </dd>
                     <dt>
@@ -2075,7 +2211,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a namespace or module
+                            When the item is a namespace or module <em>– typically blue</em>
                         </p>
                     </dd>
                     <dt>
@@ -2083,7 +2219,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a definition, label or section
+                            When the item is a definition, label or section <em>– typically yellow</em>
                         </p>
                     </dd>
                     <dt>
@@ -2091,7 +2227,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a markup component, including HTML tags and CSS selectors
+                            When the item is a markup component, including HTML tags and CSS selectors <em>– typically orange</em>
                         </p>
                     </dd>
                     <dt>
@@ -2099,7 +2235,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a variable, member, attribute, constant or parameter
+                            When the item is a variable, member, attribute, constant or parameter <em>– typically cyan</em>
                         </p>
                     </dd>
                     <dt>
@@ -2107,7 +2243,87 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a snippet
+                            When the item is a snippet <em>– typically green</em>
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_redish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display red
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_orangish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display orange
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_yellowish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display yellow
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_greenish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display green
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_cyanish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display cyan
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_bluish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display blue
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_purplish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display puple
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_pinkish</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display pink
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_dark</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display a dark background
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="element">kind_container kind_color_light</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            When the plugin author wants to display a light background
                         </p>
                     </dd>
                 </dl>
@@ -2177,6 +2393,99 @@
                 </p>
                 <h4>Properties</h4>
                 <a class="properties" href="themes.html#filter_label_properties">filter label properties</a>
+            </dd>
+            <dt class="build-4083">
+                <span class="element">quick_panel_label hint</span>
+                <span class="build" title="Added in build 4083">4083</span>
+            </dt>
+            <dd class="build-4083">
+                <p>
+                    Annotations show to the right-hand side of <span class="element">quick_panel_row</span>
+                </p>
+                <h4>Properties</h4>
+                <a class="properties" href="themes.html#filter_label_properties">filter label properties</a>
+            </dd>
+            <dt class="build-4083">
+                <span class="element">quick_panel_detail_label</span>
+                <span class="build" title="Added in build 4083">4083</span>
+            </dt>
+            <dd class="build-4083">
+                <p>
+                    Detail rows in <span class="element">quick_panel_row</span>
+                </p>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>
+                        <span class="property">color</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            a <a href="themes.html#color_values">color value</a> to use for the text
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="property">link_color</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            a <a href="themes.html#color_values">color value</a> to use for links
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="property">monospace_color</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            a <a href="themes.html#color_values">color value</a> to use for monospace text
+                        </p>
+                    </dd>
+                    <dt>
+                        <span class="property">monospace_background_color</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            a <a href="themes.html#color_values">color value</a> to use for the background of monospace text
+                        </p>
+                    </dd>
+                </dl>
+            </dd>
+        </dl>
+
+        <h3 id="elements-sheets">Sheets</h3>
+
+        <dl class="enum elements">
+            <dt class="build-4095">
+                <span class="element">sheet_contents</span>
+                <span class="build" title="Added in build 4095">4095</span>
+            </dt>
+            <dd class="build-4095">
+                <p>
+                    A sheet can have text, image or HTML contents
+                </p>
+                <h4>Attributes</h4>
+                <a class="attributes" href="themes.html#luminosity_attributes">luminosity attributes</a>
+                <dl class="elements">
+                    <dt class="build-4095">
+                        highlighted
+                        <span class="build" title="Added in build 4095">4095</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            when the sheet has input focus
+                        </p>
+                    </dd>
+                </dl>
+                <h4>Properties</h4>
+                <dl class="properties">
+                    <dt>
+                        <span class="property">background_modifier</span>
+                    </dt>
+                    <dd>
+                        <p>
+                            A string with a space-separated list of adjusters that are supported by the <a href="minihtml.html#color-mod_function">minihtml <code>color()</code> mod function</a>. Used for implementing inactive sheet dimming.
+                        </p>
+                    </dd>
+                </dl>
             </dd>
         </dl>
 
@@ -2355,7 +2664,7 @@
                 </p>
                 <h4>Specializations</h4>
                 <p>
-                    The element <span class="element">kind_container</span> is always paired with a second class name indicating the general category the kind belongs to. There are eight pre-defined categories:
+                    The element <span class="element">kind_container</span> is always paired with a second class name indicating the general category the kind belongs to. The categories for usage in the auto complete window are as follows:
                 </p>
                 <dl class="elements">
                     <dt>
@@ -2363,7 +2672,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the kind of the item is unknown
+                            When the kind of the item is unknown <em>– no color</em>
                         </p>
                     </dd>
                     <dt>
@@ -2371,7 +2680,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a keyword
+                            When the item is a keyword <em>– typically pink</em>
                         </p>
                     </dd>
                     <dt>
@@ -2379,7 +2688,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a data type, class, struct, interface, enum, trait, etc
+                            When the item is a data type, class, struct, interface, enum, trait, etc <em>– typically purple</em>
                         </p>
                     </dd>
                     <dt>
@@ -2387,7 +2696,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a function, method, constructor or subroutine
+                            When the item is a function, method, constructor or subroutine <em>– typically red</em>
                         </p>
                     </dd>
                     <dt>
@@ -2395,7 +2704,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a namespace or module
+                            When the item is a namespace or module <em>– typically blue</em>
                         </p>
                     </dd>
                     <dt>
@@ -2403,7 +2712,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a definition, label or section
+                            When the item is a definition, label or section <em>– typically yellow</em>
                         </p>
                     </dd>
                     <dt>
@@ -2411,7 +2720,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a markup component, including HTML tags and CSS selectors
+                            When the item is a markup component, including HTML tags and CSS selectors <em>– typically orange</em>
                         </p>
                     </dd>
                     <dt>
@@ -2419,7 +2728,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a variable, member, attribute, constant or parameter
+                            When the item is a variable, member, attribute, constant or parameter <em>– typically cyan</em>
                         </p>
                     </dd>
                     <dt>
@@ -2427,7 +2736,7 @@
                     </dt>
                     <dd>
                         <p>
-                            When the item is a snippet
+                            When the item is a snippet <em>– typically green</em>
                         </p>
                     </dd>
                 </dl>
@@ -2500,10 +2809,11 @@
                     </dd>
                 </dl>
             </dd>
-            <dt>
+            <dt class="build-4073">
                 <span class="element">auto_complete_label auto_complete_hint</span>
+                <span class="build" title="Added in build 4073">4073</span>
             </dt>
-            <dd>
+            <dd class="build-4073">
                 <p>
                     The "annotation" hint displayed at the right-hand-side of a <span class="element">table_row</span>
                 </p>

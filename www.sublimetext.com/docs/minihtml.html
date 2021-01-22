@@ -98,8 +98,14 @@
             <li>
                 <a href="minihtml.html#html">HTML</a>
                 <ul>
+                    <li><a href="minihtml.html#tags">Tags</a></li>
+                    <li><a href="minihtml.html#attributes">Attributes</a></li>
                     <li class="build-4073">
                         <a href="minihtml.html#protocols">Protocols</a>
+                        <span class="build" title="Added in build 4073">4073</span>
+                    </li>
+                    <li class="build-4073">
+                        <a href="minihtml.html#inline_formatting">Inline Formatting</a>
                         <span class="build" title="Added in build 4073">4073</span>
                     </li>
                     <li><a href="minihtml.html#best_practices">Best Practices</a></li>
@@ -119,6 +125,8 @@
 
     <section>
         <h2 id="html">HTML</h2>
+
+        <h3 id="tags">Tags</h3>
 
         <p>The following tags are styled by the default style sheet:</p>
 
@@ -191,6 +199,18 @@
             Other HTML tags with special behavior are not implemented. This includes tags such as <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">input</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">button</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">table</span><span style="color: #5fb4b4">&gt;</span></span></code>, etc.
         </p>
 
+        <h3 id="attributes">Attributes</h3>
+
+        <p>The following attributes are supported:</p>
+
+        <ul>
+            <li><code>class</code> - for CSS selectors</li>
+            <li><code>id</code> - for CSS selectors</li>
+            <li><code>style</code> - inline CSS</li>
+            <li><code>href</code> - callback-based navigation<span class="build-4073">, <a href="minihtml.html#protocols">protocols</a> support <span class="build" title="Added in build 4073">4073</span></span></li>
+            <li class="build-4085"><code>title</code> - tooltips <span class="build" title="Added in build 4085">4085</span></li>
+        </ul>
+
         <div class="build-4073">
             <h3 id="protocols">
                 Protocols
@@ -219,6 +239,32 @@
             <p>
                 <em>For popups and annotations it is possible to define an <code>on_navigate</code> callback via the API that will be called for any URL except for the <code>subl:</code> protocol. This API-based approach was the only way to handle URLs before build <span class="build">4073</span>.</em>
             </p>
+        </div>
+
+        <div class="build-4073">
+            <h3 id="inline_formatting">
+                Inline Formatting
+                <span class="build" title="Added in build 4073">4073</span>
+            </h3>
+
+            <p>
+                In the details field of completion items, quick panel items and list input items, there is support for a limited, inline formatting subset of minihtml. This allows for some basic text formatting, that respects the theme and color scheme the user has selected.
+            </p>
+
+            <p>
+                The supported tags are:
+            </p>
+
+            <ul>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span> <span style="color: #c695c6">href</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span></span></code> – <a href="minihtml.html#protocols">protocols</a></li>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">b</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">strong</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">i</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">em</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">u</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tt</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">code</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
+            </ul>
         </div>
 
         <h3 id="best_practices">Best Practices</h3>
@@ -276,6 +322,10 @@
         <ul>
             <li>
                 <code>display</code>: <em><code>inline</code>,
+                <span class="build-4085">
+                    <code>inline-block</code>
+                    <span class="build" title="Added in build 4085">4085</span>,
+                </span>
                 <code>block</code>, <code>list-item</code>,
                 <code>none</code></em>
             </li>
@@ -320,7 +370,12 @@
                 <code>line-height</code>: <em>positive
                 <a href="minihtml.html#units">units</a></em><br>
                 <code>text-decoration</code>: <em><code>none</code>,
-                <code>underline</code></em>
+                <code>underline</code></em><br>
+                <span class="build-4085">
+                    <code>text-align</code>: <em><code>left</code>,
+                    <code>right</code>, <code>center</code></em>
+                    <span class="build" title="Added in build 4085">4085</span>
+                </span>
             </li>
             <li>
                 <code>color</code>: <a href="minihtml.html#colors">colors</a>
