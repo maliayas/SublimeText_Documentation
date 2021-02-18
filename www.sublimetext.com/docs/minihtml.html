@@ -69,7 +69,7 @@
         minihtml Reference
     </span></h1>
 
-    <div class="versions">
+        <div class="versions">
         Ver<span class="expanded">sion</span>:<br>
         <a href="minihtml.html#ver-dev" class="ver-sel">Dev</a>
         <a href="minihtml.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
@@ -283,14 +283,14 @@
             to be able to override the plugin.
         </p>
 
-        <pre><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">body</span> <span style="color: #c695c6">id</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">my-plugin-feature</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span>
+        <pre><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">body</span> <span style="color: #c695c6">id</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my-plugin-feature</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span>
     <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">style</span><span style="color: #5fb4b4">&gt;</span>
         <span style="color: #ec5f66">div</span><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
             <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #c695c6; font-style: italic">red</span><span style="color: #ac7a68">;</span>
-            <span style="font-style: italic">padding</span><span style="color: #ac7a68">:</span> <span style="color: #f9ae58">5</span><span style="color: #c695c6">px</span><span style="color: #ac7a68">;</span>
+            <span style="font-style: italic">padding</span><span style="color: #ac7a68">:</span> <span style="color: #f9ae58">5</span><span style="color: #c695c6; font-style: italic">px</span><span style="color: #ac7a68">;</span>
         }
     <span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">style</span><span style="color: #5fb4b4">&gt;</span>
-    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">div</span> <span style="color: #c695c6">class</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">error</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span><span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">div</span><span style="color: #5fb4b4">&gt;</span>
+    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">div</span> <span style="color: #c695c6">class</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">error</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span><span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">div</span><span style="color: #5fb4b4">&gt;</span>
 <span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">body</span><span style="color: #5fb4b4">&gt;</span></span></code></pre>
 
         <h3 id="predefined_classes">Predefined Classes</h3>
@@ -534,11 +534,11 @@
         </ul>
 
         <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span><span style="color: #5fb4b4">(</span><span style="color: #6699cc; font-style: italic">var</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4; font-style: italic">--</span><span style="color: #6699cc; font-style: italic">background</span><span style="color: #5fb4b4">)</span> <span style="color: #6699cc; font-style: italic">alpha</span><span style="color: #5fb4b4">(</span><span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">25</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">)</span><span style="color: #ac7a68">;</span>
+    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span>(<span style="color: #6699cc; font-style: italic">var</span>(--background) <span style="color: #6699cc; font-style: italic">alpha</span>(<span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">25</span>))<span style="color: #ac7a68">;</span>
 }</span></code></pre>
 
         <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span><span style="color: #5fb4b4">(</span><span style="color: #6699cc; font-style: italic">var</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4; font-style: italic">--</span><span style="color: #6699cc; font-style: italic">background</span><span style="color: #5fb4b4">)</span> <span style="color: #6699cc; font-style: italic">blend</span><span style="color: #5fb4b4">(</span><span style="color: #c695c6; font-style: italic">red</span> <span style="color: #f9ae58">50</span><span style="color: #c695c6">%</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">)</span><span style="color: #ac7a68">;</span>
+    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span>(<span style="color: #6699cc; font-style: italic">var</span>(--background) <span style="color: #6699cc; font-style: italic">blend</span>(<span style="color: #c695c6; font-style: italic">red</span> <span style="color: #f9ae58">50</span><span style="color: #c695c6; font-style: italic">%</span>))<span style="color: #ac7a68">;</span>
 }</span></code></pre>
 
         <p>The color-mod function will be most useful in combination with <a href="minihtml.html#variables">variables</a>.</p>
@@ -554,7 +554,7 @@
         </p>
 
         <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span><span style="color: #5fb4b4">(</span><span style="color: #6699cc; font-style: italic">var</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4; font-style: italic">--</span><span style="color: #6699cc; font-style: italic">redish</span><span style="color: #5fb4b4">)</span> min-contrast(<span style="color: #6699cc; font-style: italic">var</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4; font-style: italic">--</span><span style="color: #6699cc; font-style: italic">background</span><span style="color: #5fb4b4">)</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">5</span><span style="color: #5fb4b4">)</span>);
+    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span>(<span style="color: #6699cc; font-style: italic">var</span>(--redish) min-contrast<span style="color: #f7f7f7">(</span>var(--background<span style="color: #f7f7f7">)</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">5</span>)<span style="color: #f7f7f7">)</span><span style="color: #ac7a68">;</span>
 }</span></code></pre>
 
         <p>
@@ -566,36 +566,36 @@
         <p>CSS variables are also supported using custom properties and the <code>var()</code> functional notation. <em>Custom properties are those starting with <code>--</code>.</em></p>
 
         <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">html</span> {
-    <span style="color: #5fb4b4; font-style: italic">--</span><span style="color: #6699cc; font-style: italic">fg</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">#</span><span style="color: #c695c6">f00</span><span style="color: #ac7a68">;</span>
+    --fg<span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">#</span><span style="color: #c695c6">f00</span><span style="color: #ac7a68">;</span>
 }
 <span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">var</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4; font-style: italic">--</span><span style="color: #6699cc; font-style: italic">fg</span><span style="color: #5fb4b4">)</span><span style="color: #ac7a68">;</span>
+    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">var</span>(--fg)<span style="color: #ac7a68">;</span>
 }</span></code></pre>
 
-        <p>The one limitation is that the <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>()</span></code> notation can not be used for part of a multi-number value, such as <code>padding</code> or <code>margin</code>. With those aggregate properties, the <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>()</span></code> notation must be used for the complete value.</p>
+        <p>The one limitation is that the <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">()</span></span></code> notation can not be used for part of a multi-number value, such as <code>padding</code> or <code>margin</code>. With those aggregate properties, the <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">()</span></span></code> notation must be used for the complete value.</p>
 
         <h4 id="predefined_variables">Predefined Variables</h4>
 
         <p>When a color scheme is loaded, the background and foreground colors are set to CSS variables, along with the closest color found to a handful of basic colors. These are all set in an <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">html</span> { }</span></code> rule set in the default CSS style sheet.</p>
 
         <ul>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--background)</span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--foreground)</span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--background<span style="color: #f7f7f7">)</span></span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--foreground<span style="color: #f7f7f7">)</span></span></code></li>
             <li class="build-3179">
-                <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--accent)</span></code>
+                <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--accent<span style="color: #f7f7f7">)</span></span></code>
                 <span class="build" title="Added in build 3179">3179</span>
             </li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--redish)</span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--orangish)</span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--yellowish)</span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--greenish)</span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--redish<span style="color: #f7f7f7">)</span></span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--orangish<span style="color: #f7f7f7">)</span></span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--yellowish<span style="color: #f7f7f7">)</span></span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--greenish<span style="color: #f7f7f7">)</span></span></code></li>
             <li class="build-3179">
-                <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--cyanish)</span></code>
+                <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--cyanish<span style="color: #f7f7f7">)</span></span></code>
                 <span class="build" title="Added in build 3179">3179</span>
             </li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--bluish)</span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--purplish)</span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span>(--pinkish)</span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--bluish<span style="color: #f7f7f7">)</span></span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--purplish<span style="color: #f7f7f7">)</span></span></code></li>
+            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--pinkish<span style="color: #f7f7f7">)</span></span></code></li>
         </ul>
 
         <p>The algorithm to pick the colors uses the HSL color space and uses several heuristics to try and pick colors that are suitable for foreground use. In the case that the automatic color selection is undesirable, color scheme authors may override the appropriate values with their own <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">html</span> { }</span></code> rule set contained in the

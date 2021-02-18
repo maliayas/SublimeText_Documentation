@@ -70,6 +70,14 @@
 
     <div class="primary">
     <section>
+        <p class="available_since">
+            <span class="added">
+                Added in:
+            </span><span class="version">
+                3.2
+            </span>
+        </p>
+
         <p>
             Sublime Text's Git integration includes the following components:
         </p>
@@ -416,7 +424,7 @@
         </div>
 
         <p>
-            Changing the setting <span class="setting">git_diff_target</span> to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">head</span><span style="color: #5fb4b4">&quot;</span></span></code> will modify the diff markers to display a diff versus the version of the file at the Git repository HEAD, as opposed to the version of the file in the working directory.
+            Changing the setting <span class="setting">git_diff_target</span> to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">head</span><span style="color: #5fb4b4">&quot;</span></span></code> will modify the diff markers to display a diff versus the version of the file at the Git repository HEAD, as opposed to the version of the file in the working directory.
         </p>
 
         <p>
@@ -496,12 +504,12 @@
                     Controls the behavior of incremental diff for files in a Git repository. Valid values include:
                 </p>
                 <ul>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">index</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the Git index</li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">head</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the file at HEAD</li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">index</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the Git index</li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">head</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the file at HEAD</li>
                 </ul>
                 <div class="example">
                     Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">index</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">index</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
         </dl>

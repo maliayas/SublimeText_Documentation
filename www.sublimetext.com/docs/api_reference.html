@@ -69,7 +69,7 @@
         API Reference
     </span></h1>
 
-    <div class="versions">
+        <div class="versions">
         Ver<span class="expanded">sion</span>:<br>
         <a href="api_reference.html#ver-dev" class="ver-sel">Dev</a>
         <a href="api_reference.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
@@ -145,6 +145,9 @@
                 <li class="build-4050">
                     <a href="api_reference.html#sublime.CompletionItem"><code>CompletionItem</code> Class</a>
                     <span class="build" title="Added in build 4050">4050</span>
+                </li>
+                <li>
+                    <a href="api_reference.html#type-event_dict"><code>event</code> Dict</a>
                 </li>
                 <li class="build-4050">
                     <a href="api_reference.html#type-kind_tuple"><code>kind</code> Tuple</a>
@@ -457,8 +460,8 @@
                             <p>
                                 <em>Example:</em>
                                 <pre><code class="syntax-python"><span style="color: #333333">[
-    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">Python source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py3</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">pyw</span><span style="color: #5fb4b4">&#x27;</span>])<span style="color: #ac7a68">,</span>
-    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">C source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">c</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">h</span><span style="color: #5fb4b4">&#x27;</span>])
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Python source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">py</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">py3</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">pyw</span><span style="color: #5fb4b4">&#x27;</span>])<span style="color: #ac7a68">,</span>
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">C source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">c</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">h</span><span style="color: #5fb4b4">&#x27;</span>])
 ]</span></code></pre>
                             </p>
                         </dd>
@@ -524,8 +527,8 @@
                             <p>
                                 <em>Example:</em>
                                 <pre><code class="syntax-python"><span style="color: #333333">[
-    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">Python source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">py3</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">pyw</span><span style="color: #5fb4b4">&#x27;</span>])<span style="color: #ac7a68">,</span>
-    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">C source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">c</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">h</span><span style="color: #5fb4b4">&#x27;</span>])
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Python source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">py</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">py3</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">pyw</span><span style="color: #5fb4b4">&#x27;</span>])<span style="color: #ac7a68">,</span>
+    (<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">C source files</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">c</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">h</span><span style="color: #5fb4b4">&#x27;</span>])
 ]</span></code></pre>
                             </p>
                         </dd>
@@ -605,7 +608,7 @@
                     <span class="data-type">str</span>
                 </td>
                 <td class="dsc">
-                    Loads the given resource. The <span class="parameter">name</span> should be in the format <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/Default/Main.sublime-menu</span><span style="color: #5fb4b4">&quot;</span></span></code>.
+                    Loads the given resource. The <span class="parameter">name</span> should be in the format <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Packages/Default/Main.sublime-menu</span><span style="color: #5fb4b4">&quot;</span></span></code>.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -615,7 +618,7 @@
                     <span class="data-type">bytes</span>
                 </td>
                 <td class="dsc">
-                    Loads the given resource. The <span class="parameter">name</span> should be in the format <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/Default/Main.sublime-menu</span><span style="color: #5fb4b4">&quot;</span></span></code>.
+                    Loads the given resource. The <span class="parameter">name</span> should be in the format <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Packages/Default/Main.sublime-menu</span><span style="color: #5fb4b4">&quot;</span></span></code>.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -628,6 +631,18 @@
                     Finds resources whose file name matches the given <span class="parameter">pattern</span>.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4096">
+                <td class="mth">ui_info()</td>
+                <td class="rtn">
+                    <span class="data-type">dict</span>
+                </td>
+                <td class="dsc">
+                    Returns information about the user interface, including top-level keys <span class="key">system</span>, <span class="key">theme</span> and <span class="key">color_scheme</span>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4096">4096</span>
+                </td>
             </tr>
             <tr class="build-4081">
                 <td class="mth">list_syntaxes()</td>
@@ -723,7 +738,7 @@
                     <a href="api_reference.html#type-value"><span class="data-type">value</span></a>
                 </td>
                 <td class="dsc">
-                    Expands any variables in the string <span class="parameter">value</span> using the variables defined in the dictionary <span class="parameter">variables</span>. <span class="parameter">value</span> may also be a <span class="data-type">list</span> or <span class="data-type">dict</span>, in which case the structure will be recursively expanded. Strings should use snippet syntax, for example: <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">expand_variables</span>(<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Hello, $</span><span style="color: #5fb4b4">{</span><span style="color: #c695c6">name</span><span style="color: #5fb4b4">}</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Foo</span><span style="color: #5fb4b4">&quot;</span>})</span></code>
+                    Expands any variables in the string <span class="parameter">value</span> using the variables defined in the dictionary <span class="parameter">variables</span>. <span class="parameter">value</span> may also be a <span class="data-type">list</span> or <span class="data-type">dict</span>, in which case the structure will be recursively expanded. Strings should use snippet syntax, for example: <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">expand_variables</span>(<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Hello, $</span><span style="color: #5fb4b4">{</span><span style="color: #c695c6">name</span><span style="color: #5fb4b4">}</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Foo</span><span style="color: #5fb4b4">&quot;</span>})</span></code>
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -953,7 +968,7 @@
                     <span class="data-type">str</span>
                 </td>
                 <td class="dsc">
-                    Returns the platform, which may be <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">osx</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">linux</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">windows</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    Returns the platform, which may be <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">osx</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">linux</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">windows</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -963,7 +978,7 @@
                     <span class="data-type">str</span>
                 </td>
                 <td class="dsc">
-                    Returns the CPU architecture, which may be <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">x32</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">x64</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    Returns the CPU architecture, which may be <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">x32</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">x64</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -973,7 +988,7 @@
                     <span class="data-type">str</span>
                 </td>
                 <td class="dsc">
-                    Returns the release channel this build of Sublime Text is from: <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">dev</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">stable</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    Returns the release channel this build of Sublime Text is from: <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">dev</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">stable</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1300,59 +1315,59 @@
                     Returns <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> for normal views, for views that comprise part of the UI, a <span class="data-type">str</span> is returned from the following list:
                     <ul>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">console:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">console:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The console input
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">goto_anything:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">goto_anything:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The input for the Goto Anything
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command_palette:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command_palette:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The input for the Command Palette
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">find:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">find:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The input for the Find panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">incremental_find:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">incremental_find:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The input for the Incremental Find panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">replace:input:find</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">replace:input:find</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The Find input for the Replace panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">replace:input:replace</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">replace:input:replace</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The Replace input for the Replace panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">find_in_files:input:find</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">find_in_files:input:find</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The Find input for the Find in Files panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">find_in_files:input:location</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">find_in_files:input:location</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The Where input for the Find in Files panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">find_in_files:input:replace</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">find_in_files:input:replace</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The Replace input for the Find in Files panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">find_in_files:output</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">find_in_files:output</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The output panel for Find in Files (buffer or output panel)
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">input:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">input:input</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The input for the Input panel
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">exec:output</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">exec:output</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             The output for the exec command
                         </li>
                         <li>
-                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">output:output</span><span style="color: #5fb4b4">&quot;</span></span></code>:
+                            <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">output:output</span><span style="color: #5fb4b4">&quot;</span></span></code>:
                             A general output panel
                         </li>
                     </ul>
@@ -1392,7 +1407,7 @@
                     <span class="data-type">int</span>
                 </td>
                 <td class="dsc">
-                    Returns the ID of the Sheet for this View, or <code class="syntax-python">0</code> if not part of a sheet
+                    Returns the ID of the Sheet for this View, or <code class="syntax-python"><span style="color: #333333"><span style="color: #f9ae58">0</span></span></code> if not part of a sheet
                 </td>
                 <td class="tags">
                     <span class="build" title="Added in build 4083">4083</span>
@@ -1754,7 +1769,7 @@
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
                 <td class="dsc">
-                    <em>DEPRECATED - use <code>assign_syntax()</code> when possible.</em> Changes the syntax used by the view. <span class="parameter">syntax_file</span> should be a name along the lines of <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/Python/Python.tmLanguage</span><span style="color: #5fb4b4">&quot;</span></span></code>. To retrieve the current syntax, use <code class="syntax-python"><span style="color: #333333">view<span style="color: #f97b58">.</span><span style="color: #6699cc">settings</span>()<span style="color: #f97b58">.</span><span style="color: #6699cc">get</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">syntax</span><span style="color: #5fb4b4">&#x27;</span>)</span></code>.
+                    <em>DEPRECATED - use <code>assign_syntax()</code> when possible.</em> Changes the syntax used by the view. <span class="parameter">syntax_file</span> should be a name along the lines of <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Packages/Python/Python.tmLanguage</span><span style="color: #5fb4b4">&quot;</span></span></code>. To retrieve the current syntax, use <code class="syntax-python"><span style="color: #333333">view<span style="color: #f97b58">.</span><span style="color: #6699cc">settings</span>()<span style="color: #f97b58">.</span><span style="color: #6699cc">get</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">syntax</span><span style="color: #5fb4b4">&#x27;</span>)</span></code>.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -2034,7 +2049,7 @@
                         </dt>
                         <dd>
                             <p>
-                                An optional unicode string used to source a color to draw the <span class="parameter">regions</span> in. The <span class="parameter">scope</span> is matched against the color scheme. Examples include: <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">invalid</span><span style="color: #5fb4b4">&quot;</span></span></code> and <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">string</span><span style="color: #5fb4b4">&quot;</span></span></code>. See <a href="scope_naming.html#alphabetical_reference">Scope Naming</a> for a list of common scopes. If the <span class="parameter">scope</span> is empty, the <span class="parameter">regions</span> won't be drawn.
+                                An optional unicode string used to source a color to draw the <span class="parameter">regions</span> in. The <span class="parameter">scope</span> is matched against the color scheme. Examples include: <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">invalid</span><span style="color: #5fb4b4">&quot;</span></span></code> and <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">string</span><span style="color: #5fb4b4">&quot;</span></span></code>. See <a href="scope_naming.html#alphabetical_reference">Scope Naming</a> for a list of common scopes. If the <span class="parameter">scope</span> is empty, the <span class="parameter">regions</span> won't be drawn.
                             </p>
                             <div class="build-3148">
                                 <p>
@@ -2042,14 +2057,14 @@
                                     <span class="build" title="Added in build 3148">3148</span>
                                 </p>
                                 <ul>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.redish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.orangish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.yellowish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.greenish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.cyanish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.bluish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.purplish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">region.pinkish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.redish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.orangish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.yellowish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.greenish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.cyanish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.bluish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.purplish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                                    <li><code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">region.pinkish</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
                                 </ul>
                             </div>
                         </dd>
@@ -2058,7 +2073,7 @@
                         </dt>
                         <dd>
                             <p>
-                                An optional unicode string specifying an icon to draw in the gutter next to each region. The <span class="parameter">icon</span> will be tinted using the color associated with the <span class="parameter">scope</span>. Standard icon names are <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">dot</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">circle</span><span style="color: #5fb4b4">&quot;</span></span></code> and <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">bookmark</span><span style="color: #5fb4b4">&quot;</span></span></code>. The <span class="parameter">icon</span> may also be a full package-relative path, such as <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/Theme - Default/dot.png</span><span style="color: #5fb4b4">&quot;</span></span></code>.
+                                An optional unicode string specifying an icon to draw in the gutter next to each region. The <span class="parameter">icon</span> will be tinted using the color associated with the <span class="parameter">scope</span>. Standard icon names are <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">dot</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">circle</span><span style="color: #5fb4b4">&quot;</span></span></code> and <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">bookmark</span><span style="color: #5fb4b4">&quot;</span></span></code>. The <span class="parameter">icon</span> may also be a full package-relative path, such as <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Packages/Theme - Default/dot.png</span><span style="color: #5fb4b4">&quot;</span></span></code>.
                             </p>
                         </dd>
                         <dt>
@@ -3334,8 +3349,8 @@
                     A unicode string that is both the trigger and the replacement
                 </p>
                 <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method1()</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method2()</span><span style="color: #5fb4b4">&quot;</span>
 ]</span></code></pre>
             </li>
             <li>
@@ -3346,22 +3361,22 @@
                     A pair of unicode strings, the trigger and the replacement.
                 </p>
                 <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
                 <p>
                     If a <code>\t</code> is present in the trigger, all subsequent text is treated as an annotation.
                 </p>
                 <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #c695c6">\t</span><span style="color: #99c794">method</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #c695c6">\t</span><span style="color: #99c794">method</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me1</span><span style="color: #c695c6">\t</span><span style="color: #80b979">method</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me2</span><span style="color: #c695c6">\t</span><span style="color: #80b979">method</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
                 <p>
                     The replacement text may contain dollar-numeric fields such as a snippet does, e.g. <code>$0</code>, <code>$1</code>.
                 </p>
                 <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">fn</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def ${1:name}($2) { $0 }</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">for</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">for ($1; $2; $3) { $0 }</span><span style="color: #5fb4b4">&quot;</span>]
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">fn</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def ${1:name}($2) { $0 }</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">for</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">for ($1; $2; $3) { $0 }</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
             </li>
             <li class="build-4050">
@@ -3372,15 +3387,15 @@
                 </p>
                 <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
     sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">CompletionItem</span>(
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">fn</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #f9ae58">annotation</span><span style="color: #f97b58">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #f9ae58">completion</span><span style="color: #f97b58">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def ${1:name}($2) { $0 }</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">fn</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #f9ae58">annotation</span><span style="color: #f97b58">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #f9ae58">completion</span><span style="color: #f97b58">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def ${1:name}($2) { $0 }</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
         <span style="color: #f9ae58">completion_format</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>COMPLETION_FORMAT_SNIPPET<span style="color: #ac7a68">,</span>
         <span style="color: #f9ae58">kind</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>KIND_SNIPPET
     )<span style="color: #ac7a68">,</span>
     sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">CompletionItem</span>(
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">for</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #f9ae58">completion</span><span style="color: #f97b58">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">for ($1; $2; $3) { $0 }</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">for</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #f9ae58">completion</span><span style="color: #f97b58">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">for ($1; $2; $3) { $0 }</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
         <span style="color: #f9ae58">completion_format</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>COMPLETION_FORMAT_SNIPPET<span style="color: #ac7a68">,</span>
         <span style="color: #f9ae58">kind</span><span style="color: #f97b58">=</span>sublime<span style="color: #f97b58">.</span>KIND_SNIPPET
     )<span style="color: #ac7a68">,</span>
@@ -3586,6 +3601,87 @@
                 </td>
             </tr>
         </table>
+    </section>
+
+    <section class="wide">
+        <h2 id="type-event_dict"><code>event</code> Dict</h2>
+
+        <p>
+            Contains information about a user’s interaction with a menu, command palette selection, quick panel selection or HTML document. The follow methods are used to signal that an event <span class="data-type">dict</span> is desired:
+        </p>
+
+        <ul>
+            <li>
+                Commands may opt-in to receive an arg named <code>event</code> by implementing the method <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">want_event</span>(<span style="color: #ec5f66; font-style: italic">self</span>)</span></code> and returning <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code>.
+            </li>
+            <li class="build-4096">
+                A call to <a href="api_reference.html#sublime.Window.show_quick_panel"><code>show_quick_panel()</code></a> may opt-in to receive a second arg to the <span class="parameter">on_done</span> callback by specifying the flag <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>WANT_EVENT</span></code>. <span class="build" title="Added in build 4096">4096</span>
+            </li>
+            <li class="build-4096">
+                <a href="api_reference.html#sublime_plugin.ListInputHandler"><code>ListInputHandler</code></a> classes may opt-in to receive a second arg to the <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">validate</span>()</span></code> and <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">confirm</span>()</span></code> methods by by implementing the method <code class="syntax-python"><span style="color: #333333"><span style="color: #6699cc">want_event</span>(<span style="color: #ec5f66; font-style: italic">self</span>)</span></code> and returning <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">True</span></span></code>. <span class="build" title="Added in build 4096">4096</span>
+            </li>
+        </ul>
+
+        <p>
+            The <span class="data-type">dict</span> may contain zero or more of the following keys, based on the user interaction:
+        </p>
+
+        <dl class="enum properties">
+            <dt>
+                <span class="key">x</span>
+            </dt>
+            <dd>
+                <p>
+                    A float of the X mouse position when a user clicks on a menu, or in a minihtml document.
+                </p>
+            </dd>
+            <dt>
+                <span class="key">y</span>
+            </dt>
+            <dd>
+                <p>
+                    A float of the Y mouse position when a user clicks on a menu, or in a minihtml document.
+                </p>
+            </dd>
+            <dt class="build-4096">
+                <span class="key">modifier_keys</span>
+                <span class="build" title="Added in build 4096">4096</span>
+            </dt>
+            <dd class="build-4096">
+                <p>
+                    A <span class="data-type">dict</span> with zero or more of the following keys:
+                </p>
+                <ul>
+                    <li>
+                        <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">primary</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                        - indicating <span class="keys"><b>Ctrl</b></span> (Windows/Linux) or <span class="keys"><b>Cmd</b></span> (Mac) was pressed
+                    </li>
+                    <li>
+                        <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ctrl</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                        - indicating <span class="keys"><b>Ctrl</b></span> was pressed
+                    </li>
+                    <li>
+                        <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">alt</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                        - indicating <span class="keys"><b>Alt</b></span> was pressed
+                    </li>
+                    <li>
+                        <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">altgr</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                        - indicating <span class="keys"><b>AltGr</b></span> was pressed (Linux only)
+                    </li>
+                    <li>
+                        <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">shift</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                        - indicating <span class="keys"><b>Shift</b></span> was pressed
+                    </li>
+                    <li>
+                        <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">super</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                        - indicating <span class="keys"><b>Win</b></span> (Windows/Linux) or <span class="keys"><b>Cmd</b></span> (Mac) was pressed
+                    </li>
+                </ul>
+                <p>
+                    Present when the user selects an item from a quick panel, selects an item from a <a href="api_reference.html#sublime_plugin.ListInputHandler"><code>ListInputHandler</code></a>, or clicks a link in a minihtml document.
+                </p>
+            </dd>
+        </dl>
     </section>
 
     <section class="wide build-4050">
@@ -4032,8 +4128,11 @@
                         <li class="build-4050">
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>ADD_TO_SELECTION</span></code> <span class="build" title="Added in build 4050">4050</span>: Add the file to the currently selected sheets in this group
                         </li>
-                        <li class="build-4075">
-                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>ADD_TO_SELECTION_SEMI_TRANSIENT</span></code> <span class="build" title="Added in build 4075">4075</span>: Add the file to the currently selected sheets in this group, as a semi-transient view
+                        <li class="build-4096">
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>REPLACE_MRU</span></code> <span class="build" title="Added in build 4096">4096</span>: Causes the sheet to replace the most-recently used sheet in the current sheet selection
+                        </li>
+                        <li class="build-4096">
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SEMI_TRANSIENT</span></code> <span class="build" title="Added in build 4096">4096</span>: Valid in combination with <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>ADD_TO_SELECTION</span></code> and <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>REPLACE_MRU</span></code>. If a sheet is newly created, it will be set to semi-transient.
                         </li>
                     </ul>
                     <p>
@@ -4535,8 +4634,20 @@
                         </li>
                     </ul>
                     <p>
-                        <span class="parameter">flags</span> is a bitwise OR of <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>MONOSPACE_FONT</span></code> and <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KEEP_OPEN_ON_FOCUS_LOST</span></code>
+                        <span class="parameter">flags</span> is a bitwise OR of:
                     </p>
+                    <ul>
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>MONOSPACE_FONT</span></code>
+                        </li> - use a monospace font
+                        <li>
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>KEEP_OPEN_ON_FOCUS_LOST</span></code> - keep the quick panel open if the window loses input focus
+                        </li>
+                        <li class="build-4096">
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>WANT_EVENT</span></code>
+                            <span class="build" title="Added in build 4096">4096</span> - pass a second parameter to <span class="parameter">on_done</span>, an <a href="api_reference.html#type-event_dict"><code>event</code> Dict</a>
+                        </li>
+                    </ul>
                     <p>
                         <span class="parameter">on_highlighted</span>, if given, will be called every time the highlighted item in the quick panel is changed.
                     </p>
@@ -4564,7 +4675,7 @@
                 </td>
                 <td class="dsc">
                     <p>
-                        Returns the view associated with the named output panel, creating it if required. The output panel can be shown by running the <span class="command">show_panel</span> window command, with the <span class="parameter">panel</span> argument set to the name with an <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">output.</span><span style="color: #5fb4b4">&quot;</span></span></code> prefix.
+                        Returns the view associated with the named output panel, creating it if required. The output panel can be shown by running the <span class="command">show_panel</span> window command, with the <span class="parameter">panel</span> argument set to the name with an <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">output.</span><span style="color: #5fb4b4">&quot;</span></span></code> prefix.
                     </p>
                     <p>
                         The optional <span class="parameter">unlisted</span> parameter is a boolean to control if the output panel should be listed in the panel switcher.
@@ -4602,7 +4713,7 @@
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
                 </td>
                 <td class="dsc">
-                    Returns the name of the currently open panel, or <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> if no panel is open. Will return built-in panel names (e.g. <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">console</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">find</span><span style="color: #5fb4b4">&quot;</span></span></code>, etc) in addition to output panels.
+                    Returns the name of the currently open panel, or <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> if no panel is open. Will return built-in panel names (e.g. <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">console</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">find</span><span style="color: #5fb4b4">&quot;</span></span></code>, etc) in addition to output panels.
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -5383,8 +5494,8 @@
                                 A list of <a href="api_reference.html#type-completion">completion</a> values
                             </p>
                             <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
                         </li>
                         <li>
@@ -5409,8 +5520,8 @@
                             </ul>
                             <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> (
     [
-        [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-        [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
+        [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+        [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method2()</span><span style="color: #5fb4b4">&quot;</span>]
     ]<span style="color: #ac7a68">,</span>
     sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS
     <span style="color: #f97b58">|</span> sublime<span style="color: #f97b58">.</span>INHIBIT_EXPLICIT_COMPLETIONS
@@ -6049,8 +6160,8 @@
                                 A list of <a href="api_reference.html#type-completion">completion</a> values
                             </p>
                             <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> [
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method2()</span><span style="color: #5fb4b4">&quot;</span>]
 ]</span></code></pre>
                         </li>
                         <li>
@@ -6075,8 +6186,8 @@
                             </ul>
                             <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">return</span> (
     [
-        [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-        [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">method2()</span><span style="color: #5fb4b4">&quot;</span>]
+        [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me1</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method1()</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+        [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">me2</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">method2()</span><span style="color: #5fb4b4">&quot;</span>]
     ]<span style="color: #ac7a68">,</span>
     sublime<span style="color: #f97b58">.</span>INHIBIT_WORD_COMPLETIONS
     <span style="color: #f97b58">|</span> sublime<span style="color: #f97b58">.</span>INHIBIT_EXPLICIT_COMPLETIONS
@@ -6682,6 +6793,18 @@
                     The text to show in the Command Palette when this input handler is not at the top of the input handler stack. Defaults to the text of the list item the user selected.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr class="build-4096">
+                <td class="mth">want_event()</td>
+                <td class="rtn">
+                    <span class="data-type">bool</span>
+                </td>
+                <td class="dsc">
+                    If the <code class="syntax-python">validate()</code> and <code class="syntax-python">confirm()</code> methods should receive a second parameter, an <a href="api_reference.html#type-event_dict"><code>event</code> Dict</a>
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4096">4096</span>
+                </td>
             </tr>
         </table>
     </section>

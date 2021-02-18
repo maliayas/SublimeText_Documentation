@@ -68,42 +68,38 @@
         GPU Rendering
     </span></h1>
 
-    <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="gpu_rendering.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="gpu_rendering.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
-        <a href="gpu_rendering.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="gpu_rendering.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
-
     <section>
-        <p class="note build-4050-removed hide_on_filter">
-            GPU rendering is available starting in build 4050 – <a href="gpu_rendering.html#ver-dev" class="ver-sel">view now</a>. All rendering in earlier versions was done exclusively in software. The previous Mac-only <span class="setting">gpu_window_buffer</span> feature has been replaced with the new GPU rendering.
+        <p class="available_since">
+            <span class="added">
+                Added in:
+            </span><span class="version">
+                4.0
+            </span>
         </p>
 
-        <p class="build-4050 filtered">
+        <p>
             Sublime Text includes both a software rendering mode, and a hardware-accelerated mode using the GPU via OpenGL. The OpenGL renderer can improve performance on high DPI screens, although some graphics card drivers may produce incorrect results. <em>By default, Macs will use OpenGL, whereas Windows and Linux machines will use software.</em>
         </p>
 
-        <ul id="toc" class="build-4050 filtered">
+        <ul id="toc">
             <li><a href="gpu_rendering.html#setting">Setting</a></li>
             <li><a href="gpu_rendering.html#diagnostics">Diagnostics</a></li>
         </ul>
     </section>
 
-    <section class="build-4050 filtered">
+    <section>
         <h2 id="setting">Setting</h2>
 
         <p>
-            The setting <span class="setting">hardware_acceleration</span> controls the rendering mode. A value of <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">none</span><span style="color: #5fb4b4">&quot;</span></span></code> causes Sublime Text to use the software rendering mode, whereas a value of <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">opengl</span><span style="color: #5fb4b4">&quot;</span></span></code> results in the OpenGL renderer being used.
+            The setting <span class="setting">hardware_acceleration</span> controls the rendering mode. A value of <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">none</span><span style="color: #5fb4b4">&quot;</span></span></code> causes Sublime Text to use the software rendering mode, whereas a value of <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">opengl</span><span style="color: #5fb4b4">&quot;</span></span></code> results in the OpenGL renderer being used.
         </p>
     </section>
 
-    <section class="build-4050 filtered">
+    <section>
         <h2 id="diagnostics">Diagnostics</h2>
 
         <p>
-            When <span class="setting">hardware_acceleration</span> is set to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">opengl</span><span style="color: #5fb4b4">&quot;</span></span></code>, diagnostic information will be printed in the Console on startup. The following is an example of the output:
+            When <span class="setting">hardware_acceleration</span> is set to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">opengl</span><span style="color: #5fb4b4">&quot;</span></span></code>, diagnostic information will be printed in the Console on startup. The following is an example of the output:
         </p>
 
         <pre><code>OpenGL Context Information:
@@ -114,9 +110,6 @@
 </code></pre>
     </section>
 
-    <script type="text/javascript">
-        var includeBuilds = [4050];
-    </script>
     <script type="text/javascript" src="docs.js"></script>
 
     </section>

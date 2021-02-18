@@ -113,9 +113,9 @@
         </p>
 
         <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">$file</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">file_regex</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">^</span><span style="color: #c695c6">\\</span><span style="color: #99c794">s*File </span><span style="color: #c695c6">\&quot;</span><span style="color: #99c794">(...*?)</span><span style="color: #c695c6">\&quot;</span><span style="color: #99c794">, line ([0-9]*)</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">file_regex</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">^</span><span style="color: #c695c6">\\</span><span style="color: #80b979">s*File </span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979">(...*?)</span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979">, line ([0-9]*)</span><span style="color: #5fb4b4">&quot;</span>
 }</span></code></pre>
 
         <p>
@@ -356,7 +356,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.python</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
             <dt id="option-file_patterns">
@@ -369,7 +369,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">*.py</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
+                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">*.py</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
                 </div>
             </dd>
             <dt id="option-keyfiles">
@@ -382,7 +382,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Makefile</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
+                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Makefile</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
                 </div>
             </dd>
             <dt id="option-variants">
@@ -400,8 +400,8 @@
                     Example:
                     <pre><code class="syntax-json"><span style="color: #333333">[
     {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Debug Symbols</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">-D</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">$file</span><span style="color: #5fb4b4">&quot;</span>]
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Debug Symbols</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-D</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
     }
 ]
 </span></code></pre>
@@ -427,8 +427,8 @@
                 </p>
                 <div class="example">
                     Examples:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cancel_my_build</span><span style="color: #5fb4b4">&quot;</span></span></code> or
-                    <code class="syntax-json"><span style="color: #333333">{<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kill</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>}</span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cancel_my_build</span><span style="color: #5fb4b4">&quot;</span></span></code> or
+                    <code class="syntax-json"><span style="color: #333333">{<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kill</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>}</span></code>
                 </i>
             </dd>
             <dt id="option-target">
@@ -444,7 +444,7 @@
                 </p>
                 <p>
                     If a value other than
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">exec</span><span style="color: #5fb4b4">&quot;</span></span></code> is specified,
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">exec</span><span style="color: #5fb4b4">&quot;</span></span></code> is specified,
                     none of the options in <a href="build_systems.html#exec_options">exec Target
                     Options</a> will do anything.
                 </p>
@@ -454,7 +454,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">my_build</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_build</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </i>
             </dd>
             <dt id="option-windows">
@@ -468,7 +468,7 @@
                 <div class="example">
                     Example:
                     <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">my_command.exe</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">/D</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">$file</span><span style="color: #5fb4b4">&quot;</span>]
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command.exe</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">/D</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
 }
 </span></code></pre>
                 </div>
@@ -484,7 +484,7 @@
                 <div class="example">
                     Example:
                     <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">/Applications/MyProgram.app/Contents/MacOS/my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">$file</span><span style="color: #5fb4b4">&quot;</span>]
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">/Applications/MyProgram.app/Contents/MacOS/my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
 }
 </span></code></pre>
                 </div>
@@ -500,7 +500,7 @@
                 <div class="example">
                     Example:
                     <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">/usr/local/bin/my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">$file</span><span style="color: #5fb4b4">&quot;</span>]
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">/usr/local/bin/my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
 }
 </span></code></pre>
                 </div>
@@ -534,7 +534,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">$file</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
+                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
                 </div>
             </dd>
             <dt id="exec_option-shell_cmd">
@@ -553,7 +553,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">my_command </span><span style="color: #c695c6">\&quot;</span><span style="color: #99c794">$file</span><span style="color: #c695c6">\&quot;</span><span style="color: #99c794"> | other_command</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command </span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979">$file</span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979"> | other_command</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </i>
             </dd>
             <dt id="exec_option-working_dir">
@@ -571,7 +571,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">$file_path</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file_path</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
             <dt id="exec_option-file_regex">
@@ -593,7 +593,7 @@
                 </ol>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">^</span><span style="color: #f7f7f7">\s</span><span style="color: #99c794">*(</span><span style="color: #c695c6">\\</span><span style="color: #99c794">S[^:]*)</span><span style="color: #c695c6">\\</span><span style="color: #99c794">((</span><span style="color: #c695c6">\\</span><span style="color: #99c794">d+):(</span><span style="color: #c695c6">\\</span><span style="color: #99c794">d+)</span><span style="color: #c695c6">\\</span><span style="color: #99c794">): ([^</span><span style="color: #c695c6">\\</span><span style="color: #99c794">n]+)</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">^</span><span style="color: #f7f7f7">\s</span><span style="color: #80b979">*(</span><span style="color: #c695c6">\\</span><span style="color: #80b979">S[^:]*)</span><span style="color: #c695c6">\\</span><span style="color: #80b979">((</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+):(</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+)</span><span style="color: #c695c6">\\</span><span style="color: #80b979">): ([^</span><span style="color: #c695c6">\\</span><span style="color: #80b979">n]+)</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
             <dt id="exec_option-line_regex">
@@ -617,7 +617,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">^</span><span style="color: #f7f7f7">\s</span><span style="color: #99c794">*line (</span><span style="color: #c695c6">\\</span><span style="color: #99c794">d+) col (</span><span style="color: #c695c6">\\</span><span style="color: #99c794">d+): ([^</span><span style="color: #c695c6">\\</span><span style="color: #99c794">n]+)</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">^</span><span style="color: #f7f7f7">\s</span><span style="color: #80b979">*line (</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+) col (</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+): ([^</span><span style="color: #c695c6">\\</span><span style="color: #80b979">n]+)</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
             <dt id="exec_option-encoding">
@@ -626,11 +626,11 @@
             </dt>
             <dd>
                 <p>
-                    The encoding of the build system output. Uses <a href="https://docs.python.org/3.3/library/codecs.html#id3">Python codec names</a>. Defaults to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">utf-8</span><span style="color: #5fb4b4">&quot;</span></span></code>.
+                    The encoding of the build system output. Uses <a href="https://docs.python.org/3.3/library/codecs.html#id3">Python codec names</a>. Defaults to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">utf-8</span><span style="color: #5fb4b4">&quot;</span></span></code>.
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">iso-8859-1</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">iso-8859-1</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
             <dt id="exec_option-env">
@@ -644,7 +644,7 @@
                 <div class="example">
                     Example:
                     <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">PYTHONIOENCODING</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">utf-8</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">PYTHONIOENCODING</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">utf-8</span><span style="color: #5fb4b4">&quot;</span>
 }</span></code></pre>
                 </div>
             </dd>
@@ -684,7 +684,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Packages/JavaScript/JSON.sublime-syntax</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Packages/JavaScript/JSON.sublime-syntax</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
         </dl>
@@ -767,9 +767,9 @@
                 </td>
                 <td>
                     The platform Sublime Text is running on:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">windows</span><span style="color: #5fb4b4">&quot;</span></span></code>,
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">osx</span><span style="color: #5fb4b4">&quot;</span></span></code> or
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">linux</span><span style="color: #5fb4b4">&quot;</span></span></code>.
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">windows</span><span style="color: #5fb4b4">&quot;</span></span></code>,
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">osx</span><span style="color: #5fb4b4">&quot;</span></span></code> or
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">linux</span><span style="color: #5fb4b4">&quot;</span></span></code>.
                 </td>
             </tr>
             <tr>
@@ -900,7 +900,7 @@
 
 <span style="color: #c695c6; font-style: italic">class</span> <span style="color: #f9ae58">MyExampleBuildCommand</span>(<span style="color: #5fb4b4; font-style: italic">sublime_plugin</span><span style="color: #f97b58; font-style: italic">.</span><span style="color: #5fb4b4; font-style: italic">WindowCommand</span>):
 
-    encoding <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">utf-8</span><span style="color: #5fb4b4">&#x27;</span>
+    encoding <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">utf-8</span><span style="color: #5fb4b4">&#x27;</span>
     killed <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">False</span>
     proc <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">None</span>
     panel <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">None</span>
@@ -921,13 +921,13 @@
             <span style="color: #c695c6">return</span>
 
         <span style="color: #6699cc; font-style: italic">vars</span> <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">extract_variables</span>()
-        working_dir <span style="color: #f97b58">=</span> <span style="color: #6699cc; font-style: italic">vars</span>[<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">file_path</span><span style="color: #5fb4b4">&#x27;</span>]
+        working_dir <span style="color: #f97b58">=</span> <span style="color: #6699cc; font-style: italic">vars</span>[<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">file_path</span><span style="color: #5fb4b4">&#x27;</span>]
 
         <span style="color: #999999">#</span><span style="color: #999999"> A lock is used to ensure only one thread is
 </span>        <span style="color: #999999">#</span><span style="color: #999999"> touching the output panel at a time
 </span>        <span style="color: #c695c6">with</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel_lock:
             <span style="color: #999999">#</span><span style="color: #999999"> Creating the panel implicitly clears any previous contents
-</span>            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">create_output_panel</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">exec</span><span style="color: #5fb4b4">&#x27;</span>)
+</span>            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">create_output_panel</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">exec</span><span style="color: #5fb4b4">&#x27;</span>)
 
             <span style="color: #999999">#</span><span style="color: #999999"> Enable result navigation. The result_file_regex does
 </span>            <span style="color: #999999">#</span><span style="color: #999999"> the primary matching, but result_line_regex is used
@@ -937,27 +937,27 @@
 </span>            <span style="color: #999999">#</span><span style="color: #999999"> path to resolve relative file names against.
 </span>            settings <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel<span style="color: #f97b58">.</span><span style="color: #6699cc">settings</span>()
             settings<span style="color: #f97b58">.</span><span style="color: #6699cc">set</span>(
-                <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">result_file_regex</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span>
-                <span style="color: #c695c6; font-style: italic">r</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">^</span><span style="color: #99c794">File &quot;</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4">[</span><span style="color: #f97b58">^</span><span style="color: #c695c6">&quot;</span><span style="color: #5fb4b4">]</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #99c794">&quot; line </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #99c794"> col </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">&#x27;</span>
+                <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">result_file_regex</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span>
+                <span style="color: #c695c6; font-style: italic">r</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">^</span><span style="color: #80b979">File &quot;</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4">[</span><span style="color: #f97b58">^</span><span style="color: #c695c6">&quot;</span><span style="color: #5fb4b4">]</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #80b979">&quot; line </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #80b979"> col </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">&#x27;</span>
             )
             settings<span style="color: #f97b58">.</span><span style="color: #6699cc">set</span>(
-                <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">result_line_regex</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span>
-                <span style="color: #c695c6; font-style: italic">r</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">^</span><span style="color: #c695c6">\s</span><span style="color: #f97b58">+</span><span style="color: #99c794">line </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #99c794"> col </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">&#x27;</span>
+                <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">result_line_regex</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span>
+                <span style="color: #c695c6; font-style: italic">r</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">^</span><span style="color: #c695c6">\s</span><span style="color: #f97b58">+</span><span style="color: #80b979">line </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #80b979"> col </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">&#x27;</span>
             )
-            settings<span style="color: #f97b58">.</span><span style="color: #6699cc">set</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">result_base_dir</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> working_dir)
+            settings<span style="color: #f97b58">.</span><span style="color: #6699cc">set</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">result_base_dir</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> working_dir)
 
-            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">run_command</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">show_panel</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">panel</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">output.exec</span><span style="color: #5fb4b4">&#x27;</span>})
+            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">run_command</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">show_panel</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">panel</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">output.exec</span><span style="color: #5fb4b4">&#x27;</span>})
 
         <span style="color: #c695c6">if</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc <span style="color: #f97b58">is</span> <span style="color: #f97b58">not</span> <span style="color: #ec5f66; font-style: italic">None</span>:
             <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc<span style="color: #f97b58">.</span><span style="color: #6699cc">terminate</span>()
             <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">None</span>
 
-        args <span style="color: #f97b58">=</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">my_cli</span><span style="color: #5fb4b4">&#x27;</span>]
+        args <span style="color: #f97b58">=</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">my_cli</span><span style="color: #5fb4b4">&#x27;</span>]
         <span style="color: #c695c6">if</span> lint:
-            args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">-l</span><span style="color: #5fb4b4">&#x27;</span>)
+            args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">-l</span><span style="color: #5fb4b4">&#x27;</span>)
         <span style="color: #c695c6">elif</span> integration:
-            args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">-i</span><span style="color: #5fb4b4">&#x27;</span>)
-        args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #6699cc; font-style: italic">vars</span>[<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">file_name</span><span style="color: #5fb4b4">&#x27;</span>])
+            args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">-i</span><span style="color: #5fb4b4">&#x27;</span>)
+        args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #6699cc; font-style: italic">vars</span>[<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">file_name</span><span style="color: #5fb4b4">&#x27;</span>])
         <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc <span style="color: #f97b58">=</span> subprocess<span style="color: #f97b58">.</span><span style="color: #6699cc">Popen</span>(
             args<span style="color: #ac7a68">,</span>
             <span style="color: #f9ae58">stdout</span><span style="color: #f97b58">=</span>subprocess<span style="color: #f97b58">.</span>PIPE<span style="color: #ac7a68">,</span>
@@ -984,24 +984,24 @@
                 <span style="color: #c695c6">if</span> <span style="color: #6699cc; font-style: italic">len</span>(data) <span style="color: #f97b58">==</span> chunk_size:
                     <span style="color: #c695c6">continue</span>
                 <span style="color: #c695c6">if</span> data <span style="color: #f97b58">==</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span> <span style="color: #f97b58">and</span> out <span style="color: #f97b58">==</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span>:
-                    <span style="color: #c695c6">raise</span> <span style="color: #6699cc; font-style: italic">IOError</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">EOF</span><span style="color: #5fb4b4">&#x27;</span>)
+                    <span style="color: #c695c6">raise</span> <span style="color: #6699cc; font-style: italic">IOError</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">EOF</span><span style="color: #5fb4b4">&#x27;</span>)
                 <span style="color: #999999">#</span><span style="color: #999999"> We pass out to a function to ensure the
 </span>                <span style="color: #999999">#</span><span style="color: #999999"> timeout gets the value of out right now,
 </span>                <span style="color: #999999">#</span><span style="color: #999999"> rather than a future (mutated) version
 </span>                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">queue_write</span>(out<span style="color: #f97b58">.</span><span style="color: #6699cc">decode</span>(<span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>encoding))
                 <span style="color: #c695c6">if</span> data <span style="color: #f97b58">==</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span>:
-                    <span style="color: #c695c6">raise</span> <span style="color: #6699cc; font-style: italic">IOError</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">EOF</span><span style="color: #5fb4b4">&#x27;</span>)
+                    <span style="color: #c695c6">raise</span> <span style="color: #6699cc; font-style: italic">IOError</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">EOF</span><span style="color: #5fb4b4">&#x27;</span>)
                 out <span style="color: #f97b58">=</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span>
             <span style="color: #c695c6">except</span> (<span style="color: #6699cc; font-style: italic">UnicodeDecodeError</span>) <span style="color: #c695c6">as</span> e:
-                msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">Error decoding output using </span><span style="color: #c695c6">%s</span><span style="color: #99c794"> - </span><span style="color: #c695c6">%s</span><span style="color: #5fb4b4">&#x27;</span>
+                msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Error decoding output using </span><span style="color: #c695c6">%s</span><span style="color: #80b979"> - </span><span style="color: #c695c6">%s</span><span style="color: #5fb4b4">&#x27;</span>
                 <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">queue_write</span>(msg  <span style="color: #f97b58">%</span> (<span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>encoding<span style="color: #ac7a68">,</span> <span style="color: #6699cc; font-style: italic">str</span>(e)))
                 <span style="color: #c695c6">break</span>
             <span style="color: #c695c6">except</span> (<span style="color: #6699cc; font-style: italic">IOError</span>):
                 <span style="color: #c695c6">if</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>killed:
-                    msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">Cancelled</span><span style="color: #5fb4b4">&#x27;</span>
+                    msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Cancelled</span><span style="color: #5fb4b4">&#x27;</span>
                 <span style="color: #c695c6">else</span>:
-                    msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">Finished</span><span style="color: #5fb4b4">&#x27;</span>
-                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">queue_write</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">\n</span><span style="color: #99c794">[</span><span style="color: #c695c6">%s</span><span style="color: #99c794">]</span><span style="color: #5fb4b4">&#x27;</span> <span style="color: #f97b58">%</span> msg)
+                    msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Finished</span><span style="color: #5fb4b4">&#x27;</span>
+                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">queue_write</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">\n</span><span style="color: #80b979">[</span><span style="color: #c695c6">%s</span><span style="color: #80b979">]</span><span style="color: #5fb4b4">&#x27;</span> <span style="color: #f97b58">%</span> msg)
                 <span style="color: #c695c6">break</span>
 
     <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">queue_write</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">text</span>):
@@ -1009,7 +1009,7 @@
 
     <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">do_write</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">text</span>):
         <span style="color: #c695c6">with</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel_lock:
-            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel<span style="color: #f97b58">.</span><span style="color: #6699cc">run_command</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">append</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&#x27;</span><span style="color: #99c794">characters</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">:</span> text})
+            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel<span style="color: #f97b58">.</span><span style="color: #6699cc">run_command</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">append</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">characters</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">:</span> text})
 </span></code></pre>
 
         <p>
@@ -1020,17 +1020,17 @@
         </p>
 
         <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">target</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">my_example_build</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.mylang</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">cancel</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kill</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>}<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">variants</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">target</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_example_build</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.mylang</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cancel</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kill</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>}<span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">variants</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
         {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Lint</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">lint</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Lint</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">lint</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
         }<span style="color: #ac7a68">,</span>
         {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Integration Tests</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">integration</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Integration Tests</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">integration</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
         }
     ]
 }</span></code></pre>

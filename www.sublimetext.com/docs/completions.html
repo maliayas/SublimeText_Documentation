@@ -69,7 +69,7 @@
         Completions
     </span></h1>
 
-    <div class="versions">
+        <div class="versions">
         Ver<span class="expanded">sion</span>:<br>
         <a href="completions.html#ver-dev" class="ver-sel">Dev</a>
         <a href="completions.html#ver-3.2" class="ver-sel" data-default="1">3.2</a>
@@ -88,7 +88,7 @@
             <li>Words from the current file</li>
             <li class="build-4050">
                 Context-aware suggestions
-                <span class="build" title="Added in build 4050">4050</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
             </li>
             <li>Completion files</li>
             <li>Snippet files</li>
@@ -105,11 +105,11 @@
             <li><a href="completions.html#usage">Usage</a></li>
             <li class="build-4050">
                 <a href="completions.html#context-aware_suggestions">Context-Aware Suggestions</a>
-                <span class="build" title="Added in build 4050">4050</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
             </li>
             <li class="build-4050">
-                <a href="completions.html#completion_details">Completion Details</a>
-                <span class="build" title="Added in build 4050">4050</span>
+                <a href="completions.html#completion_metadata">Completion Metadata</a>
+                <span class="build" title="Added in version 4.0">4.0</span>
             </li>
             <li>
                 <a href="completions.html#customization">Customization</a>
@@ -146,7 +146,7 @@
     <section class="build-4050">
         <h2 id="context-aware_suggestions">
             Context-Aware Suggestions
-            <span class="build" title="Added in build 4050">4050</span>
+            <span class="build" title="Added in version 4.0">4.0</span>
         </h2>
 
         <p>
@@ -175,15 +175,15 @@
     </section>
 
     <section class="build-4050">
-        <h2 id="completion_details">
-            Completion Details
-            <span class="build" title="Added in build 4050">4050</span>
+        <h2 id="completion_metadata">
+            Completion Metadata
+            <span class="build" title="Added in version 4.0">4.0</span>
         </h2>
 
         <p>
             In addition to their textual contents, completions may also
-            provide additional details to users. These include the metadata
-            about the <em>kind</em> of element the completion represents, a
+            provide additional details to users. These include the
+            <em>kind</em> of element the completion represents, a
             short <em>annotation</em> to help in picking a completion, and
             <em>details</em> that may contain links to additional resources.
         </p>
@@ -198,7 +198,7 @@
                             </g>
                         </g>
                     </svg>
-                    <em>Kind metadata</em>
+                    <em>Kind info</em>
                 </td>
                 <td></td>
             </tr>
@@ -259,12 +259,12 @@
             </tr>
         </table>
 
-        <h3>Kind Metadata</h3>
+        <h3>Kind Info</h3>
 
         <p>
-            Completions may provide <em>kind</em> metadata to be presented
-            with the completion trigger. This metadata includes high-level
-            categories, an identifying letter, and a name. The following are
+            Completions may provide <em>kind</em> info to be presented
+            with the completion trigger. This includes a high-level
+            category, an identifying letter, and a name. The following are
             some of the most common kinds:
         </p>
 
@@ -323,11 +323,10 @@
 
         <h3>
             Details
-            <span class="build" title="Added in build 4073">4073</span>
         </h3>
 
         <p>
-            The details field of a completion may contain a rich text description with links. The details for a completion is shown at the bottom of the completions popup when the completion is selected.
+            The <code>details</code> field of a completion may contain a rich text description with links. The details for a completion is shown at the bottom of the completions popup when the completion is selected.
         </p>
     </section>
 
@@ -365,13 +364,13 @@
         </p>
 
         <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">completions</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">class</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">None</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">True</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">False</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">completions</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">class</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">None</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">True</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">False</span><span style="color: #5fb4b4">&quot;</span>
     ]
 }</span></code></pre>
 
@@ -404,7 +403,7 @@
             </dd>
             <dt class="build-4073">
                 <span class="key">annotation</span>
-                <span class="build" title="Adding in build 4073">4073</span>
+                <span class="build" title="Adding in version 4.0">4.0</span>
                 <span class="data-type">string</span>
             </dt>
             <dd class="build-4073">
@@ -414,7 +413,7 @@
             </dd>
             <dt class="build-4073">
                 <span class="key">kind</span>
-                <span class="build" title="Adding in build 4073">4073</span>
+                <span class="build" title="Adding in version 4.0">4.0</span>
                 <span class="data-type">string, 3-element array of strings</span>
             </dt>
             <dd class="build-4073">
@@ -425,19 +424,19 @@
                     If the value is a string, it must be one of:
                 </p>
                 <ul>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">ambiguous</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">function</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">keyword</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">markup</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">namespace</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">navigation</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">snippet</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">type</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">variable</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ambiguous</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">function</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keyword</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">markup</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">namespace</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">navigation</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">snippet</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">type</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
+                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">variable</span><span style="color: #5fb4b4">&quot;</span></span></code></li>
                 </ul>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">function</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kind</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">function</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
                 <p>
                     If the value is a 3-element array of strings, they must be:
@@ -449,12 +448,12 @@
                 </ol>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span>: [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">function</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">m</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Method</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kind</span><span style="color: #5fb4b4">&quot;</span>: [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">function</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">m</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Method</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
                 </div>
             </dd>
             <dt class="build-4073">
                 <span class="key">details</span>
-                <span class="build" title="Adding in build 4073">4073</span>
+                <span class="build" title="Adding in version 4.0">4.0</span>
                 <span class="data-type">string</span>
             </dt>
             <dd class="build-4073">
@@ -476,7 +475,7 @@
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">details</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Wraps selection in a &lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt; tag</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">details</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Wraps selection in a &lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt; tag</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
             </dd>
         </dl>
@@ -486,19 +485,19 @@
         </p>
 
         <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">completions</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">completions</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
         {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">trigger</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">contents</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">keyword</span><span style="color: #5fb4b4">&quot;</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">trigger</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">contents</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kind</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keyword</span><span style="color: #5fb4b4">&quot;</span>
         }<span style="color: #ac7a68">,</span>
         {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">trigger</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">fun</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">annotation</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">basic function</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">contents</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def ${1:name}($2):</span><span style="color: #c695c6">\n</span><span style="color: #99c794">    $0</span><span style="color: #c695c6">\n</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">kind</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">snippet</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">details</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">A simple, non-&lt;code&gt;async&lt;/code&gt; function definition</span><span style="color: #5fb4b4">&quot;</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">trigger</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">fun</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">annotation</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">basic function</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">contents</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def ${1:name}($2):</span><span style="color: #c695c6">\n</span><span style="color: #80b979">    $0</span><span style="color: #c695c6">\n</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kind</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">snippet</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">details</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">A simple, non-&lt;code&gt;async&lt;/code&gt; function definition</span><span style="color: #5fb4b4">&quot;</span>
         }
     ]
 }</span></code></pre>
@@ -538,7 +537,7 @@
                     The text to insert into the document when the snippet it applied. Supports <a href="completions.html#snippet_fields">fields</a> and <a href="completions.html#snippet_variables">variables</a>.
                 </p>
                 <p>
-                    Typically the contents of this tag are wrapped in <code class="syntax-xml"><span style="color: #333333"><span style="color: #5fb4b4">&lt;![</span><span style="color: #c695c6">CDATA</span><span style="color: #5fb4b4">[</span></span></code> and <code class="syntax-xml"><span style="color: #333333">]]&gt;</span></code> so that the contents do not need to be XML-escaped.
+                    Typically the contents of this tag are wrapped in <code class="syntax-xml"><span style="color: #333333"><span style="color: #5fb4b4">&lt;![</span><span style="color: #c695c6; font-style: italic">CDATA</span><span style="color: #5fb4b4">[</span></span></code> and <code class="syntax-xml"><span style="color: #333333">]]&gt;</span></code> so that the contents do not need to be XML-escaped.
                 </p>
             </dd>
             <dt>
@@ -558,7 +557,7 @@
         <pre><code class="syntax-xml"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">snippet</span><span style="color: #5fb4b4">&gt;</span>
     <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">scope</span><span style="color: #5fb4b4">&gt;</span>source.python<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">scope</span><span style="color: #5fb4b4">&gt;</span>
     <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tabTrigger</span><span style="color: #5fb4b4">&gt;</span>fun<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">tabTrigger</span><span style="color: #5fb4b4">&gt;</span>
-    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">content</span><span style="color: #5fb4b4">&gt;</span><span style="color: #5fb4b4">&lt;![</span><span style="color: #c695c6">CDATA</span><span style="color: #5fb4b4">[</span><span style="color: #99c794">def ${1:name}($2):
+    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">content</span><span style="color: #5fb4b4">&gt;</span><span style="color: #5fb4b4">&lt;![</span><span style="color: #c695c6; font-style: italic">CDATA</span><span style="color: #5fb4b4">[</span><span style="color: #80b979">def ${1:name}($2):
     ${0:pass}</span><span style="color: #5fb4b4">]]&gt;</span><span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">content</span><span style="color: #5fb4b4">&gt;</span>
     <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">description</span><span style="color: #5fb4b4">&gt;</span>function, non-async<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">description</span><span style="color: #5fb4b4">&gt;</span>
 <span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">snippet</span><span style="color: #5fb4b4">&gt;</span>
@@ -712,15 +711,15 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
 
 <span style="color: #c695c6; font-style: italic">class</span> <span style="color: #f9ae58">MyCompletions</span>(<span style="color: #5fb4b4; font-style: italic">sublime_plugin</span><span style="color: #f97b58; font-style: italic">.</span><span style="color: #5fb4b4; font-style: italic">EventListener</span>):
     <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">on_query_completions</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">view</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">prefix</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">locations</span>):
-        <span style="color: #c695c6">if</span> <span style="color: #f97b58">not</span> view<span style="color: #f97b58">.</span><span style="color: #6699cc">match_selector</span>(locations[<span style="color: #f9ae58">0</span>]<span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">source.python</span><span style="color: #5fb4b4">&quot;</span>):
+        <span style="color: #c695c6">if</span> <span style="color: #f97b58">not</span> view<span style="color: #f97b58">.</span><span style="color: #6699cc">match_selector</span>(locations[<span style="color: #f9ae58">0</span>]<span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.python</span><span style="color: #5fb4b4">&quot;</span>):
             <span style="color: #c695c6">return</span> []
         
         available_completions <span style="color: #f97b58">=</span> [
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">class</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">None</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">True</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">False</span><span style="color: #5fb4b4">&quot;</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">def</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">class</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">None</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">True</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">False</span><span style="color: #5fb4b4">&quot;</span>
         ]
         
         prefix <span style="color: #f97b58">=</span> prefix<span style="color: #f97b58">.</span><span style="color: #6699cc">lower</span>()
@@ -800,7 +799,7 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
                 </p>
                 <div class="example">
                     Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">meta.tag, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">meta.tag, source - comment - string.quoted.double.block - string.quoted.single.block - string.unquoted.heredoc</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </div>
                 <p>
                     <em>The <span class="setting">auto_complete_triggers"</span> setting may be used to re-enable the automatic completions popup in specific situations.</em>
@@ -821,8 +820,8 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
                     Example:
                     <pre><code class="syntax-json"><span style="color: #333333">[
     {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">text.html</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">characters</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">&lt;</span><span style="color: #5fb4b4">&quot;</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">text.html</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">characters</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">&lt;</span><span style="color: #5fb4b4">&quot;</span>
     }
 ]</span></code></pre>
                 </div>
@@ -874,7 +873,7 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
             </dd>
             <dt class="build-4052">
                 <span class="setting">auto_complete_use_index</span>
-                <span class="build" title="Added in build 4052">4052</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
                 <span class="data-type">boolean</span>
             </dt>
             <dd class="build-4052">
@@ -884,7 +883,7 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
             </dd>
             <dt class="build-4052">
                 <span class="setting">auto_complete_preserve_order</span>
-                <span class="build" title="Added in build 4052">4052</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
                 <span class="data-type">string</span>
             </dt>
             <dd class="build-4052">
@@ -893,19 +892,19 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
                 </p>
                 <ul>
                     <li>
-                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">none</span><span style="color: #5fb4b4">&quot;</span></span></code> – fully reorder the results according to how well the completion matches the typed text
+                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">none</span><span style="color: #5fb4b4">&quot;</span></span></code> – fully reorder the results according to how well the completion matches the typed text
                     </li>
                     <li>
-                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">some</span><span style="color: #5fb4b4">&quot;</span></span></code> – partially reorder the results, taking into account how well the completion matches whats typed, and likelihood of the completion
+                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">some</span><span style="color: #5fb4b4">&quot;</span></span></code> – partially reorder the results, taking into account how well the completion matches whats typed, and likelihood of the completion
                     </li>
                     <li>
-                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">strict</span><span style="color: #5fb4b4">&quot;</span></span></code> – never reorder the results
+                        <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">strict</span><span style="color: #5fb4b4">&quot;</span></span></code> – never reorder the results
                     </li>
                 </ul>
             </dd>
             <dt class="build-4050">
                 <span class="setting">auto_complete_trailing_symbols</span>
-                <span class="build" title="Added in build 4050">4050</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
                 <span class="data-type">boolean</span>
             </dt>
             <dd class="build-4050">
@@ -915,7 +914,7 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
             </dd>
             <dt class="build-4050">
                 <span class="setting">auto_complete_trailing_spaces</span>
-                <span class="build" title="Added in build 4050">4050</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
                 <span class="data-type">boolean</span>
             </dt>
             <dd class="build-4050">
@@ -925,7 +924,7 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
             </dd>
             <dt class="build-4050">
                 <span class="setting">auto_complete_include_snippets</span>
-                <span class="build" title="Added in build 4050">4050</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
                 <span class="data-type">boolean</span>
             </dt>
             <dd class="build-4050">
@@ -938,7 +937,7 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
             </dd>
             <dt class="build-4052">
                 <span class="setting">auto_complete_include_snippets_when_typing</span>
-                <span class="build" title="Added in build 4052">4052</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
                 <span class="data-type">boolean</span>
             </dt>
             <dd class="build-4052">
@@ -948,7 +947,7 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
             </dd>
             <dt class="build-4050">
                 <span class="setting">ignored_snippets</span>
-                <span class="build" title="Added in build 4050">4050</span>
+                <span class="build" title="Added in version 4.0">4.0</span>
                 <span class="data-type">array of strings</span>
             </dt>
             <dd class="build-4050">
@@ -959,12 +958,15 @@ Email: ${2:${1/\s.*//}}@${3:example.com}</code></pre>
                     <em>For example, to ignore all the default C++ snippets:</em>
                 </p>
                 <pre><code class="syntax-json"><span style="color: #333333">[
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">C++/*</span><span style="color: #5fb4b4">&quot;</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">C++/*</span><span style="color: #5fb4b4">&quot;</span>
 ]</span></code></pre>
             </dd>
         </ul>
     </section>
 
+    <script type="text/javascript">
+        var includeBuilds = [4050, 4052, 4073];
+    </script>
     <script type="text/javascript" src="docs.js"></script>
 
     </section>

@@ -90,7 +90,7 @@
         <h2 id="enabling_vintage">Enabling Vintage</h2>
 
         <p>
-            Vintage is disabled by default, via the <span class="setting">ignored_packages</span> setting. If you remove <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Vintage</span><span style="color: #5fb4b4">&quot;</span></span></code> from the list of ignored packages, you'll be able to edit with vi keys:
+            Vintage is disabled by default, via the <span class="setting">ignored_packages</span> setting. If you remove <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Vintage</span><span style="color: #5fb4b4">&quot;</span></span></code> from the list of ignored packages, you'll be able to edit with vi keys:
         </p>
 
         <ol>
@@ -99,9 +99,9 @@
             </li>
             <li>
                 Edit the <span class="setting">ignored_packages</span> setting, changing it from:
-                <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">ignored_packages</span><span style="color: #5fb4b4">&quot;</span>: [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">Vintage</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
+                <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ignored_packages</span><span style="color: #5fb4b4">&quot;</span>: [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Vintage</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
                 to:
-                <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">ignored_packages</span><span style="color: #5fb4b4">&quot;</span>: []</span></code>
+                <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ignored_packages</span><span style="color: #5fb4b4">&quot;</span>: []</span></code>
                 now save the file.
             </li>
             <li>
@@ -113,7 +113,7 @@
             Vintage starts in insert mode by default. This can be changed by adding the following setting to your user settings:
         </p>
 
-        <pre><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">vintage_start_in_command_mode</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #ec5f66; font-style: italic">true</span></span></code></pre>
+        <pre><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">vintage_start_in_command_mode</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #ec5f66; font-style: italic">true</span></span></code></pre>
 
         <h2 id="included">What’s Included</h2>
 
@@ -150,12 +150,12 @@
         </p>
 
         <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">j</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">j</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">exit_insert_mode</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">context</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">j</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">j</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">exit_insert_mode</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">context</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
     [
-        { <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">setting.command_mode</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">operand</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">false</span> }<span style="color: #ac7a68">,</span>
-        { <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">setting.is_widget</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">operand</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">false</span> }
+        { <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">setting.command_mode</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">operand</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">false</span> }<span style="color: #ac7a68">,</span>
+        { <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">setting.is_widget</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">operand</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">false</span> }
     ]
 }
 </span></code></pre>
@@ -187,7 +187,7 @@
             However, because they conflict with other Sublime Text key bindings, these are disabled by default on Windows and Linux. They can be enabled with the <span class="setting">vintage_ctrl_keys</span> setting:
         </p>
 
-        <pre><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #99c794">vintage_ctrl_keys</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #ec5f66; font-style: italic">true</span></span></code></pre>
+        <pre><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">vintage_ctrl_keys</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #ec5f66; font-style: italic">true</span></span></code></pre>
 
         <h2 id="ex_mode">Ex Mode</h2>
 

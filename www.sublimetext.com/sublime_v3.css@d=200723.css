@@ -1981,6 +1981,27 @@ span.build
 {
     background-color: #92c3c3;
 }
+p.available_since span.added
+{
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    line-height: 1.2;
+    padding: 2px 5px 2px;
+    display: inline-block;
+    font-style: italic;
+    background-color: #e8f2f2;
+    color: #777;
+}
+p.available_since span.version
+{
+    background-color: #92c3c3;
+    display: inline-block;
+    line-height: 1.2;
+    color: white;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    padding: 2px 5px 2px;
+}
 
 span.python
 {
