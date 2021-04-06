@@ -673,9 +673,7 @@
             <tr class="build-4081">
                 <td class="mth">find_syntax_by_name(name)</td>
                 <td class="rtn">
-                    <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>
-                    <em>or</em>
-                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                    [<a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>]
                 </td>
                 <td class="dsc">
                     Returns the the <span class="data-type">Syntax</span>, if any, with the unicode string <span class="parameter">name</span> specified
@@ -687,9 +685,7 @@
             <tr class="build-4081">
                 <td class="mth">find_syntax_by_scope(scope)</td>
                 <td class="rtn">
-                    <a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>
-                    <em>or</em>
-                    <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
+                    [<a href="api_reference.html#sublime.Syntax"><span class="data-type">Syntax</span></a>]
                 </td>
                 <td class="dsc">
                     Returns the the <span class="data-type">Syntax</span>, if any, with the unicode string base <span class="parameter">scope</span> specified
@@ -978,7 +974,7 @@
                     <span class="data-type">str</span>
                 </td>
                 <td class="dsc">
-                    Returns the CPU architecture, which may be <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">x32</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">x64</span><span style="color: #5fb4b4">&quot;</span></span></code>
+                    Returns the CPU architecture, which may be <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">x32</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">x64</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-python"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">arm64</span><span style="color: #5fb4b4">&quot;</span></span></code>
                 </td>
                 <td class="tags"></td>
             </tr>
@@ -1030,6 +1026,18 @@
                     Returns the window containing the sheet. May be <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code> if the sheet has been closed.
                 </td>
                 <td class="tags"></td>
+            </tr>
+            <tr id="sublime.Sheet.group" class="build-4100">
+                <td class="mth">group()</td>
+                <td class="rtn">
+                    <span class="data-type">int</span>
+                </td>
+                <td class="dsc">
+                    The (layout) group that the sheet is contained within
+                </td>
+                <td class="tags">
+                    <span class="build" title="Added in build 4100">4100</span>
+                </td>
             </tr>
             <tr>
                 <td class="mth">view()</td>
@@ -4103,7 +4111,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.open_file">
                 <td class="mth">open_file(file_name, &lt;flags&gt;, &lt;group&gt;)</td>
                 <td class="rtn">
                     <a href="api_reference.html#sublime.View"><span class="data-type">View</span></a>
@@ -4133,6 +4141,9 @@
                         </li>
                         <li class="build-4096">
                             <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>SEMI_TRANSIENT</span></code> <span class="build" title="Added in build 4096">4096</span>: Valid in combination with <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>ADD_TO_SELECTION</span></code> and <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>REPLACE_MRU</span></code>. If a sheet is newly created, it will be set to semi-transient.
+                        </li>
+                        <li class="build-4100">
+                            <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>CLEAR_TO_RIGHT</span></code> <span class="build" title="Added in build 4100">4100</span>: Valid in combination with <code class="syntax-python"><span style="color: #333333">sublime<span style="color: #f97b58">.</span>ADD_TO_SELECTION</span></code>. All currently selected sheets to the right of the most-recently used sheet will be unselected before opening the file.
                         </li>
                     </ul>
                     <p>
@@ -4207,7 +4218,7 @@
                     <span class="build" title="Added in build 4065">4065</span>
                 </td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.active_sheet">
                 <td class="mth">active_sheet()</td>
                 <td class="rtn">
                     <a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a>
@@ -4227,7 +4238,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.active_sheet_in_group">
                 <td class="mth">active_sheet_in_group(group)</td>
                 <td class="rtn">
                     <a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a>
@@ -4257,7 +4268,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr class="build-4083">
+            <tr id="sublime.Window.selected_sheets" class="build-4083">
                 <td class="mth">selected_sheets()</td>
                 <td class="rtn">
                     [<a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a>]
@@ -4279,7 +4290,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr class="build-4083">
+            <tr id="sublime.Window.selected_sheets_in_group" class="build-4083">
                 <td class="mth">selected_sheets_in_group(group)</td>
                 <td class="rtn">
                     [<a href="api_reference.html#sublime.Sheet"><span class="data-type">Sheet</span></a>]
@@ -4291,7 +4302,7 @@
                     <span class="build" title="Added in build 4083">4083</span>
                 </td>
             </tr>
-            <tr class="build-4083">
+            <tr id="sublime.Window.select_sheets" class="build-4083">
                 <td class="mth">select_sheets(sheets)</td>
                 <td class="rtn">
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
@@ -4323,7 +4334,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.num_groups">
                 <td class="mth">num_groups()</td>
                 <td class="rtn">
                     <span class="data-type">int</span>
@@ -4333,7 +4344,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.active_group">
                 <td class="mth">active_group()</td>
                 <td class="rtn">
                     <span class="data-type">int</span>
@@ -4353,7 +4364,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.focus_sheet">
                 <td class="mth">focus_sheet(sheet)</td>
                 <td class="rtn">
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
@@ -4385,7 +4396,7 @@
                     <span class="build" title="Added in build 4066">4066</span>
                 </td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.get_sheet_index">
                 <td class="mth">get_sheet_index(sheet)</td>
                 <td class="rtn">
                     (<span class="data-type">int</span>, <span class="data-type">int</span>)
@@ -4395,7 +4406,7 @@
                 </td>
                 <td class="tags"></td>
             </tr>
-            <tr>
+            <tr id="sublime.Window.set_sheet_index">
                 <td class="mth">set_sheet_index(sheet, group, index)</td>
                 <td class="rtn">
                     <code class="syntax-python"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">None</span></span></code>
