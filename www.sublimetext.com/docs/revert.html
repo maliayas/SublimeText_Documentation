@@ -122,11 +122,27 @@
             When restarted, a fresh data directory will be created, just as it was the first time you ran Sublime Text. Keep in mind that this will also remove all of your settings and packages. The backup copy of your data directory can be used to retrieve configuration, or custom packages that can not be reinstalled.
         </p>
 
-        <h3>Windows</h3>
+        <div class="build-4050-removed hide_on_filter">
+            <h3>Windows</h3>
 
-        <p>
-            In Windows, cache files are stored in a separate location, <span class="file">%LOCALAPPDATA%\Sublime Text 3</span>, to improve performance with roaming profiles.
-        </p>
+            <p>
+                In Windows, cache files are stored in a separate location, <span class="file">%LOCALAPPDATA%\Sublime Text 3</span>, to improve performance with roaming profiles.
+            </p>
+        </div>
+
+        <div class="build-4050 hide_on_filter">
+            <h3>Cache</h3>
+
+            <p>
+                Cache files are stored in a separate location:
+
+                <ul>
+                    <li><strong>Windows:</strong> <span class="file">%LOCALAPPDATA%\Sublime Text</span></li>
+                    <li><strong>Mac:</strong> <span class="file">~/Library/Caches/Sublime Text</span></li>
+                    <li><strong>Linux:</strong> <span class="file">~/.cache/sublime-text</span></li>
+                </ul>
+            </p>
+        </div>
 
         <h3>Mac</h3>
 
