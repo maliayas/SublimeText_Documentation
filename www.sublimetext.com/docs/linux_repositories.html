@@ -92,6 +92,8 @@
     <section>
         <h2 id="apt">apt</h2>
 
+        <p>The apt repository contains packages for both x86-64 and arm64.</p>
+
         <p>
             Install the GPG key:
         </p>
@@ -143,11 +145,17 @@ sudo apt-get install sublime-text
         </p>
 
         <dl class="repositories">
-            <dt>Stable</dt>
+            <dt>Stable x86_64</dt>
             <dd><pre><code>echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64" | sudo tee -a /etc/pacman.conf
 </code></pre></dd>
-            <dt>Dev</dt>
+            <dt>Dev x86_64</dt>
             <dd><pre><code>echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64" | sudo tee -a /etc/pacman.conf
+</code></pre></dd>
+            <dt>Stable aarch64</dt>
+            <dd><pre><code>echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/aarch64" | sudo tee -a /etc/pacman.conf
+</code></pre></dd>
+            <dt>Dev aarch64</dt>
+            <dd><pre><code>echo -e "\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/aarch64" | sudo tee -a /etc/pacman.conf
 </code></pre></dd>
         </dl>
 
@@ -188,6 +196,8 @@ sudo apt-get install sublime-text
 
         <pre class="install"><code>sudo yum install sublime-text
 </code></pre>
+
+        <p>Note there are no RPM packages for ARM currently.</p>
     </section>
 
     <section>
@@ -220,6 +230,7 @@ sudo apt-get install sublime-text
         <pre class="install"><code>sudo dnf install sublime-text
 </code></pre>
 
+        <p>Note there are no RPM packages for ARM currently.</p>
     </section>
 
     <section>
@@ -252,6 +263,7 @@ sudo apt-get install sublime-text
         <pre class="install"><code>sudo zypper install sublime-text
 </code></pre>
 
+        <p>Note there are no RPM packages for ARM currently.</p>
     </section>
 
     <script type="text/javascript" src="docs.js"></script>
