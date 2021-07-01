@@ -2709,6 +2709,9 @@ section.screencast-meta {
 .section img.screenshot
 {
     border-radius: 4px;
+    width: 100%;
+    max-width: 480px;
+    height: auto;
 }
 .section img.icon
 {
