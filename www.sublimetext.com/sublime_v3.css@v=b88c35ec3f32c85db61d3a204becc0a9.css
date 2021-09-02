@@ -2694,6 +2694,10 @@ body.docs h1 > span > a
     justify-content: center;
 }
 
+div.section.group.narrow {
+    padding: 10px;
+}
+
 section.screencast-meta {
     color: #444;
     margin-bottom: 16px;
@@ -2729,7 +2733,8 @@ main > section.swimlane
     border-radius: 4px 4px 0 0;
 }
 
-body#homepage footer > section
+body#homepage footer > section,
+body#download-thanks footer > section
 {
     box-sizing: border-box;
     max-width: 1200px;
@@ -2747,7 +2752,8 @@ body#homepage footer > section
         margin-right: 20px;
     }
 
-    body#homepage footer > section
+    body#homepage footer > section,
+    body#download-thanks footer > section
     {
         width: auto;
         margin-left: 20px;
@@ -2809,6 +2815,10 @@ section.swimlane > section:last-child
     width: 100%;
 }
 
+.span_5_of_6 {
+    width: 82.66%;
+}
+
 .span_4_of_6 {
     width: 62.66%;
 }
@@ -2820,6 +2830,11 @@ section.swimlane > section:last-child
 .span_2_of_6 {
     width: 30.66%;
 }
+
+.span_1_of_6 {
+    width: 13.33%;
+}
+
 
 .section.features
 {
@@ -2890,8 +2905,6 @@ a.reviewer
     display: inline-block;
     width: 14px;
     height: 14px;
-    background: transparent 0 0 no-repeat;
-        background-image: none;
     background-image: url("icons/twitter.svg");
 }
 
@@ -2916,6 +2929,12 @@ a.reviewer
     text-decoration: none;
 }
 
+.collapse_image
+{
+    justify-items: center;
+    display: flex;
+}
+
 @media only screen and (max-width: 820px) {
     div.theme-selector { top: -48px;  }
     div.theme-selector a { line-height: 3.8; }
@@ -2924,6 +2943,7 @@ a.reviewer
     .span_1_of_6, .span_2_of_6, .span_3_of_6, .span_4_of_6, .span_5_of_6, .span_6_of_6 { width:100%; max-width:480px; }
     .section { display: flex; flex-flow: column; }
     .image{order:2;}
+    .collapse_image {display: none;}
     .text{order:1;}
     .section img {margin: auto; }
 }
@@ -3009,11 +3029,34 @@ div.download
     text-align: center;
 }
 
-div.download a.other_platforms
+div.download a.other_platforms,
+a.direct_downloads
 {
     display: inline-block;
     margin: 10px auto 0;
     color: white;
+}
+
+a.direct_downloads:hover
+{
+    color: #d1d1d1;
+}
+
+
+a.direct_downloads:not([href]):hover
+{
+    color: inherit;
+}
+
+
+.masthead-direct-downloads
+{
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: white;
+    display: block;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    border-radius: 4px;
 }
 
 div.download .button {
