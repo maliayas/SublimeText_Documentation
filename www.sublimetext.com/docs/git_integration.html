@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Git Integration – Sublime Text Documentation</title>
+    <title>Git Integration</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,466 +60,413 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="git_integration.html#toc">TOC</a>
+        <a class="jump top" href="git_integration.html#">TOP</a>
+    </nav>
+    Git Integration
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Git Integration
-    </span></h1>
+  <section id="git-integration"><p class="available_since"><span class="added">Added in:</span><span class="version">3.2</span></p>
+<p>Sublime Text’s Git integration includes the following components:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="git_integration.html#side-bar">Side Bar</a></p></li>
+<li><p><a class="reference internal" href="git_integration.html#status-bar">Status Bar</a></p></li>
+<li><p><a class="reference internal" href="git_integration.html#diff-markers">Diff Markers</a></p></li>
+<li><p><a class="reference internal" href="git_integration.html#sublime-merge-integration">Sublime Merge Integration</a></p></li>
+<li><p><a class="reference internal" href="git_integration.html#settings">Settings</a></p></li>
+</ul>
+<p><i>Please note: the following documentation discusses the implementation of the
+Git integration as seen with the Default and Adaptive themes that are included
+with Sublime Text. Via the theme engine, it is possible for third-party themes
+to change the visual presentation of information, in which case the following
+documentation may not be accurate.</i></p>
+<section id="side-bar"><h2>Side Bar<a class="headerlink" href="git_integration.html#side-bar" title="Permalink to this headline">🔗</a></h2>
+<p>Files and folders displayed in the side bar will include a status badge along
+the right-hand edge, when modified. This includes files and folder in
+the <i>Folders</i> section of the side bar, along with files in the <i>Open Files</i>
+section. Ignored files and folders are de-emphasized in the side bar by
+reducing the opacity of the name.</p>
+<p>When the mouse pauses over a status badge, a tool tip will be displayed
+indicating the status of the file, or in the case of a folder, the status of
+the contained files and folders.</p>
+<section id="status-badge-key"><h3>Status Badge Key<a class="headerlink" href="git_integration.html#status-badge-key" title="Permalink to this headline">🔗</a></h3>
+<p>The following table indicates the meaning of each badge. <i>Please note that the
+color of the badges will be slightly different as they adapt to the closest hue
+in the active color scheme.</i></p>
+<style>
+    .badges
+    {
+        list-style-type: none;
+        padding-left: 10px;
+    }
+    .vcs_badge
+    {
+        width: 12px;
+        height: 12px;
+        position: relative;
+        bottom: 0px;
+        padding-right: 8px;
+    }
+    #badge-untracked path
+    {
+        fill: #aaa;
+    }
+    #badge-modified circle
+    {
+        fill: #3c97dd;
+    }
+    #badge-missing circle
+    {
+        fill: #d2322d;
+    }
+    #badge-staged-added path
+    {
+        fill: #9dbf40;
+    }
+    #badge-staged path
+    {
+        fill: #3c97dd;
+    }
+    #badge-staged-deleted path
+    {
+        fill: #d2322d;
+    }
 
-    <div class="primary">
-    <section>
-        <p class="available_since">
-            <span class="added">
-                Added in:
-            </span><span class="version">
-                3.2
-            </span>
-        </p>
+    #badge-unmerged path
+    {
+        fill: #f09642;
+    }
+    #badge-unmerged path.stroked
+    {
+        stroke: #f09642;
+    }
+</style>
 
-        <p>
-            Sublime Text's Git integration includes the following components:
-        </p>
+<ul class="badges">
+    <li>
+        <svg class="vcs_badge" id="badge-untracked" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+            <path d="M6,2.047c2.208,0 4,1.793 4,4c0,2.208 -1.792,4 -4,4c-2.208,0 -4,-1.792 -4,-4c0,-2.207 1.792,-4 4,-4Zm0,1c1.656,0 3,1.345 3,3c0,1.656 -1.344,3 -3,3c-1.656,0 -3,-1.344 -3,-3c0,-1.655 1.344,-3 3,-3Z"/>
+        </svg>
+        Untracked
+    </li>
+    <li>
+        <svg class="vcs_badge" id="badge-modified" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+            <circle cx="6" cy="6" r="4"/>
+        </svg>
+        Modified
+    </li>
+    <li>
+        <svg class="vcs_badge" id="badge-missing" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+            <circle cx="6" cy="6" r="4"/>
+        </svg>
+        Missing
+    </li>
+    <li>
+        <svg class="vcs_badge" id="badge-staged-added" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+            <path d="M8,10.004l-7,0l0,-0.004l3,-4l-3,-3.996l0,-0.004l7,0l0,0.004l3,3.996l-3,4l0,0.004Z"/>
+        </svg>
+        Staged Addition
+    </li>
+    <li>
+        <svg class="vcs_badge" id="badge-staged" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+            <path d="M8,10.004l-7,0l0,-0.004l3,-4l-3,-3.996l0,-0.004l7,0l0,0.004l3,3.996l-3,4l0,0.004Z"/>
+        </svg>
+        Staged Modification
+    </li>
+    <li>
+        <svg class="vcs_badge" id="badge-staged-deleted" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+            <path d="M8,10.004l-7,0l0,-0.004l3,-4l-3,-3.996l0,-0.004l7,0l0,0.004l3,3.996l-3,4l0,0.004Z"/>
+        </svg>
+        Staged Deletion
+    </li>
+    <li>
+        <svg class="vcs_badge" id="badge-unmerged" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1;">
+            <g>
+                <path class="stroked" d="M6,3.95c-0.002,3.049 3.487,2.052 3.5,5.05" style="fill:none;stroke-width:1px;stroke-dasharray:1,1;"/>
+                <path class="stroked" d="M6,3.95c-0.019,3.062 -3.468,2.072 -3.5,5.05" style="fill:none;stroke-width:1px;"/>
+                <path d="M4,9.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
+                <path d="M7.051,0.001l0.051,0.004l0.05,0.007l0.049,0.008l0.049,0.012l0.047,0.013l0.047,0.016l0.045,0.018l0.044,0.02l0.043,0.022l0.042,0.024l0.041,0.026l0.039,0.028l0.038,0.029l0.036,0.032l0.035,0.033l0.033,0.035l0.032,0.036l0.029,0.038l0.028,0.039l0.026,0.041l0.024,0.042l0.022,0.043l0.02,0.044l0.018,0.045l0.016,0.047l0.013,0.047l0.012,0.049l0.008,0.049l0.007,0.05l0.004,0.051l0.001,0.051l0,2l-0.001,0.051l-0.004,0.051l-0.007,0.05l-0.008,0.049l-0.012,0.049l-0.013,0.047l-0.016,0.047l-0.018,0.045l-0.02,0.044l-0.022,0.043l-0.024,0.042l-0.026,0.041l-0.028,0.039l-0.029,0.038l-0.032,0.036l-0.033,0.035l-0.035,0.033l-0.036,0.032l-0.038,0.029l-0.039,0.028l-0.041,0.026l-0.042,0.024l-0.043,0.022l-0.044,0.02l-0.045,0.018l-0.047,0.016l-0.047,0.013l-0.049,0.012l-0.049,0.008l-0.05,0.007l-0.051,0.004l-0.051,0.001l-2,0l-0.051,-0.001l-0.051,-0.004l-0.05,-0.007l-0.049,-0.008l-0.049,-0.012l-0.047,-0.013l-0.047,-0.016l-0.045,-0.018l-0.044,-0.02l-0.043,-0.022l-0.042,-0.024l-0.041,-0.026l-0.039,-0.028l-0.038,-0.029l-0.036,-0.032l-0.035,-0.033l-0.033,-0.035l-0.032,-0.036l-0.029,-0.038l-0.028,-0.039l-0.026,-0.041l-0.024,-0.042l-0.022,-0.043l-0.02,-0.044l-0.018,-0.045l-0.016,-0.047l-0.013,-0.047l-0.012,-0.049l-0.008,-0.049l-0.007,-0.05l-0.004,-0.051l-0.001,-0.051l0,-2l0.001,-0.051l0.004,-0.051l0.007,-0.05l0.008,-0.049l0.012,-0.049l0.013,-0.047l0.016,-0.047l0.018,-0.045l0.02,-0.044l0.022,-0.043l0.024,-0.042l0.026,-0.041l0.028,-0.039l0.029,-0.038l0.032,-0.036l0.033,-0.035l0.035,-0.033l0.036,-0.032l0.038,-0.029l0.039,-0.028l0.041,-0.026l0.042,-0.024l0.043,-0.022l0.044,-0.02l0.045,-0.018l0.047,-0.016l0.047,-0.013l0.049,-0.012l0.049,-0.008l0.05,-0.007l0.051,-0.004l0.051,-0.001l2,0l0.051,0.001Zm-2.038,0.999l-0.013,0l0,0l0,0l0,0.013l0,1.974l0,0.013l0.013,0l1.974,0l0.013,0l0,0l0,0l0,-0.013l0,-1.974l0,-0.013l0,0l0,0l-0.013,0l-1.974,0Z"/>
+                <path d="M11,9.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
+            </g>
+        </svg>
+        Unmerged
+    </li>
+</ul><p>When a folder contains files with multiple statuses, the badge most toward the end of the above list will override all others.</p>
+</section></section><section id="status-bar"><h2>Status Bar<a class="headerlink" href="git_integration.html#status-bar" title="Permalink to this headline">🔗</a></h2>
+<p>When the focussed file us containing within the working directory of a Git
+repository, the status bar will contain the name of the current branch, along
+with the number of files that are untracked, modified, staged or unmerged. The
+status bar element will look like:</p>
+<style>
+    #git_status_bar
+    {
+        color: rgb(64, 64, 64);
+        background-color: rgba(171, 177, 186, 0.8);
+        width: 150px;
+        border-radius: 2px;
+        text-align: center;
+        padding: 0 0 3px 0;
+    }
+    #branch-icon
+    {
+        width: 16px;
+        height: 16px;
+        position: relative;
+        bottom: -3px;
+        margin-right: 1px;
+    }
+    #branch-icon path,
+    #branch-icon rect
+    {
+        fill: rgba(64, 64, 64, 0.8);
+    }
+    #branch-icon path.stroked
+    {
+        stroke: rgba(64, 64, 64, 0.8);
+    }
+    #git_status_bar .changes
+    {
+        color: rgb(64, 64, 64, 0.8);
+        border: 1px solid rgba(64, 64, 64, 0.5);
+        border-radius: 2px;
+        font-size: 11px;
+        padding: 0 3px 1px;
+        position: relative;
+        top: -1px;
+        margin-left: 4px;
+        opacity: 0.9;
+    }
+</style>
 
-        <ul id="toc">
-            <li><a href="git_integration.html#side_bar">Side Bar</a></li>
-            <li><a href="git_integration.html#status_bar">Status Bar</a></li>
-            <li><a href="git_integration.html#diff_markers">Diff Markers</a></li>
-            <li><a href="git_integration.html#sublime_merge">Sublime Merge Integration</a></li>
-            <li><a href="git_integration.html#settings">Settings</a></li>
-        </ul>
+<div id="git_status_bar">
+    <svg id="branch-icon" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1;">
+        <g>
+            <path class="stroked" d="M3.5,9c0.01,-3.275 4.98,-1.772 5,-5" style="fill:none;stroke-width:1px;"/>
+            <rect x="3" y="2.5" width="1" height="7"/>
+            <path d="M5,9.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
+            <path d="M5,0.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
+            <path d="M10,1.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
+        </g>
+    </svg>
+    master
+    <span class="changes">
+        3
+    </span>
+</div></section><section id="diff-markers"><h2>Diff Markers<a class="headerlink" href="git_integration.html#diff-markers" title="Permalink to this headline">🔗</a></h2>
+<p>Sublime Text’s <a class="reference internal" href="incremental_diff.html"><span class="doc">incremental_diff</span></a> functionality ties in with
+the Git integration. By default, the incremental diff functionality tracks
+changes to the file since it was last saved, but it is also possible to diff
+against HEAD.</p>
+<p>Here is an example of what the diff markers look like in action, using the
+Mariana color scheme:</p>
+<style>
+    .incremental_diff
+    {
+        background-color: hsl(210, 15%, 24%);
+        color: hsl(219, 28%, 88%);
+        padding: 5px;
+        font-family: "Roboto Mono", monospace;
+        line-height: 1.3;
+        border-radius: 2px;
+    }
+    .incremental_diff .line_number
+    {
+        width: 40px;
+        text-align: right;
+        padding-right: 15px;
+        opacity: 0.5;
+    }
+    .incremental_diff .diff_marker
+    {
+        width: 4px;
+    }
+    .incremental_diff .deleted-before,
+    .incremental_diff .deleted-after,
+    .incremental_diff .added,
+    .incremental_diff .modified
+    {
+        position: relative;
+    }
+    .incremental_diff .added:after
+    {
+        content: ' ';
+        display: block;
+        width: 3px;
+        height: 100%;
+        background-color: hsl(114, 31%, 68%);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .incremental_diff .modified:after
+    {
+        content: ' ';
+        display: block;
+        width: 3px;
+        height: 100%;
+        background-color: hsl(32, 93%, 66%);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+   .incremental_diff .deleted-before:after
+    {
+        content: ' ';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border: 2px solid transparent;
+        border-left-color: hsl(357, 79%, 65%);
+        border-bottom-color: hsl(357, 79%, 65%);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    .incremental_diff .deleted-after:after
+    {
+        content: ' ';
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border: 2px solid transparent;
+        border-left-color: hsl(357, 79%, 65%);
+        border-top-color: hsl(357, 79%, 65%);
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+</style>
 
-        <p>
-            <em>Please note: the following documentation discusses the implementation of the Git integration as seen with the Default and Adaptive themes that are included with Sublime Text. Via the theme engine, it is possible for third-party themes to change the visual presentation of information, in which case the following documentation may not be accurate.</em>
-        </p>
-    </section>
+<div class="incremental_diff">
+    <table>
+        <colgroup>
+            <col class="diff_marker">
+            <col class="line_numbers">
+            <col class="text">
+        </colgroup>
+        <tbody>
+            <tr>
+                <td></td>
+                <td class="line_number">27</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="added"></td>
+                <td class="line_number">28</td>
+                <td>A line that was added</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="line_number">29</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="modified"></td>
+                <td class="line_number">30</td>
+                <td>A modified line</td>
+            </tr>
+            <tr>
+                <td class="modified"></td>
+                <td class="line_number">31</td>
+                <td>followed by another modified line</td>
+            </tr>
+            <tr>
+                <td class="deleted-before"></td>
+                <td class="line_number">32</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="deleted-after"></td>
+                <td class="line_number">33</td>
+                <td>The line before this was deleted</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="line_number">34</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</div><p>Changing the setting <code class="docutils literal notranslate"><span class="pre">git_diff_target</span></code> to <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;head&quot;</span></span></code> will modify the diff
+markers to display a diff versus the version of the file at the Git repository
+HEAD, as opposed to the version of the file in the working directory.</p>
+<p>See the <a class="reference internal" href="incremental_diff.html"><span class="doc">incremental_diff</span></a> documentation for more information
+and examples, including instructions for viewing inline diffs, navigating
+between hunks and reverting changes.</p>
+</section><section id="sublime-merge-integration"><h2>Sublime Merge Integration<a class="headerlink" href="git_integration.html#sublime-merge-integration" title="Permalink to this headline">🔗</a></h2>
+<p>The Git features available in Sublime Text were derived from work that went into
+our other product, <a class="reference external" href="https://www.sublimemerge.com">Sublime Merge</a>. Sublime
+Merge is a full-featured, blazing-fast Git client built upon the technologies
+from Sublime Text.</p>
+<p>Since editing source code and prose requires different tools and workflows than
+managing a Git repository, we opted to integrate the most appropriate Git
+functionality into Sublime Text, but leave more advanced features in Sublime
+Merge. The following integration points make it easy to jump into the
+appropriate Git context:</p>
+<section id="editor-context-menu"><h3>Editor Context Menu<a class="headerlink" href="git_integration.html#editor-context-menu" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><span class="menu">Open Git Repository…</span></p></li>
+<li><p><span class="menu">File History…</span></p></li>
+<li><p><span class="menu">Line History…</span></p></li>
+<li><p><span class="menu">Blame File…</span></p></li>
+</ul>
+</section><section id="side-bar-folder-context-menu"><h3>Side Bar Folder Context Menu<a class="headerlink" href="git_integration.html#side-bar-folder-context-menu" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><span class="menu">Open Git Repository…</span></p></li>
+<li><p><span class="menu">Folder History…</span></p></li>
+</ul>
+</section><section id="side-bar-file-context-menu"><h3>Side Bar File Context Menu<a class="headerlink" href="git_integration.html#side-bar-file-context-menu" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><span class="menu">Open Git Repository…</span></p></li>
+<li><p><span class="menu">File History…</span></p></li>
+<li><p><span class="menu">Folder History…</span></p></li>
+<li><p><span class="menu">Blame File…</span></p></li>
+</ul>
+</section><section id="command-palette"><h3>Command Palette<a class="headerlink" href="git_integration.html#command-palette" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><span class="menu">Sublime Merge: Open Repository</span></p></li>
+<li><p><span class="menu">Sublime Merge: Folder History</span></p></li>
+<li><p><span class="menu">Sublime Merge: File History</span></p></li>
+<li><p><span class="menu">Sublime Merge: Blame File</span></p></li>
+</ul>
+</section></section><section id="settings"><h2>Settings<a class="headerlink" href="git_integration.html#settings" title="Permalink to this headline">🔗</a></h2>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="show_git_status">
+<span class="key"><span class="pre">&quot;show_git_status&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="git_integration.html#show_git_status" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Enables Git integration.</p>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">true</span></span></code></p>
+</dd></dl>
 
-    <section>
-        <h2 id="side_bar">Side Bar</h2>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="git_diff_target">
+<span class="key"><span class="pre">&quot;git_diff_target&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="git_integration.html#git_diff_target" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Controls the behavior of incremental diff for files in a Git repository. Valid values include:</p>
+<ul class="simple">
+<li><p><code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;index&quot;</span></span></code> – diff against the Git index</p></li>
+<li><p><code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;head&quot;</span></span></code> – diff against the file at HEAD</p></li>
+</ul>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;index&quot;</span></span></code></p>
+</dd></dl>
 
-        <p>
-            Files and folders displayed in the side bar will include a status badge along the right-hand edge, when modified. This includes files and folder in the <em>Folders</em> section of the side bar, along with files in the <em>Open Files</em> section. Ignored files and folders are de-emphasized in the side bar by reducing the opacity of the name.
-        </p>
+</section></section>
 
-        <p>
-            When the mouse pauses over a status badge, a tool tip will be displayed indicating the status of the file, or in the case of a folder, the status of the contained files and folders.
-        </p>
-
-        <h3>Status Badge Key</h3>
-
-        <p>
-            The following table indicates the meaning of each badge. <em>Please note that the color of the badges will be slightly different as they adapt to the closest hue in the active color scheme.</em>
-        </p>
-
-        <style>
-            .badges
-            {
-                list-style-type: none;
-                padding-left: 10px;
-            }
-            .vcs_badge
-            {
-                width: 12px;
-                height: 12px;
-                position: relative;
-                bottom: 0px;
-                padding-right: 8px;
-            }
-            #badge-untracked path
-            {
-                fill: #aaa;
-            }
-            #badge-modified circle
-            {
-                fill: #3c97dd;
-            }
-            #badge-missing circle
-            {
-                fill: #d2322d;
-            }
-            #badge-staged-added path
-            {
-                fill: #9dbf40;
-            }
-            #badge-staged path
-            {
-                fill: #3c97dd;
-            }
-            #badge-staged-deleted path
-            {
-                fill: #d2322d;
-            }
-
-            #badge-unmerged path
-            {
-                fill: #f09642;
-            }
-            #badge-unmerged path.stroked
-            {
-                stroke: #f09642;
-            }
-        </style>
-
-        <ul class="badges">
-            <li>
-                <svg class="vcs_badge" id="badge-untracked" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-                    <path d="M6,2.047c2.208,0 4,1.793 4,4c0,2.208 -1.792,4 -4,4c-2.208,0 -4,-1.792 -4,-4c0,-2.207 1.792,-4 4,-4Zm0,1c1.656,0 3,1.345 3,3c0,1.656 -1.344,3 -3,3c-1.656,0 -3,-1.344 -3,-3c0,-1.655 1.344,-3 3,-3Z"/>
-                </svg>
-                Untracked
-            </li>
-            <li>
-                <svg class="vcs_badge" id="badge-modified" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-                    <circle cx="6" cy="6" r="4"/>
-                </svg>
-                Modified
-            </li>
-            <li>
-                <svg class="vcs_badge" id="badge-missing" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-                    <circle cx="6" cy="6" r="4"/>
-                </svg>
-                Missing
-            </li>
-            <li>
-                <svg class="vcs_badge" id="badge-staged-added" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-                    <path d="M8,10.004l-7,0l0,-0.004l3,-4l-3,-3.996l0,-0.004l7,0l0,0.004l3,3.996l-3,4l0,0.004Z"/>
-                </svg>
-                Staged Addition
-            </li>
-            <li>
-                <svg class="vcs_badge" id="badge-staged" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-                    <path d="M8,10.004l-7,0l0,-0.004l3,-4l-3,-3.996l0,-0.004l7,0l0,0.004l3,3.996l-3,4l0,0.004Z"/>
-                </svg>
-                Staged Modification
-            </li>
-            <li>
-                <svg class="vcs_badge" id="badge-staged-deleted" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
-                    <path d="M8,10.004l-7,0l0,-0.004l3,-4l-3,-3.996l0,-0.004l7,0l0,0.004l3,3.996l-3,4l0,0.004Z"/>
-                </svg>
-                Staged Deletion
-            </li>
-            <li>
-                <svg class="vcs_badge" id="badge-unmerged" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1;">
-                    <g>
-                        <path class="stroked" d="M6,3.95c-0.002,3.049 3.487,2.052 3.5,5.05" style="fill:none;stroke-width:1px;stroke-dasharray:1,1;"/>
-                        <path class="stroked" d="M6,3.95c-0.019,3.062 -3.468,2.072 -3.5,5.05" style="fill:none;stroke-width:1px;"/>
-                        <path d="M4,9.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
-                        <path d="M7.051,0.001l0.051,0.004l0.05,0.007l0.049,0.008l0.049,0.012l0.047,0.013l0.047,0.016l0.045,0.018l0.044,0.02l0.043,0.022l0.042,0.024l0.041,0.026l0.039,0.028l0.038,0.029l0.036,0.032l0.035,0.033l0.033,0.035l0.032,0.036l0.029,0.038l0.028,0.039l0.026,0.041l0.024,0.042l0.022,0.043l0.02,0.044l0.018,0.045l0.016,0.047l0.013,0.047l0.012,0.049l0.008,0.049l0.007,0.05l0.004,0.051l0.001,0.051l0,2l-0.001,0.051l-0.004,0.051l-0.007,0.05l-0.008,0.049l-0.012,0.049l-0.013,0.047l-0.016,0.047l-0.018,0.045l-0.02,0.044l-0.022,0.043l-0.024,0.042l-0.026,0.041l-0.028,0.039l-0.029,0.038l-0.032,0.036l-0.033,0.035l-0.035,0.033l-0.036,0.032l-0.038,0.029l-0.039,0.028l-0.041,0.026l-0.042,0.024l-0.043,0.022l-0.044,0.02l-0.045,0.018l-0.047,0.016l-0.047,0.013l-0.049,0.012l-0.049,0.008l-0.05,0.007l-0.051,0.004l-0.051,0.001l-2,0l-0.051,-0.001l-0.051,-0.004l-0.05,-0.007l-0.049,-0.008l-0.049,-0.012l-0.047,-0.013l-0.047,-0.016l-0.045,-0.018l-0.044,-0.02l-0.043,-0.022l-0.042,-0.024l-0.041,-0.026l-0.039,-0.028l-0.038,-0.029l-0.036,-0.032l-0.035,-0.033l-0.033,-0.035l-0.032,-0.036l-0.029,-0.038l-0.028,-0.039l-0.026,-0.041l-0.024,-0.042l-0.022,-0.043l-0.02,-0.044l-0.018,-0.045l-0.016,-0.047l-0.013,-0.047l-0.012,-0.049l-0.008,-0.049l-0.007,-0.05l-0.004,-0.051l-0.001,-0.051l0,-2l0.001,-0.051l0.004,-0.051l0.007,-0.05l0.008,-0.049l0.012,-0.049l0.013,-0.047l0.016,-0.047l0.018,-0.045l0.02,-0.044l0.022,-0.043l0.024,-0.042l0.026,-0.041l0.028,-0.039l0.029,-0.038l0.032,-0.036l0.033,-0.035l0.035,-0.033l0.036,-0.032l0.038,-0.029l0.039,-0.028l0.041,-0.026l0.042,-0.024l0.043,-0.022l0.044,-0.02l0.045,-0.018l0.047,-0.016l0.047,-0.013l0.049,-0.012l0.049,-0.008l0.05,-0.007l0.051,-0.004l0.051,-0.001l2,0l0.051,0.001Zm-2.038,0.999l-0.013,0l0,0l0,0l0,0.013l0,1.974l0,0.013l0.013,0l1.974,0l0.013,0l0,0l0,0l0,-0.013l0,-1.974l0,-0.013l0,0l0,0l-0.013,0l-1.974,0Z"/>
-                        <path d="M11,9.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
-                    </g>
-                </svg>
-                Unmerged
-            </li>
-        </ul>
-
-        <p>
-            When a folder contains files with multiple statuses, the badge most toward the end of the above list will override all others.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="status_bar">Status Bar</h2>
-
-        <p>
-            When the focussed file us containing within the working directory of a Git repository, the status bar will contain the name of the current branch, along with the number of files that are untracked, modified, staged or unmerged. The status bar element will look like:
-        </p>
-
-        <style>
-            #git_status_bar
-            {
-                color: rgb(64, 64, 64);
-                background-color: rgba(171, 177, 186, 0.8);
-                width: 150px;
-                border-radius: 2px;
-                text-align: center;
-                padding: 0 0 3px 0;
-            }
-            #branch-icon
-            {
-                width: 16px;
-                height: 16px;
-                position: relative;
-                bottom: -3px;
-                margin-right: 1px;
-            }
-            #branch-icon path,
-            #branch-icon rect
-            {
-                fill: rgba(64, 64, 64, 0.8);
-            }
-            #branch-icon path.stroked
-            {
-                stroke: rgba(64, 64, 64, 0.8);
-            }
-            #git_status_bar .changes
-            {
-                color: rgb(64, 64, 64, 0.8);
-                border: 1px solid rgba(64, 64, 64, 0.5);
-                border-radius: 2px;
-                font-size: 11px;
-                padding: 0 3px 1px;
-                position: relative;
-                top: -1px;
-                margin-left: 4px;
-                opacity: 0.9;
-            }
-        </style>
-
-        <div id="git_status_bar">
-            <svg id="branch-icon" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1;">
-                <g>
-                    <path class="stroked" d="M3.5,9c0.01,-3.275 4.98,-1.772 5,-5" style="fill:none;stroke-width:1px;"/>
-                    <rect x="3" y="2.5" width="1" height="7"/>
-                    <path d="M5,9.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
-                    <path d="M5,0.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
-                    <path d="M10,1.974c0,-0.538 -0.436,-0.974 -0.974,-0.974l-1.052,0c-0.538,0 -0.974,0.436 -0.974,0.974l0,1.052c0,0.538 0.436,0.974 0.974,0.974l1.052,0c0.538,0 0.974,-0.436 0.974,-0.974l0,-1.052Z"/>
-                </g>
-            </svg>
-            master
-            <span class="changes">
-                3
-            </span>
-        </div>
-    </section>
-
-    <section>
-        <h2 id="diff_markers">Diff Markers</h2>
-
-        <p>
-            Sublime Text's <a href="incremental_diff.html">incremental diff</a> functionality ties in with the Git integration. By default, the incremental diff functionality tracks changes to the file since it was last saved, but it is also possible to diff against HEAD.
-        </p>
-
-        <p>
-            Here is an example of what the diff markers look like in action, using the Mariana color scheme:
-        </p>
-
-        <style>
-            .incremental_diff
-            {
-                background-color: hsl(210, 15%, 24%);
-                color: hsl(219, 28%, 88%);
-                padding: 5px;
-                font-family: "Roboto Mono", monospace;
-                line-height: 1.3;
-                border-radius: 2px;
-            }
-            .incremental_diff .line_number
-            {
-                width: 40px;
-                text-align: right;
-                padding-right: 15px;
-                opacity: 0.5;
-            }
-            .incremental_diff .diff_marker
-            {
-                width: 4px;
-            }
-            .incremental_diff .deleted-before,
-            .incremental_diff .deleted-after,
-            .incremental_diff .added,
-            .incremental_diff .modified
-            {
-                position: relative;
-            }
-            .incremental_diff .added:after
-            {
-                content: ' ';
-                display: block;
-                width: 3px;
-                height: 100%;
-                background-color: hsl(114, 31%, 68%);
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-            .incremental_diff .modified:after
-            {
-                content: ' ';
-                display: block;
-                width: 3px;
-                height: 100%;
-                background-color: hsl(32, 93%, 66%);
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-           .incremental_diff .deleted-before:after
-            {
-                content: ' ';
-                display: inline-block;
-                width: 0;
-                height: 0;
-                border: 2px solid transparent;
-                border-left-color: hsl(357, 79%, 65%);
-                border-bottom-color: hsl(357, 79%, 65%);
-                position: absolute;
-                bottom: 0;
-                left: 0;
-            }
-            .incremental_diff .deleted-after:after
-            {
-                content: ' ';
-                display: inline-block;
-                width: 0;
-                height: 0;
-                border: 2px solid transparent;
-                border-left-color: hsl(357, 79%, 65%);
-                border-top-color: hsl(357, 79%, 65%);
-                position: absolute;
-                top: 0;
-                left: 0;
-            }
-        </style>
-
-        <div class="incremental_diff">
-            <table>
-                <colgroup>
-                    <col class="diff_marker">
-                    <col class="line_numbers">
-                    <col class="text">
-                </colgroup>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td class="line_number">27</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="added"></td>
-                        <td class="line_number">28</td>
-                        <td>A line that was added</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="line_number">29</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="modified"></td>
-                        <td class="line_number">30</td>
-                        <td>A modified line</td>
-                    </tr>
-                    <tr>
-                        <td class="modified"></td>
-                        <td class="line_number">31</td>
-                        <td>followed by another modified line</td>
-                    </tr>
-                    <tr>
-                        <td class="deleted-before"></td>
-                        <td class="line_number">32</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td class="deleted-after"></td>
-                        <td class="line_number">33</td>
-                        <td>The line before this was deleted</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td class="line_number">34</td>
-                        <td></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <p>
-            Changing the setting <span class="setting">git_diff_target</span> to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">head</span><span style="color: #5fb4b4">&quot;</span></span></code> will modify the diff markers to display a diff versus the version of the file at the Git repository HEAD, as opposed to the version of the file in the working directory.
-        </p>
-
-        <p>
-            See the <a href="incremental_diff.html">incremental diff documentation</a> for more information and examples, including instructions for viewing inline diffs, navigating between hunks and reverting changes.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="sublime_merge">Sublime Merge Integration</h2>
-
-        <p>
-            The Git features available in Sublime Text were derived from work that went into our other product, <a href="https://www.sublimemerge.com">Sublime Merge</a>. Sublime Merge is a full-featured, blazing-fast Git client built upon the technologies from Sublime Text.
-        </p>
-
-        <p>
-            Since editing source code and prose requires different tools and workflows than managing a Git repository, we opted to integrate the most appropriate Git functionality into Sublime Text, but leave more advanced features in Sublime Merge. The following integration points make it easy to jump into the appropriate Git context:
-        </p>
-
-        <h4>Editor Context Menu</h4>
-
-        <ul>
-            <li><span class="menu">Open Git Repository…</span></li>
-            <li><span class="menu">File History…</span></li>
-            <li><span class="menu">Line History…</span></li>
-            <li><span class="menu">Blame File…</span></li>
-        </ul>
-
-        <h4>Side Bar Folder Context Menu</h4>
-
-        <ul>
-            <li><span class="menu">Open Git Repository…</span></li>
-            <li><span class="menu">Folder History…</span></li>
-        </ul>
-
-        <h4>Side Bar File Context Menu</h4>
-
-        <ul>
-            <li><span class="menu">Open Git Repository…</span></li>
-            <li><span class="menu">File History…</span></li>
-            <li><span class="menu">Folder History…</span></li>
-            <li><span class="menu">Blame File…</span></li>
-        </ul>
-
-        <h4>Command Palette</h4>
-
-        <ul>
-            <li><span class="menu">Sublime Merge: Open Repository</span></li>
-            <li><span class="menu">Sublime Merge: Folder History</span></li>
-            <li><span class="menu">Sublime Merge: File History</span></li>
-            <li><span class="menu">Sublime Merge: Blame File</span></li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="settings">Settings</h2>
-
-        <dl class="enum settings">
-            <dt>
-                <span class="setting">show_git_status</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    Enables Git integration
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">git_diff_target</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    Controls the behavior of incremental diff for files in a Git repository. Valid values include:
-                </p>
-                <ul>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">index</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the Git index</li>
-                    <li><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">head</span><span style="color: #5fb4b4">&quot;</span></span></code> – diff against the file at HEAD</li>
-                </ul>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">index</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-        </dl>
-    </section>
-    </div>
-
-    <aside>
-        <div id="callout">
+</div>
+<aside>
+<div id="callout">
     <a href="https://www.sublimemerge.com">
         <span class="subhead">Introducing our Git client</span><br>
         <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
@@ -536,12 +485,9 @@
         show_callout()
     </script>
 </div>
-    </aside>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

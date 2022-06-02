@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Operating System Compatibility – Sublime Text Documentation</title>
+    <title>Operating System Compatibility</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,107 +60,111 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="os_compatibility.html#toc">TOC</a>
+        <a class="jump top" href="os_compatibility.html#">TOP</a>
+    </nav>
+    Operating System Compatibility
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Operating System Compatibility
-    </span></h1>
+  <section id="operating-system-compatibility"><p>Sublime Text runs on the Windows, Mac and Linux operating systems. 32bit
+(x86)<span class="build-filter build-4050 hide-on-filter">, 64bit (x86_64) and ARM (arm64) </span> <span class="build-filter build-4050-removed hide-on-filter">and 64bit
+(x86_64) </span> processors are supported.</p>
+<p><i>32bit builds of Sublime Text do not include <a class="reference internal" href="git_integration.html"><span class="doc">Git Integration</span></a></i>.</p>
+<section id="windows"><h2>Windows<a class="headerlink" href="os_compatibility.html#windows" title="Permalink to this headline">🔗</a></h2>
+<div class="build-filter build-4050 hide-on-filter docutils container">
+<p><i>ARM support is not currently available for Windows.</i></p>
+</div>
+<ul>
+<li><p>Windows 10</p></li>
+<li><p>Windows 8/8.1</p></li>
+<li><p>Windows 7</p></li>
+<div class="build-filter build-4050-removed hide-on-filter docutils container">
+<li><p>Windows Vista </p></li>
+</div>
+<div class="build-filter build-3177-removed hide-on-filter docutils container">
+<li><p>Windows XP </p></li>
+</div>
+</ul>
+</section><section id="mac"><h2>Mac<a class="headerlink" href="os_compatibility.html#mac" title="Permalink to this headline">🔗</a></h2>
+<div class="build-filter build-4050 hide-on-filter docutils container">
+<p><i>Sublime Text 4 is a Universal 2 binary that supports both Intel(x86_64) and
+Apple Silicon (arm64) processors.</i></p>
+</div>
+<div class="build-filter build-4050-removed hide-on-filter docutils container">
+<p><i>Only 64bit (x86_64) builds are available on Mac.</i></p>
+</div>
+<ul>
+<li><p>macOS 10.12+</p></li>
+<div class="build-filter build-4050 hide-on-filter docutils container">
+<li><p>OS X 10.9+ </p></li>
+</div>
+<div class="build-filter build-4050-removed hide-on-filter docutils container">
+<li><p>OS X 10.7+ </p></li>
+</div>
+</ul>
+</section><section id="linux"><h2>Linux<a class="headerlink" href="os_compatibility.html#linux" title="Permalink to this headline">🔗</a></h2>
+<div class="build-filter build-4050 hide-on-filter docutils container">
+<p><i>Both 64bit (x86_64) and ARM (arm64) builds are now offered on Linux. 32bit
+builds have been discontinued.</i></p>
+</div>
+<p>Linux installs require the following libraries:</p>
+<ul>
+<li><p><span class="build-filter build-4050 hide-on-filter">GLIBC 2.15 </span> <span class="build-filter build-4050-removed hide-on-filter">GLIBC 2.12 </span> (<code class="docutils literal notranslate"><span class="pre">libc.6.so</span></code>)</p></li>
+<div class="build-filter build-3177 hide-on-filter docutils container">
+<li><p>GTK 3.10+ (<code class="docutils literal notranslate"><span class="pre">libgtk-3.so</span></code>, <code class="docutils literal notranslate"><span class="pre">libgdk-3.so</span></code>) </p></li>
+</div>
+<div class="build-filter build-3177-removed hide-on-filter docutils container">
+<li><p>GTK 2 (<code class="docutils literal notranslate"><span class="pre">libgtk-x11-2.0.so</span></code>, <code class="docutils literal notranslate"><span class="pre">libgdk-x11-2.0.so</span></code>) </p></li>
+</div>
+<li><p>GLib 2 (<code class="docutils literal notranslate"><span class="pre">libgio-2.0.so</span></code>)</p></li>
+<li><p>FreeType 2 (<code class="docutils literal notranslate"><span class="pre">libfreetype.so</span></code>)</p></li>
+<li><p>Cairo (<code class="docutils literal notranslate"><span class="pre">libcairo.so</span></code>)</p></li>
+<li><p>Pango (<code class="docutils literal notranslate"><span class="pre">libpango-1.0.so</span></code>)</p></li>
+<li><p>Pangocairo (<code class="docutils literal notranslate"><span class="pre">libpangocairo-1.0.so</span></code>)</p></li>
+<div class="build-filter build-4050 docutils container">
+<li><p>OpenGL (<code class="docutils literal notranslate"><span class="pre">libGL.so.1</span></code>) </p></li>
+<span class="build">4050</span></div>
+</ul>
+</section></section>
 
-        <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="os_compatibility.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="os_compatibility.html#ver-4.0" class="ver-sel" data-default="1">4.0</a>
-        <a href="os_compatibility.html#ver-3.2" class="ver-sel">3.2</a>
-        <a href="os_compatibility.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="os_compatibility.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
-
-    <section>
-        <p>
-            Sublime Text runs on the Windows, Mac and Linux operating systems. 32bit (x86)<span class="build-4050 filtered hide_on_filter">, 64bit (x86_64) and ARM (arm64)</span>
-            <span class="build-4050-removed hide_on_filter">and 64bit (x86_64)</span> processors are supported.
-        </p>
-
-        <p>
-            <em>32bit builds of Sublime Text do not include <a href="git_integration.html">Git Integration</a>.</em>
-        </p>
-
-        <h2 id="win">Windows</h2>
-
-        <p class="build-4050 filtered hide_on_filter">
-            <em>ARM support is not currently available for Windows.</em>
-        </p>
-
-        <ul>
-            <li>Windows 10</li>
-            <li>Windows 8/8.1</li>
-            <li>Windows 7</li>
-            <li class="build-4050-removed hide_on_filter">
-                Windows Vista
-            </li>
-            <li class="build-3177-removed hide_on_filter filtered">
-                Windows XP
-            </li>
-        </ul>
-
-        <h2 id="mac">Mac</h2>
-
-        <p class="build-4050 filtered hide_on_filter">
-            <em>Sublime Text 4 is a Universal 2 binary that supports both Intel (x86_64) and Apple Silicon (arm64) processors.</em>
-        </p>
-
-        <p class="build-4050-removed hide_on_filter">
-            <em>Only 64bit (x86_64) builds are available on Mac.</em>
-        </p>
-
-        <ul>
-            <li>macOS 10.12+</li>
-            <li class="build-4050 hide_on_filter filtered">
-                OS X 10.9+
-            </li>
-            <li class="build-4050-removed hide_on_filter">
-                OS X 10.7+
-            </li>
-        </ul>
-
-        <h2 id="linux">Linux</h2>
-        <p class="build-4050 filtered hide_on_filter">
-            <em>Both 64bit (x86_64) and ARM (arm64) builds are now offered on Linux. 32bit builds have been discontinued.</em>
-        </p>
-        <p>
-            Linux installs require the following libraries:
-        </p>
-        <ul>
-            <li class="build-4050 hide_on_filter">GLIBC 2.15 (<code>libc.6.so</code>)</li>
-            <li class="build-4050-removed hide_on_filter">GLIBC 2.12 (<code>libc.6.so</code>)</li>
-            <li class="build-3177 hide_on_filter">
-                GTK 3.10+ (<code>libgtk-3.so</code>, <code>libgdk-3.so</code>)
-            </li>
-            <li class="build-3177-removed hide_on_filter filtered">
-                GTK 2 (<code>libgtk-x11-2.0.so</code>, <code>libgdk-x11-2.0.so</code>)
-            </li>
-            <li>GLib 2 (<code>libgio-2.0.so</code>)</li>
-            <li>FreeType 2 (<code>libfreetype.so</code>)</li>
-            <li>Cairo (<code>libcairo.so</code>)</li>
-            <li>Pango (<code>libpango-1.0.so</code>)</li>
-            <li>Pangocairo (<code>libpangocairo-1.0.so</code>)</li>
-            <li class="build-4050 hide_on_filter filtered">
-                OpenGL (<code>libGL.so.1</code>)
-            </li>
-        </ul>
-    </section>
-
-    <script type="text/javascript">
-        var includeBuilds = [3177, 4050];
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
     </script>
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

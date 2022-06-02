@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Indexing – Sublime Text Documentation</title>
+    <title>Indexing</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,239 +60,180 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
-    
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Indexing
-    </span></h1>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="indexing.html#toc">TOC</a>
+        <a class="jump top" href="indexing.html#">TOP</a>
+    </nav>
+    Indexing
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-        <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="indexing.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="indexing.html#ver-4.0" class="ver-sel" data-default="1">4.0</a>
-        <a href="indexing.html#ver-3.2" class="ver-sel">3.2</a>
-        <a href="indexing.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="indexing.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
+  <section id="indexing"><p>Sublime Text includes an indexing engine that scans all of the files and folders
+in a window/project and uses that information to provide the ability to jump to
+definitions <span class="build-filter build-4050">and provide context-aware completions <span class="build">4050</span></span>.</p>
+<ul>
+<li><dl>
+<dt><a class="reference internal" href="indexing.html#features">Features</a></dt><dd><ul>
+<li><p><a class="reference internal" href="indexing.html#goto-definition">Goto Definition</a></p></li>
+<li><div class="build-filter build-4050 docutils container">
+<p><a class="reference internal" href="indexing.html#context-aware-completions">Context-Aware Completions</a></p>
+<span class="build">4050</span></div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="indexing.html#status">Status</a></p></li>
+<li><p><a class="reference internal" href="indexing.html#settings">Settings</a></p></li>
+</ul>
+<section id="features"><h2>Features<a class="headerlink" href="indexing.html#features" title="Permalink to this headline">🔗</a></h2>
+<section id="goto-definition"><h3>Goto Definition<a class="headerlink" href="indexing.html#goto-definition" title="Permalink to this headline">🔗</a></h3>
+<p>When scanning the files in a project, the indexing engine records a list of
+every symbol and its location. Each syntax has the ability to define what is
+classified as a symbol, but typically functions, methods, classes and other
+data types are indexed. In addition to recording the location of definitions,
+the indexer records references – calls or invocations of known symbols.</p>
+<p>The index of symbols can be accessed via:</p>
+<ul class="simple">
+<li><p>Hovering over a word to show the <i>Goto Definition Popup</i></p></li>
+<li><dl class="simple">
+<dt>Invoking <i>Goto Symbol in Project</i> to fuzzy-search through symbols</dt><dd><ul>
+<li><p><b>Windows/Linux:</b> <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>R</b></span></p></li>
+<li><p><b>Mac:</b> <span class="keys"><b>⌘</b><i>+</i><b>Shift</b><i>+</i><b>R</b></span></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Executing <i>Goto Definition</i> for the word under the caret <span class="keys"><b>F12</b></span></p></li>
+<li><p>Executing <i>Goto Reference</i> for the word under the caret <span class="keys"><b>Shift</b><i>+</i><b>F12</b></span></p></li>
+</ul>
+<p>All of the <i>Goto</i> commands can also be invoked via the <span class="menu">Goto</span> menu.</p>
+</section><div class="build-filter build-4050 docutils container" id="context-aware-completions">
+<section id="context-aware-completions"><h3>Context-Aware Completions<a class="headerlink" href="indexing.html#context-aware-completions" title="Permalink to this headline">🔗</a></h3>
+<p>In addition to providing information about symbols, the index is used to provide
+context-aware completions. The indexer makes a list of all words present in the
+project, along with information about sequences of words and any trailing
+punctuation.</p>
+<p>When completions are shown, the index is queried to provide intelligent
+suggestions. Without the index, Sublime Text will only suggest matching words
+from the current file. With the index, it provides completions from all files,
+uses the preceding words to help suggest better matches and will suggest
+trailing punctuation when appropriate.</p>
+</section><span class="build">4050</span></div>
+</section><section id="status"><h2>Status<a class="headerlink" href="indexing.html#status" title="Permalink to this headline">🔗</a></h2>
+<p>The current status and activity of the indexing engine can be seen via
+the <span class="menu">Help <img src="../images/right.svg" alt="▶"> Indexing Status…</span> menu entry. This will show a window with
+the current status, progress bar and log of indexing messages.</p>
+<p>When the indexing engine is active, the status bar will contain a text label
+with a percentage. This percentage indicates indexing is active, and how far
+along in the process it is. Clicking the percentage will open the <i>Indexing
+Status</i> window.</p>
+</section><section id="settings"><h2>Settings<a class="headerlink" href="indexing.html#settings" title="Permalink to this headline">🔗</a></h2>
+<p>The indexing engine uses low-priority background processes to load and analyze
+the files in the project. Depending on the machine and available resources, it
+may be desirable to modify the configuration to ensure the processes don’t
+interfere with other usage of the machine.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="index_files">
+<span class="key"><span class="pre">&quot;index_files&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indexing.html#index_files" title="Permalink to this definition">🔗</a></dt>
+<dd><p>If the indexing engine is enabled</p>
+<p><i>Default:</i> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</dd></dl>
 
-    <section>
-        <p>
-            Sublime Text includes an indexing engine that scans all of the files and folders in a window/project and uses that information to provide the ability to jump to definitions <span class="build-4050 filtered">and provide context-aware completions <span class="build" title="Added in version 4.0">4.0</span></span>.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="index_workers">
+<span class="key"><span class="pre">&quot;index_workers&quot;</span></span> <span class="data-type"><span class="pre">integer</span></span><a class="headerlink" href="indexing.html#index_workers" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The number of background processes to use. A value of <code class="docutils literal notranslate"><span class="pre">0</span></code> causes Sublime
+Text to automatically pick the number of processes based on the number of
+CPU cores.</p>
+<p><i>Default:</i> <code class="docutils literal notranslate"><span class="pre">0</span></code></p>
+</dd></dl>
 
-        <ul id="toc">
-            <li>
-                <a href="indexing.html#features">Features</a>
-                <ul>
-                    <li><a href="indexing.html#goto_definition">Goto Definition</a></li>
-                    <li class="build-4050">
-                        <a href="indexing.html#context-aware_completions">Context-Aware Completions</a>
-                        <span class="build" title="Added in version 4.0">4.0</span>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="indexing.html#status">Status</a></li>
-            <li><a href="indexing.html#settings">Settings</a></li>
-        </ul>
-    </section>
+<div class="build-filter build-4050 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4050 sig sig-object docutils container" id="index_exclude_gitignore">
+<dt class="sig sig-object" id="index_exclude_gitignore">
+<span class="key"><span class="pre">&quot;index_exclude_gitignore&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indexing.html#index_exclude_gitignore" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4050</span></div>
+<dd><p>If files ignored via <span class="file">.gitignore</span> are excluded from indexing.</p>
+<p><i>Default:</i> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</dd></dl>
 
-    <section>
-        <h2 id="features">Features</h2>
+</div>
+<div class="build-filter build-4050 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4050 sig sig-object docutils container" id="index_skip_unknown_extensions">
+<dt class="sig sig-object" id="index_skip_unknown_extensions">
+<span class="key"><span class="pre">&quot;index_skip_unknown_extensions&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indexing.html#index_skip_unknown_extensions" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4050</span></div>
+<dd><p>If files with unknown extensions are excluded from indexing</p>
+<p><i>Default:</i> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</dd></dl>
 
-        <h3 id="goto_definition">Goto Definition</h3>
+</div>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="index_exclude_patterns">
+<span class="key"><span class="pre">&quot;index_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="indexing.html#index_exclude_patterns" title="Permalink to this definition">🔗</a></dt>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">File Patterns</span></a> used to exclude files from indexing.</p>
+<p><i>Default:</i> <code class="docutils literal notranslate"><span class="pre">[&quot;*.log&quot;]</span></code></p>
+</dd></dl>
 
-        <p>
-            When scanning the files in a project, the indexing engine records a list of every symbol and its location. Each syntax has the ability to define what is classified as a symbol, but typically functions, methods, classes and other data types are indexed. In addition to recording the location of definitions, the indexer records references – calls or invocations of known symbols.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="show_definitions">
+<span class="key"><span class="pre">&quot;show_definitions&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indexing.html#show_definitions" title="Permalink to this definition">🔗</a></dt>
+<dd><p>If the <i>Goto Definition</i> popup will appear when hovering the mouse over a word that has been indexed</p>
+<p><i>Default:</i> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</dd></dl>
 
-        <p>
-            The index of symbols can be accessed via:
-        </p>
+<div class="build-filter build-4050 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4050 sig sig-object docutils container" id="auto_complete_use_index">
+<dt class="sig sig-object" id="auto_complete_use_index">
+<span class="key"><span class="pre">&quot;auto_complete_use_index&quot;</span></span><a class="headerlink" href="indexing.html#auto_complete_use_index" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4050</span></div>
+<dd><p>If completions should utilize information from the index</p>
+<p><i>Default:</i> <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</dd></dl>
 
-        <ul>
-            <li>
-                Hovering over a word to show the <em>Goto Definition Popup</em>
-            </li>
-            <li>
-                Invoking <em>Goto Symbol in Project</em> to fuzzy-search through symbols
-                <ul>
-                    <li>
-                        <strong>Windows/Linux:</strong>
-                        <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>R</b></span>
-                    </li>
-                    <li>
-                        <strong>Mac:</strong>
-                        <span class="keys"><b>⌘</b><i>+</i><b>Shift</b><i>+</i><b>R</b></span>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                Executing <em>Goto Definition</em> for the word under the caret
-                <ul>
-                    <li>
-                        <strong>All OSes:</strong>
-                        <span class="keys"><b>F12</b></span>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                Executing <em>Goto Reference</em> for the word under the caret
-                <ul>
-                    <li>
-                        <strong>All OSes:</strong>
-                        <span class="keys"><b>Shift</b><i>+</i><b>F12</b></span>
-                    </li>
-                </ul>
-            </li>
-        </ul>
+</div>
+</section></section>
 
-        <p>
-            All of the <em>Goto</em> commands can also be invoked via the <span class="menu">Goto</span> menu.
-        </p>
-
-        <div class="build-4050">
-            <h3 id="context-aware_completions">
-                Context-Aware Completions
-                <span class="build" title="Added in version 4.0">4.0</span>
-            </h3>
-
-            <p>
-                In addition to providing information about symbols, the index is used to provide context-aware completions. The indexer makes a list of all words present in the project, along with information about sequences of words and any trailing punctuation.
-            </p>
-
-            <p>
-                When completions are shown, the index is queried to provide intelligent suggestions. Without the index, Sublime Text will only suggest matching words from the current file. With the index, it provides completions from all files, uses the preceeeding words to help suggest better matches and will suggest trailing punctuation when appropriate.
-            </p>
-        </div>
-    </section>
-
-    <section>
-        <h2 id="status">Status</h2>
-
-        <p>
-            The current status and activity of the indexing engine can be seen via the <span class="menu">Help <img src="../images/right.svg" alt="▶"> Indexing Status…</span> menu entry. This will show a window with the current status, progress bar and log of indexing messages.
-        </p>
-
-        <p>
-            When the indexing engine is active, the status bar will contain a text label with a percentage. This percentage indicates indexing is active, and how far along in the process it is. Clicking the percentage will open the <em>Indexing Status</em> window.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="settings">Settings</h2>
-
-        <p>
-            The indexing engine uses low-priority background processes to load and analyse the files in the project. Depending on the machine and available resources, it may be desirable to modify the configuration to ensure the processes don't interfere with other usage of the machine.
-        </p>
-
-        <dl class="enum settings">
-            <dt>
-                <span class="setting">index_files</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    If the indexing engine is enabled
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">index_workers</span>
-                <span class="data-type">integer</span>
-            </dt>
-            <dd>
-                <p>
-                    The number of background processes to use. A value of <code>0</code> causes Sublime Text to automatically pick the number of porcesses based on the number of CPU cores.
-                </p>
-                <div class="example">
-                    Default: <code class="syntax-json"><span style="color: #333333"><span style="color: #f9ae58">0</span></span></code>
-                </div>
-            </dd>
-            <dt class="build-4050">
-                <span class="setting">index_exclude_gitignore</span>
-                <span class="build" title="Added in version 4.0">4.0</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd class="build-4050">
-                <p>
-                    If files ignored via <span class="file">.gitignore</span> are excluded from indexing
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt class="build-4050">
-                <span class="setting">index_skip_unknown_extensions</span>
-                <span class="build" title="Added in version 4.0">4.0</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd class="build-4050">
-                <p>
-                    If files with unknown extensions are excluded from indexing
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">index_exclude_patterns</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    <a href="file_patterns.html">File patterns</a> used to exclude files from indexing
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">*.log</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">show_definitions</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    If the <em>Goto Definition</em> popup will appear when hovering the mouse over a word that has been indexed
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt class="build-4050">
-                <span class="setting">auto_complete_use_index</span>
-                <span class="build" title="Added in version 4.0">4.0</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd class="build-4050">
-                <p>
-                    If completions should utilize information from the index
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-        </dl>
-    </section>
-
-    <script type="text/javascript">
-        var includeBuilds = [4050];
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
     </script>
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

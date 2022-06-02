@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>API Environments – Sublime Text Documentation</title>
+    <title>API Environments</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,174 +60,141 @@
             </nav>
         </section>
     </header>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="api_environments.html#toc">TOC</a>
+        <a class="jump top" href="api_environments.html#">TOP</a>
+    </nav>
+    API Environments
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <main>
-    <section>
+  <section id="api-environments"><p>Plugins in Sublime Text are Python files located in the root of a <a class="reference internal" href="packages.html"><span class="doc">package</span></a>. The following document describes the Python environment the
+plugins are run in.</p>
+<ul>
+<li><p><a class="reference internal" href="api_environments.html#overview">Overview</a></p></li>
+<li><dl>
+<dt><a class="reference internal" href="api_environments.html#python-version">Python Version</a></dt><dd><ul>
+<li><div class="build-filter build-4050 docutils container">
+<p><a class="reference internal" href="api_environments.html#selecting-the-python-version">Selecting the Python Version</a></p>
+<span class="build">4050</span></div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="api_environments.html#modules">Modules</a></p></li>
+<li><div class="build-filter build-4050 docutils container">
+<p><a class="reference internal" href="api_environments.html#pre-installed-packages">Pre-Installed Packages</a></p>
+<span class="build">4050</span></div>
+</li>
+</ul>
+<section id="overview"><h2>Overview<a class="headerlink" href="api_environments.html#overview" title="Permalink to this headline">🔗</a></h2>
+<p>Sublime Text runs plugins in a separate process from the main editor UI. This
+process runs an executable named <span class="file">plugin_host</span>.</p>
+<p>Running plugins in a separate process ensures the entire editor will not crash
+due to a poorly written plugin. If a plugin does cause the <span class="file">plugin_host</span>
+to crash, a user may still save their work before re-starting Sublime Text.</p>
+<p>All plugins are run in a single <span class="file">plugin_host</span> process, and share a single
+Python environment. Each plugin is loaded as a sub-module of a module named
+after the package. For example, a plugin in the
+file <span class="file">MyPackage/my_plugin.py</span> will be loaded as the Python module
+<code class="docutils literal notranslate"><span class="pre">MyPackage.my_plugin</span></code>.</p>
+<p>The <span class="file">plugin_host</span> process contains an embedded version of the Python
+programming language, and exposes an <a class="reference internal" href="api_reference.html"><span class="doc">API</span></a> to plugins.
+The <span class="file">plugin_host</span> executable always uses its own embedded version of
+Python, even if the end-user has Python installed on their machine.</p>
+</section><section id="python-version"><h2>Python Version<a class="headerlink" href="api_environments.html#python-version" title="Permalink to this headline">🔗</a></h2>
+<p>By default, all plugins are run using Python 3.3.6. <i>Sublime Text‘s build of
+Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix
+issues with unicode paths and crashes with the <code class="docutils literal notranslate"><span class="pre">ctypes</span></code> module on 64bit
+versions of Windows.</i></p>
+<div class="build-filter build-4050 docutils container">
+<p>Starting in build 4050, plugins may also be run using Python 3.8. Python 3.8
+features many improvements to the language, better performance and
+continued support and bug fixes from the Python Software Foundtion.</p>
+<span class="build">4050</span></div>
+<div class="build-filter build-4050 docutils container" id="selecting-the-python-version">
+<section id="selecting-the-python-version"><h3>Selecting the Python Version<a class="headerlink" href="api_environments.html#selecting-the-python-version" title="Permalink to this headline">🔗</a></h3>
+<p>To provide for backward compatibility, Sublime Text 4050 will continue to run
+all plugins using Python 3.3.</p>
+<p>Any package that wishes to use Python 3.8 must create a file
+named <span class="file">.python-version</span> in the root of the packages. This file should
+contain either the text <code class="docutils literal notranslate"><span class="pre">3.3</span></code> or <code class="docutils literal notranslate"><span class="pre">3.8</span></code> to select the version of Python to
+use. <i>If a file named <span class="file">.python-version</span> is not present, or it contains
+any value other than <code class="docutils literal notranslate"><span class="pre">3.8</span></code>, then Python 3.3 will be used.</i></p>
+<p>All plugins in a package will use the same version of Python. <i>Any package with
+a <span class="file">.python-version</span> file containing <code class="docutils literal notranslate"><span class="pre">3.8</span></code> loaded in older builds of
+Sublime Text will try to run the plugins using Python 3.3.</i></p>
+</section><span class="build">4050</span></div>
+</section><section id="modules"><h2>Modules<a class="headerlink" href="api_environments.html#modules" title="Permalink to this headline">🔗</a></h2>
+<p>The Python environment within <span class="file">plugin_host</span> contains all of the modules in
+<a class="reference external" href="https://docs.python.org/3.3/library/">The Python Standard Library</a>, except
+for:</p>
+<ul class="simple">
+<li><p>audioop</p></li>
+<li><p>crypt (Not on Linux)</p></li>
+<li><p>curses</p></li>
+<li><p><span class="build-filter build-4050-removed">cProfile (Not on Linux) <span class="build">&lt;4050</span></span></p></li>
+<li><p><span class="build-filter build-4050">fpectl <span class="build">4050</span> <span class="python">3.3</span></span></p></li>
+<li><p>readline</p></li>
+<li><p><span class="build-filter build-4050">lzma <span class="build">4050</span> <span class="python">3.3</span></span></p></li>
+<li><p>msilib</p></li>
+<li><p>nis</p></li>
+<li><p>ossaudiodev</p></li>
+<li><p><span class="build-filter build-4050">resource <span class="build">4050</span> <span class="python">3.3</span></span></p></li>
+<li><p>spwd</p></li>
+<li><p>syslog</p></li>
+<li><p>test</p></li>
+<li><p>tkinter</p></li>
+<li><p>turtle</p></li>
+<li><p>wave</p></li>
+</ul>
+</section><div class="build-filter build-4050 docutils container" id="pre-installed-packages">
+<section id="pre-installed-packages"><h2>Pre-Installed Packages<a class="headerlink" href="api_environments.html#pre-installed-packages" title="Permalink to this headline">🔗</a></h2>
+<p>The following the packages are pre-installed in both the Python 3.3 and 3.8 environments:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/certifi/">certifi</a>: A collection of SSL root certs
+for use with urllib</p></li>
+</ul>
+</section><span class="build">4050</span></div>
+</section>
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        API Environments
-    </span></h1>
-
-        <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="api_environments.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="api_environments.html#ver-4.0" class="ver-sel" data-default="1">4.0</a>
-        <a href="api_environments.html#ver-3.2" class="ver-sel">3.2</a>
-        <a href="api_environments.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="api_environments.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
-
-    <section>
-        <p>
-            Plugins in Sublime Text are Python files located in the root of a <a href="packages.html">package</a>. The following document describes the Python environment the plugins are run in.
-        </p>
-
-        <ul id="toc">
-            <li><a href="api_environments.html#overview">Overview</a></li>
-            <li>
-                <a href="api_environments.html#python_version">Python Version</a>
-                <ul>
-                    <li class="build-4050">
-                        <a href="api_environments.html#selecting_python_version">Selecting the Python Version</a>
-                        <span class="build" title="Added in build 4050">4050</span>
-                    </li>
-                </ul>
-            </li>
-            <li><a href="api_environments.html#modules">Modules</a></li>
-            <li class="build-4050">
-                <a href="api_environments.html#preinstalled_packages">Pre-Installed Packages</a>
-                <span class="build" title="Added in build 4050">4050</span>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="overview">Overview</h2>
-
-        <p>
-            Sublime Text runs plugins in a separate process from the main editor UI. This process runs an executable named <span class="file">plugin_host</span>.
-        </p>
-
-        <p>
-            Running plugins in a separate process ensures the entire editor will not crash due to a poorly written plugin. If a plugin does cause the <span class="file">plugin_host</span> to crash, a user may still save their work before re-starting Sublime Text.
-        </p>
-
-        <p>
-            All plugins are run in a single <span class="file">plugin_host</span> process, and share a single Python environment. Each plugin is loaded as a sub-module of a module named after the package. For example, a plugin in the file <span class="file">MyPackage/my_plugin.py</span> will be loaded as the Python module <code>MyPackage.my_plugin</code>.
-        </p>
-
-        <p>
-            The <span class="file">plugin_host</span> process contains an embedded version of the Python programming language, and exposes an <a href="api_reference.html">API</a> to plugins. The <span class="file">plugin_host</span> executable always uses its own embedded version of Python, even if the end-user has Python installed on their machine.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="python_version">Python Version</h2>
-
-        <p>
-            By default, all plugins are run using Python 3.3.6. <em>Sublime Text‘s build of Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix issues with unicode paths and crashes with the <code>ctypes</code> module on 64bit versions of Windows.</em>
-        </p>
-
-        <p>
-            <span class="build-4050">Starting in build 4050, plugins may also be run using Python 3.8. Python 3.8 features many improvements to the language, better performance and continued support and bug fixes from the Python Software Foundtion. <span class="build" title="Added in build 4050">4050</span></span>
-        </p>
-
-        <div class="build-4050">
-            <h3 id="selecting_python_version">
-                Selecting the Python Version
-                <span class="build" title="Added in build 4050">4050</span>
-            </h3>
-
-            <p>
-                To provide for backward compatibility, Sublime Text 4050 will continue to run all plugins using Python 3.3.
-            </p>
-
-            <p>
-                Any package that wishes to use Python 3.8 must create a file named <span class="file">.python-version</span> in the root of the packages. This file should contain either the text <code>3.3</code> or <code>3.8</code> to select the version of Python to use. <em>If a file named <span class="file">.python-version</span> is not present, or it contains any value other than <code>3.8</code>, then Python 3.3 will be used.</em>
-            </p>
-
-            <p>
-                All plugins in a package will use the same version of Python. <em>Any package with a <span class="file">.python-version</span> file containing <code>3.8</code> loaded in older builds of Sublime Text will try to run the plugins using Python 3.3.</em>
-            </p>
-        </div>
-    </section>
-
-    <section class="modules">
-        <h2 id="modules">Modules</h2>
-
-        <p>
-            The Python environment within <span class="file">plugin_host</span> contains all of the modules in <a href="https://docs.python.org/3.3/library/">The Python Standard Library</a>, except for:
-        </p>
-
-        <div class="column">
-            <ul>
-                <li>audioop</li>
-                <li>
-                    crypt
-                    <span class="platform" title="Absent only on Linux">Linux</span>
-                </li>
-                <li>curses</li>
-                <li class="build-4050-removed">
-                    cProfile
-                    <span class="platform" title="Absent only on Linux">Linux</span>
-                    <span class="build removed" title="Absent only in builds before 4050">&lt;4050</span>
-                </li>
-                <li>
-                    fpectl
-                    <span class="python build-4050" title="Module is only part of Python 3.3, removed in Python 3.7">3.3</span>
-                </li>
-                <li>readline</li>
-            </ul>
-        </div>
-        <div class="column">
-            <ul>
-                <li>
-                    lzma
-                    <span class="python build-4050" title="Absent only in Python 3.3">3.3</span>
-                </li>
-                <li>msilib</li>
-                <li>nis</li>
-                <li>ossaudiodev</li>
-                <li>
-                    resource
-                    <span class="python build-4050" title="Absent only in Python 3.3">3.3</span>
-                </li>
-                <li>spwd</li>
-            </ul>
-        </div>
-        <div class="column">
-            <ul>
-                <li>syslog</li>
-                <li>test</li>
-                <li>tkinter</li>
-                <li>turtle</li>
-                <li>wave</li>
-            </ul>
-        </div>
-    </section>
-
-    <section class="build-4050">
-        <h2 id="preinstalled_packages">
-            Pre-Installed Packages
-            <span class="build" title="Added in build 4050">4050</span>
-        </h2>
-
-        <p>
-            The following the packages are pre-installed in both the Python 3.3 and 3.8 environments:
-        </p>
-
-        <ul>
-            <li><a href="https://pypi.org/project/certifi/">certifi</a>: A collection of SSL root certs for use with urllib</li>
-        </ul>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

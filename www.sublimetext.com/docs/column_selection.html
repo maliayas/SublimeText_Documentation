@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Column Selection – Sublime Text Documentation</title>
+    <title>Column Selection</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,96 +60,96 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="column_selection.html#toc">TOC</a>
+        <a class="jump top" href="column_selection.html#">TOP</a>
+    </nav>
+    Column Selection
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Column Selection
-    </span></h1>
+  <section id="column-selection"><p>Column selection can be used to select a rectangular area of a file. Column selection doesn’t operate via a separate mode, instead it makes use of multiple selections.</p>
+<p>You can use additive selections to select multiple blocks of text, or subtractive selections to remove a block.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="column_selection.html#using-the-mouse">Using the Mouse</a></p></li>
+<li><p><a class="reference internal" href="column_selection.html#using-the-keyboard">Using the Keyboard</a></p></li>
+</ul>
+<section id="using-the-mouse"><h2>Using the Mouse<a class="headerlink" href="column_selection.html#using-the-mouse" title="Permalink to this headline">🔗</a></h2>
+<p>Different mouse buttons are used on each platform:</p>
+<section id="mac"><h3>Mac<a class="headerlink" href="column_selection.html#mac" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><i>Left Mouse Button</i> + <span class="keys"><b>⌥</b></span></p></li>
+<li><p>OR: <i>Middle Mouse Button</i></p></li>
+<li><p>Add to selection: <span class="keys"><b>⌘</b></span></p></li>
+<li><p>Subtract from selection: <span class="keys"><b>⇧</b><i>+</i><b>⌘</b></span></p></li>
+</ul>
+</section><section id="windows"><h3>Windows<a class="headerlink" href="column_selection.html#windows" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><i>Right Mouse Button</i> + <span class="keys"><b>Shift</b></span></p></li>
+<li><p>OR: <i>Middle Mouse Button</i></p></li>
+<li><p>Add to selection: <span class="keys"><b>Ctrl</b></span></p></li>
+<li><p>Subtract from selection: <span class="keys"><b>Alt</b></span></p></li>
+</ul>
+</section><section id="linux"><h3>Linux<a class="headerlink" href="column_selection.html#linux" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><i>Right Mouse Button</i> + <span class="keys"><b>Shift</b></span></p></li>
+<li><p>Add to selection: <span class="keys"><b>Ctrl</b></span></p></li>
+<li><p>Subtract from selection: <span class="keys"><b>Alt</b></span></p></li>
+</ul>
+</section></section><section id="using-the-keyboard"><h2>Using the Keyboard<a class="headerlink" href="column_selection.html#using-the-keyboard" title="Permalink to this headline">🔗</a></h2>
+<section id="id1"><h3>Mac<a class="headerlink" href="column_selection.html#id1" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>⬆</b></span></p></li>
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>⬇</b></span></p></li>
+</ul>
+</section><section id="id2"><h3>Windows<a class="headerlink" href="column_selection.html#id2" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬆</b></span></p></li>
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬇</b></span></p></li>
+</ul>
+</section><section id="id3"><h3>Linux<a class="headerlink" href="column_selection.html#id3" title="Permalink to this headline">🔗</a></h3>
+<ul class="simple">
+<li><p><span class="keys"><b>Alt</b><i>+</i><b>Shift</b><i>+</i><b>⬆</b></span></p></li>
+<li><p><span class="keys"><b>Alt</b><i>+</i><b>Shift</b><i>+</i><b>⬇</b></span></p></li>
+</ul>
+</section></section></section>
 
-    <section>
-        <p>
-            Column selection can be used to select a rectangular area of a file. Column selection doesn't operate via a separate mode, instead it makes use of multiple selections.
-        </p>
-
-        <p>
-            You can use additive selections to select multiple blocks of text, or subtractive selections to remove a block.
-        </p>
-
-        <ul id="toc">
-            <li><a href="column_selection.html#using_the_mouse">Using the Mouse</a></li>
-            <li><a href="column_selection.html#using_the_keyboard">Using the Keyboard</a></li>
-        </ul>
-
-        <h2 id="using_the_mouse">Using the Mouse</h2>
-
-        <p>
-            Different mouse buttons are used on each platform:
-        </p>
-
-        <h3>Mac</h3>
-
-        <ul>
-            <li><span class="keys"><span class="mouse">Left Mouse Button</span><i>+</i><b>⌥</b></span></li>
-            <li>OR: <span class="keys"><span class="mouse">Middle Mouse Button</span></span></li>
-        </ul>
-
-        <ul>
-            <li>Add to selection: <span class="keys"><b>⌘</b></span></li>
-            <li>Subtract from selection: <span class="keys"><b>⇧</b><i>+</i><b>⌘</b></span></li>
-        </ul>
-
-        <h3>Windows</h3>
-
-        <ul>
-            <li><span class="keys"><span class="mouse">Right Mouse Button</span><i>+</i><b>Shift</b></span></li>
-            <li>OR: <span class="keys"><span class="mouse">Middle Mouse Button</span></span></li>
-        </ul>
-
-        <ul>
-            <li>Add to selection: <span class="keys"><b>Ctrl</b></span></li>
-            <li>Subtract from selection: <span class="keys"><b>Alt</b></span></li>
-        </ul>
-
-        <h3>Linux</h3>
-
-        <ul>
-            <li><span class="keys"><span class="mouse">Right Mouse Button</span><i>+</i><b>Shift</b></span></li>
-        </ul>
-
-        <ul>
-            <li>Add to selection: <span class="keys"><b>Ctrl</b></span></li>
-            <li>Subtract from selection: <span class="keys"><b>Alt</b></span></li>
-        </ul>
-
-        <h2 id="using_the_keyboard">Using the Keyboard</h2>
-
-        <h3>Mac</h3>
-        <ul>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>⬆</b></span></li>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>⬇</b></span></li>
-        </ul>
-
-        <h3>Windows</h3>
-        <ul>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬆</b></span></li>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬇</b></span></li>
-        </ul>
-
-        <h3>Linux</h3>
-        <ul>
-            <li><span class="keys"><b>Alt</b><i>+</i><b>Shift</b><i>+</i><b>⬆</b></span></li>
-            <li><span class="keys"><b>Alt</b><i>+</i><b>Shift</b><i>+</i><b>⬇</b></span></li>
-        </ul>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

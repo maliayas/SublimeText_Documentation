@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ligatures – Sublime Text Documentation</title>
+    <title>Ligatures</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,62 +60,84 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="ligatures.html#toc">TOC</a>
+        <a class="jump top" href="ligatures.html#">TOP</a>
+    </nav>
+    Ligatures
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Ligatures
-      </span></h1>
+  <section id="ligatures"><p>Sublime Text supports ligatures for symbols since version 3.1. The
+<code class="docutils literal notranslate"><span class="pre">font_options</span></code> setting can be used to customize ligature behavior.</p>
+<section id="usage"><h2>Usage<a class="headerlink" href="ligatures.html#usage" title="Permalink to this headline">🔗</a></h2>
+<p>In the default configuration, Sublime Text will use ligatures for sequences of
+symbols within the ASCII range. The ligatures must be part of the <code class="docutils literal notranslate"><span class="pre">clig</span></code>,
+<code class="docutils literal notranslate"><span class="pre">liga</span></code> or <code class="docutils literal notranslate"><span class="pre">calt</span></code> OpenType tables of the font for them to be used.
+Additionally, the sequence of characters that compromise the ligature must all
+be part of the same token, as defined by the syntax being used to display the
+file.</p>
+<p>To use ligatures from the <code class="docutils literal notranslate"><span class="pre">dlig</span></code> OpenType table, the <code class="docutils literal notranslate"><span class="pre">font_options</span></code> setting
+must have the string <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;dlig&quot;</span></span></code> added. The <code class="docutils literal notranslate"><span class="pre">font_options</span></code> setting also
+allows for disabling ligatures from the <code class="docutils literal notranslate"><span class="pre">clig</span></code>, <code class="docutils literal notranslate"><span class="pre">liga</span></code> or <code class="docutils literal notranslate"><span class="pre">calt</span></code> tables
+by adding the respective <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;no_clig&quot;</span></span></code>, <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;no_liga&quot;</span></span></code>
+or <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;no_calt&quot;</span></span></code> strings.</p>
+</section><section id="troubleshooting"><h2>Troubleshooting<a class="headerlink" href="ligatures.html#troubleshooting" title="Permalink to this headline">🔗</a></h2>
+<p>If ligatures are not displaying, please check the following:</p>
+<ul class="simple">
+<li><p>Check to see what unicode characters make up the ligature. Sublime Text
+currently only supports ligatures comprised from the following characters:
+<code class="docutils literal notranslate"><span class="pre">!</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">#</span></code>, <code class="docutils literal notranslate"><span class="pre">$</span></code>, <code class="docutils literal notranslate"><span class="pre">%</span></code>, <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span></code>, <code class="docutils literal notranslate"><span class="pre">(</span></code>, <code class="docutils literal notranslate"><span class="pre">)</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>,
+<code class="docutils literal notranslate"><span class="pre">,</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">:</span></code>, <code class="docutils literal notranslate"><span class="pre">;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">?</span></code>, <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">[</span></code>, <code class="docutils literal notranslate"><span class="pre">\</span></code>, <code class="docutils literal notranslate"><span class="pre">]</span></code>, <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">_</span></code>, <code class="docutils literal notranslate"><span class="pre">`</span></code>, <code class="docutils literal notranslate"><span class="pre">{</span></code>, <code class="docutils literal notranslate"><span class="pre">|</span></code>, <code class="docutils literal notranslate"><span class="pre">}</span></code>, <code class="docutils literal notranslate"><span class="pre">~</span></code>.</p></li>
+<li><p>Make sure Sublime Text build 3146 or newer is installed. If trying to use
+<code class="docutils literal notranslate"><span class="pre">font_options</span></code> to control ligatures, ensure build 3158 or newer is
+installed.</p></li>
+<li><p>See if the ligatures appear when using the “Plain Text” syntax for the file.
+If so, the syntax is likely breaking the symbols into distinct tokens,
+preventing a ligature from being used.</p></li>
+<li><p>If using Sublime Text on Linux, check and see what version of Pango is
+installed. Pango 1.38, released in 2015, is required to specify the
+<code class="docutils literal notranslate"><span class="pre">font_options</span></code> to control liagures.</p></li>
+</ul>
+</section></section>
 
-    <section>
-        <p>
-            Sublime Text supports ligatures for symbols since version 3.1. The <span class="setting">font_options</span> setting can be used to customize ligature behavior.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="usage">Usage</h2>
-
-        <p>
-            In the default configuration, Sublime Text will use ligatures for sequences of symbols within the ASCII range. The ligatures must be part of the <code>clig</code>, <code>liga</code> or <code>calt</code> OpenType tables of the font for them to be used. Additionally, the sequence of characters that compromise the ligature must all be part of the same token, as defined by the syntax being used to display the file.
-        </p>
-
-        <p>
-            To use ligatures from the <code>dlig</code> OpenType table, the <span class="setting">font_options</span> setting must have the string <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">dlig</span><span style="color: #5fb4b4">&quot;</span></span></code> added. The <span class="setting">font_options</span> setting also allows for disabling ligatures from the <code>clig</code>, <code>liga</code> or <code>calt</code> tables by adding the respective <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">no_clig</span><span style="color: #5fb4b4">&quot;</span></span></code>, <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">no_liga</span><span style="color: #5fb4b4">&quot;</span></span></code> or <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">no_calt</span><span style="color: #5fb4b4">&quot;</span></span></code> strings.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="troubleshooting">Troubleshooting</h2>
-
-        <p>
-            If ligatures are not displaying, please check the following:
-        </p>
-
-        <ul>
-            <li>
-                Check to see what unicode characters make up the ligature. Sublime Text currently only supports ligatures comprised from the following characters:
-                <code>!</code>, <code>"</code>, <code>#</code>, <code>$</code>, <code>%</code>, <code>&amp;</code>, <code>'</code>, <code>(</code>, <code>)</code>, <code>*</code>, <code>+</code>, <code>,</code>, <code>-</code>, <code>.</code>, <code>/</code>, <code>:</code>, <code>;</code>, <code>&lt;</code>, <code>=</code>, <code>&gt;</code>, <code>?</code>, <code>@</code>, <code>[</code>, <code>\</code>, <code>]</code>, <code>^</code>, <code>_</code>, <code>`</code>, <code>{</code>, <code>|</code>, <code>}</code>, <code>~</code>.
-            </li>
-            <li>
-                Make sure Sublime Text build 3146 or newer is installed. If trying to use <span class="setting">font_options</span> to control ligatures, ensure build 3158 or newer is installed.
-            </li>
-            <li>
-                See if the ligatures appear when using the "Plain Text" syntax for the file. If so, the syntax is likely breaking the symbols into distinct tokens, preventing a ligature from being used.
-            </li>
-            <li>
-                If using Sublime Text on Linux, check and see what version of Pango is installed. Pango 1.38, released in 2015, is required to specify the <span class="setting">font_options</span> to control liagures.
-            </li>
-        </ul>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

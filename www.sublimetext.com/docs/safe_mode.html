@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Safe Mode – Sublime Text Documentation</title>
+    <title>Safe Mode</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,85 +60,89 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
-    
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Safe Mode
-    </span></h1>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="safe_mode.html#toc">TOC</a>
+        <a class="jump top" href="safe_mode.html#">TOP</a>
+    </nav>
+    Safe Mode
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <section>
-        <p class="available_since">
-            <span class="added">
-                Added in:
-            </span><span class="version">
-                4.0
-            </span>
-        </p>
+  <section id="safe-mode"><p class="available_since"><span class="added">Added in:</span><span class="version">4.0</span></p>
+<p>Sublime Text includes an execution mode called <i>safe mode</i> that disables all
+customizations. This can be used when attempting to diagnose problems, as it
+allows easily running the editor in a pristine state, while leaving all
+preferences and third-party packages unchanged.</p>
+<p><i>Safe mode is available starting in version 4.0. To accomplish a similar result
+in earlier versions, please see <a class="reference internal" href="revert.html"><span class="doc">Reverting to a Freshly Installed State</span></a>.</i></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="safe_mode.html#behavior">Behavior</a></p></li>
+<li><p><a class="reference internal" href="safe_mode.html#starting">Starting</a></p></li>
+</ul>
+<section id="behavior"><h2>Behavior<a class="headerlink" href="safe_mode.html#behavior" title="Permalink to this headline">🔗</a></h2>
+<p>When starting Sublime Text in safe mode, the application uses an alternate data
+directory. The data directory is where all preferences, custom key bindings,
+session data and third-party packages are stored. To ensure that safe mode is
+not influenced by previous sessions, the safe mode data directory is fully
+erased when starting. <b><i>Do not store any important files or customizations
+within the safe mode data directory.</i></b></p>
+<p>Safe mode can only be entered if the application has been fully closed. If any
+windows remain open (or on Mac the application itself), then safe mode will not
+work.</p>
+<ul class="simple">
+<li><p><b>Windows:</b> <span class="file">%AppData%\Sublime Text (Safe Mode)\</span></p></li>
+<li><p><b>Mac:</b> <span class="file">~/Library/Application Support/Sublime Text (Safe Mode)/</span></p></li>
+<li><p><b>Linux:</b> <span class="file">~/.config/sublime-text-safe-mode/</span></p></li>
+</ul>
+<p>To prevent having to re-install any license key each time Sublime Text starts, safe mode will copy the license key from the normal data directory.</p>
+</section><section id="starting"><h2>Starting<a class="headerlink" href="safe_mode.html#starting" title="Permalink to this headline">🔗</a></h2>
+<p>Sublime Text can be started in safe mode via the <a class="reference internal" href="command_line.html"><span class="doc">Command Line Interface</span></a>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>subl --safe-mode
+</pre></div>
+</div>
+<p>Additionally on Windows and Mac, holding a modifier key while starting the application will open it in safe mode:</p>
+<ul class="simple">
+<li><p><b>Windows:</b> <span class="keys"><b>Shift</b><i>+</i><b>Alt</b></span></p></li>
+<li><p><b>Mac:</b> <span class="keys"><b>Option</b></span></p></li>
+</ul>
+</section></section>
 
-        <p>
-            Sublime Text includes an execution mode called <em>safe mode</em> that disables all customizations. This can be used when attempting to diagnose problems, as it allows easily running the editor in a pristine state, while leaving all preferences and third-party packages unchanged.
-        </p>
-
-        <p>
-            <em>Safe mode is available starting in version 4.0. To accomplish a similar result in earlier versions, please see <a href="revert.html">Reverting to a Freshly Installed State</a>.</em>
-        </p>
-
-        <ul id="toc">
-            <li><a href="safe_mode.html#behavior">Behavior</a></li>
-            <li><a href="safe_mode.html#starting">Starting</a></li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="behavior">Behavior</h2>
-
-        <p>
-            When starting Sublime Text in safe mode, the application uses an alternate data directory. The data directory is where all preferences, custom key bindings, session data and third-party packages are stored. To ensure that safe mode is not influenced by previous sessions, the safe mode data directory is fully erased when starting. <strong><em>Do not store any important files or customizations within the safe mode data directory.</em></strong>
-        </p>
-
-        <p>
-            Safe mode can only be entered if the application has been fully closed. If any windows remain open (or on Mac the application itself), then safe mode will not work.
-        </p>
-
-        <ul>
-            <li><strong>Windows:</strong> <span class="file">%AppData%\Sublime Text (Safe Mode)\</span></li>
-            <li><strong>Mac:</strong> <span class="file">~/Library/Application Support/Sublime Text (Safe Mode)/</span></li>
-            <li><strong>Linux:</strong> <span class="file">~/.config/sublime-text-safe-mode/</span></li>
-        </ul>
-
-        <p>
-            To prevent having to re-install any license key each time Sublime Text starts, safe mode will copy the license key from the normal data directory.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="starting">Starting</h2>
-
-        <p>
-            Sublime Text can be started in safe mode via the <a href="command_line.html">command line interface</a>:
-        </p>
-
-        <pre><code>subl --safe-mode
-</code></pre>
-
-        <p>
-            Additionally on Windows and Mac, holding a modifier key while starting the application will open it in safe mode:
-        </p>
-
-        <ul>
-            <li><strong>Windows:</strong> <span class="keys"><b>Shift</b><i>+</i><b>Alt</b></span></li>
-            <li><strong>Mac:</strong> <span class="keys"><b>Option</b></span></li>
-        </ul>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

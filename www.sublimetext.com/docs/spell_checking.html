@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Spell Checking – Sublime Text Documentation</title>
+    <title>Spell Checking</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,124 +60,111 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="spell_checking.html#toc">TOC</a>
+        <a class="jump top" href="spell_checking.html#">TOP</a>
+    </nav>
+    Spell Checking
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Spell Checking
-    </span></h1>
+  <section id="spell-checking"><p>Sublime Text uses <a class="reference external" href="http://hunspell.sourceforge.net/">Hunspell</a> for its spell
+checking support. Additional dictionaries can be obtained from the
+<a class="reference external" href="http://extensions.services.openoffice.org/en/dictionaries">OpenOffice.org Extension List</a>.</p>
+<p>Dictionaries in a format ready to be used by Sublime Text are available at
+<a class="reference external" href="https://github.com/titoBouzout/Dictionaries">https://github.com/titoBouzout/Dictionaries</a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="spell_checking.html#dictionaries">Dictionaries</a></p></li>
+<li><p><a class="reference internal" href="spell_checking.html#settings">Settings</a></p></li>
+<li><p><a class="reference internal" href="spell_checking.html#commands">Commands</a></p></li>
+</ul>
+<section id="dictionaries"><h2>Dictionaries<a class="headerlink" href="spell_checking.html#dictionaries" title="Permalink to this headline">🔗</a></h2>
+<p>Sublime Text currently only supports UTF-8 encoded dictionaries. Most
+dictionaries are not encoded in UTF-8, instead using a more compact encoding
+for the language in question. To use a dictionary with Sublime Text, it’ll
+first need to be converted into UTF-8.</p>
+<p>Once you have a UTF-8 encoded dictionary, it can be installed by placing it in a
+package, for example, <span class="file">Packages/User/</span>, which you can access from
+the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Browse Packages</span> menu item. Once the file is in place,
+you can select the dictionary from the <span class="menu">View <img src="../images/right.svg" alt="▶"> Dictionary</span> menu.</p>
+</section><section id="settings"><h2>Settings<a class="headerlink" href="spell_checking.html#settings" title="Permalink to this headline">🔗</a></h2>
+<p>There are two <a class="reference internal" href="settings.html"><span class="doc">Settings</span></a> that effect the spell checking: <code class="docutils literal notranslate"><span class="pre">spell_check</span></code>,
+which controls if spell checking is enabled, and <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>, which gives
+the path to the dictionary file to use. For example:</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="spell_check">
+<span class="key"><span class="pre">&quot;spell_check&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="spell_checking.html#spell_check" title="Permalink to this definition">🔗</a></dt>
+<dd><p>If spell checking is enabled.</p>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">false</span></span></code></p>
+</dd></dl>
 
-    <section>
-        <p>
-            Sublime Text uses <a href="http://hunspell.sourceforge.net/">Hunspell</a> for its spell checking support. Additional dictionaries can be obtained from the <a href="http://extensions.services.openoffice.org/en/dictionaries">OpenOffice.org Extension List</a>.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="dictionary">
+<span class="key"><span class="pre">&quot;dictionary&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="spell_checking.html#dictionary" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The package-relative path to the dictionary file.</p>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;Packages/Language</span> <span class="pre">-</span> <span class="pre">English/en_US.dic&quot;</span></span></code></p>
+</dd></dl>
 
-        <p>
-            Dictionaries in a format ready to be used by Sublime Text are available at <a href="https://github.com/titoBouzout/Dictionaries">https://github.com/titoBouzout/Dictionaries</a>.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="added_words">
+<span class="key"><span class="pre">&quot;added_words&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="spell_checking.html#added_words" title="Permalink to this definition">🔗</a></dt>
+<dd><p>An array of properly spelled words to augment the dictionary with.</p>
+<p>Example: <code class="code highlight json docutils literal notranslate"><span class="p"><span class="pre">[</span></span><span class="s2"><span class="pre">&quot;unobscurable&quot;</span></span><span class="p"><span class="pre">]</span></span></code></p>
+</dd></dl>
 
-        <ul id="toc">
-            <li><a href="spell_checking.html#dictionaries">Dictionaries</a></li>
-            <li><a href="spell_checking.html#settings">Settings</a></li>
-            <li><a href="spell_checking.html#commands">Commands</a></li>
-        </ul>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="ignored_words">
+<span class="key"><span class="pre">&quot;ignored_words&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="spell_checking.html#ignored_words" title="Permalink to this definition">🔗</a></dt>
+<dd><p>An array of words to ignore when checking spelling.</p>
+<p>Example: <code class="code highlight json docutils literal notranslate"><span class="p"><span class="pre">[</span></span><span class="s2"><span class="pre">&quot;revelationary&quot;</span></span><span class="p"><span class="pre">]</span></span></code></p>
+</dd></dl>
 
-        <h2 id="dictionaries">Dictionaries</h2>
+</section><section id="commands"><h2>Commands<a class="headerlink" href="spell_checking.html#commands" title="Permalink to this headline">🔗</a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">next_misspelling</span></code>: Select the next misspelling</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prev_misspelling</span></code>: Select the previous misspelling</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_word</span></code>: Adds the word given by the <code class="docutils literal notranslate"><span class="pre">word</span></code> argument to the add list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignore_word</span></code>: Adds the word given by the <code class="docutils literal notranslate"><span class="pre">word</span></code> argument to the ignore
+list</p></li>
+</ul>
+</section></section>
 
-        <p>
-            Sublime Text currently only supports UTF-8 encoded dictionaries. Most dictionaries are not encoded in UTF-8, instead using a more compact encoding for the language in question. To use a dictionary with Sublime Text, it'll first need to be converted into UTF-8.
-        </p>
-
-        <p>
-            Once you have a UTF-8 encoded dictionary, it can be installed by placing it in a package, for example, <span class="file">Packages/User/</span>, which you can access from the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Browse Packages</span> menu item. Once the file is in place, you can select the dictionary from the <span class="menu">View <img src="../images/right.svg" alt="▶"> Dictionary</span> menu.
-        </p>
-
-        <h2 id="settings">Settings</h2>
-
-        <p>
-            There are two <a href="settings.html">settings</a> that effect the spell checking: <span class="setting">spell_check</span>, which controls if spell checking is enabled, and <span class="setting">dictionary</span>, which gives the path to the dictionary file to use. For example:
-        </p>
-
-        <dl class="enum settings">
-            <dt>
-                <span class="setting">spell_check</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    If spell checking is enabled
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">false</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">dictionary</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    The package-relative path to the dictionary file
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Packages/Language - English/en_US.dic</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">added_words</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    An array of properly spelled words to augment the dictionary with
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">unobscurable</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">ignored_words</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    An array of words to ignore when checking spelling
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">revelationary</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
-                </div>
-            </dd>
-        </dl>
-
-        <h2 id="commands">Commands</h2>
-
-        <ul>
-            <li>
-                <span class="command">next_misspelling</span>: Select the next misspelling
-            </li>
-            <li>
-                <span class="command">prev_misspelling</span>: Select the previous misspelling
-            </li>
-            <li>
-                <span class="command">add_word</span>: Adds the word given by the <span class="command">word</span> argument to the add list
-            </li>
-            <li>
-                <span class="command">ignore_word</span>: Adds the word given by the <span class="command">word</span> argument to the ignore list
-            </li>
-        </ul>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

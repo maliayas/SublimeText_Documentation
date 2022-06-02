@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Indentation Settings – Sublime Text Documentation</title>
+    <title>Indentation Settings</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,158 +60,141 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="indentation.html#toc">TOC</a>
+        <a class="jump top" href="indentation.html#">TOP</a>
+    </nav>
+    Indentation Settings
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Indentation Settings
-    </span></h1>
+  <section id="indentation-settings"><p>Indentation settings determine the size of the tab stops, and control whether
+the <span class="keys"><b>Tab</b></span> key should insert tabs or spaces. In addition to the automatic
+detection, they can be customized globally, per-syntax type, or per-file.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="indentation.html#basic-settings">Basic Settings</a></p></li>
+<li><p><a class="reference internal" href="indentation.html#indentation-detection">Indentation Detection</a></p></li>
+<li><p><a class="reference internal" href="indentation.html#converting-between-tabs-and-spaces">Converting Between Tabs and Spaces</a></p></li>
+<li><p><a class="reference internal" href="indentation.html#automatic-indentation-settings">Automatic Indentation Settings</a></p></li>
+</ul>
+<section id="basic-settings"><h2>Basic Settings<a class="headerlink" href="indentation.html#basic-settings" title="Permalink to this headline">🔗</a></h2>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="tab_size">
+<span class="key"><span class="pre">&quot;tab_size&quot;</span></span> <span class="data-type"><span class="pre">integer</span></span><a class="headerlink" href="indentation.html#tab_size" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The number of spaces a tab is considered equal to.</p>
+</dd></dl>
 
-    <section>
-        <p>
-            Indentation settings determine the size of the tab stops, and control whether the <span class="keys"><b>Tab</b></span> key should insert tabs or spaces. In addition to the automatic detection, they can be customized globally, per-syntax type, or per-file.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="translate_tabs_to_spaces">
+<span class="key"><span class="pre">&quot;translate_tabs_to_spaces&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indentation.html#translate_tabs_to_spaces" title="Permalink to this definition">🔗</a></dt>
+<dd><p>If <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">true</span></span></code>, spaces will be inserted up to the next tab stop
+when <span class="keys"><b>Tab</b></span> is pressed, rather than inserting a tab character.</p>
+</dd></dl>
 
-        <ul id="toc">
-            <li><a href="indentation.html#basic_settings">Basic Settings</a></li>
-            <li><a href="indentation.html#indentation_detection">Indentation Detection</a></li>
-            <li><a href="indentation.html#converting_tabs_spaces">Converting Between Tabs and Spaces</a></li>
-            <li><a href="indentation.html#automatic_indentation_settings">Automatic Indentation Settings</a></li>
-        </ul>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="detect_indentation">
+<span class="key"><span class="pre">&quot;detect_indentation&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indentation.html#detect_indentation" title="Permalink to this definition">🔗</a></dt>
+<dd><p>If <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">true</span></span></code>, the default, <code class="docutils literal notranslate"><span class="pre">tab_size</span></code> and <code class="docutils literal notranslate"><span class="pre">translate_tabs_to_spaces</span></code>
+will be calculated automatically when loading a file.</p>
+</dd></dl>
 
-        <h2 id="basic_settings">Basic Settings</h2>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="use_tab_stops">
+<span class="key"><span class="pre">&quot;use_tab_stops&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indentation.html#use_tab_stops" title="Permalink to this definition">🔗</a></dt>
+<dd><p>If <code class="docutils literal notranslate"><span class="pre">translate_tabs_to_spaces</span></code> is <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">true</span></span></code>, <code class="docutils literal notranslate"><span class="pre">use_tab_stops</span></code> will
+make <span class="keys"><b>Tab</b></span> insert, and <span class="keys"><b>Backspace</b></span> delete, up to the next tab
+stop.</p>
+</dd></dl>
 
-        <dl class="enum settings">
-            <dt>
-                <span class="setting">tab_size</span>
-                <span class="data-type">integer</span>
-            </dt>
-            <dd>
-                <p>
-                    The number of spaces a tab is considered equal to
-                </p>
-            </dd>
-            <dt>
-                <span class="setting">translate_tabs_to_spaces</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    If <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>, spaces will be inserted up to the next tab stop when <span class="keys"><b>Tab</b></span> is pressed, rather than inserting a tab character
-                </p>
-            </dd>
-            <dt>
-                <span class="setting">detect_indentation</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    If <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>, the default, <span class="setting">tab_size</span> and <span class="setting">translate_tabs_to_spaces</span> will be calculated automatically when loading a file
-                </p>
-            </dd>
-            <dt>
-                <span class="setting">use_tab_stops</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    If <span class="setting">translate_tabs_to_spaces</span> is <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>, <span class="setting">use_tab_stops</span> will make <span class="keys"><b>Tab</b></span> insert, and <span class="keys"><b>Backspace</b></span> delete, up to the next tab stop
-                </p>
-            </dd>
-        </dl>
+<p><i>See <a class="reference internal" href="settings.html"><span class="doc">Settings</span></a> for information about how to set global and syntax-specific
+settings.</i></p>
+</section><section id="indentation-detection"><h2>Indentation Detection<a class="headerlink" href="indentation.html#indentation-detection" title="Permalink to this headline">🔗</a></h2>
+<p>When a file is loaded, its contents are examined, and the <code class="docutils literal notranslate"><span class="pre">tab_size</span></code> and
+<code class="docutils literal notranslate"><span class="pre">translate_tabs_to_spaces</span></code> settings are set for that file. The status area
+will report when this happens. While this generally works well, you may want to
+disable it. You can do that with the <code class="docutils literal notranslate"><span class="pre">detect_indentation</span></code> setting.</p>
+<p>Indentation detection can be run manually via the <span class="menu">View <img src="../images/right.svg" alt="▶"> Indentation <img src="../images/right.svg" alt="▶">
+Guess Settings From Buffer</span> menu, which runs the <code class="docutils literal notranslate"><span class="pre">detect_indentation</span></code>
+command.</p>
+</section><section id="converting-between-tabs-and-spaces"><h2>Converting Between Tabs and Spaces<a class="headerlink" href="indentation.html#converting-between-tabs-and-spaces" title="Permalink to this headline">🔗</a></h2>
+<p>The <span class="menu">View <img src="../images/right.svg" alt="▶"> Indentation</span> menu has commands to convert leading white space
+in the current file between tabs and spaces. These menu items run the
+<code class="docutils literal notranslate"><span class="pre">expand_tabs</span></code> and <code class="docutils literal notranslate"><span class="pre">unexpand_tabs</span></code> commands.</p>
+</section><section id="automatic-indentation-settings"><h2>Automatic Indentation Settings<a class="headerlink" href="indentation.html#automatic-indentation-settings" title="Permalink to this headline">🔗</a></h2>
+<p>Automatic indentation guesses the amount of leading white space to insert on
+each line when you press enter. It’s controlled with these settings:</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="auto_indent">
+<span class="key"><span class="pre">&quot;auto_indent&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indentation.html#auto_indent" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Enables auto indent.</p>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">true</span></span></code></p>
+</dd></dl>
 
-        <p>
-            <em>See <a href="settings.html">Settings</a> for information about how to set global and syntax-specific settings.</em>
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="smart_indent">
+<span class="key"><span class="pre">&quot;smart_indent&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indentation.html#smart_indent" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Makes auto indent a little smarter, e.g., by indenting the next line after
+an if statement in C.</p>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">true</span></span></code></p>
+</dd></dl>
 
-        <h2 id="indentation_detection">Indentation Detection</h2>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="trim_automatic_white_space">
+<span class="key"><span class="pre">&quot;trim_automatic_white_space&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indentation.html#trim_automatic_white_space" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Trims white space added by <code class="docutils literal notranslate"><span class="pre">auto_indent</span></code> when moving the caret off the
+line.</p>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">true</span></span></code></p>
+</dd></dl>
 
-        <p>
-            When a file is loaded, its contents are examined, and the <span class="setting">tab_size</span> and <span class="setting">translate_tabs_to_spaces</span> settings are set for that file. The status area will report when this happens. While this generally works well, you may want to disable it. You can do that with the <span class="setting">detect_indentation</span> setting.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="indent_to_bracket">
+<span class="key"><span class="pre">&quot;indent_to_bracket&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="indentation.html#indent_to_bracket" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Adds white space up to the first open bracket when indenting. Use when indenting like this:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">use_indent_to_bracket</span><span class="p">(</span><span class="n">to_indent</span><span class="p">,</span>
+                      <span class="n">like_this</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Default: <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">false</span></span></code></p>
+</dd></dl>
 
-        <p>
-            Indentation detection can be run manually via the <span class="menu">View <img src="../images/right.svg" alt="▶"> Indentation <img src="../images/right.svg" alt="▶"> Guess Settings From Buffer</span> menu, which runs the <span class="command">detect_indentation</span> command.
-        </p>
+</section></section>
 
-        <h2 id="converting_tabs_spaces">Converting Between Tabs and Spaces</h2>
-
-        <p>
-            The <span class="menu">View <img src="../images/right.svg" alt="▶"> Indentation</span> menu has commands to convert leading whitespace in the current file between tabs and spaces. These menu items run the <span class="command">expand_tabs</span> and <span class="command">unexpand_tabs</span> commands.
-        </p>
-
-        <h2 id="automatic_indentation_settings">Automatic Indentation Settings</h2>
-
-        <p>
-            Automatic indentation guesses the amount of leading whitespace to insert on each line when you press enter. It's controlled with these settings:
-        </p>
-
-        <dl class="enum settings">
-            <dt>
-                <span class="setting">auto_indent</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    Enables auto indent
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">smart_indent</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    Makes auto indent a little smarter, e.g., by indenting the next line after an if statement in C.
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">trim_automatic_white_space</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    Trims white space added by <span class="setting">auto_indent</span> when moving the caret off the line.
-                </p>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt>
-                <span class="setting">indent_to_bracket</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    Adds whitespace up to the first open bracket when indenting. Use when indenting like this:
-                </p>
-                <pre><code class="syntax-c"><span style="color: #333333"><span style="color: #6699cc">use_indent_to_bracket</span>(to_indent<span style="color: #ac7a68">,</span>
-                      like_this)<span style="color: #ac7a68">;</span>
-</span></code></pre>
-                <div class="example">
-                    Default:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">false</span></span></code>
-                </div>
-            </dd>
-        </dl>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

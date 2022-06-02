@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Reverting to a Freshly Installed State – Sublime Text Documentation</title>
+    <title>Reverting to a Freshly Installed State</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,106 +60,96 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
-    
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Reverting to a Freshly Installed State
-    </span></h1>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="revert.html#toc">TOC</a>
+        <a class="jump top" href="revert.html#">TOP</a>
+    </nav>
+    Reverting to a Freshly Installed State
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-        <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="revert.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="revert.html#ver-4.0" class="ver-sel" data-default="1">4.0</a>
-        <a href="revert.html#ver-3.2" class="ver-sel">3.2</a>
-        <a href="revert.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="revert.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
+  <section id="reverting-to-a-freshly-installed-state"><p>Sublime Text can be reverted to a freshly installed state by removing your data
+directory. Depending on your operating system, this directory is located in:</p>
+<ul class="simple">
+<li><p><b>Windows:</b> <span class="file">%APPDATA%\Sublime Text</span></p></li>
+<li><p><b>Mac:</b> <span class="file">~/Library/Application Support/Sublime Text</span></p></li>
+<li><p><b>Linux:</b> <span class="file">~/.config/sublime-text</span></p></li>
+</ul>
+<div class="admonition note">
+<p>If Sublime Text 3 was installed previously, the data directory may include
+<code class="docutils literal notranslate"><span class="pre">3</span></code> at the end of the name:</p>
+<ul class="simple">
+<li><p><b>Windows:</b> <span class="file">%APPDATA%\Sublime Text 3</span></p></li>
+<li><p><b>Mac:</b> <span class="file">~/Library/Application Support/Sublime Text 3</span></p></li>
+<li><p><b>Linux:</b> <span class="file">~/.config/sublime-text-3</span></p></li>
+</ul>
+</div>
+<p>To revert to a freshly installed state, you can:</p>
+<ul class="simple">
+<li><p>Exit Sublime Text</p></li>
+<li><p>Move the data directory to a backup location</p></li>
+<li><p>Start Sublime Text</p></li>
+</ul>
+<p>When restarted, a fresh data directory will be created, just as it was the first
+time you ran Sublime Text. Keep in mind that this will also remove all of your
+settings and packages. The backup copy of your data directory can be used to
+retrieve configuration, or custom packages that can not be reinstalled.</p>
+<section id="cache"><h2>Cache<a class="headerlink" href="revert.html#cache" title="Permalink to this headline">🔗</a></h2>
+<div class="build-filter build-4050-removed hide-on-filter docutils container">
+<p>In Windows, cache files are stored in a separate
+location, <span class="file">%LOCALAPPDATA%\Sublime Text 3</span>, to improve performance
+with roaming profiles.</p>
+</div>
+<div class="build-filter build-4050 hide-on-filter docutils container">
+<p>Cache files are stored in a separate location:</p>
+<ul class="simple">
+<li><p><b>Windows:</b> <span class="file">%LOCALAPPDATA%\Sublime Text</span></p></li>
+<li><p><b>Mac:</b> <span class="file">~/Library/Caches/Sublime Text</span></p></li>
+<li><p><b>Linux:</b> <span class="file">~/.cache/sublime-text</span></p></li>
+</ul>
+</div>
+</section><section id="mac"><h2>Mac<a class="headerlink" href="revert.html#mac" title="Permalink to this headline">🔗</a></h2>
+<p>On Mac, the <span class="file">~/Library</span> directory is hidden by default. To navigate there,
+select the <span class="menu">Go <img src="../images/right.svg" alt="▶"> Go to Folder</span> menu item in Finder, and type
+in <span class="file">~/Library</span>.</p>
+</section></section>
 
-    <section>
-        <p>
-            Sublime Text can be reverted to a freshly installed state by removing your data directory. Depending on your operating system, this directory is located in:
-        </p>
-
-        <div class="build-4050 hide_on_filter filtered">
-            <ul>
-                <li><strong>Windows:</strong> <span class="file">%APPDATA%\Sublime Text</span></li>
-                <li><strong>Mac:</strong> <span class="file">~/Library/Application Support/Sublime Text</span></li>
-                <li><strong>Linux:</strong> <span class="file">~/.config/sublime-text</span></li>
-            </ul>
-
-            <div class="alternate-dir">
-                <p>
-                    If Sublime Text 3 was installed previously, the data directory may include <code>3</code> at the end of the name:
-                </p>
-
-                <ul>
-                    <li><strong>Windows:</strong> <span class="file">%APPDATA%\Sublime Text 3</span></li>
-                    <li><strong>Mac:</strong> <span class="file">~/Library/Application Support/Sublime Text 3</span></li>
-                    <li><strong>Linux:</strong> <span class="file">~/.config/sublime-text-3</span></li>
-                </ul>
-            </div>
-        </div>
-
-        <ul class="build-4050-removed hide_on_filter">
-            <li><strong>Windows:</strong> <span class="file">%APPDATA%\Sublime Text 3</span></li>
-            <li><strong>Mac:</strong> <span class="file">~/Library/Application Support/Sublime Text 3</span></li>
-            <li><strong>Linux:</strong> <span class="file">~/.config/sublime-text-3</span></li>
-        </ul>
-
-        <p>
-            To revert to a freshly installed state, you can:
-        </p>
-
-        <ol>
-            <li>Exit Sublime Text</li>
-            <li>Move the data directory to a backup location</li>
-            <li>Start Sublime Text</li>
-        </ol>
-
-        <p>
-            When restarted, a fresh data directory will be created, just as it was the first time you ran Sublime Text. Keep in mind that this will also remove all of your settings and packages. The backup copy of your data directory can be used to retrieve configuration, or custom packages that can not be reinstalled.
-        </p>
-
-        <div class="build-4050-removed hide_on_filter">
-            <h3>Windows</h3>
-
-            <p>
-                In Windows, cache files are stored in a separate location, <span class="file">%LOCALAPPDATA%\Sublime Text 3</span>, to improve performance with roaming profiles.
-            </p>
-        </div>
-
-        <div class="build-4050 hide_on_filter">
-            <h3>Cache</h3>
-
-            <p>
-                Cache files are stored in a separate location:
-
-                <ul>
-                    <li><strong>Windows:</strong> <span class="file">%LOCALAPPDATA%\Sublime Text</span></li>
-                    <li><strong>Mac:</strong> <span class="file">~/Library/Caches/Sublime Text</span></li>
-                    <li><strong>Linux:</strong> <span class="file">~/.cache/sublime-text</span></li>
-                </ul>
-            </p>
-        </div>
-
-        <h3>Mac</h3>
-
-        <p>
-            On Mac, the <span class="file">~/Library</span> directory is hidden by default. To navigate there, select the <span class="menu">Go <img src="../images/right.svg" alt="▶"> Go to Folder</span> menu item in Finder, and type in <span class="file">~/Library</span>.
-        </p>
-    </section>
-
-    <script type="text/javascript">
-        var includeBuilds = [4050];
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
     </script>
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

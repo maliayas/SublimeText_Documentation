@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Multiple Selection with the Keyboard – Sublime Text Documentation</title>
+    <title>Multiple Selection with the Keyboard</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,135 +60,104 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="multiple_selection_with_the_keyboard.html#toc">TOC</a>
+        <a class="jump top" href="multiple_selection_with_the_keyboard.html#">TOP</a>
+    </nav>
+    Multiple Selection with the Keyboard
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Multiple Selection with the Keyboard
-    </span></h1>
+  <section id="multiple-selection-with-the-keyboard"><ul class="simple">
+<li><p><a class="reference internal" href="multiple_selection_with_the_keyboard.html#adding-a-line">Adding a Line</a></p></li>
+<li><p><a class="reference internal" href="multiple_selection_with_the_keyboard.html#splitting-the-selection-into-lines">Splitting the Selection into Lines</a></p></li>
+<li><p><a class="reference internal" href="multiple_selection_with_the_keyboard.html#quick-add-next">Quick Add Next</a></p></li>
+<li><p><a class="reference internal" href="multiple_selection_with_the_keyboard.html#find-all">Find All</a></p></li>
+<li><p><a class="reference internal" href="multiple_selection_with_the_keyboard.html#single-selection">Single Selection</a></p></li>
+</ul>
+<section id="adding-a-line"><h2>Adding a Line<a class="headerlink" href="multiple_selection_with_the_keyboard.html#adding-a-line" title="Permalink to this headline">🔗</a></h2>
+<p>To add the line above or below to the selection, use:</p>
+<ul class="simple">
+<li><p>Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬆</b></span> and <span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬇</b></span></p></li>
+<li><p>Mac: <span class="keys"><b>⌃</b><i>+</i><b>⇧</b><i>+</i><b>⬆</b></span> and <span class="keys"><b>⌃</b><i>+</i><b>⇧</b><i>+</i><b>⬇</b></span></p></li>
+</ul>
+<p>If you go too far, use Undo Selection to step backwards:</p>
+<ul class="simple">
+<li><p>Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>U</b></span></p></li>
+<li><p>Mac: <span class="keys"><b>⌘</b><i>+</i><b>U</b></span></p></li>
+</ul>
+</section><section id="splitting-the-selection-into-lines"><h2>Splitting the Selection into Lines<a class="headerlink" href="multiple_selection_with_the_keyboard.html#splitting-the-selection-into-lines" title="Permalink to this headline">🔗</a></h2>
+<p>Select a block of lines, and then split it into many selections, one per line,
+using:</p>
+<ul class="simple">
+<li><p>Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>L</b></span></p></li>
+<li><p>Mac: <span class="keys"><b>⇧</b><i>+</i><b>⌘</b><i>+</i><b>L</b></span></p></li>
+</ul>
+</section><section id="quick-add-next"><h2>Quick Add Next<a class="headerlink" href="multiple_selection_with_the_keyboard.html#quick-add-next" title="Permalink to this headline">🔗</a></h2>
+<p>To add the next occurrence of the current word to the selection, use Quick Add
+Next, which is bound to:</p>
+<ul class="simple">
+<li><p>Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>D</b></span></p></li>
+<li><p>Mac: <span class="keys"><b>⌘</b><i>+</i><b>D</b></span></p></li>
+</ul>
+<p>Again, if you go too far, use Undo Selection to step backwards:</p>
+<ul class="simple">
+<li><p>Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>U</b></span></p></li>
+<li><p>Mac: <span class="keys"><b>⌘</b><i>+</i><b>U</b></span></p></li>
+</ul>
+<p>Individual occurrences can be skipped via Quick Skip Next, which is bound to:</p>
+<ul class="simple">
+<li><p>Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>K</b>, <b>Ctrl</b><i>+</i><b>D</b></span></p></li>
+<li><p>Mac: <span class="keys"><b>⌘</b><i>+</i><b>K</b>, <b>⌘</b><i>+</i><b>D</b></span></p></li>
+</ul>
+</section><section id="find-all"><h2>Find All<a class="headerlink" href="multiple_selection_with_the_keyboard.html#find-all" title="Permalink to this headline">🔗</a></h2>
+<p>To add all occurrences of the current word to the selection, use Find All:</p>
+<ul class="simple">
+<li><p>Windows/Linux: <span class="keys"><b>Alt</b><i>+</i><b>F3</b></span></p></li>
+<li><p>Mac: <span class="keys"><b>⌃</b><i>+</i><b>⌘</b><i>+</i><b>G</b></span></p></li>
+</ul>
+</section><section id="single-selection"><h2>Single Selection<a class="headerlink" href="multiple_selection_with_the_keyboard.html#single-selection" title="Permalink to this headline">🔗</a></h2>
+<ul class="simple">
+<li><p>To go from multiple selections to a single selection, press <span class="keys"><b>Esc</b></span>.</p></li>
+</ul>
+</section></section>
 
-    <section>
-        <ul id="toc">
-            <li><a href="multiple_selection_with_the_keyboard.html#adding_a_line">Addig a Line</a></li>
-            <li><a href="multiple_selection_with_the_keyboard.html#splitting_selection">Splitting the Selection into Lines</a></li>
-            <li><a href="multiple_selection_with_the_keyboard.html#quick_add_next">Quick Add Next</a></li>
-            <li><a href="multiple_selection_with_the_keyboard.html#find_all">Find All</a></li>
-            <li><a href="multiple_selection_with_the_keyboard.html#single_selection">Single Selection</a></li>
-        </ul>
-
-        <h2 id="adding_a_line">Adding a Line</h2>
-
-        <p>
-            To add the line above or below to the selection, use:
-        </p>
-
-        <ul>
-            <li>
-                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬆</b></span> and <span class="keys"><b>Ctrl</b><i>+</i><b>Alt</b><i>+</i><b>⬇</b></span>
-            </li>
-            <li>
-                Mac: <span class="keys"><b>⌃</b><i>+</i><b>⇧</b><i>+</i><b>⬆</b></span> and <span class="keys"><b>⌃</b><i>+</i><b>⇧</b><i>+</i><b>⬇</b></span>
-            </li>
-        </ul>
-
-        <p>
-            If you go too far, use Undo Selection to step backwards:
-        </p>
-
-        <ul>
-            <li>
-                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>U</b></span>
-            </li>
-            <li>
-                Mac: <span class="keys"><b>⌘</b><i>+</i><b>U</b></span>
-            </li>
-        </ul>
-
-        <h2 id="splitting_selection">Splitting the Selection into Lines</h2>
-
-        <p>
-            Select a block of lines, and then split it into many selections, one per line, using:
-        </p>
-
-        <ul>
-            <li>
-                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>L</b></span>
-            </li>
-            <li>
-                Mac: <span class="keys"><b>⇧</b><i>+</i><b>⌘</b><i>+</i><b>L</b></span>
-            </li>
-        </ul>
-
-        <h2 id="quick_add_next">Quick Add Next</h2>
-
-        <p>
-            To add the next occurrence of the current word to the selection, use Quick Add Next, which is bound to:
-        </p>
-
-        <ul>
-            <li>
-                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>D</b></span>
-            </li>
-            <li>
-                Mac: <span class="keys"><b>⌘</b><i>+</i><b>D</b></span>
-            </li>
-        </ul>
-
-        <p>
-            Again, if you go too far, use Undo Selection to step backwards:
-        </p>
-
-        <ul>
-            <li>
-                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>U</b></span>
-            </li>
-            <li>
-                Mac: <span class="keys"><b>⌘</b><i>+</i><b>U</b></span>
-            </li>
-        </ul>
-
-        <p>
-            Individual occurrences can be skipped via Quick Skip Next, which is bound to:
-        </p>
-
-        <ul>
-            <li>
-                Windows/Linux: <span class="keys"><b>Ctrl</b><i>+</i><b>K</b>, <b>Ctrl</b><i>+</i><b>D</b></span>
-            </li>
-            <li>
-                Mac: <span class="keys"><b>⌘</b><i>+</i><b>K</b>, <b>⌘</b><i>+</i><b>D</b></span>
-            </li>
-        </ul>
-
-        <h2 id="find_all">Find All</h2>
-
-        <p>
-            To add all occurrences of the current word to the selection, use Find All:
-        </p>
-
-        <ul>
-            <li>
-                Windows/Linux: <span class="keys"><b>Alt</b><i>+</i><b>F3</b></span>
-            </li>
-            <li>
-                Mac: <span class="keys"><b>⌃</b><i>+</i><b>⌘</b><i>+</i><b>G</b></span>
-            </li>
-        </ul>
-
-        <h2 id="single_selection">Single Selection</h2>
-
-        <p>
-            To go from multiple selections to a single selection, press <span class="keys"><b>Esc</b></span>.
-        </p>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

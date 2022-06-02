@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>minihtml Reference – Sublime Text Documentation</title>
+    <title>minihtml Reference</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,557 +60,378 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
-    <script src="https://www.sublimetext.com/docs/prism.js"></script>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="minihtml.html#toc">TOC</a>
+        <a class="jump top" href="minihtml.html#">TOP</a>
+    </nav>
+    minihtml Reference
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        minihtml Reference
-    </span></h1>
+  <section id="minihtml-reference"><div class="toctree-wrapper compound">
+</div>
+<p>Sublime Text contains a custom HTML and CSS engine, named minihtml, for
+displaying stylized content in editor panes. HTML content can be displayed in
+both popup windows and phantoms.</p>
+<p>minihtml provides a limited subset of HTML and CSS features found in most web
+browsers. While only certain CSS and HTML features may be implemented, they are
+designed to be standards compliant. Any feature implemented should function the
+same way in minihtml as in a browser.</p>
+<ul>
+<li><dl>
+<dt><a class="reference internal" href="minihtml.html#html">HTML</a></dt><dd><ul>
+<li><p><a class="reference internal" href="minihtml.html#tags">Tags</a></p></li>
+<li><p><a class="reference internal" href="minihtml.html#attributes">Attributes</a></p></li>
+<li><div class="build-filter build-4073 docutils container">
+<p><a class="reference internal" href="minihtml.html#protocols">Protocols</a></p>
+<span class="build">4073</span></div>
+</li>
+<li><div class="build-filter build-4073 docutils container">
+<p><a class="reference internal" href="minihtml.html#inline-formatting">Inline Formatting</a></p>
+<span class="build">4073</span></div>
+</li>
+<li><p><a class="reference internal" href="minihtml.html#best-practices">Best Practices</a></p></li>
+<li><p><a class="reference internal" href="minihtml.html#predefined-classes">Predefined Classes</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="minihtml.html#css">CSS</a></dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="minihtml.html#units">Units</a></p></li>
+<li><p><a class="reference internal" href="minihtml.html#colors">Colors</a></p></li>
+<li><p><a class="reference internal" href="minihtml.html#variables">Variables</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<section id="html"><h2>HTML<a class="headerlink" href="minihtml.html#html" title="Permalink to this headline">🔗</a></h2>
+<section id="tags"><h3>Tags<a class="headerlink" href="minihtml.html#tags" title="Permalink to this headline">🔗</a></h3>
+<p>The following tags are styled by the default style sheet:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;head&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h2&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h3&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h4&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h5&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h6&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ul&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;ol&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;b&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;strong&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;i&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;em&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;u&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;big&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;small&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;var&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;tt&gt;</span></code></p></li>
+</ul>
+<p>Special behavior is implemented for a few tags:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> — a callback can be specified via the <a class="reference internal" href="api_reference.html"><span class="doc">API</span></a> to handle
+clicks on anchor tags.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;img&gt;</span></code> — supports PNG, JPG and GIF images from <code class="docutils literal notranslate"><span class="pre">file://</span></code>, <code class="docutils literal notranslate"><span class="pre">res://</span></code> and
+<code class="docutils literal notranslate"><span class="pre">data:</span></code> URLs.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;ul&gt;</span></code> — bullets are displayed for <code class="docutils literal notranslate"><span class="pre">&lt;li&gt;</span></code> tags.</p></li>
+</ul>
+<p>Other HTML tags with special behavior are not implemented. This includes tags
+such as <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>, etc.</p>
+</section><section id="attributes"><h3>Attributes<a class="headerlink" href="minihtml.html#attributes" title="Permalink to this headline">🔗</a></h3>
+<p>The following attributes are supported:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">class</span></code> — for CSS selectors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code> — for CSS selectors</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">style</span></code> — inline CSS</p></li>
+<li><div class="build-filter build-4073 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">href</span></code> — callback-based navigation, <a class="reference internal" href="minihtml.html#protocols">protocols</a> support</p>
+<span class="build">4073</span></div>
+</li>
+<li><div class="build-filter build-4085 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">title</span></code> — tooltips</p>
+<span class="build">4085</span></div>
+</li>
+</ul>
+</section><div class="build-filter build-4073 docutils container" id="protocols">
+<section id="protocols"><h3>Protocols<a class="headerlink" href="minihtml.html#protocols" title="Permalink to this headline">🔗</a></h3>
+<p>In HTML sheets, popups, annotations and completion item details, the <code class="docutils literal notranslate"><span class="pre">href=&quot;&quot;</span></code>
+attribute of <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tags automatically supports three protocols:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">http:</span></code> — standard URL, will use system default browser to open</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https:</span></code> — standard URL, will use system default browser to open</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subl:</span></code> — a command name and args to invoke a command</p></li>
+</ul>
+<p>Valid <code class="docutils literal notranslate"><span class="pre">subl:</span></code> URL formats include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">subl:command_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subl:command_name</span> <span class="pre">{&quot;arg_name&quot;:</span> <span class="pre">arg_value,</span> <span class="pre">…}</span></code></p></li>
+</ul>
+<p>For popups and annotations it is possible to define an <code class="docutils literal notranslate"><span class="pre">on_navigate</span></code> callback
+via the API that will be called for any URL except for the <code class="docutils literal notranslate"><span class="pre">subl:</span></code> protocol.
+This API-based approach was the only way to handle URLs before build 4073.</p>
+</section><span class="build">4073</span></div>
+<div class="build-filter build-4073 docutils container" id="inline-formatting">
+<section id="inline-formatting"><h3>Inline Formatting<a class="headerlink" href="minihtml.html#inline-formatting" title="Permalink to this headline">🔗</a></h3>
+<p>In the details field of completion items, quick panel items and list input
+items, there is support for a limited, inline formatting subset of minihtml.
+This allows for some basic text formatting, that respects the theme and color
+scheme the user has selected.</p>
+<p>The supported tags are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=&quot;&quot;&gt;</span></code> – <a class="reference internal" href="minihtml.html#protocols">protocols</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;b&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;strong&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;i&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;em&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;u&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;tt&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code></p></li>
+</ul>
+</section><span class="build">4073</span></div>
+<section id="best-practices"><h3>Best Practices<a class="headerlink" href="minihtml.html#best-practices" title="Permalink to this headline">🔗</a></h3>
+<p>To allow color scheme authors to tweak the look of popups and phantoms, it is
+best to add a unique <code class="docutils literal notranslate"><span class="pre">id=&quot;&quot;</span></code> attribute to the <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> tag of your plugin’s
+HTML.</p>
+<p>Within the <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> tag, add a <code class="docutils literal notranslate"><span class="pre">&lt;style&gt;</span></code> tag containing selectors that do
+not use the id. Leave that for selectors in color schemes to be able to
+override the plugin.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-plugin-feature&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
+        <span class="nt">div</span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
+            <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
+            <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section><section id="predefined-classes"><h3>Predefined Classes<a class="headerlink" href="minihtml.html#predefined-classes" title="Permalink to this headline">🔗</a></h3>
+<p>When minihtml processes the HTML markup, it will automatically add a single
+class name to the <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> tag. The class name will be <code class="docutils literal notranslate"><span class="pre">dark</span></code> or <code class="docutils literal notranslate"><span class="pre">light</span></code>,
+and is designed to allow for advanced use of CSS in styling phantoms and
+popups.</p>
+<p>Which class is added is based on the lightness, in the HSL color space, of the
+background color of the current color scheme. If the lightness is less than
+0.5, <code class="docutils literal notranslate"><span class="pre">dark</span></code> will be added. If the lightness is greater than or equal to 0.5,
+<code class="docutils literal notranslate"><span class="pre">light</span></code> will be added.</p>
+</section></section><section id="css"><h2>CSS<a class="headerlink" href="minihtml.html#css" title="Permalink to this headline">🔗</a></h2>
+<p>The following list provides an overview of supported properties and values:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">display</span></code>: <code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">inline</span></code>, <code class="docutils literal notranslate"><span class="pre">block</span></code>, <code class="docutils literal notranslate"><span class="pre">list-item</span></code>,
+<span class="build-filter build-4085">inline-block <span class="build">4085</span></span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-top</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-bottom</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">margin-left</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">position</span></code>: <code class="docutils literal notranslate"><span class="pre">static</span></code>, <code class="docutils literal notranslate"><span class="pre">relative</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">top</span></code>: positive and negative <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">right</span></code>: positive and negative <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bottom</span></code>: positive and negative <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">left</span></code>: positive and negative <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-color</span></code>: <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font-family</span></code>: comma-separated list of font families</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font-size</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font-style</span></code>: <code class="docutils literal notranslate"><span class="pre">normal</span></code>, <code class="docutils literal notranslate"><span class="pre">italic</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">font-weight</span></code>: <code class="docutils literal notranslate"><span class="pre">normal</span></code>, <code class="docutils literal notranslate"><span class="pre">bold</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">line-height</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">text-decoration</span></code>: <code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">underline</span></code></p></li>
+<li><div class="build-filter build-4085 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">text-align</span></code>: <code class="docutils literal notranslate"><span class="pre">left</span></code>, <code class="docutils literal notranslate"><span class="pre">right</span></code>, <code class="docutils literal notranslate"><span class="pre">center</span></code></p>
+<span class="build">4085</span></div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color</span></code>: <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-top</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-right</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-bottom</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">padding-left</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a> or <a class="reference internal" href="minihtml.html#border-style">border-style</a> or <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-top</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a> or <a class="reference internal" href="minihtml.html#border-style">border-style</a> or <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-right</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a> or <a class="reference internal" href="minihtml.html#border-style">border-style</a> or <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-bottom</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a> or <a class="reference internal" href="minihtml.html#border-style">border-style</a> or <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-left</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a> or <a class="reference internal" href="minihtml.html#border-style">border-style</a> or <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p id="border-style"><code class="docutils literal notranslate"><span class="pre">border-style</span></code>: <code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">solid</span></code></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-top-style</span></code>: <a class="reference internal" href="minihtml.html#border-style">border-style</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-right-style</span></code>: <a class="reference internal" href="minihtml.html#border-style">border-style</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-bottom-style</span></code>: <a class="reference internal" href="minihtml.html#border-style">border-style</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-left-style</span></code>: <a class="reference internal" href="minihtml.html#border-style">border-style</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-width</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-top-width</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-right-width</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-bottom-width</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-left-width</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-color</span></code>: <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-top-color</span></code>: <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-right-color</span></code>: <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-bottom-color</span></code>: <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-left-color</span></code>: <a class="reference internal" href="minihtml.html#colors">colors</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-radius</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-top-left-radius</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-top-right-radius</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-bottom-right-radius</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">border-bottom-left-radius</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
+<li><div class="build-filter build-4050 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">list-style-type</span></code>: <code class="docutils literal notranslate"><span class="pre">circle</span></code>, <code class="docutils literal notranslate"><span class="pre">square</span></code> and <code class="docutils literal notranslate"><span class="pre">disc</span></code></p>
+<span class="build">4050</span></div>
+</li>
+</ul>
+<section id="units"><h3>Units<a class="headerlink" href="minihtml.html#units" title="Permalink to this headline">🔗</a></h3>
+<p>Supported units of measurement include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rem</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">em</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">px</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pt</span></code></p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">rem</span></code> units are recommended because they are based on the user’s <code class="docutils literal notranslate"><span class="pre">font_size</span></code>
+setting, and they will not cascade.</p>
+</section><section id="colors"><h3>Colors<a class="headerlink" href="minihtml.html#colors" title="Permalink to this headline">🔗</a></h3>
+<p>Colors may be specified via:</p>
+<ul>
+<li><p>Named colors: <code class="docutils literal notranslate"><span class="pre">white</span></code>, <code class="docutils literal notranslate"><span class="pre">tan</span></code>, etc</p></li>
+<li><p>Shorthand hex: <code class="docutils literal notranslate"><span class="pre">#fff</span></code></p></li>
+<li><p>Shorthand hex with alpha: <code class="docutils literal notranslate"><span class="pre">#fff8</span></code></p></li>
+<li><p>Full hex: <code class="docutils literal notranslate"><span class="pre">#ffffff</span></code></p></li>
+<li><p>Full hex with alpha: <code class="docutils literal notranslate"><span class="pre">#ffffff80</span></code></p></li>
+<li><p>RGB functional notation: <code class="docutils literal notranslate"><span class="pre">rgb(255,</span> <span class="pre">255,</span> <span class="pre">255)</span></code></p></li>
+<li><p>RGBA functional notation: <code class="docutils literal notranslate"><span class="pre">rgba(255,</span> <span class="pre">255,</span> <span class="pre">255,</span> <span class="pre">0.5)</span></code></p></li>
+<li><p>HSL functional notation: <code class="docutils literal notranslate"><span class="pre">hsl(0,</span> <span class="pre">100%,</span> <span class="pre">100%)</span></code></p></li>
+<li><p>HSLA functional notation: <code class="docutils literal notranslate"><span class="pre">hsla(0,</span> <span class="pre">100%,</span> <span class="pre">100%,</span> <span class="pre">0.5)</span></code></p></li>
+<li><div class="build-filter build-3181 docutils container">
+<p>HWB functional notation: hwb(0, 20%, 20%), hwb(0, 20%, 20%, 0.5)</p>
+<span class="build">3181</span></div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">transparent</span></code></p></li>
+</ul>
+<section id="color-mod-function-proprietary"><h4><code class="docutils literal notranslate"><span class="pre">color()</span></code> Mod Function (Proprietary)<a class="headerlink" href="minihtml.html#color-mod-function-proprietary" title="Permalink to this headline">🔗</a></h4>
+<p>Additionally, color values may be modified using the CSS Color Module Level 4
+(05 July 2016) <a class="reference external" href="https://www.w3.org/TR/2016/WD-css-color-4-20160705/#modifying-colors">color-mod function</a> with
+the following adjusters. <i>Unfortunately in a later draft of CSS Color Module
+Level 4, the color-mod function was removed</i>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">alpha()</span></code>/<code class="docutils literal notranslate"><span class="pre">a()</span></code></p></li>
+<li><div class="build-filter build-3179 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">saturation()</span></code>/<code class="docutils literal notranslate"><span class="pre">s()</span></code></p>
+<span class="build">3179</span></div>
+</li>
+<li><div class="build-filter build-3179 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">lightness()</span></code>/<code class="docutils literal notranslate"><span class="pre">l()</span></code></p>
+<span class="build">3179</span></div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blend()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">blenda()</span></code></p></li>
+<li><div class="build-filter build-3181 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> (Proprietary)</p>
+<span class="build">3181</span></div>
+</li>
+</ul>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span> <span class="kc">alpha</span><span class="err">(</span><span class="mf">0.25</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span> <span class="nb">blend</span><span class="p">(</span><span class="kc">red</span> <span class="mi">50</span><span class="kt">%</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The color-mod function will be most useful in combination with <a class="reference internal" href="minihtml.html#variables">variables</a>.</p>
+</section><section id="min-contrast-adjuster"><h4><code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> Adjuster<a class="headerlink" href="minihtml.html#min-contrast-adjuster" title="Permalink to this headline">🔗</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> adjuster for the <code class="docutils literal notranslate"><span class="pre">color()</span></code> mod function is a
+non-standard addition that is custom to minihtml. At the time of
+implementation, the CSS Color Module Level 4 spec had a <code class="docutils literal notranslate"><span class="pre">contrast()</span></code> adjuster,
+but it only allowed taking a color and modifying it to provide contrast with
+itself, as opposed to taking a second color (typically a background) and making
+sure the foreground has sufficient contrast with the background.</p>
+<p><code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> accepts two parameters: a background color to measure the
+contrast against, and a minimum contrast ratio between the “base” color and the
+background color. The ratio will be a decimal number, typically between <code class="docutils literal notranslate"><span class="pre">2.0</span></code>
+and <code class="docutils literal notranslate"><span class="pre">4.5</span></code>.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">redish</span><span class="p">)</span> <span class="nf">min-contrast</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span> <span class="mf">2.5</span><span class="p">));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Please see the documentation for the <a class="reference external" href="https://www.w3.org/TR/2016/WD-css-color-4-20160705/#contrast-adjuster">contrast() adjuster</a> for
+details about how the contrast ratio is calculated and how the color is
+modified to meet it.</p>
+</section></section><section id="variables"><h3>Variables<a class="headerlink" href="minihtml.html#variables" title="Permalink to this headline">🔗</a></h3>
+<p>CSS variables are also supported using custom properties and the <code class="docutils literal notranslate"><span class="pre">var()</span></code>
+functional notation. Custom properties are those starting with <code class="docutils literal notranslate"><span class="pre">--</span></code>.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">html</span> <span class="p">{</span>
+    <span class="err">--</span><span class="n">fg</span><span class="p">:</span> <span class="mh">#f00</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">fg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The one limitation is that the <code class="docutils literal notranslate"><span class="pre">var()</span></code> notation can not be used for part of a
+multi-number value, such as <code class="docutils literal notranslate"><span class="pre">padding</span></code> or <code class="docutils literal notranslate"><span class="pre">margin</span></code>. With those aggregate
+properties, the <code class="docutils literal notranslate"><span class="pre">var()</span></code> notation must be used for the complete value.</p>
+<section id="predefined-variables"><h4>Predefined Variables<a class="headerlink" href="minihtml.html#predefined-variables" title="Permalink to this headline">🔗</a></h4>
+<p>When a color scheme is loaded, the background and foreground colors are set to
+CSS variables, along with the closest color found to a handful of basic colors.
+These are all set in an <code class="docutils literal notranslate"><span class="pre">html</span> <span class="pre">{</span> <span class="pre">}</span></code> rule set in the default CSS style sheet.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--background)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--foreground)</span></code></p></li>
+<li><p><span class="build-filter build-3179">var(–accent) <span class="build">3179</span></span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--redish)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--orangish)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--yellowish)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--greenish)</span></code></p></li>
+<li><p><span class="build-filter build-3179">var(–cyanish) <span class="build">3179</span></span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--bluish)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--purplish)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">var(--pinkish)</span></code></p></li>
+</ul>
+<p>The algorithm to pick the colors uses the HSL color space and uses several
+heuristics to try and pick colors that are suitable for foreground use. In the
+case that the automatic color selection is undesirable, color scheme authors
+may override the appropriate values with their own <code class="docutils literal notranslate"><span class="pre">html</span> <span class="pre">{</span> <span class="pre">}</span></code> rule set contained
+in the <code class="docutils literal notranslate"><span class="pre">popupCss</span></code> or <code class="docutils literal notranslate"><span class="pre">phantomCss</span></code> settings.</p>
+<p>If a variable with one of the predefined names is set in the selected
+<span class="file">.sublime-color-scheme</span>, that value will be used instead of trying to find
+a match from the colors used in the color scheme.</p>
+</section></section></section></section>
 
-        <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="minihtml.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="minihtml.html#ver-4.0" class="ver-sel" data-default="1">4.0</a>
-        <a href="minihtml.html#ver-3.2" class="ver-sel">3.2</a>
-        <a href="minihtml.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="minihtml.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
-
-    <section>
-        <p>
-            Sublime Text contains a custom HTML and CSS engine, named
-            <span class="proper">minihtml</span>, for displaying stylized
-            content in editor panes. HTML content can be displayed in both
-            popup windows and phantoms.
-        </p>
-
-        <p>
-            <span class="proper">minihtml</span> provides a limited subset of
-            HTML and CSS features found in most web browsers. While only
-            certain CSS and HTML features may be implemented, they are designed
-            to be standards compliant. Any feature implemented should function
-            the same way in <span class="proper">minihtml</span> as in a
-            browser.
-        </p>
-
-        <ul id="toc">
-            <li>
-                <a href="minihtml.html#html">HTML</a>
-                <ul>
-                    <li><a href="minihtml.html#tags">Tags</a></li>
-                    <li><a href="minihtml.html#attributes">Attributes</a></li>
-                    <li class="build-4073">
-                        <a href="minihtml.html#protocols">Protocols</a>
-                        <span class="build" title="Added in build 4073">4073</span>
-                    </li>
-                    <li class="build-4073">
-                        <a href="minihtml.html#inline_formatting">Inline Formatting</a>
-                        <span class="build" title="Added in build 4073">4073</span>
-                    </li>
-                    <li><a href="minihtml.html#best_practices">Best Practices</a></li>
-                    <li><a href="minihtml.html#predefined_classes">Predefined Classes</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="minihtml.html#css">CSS</a>
-                <ul>
-                    <li><a href="minihtml.html#units">Units</a></li>
-                    <li><a href="minihtml.html#colors">Colors</a></li>
-                    <li><a href="minihtml.html#variables">Variables</a></li>
-                </ul>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="html">HTML</h2>
-
-        <h3 id="tags">Tags</h3>
-
-        <p>The following tags are styled by the default style sheet:</p>
-
-        <ul>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">html</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">head</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">style</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">body</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">h1</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">h2</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">h3</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">h4</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">h5</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">h6</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">div</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">p</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">ul</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">ol</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">li</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">b</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">strong</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">i</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">em</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">u</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">big</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">small</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">code</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">var</span><span style="color: #5fb4b4">&gt;</span></span></code>,
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tt</span><span style="color: #5fb4b4">&gt;</span></span></code>
-            </li>
-        </ul>
-
-        <p>Special behavior is implemented for a few tags:</p>
-
-        <ul>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span><span style="color: #5fb4b4">&gt;</span></span></code> – a callback can be specified via the API to handle clicks on anchor tags
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">img</span><span style="color: #5fb4b4">&gt;</span></span></code> – supports PNG, JPG and GIF images from <code>file://</code>, <code>res://</code> and <code>data:</code> URLs
-            </li>
-            <li>
-                <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">ul</span><span style="color: #5fb4b4">&gt;</span></span></code> – bullets are displayed for <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">li</span><span style="color: #5fb4b4">&gt;</span></span></code> tags
-            </li>
-        </ul>
-
-        <p>
-            Other HTML tags with special behavior are not implemented. This includes tags such as <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">input</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">button</span><span style="color: #5fb4b4">&gt;</span></span></code>, <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">table</span><span style="color: #5fb4b4">&gt;</span></span></code>, etc.
-        </p>
-
-        <h3 id="attributes">Attributes</h3>
-
-        <p>The following attributes are supported:</p>
-
-        <ul>
-            <li><code>class</code> - for CSS selectors</li>
-            <li><code>id</code> - for CSS selectors</li>
-            <li><code>style</code> - inline CSS</li>
-            <li><code>href</code> - callback-based navigation<span class="build-4073">, <a href="minihtml.html#protocols">protocols</a> support <span class="build" title="Added in build 4073">4073</span></span></li>
-            <li class="build-4085"><code>title</code> - tooltips <span class="build" title="Added in build 4085">4085</span></li>
-        </ul>
-
-        <div class="build-4073">
-            <h3 id="protocols">
-                Protocols
-                <span class="build" title="Added in build 4073">4073</span>
-            </h3>
-
-            <p>
-                In HTML sheets, popups, annotations and completion item details, the <code>href=""</code> attribute of <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span><span style="color: #5fb4b4">&gt;</span></span></code> tags automatically supports three protocols:
-            </p>
-
-            <ul>
-                <li><code>http:</code> - standard URL, will use system default browser to open</li>
-                <li><code>https:</code> - standard URL, will use system default browser to open</li>
-                <li><code>subl:</code> - a command name and args to invoke a command</li>
-            </ul>
-
-            <p>
-                Valid <code>subl:</code> URL formats include:
-            </p>
-
-            <ul>
-                <li><code>subl:<em>command_name</em></code></li>
-                <li><code>subl:<em>command_name</em> {"<em>arg_name</em>": <em>arg_value</em>, <em>…</em>}</code></li>
-            </ul>
-
-            <p>
-                <em>For popups and annotations it is possible to define an <code>on_navigate</code> callback via the API that will be called for any URL except for the <code>subl:</code> protocol. This API-based approach was the only way to handle URLs before build <span class="build">4073</span>.</em>
-            </p>
-        </div>
-
-        <div class="build-4073">
-            <h3 id="inline_formatting">
-                Inline Formatting
-                <span class="build" title="Added in build 4073">4073</span>
-            </h3>
-
-            <p>
-                In the details field of completion items, quick panel items and list input items, there is support for a limited, inline formatting subset of minihtml. This allows for some basic text formatting, that respects the theme and color scheme the user has selected.
-            </p>
-
-            <p>
-                The supported tags are:
-            </p>
-
-            <ul>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">a</span> <span style="color: #c695c6">href</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span></span></code> – <a href="minihtml.html#protocols">protocols</a></li>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">b</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">strong</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">i</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">em</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">u</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">tt</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-                <li><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">code</span><span style="color: #5fb4b4">&gt;</span></span></code></li>
-            </ul>
-        </div>
-
-        <h3 id="best_practices">Best Practices</h3>
-
-        <p>
-            To allow color scheme authors to tweak the look of popups and
-            phantoms, it is best to add a unique <code>id=&quot;&quot;</code>
-            attribute to the <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">body</span><span style="color: #5fb4b4">&gt;</span></span></code> tag of your plugin's
-            HTML.
-        </p>
-
-        <p>
-            Within the <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">body</span><span style="color: #5fb4b4">&gt;</span></span></code> tag, add a
-            <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">style</span><span style="color: #5fb4b4">&gt;</span></span></code> tag containing selectors that do not
-            use the <code>id</code>. Leave that for selectors in color schemes
-            to be able to override the plugin.
-        </p>
-
-        <pre><code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">body</span> <span style="color: #c695c6">id</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my-plugin-feature</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span>
-    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">style</span><span style="color: #5fb4b4">&gt;</span>
-        <span style="color: #ec5f66">div</span><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-            <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #c695c6; font-style: italic">red</span><span style="color: #ac7a68">;</span>
-            <span style="font-style: italic">padding</span><span style="color: #ac7a68">:</span> <span style="color: #f9ae58">5</span><span style="color: #c695c6; font-style: italic">px</span><span style="color: #ac7a68">;</span>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
         }
-    <span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">style</span><span style="color: #5fb4b4">&gt;</span>
-    <span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">div</span> <span style="color: #c695c6">class</span><span style="color: #ac7a68">=</span><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">error</span><span style="color: #5fb4b4">&quot;</span><span style="color: #5fb4b4">&gt;</span><span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">div</span><span style="color: #5fb4b4">&gt;</span>
-<span style="color: #5fb4b4">&lt;/</span><span style="color: #ec5f66">body</span><span style="color: #5fb4b4">&gt;</span></span></code></pre>
-
-        <h3 id="predefined_classes">Predefined Classes</h3>
-
-        <p>
-            When minihtml processes the HTML markup, it will automatically
-            add a single class name to the <code class="syntax-html"><span style="color: #333333"><span style="color: #5fb4b4">&lt;</span><span style="color: #ec5f66">html</span><span style="color: #5fb4b4">&gt;</span></span></code> tag.
-            The class name will be <code>dark</code> or <code>light</code>,
-            and is designed to allow for advanced use of CSS in styling
-            phantoms and popups.
-        </p>
-        <p>
-            Which class is added is based on the lightness, in the HSL color space, of the background color of the current color scheme. If
-            the lightness is less than 0.5, <code>dark</code> will be added.
-            If the lightness is greater than or equal to 0.5, <code>light</code>
-            will be added.
-        </p>
-
-    </section>
-
-    <section>
-        <h2 id="css">CSS</h2>
-
-        <p>
-            The following list provides an overview of supported properties and
-            values:
-        </p>
-
-        <ul>
-            <li>
-                <code>display</code>: <em><code>inline</code>,
-                <span class="build-4085">
-                    <code>inline-block</code>
-                    <span class="build" title="Added in build 4085">4085</span>,
-                </span>
-                <code>block</code>, <code>list-item</code>,
-                <code>none</code></em>
-            </li>
-            <li>
-                <code>margin</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>margin-top</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>margin-right</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>margin-bottom</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>margin-left</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em>
-            </li>
-            <li>
-                <code>position</code>: <em><code>static</code>,
-                <code>relative</code></em>
-            </li>
-            <li>
-                <code>top</code>: <em>positive and negative
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>right</code>: <em>positive and negative
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>bottom</code>: <em>positive and negative
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>left</code>: <em>positive and negative
-                <a href="minihtml.html#units">units</a></em>
-            </li>
-            <li>
-                <code>background-color</code>: <a href="minihtml.html#colors">colors</a>
-            </li>
-            <li>
-                <code>font-family</code>:
-                <em>comma-separated list of font families</em><br>
-                <code>font-size</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>font-style</code>: <em><code>normal</code>,
-                <code>italic</code></em><br>
-                <code>font-weight</code>: <em><code>normal</code>,
-                <code>bold</code></em><br>
-                <code>line-height</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>text-decoration</code>: <em><code>none</code>,
-                <code>underline</code></em><br>
-                <span class="build-4085">
-                    <code>text-align</code>: <em><code>left</code>,
-                    <code>right</code>, <code>center</code></em>
-                    <span class="build" title="Added in build 4085">4085</span>
-                </span>
-            </li>
-            <li>
-                <code>color</code>: <a href="minihtml.html#colors">colors</a>
-            </li>
-            <li>
-                <code>padding</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>padding-top</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>padding-right</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>padding-bottom</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>padding-left</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em>
-            </li>
-            <li>
-                <code>border</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em> ||
-                <em><a href="minihtml.html#border-style">border-style</a></em> ||
-                <em><a href="minihtml.html#colors">colors</a></em><br>
-                <code>border-top</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em> ||
-                <em><a href="minihtml.html#border-style">border-style</a></em> ||
-                <em><a href="minihtml.html#colors">colors</a></em><br>
-                <code>border-right</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em> ||
-                <em><a href="minihtml.html#border-style">border-style</a></em> ||
-                <em><a href="minihtml.html#colors">colors</a></em><br>
-                <code>border-bottom</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em> ||
-                <em><a href="minihtml.html#border-style">border-style</a></em> ||
-                <em><a href="minihtml.html#colors">colors</a></em><br>
-                <code>border-left</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em> ||
-                <em><a href="minihtml.html#border-style">border-style</a></em> ||
-                <em><a href="minihtml.html#colors">colors</a></em>
-            </li>
-            <li id="border-style">
-                <code>border-style</code>: <em><code>none</code>,
-                <code>solid</code></em><br>
-                <code>border-top-style</code>:
-                <em><a href="minihtml.html#border-style">border-style</a></em><br>
-                <code>border-right-style</code>:
-                <em><a href="minihtml.html#border-style">border-style</a></em><br>
-                <code>border-bottom-style</code>:
-                <em><a href="minihtml.html#border-style">border-style</a></em><br>
-                <code>border-left-style</code>:
-                <em><a href="minihtml.html#border-style">border-style</a></em>
-            </li>
-            <li>
-                <code>border-width</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-top-width</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-right-width</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-bottom-width</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-left-width</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em>
-            </li>
-            <li>
-                <code>border-color</code>:
-                <a href="minihtml.html#colors">colors</a><br>
-                <code>border-top-color</code>:
-                <a href="minihtml.html#colors">colors</a><br>
-                <code>border-right-color</code>:
-                <a href="minihtml.html#colors">colors</a><br>
-                <code>border-bottom-color</code>:
-                <a href="minihtml.html#colors">colors</a><br>
-                <code>border-left-color</code>:
-                <a href="minihtml.html#colors">colors</a>
-            </li>
-            <li>
-                <code>border-radius</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-top-left-radius</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-top-right-radius</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-bottom-right-radius</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em><br>
-                <code>border-bottom-left-radius</code>: <em>positive
-                <a href="minihtml.html#units">units</a></em>
-            </li>
-            <li class="build-4050">
-                <code>list-style-type</code>: <em><code>circle</code></em>, <em><code>square</code></em> and <em><code>disc</code></em>
-                <span class="build" title="Added in build 4050">4050</span>
-            </li>
-        </ul>
-
-        <h3 id="units">Units</h3>
-
-        <p>Supported units of measurement include:</p>
-
-        <ul>
-            <li><code>rem</code></li>
-            <li><code>em</code></li>
-            <li><code>px</code></li>
-            <li><code>pt</code></li>
-        </ul>
-
-        <p>
-            <code>rem</code> units are recommended because they are based on the
-            user's <code>font_size</code> setting, and they will not cascade.
-        </p>
-
-        <h3 id="colors">Colors</h3>
-
-        <p>Colors may be specified via:</p>
-
-        <ul>
-            <li>Named colors: <code>white</code>, <code>tan</code>, etc</li>
-            <li>Shorthand hex: <code>#fff</code></li>
-            <li>Shorthand hex with alpha: <code>#fff8</code></li>
-            <li>Full hex: <code>#ffffff</code></li>
-            <li>Full hex with alpha: <code>#ffffff80</code></li>
-            <li>RGB functional notation: <code>rgb(255, 255, 255)</code></li>
-            <li>RGBA functional notation: <code>rgba(255, 255, 255, 0.5)</code></li>
-            <li>HSL functional notation: <code>hsl(0, 100%, 100%)</code></li>
-            <li>HSLA functional notation: <code>hsla(0, 100%, 100%, 0.5)</code></li>
-            <li class="build-3181">
-                HWB functional notation: <code>hwb(0, 20%, 20%)</code>, <code>hwb(0, 20%, 20%, 0.5)</code>
-                <span class="build" title="Added in build 3183">3181</span>
-            </li>
-            <li><code>transparent</code></li>
-        </ul>
-
-        <h4 id="color-mod_function">
-            <code>color()</code> Mod Function
-            <span class="proprietary" title="No longer part of CSS Color Module Level 4">Proprietary</span>
-        </h4>
-
-        <p>
-            Additionally, color values may be modified using the CSS Color Module Level 4 (<em>05 July 2016</em>) <a href="https://www.w3.org/TR/2016/WD-css-color-4-20160705/#modifying-colors">color-mod function</a> with the following adjusters. <em>Unfortunately in a later draft of CSS Color Module Level 4, the color-mod function was removed.</em>
-        </p>
-
-        <ul>
-            <li><code>alpha()</code>/<code>a()</code></li>
-            <li class="build-3179">
-                <code>saturation()</code>/<code>s()</code>
-                <span class="build" title="Added in build 3179">3179</span>
-            </li>
-            <li class="build-3179">
-                <code>lightness()</code>/<code>l()</code>
-                <span class="build" title="Added in build 3179">3179</span>
-            </li>
-            <li><code>blend()</code></li>
-            <li><code>blenda()</code></li>
-            <li class="build-3181">
-                <code>min-contrast()</code>
-                <span class="build" title="Added in build 3181">3181</span>
-                <span class="proprietary" title="Not part of any spec or draft">Proprietary</span>
-            </li>
-        </ul>
-
-        <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span>(<span style="color: #6699cc; font-style: italic">var</span>(--background) <span style="color: #6699cc; font-style: italic">alpha</span>(<span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">25</span>))<span style="color: #ac7a68">;</span>
-}</span></code></pre>
-
-        <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span>(<span style="color: #6699cc; font-style: italic">var</span>(--background) <span style="color: #6699cc; font-style: italic">blend</span>(<span style="color: #c695c6; font-style: italic">red</span> <span style="color: #f9ae58">50</span><span style="color: #c695c6; font-style: italic">%</span>))<span style="color: #ac7a68">;</span>
-}</span></code></pre>
-
-        <p>The color-mod function will be most useful in combination with <a href="minihtml.html#variables">variables</a>.</p>
-
-        <h5><code>min-contrast()</code> Adjuster</h5>
-
-        <p>
-            <em><b>The <code>min-contrast()</code> adjuster for the <code>color()</code> mod function is a non-standard addition that is custom to minihtml.</b></em> At the time of implementation, the CSS Color Module Level 4 spec had a <code>contrast()</code> adjuster, but it only allowed taking a color and modifying it to provide contrast with itself, as opposed to taking a second color (typically a background) and making sure the foreground has sufficient contrast with the background.
-        </p>
-
-        <p>
-            <code>min-contrast()</code> accepts two parameters: a background color to measure the contrast against, and a minimum contrast ratio between the "base" color and the background color. The ratio will be a decimal number, typically between <code>2.0</code> and <code>4.5</code>.
-        </p>
-
-        <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">color</span>(<span style="color: #6699cc; font-style: italic">var</span>(--redish) min-contrast<span style="color: #f7f7f7">(</span>var(--background<span style="color: #f7f7f7">)</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">5</span>)<span style="color: #f7f7f7">)</span><span style="color: #ac7a68">;</span>
-}</span></code></pre>
-
-        <p>
-            Please see the documentation for the <a href="https://www.w3.org/TR/2016/WD-css-color-4-20160705/#contrast-adjuster"><code>contrast()</code> adjuster</a> for details about how the contrast ratio is calculated and how the color is modified to meet it.
-        </p>
-
-        <h3 id="variables">Variables</h3>
-
-        <p>CSS variables are also supported using custom properties and the <code>var()</code> functional notation. <em>Custom properties are those starting with <code>--</code>.</em></p>
-
-        <pre><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">html</span> {
-    --fg<span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">#</span><span style="color: #c695c6">f00</span><span style="color: #ac7a68">;</span>
-}
-<span style="color: #5fb4b4">.</span><span style="color: #c695c6">error</span> {
-    <span style="font-style: italic">background-color</span><span style="color: #ac7a68">:</span> <span style="color: #6699cc; font-style: italic">var</span>(--fg)<span style="color: #ac7a68">;</span>
-}</span></code></pre>
-
-        <p>The one limitation is that the <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">()</span></span></code> notation can not be used for part of a multi-number value, such as <code>padding</code> or <code>margin</code>. With those aggregate properties, the <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">()</span></span></code> notation must be used for the complete value.</p>
-
-        <h4 id="predefined_variables">Predefined Variables</h4>
-
-        <p>When a color scheme is loaded, the background and foreground colors are set to CSS variables, along with the closest color found to a handful of basic colors. These are all set in an <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">html</span> { }</span></code> rule set in the default CSS style sheet.</p>
-
-        <ul>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--background<span style="color: #f7f7f7">)</span></span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--foreground<span style="color: #f7f7f7">)</span></span></code></li>
-            <li class="build-3179">
-                <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--accent<span style="color: #f7f7f7">)</span></span></code>
-                <span class="build" title="Added in build 3179">3179</span>
-            </li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--redish<span style="color: #f7f7f7">)</span></span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--orangish<span style="color: #f7f7f7">)</span></span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--yellowish<span style="color: #f7f7f7">)</span></span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--greenish<span style="color: #f7f7f7">)</span></span></code></li>
-            <li class="build-3179">
-                <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--cyanish<span style="color: #f7f7f7">)</span></span></code>
-                <span class="build" title="Added in build 3179">3179</span>
-            </li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--bluish<span style="color: #f7f7f7">)</span></span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--purplish<span style="color: #f7f7f7">)</span></span></code></li>
-            <li><code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">var</span><span style="color: #f7f7f7">(</span>--pinkish<span style="color: #f7f7f7">)</span></span></code></li>
-        </ul>
-
-        <p>The algorithm to pick the colors uses the HSL color space and uses several heuristics to try and pick colors that are suitable for foreground use. In the case that the automatic color selection is undesirable, color scheme authors may override the appropriate values with their own <code class="syntax-css"><span style="color: #333333"><span style="color: #ec5f66">html</span> { }</span></code> rule set contained in the
-        <code>popupCss</code> or <code>phantomCss</code> settings.</p>
-
-        <p>If a variable with one of the predefined names is set in the selected <span class="file">.sublime-color-scheme</span>, that value will be used instead of trying to find a match from the colors used in the color scheme.</p>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

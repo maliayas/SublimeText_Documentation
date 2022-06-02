@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Vintage Mode – Sublime Text Documentation</title>
+    <title>Vintage Mode</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,148 +60,146 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="vintage.html#toc">TOC</a>
+        <a class="jump top" href="vintage.html#">TOP</a>
+    </nav>
+    Vintage Mode
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Vintage Mode
-    </span></h1>
+  <section id="vintage-mode"><p>Vintage is a vi mode editing package for Sublime Text. It allows you to combine
+vi’s command mode with Sublime Text’s features, including multiple selections.</p>
+<p>Vintage mode is developed in the open, and patches are more than welcome. If
+you’d like to contribute, details are in the <a class="reference external" href="https://github.com/sublimehq/Vintage">GitHub repo</a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="vintage.html#enabling-vintage">Enabling Vintage</a></p></li>
+<li><p><a class="reference internal" href="vintage.html#whats-included">What’s Included</a></p></li>
+<li><p><a class="reference internal" href="vintage.html#whats-not">What’s Not</a></p></li>
+<li><p><a class="reference internal" href="vintage.html#under-the-hood">Under the Hood</a></p></li>
+<li><p><a class="reference internal" href="vintage.html#mac">Mac</a></p></li>
+<li><p><a class="reference internal" href="vintage.html#ctrl-keys">Ctrl Keys</a></p></li>
+<li><p><a class="reference internal" href="vintage.html#ex-mode">Ex Mode</a></p></li>
+</ul>
+<section id="enabling-vintage"><h2>Enabling Vintage<a class="headerlink" href="vintage.html#enabling-vintage" title="Permalink to this headline">🔗</a></h2>
+<p>Vintage is disabled by default, via the <code class="docutils literal notranslate"><span class="pre">ignored_packages</span></code> setting. If you
+remove <code class="docutils literal notranslate"><span class="pre">&quot;Vintage&quot;</span></code> from the list of ignored packages, you’ll be able to edit
+with vi keys:</p>
+<ol class="arabic simple">
+<li><p>Select the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span> menu item</p></li>
+<li><p>Edit the <code class="docutils literal notranslate"><span class="pre">ignored_packages</span></code> setting, changing it from:
+<code class="docutils literal notranslate"><span class="pre">&quot;ignored_packages&quot;:</span> <span class="pre">[&quot;Vintage&quot;]</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;ignored_packages&quot;:</span> <span class="pre">[]</span></code> and save
+the file.</p></li>
+<li><p>Vintage mode is now enabled – you’ll see “INSERT MODE” listed in the status
+bar</p></li>
+</ol>
+<p>Vintage starts in insert mode by default. This can be changed by adding the
+following setting to your user settings:</p>
+<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_start_in_command_mode&quot;</span><span class="p">:</span> <span class="kc">true</span>
+</pre></div>
+</div>
+</section><section id="whats-included"><h2>What’s Included<a class="headerlink" href="vintage.html#whats-included" title="Permalink to this headline">🔗</a></h2>
+<p>Vintage includes most basic actions: <kbd class="kbd docutils literal notranslate">d</kbd> (delete), <kbd class="kbd docutils literal notranslate">y</kbd>
+(copy), <kbd class="kbd docutils literal notranslate">c</kbd> (change), <kbd class="kbd docutils literal notranslate">gu</kbd> (lower case), <kbd class="kbd docutils literal notranslate">gU</kbd>
+(upper case), <kbd class="kbd docutils literal notranslate">g~</kbd> (swap case), <kbd class="kbd docutils literal notranslate">g?</kbd> (rot13), <kbd class="kbd docutils literal notranslate">&lt;</kbd>
+(unindent), and <kbd class="kbd docutils literal notranslate">&gt;</kbd> (indent).</p>
+<p>It also includes many motions,
+including <kbd class="kbd docutils literal notranslate">l</kbd>, <kbd class="kbd docutils literal notranslate">h</kbd>, <kbd class="kbd docutils literal notranslate">j</kbd>, <kbd class="kbd docutils literal notranslate">k</kbd>, <kbd class="kbd docutils literal notranslate">W</kbd>, <kbd class="kbd docutils literal notranslate">w</kbd>,
+<kbd class="kbd docutils literal notranslate">e</kbd>, <kbd class="kbd docutils literal notranslate">E</kbd>, <kbd class="kbd docutils literal notranslate">b</kbd>, <kbd class="kbd docutils literal notranslate">B</kbd>, <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">alt</kbd>+<kbd class="kbd docutils literal notranslate">w</kbd></kbd> (move by sub-words),
+<kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">alt</kbd>+<kbd class="kbd docutils literal notranslate">W</kbd></kbd> (move backwards by sub-words), <kbd class="kbd docutils literal notranslate">$</kbd>, <kbd class="kbd docutils literal notranslate">^</kbd>, <kbd class="kbd docutils literal notranslate">%</kbd>,
+<kbd class="kbd docutils literal notranslate">0</kbd>, <kbd class="kbd docutils literal notranslate">G</kbd>, <kbd class="kbd docutils literal notranslate">gg</kbd>, <kbd class="kbd docutils literal notranslate">f</kbd>, <kbd class="kbd docutils literal notranslate">F</kbd>, <kbd class="kbd docutils literal notranslate">t</kbd>, <kbd class="kbd docutils literal notranslate">T</kbd>,
+<kbd class="kbd docutils literal notranslate">^f</kbd>, <kbd class="kbd docutils literal notranslate">^b</kbd>, <kbd class="kbd docutils literal notranslate">H</kbd>, <kbd class="kbd docutils literal notranslate">M</kbd>, and <kbd class="kbd docutils literal notranslate">L</kbd>.</p>
+<p>Text objects are supported, including words, quotes, brackets and tags.</p>
+<p>Repeat (<kbd class="kbd docutils literal notranslate">.</kbd>) is in there, as is specifying counts for commands and
+motions. Registers are supported, as are macros and bookmarks. Many other
+miscellaneous commands are supported too, such and <kbd class="kbd docutils literal notranslate">*</kbd>, <kbd class="kbd docutils literal notranslate">/</kbd>,
+<kbd class="kbd docutils literal notranslate">n</kbd>, <kbd class="kbd docutils literal notranslate">N</kbd>, <kbd class="kbd docutils literal notranslate">s</kbd>, <kbd class="kbd docutils literal notranslate">S</kbd> and more.</p>
+</section><section id="whats-not"><h2>What’s Not<a class="headerlink" href="vintage.html#whats-not" title="Permalink to this headline">🔗</a></h2>
+<p>Insert mode is regular Sublime Text editing, with the usual Sublime Text key
+bindings: vi insert mode key bindings are not emulated.</p>
+<p>Ex commands are not implemented, apart from <kbd class="kbd docutils literal notranslate">:w</kbd> and <kbd class="kbd docutils literal notranslate">:e</kbd>, which
+work via the command palette.</p>
+</section><section id="under-the-hood"><h2>Under the Hood<a class="headerlink" href="vintage.html#under-the-hood" title="Permalink to this headline">🔗</a></h2>
+<p>Vintage mode is implemented entirely via key bindings and the plugin API – feel
+free to browse through the Vintage package and see how it’s put together. As an
+example, if you’d like to bind <kbd class="kbd docutils literal notranslate">jj</kbd> to exit insert mode, you can add this
+key binding:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;exit_insert_mode&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;context&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;setting.command_mode&quot;</span><span class="p">,</span> <span class="nt">&quot;operand&quot;</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;setting.is_widget&quot;</span><span class="p">,</span> <span class="nt">&quot;operand&quot;</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section><section id="mac"><h2>Mac<a class="headerlink" href="vintage.html#mac" title="Permalink to this headline">🔗</a></h2>
+<p>By default on Mac, holding down a key won’t repeat it, but will instead show a
+popup menu to select between character variations. This doesn’t work well with
+command mode, so you may want to disable it. This can be done via executing the
+following in Terminal.app:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool <span class="nb">false</span>
+</pre></div>
+</div>
+</section><section id="ctrl-keys"><h2>Ctrl Keys<a class="headerlink" href="vintage.html#ctrl-keys" title="Permalink to this headline">🔗</a></h2>
+<p>Vintage supports these <span class="keys"><b>Ctrl</b></span> key bindings:</p>
+<ul class="simple">
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>[</b></span>: Escape</p></li>
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>R</b></span>: Redo</p></li>
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>Y</b></span>: Scroll down one line</p></li>
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>E</b></span>: Scroll up one line</p></li>
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>F</b></span>: Page Down</p></li>
+<li><p><span class="keys"><b>Ctrl</b><i>+</i><b>B</b></span>: Page Up</p></li>
+</ul>
+<p>However, because they conflict with other Sublime Text key bindings, these are
+disabled by default on Windows and Linux. They can be enabled with the
+<code class="docutils literal notranslate"><span class="pre">vintage_ctrl_keys</span></code> setting:</p>
+<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_ctrl_keys&quot;</span><span class="p">:</span> <span class="kc">true</span>
+</pre></div>
+</div>
+</section><section id="ex-mode"><h2>Ex Mode<a class="headerlink" href="vintage.html#ex-mode" title="Permalink to this headline">🔗</a></h2>
+<p>Please take a look at <a class="reference external" href="https://github.com/SublimeText/VintageEx">VintageEx</a>
+for an Ex mode for Vintage.</p>
+</section></section>
 
-    <section>
-        <p>
-            Vintage is a vi mode editing package for Sublime Text. It allows you to combine vi's command mode with Sublime Text's features, including multiple selections.
-        </p>
-
-        <p>
-            Vintage mode is developed in the open, and patches are more than welcome. If you'd like to contribute, details are in the <a href="https://github.com/sublimehq/Vintage">GitHub repo</a>.
-        </p>
-
-        <ul id="toc">
-            <li><a href="vintage.html#enabling_vintage">Enabling Vintage</a></li>
-            <li><a href="vintage.html#included">What’s Included</a></li>
-            <li><a href="vintage.html#not_included">What’s Not</a></li>
-            <li><a href="vintage.html#under_the_hood">Under the Hood</a></li>
-            <li><a href="vintage.html#mac">Mac</a></li>
-            <li><a href="vintage.html#ctrl_keys">Ctrl Keys</a></li>
-            <li><a href="vintage.html#ex_mode">Ex Mode</a></li>
-        </ul>
-
-        <h2 id="enabling_vintage">Enabling Vintage</h2>
-
-        <p>
-            Vintage is disabled by default, via the <span class="setting">ignored_packages</span> setting. If you remove <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Vintage</span><span style="color: #5fb4b4">&quot;</span></span></code> from the list of ignored packages, you'll be able to edit with vi keys:
-        </p>
-
-        <ol>
-            <li>
-                Select the <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span> menu item
-            </li>
-            <li>
-                Edit the <span class="setting">ignored_packages</span> setting, changing it from:
-                <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ignored_packages</span><span style="color: #5fb4b4">&quot;</span>: [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Vintage</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
-                to:
-                <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ignored_packages</span><span style="color: #5fb4b4">&quot;</span>: []</span></code>
-                now save the file.
-            </li>
-            <li>
-                Vintage mode is now enabled – you'll see "INSERT MODE" listed in the status bar
-            </li>
-        </ol>
-
-        <p>
-            Vintage starts in insert mode by default. This can be changed by adding the following setting to your user settings:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">vintage_start_in_command_mode</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #ec5f66; font-style: italic">true</span></span></code></pre>
-
-        <h2 id="included">What’s Included</h2>
-
-        <p>
-            Vintage includes most basic actions: <kbd>d</kbd> (delete), <kbd>y</kbd> (copy), <kbd>c</kbd> (change), <kbd>gu</kbd> (lower case), <kbd>gU</kbd> (upper case), <kbd>g~</kbd> (swap case), <kbd>g?</kbd> (rot13), <kbd>&lt;</kbd> (unindent), and <kbd>&gt;</kbd> (indent).
-        </p>
-
-        <p>
-            It also includes many motions, including <kbd>l</kbd>, <kbd>h</kbd>, <kbd>j</kbd>, <kbd>k</kbd>, <kbd>W</kbd>, <kbd>w</kbd>, <kbd>e</kbd>, <kbd>E</kbd>, <kbd>b</kbd>, <kbd>B</kbd>, <kbd>alt+w</kbd> (move by sub-words), <kbd>alt+W</kbd> (move backwards by sub-words), <kbd>$</kbd>, <kbd>^</kbd>, <kbd>%</kbd>, <kbd>0</kbd>, <kbd>G</kbd>, <kbd>gg</kbd>, <kbd>f</kbd>, <kbd>F</kbd>, <kbd>t</kbd>, <kbd>T</kbd>, <kbd>^f</kbd>, <kbd>^b</kbd>, <kbd>H</kbd>, <kbd>M</kbd>, and <kbd>L</kbd>.
-        </p>
-
-        <p>
-            Text objects are supported, including words, quotes, brackets and tags.
-        </p>
-
-        <p>
-            Repeat (<kbd>.</kbd>) is in there, as is specifying counts for commands and motions. Registers are supported, as are macros and bookmarks. Many other miscellaneous commands are supported too, such and <kbd>*</kbd>, <kbd>/</kbd>, <kbd>n</kbd>, <kbd>N</kbd>, <kbd>s</kbd>, <kbd>S</kbd> and more.
-        </p>
-
-        <h2 id="not_included">What’s Not</h2>
-
-        <p>
-            Insert mode is regular Sublime Text editing, with the usual Sublime Text key bindings: vi insert mode key bindings are not emulated.
-        </p>
-
-        <p>
-            Ex commands are not implemented, apart from <kbd>:w</kbd> and <kbd>:e</kbd>, which work via the command palette.
-        </p>
-
-        <h2 id="under_the_hood">Under the Hood</h2>
-
-        <p>
-            Vintage mode is implemented entirely via key bindings and the plugin API – feel free to browse through the Vintage package and see how it's put together. As an example, if you'd like to bind <kbd>jj</kbd> to exit insert mode, you can add this key binding:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">j</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">j</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">exit_insert_mode</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">context</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    [
-        { <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">setting.command_mode</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">operand</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">false</span> }<span style="color: #ac7a68">,</span>
-        { <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">setting.is_widget</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">operand</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">false</span> }
-    ]
-}
-</span></code></pre>
-
-        <h2 id="mac">Mac</h2>
-
-        <p>
-            By default on Mac, holding down a key won't repeat it, but will instead show a popup menu to select between character variations. This doesn't work well with command mode, so you may want to disable it. This can be done via executing the following in Terminal.app:
-        </p>
-
-        <pre><code>defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool false</code></pre>
-
-        <h2 id="ctrl_keys">Ctrl Keys</h2>
-
-        <p>
-            Vintage supports these <span class="keys"><b>Ctrl</b></span> key bindings:
-        </p>
-
-        <ul>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>[</b></span>: Escape</li>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>R</b></span>: Redo</li>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>Y</b></span>: Scroll down one line</li>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>E</b></span>: Scroll up one line</li>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>F</b></span>: Page Down</li>
-            <li><span class="keys"><b>Ctrl</b><i>+</i><b>B</b></span>: Page Up</li>
-        </ul>
-
-        <p>
-            However, because they conflict with other Sublime Text key bindings, these are disabled by default on Windows and Linux. They can be enabled with the <span class="setting">vintage_ctrl_keys</span> setting:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">vintage_ctrl_keys</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #ec5f66; font-style: italic">true</span></span></code></pre>
-
-        <h2 id="ex_mode">Ex Mode</h2>
-
-        <p>
-            Please take a look at <a href="https://github.com/SublimeText/VintageEx">VintageEx</a> for an Ex mode for Vintage
-        </p>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

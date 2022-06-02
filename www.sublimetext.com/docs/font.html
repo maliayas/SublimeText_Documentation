@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Font Settings – Sublime Text Documentation</title>
+    <title>Font Settings</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,38 +60,62 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="font.html#toc">TOC</a>
+        <a class="jump top" href="font.html#">TOP</a>
+    </nav>
+    Font Settings
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Font Settings
-    </span></h1>
+  <section id="font-settings"><p>Changing the font can be done via adding these lines to the right-hand pane
+of <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span>:</p>
+<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;font_face&quot;</span><span class="p">:</span> <span class="s2">&quot;Courier New&quot;</span><span class="p">,</span>
+<span class="nt">&quot;font_size&quot;</span><span class="p">:</span> <span class="mi">10</span>
+</pre></div>
+</div>
+<p>and then change as desired. The font will change when you save.</p>
+<p>You can see other settings to change by browsing through the left-hand pane
+of <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span>. There are many things that can be customized
+in Sublime Text.</p>
+</section>
 
-    <section>
-        <p>
-            Changing the font can be done via adding these lines to the right-hand pane of <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span>:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">font_face</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Courier New</span><span style="color: #5fb4b4">&quot;</span>,
-<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">font_size</span><span style="color: #5fb4b4">&quot;</span>: <span style="color: #f9ae58">10</span>
-</span></code></pre>
-
-        <p>
-            and then change as desired. The font will change when you save.
-        </p>
-
-        <p>
-            You can see other settings to change by browsing through the left-hand pane of <span class="menu">Preferences <img src="../images/right.svg" alt="▶"> Settings</span>. There are many things that can be customized in Sublime Text.
-        </p>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

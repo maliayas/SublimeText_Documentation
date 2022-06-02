@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>GPU Rendering – Sublime Text Documentation</title>
+    <title>GPU Rendering</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,62 +60,77 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="gpu_rendering.html#toc">TOC</a>
+        <a class="jump top" href="gpu_rendering.html#">TOP</a>
+    </nav>
+    GPU Rendering
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        GPU Rendering
-    </span></h1>
+  <section id="gpu-rendering"><p class="available_since"><span class="added">Added in:</span><span class="version">4.0</span></p>
+<p>Sublime Text includes both a software rendering mode, and a hardware-accelerated
+mode using the GPU via OpenGL. The OpenGL renderer can improve performance on
+high DPI screens, although some graphics card drivers may produce incorrect
+results. <i>By default, Macs will use OpenGL, whereas Windows and Linux machines
+will use software</i>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="gpu_rendering.html#setting">Setting</a></p></li>
+<li><p><a class="reference internal" href="gpu_rendering.html#diagnostics">Diagnostics</a></p></li>
+</ul>
+<section id="setting"><h2>Setting<a class="headerlink" href="gpu_rendering.html#setting" title="Permalink to this headline">🔗</a></h2>
+<p>The setting <code class="docutils literal notranslate"><span class="pre">hardware_acceleration</span></code> controls the rendering mode. A value of
+<code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;none&quot;</span></span></code> causes Sublime Text to use the software rendering mode, whereas a
+value of <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;opengl&quot;</span></span></code> results in the OpenGL renderer being used.</p>
+</section><section id="diagnostics"><h2>Diagnostics<a class="headerlink" href="gpu_rendering.html#diagnostics" title="Permalink to this headline">🔗</a></h2>
+<p>When <code class="docutils literal notranslate"><span class="pre">hardware_acceleration</span></code> is set to <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;opengl&quot;</span></span></code>, diagnostic
+information will be printed in the Console on startup. The following is an
+example of the output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">OpenGL</span> <span class="n">Context</span> <span class="n">Information</span><span class="p">:</span>
+<span class="n">GL</span> <span class="n">API</span> <span class="n">Version</span><span class="p">:</span> <span class="mf">4.1</span> <span class="n">INTEL</span><span class="o">-</span><span class="mf">14.4</span><span class="o">.</span><span class="mi">23</span>
+<span class="n">GLSL</span> <span class="n">Version</span><span class="p">:</span> <span class="mf">4.10</span>
+<span class="n">Vendor</span><span class="p">:</span> <span class="n">Intel</span> <span class="n">Inc</span><span class="o">.</span>
+<span class="n">Renderer</span><span class="p">:</span> <span class="n">Intel</span> <span class="n">Iris</span> <span class="n">Pro</span> <span class="n">OpenGL</span> <span class="n">Engine</span>
+</pre></div>
+</div>
+</section></section>
 
-    <section>
-        <p class="available_since">
-            <span class="added">
-                Added in:
-            </span><span class="version">
-                4.0
-            </span>
-        </p>
-
-        <p>
-            Sublime Text includes both a software rendering mode, and a hardware-accelerated mode using the GPU via OpenGL. The OpenGL renderer can improve performance on high DPI screens, although some graphics card drivers may produce incorrect results. <em>By default, Macs will use OpenGL, whereas Windows and Linux machines will use software.</em>
-        </p>
-
-        <ul id="toc">
-            <li><a href="gpu_rendering.html#setting">Setting</a></li>
-            <li><a href="gpu_rendering.html#diagnostics">Diagnostics</a></li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="setting">Setting</h2>
-
-        <p>
-            The setting <span class="setting">hardware_acceleration</span> controls the rendering mode. A value of <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">none</span><span style="color: #5fb4b4">&quot;</span></span></code> causes Sublime Text to use the software rendering mode, whereas a value of <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">opengl</span><span style="color: #5fb4b4">&quot;</span></span></code> results in the OpenGL renderer being used.
-        </p>
-    </section>
-
-    <section>
-        <h2 id="diagnostics">Diagnostics</h2>
-
-        <p>
-            When <span class="setting">hardware_acceleration</span> is set to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">opengl</span><span style="color: #5fb4b4">&quot;</span></span></code>, diagnostic information will be printed in the Console on startup. The following is an example of the output:
-        </p>
-
-        <pre><code>OpenGL Context Information:
-  GL API Version: 4.1 INTEL-14.4.23
-  GLSL Version: 4.10
-  Vendor: Intel Inc.
-  Renderer: Intel Iris Pro OpenGL Engine
-</code></pre>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

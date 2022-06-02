@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Key Bindings – Sublime Text Documentation</title>
+    <title>Key Bindings</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,571 +60,468 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="key_bindings.html#toc">TOC</a>
+        <a class="jump top" href="key_bindings.html#">TOP</a>
+    </nav>
+    Key Bindings
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Key Bindings
-    </span></h1>
+  <section id="key-bindings"><p>Key bindings in Sublime Text are defined by files ending
+in <span class="file">.sublime-keymap</span>. Key bindings use JSON, with the top-level structure
+being an array. Each binding is a JSON object.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="key_bindings.html#example">Example</a></p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="key_bindings.html#bindings">Bindings</a></dt><dd><ul>
+<li><p><a class="reference internal" href="key_bindings.html#keys-key">“keys” Key</a></p></li>
+<li><p><a class="reference internal" href="key_bindings.html#command-key">“command” Key</a></p></li>
+<li><p><a class="reference internal" href="key_bindings.html#args-key">“args” Key</a></p></li>
+<li><p><a class="reference internal" href="key_bindings.html#context-key">“context” Key</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="key_bindings.html#user-bindings">User Bindings</a></p></li>
+</ul>
+<section id="example"><h2>Example<a class="headerlink" href="key_bindings.html#example" title="Permalink to this headline">🔗</a></h2>
+<p><i>The following is an example of the format of a <span class="file">.sublime-keymap</span> file.</i></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;super+ctrl+m&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;convert_syntax&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;super+shift+9&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;set_layout&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;args&quot;</span><span class="p">:</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;cols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+            <span class="nt">&quot;rows&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+            <span class="nt">&quot;cells&quot;</span><span class="p">:</span>
+            <span class="p">[</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;super+alt+up&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;noop&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;context&quot;</span><span class="p">:</span>
+        <span class="p">[</span>
+            <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;panel&quot;</span><span class="p">,</span> <span class="nt">&quot;operand&quot;</span><span class="p">:</span> <span class="s2">&quot;find&quot;</span><span class="p">},</span>
+            <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;panel_has_focus&quot;</span><span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section><section id="bindings"><h2>Bindings<a class="headerlink" href="key_bindings.html#bindings" title="Permalink to this headline">🔗</a></h2>
+<p>Each key binding requires two keys, <code class="docutils literal notranslate"><span class="pre">&quot;keys&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code>. To pass args
+to a command, the <code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> key should be specified. To restrict a key binding
+to a specific situation, the <code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> key must be included.</p>
+<section id="keys-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;keys&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#keys-key" title="Permalink to this headline">🔗</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;keys&quot;</span></code> value must be an array of strings, where each string contains
+a <i>key press</i>, comprised of a key and any modifiers. When multiple key presses
+are present in the array, the command will only be invoked if the presses are
+performed in sequence.</p>
+<p><i>A key binding for the <span class="keys"><b>Escape</b></span> key</i></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;escape&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;noop&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><i>A key binding for the key <span class="keys"><b>A</b></span> with the modifier <span class="keys"><b>Ctrl</b></span></i></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ctrl+a&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;noop&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<section id="modifiers"><h4>Modifiers<a class="headerlink" href="key_bindings.html#modifiers" title="Permalink to this headline">🔗</a></h4>
+<p>The following modifiers may be combined with key names for each <i>key press</i>.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ctrl</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">control</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alt</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">option</span></code> - Mac</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">command</span></code> - Mac</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">super</span></code> - the <span class="keys"><b>Windows</b></span> key on Windows and Linux, or <span class="keys"><b>⌘</b></span> on Mac</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">primary</span></code> - <span class="keys"><b>Ctrl</b></span> on Windows and Linux, or <span class="keys"><b>⌘</b></span> on Mac</p></li>
+</ul>
+</section><section id="key-names"><h4>Key Names<a class="headerlink" href="key_bindings.html#key-names" title="Permalink to this headline">🔗</a></h4>
+<dl class="simple">
+<dt>Key names are specified either by the (non-shifted) character</dt><dd><p>printed on the key, or a key name:</p>
+</dd>
+</dl>
+<style>
+div.col {
+    float: left;
+    padding-right: 40px;
+}
+div#key_names-columns:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
 
-    <section>
-        <p>
-            Key bindings in Sublime Text are defined by files ending in
-            <span class="file">.sublime-keymap</span>. Key bindings use JSON,
-            with the top-level structure being an array. Each binding is a JSON
-            object.
-        </p>
-
-        <ul id="toc">
-            <li><a href="key_bindings.html#example">Example</a></li>
-            <li>
-                <a href="key_bindings.html#bindings">Bindings</a>
-                <ul>
-                    <li><a href="key_bindings.html#keys"><span class="key">"keys"</span> Key</a></li>
-                    <li><a href="key_bindings.html#command"><span class="key">"command"</span> Key</a></li>
-                    <li><a href="key_bindings.html#args"><span class="key">"args"</span> Key</a></li>
-                    <li><a href="key_bindings.html#context"><span class="key">"context"</span> Key</a></li>
-                </ul>
-            </li>
-            <li><a href="key_bindings.html#user_bindings">User Bindings</a></li>
-        </ul>
-    </section>
-
-    <section class="wide">
-        <h2 id="example">Example</h2>
-
-        <p>
-            <em>The following is an example of the format of a
-            <span class="file">.sublime-keymap</span> file.</em>
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">[
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">super+ctrl+m</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">convert_syntax</span><span style="color: #5fb4b4">&quot;</span>
-    }<span style="color: #ac7a68">,</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">super+shift+9</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">set_layout</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">args</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cols</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">33</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">66</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span>]<span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">rows</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">33</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">66</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">.</span><span style="color: #f9ae58">0</span>]<span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cells</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-            [
-                [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span>]<span style="color: #ac7a68">,</span>
-                [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span>]<span style="color: #ac7a68">,</span>
-                [<span style="color: #f9ae58">0</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">1</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span>]<span style="color: #ac7a68">,</span> [<span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">2</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">3</span>]
-            ]
-        }
-    }<span style="color: #ac7a68">,</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">super+alt+up</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">noop</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">context</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-        [
-            {<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">panel</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">operand</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">find</span><span style="color: #5fb4b4">&quot;</span>}<span style="color: #ac7a68">,</span>
-            {<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">key</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">panel_has_focus</span><span style="color: #5fb4b4">&quot;</span>}<span style="color: #ac7a68">,</span>
-        ]
-    }
-]</span></code></pre>
-    </section>
-
-    <section>
-        <h2 id="bindings">Bindings</h2>
-
-        <p>
-            Each key binding requires two keys, <span class="key">"keys"</span> and
-            <span class="key">"command"</span>. To pass args to a command, the
-            <span class="key">"args"</span> key should be specified. To restrict a key
-            binding to a specific situation, the <span class="key">"context"</span> key must
-            be included.
-        </p>
-
-        <h3 id="keys"><span class="key">"keys"</span> Key</h3>
-
-        <p>
-            The <span class="key">"keys"</span> value must be an array of strings, where
-            each string contains a <em>key press</em>, comprised of a key and
-            any modifiers. When multiple key presses are present in the array,
-            the command will only be invoked if the presses are performed in
-            sequence.
-        </p>
-
-        <p>
-            <em>A key binding for the <span class="keys"><b>Escape</b></span>
-            key</em>
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">escape</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">noop</span><span style="color: #5fb4b4">&quot;</span>
-}</span></code></pre>
-
-        <p>
-            <em>A key binding for the key <span class="keys"><b>A</b></span>
-            with the modifier <span class="keys"><b>Ctrl</b></span></em>
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ctrl+a</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">noop</span><span style="color: #5fb4b4">&quot;</span>
-}</span></code></pre>
-
-        <h4 id="modifiers">Modifiers</h4>
-
-        <p>
-            The following modifiers may be combined with key names for each
-            <em>key press</em>.
-        </p>
-
-        <ul>
-            <li><code>ctrl</code></li>
-            <li><code>control</code></li>
-            <li><code>alt</code></li>
-            <li><code>option</code> - Mac</li>
-            <li><code>command</code> - Mac</li>
-            <li><code>super</code> - the <span class="keys"><b>Windows</b></span> key on Windows and Linux, or <span class="keys"><b>⌘</b></span> on Mac</li>
-            <li><code>primary</code> - <span class="keys"><b>Ctrl</b></span> on Windows and Linux, or <span class="keys"><b>⌘</b></span> on Mac</li>
-        </ul>
-
-        <h4 id="key_names">Key Names</h4>
-
-        <p>
-            Key names are specified either by the (non-shifted) character
-            printed on the key, or a key name:
-        </p>
-
-        <style>
-        div.col {
-            float: left;
-            padding-right: 40px;
-        }
-        div#key_names-columns:after
-        {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        </style>
-
-        <div id="key_names-columns">
-            <div class="col">
-                <code>a</code><br>
-                <code>b</code><br>
-                <code>c</code><br>
-                <code>d</code><br>
-                <code>e</code><br>
-                <code>f</code><br>
-                <code>g</code><br>
-                <code>h</code><br>
-                <code>i</code><br>
-                <code>j</code><br>
-                <code>k</code><br>
-                <code>l</code><br>
-                <code>m</code>
-            </div>
-
-            <div class="col">
-                <code>n</code><br>
-                <code>o</code><br>
-                <code>p</code><br>
-                <code>q</code><br>
-                <code>r</code><br>
-                <code>s</code><br>
-                <code>t</code><br>
-                <code>u</code><br>
-                <code>v</code><br>
-                <code>w</code><br>
-                <code>x</code><br>
-                <code>y</code><br>
-                <code>z</code>
-            </div>
-
-            <div class="col">
-                <code>0</code><br>
-                <code>1</code><br>
-                <code>2</code><br>
-                <code>3</code><br>
-                <code>4</code><br>
-                <code>5</code><br>
-                <code>6</code><br>
-                <code>7</code><br>
-                <code>8</code><br>
-                <code>9</code>
-            </div>
-
-            <div class="col">
-                <code>,</code><br>
-                <code>.</code><br>
-                <code>\</code><br>
-                <code>/</code><br>
-                <code>;</code><br>
-                <code>'</code><br>
-                <code>`</code><br>
-                <code>+</code><br>
-                <code>-</code><br>
-                <code>=</code><br>
-                <code>[</code><br>
-                <code>]</code><br>
-            </div>
-
-            <div class="col">
-                <code>up</code><br>
-                <code>down</code><br>
-                <code>left</code><br>
-                <code>right</code><br>
-                <code>insert</code><br>
-                <code>home</code><br>
-                <code>end</code><br>
-                <code>pageup</code><br>
-                <code>pagedown</code><br>
-                <code>backspace</code><br>
-                <code>delete</code><br>
-                <code>tab</code><br>
-                <code>enter</code><br>
-                <code>pause</code><br>
-                <code>escape</code><br>
-                <code>space</code>
-            </div>
-
-            <div class="col">
-                <code>keypad0</code><br>
-                <code>keypad1</code><br>
-                <code>keypad2</code><br>
-                <code>keypad3</code><br>
-                <code>keypad4</code><br>
-                <code>keypad5</code><br>
-                <code>keypad6</code><br>
-                <code>keypad7</code><br>
-                <code>keypad8</code><br>
-                <code>keypad9</code><br>
-                <code>keypad_period</code><br>
-                <code>keypad_divide</code><br>
-                <code>keypad_multiply</code><br>
-                <code>keypad_minus</code><br>
-                <code>keypad_plus</code><br>
-                <code>keypad_enter</code><br>
-                <code>clear</code>
-            </div>
-
-            <div class="col">
-                <code>f1</code><br>
-                <code>f2</code><br>
-                <code>f3</code><br>
-                <code>f4</code><br>
-                <code>f5</code><br>
-                <code>f6</code><br>
-                <code>f7</code><br>
-                <code>f8</code><br>
-                <code>f9</code><br>
-                <code>f10</code><br>
-                <code>f11</code><br>
-                <code>f12</code><br>
-                <code>f13</code><br>
-                <code>f14</code><br>
-                <code>f15</code><br>
-                <code>f16</code><br>
-                <code>f17</code><br>
-                <code>f18</code><br>
-                <code>f19</code><br>
-                <code>f20</code>
-            </div>
-        </div>
-
-        <h3 id="command"><span class="key">"command"</span> Key</h3>
-
-        <p>
-            The <span class="key">"command"</span> key specifies the name of the command to
-            execute when the key press(es) are detected. The command may be a
-            built-in command, or a command implemented by a plugin.
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ctrl+a</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">select_all</span><span style="color: #5fb4b4">&quot;</span>
-}</span></code></pre>
-
-        <p>
-            <em>Currently there is no compiled list of all built-in
-            commands. The names of many commands can be found by looking at the
-            <span class="file">Default ({PLATFORM_NAME}).sublime-keymap</span>
-            files in the <span class="file">Default/</span> package.</em>
-        </p>
-
-        <h3 id="args"><span class="key">"args"</span> Key</h3>
-
-        <p>
-            The arguments to send to the <span class="key">"command"</span> key may be
-            specified by a JSON object under the <span class="key">"args"</span> key.
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">primary+shift+b</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">build</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">args</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">select</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>}
-}</span></code></pre>
-
-        <h3 id="context"><span class="key">"context"</span> Key</h3>
-
-        <p>
-            To allow for key bindings that react differently based on the
-            situation, the <span class="key">"context"</span> key allows specifying one or
-            more conditions that must evaluate to true for the key binding to
-            be active.
-        </p>
-
-        <p>
-            The <span class="key">"context"</span> value is an array of objects. Each object
-            must contain a <span class="key">"key"</span> key that has a string value. A
-            key is one of a predefined list of values that may be compared using
-            an <span class="key">"operator"</span> and <span class="key">"operand"</span>.
-        </p>
-
-        <p>
-            If a <span class="key">"key"</span> support <em>equailty</em>
-            operators, the <span class="key">"operator"</span> must be one of:
-            <span class="key">"equal"</span> or <span class="key">"not_equal"</span>.
-            For <em>matching</em> it must be one of:
-            <span class="key">"regex_match"</span>,
-            <span class="key">"not_regex_match"</span>,
-            <span class="key">"regex_contains"</span> or
-            <span class="key">"not_regex_contains"</span>. The default
-            <span class="key">"operator"</span> is
-            <span class="key">"equal"</span> and the default
-            <span class="key">"operand"</span> is <code>true</code>.
-        </p>
-
-        <p>
-            For <span class="key">"key"</span> values that deal with selections, an
-            additional key <span class="key">"match_all"</span> is supported. This defaults
-            to <code>false</code>, which means the condition only needs to
-            evaluate to true for a single selection. If <span class="key">"match_all"</span>
-            is <code>true</code>, then the condition must evaluate to true for
-            all selections.
-        </p>
-
-        <p>
-            The following is a list of valid context <span class="key">"key"</span> values:
-        </p>
-    </section>
-
-    <section class="wide">
-        <table class="enum">
-            <tr>
-                <th>Key</th>
-                <th>Operand</th>
-                <th>Operators</th>
-                <th>Match All</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td><span class="key">"auto_complete_visible"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If the auto complete dropdown is visible
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"eol_selector"</span></td>
-                <td><span class="data-type">string</span></td>
-                <td>equality</td>
-                <td>yes</td>
-                <td>
-                    A <a href="selectors.html">selector</a> to match the scope name at the end of the current line
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"following_text"</span></td>
-                <td><span class="data-type">string</span></td>
-                <td>
-                    matching
-                </td>
-                <td>yes</td>
-                <td>
-                    The text after the selection
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"has_next_field"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If the selection is a field in a snippet where a subsequent field exists
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"has_prev_field"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If the selection is a field in a snippet where a previous field exists
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"is_recording_macro"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If the user is currently recording a macro
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"last_command"</span></td>
-                <td><span class="data-type">string</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    The name of the last command that was run
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"last_modifying_command"</span></td>
-                <td><span class="data-type">string</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    The name of the last command run that modified a buffer
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"num_selections"</span></td>
-                <td><span class="data-type">integer</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    The number of selection in the current buffer
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"popup_visible"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If a popup is currently being displayed
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"preceding_text"</span></td>
-                <td><span class="data-type">string</span><br></td>
-                <td>matching</td>
-                <td>yes</td>
-                <td>
-                    The text before the selection
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"read_only"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If the buffer is marked read only
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"selection_empty"</span></td>
-                <td><span class="data-type">boolean</span><br></td>
-                <td>equality</td>
-                <td>yes</td>
-                <td>
-                    If the current selection does not contain any characters
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"selector"</span></td>
-                <td><span class="data-type">string</span><br></td>
-                <td>equality</td>
-                <td>yes</td>
-                <td>
-                    A <a href="selectors.html">selector</a> to match the scope name of the selection
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"text"</span></td>
-                <td><span class="data-type">string</span><br></td>
-                <td>matching</td>
-                <td>yes</td>
-                <td>
-                    The text of the selection
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"panel"</span></td>
-                <td><span class="data-type">string</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    The name of the current panel
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"panel_visible"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If a panel is visible
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"panel_has_focus"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If a panel is visible and has focus
-                </td>
-            </tr>
-            <tr>
-                <td><span class="key">"overlay_visible"</span></td>
-                <td><span class="data-type">boolean</span></td>
-                <td>equality</td>
-                <td>no</td>
-                <td>
-                    If the quick panel is visible
-                </td>
-            </tr>
-        </table>
-    </section>
-
-    <section>
-        <h2 id="user_bindings">User Bindings</h2>
-
-        <p>
-            Users can customize their key bindings by creating a file named
-            <span class="file">Default.sublime-keymap</span> in their
-            <span class="file">Packages/User/</span> directory.
-        </p>
-
-        <p>
-            For example, the following will create a key binding to show
-            unsaved changes, if any exist, via
-            <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>`</b></span>.
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">[
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">keys</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ctrl+shift+`</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">diff_changes</span><span style="color: #5fb4b4">&quot;</span>
-    }
-]</span></code></pre>
-    </section>
+<div id="key_names-columns">
+    <div class="col">
+        <code>a</code><br>
+        <code>b</code><br>
+        <code>c</code><br>
+        <code>d</code><br>
+        <code>e</code><br>
+        <code>f</code><br>
+        <code>g</code><br>
+        <code>h</code><br>
+        <code>i</code><br>
+        <code>j</code><br>
+        <code>k</code><br>
+        <code>l</code><br>
+        <code>m</code>
     </div>
 
-    <script type="text/javascript" src="docs.js"></script>
+    <div class="col">
+        <code>n</code><br>
+        <code>o</code><br>
+        <code>p</code><br>
+        <code>q</code><br>
+        <code>r</code><br>
+        <code>s</code><br>
+        <code>t</code><br>
+        <code>u</code><br>
+        <code>v</code><br>
+        <code>w</code><br>
+        <code>x</code><br>
+        <code>y</code><br>
+        <code>z</code>
+    </div>
 
-    </section>
-    </main>
+    <div class="col">
+        <code>0</code><br>
+        <code>1</code><br>
+        <code>2</code><br>
+        <code>3</code><br>
+        <code>4</code><br>
+        <code>5</code><br>
+        <code>6</code><br>
+        <code>7</code><br>
+        <code>8</code><br>
+        <code>9</code>
+    </div>
+
+    <div class="col">
+        <code>,</code><br>
+        <code>.</code><br>
+        <code>\</code><br>
+        <code>/</code><br>
+        <code>;</code><br>
+        <code>'</code><br>
+        <code>`</code><br>
+        <code>+</code><br>
+        <code>-</code><br>
+        <code>=</code><br>
+        <code>[</code><br>
+        <code>]</code><br>
+    </div>
+
+    <div class="col">
+        <code>up</code><br>
+        <code>down</code><br>
+        <code>left</code><br>
+        <code>right</code><br>
+        <code>insert</code><br>
+        <code>home</code><br>
+        <code>end</code><br>
+        <code>pageup</code><br>
+        <code>pagedown</code><br>
+        <code>backspace</code><br>
+        <code>delete</code><br>
+        <code>tab</code><br>
+        <code>enter</code><br>
+        <code>pause</code><br>
+        <code>escape</code><br>
+        <code>space</code>
+    </div>
+
+    <div class="col">
+        <code>keypad0</code><br>
+        <code>keypad1</code><br>
+        <code>keypad2</code><br>
+        <code>keypad3</code><br>
+        <code>keypad4</code><br>
+        <code>keypad5</code><br>
+        <code>keypad6</code><br>
+        <code>keypad7</code><br>
+        <code>keypad8</code><br>
+        <code>keypad9</code><br>
+        <code>keypad_period</code><br>
+        <code>keypad_divide</code><br>
+        <code>keypad_multiply</code><br>
+        <code>keypad_minus</code><br>
+        <code>keypad_plus</code><br>
+        <code>keypad_enter</code><br>
+        <code>clear</code>
+    </div>
+
+    <div class="col">
+        <code>f1</code><br>
+        <code>f2</code><br>
+        <code>f3</code><br>
+        <code>f4</code><br>
+        <code>f5</code><br>
+        <code>f6</code><br>
+        <code>f7</code><br>
+        <code>f8</code><br>
+        <code>f9</code><br>
+        <code>f10</code><br>
+        <code>f11</code><br>
+        <code>f12</code><br>
+        <code>f13</code><br>
+        <code>f14</code><br>
+        <code>f15</code><br>
+        <code>f16</code><br>
+        <code>f17</code><br>
+        <code>f18</code><br>
+        <code>f19</code><br>
+        <code>f20</code>
+    </div>
+</div></section></section><section id="command-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#command-key" title="Permalink to this headline">🔗</a></h3>
+<dl class="simple">
+<dt>The <code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> key specifies the name of the command to</dt><dd><p>execute when the key press(es) are detected. The command may be a
+built-in command, or a command implemented by a plugin.</p>
+</dd>
+</dl>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ctrl+a&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;select_all&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><i>Currently there is no compiled list of all built-in commands. The names of many
+commands can be found by looking at the
+<span class="file">Default ({PLATFORM_NAME}).sublime-keymap</span> files in the
+<span class="file">Default/</span> package.</i></p>
+</section><section id="args-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#args-key" title="Permalink to this headline">🔗</a></h3>
+<p>The arguments to send to the <code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> key may be specified by a JSON object
+under the <code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> key.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;primary+shift+b&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;build&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;select&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section><section id="context-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#context-key" title="Permalink to this headline">🔗</a></h3>
+<p>To allow for key bindings that react differently based on the situation, the
+<code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> key allows specifying one or more conditions that must evaluate
+to true for the key binding to be active.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> value is an array of objects. Each object must contain a
+<code class="docutils literal notranslate"><span class="pre">&quot;key&quot;</span></code> key that has a string value. A key is one of a predefined list of
+values that may be compared using an <code class="docutils literal notranslate"><span class="pre">&quot;operator&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;operand&quot;</span></code>.</p>
+<p>If a <code class="docutils literal notranslate"><span class="pre">&quot;key&quot;</span></code> support <i>equailty</i> operators, the <code class="docutils literal notranslate"><span class="pre">&quot;operator&quot;</span></code> must be one of:
+<code class="docutils literal notranslate"><span class="pre">&quot;equal&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;not_equal&quot;</span></code>. For <i>matching</i> it must be one of:
+<code class="docutils literal notranslate"><span class="pre">&quot;regex_match&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;not_regex_match&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;regex_contains&quot;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&quot;not_regex_contains&quot;</span></code>. The default <code class="docutils literal notranslate"><span class="pre">&quot;operator&quot;</span></code> is <code class="docutils literal notranslate"><span class="pre">&quot;equal&quot;</span></code> and the
+default <code class="docutils literal notranslate"><span class="pre">&quot;operand&quot;</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">&quot;key&quot;</span></code> values that deal with selections, an additional key
+<code class="docutils literal notranslate"><span class="pre">&quot;match_all&quot;</span></code> is supported. This defaults to <code class="docutils literal notranslate"><span class="pre">false</span></code>, which means the
+condition only needs to evaluate to true for a single selection. If
+<code class="docutils literal notranslate"><span class="pre">&quot;match_all&quot;</span></code> is <code class="docutils literal notranslate"><span class="pre">true</span></code>, then the condition must evaluate to true for all
+selections.</p>
+<p>The following is a list of valid context <code class="docutils literal notranslate"><span class="pre">&quot;key&quot;</span></code> values:</p>
+<section class="wide"><table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 8%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 58%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Operand</p></th>
+<th class="head"><p>Operators</p></th>
+<th class="head"><p>Match All</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;auto_complete_visible&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If the auto complete dropdown is visible</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;eol_selector&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>yes</p></td>
+<td><p>A <a class="reference internal" href="selectors.html"><span class="doc">selector</span></a> to match the scope name at the end of the current line</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;following_text&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>matching</p></td>
+<td><p>yes</p></td>
+<td><p>The text after the selection</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;has_next_field&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If the selection is a field in a snippet where a subsequent field exists</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;has_prev_field&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If the selection is a field in a snippet where a previous field exists</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;is_recording_macro&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If the user is currently recording a macro</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;last_command&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>The name of the last command that was run</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;last_modifying_command&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>The name of the last command run that modified a buffer</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;num_selections&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">integer</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>The number of selection in the current buffer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;popup_visible&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If a popup is currently being displayed</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;preceding_text&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>matching</p></td>
+<td><p>yes</p></td>
+<td><p>The text before the selection</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;read_only&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If the buffer is marked read only</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;selection_empty&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>yes</p></td>
+<td><p>If the current selection does not contain any characters</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;selector&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>yes</p></td>
+<td><p>A <a class="reference internal" href="selectors.html"><span class="doc">selector</span></a> to match the scope name of the selection</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;text&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>matching</p></td>
+<td><p>yes</p></td>
+<td><p>The text of the selection</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;panel&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>The name of the current panel</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;panel_visible&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If a panel is visible</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;panel_has_focus&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If a panel is visible and has focus</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;overlay_visible&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boolean</span></code></p></td>
+<td><p>equality</p></td>
+<td><p>no</p></td>
+<td><p>If the quick panel is visible</p></td>
+</tr>
+</tbody>
+</table>
+</section></section></section><section id="user-bindings"><h2>User Bindings<a class="headerlink" href="key_bindings.html#user-bindings" title="Permalink to this headline">🔗</a></h2>
+<p>Users can customize their key bindings by creating a file
+named <span class="file">Default.sublime-keymap</span> in their <span class="file">Packages/User/</span>
+directory.</p>
+<p>For example, the following will create a key binding to show unsaved changes, if
+any exist, via <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>`</b></span>.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ctrl+shift+`&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;diff_changes&quot;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</section></section>
+
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

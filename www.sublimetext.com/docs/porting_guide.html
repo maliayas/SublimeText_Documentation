@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Plugin Porting Guide – Sublime Text Documentation</title>
+    <title>Plugin Porting Guide</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,105 +60,115 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
-    
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Plugin Porting Guide
-    </span></h1>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="porting_guide.html#toc">TOC</a>
+        <a class="jump top" href="porting_guide.html#">TOP</a>
+    </nav>
+    Plugin Porting Guide
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <section>
-        <p>
-            Sublime Text 3 contains some important differences from Sublime Text 2 when it comes to plugins, and most plugins will require at least a small amount porting to work. The changes are:
-        </p>
+  <section id="plugin-porting-guide"><p>Sublime Text 3 contains some important differences from Sublime Text 2 when it
+comes to plugins, and most plugins will require at least a small amount porting
+to work. The changes are:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="porting_guide.html#python-3-3">Python 3.3</a></p></li>
+<li><p><a class="reference internal" href="porting_guide.html#out-of-process-plugins">Out of Process Plugins</a></p></li>
+<li><p><a class="reference internal" href="porting_guide.html#asynchronous-events">Asynchronous Events</a></p></li>
+<li><p><a class="reference internal" href="porting_guide.html#restricted-begin-edit-and-end-edit">Restricted begin_edit() and end_edit()</a></p></li>
+<li><p><a class="reference internal" href="porting_guide.html#zipped-packages">Zipped Packages</a></p></li>
+<li><p><a class="reference internal" href="porting_guide.html#importing-modules">Importing Modules</a></p></li>
+<li><p><a class="reference internal" href="porting_guide.html#restricted-api-usage-at-startup">Restricted API Usage at Startup</a></p></li>
+</ul>
+<section id="python-3-3"><h2>Python 3.3<a class="headerlink" href="porting_guide.html#python-3-3" title="Permalink to this headline">🔗</a></h2>
+<p>Sublime Text 3 uses Python 3.3, while Sublime Text 2 used Python 2.6.
+Furthermore, on Mac, the system build of Python is no longer used, instead
+Sublime Text is bundled with its own version. Windows and Linux are also
+bundled with their own version, as they were previously.</p>
+</section><section id="out-of-process-plugins"><h2>Out of Process Plugins<a class="headerlink" href="porting_guide.html#out-of-process-plugins" title="Permalink to this headline">🔗</a></h2>
+<p>Plugins are now run in a separate process, <code class="docutils literal notranslate"><span class="pre">plugin_host</span></code>. From a plugin
+authors perspective, there should be no observable difference, except that a
+crash in the plugin host will no longer bring down the main application.</p>
+</section><section id="asynchronous-events"><h2>Asynchronous Events<a class="headerlink" href="porting_guide.html#asynchronous-events" title="Permalink to this headline">🔗</a></h2>
+<p>In Sublime Text 2, only the <code class="docutils literal notranslate"><span class="pre">set_timeout()</span></code> method was thread-safe. In Sublime
+Text 3, every API method is thread-safe. Furthermore, there are now
+asynchronous event handlers, to make writing non-blocking code easier:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">on_modified_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_selection_modified_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_pre_save_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_post_save_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_activated_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_deactivated_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_new_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_load_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">on_clone_async()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set_timeout_async()</span></code></p></li>
+</ul>
+<p>When writing threaded code, keep in mind that the buffer will be changing
+underneath you as your function runs.</p>
+</section><section id="restricted-begin-edit-and-end-edit"><h2>Restricted <code class="docutils literal notranslate"><span class="pre">begin_edit()</span></code> and <code class="docutils literal notranslate"><span class="pre">end_edit()</span></code><a class="headerlink" href="porting_guide.html#restricted-begin-edit-and-end-edit" title="Permalink to this headline">🔗</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">begin_end()</span></code> and <code class="docutils literal notranslate"><span class="pre">end_edit()</span></code> are no longer directly accessible, except in
+some special circumstances. The only way to get a valid instance of an
+<a class="reference internal" href="api_reference.html#sublime.Edit" title="sublime.Edit"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime.Edit</span></code></a> object is to place your code in a <a class="reference internal" href="api_reference.html#sublime_plugin.TextCommand" title="sublime_plugin.TextCommand"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime_plugin.TextCommand</span></code></a>
+subclass. In general, most code can be refactored by placing the code between
+<code class="docutils literal notranslate"><span class="pre">begin_edit()</span></code> and <code class="docutils literal notranslate"><span class="pre">end_edit()</span></code> in a <a class="reference internal" href="api_reference.html#sublime_plugin.TextCommand" title="sublime_plugin.TextCommand"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime_plugin.TextCommand</span></code></a>, and then
+running the command via <code class="docutils literal notranslate"><span class="pre">run_command()</span></code>.</p>
+<p>This approach removes the issue of dangling <a class="reference internal" href="api_reference.html#sublime.Edit" title="sublime.Edit"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime.Edit</span></code></a> objects, and ensures
+the repeat command and macros work as they should.</p>
+</section><section id="zipped-packages"><h2>Zipped Packages<a class="headerlink" href="porting_guide.html#zipped-packages" title="Permalink to this headline">🔗</a></h2>
+<p>Packages in Sublime Text 3 are able to be run from <span class="file">.sublime-package</span>
+(i.e., renamed <span class="file">.zip</span> files) files directly, in contrast to Sublime Text
+2, which unzipped them prior to running.</p>
+<p>While in most changes this should lead to no differences, it is important to
+keep this in mind if you are accessing files in your package.</p>
+</section><section id="importing-modules"><h2>Importing Modules<a class="headerlink" href="porting_guide.html#importing-modules" title="Permalink to this headline">🔗</a></h2>
+<p>Importing other plugins is simpler and more robust in Sublime Text 3, and can be
+done with a regular import statement, e.g., <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">Default.comment</span></code> will
+import <span class="file">Packages/Default/Comment.py</span>.</p>
+</section><section id="restricted-api-usage-at-startup"><h2>Restricted API Usage at Startup<a class="headerlink" href="porting_guide.html#restricted-api-usage-at-startup" title="Permalink to this headline">🔗</a></h2>
+<p>Due to the <code class="docutils literal notranslate"><span class="pre">plugin_host</span></code> loading asynchronously, it is not possible to use the
+API at import time. This means that all top-level statements in your module
+must not call any functions from the <a class="reference internal" href="api_reference.html#module-sublime" title="sublime"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sublime</span></code></a> module. During startup, the API
+is in a dormant state, and will silently ignore any requests made.</p>
+</section></section>
 
-        <ul id="toc">
-            <li><a href="porting_guide.html#python_33">Python 3.3</a></li>
-            <li><a href="porting_guide.html#out_of_process_plugins">Out of Process Plugins</a></li>
-            <li><a href="porting_guide.html#asynchronous_events">Asynchronous Events</a></li>
-            <li><a href="porting_guide.html#restricted_edit">Restricted <code>begin_edit()</code> and <code>end_edit()</code></a></li>
-            <li><a href="porting_guide.html#zipped_packages">Zipped Packages</a></li>
-            <li><a href="porting_guide.html#importing_modules">Importing Modules</a></li>
-            <li><a href="porting_guide.html#api_at_startup">Restricted API Usage at Startup</a></li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="python_33">Python 3.3</h2>
-
-        <p>
-            Sublime Text 3 uses Python 3.3, while Sublime Text 2 used Python 2.6. Furthermore, on Mac, the system build of Python is no longer used, instead Sublime Text is bundled with its own version. Windows and Linux are also bundled with their own version, as they were previously.
-        </p>
-
-        <h2 class="out_of_process_plugins">Out of Process Plugins</h2>
-
-        <p>
-            Plugins are now run in a separate process, <code>plugin_host</code>. From a plugin authors perspective, there should be no observable difference, except that a crash in the plugin host will no longer bring down the main application.
-        </p>
-
-        <h2 class="asynchronous_events">Asynchronous Events</h2>
-
-        <p>
-            In Sublime Text 2, only the <code>set_timeout()</code> method was thread-safe. In Sublime Text 3, every API method is thread-safe. Furthermore, there are now asynchronous event handlers, to make writing non-blocking code easier:
-        </p>
-
-        <ul>
-            <li><code>on_modified_async()</code></li>
-            <li><code>on_selection_modified_async()</code></li>
-            <li><code>on_pre_save_async()</code></li>
-            <li><code>on_post_save_async()</code></li>
-            <li><code>on_activated_async()</code></li>
-            <li><code>on_deactivated_async()</code></li>
-            <li><code>on_new_async()</code></li>
-            <li><code>on_load_async()</code></li>
-            <li><code>on_clone_async()</code></li>
-            <li><code>set_timeout_async()</code></li>
-        </ul>
-
-        <p>
-            When writing threaded code, keep in mind that the buffer will be changing underneath you as your function runs.
-        </p>
-
-        <h2 id="restricted_edit">Restricted <code>begin_edit()</code> and <code>end_edit()</code></h2>
-
-        <p>
-            <code>begin_end()</code> and <code>end_edit()</code> are no longer directly accessible, except in some special circumstances. The only way to get a valid instance of an <a href="api_reference.html#sublime.Edit">Edit</a> object is to place your code in a <a href="porting_guide.html#sublime_plugin.TextCommand">TextCommand</a> subclass. In general, most code can be refactored by placing the code between <code>begin_edit()</code> and <code>end_edit()</code> in a <a href="porting_guide.html#sublime_plugin.TextCommand">TextCommand</a>, and then running the command via <code>run_command()</code>.
-        </p>
-
-        <p>
-            This approach removes the issue of dangling <a href="api_reference.html#sublime.Edit">Edit</a> objects, and ensures the repeat command and macros work as they should.
-        </p>
-
-        <h2 id="zipped_packages">Zipped Packages</h2>
-
-        <p>
-            Packages in Sublime Text 3 are able to be run from <span class="file">.sublime-package</span> (i.e., renamed <span class="file">.zip</span> files) files directly, in contrast to Sublime Text 2, which unzipped them prior to running.
-        </p>
-
-        <p
-            >While in most changes this should lead to no differences, it is important to keep this in mind if you are accessing files in your package.
-        </p>
-
-        <h2 id="importing_modules">Importing Modules</h2>
-
-        <p>
-            Importing other plugins is simpler and more robust in Sublime Text 3, and can be done with a regular import statement, e.g., <code>import Default.comment</code> will import <span class="file">Packages/Default/Comment.py</span>.
-        </p>
-
-        <h2 id="api_at_startup">Restricted API Usage at Startup</h2>
-
-        <p>
-            Due to the <code>plugin_host</code> loading asynchronously, it is not possible to use the API at import time. This means that all top-level statements in your module must not call any functions from the <a href="api_reference.html#sublime">sublime</a> module. During startup, the API is in a dormant state, and will silently ignore any requests made.
-        </p>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

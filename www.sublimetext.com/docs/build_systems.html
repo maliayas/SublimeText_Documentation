@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Build Systems – Sublime Text Documentation</title>
+    <title>Build Systems</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,989 +60,659 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
-
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Build Systems
-    </span></h1>
-
-    <section>
-        <p>
-            Sublime Text provides <span class="feature">build systems</span> to
-            allow users to run external programs. Examples of common uses for
-            build systems include: compiling, transpiling, linting, and
-            executing tests.
-        </p>
-
-        <p>
-            Build systems are specified via JSON and saved in a file with the
-            extension <span class="file">.sublime-build</span>. A new build system
-            can be created by the <span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build System <img src="../images/right.svg" alt="▶"> New Build System…</span> menu item or the <kbd>Build: New Build System</kbd> command
-            palette entry.
-        </p>
-
-        <p>
-            Build systems have various ways they can associate themselves
-            with files and projects. Using this information, Sublime Text can
-            intelligently display only viable build systems to the user. The
-            built-in <code>exec</code> target provides common options to get
-            up and running quickly. For more complex requirements, build systems
-            can target custom Sublime Text commands written in Python.
-        </p>
-
-        <ul id="toc">
-            <li><a href="build_systems.html#basic_example">Basic Example</a></li>
-            <li><a href="build_systems.html#usage">Usage</a></li>
-            <li><a href="build_systems.html#options">Options</a></li>
-            <li><a href="build_systems.html#exec_options"><code>exec</code> Target Options</a></li>
-            <li><a href="build_systems.html#custom_options">Custom Options</a></li>
-            <li><a href="build_systems.html#variables">Variables</a></li>
-            <li><a href="build_systems.html#advanced_example">Advanced Example</a></li>
-        </ul>
-    </section>
-
-
-    <section class="wide">
-        <h2 id="basic_example">Basic Example</h2>
-
-        <p>
-            The following is a basic example of a build system. This build system
-            will execute the currently-open Python file.
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">file_regex</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">^</span><span style="color: #c695c6">\\</span><span style="color: #80b979">s*File </span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979">(...*?)</span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979">, line ([0-9]*)</span><span style="color: #5fb4b4">&quot;</span>
-}</span></code></pre>
-
-        <p>
-            The <a href="build_systems.html#usage">Usage</a> and <a href="build_systems.html#options">Options</a>
-            sections will discuss how to use and customize a build system.
-        </p>
-
-    </section>
-
-    <section>
-        <h2 id="usage">Usage</h2>
-
-        <p>
-            Build systems include the following functionality:
-        </p>
-
-        <ul>
-            <li>Automatic selection of a build system based on file type</li>
-            <li>Remembering the last used build system</li>
-            <li>Navigation of build system results</li>
-            <li>Ability to cancel a build</li>
-        </ul>
-
-        <h3 id="running">Running a Build</h3>
-
-        <p>
-            A build can be run by one of the following methods:
-        </p>
-
-        <table class="controls">
-            <thead>
-                <tr>
-                    <th colspan=3>Keyboard</th>
-                    <th>Menu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="platform">Windows/Linux</th>
-                    <th class="platform">Mac</th>
-                    <th class="platform">All</th>
-                    <td rowspan=2 class="menu">
-                        <span class="menu">Tools
-                        <img src="../images/right.svg" alt="▶"> Build</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="keys">
-                        <span class="keys"><b>Ctrl</b><i>+</i><b>B</b></span>
-                    </td>
-                    <td class="keys">
-                        <span class="keys"><b>⌘</b><i>+</i><b>B</b></span>
-                    </td>
-                    <td class="keys">
-                        <span class="keys"><b>F7</b></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>
-            Output will be shown in an output panel displayed at the bottom of
-            the Sublime Text window.
-        </p>
-
-        <h3 id="selecting">Selecting a Build System</h3>
-
-        <p>
-            By default, Sublime Text uses automatic selection of build systems. When
-            a user invokes a build, the current file's syntax and filename will be
-            used to pick the appropriate build system.
-        </p>
-
-        <p>
-            If more than one build system matches the current file type,
-            the user will be prompted to pick the build system they wish
-            to use. Once a build system has been selected, Sublime Text will remember
-            it until the user changes their selection.
-        </p>
-
-        <p>
-            To manually choose a build system, use:
-        </p>
-
-        <table class="controls min">
-            <thead>
-                <tr>
-                    <th>Menu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="menu">
-                        <span class="menu">Tools
-                        <img src="../images/right.svg" alt="▶"> Build System</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <p>
-            To change the build system, within the viable options, use
-            one of the following methods:
-        </p>
-
-        <table class="controls">
-            <thead>
-                <tr>
-                    <th colspan=2>Keyboard</th>
-                    <th>Menu</th>
-                    <th>Command Palette</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="platform">Windows/Linux</th>
-                    <th class="platform">Mac</th>
-                    <td rowspan=2 class="menu">
-                        <span class="menu">Tools
-                        <img src="../images/right.svg" alt="▶"> Build With…</span>
-                    </td>
-                    <td rowspan=2 class="palette">
-                        <kbd>Build With:</kbd>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="keys">
-                        <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>B</b></span>
-                    </td>
-                    <td class="keys">
-                        <span class="keys"><b>⇧</b><i>+</i><b>⌘</b><i>+</i><b>B</b></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 id="navigation">Navigating Results</h3>
-
-        <p>
-            Build systems allow navigation of files specified in the build output.
-            Typically this is used to jump to the location of errors. Navigation
-            can be performed via:
-        </p>
-
-        <table class="controls">
-            <thead>
-                <tr>
-                    <th>Command</th>
-                    <th>Keyboard</th>
-                    <th>Menu</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="command">
-                    <th class="command">
-                        Next Result
-                    </th>
-                    <td class="keys">
-                        <span class="keys"><b>F4</b></span>
-                    </td>
-                    <td class="menu">
-                        <span class="menu">Tools
-                        <img src="../images/right.svg" alt="▶"> Build Results
-                        <img src="../images/right.svg" alt="▶"> Next Result</span>
-                    </td>
-                </tr>
-                <tr class="command">
-                    <th class="command">
-                        Previous Result
-                    </th>
-                    <td class="keys">
-                        <span class="keys"><b>Shift</b><i>+</i><b>F4</b></span>
-                    </td>
-                    <td class="menu">
-                        <span class="menu">Tools
-                        <img src="../images/right.svg" alt="▶"> Build Results
-                        <img src="../images/right.svg" alt="▶"> Previous Result</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3 id="cancelling">Cancelling a Build</h3>
-
-        <p>
-            An in-process build can be cancelled via:
-        </p>
-
-        <table class="controls">
-            <thead>
-                <tr>
-                    <th colspan=2>Keyboard</th>
-                    <th>Menu</th>
-                    <th>Command Palette</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th class="platform">Windows/Linux</th>
-                    <th class="platform">Mac</th>
-                    <td rowspan=2 class="menu">
-                        <span class="menu">Tools
-                        <img src="../images/right.svg" alt="▶"> Cancel Build</span>
-                    </td>
-                    <td rowspan=2 class="palette">
-                        <kbd>Build: Cancel</kbd>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="keys">
-                        <span class="keys"><b>Ctrl</b><i>+</i><b>Break</b></span>
-                    </td>
-                    <td class="keys">
-                        <span class="keys"><b>Ctrl</b><i>+</i><b>C</b></span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        
-    </section>
-
-    <section>
-        <h2 id="options">Options</h2>
-
-        <p>
-            All build systems may use the following top-level keys
-            in the <span class="file">.sublime-build</span> file:
-        </p>
-
-        <dl class="enum keys">
-            <dt id="option-selector">
-                <span class="key">"selector"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    A <a href="selectors.html">selector</a> to match the syntax that this build system should be enabled for.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.python</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-            <dt id="option-file_patterns">
-                <span class="key">"file_patterns"</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of file names the build system should be enabled for.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">*.py</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
-                </div>
-            </dd>
-            <dt id="option-keyfiles">
-                <span class="key">"keyfiles"</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    File names, if present in one of the opened folders, that will cause the build system to be enabled.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Makefile</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
-                </div>
-            </dd>
-            <dt id="option-variants">
-                <span class="key">"variants"</span>
-                <span class="data-type">array of objects</span>
-            </dt>
-            <dd>
-                <p>
-                    Subsidiary build systems that will inherit the options
-                    from the top-level build system. Each variant needs to
-                    specify a <span class="key">"name"</span> key, and may
-                    override or add options to the top-level build system.
-                </p>
-                <div class="example">
-                    Example:
-                    <pre><code class="syntax-json"><span style="color: #333333">[
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Debug Symbols</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-D</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
-    }
-]
-</span></code></pre>
-                </div>
-            </dd>
-            <dt id="option-cancel">
-                <span class="key">"cancel"</span>
-                <span class="data-type">string, array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    A string command name, or an array of string options.
-                </p>
-                <p>
-                    If a string is specified, the command specified will be
-                    used to cancel the build.
-                </p>
-                <p>
-                    If an array of strings, the primary
-                    <span class="key">"target"</span> will be called, with
-                    these options added on. This only needs to be specified
-                    when using a custom <span class="key">"target"</span>.
-                </p>
-                <div class="example">
-                    Examples:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cancel_my_build</span><span style="color: #5fb4b4">&quot;</span></span></code> or
-                    <code class="syntax-json"><span style="color: #333333">{<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kill</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>}</span></code>
-                </i>
-            </dd>
-            <dt id="option-target">
-                <span class="key">"target"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    The command to run when the build system is invoked. The
-                    default value of <span class="command">exec</span> allows
-                    use of the additional options specified in
-                    <a href="build_systems.html#exec_options">exec Target Options</a>.
-                </p>
-                <p>
-                    If a value other than
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">exec</span><span style="color: #5fb4b4">&quot;</span></span></code> is specified,
-                    none of the options in <a href="build_systems.html#exec_options">exec Target
-                    Options</a> will do anything.
-                </p>
-                <p>
-                    See the <a href="build_systems.html#advanced_example">Advanced Example</a>
-                    for a complete example.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_build</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </i>
-            </dd>
-            <dt id="option-windows">
-                <span class="key">"windows"</span>
-                <span class="data-type">object</span>
-            </dt>
-            <dd>
-                <p>
-                    Options to use when the build system is being executed on a Windows machine.
-                </p>
-                <div class="example">
-                    Example:
-                    <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command.exe</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">/D</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
-}
-</span></code></pre>
-                </div>
-            </dd>
-            <dt id="option-osx">
-                <span class="key">"osx"</span>
-                <span class="data-type">object</span>
-            </dt>
-            <dd>
-                <p>
-                    Options to use when the build system is being executed on a Mac machine.
-                </p>
-                <div class="example">
-                    Example:
-                    <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">/Applications/MyProgram.app/Contents/MacOS/my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
-}
-</span></code></pre>
-                </div>
-            </dd>
-            <dt id="option-linux">
-                <span class="key">"linux"</span>
-                <span class="data-type">object</span>
-            </dt>
-            <dd>
-                <p>
-                    Options to use when the build system is being executed on a Linux machine.
-                </p>
-                <div class="example">
-                    Example:
-                    <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">/usr/local/bin/my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]
-}
-</span></code></pre>
-                </div>
-            </dd>
-        </dl>
-    </section>
-
-    <section>
-        <h2 id="exec_options"><code>exec</code> Target Options</h2>
-
-        <p>
-            The default <code>target</code> of <code>exec</code> is used by the
-            majority of build systems. It provides the following options to
-            control what program to execute, and how to display the results.
-        </p>
-
-        <dl class="enum keys">
-            <dt id="exec_option-cmd">
-                <span class="key">"cmd"</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    The executable to run, plus any arguments to pass to it.
-                    Shell constructs such as piping and redirection are not
-                    supported – see
-                    <a href="build_systems.html#exec_option-shell_cmd">shell_cmd</a>.
-                </p>
-                <p>
-                    May use <a href="build_systems.html#variables">variables</a>.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333">[<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">-d</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file</span><span style="color: #5fb4b4">&quot;</span>]</span></code>
-                </div>
-            </dd>
-            <dt id="exec_option-shell_cmd">
-                <span class="key">"shell_cmd"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    A shell command to execute. Unlike the
-                    <a href="build_systems.html#exec_option-cmd">cmd</a> option, this does allow
-                    piping and redirection. Will use <code>bash</code> on Mac
-                    and Linux machine, and <code>cmd.exe</code> on Windows.
-                </p>
-                <p>
-                    May use <a href="build_systems.html#variables">variables</a>.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_command </span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979">$file</span><span style="color: #c695c6">\&quot;</span><span style="color: #80b979"> | other_command</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </i>
-            </dd>
-            <dt id="exec_option-working_dir">
-                <span class="key">"working_dir"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    The directory to execute the
-                    <a href="build_systems.html#exec_option-cmd">cmd</a> or
-                    <a href="build_systems.html#exec_option-shell_cmd">shell_cmd</a> within.
-                </p>
-                <p>
-                    May use <a href="build_systems.html#variables">variables</a>.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">$file_path</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-            <dt id="exec_option-file_regex">
-                <span class="key">"file_regex"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    A regular expression to run on the build output to match file information. The matched file information is used to enable result navigation. The regex should capture 2, 3 or 4 groups.
-                </p>
-                <p>
-                    The capture groups should be:
-                </p>
-                <ol>
-                    <li>filename</li>
-                    <li>line number</li>
-                    <li>column number</li>
-                    <li>message</li>
-                </ol>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">^</span><span style="color: #f7f7f7">\s</span><span style="color: #80b979">*(</span><span style="color: #c695c6">\\</span><span style="color: #80b979">S[^:]*)</span><span style="color: #c695c6">\\</span><span style="color: #80b979">((</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+):(</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+)</span><span style="color: #c695c6">\\</span><span style="color: #80b979">): ([^</span><span style="color: #c695c6">\\</span><span style="color: #80b979">n]+)</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-            <dt id="exec_option-line_regex">
-                <span class="key">"line_regex"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    A regular expression to run on the build output to match line information. The matched file information is used to enable result navigation. The regex should capture 1, 2 or 3 groups.
-                </p>
-                <p>
-                    The groups should capture:
-                </p>
-                <ol>
-                    <li>line number</li>
-                    <li>column number</li>
-                    <li>error message</li>
-                </ol>
-                <p>
-                    This regular expression is only necessary when some results contain strictly a line number, line and column numbers, or line and column numbers with a message. When such a match is made, the <a href="build_systems.html#exec_option-file_regex">file_regex</a> option will be used to search backwards to find the appropriate file name.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">^</span><span style="color: #f7f7f7">\s</span><span style="color: #80b979">*line (</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+) col (</span><span style="color: #c695c6">\\</span><span style="color: #80b979">d+): ([^</span><span style="color: #c695c6">\\</span><span style="color: #80b979">n]+)</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-            <dt id="exec_option-encoding">
-                <span class="key">"encoding"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    The encoding of the build system output. Uses <a href="https://docs.python.org/3.3/library/codecs.html#id3">Python codec names</a>. Defaults to <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">utf-8</span><span style="color: #5fb4b4">&quot;</span></span></code>.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">iso-8859-1</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-            <dt id="exec_option-env">
-                <span class="key">"env"</span>
-                <span class="data-type">object</span>
-            </dt>
-            <dd>
-                <p>
-                    Environment variable values to use when running the <a href="build_systems.html#exec_option-cmd">cmd</a> or <a href="build_systems.html#exec_option-shell_cmd">shell_cmd</a>.
-                </p>
-                <div class="example">
-                    Example:
-                    <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">PYTHONIOENCODING</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">utf-8</span><span style="color: #5fb4b4">&quot;</span>
-}</span></code></pre>
-                </div>
-            </dd>
-            <dt id="exec_option-quiet">
-                <span class="key">"quiet"</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    Reduces the amount of output about the build system invocation.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt id="exec_option-word_wrap">
-                <span class="key">"word_wrap"</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                <p>
-                    Turns on word wrapping in the build system output panel.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #ec5f66; font-style: italic">true</span></span></code>
-                </div>
-            </dd>
-            <dt id="exec_option-syntax">
-                <span class="key">"syntax"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    The syntax file to use to highlight the build system output panel.
-                </p>
-                <div class="example">
-                    Example:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Packages/JavaScript/JSON.sublime-syntax</span><span style="color: #5fb4b4">&quot;</span></span></code>
-                </div>
-            </dd>
-        </dl>
-    </section>
-
-    <section>
-        <h2 id="custom_options">Custom Options</h2>
-
-        <p>
-            When implementing a command to act as a build system target,
-            the command's keyword arguments are available via options
-            in the <span class="file">.sublime-build</span> file. However,
-            certain parameter names will not work since they conflict
-            with built-in build system functionality.
-        </p>
-
-        <p>
-            The following names will not be passed as arguments to
-            commands. This also applies to other situations, such as
-            options specified in the <span class="key">"cancel"</span>,
-            <span class="key">"linux"</span>, <span class="key">"osx"</span> and
-            <span class="key">"windows"</span> options.
-        </p>
-
-        <ul>
-            <li><span class="key">"cancel"</span></li>
-            <li><span class="key">"file_patterns"</span></li>
-            <li><span class="key">"keyfile"</span></li>
-            <li><span class="key">"keyfiles"</span></li>
-            <li><span class="key">"linux"</span></li>
-            <li><span class="key">"osx"</span></li>
-            <li><span class="key">"save_untitled_files"</span></li>
-            <li><span class="key">"selector"</span></li>
-            <li><span class="key">"target"</span></li>
-            <li><span class="key">"variants"</span></li>
-            <li><span class="key">"windows"</span></li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="variables">Variables</h2>
-
-        <p>
-            The following variables will be expanded within any string specified
-            in the <span class="key">"cmd"</span>, <span class="key">"shell_cmd"</span> or
-            <span class="key">"working_dir"</span> options.
-        </p>
-
-        <p>
-            If a literal <code>$</code> needs to be specified in one of these
-            options, it must be escaped with a <code>\</code>. Since JSON
-            uses backslashes for escaping also, <code>$</code> will need to
-            be written as <code>\\$</code>.
-        </p>
-
-        <p>
-            Please note that this substitution
-            will occur for any <span class="key">"target"</span>. If a custom target is used,
-            it may implement variable expansion for additional options by using
-            <code>sublime.expand_variables()</code> with the result from
-            <code>self.window.extract_variables()</code>.
-        </p>
-
-        <table class="enum">
-            <tr>
-                <th>Variable</th>
-                <th>Description</th>
-            </tr>
-            <tr>
-                <td id="variable-packages">
-                    <span class="setting">$packages</span>
-                </td>
-                <td>
-                    The path to the <span class="file">Packages/</span> folder.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-platform">
-                    <span class="setting">$platform</span>
-                </td>
-                <td>
-                    The platform Sublime Text is running on:
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">windows</span><span style="color: #5fb4b4">&quot;</span></span></code>,
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">osx</span><span style="color: #5fb4b4">&quot;</span></span></code> or
-                    <code class="syntax-json"><span style="color: #333333"><span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">linux</span><span style="color: #5fb4b4">&quot;</span></span></code>.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-file">
-                    <span class="setting">$file</span>
-                </td>
-                <td>
-                    The full path, including folder, to the file in the active view.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-file_path">
-                    <span class="setting">$file_path</span>
-                </td>
-                <td>
-                    The path to the folder that contains the file in the active view.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-file_name">
-                    <span class="setting">$file_name</span>
-                </td>
-                <td>
-                    The file name (sans folder path) of the file in the active view.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-file_base_name">
-                    <span class="setting">$file_base_name</span>
-                </td>
-                <td>
-                    The file name, exluding the extension, of the file in the active view.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-file_extension">
-                    <span class="setting">$file_extension</span>
-                </td>
-                <td>
-                    The extension of the file name of the file in the active view.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-folder">
-                    <span class="setting">$folder</span>
-                </td>
-                <td>
-                    The full path to the first folder open in the side bar.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-project">
-                    <span class="setting">$project</span>
-                </td>
-                <td>
-                    The full path to the current project file.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-project_path">
-                    <span class="setting">$project_path</span>
-                </td>
-                <td>
-                    The path to the folder containing the current project file.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-project_name">
-                    <span class="setting">$project_name</span>
-                </td>
-                <td>
-                    The file name (sans folder path) of the current project file.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-project_base_name">
-                    <span class="setting">$project_base_name</span>
-                </td>
-                <td>
-                    The file name, excluding the extension, of the current project file.
-                </td>
-            </tr>
-            <tr>
-                <td id="variable-project_extension">
-                    <span class="setting">$project_extension</span>
-                </td>
-                <td>
-                    The extension of the current project file.
-                </td>
-            </tr>
-        </table>
-
-    </section>
-
-    <section>
-        <h2 id="advanced_example">Advanced Example</h2>
-
-        <p>
-            The following example shows a custom <code>target</code> command,
-            with the ability to cancel a build and navigate results.
-        </p>
-
-        <p>
-            A <code>target</code> for a build system should be a
-            <a href="api_reference.html#sublime_plugin.WindowCommand"><code>sublime.WindowCommand</code></a>.
-            This will provide the instance variable of <code>self.window</code>
-            to allow interaction with the current project, window and active view.
-        </p>
-
-        <p>
-            <em>Please note that the following example is somewhat
-            simplistic in its implementation, and it won't handle
-            many common edge cases.</em>
-        </p>
-
-        <p>
-            The following Python can be saved to a file named
-            <span class="file">Package/User/my_example_build.py</span>:
-        </p>
-
-        <pre><code class="syntax-python"><span style="color: #333333"><span style="color: #c695c6">import</span> sublime
-<span style="color: #c695c6">import</span> sublime_plugin
-
-<span style="color: #c695c6">import</span> subprocess
-<span style="color: #c695c6">import</span> threading
-<span style="color: #c695c6">import</span> os
-
-
-<span style="color: #c695c6; font-style: italic">class</span> <span style="color: #f9ae58">MyExampleBuildCommand</span>(<span style="color: #5fb4b4; font-style: italic">sublime_plugin</span><span style="color: #f97b58; font-style: italic">.</span><span style="color: #5fb4b4; font-style: italic">WindowCommand</span>):
-
-    encoding <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">utf-8</span><span style="color: #5fb4b4">&#x27;</span>
-    killed <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">False</span>
-    proc <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">None</span>
-    panel <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">None</span>
-    panel_lock <span style="color: #f97b58">=</span> threading<span style="color: #f97b58">.</span><span style="color: #6699cc">Lock</span>()
-
-    <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">is_enabled</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">lint</span><span style="color: #f97b58">=</span><span style="color: #ec5f66; font-style: italic">False</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">integration</span><span style="color: #f97b58">=</span><span style="color: #ec5f66; font-style: italic">False</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">kill</span><span style="color: #f97b58">=</span><span style="color: #ec5f66; font-style: italic">False</span>):
-        <span style="color: #999999">#</span><span style="color: #999999"> The Cancel build option should only be available
-</span>        <span style="color: #999999">#</span><span style="color: #999999"> when the process is still running
-</span>        <span style="color: #c695c6">if</span> kill:
-            <span style="color: #c695c6">return</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc <span style="color: #f97b58">is</span> <span style="color: #f97b58">not</span> <span style="color: #ec5f66; font-style: italic">None</span> <span style="color: #f97b58">and</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc<span style="color: #f97b58">.</span><span style="color: #6699cc">poll</span>() <span style="color: #f97b58">is</span> <span style="color: #ec5f66; font-style: italic">None</span>
-        <span style="color: #c695c6">return</span> <span style="color: #ec5f66; font-style: italic">True</span>
-
-    <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">run</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">lint</span><span style="color: #f97b58">=</span><span style="color: #ec5f66; font-style: italic">False</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">integration</span><span style="color: #f97b58">=</span><span style="color: #ec5f66; font-style: italic">False</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">kill</span><span style="color: #f97b58">=</span><span style="color: #ec5f66; font-style: italic">False</span>):
-        <span style="color: #c695c6">if</span> kill:
-            <span style="color: #c695c6">if</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc:
-                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>killed <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">True</span>
-                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc<span style="color: #f97b58">.</span><span style="color: #6699cc">terminate</span>()
-            <span style="color: #c695c6">return</span>
-
-        <span style="color: #6699cc; font-style: italic">vars</span> <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">extract_variables</span>()
-        working_dir <span style="color: #f97b58">=</span> <span style="color: #6699cc; font-style: italic">vars</span>[<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">file_path</span><span style="color: #5fb4b4">&#x27;</span>]
-
-        <span style="color: #999999">#</span><span style="color: #999999"> A lock is used to ensure only one thread is
-</span>        <span style="color: #999999">#</span><span style="color: #999999"> touching the output panel at a time
-</span>        <span style="color: #c695c6">with</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel_lock:
-            <span style="color: #999999">#</span><span style="color: #999999"> Creating the panel implicitly clears any previous contents
-</span>            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">create_output_panel</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">exec</span><span style="color: #5fb4b4">&#x27;</span>)
-
-            <span style="color: #999999">#</span><span style="color: #999999"> Enable result navigation. The result_file_regex does
-</span>            <span style="color: #999999">#</span><span style="color: #999999"> the primary matching, but result_line_regex is used
-</span>            <span style="color: #999999">#</span><span style="color: #999999"> when build output includes some entries that only
-</span>            <span style="color: #999999">#</span><span style="color: #999999"> contain line/column info beneath a previous line
-</span>            <span style="color: #999999">#</span><span style="color: #999999"> listing the file info. The result_base_dir sets the
-</span>            <span style="color: #999999">#</span><span style="color: #999999"> path to resolve relative file names against.
-</span>            settings <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel<span style="color: #f97b58">.</span><span style="color: #6699cc">settings</span>()
-            settings<span style="color: #f97b58">.</span><span style="color: #6699cc">set</span>(
-                <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">result_file_regex</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span>
-                <span style="color: #c695c6; font-style: italic">r</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">^</span><span style="color: #80b979">File &quot;</span><span style="color: #5fb4b4">(</span><span style="color: #5fb4b4">[</span><span style="color: #f97b58">^</span><span style="color: #c695c6">&quot;</span><span style="color: #5fb4b4">]</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #80b979">&quot; line </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #80b979"> col </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">&#x27;</span>
-            )
-            settings<span style="color: #f97b58">.</span><span style="color: #6699cc">set</span>(
-                <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">result_line_regex</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span>
-                <span style="color: #c695c6; font-style: italic">r</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">^</span><span style="color: #c695c6">\s</span><span style="color: #f97b58">+</span><span style="color: #80b979">line </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #80b979"> col </span><span style="color: #5fb4b4">(</span><span style="color: #c695c6">\d</span><span style="color: #f97b58">+</span><span style="color: #5fb4b4">)</span><span style="color: #5fb4b4">&#x27;</span>
-            )
-            settings<span style="color: #f97b58">.</span><span style="color: #6699cc">set</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">result_base_dir</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> working_dir)
-
-            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>window<span style="color: #f97b58">.</span><span style="color: #6699cc">run_command</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">show_panel</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">panel</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">output.exec</span><span style="color: #5fb4b4">&#x27;</span>})
-
-        <span style="color: #c695c6">if</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc <span style="color: #f97b58">is</span> <span style="color: #f97b58">not</span> <span style="color: #ec5f66; font-style: italic">None</span>:
-            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc<span style="color: #f97b58">.</span><span style="color: #6699cc">terminate</span>()
-            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">None</span>
-
-        args <span style="color: #f97b58">=</span> [<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">my_cli</span><span style="color: #5fb4b4">&#x27;</span>]
-        <span style="color: #c695c6">if</span> lint:
-            args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">-l</span><span style="color: #5fb4b4">&#x27;</span>)
-        <span style="color: #c695c6">elif</span> integration:
-            args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">-i</span><span style="color: #5fb4b4">&#x27;</span>)
-        args<span style="color: #f97b58">.</span><span style="color: #6699cc">append</span>(<span style="color: #6699cc; font-style: italic">vars</span>[<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">file_name</span><span style="color: #5fb4b4">&#x27;</span>])
-        <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc <span style="color: #f97b58">=</span> subprocess<span style="color: #f97b58">.</span><span style="color: #6699cc">Popen</span>(
-            args<span style="color: #ac7a68">,</span>
-            <span style="color: #f9ae58">stdout</span><span style="color: #f97b58">=</span>subprocess<span style="color: #f97b58">.</span>PIPE<span style="color: #ac7a68">,</span>
-            <span style="color: #f9ae58">stderr</span><span style="color: #f97b58">=</span>subprocess<span style="color: #f97b58">.</span>STDOUT<span style="color: #ac7a68">,</span>
-            <span style="color: #f9ae58">cwd</span><span style="color: #f97b58">=</span>working_dir
-        )
-        <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>killed <span style="color: #f97b58">=</span> <span style="color: #ec5f66; font-style: italic">False</span>
-
-        threading<span style="color: #f97b58">.</span><span style="color: #6699cc">Thread</span>(
-            <span style="color: #f9ae58">target</span><span style="color: #f97b58">=</span><span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>read_handle<span style="color: #ac7a68">,</span>
-            <span style="color: #f9ae58">args</span><span style="color: #f97b58">=</span>(<span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>proc<span style="color: #f97b58">.</span>stdout<span style="color: #ac7a68">,</span>)
-        )<span style="color: #f97b58">.</span><span style="color: #6699cc">start</span>()
-
-    <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">read_handle</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">handle</span>):
-        chunk_size <span style="color: #f97b58">=</span> <span style="color: #f9ae58">2</span> <span style="color: #f97b58">**</span> <span style="color: #f9ae58">13</span>
-        out <span style="color: #f97b58">=</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span>
-        <span style="color: #c695c6">while</span> <span style="color: #ec5f66; font-style: italic">True</span>:
-            <span style="color: #c695c6">try</span>:
-                data <span style="color: #f97b58">=</span> os<span style="color: #f97b58">.</span><span style="color: #6699cc">read</span>(handle<span style="color: #f97b58">.</span><span style="color: #6699cc">fileno</span>()<span style="color: #ac7a68">,</span> chunk_size)
-                <span style="color: #999999">#</span><span style="color: #999999"> If exactly the requested number of bytes was
-</span>                <span style="color: #999999">#</span><span style="color: #999999"> read, there may be more data, and the current
-</span>                <span style="color: #999999">#</span><span style="color: #999999"> data may contain part of a multibyte char
-</span>                out <span style="color: #f97b58">+=</span> data
-                <span style="color: #c695c6">if</span> <span style="color: #6699cc; font-style: italic">len</span>(data) <span style="color: #f97b58">==</span> chunk_size:
-                    <span style="color: #c695c6">continue</span>
-                <span style="color: #c695c6">if</span> data <span style="color: #f97b58">==</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span> <span style="color: #f97b58">and</span> out <span style="color: #f97b58">==</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span>:
-                    <span style="color: #c695c6">raise</span> <span style="color: #6699cc; font-style: italic">IOError</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">EOF</span><span style="color: #5fb4b4">&#x27;</span>)
-                <span style="color: #999999">#</span><span style="color: #999999"> We pass out to a function to ensure the
-</span>                <span style="color: #999999">#</span><span style="color: #999999"> timeout gets the value of out right now,
-</span>                <span style="color: #999999">#</span><span style="color: #999999"> rather than a future (mutated) version
-</span>                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">queue_write</span>(out<span style="color: #f97b58">.</span><span style="color: #6699cc">decode</span>(<span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>encoding))
-                <span style="color: #c695c6">if</span> data <span style="color: #f97b58">==</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span>:
-                    <span style="color: #c695c6">raise</span> <span style="color: #6699cc; font-style: italic">IOError</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">EOF</span><span style="color: #5fb4b4">&#x27;</span>)
-                out <span style="color: #f97b58">=</span> <span style="color: #c695c6; font-style: italic">b</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #5fb4b4">&#x27;</span>
-            <span style="color: #c695c6">except</span> (<span style="color: #6699cc; font-style: italic">UnicodeDecodeError</span>) <span style="color: #c695c6">as</span> e:
-                msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Error decoding output using </span><span style="color: #c695c6">%s</span><span style="color: #80b979"> - </span><span style="color: #c695c6">%s</span><span style="color: #5fb4b4">&#x27;</span>
-                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">queue_write</span>(msg  <span style="color: #f97b58">%</span> (<span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>encoding<span style="color: #ac7a68">,</span> <span style="color: #6699cc; font-style: italic">str</span>(e)))
-                <span style="color: #c695c6">break</span>
-            <span style="color: #c695c6">except</span> (<span style="color: #6699cc; font-style: italic">IOError</span>):
-                <span style="color: #c695c6">if</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>killed:
-                    msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Cancelled</span><span style="color: #5fb4b4">&#x27;</span>
-                <span style="color: #c695c6">else</span>:
-                    msg <span style="color: #f97b58">=</span> <span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">Finished</span><span style="color: #5fb4b4">&#x27;</span>
-                <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">queue_write</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #c695c6">\n</span><span style="color: #80b979">[</span><span style="color: #c695c6">%s</span><span style="color: #80b979">]</span><span style="color: #5fb4b4">&#x27;</span> <span style="color: #f97b58">%</span> msg)
-                <span style="color: #c695c6">break</span>
-
-    <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">queue_write</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">text</span>):
-        sublime<span style="color: #f97b58">.</span><span style="color: #6699cc">set_timeout</span>(<span style="color: #c695c6; font-style: italic">lambda</span>: <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span><span style="color: #6699cc">do_write</span>(text)<span style="color: #ac7a68">,</span> <span style="color: #f9ae58">1</span>)
-
-    <span style="color: #c695c6; font-style: italic">def</span> <span style="color: #5fb4b4">do_write</span>(<span style="color: #f9ae58">self</span><span style="color: #ac7a68">,</span> <span style="color: #f9ae58">text</span>):
-        <span style="color: #c695c6">with</span> <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel_lock:
-            <span style="color: #ec5f66; font-style: italic">self</span><span style="color: #f97b58">.</span>panel<span style="color: #f97b58">.</span><span style="color: #6699cc">run_command</span>(<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">append</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">,</span> {<span style="color: #5fb4b4">&#x27;</span><span style="color: #80b979">characters</span><span style="color: #5fb4b4">&#x27;</span><span style="color: #ac7a68">:</span> text})
-</span></code></pre>
-
-        <p>
-            The custom <code>MyExampleBuildCommand</code> can be
-            configured as a build system using the following JSON
-            saved to a file named
-            <span class="file">Packages/User/My Example Build.sublime-build</span>:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">target</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">my_example_build</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">selector</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source.mylang</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">cancel</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> {<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">kill</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>}<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">variants</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="build_systems.html#toc">TOC</a>
+        <a class="jump top" href="build_systems.html#">TOP</a>
+    </nav>
+    Build Systems
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
+
+  <section id="build-systems"><p>Sublime Text provides <i>build systems</i> to allow users to run external programs.
+Examples of common uses for build systems include: compiling, transpiling,
+linting, and executing tests.</p>
+<p>Build systems are specified via JSON and saved in a file with the
+extension <span class="file">.sublime-build</span>. A new build system can be created by
+the <span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build System <img src="../images/right.svg" alt="▶"> New Build System…</span> menu item or the <code class="docutils literal notranslate"><span class="pre">Build:</span>
+<span class="pre">New</span> <span class="pre">Build</span> <span class="pre">System</span></code> command palette entry.</p>
+<p>Build systems have various ways they can associate themselves with files and
+projects. Using this information, Sublime Text can intelligently display only
+viable build systems to the user. The built-in <code class="docutils literal notranslate"><span class="pre">exec</span></code> target
+provides common options to get up and running quickly. For more complex
+requirements, build systems can target custom Sublime Text commands written in
+Python.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="build_systems.html#basic-example">Basic Example</a></p></li>
+<li><p><a class="reference internal" href="build_systems.html#usage">Usage</a></p></li>
+<li><p><a class="reference internal" href="build_systems.html#options">Options</a></p></li>
+<li><p><a class="reference internal" href="build_systems.html#exec-target-options">exec Target Options</a></p></li>
+<li><p><a class="reference internal" href="build_systems.html#custom-options">Custom Options</a></p></li>
+<li><p><a class="reference internal" href="build_systems.html#variables">Variables</a></p></li>
+<li><p><a class="reference internal" href="build_systems.html#advanced-example">Advanced Example</a></p></li>
+</ul>
+<section id="basic-example"><h2>Basic Example<a class="headerlink" href="build_systems.html#basic-example" title="Permalink to this headline">🔗</a></h2>
+<p>The following is a basic example of a build system. This build system will
+execute the currently-open Python file.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\s*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="build_systems.html#usage">Usage</a> and <a class="reference internal" href="build_systems.html#options">Options</a> sections will discuss how to use and customize a
+build system.</p>
+</section><section id="usage"><h2>Usage<a class="headerlink" href="build_systems.html#usage" title="Permalink to this headline">🔗</a></h2>
+<p>Build systems include the following functionality:</p>
+<ul class="simple">
+<li><p>Automatic selection of a build system based on file type</p></li>
+<li><p>Remembering the last used build system</p></li>
+<li><p>Navigation of build system results</p></li>
+<li><p>Ability to cancel a build</p></li>
+</ul>
+<section id="running-a-build"><h3>Running a Build<a class="headerlink" href="build_systems.html#running-a-build" title="Permalink to this headline">🔗</a></h3>
+<p>A build can be run by one of the following methods:</p>
+<section class="wide"><table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 18%" />
+<col style="width: 16%" />
+<col style="width: 38%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="3"><p>Keyboard</p></th>
+<th class="head"><p>Menu</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><i>Windows/Linux</i></p></td>
+<td><p><i>Mac</i></p></td>
+<td><p><i>All</i></p></td>
+<td rowspan="2"><p><span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="keys"><b>Ctrl</b><i>+</i><b>B</b></span></p></td>
+<td><p><span class="keys"><b>⌘</b><i>+</i><b>B</b></span></p></td>
+<td><p><span class="keys"><b>F7</b></span></p></td>
+</tr>
+</tbody>
+</table>
+</section><p>Output will be shown in an output panel displayed at the bottom of the Sublime
+Text window.</p>
+</section><section id="selecting-a-build-system"><h3>Selecting a Build System<a class="headerlink" href="build_systems.html#selecting-a-build-system" title="Permalink to this headline">🔗</a></h3>
+<p>By default, Sublime Text uses automatic selection of build systems. When a user
+invokes a build, the current file’s syntax and filename will be used to pick
+the appropriate build system.</p>
+<p>If more than one build system matches the current file type, the user will be
+prompted to pick the build system they wish to use. Once a build system has
+been selected, Sublime Text will remember it until the user changes their
+selection.</p>
+<p>To manually choose a build system, use: <span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build System</span></p>
+<p>To change the build system, within the viable options, use one of the following
+methods:</p>
+<section class="wide"><table class="docutils align-default">
+<colgroup>
+<col style="width: 26%" />
+<col style="width: 16%" />
+<col style="width: 37%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Keyboard</p></th>
+<th class="head"><p>Menu</p></th>
+<th class="head"><p>Command Palette</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><i>Windows/Linux</i></p></td>
+<td><p><i>Mac</i></p></td>
+<td rowspan="2"><p><span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build With…</span></p></td>
+<td rowspan="2"><p><code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">With:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>B</b></span></p></td>
+<td><p><span class="keys"><b>⇧</b><i>+</i><b>⌘</b><i>+</i><b>B</b></span></p></td>
+</tr>
+</tbody>
+</table>
+</section></section><section id="navigating-results"><h3>Navigating Results<a class="headerlink" href="build_systems.html#navigating-results" title="Permalink to this headline">🔗</a></h3>
+<p>Build systems allow navigation of files specified in the build output. Typically
+this is used to jump to the location of errors. Navigation can be performed
+via:</p>
+<section class="wide"><table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Command</p></th>
+<th class="head"><p>Keyboard</p></th>
+<th class="head"><p>Menu</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Next Result</p></td>
+<td><p><span class="keys"><b>F4</b></span></p></td>
+<td><p><span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build Results <img src="../images/right.svg" alt="▶"> Next Result</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Previous Result</p></td>
+<td><p><span class="keys"><b>Shift</b><i>+</i><b>F4</b></span></p></td>
+<td><p><span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build Results <img src="../images/right.svg" alt="▶"> Previous Result</span></p></td>
+</tr>
+</tbody>
+</table>
+</section></section><section id="cancelling-a-build"><h3>Cancelling a Build<a class="headerlink" href="build_systems.html#cancelling-a-build" title="Permalink to this headline">🔗</a></h3>
+<p>An in-process build can be cancelled via:</p>
+<section class="wide"><table class="docutils align-default">
+<colgroup>
+<col style="width: 23%" />
+<col style="width: 17%" />
+<col style="width: 37%" />
+<col style="width: 23%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Keyboard</p></th>
+<th class="head"><p>Menu</p></th>
+<th class="head"><p>Command Palette</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><i>Windows/Linux</i></p></td>
+<td><p><i>Mac</i></p></td>
+<td rowspan="2"><p><span class="menu">Tools <img src="../images/right.svg" alt="▶"> Cancel Build</span></p></td>
+<td rowspan="2"><p><code class="docutils literal notranslate"><span class="pre">Build:</span> <span class="pre">Cancel</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="keys"><b>Ctrl</b><i>+</i><b>Break</b></span></p></td>
+<td><p><span class="keys"><b>Ctrl</b><i>+</i><b>C</b></span></p></td>
+</tr>
+</tbody>
+</table>
+</section></section></section><section id="options"><h2>Options<a class="headerlink" href="build_systems.html#options" title="Permalink to this headline">🔗</a></h2>
+<p>All build systems may use the following top-level keys in
+the <span class="file">.sublime-build</span> file:</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="selector">
+<span class="key"><span class="pre">&quot;selector&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#selector" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A <a class="reference internal" href="selectors.html"><span class="doc">selector</span></a> to match the syntax that this build system should
+be enabled for.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;source.python&quot;</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="file_patterns">
+<span class="key"><span class="pre">&quot;file_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="build_systems.html#file_patterns" title="Permalink to this definition">🔗</a></dt>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns</span></a> of file names the build system should be enabled
+for.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">[&quot;*.py&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="keyfiles">
+<span class="key"><span class="pre">&quot;keyfiles&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="build_systems.html#keyfiles" title="Permalink to this definition">🔗</a></dt>
+<dd><p>File names, if present in one of the opened folders, that will cause the
+build system to be enabled.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">[&quot;Makefile&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="variants">
+<span class="key"><span class="pre">&quot;variants&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">objects</span></span><a class="headerlink" href="build_systems.html#variants" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Subsidiary build systems that will inherit the options from the top-level
+build system. Each variant needs to specify a <code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code> key, and may
+override or add options to the top-level build system.</p>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Debug Symbols&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;my_command&quot;</span><span class="p">,</span> <span class="s2">&quot;-D&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="cancel">
+<span class="key"><span class="pre">&quot;cancel&quot;</span></span> <span class="data-type"><span class="pre">string,</span> <span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="build_systems.html#cancel" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A string command name, or an array of string options.</p>
+<p>If a string is specified, the command specified will be used to cancel the
+build.</p>
+<p>If an array of strings, the primary <code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code> will be called, with these
+options added on. This only needs to be specified when using a custom
+<code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code>.</p>
+<p>Examples: <code class="docutils literal notranslate"><span class="pre">&quot;cancel_my_build&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;kill&quot;:</span> <span class="pre">true</span> <span class="pre">}</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="target">
+<span class="key"><span class="pre">&quot;target&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#target" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The command to run when the build system is invoked. The default value of
+<code class="docutils literal notranslate"><span class="pre">exec</span></code> allows use of the additional options specified in <a class="reference internal" href="build_systems.html#exec-target-options">exec Target
+Options</a>.</p>
+<p>If a value other than <code class="docutils literal notranslate"><span class="pre">&quot;exec&quot;</span></code> is specified, none of the options in <a class="reference internal" href="build_systems.html#exec-target-options">exec
+Target Options</a> will do anything.</p>
+<p>See the <a class="reference internal" href="build_systems.html#advanced-example">Advanced Example</a> for a complete example.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;my_build&quot;</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="windows">
+<span class="key"><span class="pre">&quot;windows&quot;</span></span> <span class="data-type"><span class="pre">object</span></span><a class="headerlink" href="build_systems.html#windows" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Options to use when the build system is being executed on a Windows
+machine.</p>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;my_command.exe&quot;</span><span class="p">,</span> <span class="s2">&quot;/D&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="osx">
+<span class="key"><span class="pre">&quot;osx&quot;</span></span> <span class="data-type"><span class="pre">object</span></span><a class="headerlink" href="build_systems.html#osx" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Options to use when the build system is being executed on a Mac machine.</p>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/Applications/MyProgram.app/Contents/MacOS/my_command&quot;</span><span class="p">,</span> <span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="linux">
+<span class="key"><span class="pre">&quot;linux&quot;</span></span> <span class="data-type"><span class="pre">object</span></span><a class="headerlink" href="build_systems.html#linux" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Options to use when the build system is being executed on a Linux machine.</p>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/usr/local/bin/my_command&quot;</span><span class="p">,</span> <span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section><section id="exec-target-options"><h2><code class="docutils literal notranslate"><span class="pre">exec</span></code> Target Options<a class="headerlink" href="build_systems.html#exec-target-options" title="Permalink to this headline">🔗</a></h2>
+<p>The default <code class="docutils literal notranslate"><span class="pre">target</span></code> of <code class="docutils literal notranslate"><span class="pre">exec</span></code> is used by the majority of build systems. It
+provides the following options to control what program to execute, and how to
+display the results.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="cmd">
+<span class="key"><span class="pre">&quot;cmd&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="build_systems.html#cmd" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The executable to run, plus any arguments to pass to it. Shell constructs
+such as piping and redirection are not supported – see <a class="reference internal" href="build_systems.html#shell_cmd" title="&quot;shell_cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code></a>.</p>
+<p>May use <a class="reference internal" href="build_systems.html#variables">variables</a>.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">[&quot;my_command&quot;,</span> <span class="pre">&quot;-d&quot;,</span> <span class="pre">&quot;$file&quot;]</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="shell_cmd">
+<span class="key"><span class="pre">&quot;shell_cmd&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#shell_cmd" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A shell command to execute. Unlike the <a class="reference internal" href="build_systems.html#cmd" title="&quot;cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code></a> option, this does allow
+piping and redirection. Will use <code class="docutils literal notranslate"><span class="pre">bash</span></code> on Mac and Linux machine, and
+<code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> on Windows.</p>
+<p>May use <a class="reference internal" href="build_systems.html#variables">variables</a>.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;my_command</span> <span class="pre">\&quot;$file\&quot;</span> <span class="pre">|</span> <span class="pre">other_command&quot;</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="working_dir">
+<span class="key"><span class="pre">&quot;working_dir&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#working_dir" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The directory to execute the <a class="reference internal" href="build_systems.html#cmd" title="&quot;cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code></a> or <a class="reference internal" href="build_systems.html#shell_cmd" title="&quot;shell_cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code></a> within.</p>
+<p>May use <a class="reference internal" href="build_systems.html#variables">variables</a>.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;$file_path&quot;</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="file_regex">
+<span class="key"><span class="pre">&quot;file_regex&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#file_regex" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A regular expression to run on the build output to match file information.
+The matched file information is used to enable result navigation. The regex
+should capture 2, 3 or 4 groups.</p>
+<p>The capture groups should be:</p>
+<ol class="arabic simple">
+<li><p>filename</p></li>
+<li><p>line number</p></li>
+<li><p>column number</p></li>
+<li><p>message</p></li>
+</ol>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;^\s*(\\S[^:]*)\\((\\d+):(\\d+)\\):</span> <span class="pre">([^\\n]+)&quot;</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="line_regex">
+<span class="key"><span class="pre">&quot;line_regex&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#line_regex" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A regular expression to run on the build output to match line information.
+The matched file information is used to enable result navigation. The regex
+should capture 1, 2 or 3 groups.</p>
+<p>The groups should capture:</p>
+<ol class="arabic simple">
+<li><p>line number</p></li>
+<li><p>column number</p></li>
+<li><p>error message</p></li>
+</ol>
+<p>This regular expression is only necessary when some results contain strictly
+a line number, line and column numbers, or line and column numbers with a
+message. When such a match is made, the <a class="reference internal" href="build_systems.html#file_regex" title="&quot;file_regex&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;file_regex&quot;</span></code></a> option will be used
+to search backwards to find the appropriate file name.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;^\s*line</span> <span class="pre">(\\d+)</span> <span class="pre">col</span> <span class="pre">(\\d+):</span> <span class="pre">([^\\n]+)&quot;</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="encoding">
+<span class="key"><span class="pre">&quot;encoding&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#encoding" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The encoding of the build system output. Uses <a class="reference external" href="https://docs.python.org/3.3/library/codecs.html#id3">Python codec names</a>. Defaults to
+<code class="docutils literal notranslate"><span class="pre">&quot;utf-8&quot;</span></code>.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;iso-8859-1&quot;</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="env">
+<span class="key"><span class="pre">&quot;env&quot;</span></span> <span class="data-type"><span class="pre">object</span></span><a class="headerlink" href="build_systems.html#env" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Environment variable values to use when running the <a class="reference internal" href="build_systems.html#cmd" title="&quot;cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code></a> or
+<a class="reference internal" href="build_systems.html#shell_cmd" title="&quot;shell_cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code></a>.</p>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;PYTHONIOENCODING&quot;</span><span class="p">:</span> <span class="s2">&quot;utf-8&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="quiet">
+<span class="key"><span class="pre">&quot;quiet&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="build_systems.html#quiet" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Reduces the amount of output about the build system invocation.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="word_wrap">
+<span class="key"><span class="pre">&quot;word_wrap&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="build_systems.html#word_wrap" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Turns on word wrapping in the build system output panel.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="syntax">
+<span class="key"><span class="pre">&quot;syntax&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="build_systems.html#syntax" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The syntax file to use to highlight the build system output panel.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;Packages/JavaScript/JSON.sublime-syntax&quot;</span></code></p>
+</dd></dl>
+
+</section><section id="custom-options"><h2>Custom Options<a class="headerlink" href="build_systems.html#custom-options" title="Permalink to this headline">🔗</a></h2>
+<p>When implementing a command to act as a build system target, the command’s
+keyword arguments are available via options in the <span class="file">.sublime-build</span> file.
+However, certain parameter names will not work since they conflict with
+built-in build system functionality.</p>
+<p>The following names will not be passed as arguments to commands. This also
+applies to other situations, such as options specified in the <code class="docutils literal notranslate"><span class="pre">&quot;cancel&quot;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&quot;linux&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;osx&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;windows&quot;</span></code> options.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;cancel&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;file_patterns&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;keyfile&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;keyfiles&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;linux&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;osx&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;save_untitled_files&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;selector&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;target&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;variants&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&quot;windows&quot;</span></code></p></li>
+</ul>
+</section><section id="variables"><h2>Variables<a class="headerlink" href="build_systems.html#variables" title="Permalink to this headline">🔗</a></h2>
+<p>The following variables will be expanded within any string specified in the
+<code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;working_dir&quot;</span></code> options.</p>
+<p>If a literal <code class="docutils literal notranslate"><span class="pre">$</span></code> needs to be specified in one of these options, it must be
+escaped with a <code class="docutils literal notranslate"><span class="pre">\</span></code>. Since JSON uses backslashes for escaping also, <code class="docutils literal notranslate"><span class="pre">$</span></code> will
+need to be written as <code class="docutils literal notranslate"><span class="pre">\\$</span></code>.</p>
+<p>Please note that this substitution will occur for any &lt;span
+class=”key”&gt;”target”&lt;/span&gt;. If a custom target is used, it may implement
+variable expansion for additional options by using
+<code class="docutils literal notranslate"><span class="pre">sublime.expand_variables()</span></code> with the result from
+<code class="docutils literal notranslate"><span class="pre">self.window.extract_variables()</span></code>. &lt;/p&gt;</p>
+<section class="wide"><table class="docutils align-default">
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 79%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$packages</span></code></p></td>
+<td><p>The path to the <span class="file">Packages/</span> folder.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$platform</span></code></p></td>
+<td><p>The platform Sublime Text is running on: <code class="docutils literal notranslate"><span class="pre">&quot;windows&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;osx&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;linux&quot;</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$file</span></code></p></td>
+<td><p>The full path, including folder, to the file in the active view.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$file_path</span></code></p></td>
+<td><p>The path to the folder that contains the file in the active view.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$file_name</span></code></p></td>
+<td><p>The file name (sans folder path) of the file in the active view.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$file_base_name</span></code></p></td>
+<td><p>The file name, exluding the extension, of the file in the active view.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$file_extension</span></code></p></td>
+<td><p>The extension of the file name of the file in the active view.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$folder</span></code></p></td>
+<td><p>The full path to the first folder open in the side bar.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$project</span></code></p></td>
+<td><p>The full path to the current project file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$project_path</span></code></p></td>
+<td><p>The path to the folder containing the current project file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$project_name</span></code></p></td>
+<td><p>The file name (sans folder path) of the current project file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">$project_base_name</span></code></p></td>
+<td><p>The file name, excluding the extension, of the current project file.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">$project_extension</span></code></p></td>
+<td><p>The extension of the current project file.</p></td>
+</tr>
+</tbody>
+</table>
+</section></section><section id="advanced-example"><h2>Advanced Example<a class="headerlink" href="build_systems.html#advanced-example" title="Permalink to this headline">🔗</a></h2>
+<p>The following example shows a custom <code class="docutils literal notranslate"><span class="pre">target</span></code> command, with the ability to
+cancel a build and navigate results.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">target</span></code> for a build system should be a <a class="reference internal" href="api_reference.html#sublime_plugin.WindowCommand" title="sublime_plugin.WindowCommand"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime_plugin.WindowCommand</span></code></a>. This
+will provide the instance variable of <code class="docutils literal notranslate"><span class="pre">self.window</span></code> to allow interaction with
+the current project, window and active view.</p>
+<p><i>Please note that the following example is somewhat simplistic in its
+implementation, and it won’t handle many common edge cases.</i></p>
+<p>The following Python can be saved to a file
+named <span class="file">Package/User/my_example_build.py</span>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sublime</span>
+<span class="kn">import</span> <span class="nn">sublime_plugin</span>
+
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">threading</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">class</span> <span class="nc">MyExampleBuildCommand</span><span class="p">(</span><span class="n">sublime_plugin</span><span class="o">.</span><span class="n">WindowCommand</span><span class="p">):</span>
+
+    <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
+    <span class="n">killed</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">panel</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">panel_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">is_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lint</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">integration</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">kill</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="c1"># The Cancel build option should only be available</span>
+        <span class="c1"># when the process is still running</span>
+        <span class="k">if</span> <span class="n">kill</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lint</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">integration</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">kill</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">kill</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">killed</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+            <span class="k">return</span>
+
+        <span class="nb">vars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">extract_variables</span><span class="p">()</span>
+        <span class="n">working_dir</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">[</span><span class="s1">&#39;file_path&#39;</span><span class="p">]</span>
+
+        <span class="c1"># A lock is used to ensure only one thread is</span>
+        <span class="c1"># touching the output panel at a time</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">panel_lock</span><span class="p">:</span>
+            <span class="c1"># Creating the panel implicitly clears any previous contents</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">panel</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">create_output_panel</span><span class="p">(</span><span class="s1">&#39;exec&#39;</span><span class="p">)</span>
+
+            <span class="c1"># Enable result navigation. The result_file_regex does</span>
+            <span class="c1"># the primary matching, but result_line_regex is used</span>
+            <span class="c1"># when build output includes some entries that only</span>
+            <span class="c1"># contain line/column info beneath a previous line</span>
+            <span class="c1"># listing the file info. The result_base_dir sets the</span>
+            <span class="c1"># path to resolve relative file names against.</span>
+            <span class="n">settings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">settings</span><span class="p">()</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+                <span class="s1">&#39;result_file_regex&#39;</span><span class="p">,</span>
+                <span class="sa">r</span><span class="s1">&#39;^File &quot;([^&quot;]+)&quot; line (\d+) col (\d+)&#39;</span>
+            <span class="p">)</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span>
+                <span class="s1">&#39;result_line_regex&#39;</span><span class="p">,</span>
+                <span class="sa">r</span><span class="s1">&#39;^\s+line (\d+) col (\d+)&#39;</span>
+            <span class="p">)</span>
+            <span class="n">settings</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;result_base_dir&#39;</span><span class="p">,</span> <span class="n">working_dir</span><span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s1">&#39;show_panel&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;panel&#39;</span><span class="p">:</span> <span class="s1">&#39;output.exec&#39;</span><span class="p">})</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my_cli&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">lint</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">integration</span><span class="p">:</span>
+            <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">)</span>
+        <span class="n">args</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">vars</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span>
+            <span class="n">args</span><span class="p">,</span>
+            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
+            <span class="n">cwd</span><span class="o">=</span><span class="n">working_dir</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">killed</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
+            <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">read_handle</span><span class="p">,</span>
+            <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">stdout</span><span class="p">,)</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">read_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">):</span>
+        <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">13</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">chunk_size</span><span class="p">)</span>
+                <span class="c1"># If exactly the requested number of bytes was</span>
+                <span class="c1"># read, there may be more data, and the current</span>
+                <span class="c1"># data may contain part of a multibyte char</span>
+                <span class="n">out</span> <span class="o">+=</span> <span class="n">data</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="n">chunk_size</span><span class="p">:</span>
+                    <span class="k">continue</span>
+                <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">out</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;EOF&#39;</span><span class="p">)</span>
+                <span class="c1"># We pass out to a function to ensure the</span>
+                <span class="c1"># timeout gets the value of out right now,</span>
+                <span class="c1"># rather than a future (mutated) version</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">queue_write</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">))</span>
+                <span class="k">if</span> <span class="n">data</span> <span class="o">==</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;EOF&#39;</span><span class="p">)</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">UnicodeDecodeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Error decoding output using </span><span class="si">%s</span><span class="s1"> - </span><span class="si">%s</span><span class="s1">&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">queue_write</span><span class="p">(</span><span class="n">msg</span>  <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)))</span>
+                <span class="k">break</span>
+            <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">):</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">killed</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Cancelled&#39;</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Finished&#39;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">queue_write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">[</span><span class="si">%s</span><span class="s1">]&#39;</span> <span class="o">%</span> <span class="n">msg</span><span class="p">)</span>
+                <span class="k">break</span>
+
+    <span class="k">def</span> <span class="nf">queue_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="n">sublime</span><span class="o">.</span><span class="n">set_timeout</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">do_write</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">do_write</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">panel_lock</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">panel</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s1">&#39;append&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;characters&#39;</span><span class="p">:</span> <span class="n">text</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>The custom <code class="docutils literal notranslate"><span class="pre">MyExampleBuildCommand</span></code> can be configured as a build system using
+the following JSON saved to a file named <span class="file">Packages/User/My Example
+Build.sublime-build</span>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;my_example_build&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.mylang&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;cancel&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;kill&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">},</span>
+    <span class="nt">&quot;variants&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Lint&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;lint&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Integration Tests&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;integration&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section></section>
+
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
         {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Lint</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">lint</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
-        }<span style="color: #ac7a68">,</span>
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Integration Tests</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">integration</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
         }
-    ]
-}</span></code></pre>
-
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

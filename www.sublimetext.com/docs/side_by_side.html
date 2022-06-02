@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Running 3 and 4 Side by Side – Sublime Text Documentation</title>
+    <title>Running 3 and 4 Side by Side</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,48 +60,74 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
-    
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Running 3 and 4 Side by Side
-    </span></h1>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="side_by_side.html#toc">TOC</a>
+        <a class="jump top" href="side_by_side.html#">TOP</a>
+    </nav>
+    Running 3 and 4 Side by Side
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <section>
-        <p>
-            Sublime Text 4 will use the same data directory as Sublime Text 3, so it will pickup exactly where you left off in version 3. You can configue this, however. Sublime Text 4 chooses what data directory to use by:
+  <section id="running-3-and-4-side-by-side"><p>Sublime Text 4 will use the same data directory as Sublime Text 3, so it will
+pickup exactly where you left off in version 3. You can configure this,
+however. Sublime Text 4 chooses what data directory to use by:</p>
+<ul class="simple">
+<li><p>If the ST4 data directory exists, use that</p></li>
+<li><p>Otherwise, if the ST3 data directory exists, use that</p></li>
+<li><p>Finally, if neither exist, create the ST4 data directory</p></li>
+</ul>
+<p>To keep ST4 and ST3 using different data directories, you’ll need to manually
+create the ST4 one. The exact path for this directory depends on your operating
+system:</p>
+<ul class="simple">
+<li><p><b>Windows:</b> <span class="file">%APPDATA%\Sublime Text</span></p></li>
+<li><p><b>Mac:</b> <span class="file">~/Library/Application Support/Sublime Text</span></p></li>
+<li><p><b>Linux:</b> <span class="file">~/.config/sublime-text</span></p></li>
+</ul>
+<p>For reference, the ST3 data directory is in the same location, but has a <code class="docutils literal notranslate"><span class="pre">3</span></code>
+on the end.</p>
+<section id="mac"><h2>Mac<a class="headerlink" href="side_by_side.html#mac" title="Permalink to this headline">🔗</a></h2>
+<p>On Mac, the <span class="file">~/Library</span> directory is hidden by default. To navigate there,
+select the <span class="menu">Go <img src="../images/right.svg" alt="▶"> Go to
+Folder</span> menu item in Finder, and type in <span class="file">~/Library</span>.</p>
+</section></section>
 
-            <ol>
-                <li>If the ST4 data directory exists, use that</li>
-                <li>Otherwise, if the ST3 data directory exists, use that</li>
-                <li>Finally, if neither exist, create the ST4 data directory</li>
-            </ol>
-
-            To keep ST4 and ST3 using different data directories, you'll need to manually create the ST4 one. The exact path for this directory depends on your operating system:
-
-            <ul>
-                <li><strong>Windows:</strong> <span class="file">%APPDATA%\Sublime Text</span></li>
-                <li><strong>Mac:</strong> <span class="file">~/Library/Application Support/Sublime Text</span></li>
-                <li><strong>Linux:</strong> <span class="file">~/.config/sublime-text</span></li>
-            </ul>
-
-            For reference, the ST3 data directory is in the same location, but has a <tt> 3</tt> on the end.
-        </div>
-
-        <h3>Mac</h3>
-
-        <p>
-            On Mac, the <span class="file">~/Library</span> directory is hidden by default. To navigate there, select the <span class="menu">Go <img src="../images/right.svg" alt="▶"> Go to Folder</span> menu item in Finder, and type in <span class="file">~/Library</span>.
-        </p>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

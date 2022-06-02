@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Projects – Sublime Text Documentation</title>
+    <title>Projects</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,194 +60,195 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="projects.html#toc">TOC</a>
+        <a class="jump top" href="projects.html#">TOP</a>
+    </nav>
+    Projects
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Projects
-    </span></h1>
+  <section id="projects"><p>Projects in Sublime Text are made up of two files: the <span class="file">.sublime-project</span>
+file, which contains the project definition, and the <span class="file">.sublime-workspace</span>
+file, which contains user specific data, such as the open files and the
+modifications to each.</p>
+<p>As a general rule, the <span class="file">.sublime-project</span> file would be checked into
+version control, while the <span class="file">.sublime-workspace</span> file would not.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="projects.html#project-format">Project Format</a></p></li>
+<li><p><a class="reference internal" href="projects.html#folders-key">“folders” Key</a></p></li>
+<li><p><a class="reference internal" href="projects.html#settings-key">“settings” Key</a></p></li>
+<li><p><a class="reference internal" href="projects.html#build-systems-key">“build_systems” Key</a></p></li>
+</ul>
+<section id="project-format"><h2>Project Format<a class="headerlink" href="projects.html#project-format" title="Permalink to this headline">🔗</a></h2>
+<p><span class="file">.sublime-project</span> files are JSON, and support three top level sections:
+<code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code>, for the included folders, <code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code>, for file-setting
+overrides, and <code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code>, for project specific build systems. An
+example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;folders&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;src&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;folder_exclude_patterns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;backup&quot;</span><span class="p">],</span>
+            <span class="nt">&quot;follow_symlinks&quot;</span><span class="p">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;docs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Documentation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;file_exclude_patterns&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;*.css&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;settings&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;tab_size&quot;</span><span class="p">:</span> <span class="mi">8</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;build_systems&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;List&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;shell_cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;ls -l&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section><section id="folders-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> Key<a class="headerlink" href="projects.html#folders-key" title="Permalink to this headline">🔗</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> key contains an array of objects. Each object must have a
+<code class="docutils literal notranslate"><span class="pre">&quot;path&quot;</span></code> key, which may be relative to the project directory, or a fully
+qualified path.</p>
+<p>Additional optional keys include:</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="name">
+<span class="key"><span class="pre">&quot;name&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="projects.html#name" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A name used in place of the folder name in the side bar</p>
+</dd></dl>
 
-        <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="projects.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="projects.html#ver-4.0" class="ver-sel" data-default="1">4.0</a>
-        <a href="projects.html#ver-3.2" class="ver-sel">3.2</a>
-        <a href="projects.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="projects.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="file_include_patterns">
+<span class="key"><span class="pre">&quot;file_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#file_include_patterns" title="Permalink to this definition">🔗</a></dt>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to include from the folder. Anything not
+matching these patterns will be excluded. This is checked before
+<code class="docutils literal notranslate"><span class="pre">&quot;file_exclude_patterns&quot;</span></code>.</p>
+</dd></dl>
 
-    <section>
-        <p>
-            Projects in Sublime Text are made up of two files: the <span class="file">.sublime-project</span> file, which contains the project definition, and the <span class="file">.sublime-workspace</span> file, which contains user specific data, such as the open files and the modifications to each.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="file_exclude_patterns">
+<span class="key"><span class="pre">&quot;file_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#file_exclude_patterns" title="Permalink to this definition">🔗</a></dt>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to exclude from the folder. This is
+added to the global setting of the same name. This is checked after
+<code class="docutils literal notranslate"><span class="pre">&quot;file_include_patterns&quot;</span></code>.</p>
+</dd></dl>
 
-        <p>
-            As a general rule, the <span class="file">.sublime-project</span> file would be checked into version control, while the <span class="file">.sublime-workspace</span> file would not.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="folder_include_patterns">
+<span class="key"><span class="pre">&quot;folder_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#folder_include_patterns" title="Permalink to this definition">🔗</a></dt>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of folders</span></a> to include from the folder. Anything
+not matching these patterns will be excluded. This is checked before
+<code class="docutils literal notranslate"><span class="pre">&quot;folder_exclude_patterns&quot;</span></code>.</p>
+</dd></dl>
 
-        <ul id="toc">
-            <li><a href="projects.html#project_format">Project Format</a></li>
-            <li><a href="projects.html#folders"><span class="key">"folders"</span> Key</a>
-            <li><a href="projects.html#settings"><span class="key">"settings"</span> Key</a>
-            <li><a href="projects.html#build_systems"><span class="key">"build_systems"</span> Key</a>
-        </ul>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="folder_exclude_patterns">
+<span class="key"><span class="pre">&quot;folder_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#folder_exclude_patterns" title="Permalink to this definition">🔗</a></dt>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of folders</span></a> to exclude from the folder. This is
+added to the global setting of the same name. This is checked after
+<code class="docutils literal notranslate"><span class="pre">&quot;folder_include_patterns&quot;</span></code>.</p>
+</dd></dl>
 
-        <h2 id="project_format">Project Format</h2>
+<div class="build-filter build-3158 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3158 sig sig-object docutils container" id="binary_file_patterns">
+<dt class="sig sig-object" id="binary_file_patterns">
+<span class="key"><span class="pre">&quot;binary_file_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#binary_file_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3158</span></div>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to treat as binary files, and thus
+ignored in <i>Goto Anything</i> and <i>Find in Files</i>.</p>
+</dd></dl>
 
-        <p>
-            <span class="file">.sublime-project</span> files are JSON, and support three top level sections: <span class="key">"folders"</span>, for the included folders, <span class="key">"settings"</span>, for file-setting overrides, and <span class="key">"build_systems"</span>, for project specific build systems. An example:
-        </p>
+</div>
+<div class="build-filter build-3158 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3158 sig sig-object docutils container" id="index_include_patterns">
+<dt class="sig sig-object" id="index_include_patterns">
+<span class="key"><span class="pre">&quot;index_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#index_include_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3158</span></div>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to index in the folder. This is added to
+the global setting of the same name. Anything not matching these patterns
+will be excluded from the index. This is checked before
+<code class="docutils literal notranslate"><span class="pre">&quot;index_exclude_patterns&quot;</span></code>.</p>
+</dd></dl>
 
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">folders</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    [
+</div>
+<div class="build-filter build-3158 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3158 sig sig-object docutils container" id="index_exclude_patterns">
+<dt class="sig sig-object" id="index_exclude_patterns">
+<span class="key"><span class="pre">&quot;index_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#index_exclude_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3158</span></div>
+<dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to excluding from indexing in the
+folder. This is added to the global setting of the same name. This is
+checked after <code class="docutils literal notranslate"><span class="pre">&quot;index_include_patterns&quot;</span></code>.</p>
+</dd></dl>
+
+</div>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="follow_symlinks">
+<span class="key"><span class="pre">&quot;follow_symlinks&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="projects.html#follow_symlinks" title="Permalink to this definition">🔗</a></dt>
+<dd><p>If symlinks should be followed when building the folder tree.</p>
+</dd></dl>
+
+<p>Converted projects from earlier versions may have a <code class="docutils literal notranslate"><span class="pre">&quot;mount_points&quot;</span></code> entry
+under <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code>. If you wish to use the exclude patterns, you’ll need to
+change to the above format.</p>
+</section><section id="settings-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> Key<a class="headerlink" href="projects.html#settings-key" title="Permalink to this headline">🔗</a></h2>
+<p><a class="reference internal" href="api_reference.html#sublime.Settings" title="sublime.Settings"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a> may be specified here using the <code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> key, and will override
+regular user settings. They will not, however, override syntax-specific
+settings.</p>
+<p><i>Note that only settings in the category <a class="reference internal" href="settings.html#editor-settings"><span class="std std-ref">Editor Settings</span></a> may be controlled by a project.</i></p>
+</section><section id="build-systems-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> Key<a class="headerlink" href="projects.html#build-systems-key" title="Permalink to this headline">🔗</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> specifies a list of inline <a class="reference internal" href="build_systems.html"><span class="doc">Build Systems</span></a> definitions. In
+addition to the regular build system settings, a <code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code> must be specified
+for each one. Build systems listed here will be available via the
+regular <span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build Systems</span> menu.</p>
+</section></section>
+
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
         {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">path</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">src</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">folder_exclude_patterns</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">backup</span><span style="color: #5fb4b4">&quot;</span>]<span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">follow_symlinks</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #ec5f66; font-style: italic">true</span>
-        }<span style="color: #ac7a68">,</span>
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">path</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">docs</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Documentation</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">file_exclude_patterns</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">*.css</span><span style="color: #5fb4b4">&quot;</span>]
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
         }
-    ]<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">settings</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">tab_size</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #f9ae58">8</span>
-    }<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">build_systems</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    [
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">List</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">shell_cmd</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">ls -l</span><span style="color: #5fb4b4">&quot;</span>
-        }
-    ]
-}
-</span></code></pre>
-
-        <h2 id="folders"><span class="key">"folders"</span> Key</h2>
-
-        <p>
-            The <span class="key">"folders"</span> key contains an array of objects. Each object must have a <span class="key">"path"</span> key, which may be relative to the project directory, or a fully qualified path.
-        </p>
-        <p>
-            Additional optional keys include:
-        </p>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"name"</span>
-                <span class="data-type">string</span>
-            </dt>
-            <dd>
-                <p>
-                    A name used in place of the folder name in the side bar
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"file_include_patterns"</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of files to include from the folder. Anything not matching these patterns will be excluded. This is checked before <span class="key">"file_exclude_patterns"</span>.
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"file_exclude_patterns"</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of files to exclude from the folder. This is added to the global setting of the same name. This is checked after <span class="key">"file_include_patterns"</span>.
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"folder_include_patterns"</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of folders to include from the folder. Anything not matching these patterns will be excluded. This is checked before <span class="key">"folder_exclude_patterns"</span>.
-            </dd>
-            <dt>
-                <span class="key">"folder_exclude_patterns"</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd>
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of folders to exclude from the folder. This is added to the global setting of the same name. This is checked after <span class="key">"folder_include_patterns"</span>.
-                </p>
-            </dd>
-            <dt class="build-3158">
-                <span class="key">"binary_file_patterns"</span>
-                <span class="build" title="Added in version 3.1">3.1</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd class="build-3158">
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of files to treat as binary files, and thus ignored in <span class="feature">Goto Anything</span> and <span class="feature">Find in Files</span>.
-                </p>
-            </dd>
-            <dt class="build-3158">
-                <span class="key">"index_include_patterns"</span>
-                <span class="build" title="Added in version 3.1">3.1</span>
-                <span class="data-type">array of strings</span>
-            </dt>
-            <dd class="build-3158">
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of files to index in the folder. This is added to the global setting of the same name. Anything not matching these patterns will be excluded from the index. This is checked before <span class="key">"index_exclude_patterns"</span>.
-                </p>
-            </dd>
-            <dt class="build-3158">
-                <span class="key">"index_exclude_patterns"</span>
-                <span class="build" title="Added in version 3.1">3.1</span>
-            </dt>
-            <dd class="build-3158">
-                <p>
-                    <a href="file_patterns.html">Patterns</a> of files to excluding from indexing in the folder. This is added to the global setting of the same name. This is checked after <span class="key">"index_include_patterns"</span>.
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"follow_symlinks"</span>
-                <span class="data-type">boolean</span>
-            </dt>
-            <dd>
-                If symlinks should be followed when building the folder tree.
-            </dd>
-        </dl>
-
-        <p>
-            Converted projects from earlier versions may have a <span class="key">"mount_points"</span> entry under <span class="key">"folders"</span>. If you wish to use the exclude patterns, you'll need to change to the above format.
-        </p>
-
-        <h2 id="settings"><span class="key">"settings"</span> Key</h2>
-
-        <p>
-            <a href="settings.html">Settings</a> may be specified here using the <span class="key">"settings"</span> key, and will override regular user settings. They will not, however, override syntax-specific settings.
-        </p>
-
-        <p>
-            <i>Note that only settings in the category <a href="settings.html#categories">Editor Settings</a> may be controlled by a project.</i>
-        </p>
-
-        <h2 id="build_systems"><span class="key">"build_systems"</span> Key</h2>
-
-        <p>
-            <span class="key">"build_systems"</span> specifies a list of inline <a href="build_systems.html">Build Systems</a> definitions. In addition to the regular build system settings, a <span class="key">"name"</span> must be specified for each one. Build systems listed here will be available via the regular <span class="menu">Tools <img src="../images/right.svg" alt="▶"> Build Systems</span> menu.
-        </p>
-    </section>
-
-        <script type="text/javascript">
-        var includeBuilds = [3158];
+        show_callout()
     </script>
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">

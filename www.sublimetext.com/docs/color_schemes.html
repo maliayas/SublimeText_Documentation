@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Color Schemes – Sublime Text Documentation</title>
+    <title>Color Schemes</title>
+    <script type="text/javascript" src="docs.js@v=2ed4fce7bf0489cf4df0ee06f7d4df66"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=f98db8b6186951b2ccd78f2c815e4718.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=480, user-scalable=yes">
-    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=b88c35ec3f32c85db61d3a204becc0a9.css">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=41d4663019cdec81dff8c3e57f80d4ec.css">
     <link rel="icon" href="../favicon.ico">
     <link rel="icon" size="64x64" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
@@ -58,1188 +60,1028 @@
             </nav>
         </section>
     </header>
-    <main>
-    <section>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="color_schemes.html#toc">TOC</a>
+        <a class="jump top" href="color_schemes.html#">TOP</a>
+    </nav>
+    Color Schemes
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
 
-    <h1><span>
-        <nav>
-            <a href="index.html">Documentation</a>
-        </nav>
-        Color Schemes
-    </span></h1>
+  <section id="color-schemes"><p>The highlighting of source code and prose in Sublime Text is controlled by a
+color scheme. A <i>color scheme</i> assigns colors and font styles to <i>scopes</i>,
+which are assigned to the text by the syntax. The rest of the look of the user
+interface is controlled by the <a class="reference internal" href="themes.html"><span class="doc">theme</span></a>. The theme controls such
+elements as buttons select lists, the sidebar and tabs.</p>
+<p>Sublime Text color schemes are implemented using <span class="file">.sublime-color-scheme</span>
+files, containing JSON. Sublime Text also supports a subset of features using
+the TextMate <a class="reference external" href="color_schemes_tmtheme.html">.tmTheme format</a>. <i>Before Sublime
+Text 3.1, only the .tmTheme format was supported.</i></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="color_schemes.html#example">Example</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#colors">Colors</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#variables">Variables</a></p></li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="color_schemes.html#global-settings">Global Settings</a></dt><dd><ul>
+<li><p><a class="reference internal" href="color_schemes.html#accents">Accents</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#css">CSS</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#gutter">Gutter</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#diff">Diff</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#selection">Selection</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#find">Find</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#rulers">Rulers</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#guides">Guides</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#brackets">Brackets</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#tags">Tags</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#shadows">Shadows</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><a class="reference internal" href="color_schemes.html#scope-rules">Scope Rules</a></dt><dd><ul>
+<li><p><a class="reference internal" href="color_schemes.html#matching">Matching</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#naming">Naming</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#style-rules">Style Rules</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#hashed-syntax-highlighting">Hashed Syntax Highlighting</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#examples">Examples</a></p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p><a class="reference internal" href="color_schemes.html#customization">Customization</a></p></li>
+<li><p><a class="reference internal" href="color_schemes.html#appendix-css-colors">Appendix: CSS Colors</a></p></li>
+</ul>
+<section id="example"><h2>Example<a class="headerlink" href="color_schemes.html#example" title="Permalink to this headline">🔗</a></h2>
+<p><i>The following is an example of the format of a <span class="file">.sublime-color-scheme</span>
+file. A complete color scheme will have many more rules to cover the standard
+scope names.</i></p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Example Color Scheme&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;globals&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;background&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(34, 34, 34)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;#EEEEEE&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;caret&quot;</span><span class="p">:</span> <span class="s2">&quot;white&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;rules&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Comment&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;comment&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;#888888&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;String&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;hsla(50, 100%, 50%, 1)&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;constant.numeric&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;#7F00FF&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;font_style&quot;</span><span class="p">:</span> <span class="s2">&quot;italic&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section><section id="colors"><h2>Colors<a class="headerlink" href="color_schemes.html#colors" title="Permalink to this headline">🔗</a></h2>
+<p>Colors in color schemes may be specified using one of seven formats:</p>
+<ul>
+<li><p><b>Hex RGB</b>: A <code class="docutils literal notranslate"><span class="pre">#</span></code> followed by six hex characters, with the first two
+specifying the red channel, second tow the green channel and the final two the
+blue channel. Red is written as <code class="code highlight css docutils literal notranslate"><span class="p"><span class="pre">#</span></span><span class="nn"><span class="pre">FF0000</span></span></code>. An abbreviated form is
+available when each of the three pairs use the same value for both
+characters. Red is written as <code class="code highlight css docutils literal notranslate"><span class="p"><span class="pre">#</span></span><span class="nn"><span class="pre">F00</span></span></code>.</p></li>
+<li><p><b>Hex RGBA</b>: Same as Hex RGBA, but with an extra pair of hex characters at
+the end to specify the alpha channel. Red with 67% opacity is written as
+<code class="code highlight css docutils literal notranslate"><span class="p"><span class="pre">#</span></span><span class="nn"><span class="pre">FF0000AA</span></span></code>. The abbreviated form would be <code class="code highlight css docutils literal notranslate"><span class="p"><span class="pre">#</span></span><span class="nn"><span class="pre">F00A</span></span></code>.</p></li>
+<li><p><b>RGB functional notation</b>: A function named <code class="docutils literal notranslate"><span class="pre">rgb</span></code> that accepts three
+integers in the range 0 to 255. The first integer specifies the red channel,
+the second the green channel and the third the blue channel. Red is written
+as <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">rgb</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">255</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">)</span></span></code>.</p></li>
+<li><p><b>RGBA functional notation</b>: Identical to the RGB function format, except the
+name of the function is <code class="docutils literal notranslate"><span class="pre">rgba</span></code> and a fourth parameter is added accepting a
+value from <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">1</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> specifying the alpha channel. Red with
+50% opacity is written as <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">rgba</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">255</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">5</span></span><span class="o"><span class="pre">)</span></span></code>.</p></li>
+<li><p><b>HSL functional notation</b>: A function named <code class="docutils literal notranslate"><span class="pre">hsl</span></code> that accepts three
+values. The first is an integer in the range <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span></code> to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">360</span></span></code> specifying
+the hue. The second is a percentage specifying the saturation. The third is a
+percentage specifying the lightness. Red is written as <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">hsl</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">100</span></span><span class="o"><span class="pre">%,</span></span>
+<span class="nt"><span class="pre">50</span></span><span class="o"><span class="pre">%)</span></span></code>.</p></li>
+<li><p><b>HSLA functional notation</b>: Identical to the HSL function format, except the
+name of the function is <code class="docutils literal notranslate"><span class="pre">hsla</span></code> and a fourth parameter is added accepting a
+value from <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">1</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> specifying the alpha channel. Red with
+50% opacity is written as <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">hsla</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">100</span></span><span class="o"><span class="pre">%,</span></span> <span class="nt"><span class="pre">50</span></span><span class="o"><span class="pre">%,</span></span> <span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">5</span></span><span class="o"><span class="pre">)</span></span></code>.</p></li>
+<li><div class="build-filter build-3181 docutils container">
+<p><b>HWB functional notation</b>: A function named <code class="docutils literal notranslate"><span class="pre">hwb</span></code> that accepts three or
+four values. The first is an integer in the range <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span></code> to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">360</span></span></code>
+specifying the hue. The second is a percentage specifying the percentage of
+white mixed in. The third is a percentage specifying the black mixed in.
+The optional fourth parameter is a value from <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">1</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> that
+controls the opacity. Examples include: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">hwb</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">20</span></span><span class="o"><span class="pre">%,</span></span> <span class="nt"><span class="pre">20</span></span><span class="o"><span class="pre">%)</span></span></code>
+and <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">hwb</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">,</span></span> <span class="nt"><span class="pre">20</span></span><span class="o"><span class="pre">%,</span></span> <span class="nt"><span class="pre">20</span></span><span class="o"><span class="pre">%,</span></span> <span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">5</span></span><span class="o"><span class="pre">)</span></span></code>.</p>
+<span class="build">3181</span></div>
+</li>
+<li><p><b>Named</b>: <a class="reference external" href="Appendix:CSSColors">CSS color names</a>. <i>Please note that while
+some share names with X11 named colors used in <span class="file">.tmTheme</span> files, the
+actual colors tend to differ.</i></p></li>
+</ul>
+<p>Additionally, colors may be specified as a <a class="reference external" href="https://www.sublimetext.com/docs/Variables">variable</a>, and then
+referenced via the syntax <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">example_var_name</span></span><span class="o"><span class="pre">)</span></span></code>. Variable references are
+particularly useful when combined with the <a class="reference internal" href="minihtml.html#colors"><span class="std std-ref">minihtml Colors</span></a> and the supported <code class="docutils literal notranslate"><span class="pre">blend()</span></code>, <code class="docutils literal notranslate"><span class="pre">blenda()</span></code>, <code class="docutils literal notranslate"><span class="pre">alpha()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">saturation()</span></code>, <code class="docutils literal notranslate"><span class="pre">lightness()</span></code> and <code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> adjusters.</p>
+<ul>
+<li><p><b>blend() adjuster</b>: Blends a color into the base. To blend equal parts grey
+and a base color referenced via variable, in RGB space: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span>
+<span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">blend</span></span><span class="o"><span class="pre">(</span></span><span class="p"><span class="pre">#</span></span><span class="nn"><span class="pre">888</span></span> <span class="nt"><span class="pre">50</span></span><span class="o"><span class="pre">%))</span></span></code>. If colors should be blended in HSL space, use
+the following form: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">blend</span></span><span class="o"><span class="pre">(</span></span><span class="p"><span class="pre">#</span></span><span class="nn"><span class="pre">888</span></span> <span class="nt"><span class="pre">50</span></span><span class="o"><span class="pre">%</span></span> <span class="nt"><span class="pre">hsl</span></span><span class="o"><span class="pre">))</span></span></code>. The
+resulting alpha value is always the alpha channel of the base color.</p></li>
+<li><p><b>blenda() adjuster</b>: Functions the same way as the <code class="docutils literal notranslate"><span class="pre">blend()</span></code> adjuster, but
+blends the alpha channel of the two colors instead of just using the alpha
+channel from the base. An example of the blending a partially transparent
+grey into a green: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">blenda</span></span><span class="o"><span class="pre">(</span></span><span class="p"><span class="pre">#</span></span><span class="nn"><span class="pre">8888</span></span> <span class="nt"><span class="pre">50</span></span><span class="o"><span class="pre">%</span></span> <span class="nt"><span class="pre">hsl</span></span><span class="o"><span class="pre">))</span></span></code></p></li>
+<li><p><b>alpha() adjuster</b>: Changes the alpha channel of the base color to the value
+specified, from <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">1</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code>. Setting the alpha channel to
+90%: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">alpha</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">9</span></span><span class="o"><span class="pre">))</span></span></code>. <i>A shorthand name of <code class="docutils literal notranslate"><span class="pre">a()</span></code>
+is also available for this adjuster.</i></p></li>
+<li><div class="build-filter build-3179 docutils container">
+<p><b>saturation() adjuster</b>: Changes the saturation channel of the base color,
+in the HSL color space, to the value specified, from <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">%</span></span></code>
+to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">100</span></span><span class="o"><span class="pre">%</span></span></code>. Setting the saturation to 90%: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span>
+<span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">saturation</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">9</span></span><span class="o"><span class="pre">))</span></span></code>. Increasing the saturation by
+10%: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">s</span></span><span class="o"><span class="pre">(+</span></span> <span class="nt"><span class="pre">10</span></span><span class="o"><span class="pre">%))</span></span></code>. <i>A shorthand name of <code class="docutils literal notranslate"><span class="pre">s()</span></code>
+is also available for this adjuster.</i></p>
+<span class="build">3179</span></div>
+</li>
+<li><div class="build-filter build-3179 docutils container">
+<p><b>lightness() adjuster</b>: Changes the lightness channel of the base color,
+in the HSL color space, to the value specified, from <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">0</span></span><span class="o"><span class="pre">%</span></span><span class="err"><span class="pre">`</span></span></code>
+to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">100</span></span><span class="o"><span class="pre">%</span></span></code>. Setting the lightness to 90%: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span>
+<span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">lightness</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">0</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">9</span></span><span class="o"><span class="pre">))</span></span></code>. Decreasing the lightness by 10%: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span>
+<span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">l</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">-</span></span> <span class="nt"><span class="pre">10</span></span><span class="o"><span class="pre">%))</span></span></code>. <i>A shorthand name of <code class="docutils literal notranslate"><span class="pre">l()</span></code> is also available
+for this adjuster.</i></p>
+<span class="build">3179</span></div>
+</li>
+<li><div class="build-filter build-3181 docutils container">
+<p><b>min-contrast() adjuster</b> (Proprietary: Modifies a color to ensure a
+minimum contrast ratio against a “background” color. The first parameter is
+the color to calculate the contrast again, the “background”, and the second
+is a decimal number specifying the minimum contrast ratio. Typical values
+for the contrast ratio range from <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">2</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">0</span></span></code> to <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">4</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">5</span></span></code>. Ensure a
+contrast ratio of 2.5 against the background: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span>
+<span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">base_green</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">min-contrast</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">bg_color</span></span><span class="o"><span class="pre">)</span></span> <span class="nt"><span class="pre">2</span></span><span class="p"><span class="pre">.</span></span><span class="nc"><span class="pre">5</span></span><span class="o"><span class="pre">))</span></span></code></p>
+<span class="build">3181</span></div>
+</li>
+</ul>
+</section><section id="variables"><h2>Variables<a class="headerlink" href="color_schemes.html#variables" title="Permalink to this headline">🔗</a></h2>
+<p>Reusable color definitions may be created in the <code class="docutils literal notranslate"><span class="pre">variables</span></code> key. The names
+may be any string utilizing the characters <code class="docutils literal notranslate"><span class="pre">a-z</span></code>, <code class="docutils literal notranslate"><span class="pre">A-Z</span></code>, <code class="docutils literal notranslate"><span class="pre">0-9</span></code>, <code class="docutils literal notranslate"><span class="pre">_</span></code> and
+<code class="docutils literal notranslate"><span class="pre">-</span></code>. The values may be any valid color format.</p>
+<p>Variables may be referenced in the global settings and rules, via the
+syntax <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">var</span></span><span class="o"><span class="pre">(</span></span><span class="nt"><span class="pre">example_var_name</span></span><span class="o"><span class="pre">)</span></span></code>. The following example shows basic variable
+usage:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Example Color Scheme&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;variables&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;green&quot;</span><span class="p">:</span> <span class="s2">&quot;hsla(153, 80%, 40%, 1)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;black&quot;</span><span class="p">:</span> <span class="s2">&quot;#111&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;white&quot;</span><span class="p">:</span> <span class="s2">&quot;rgb(242, 242, 242)&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;globals&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;background&quot;</span><span class="p">:</span> <span class="s2">&quot;var(black)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;var(white)&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;caret&quot;</span><span class="p">:</span> <span class="s2">&quot;color(var(white) alpha(0.8))&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;rules&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Comment&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;comment&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;color(var(black) blend(#fff 50%))&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;String&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;var(green)&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Number&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;constant.numeric&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;#7F00FF&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;font_style&quot;</span><span class="p">:</span> <span class="s2">&quot;italic&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section><section id="global-settings"><h2>Global Settings<a class="headerlink" href="color_schemes.html#global-settings" title="Permalink to this headline">🔗</a></h2>
+<p>The following global settings go in the object with the <code class="docutils literal notranslate"><span class="pre">&quot;globals&quot;</span></code> key.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="background">
+<span class="key"><span class="pre">&quot;background&quot;</span></span><a class="headerlink" href="color_schemes.html#background" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The default background color.</p>
+</dd></dl>
 
-        <div class="versions">
-        Ver<span class="expanded">sion</span>:<br>
-        <a href="color_schemes.html#ver-dev" class="ver-sel">Dev</a>
-        <a href="color_schemes.html#ver-4.0" class="ver-sel" data-default="1">4.0</a>
-        <a href="color_schemes.html#ver-3.2" class="ver-sel">3.2</a>
-        <a href="color_schemes.html#ver-3.1" class="ver-sel">3.1</a>
-        <a href="color_schemes.html#ver-3.0" class="ver-sel">3.0</a>
-    </div>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="foreground">
+<span class="key"><span class="pre">&quot;foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The default color for text.</p>
+</dd></dl>
 
-    <section>
-        <p>
-            The highlighting of source code and prose in Sublime Text is
-            controlled by a color scheme. A <em>color scheme</em> assigns
-            colors and font styles to <em>scopes</em>, which are assigned to
-            the text by the syntax. The rest of the look of the user
-            interface is controlled by the <a href="themes.html">theme</a>.
-            The theme controls such elements as buttons select lists, the
-            sidebar and tabs.
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="invisibles">
+<span class="key"><span class="pre">&quot;invisibles&quot;</span></span><a class="headerlink" href="color_schemes.html#invisibles" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color for whitespace, when rendered. <i>When not specified, defaults to
+<code class="docutils literal notranslate"><span class="pre">foreground</span></code> with an opacity of <code class="docutils literal notranslate"><span class="pre">0.35</span></code>.</i></p>
+</dd></dl>
 
-        <p>
-            Sublime Text color schemes are implemented using
-            <span class="file">.sublime-color-scheme</span> files, containing
-            JSON. Sublime Text also supports a subset of features using the
-            TextMate <a href="color_schemes_tmtheme.html">.tmTheme format</a>. <em>Before Sublime Text 3.1, only the .tmTheme format was supported.</em>
-        </p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="caret">
+<span class="key"><span class="pre">&quot;caret&quot;</span></span><a class="headerlink" href="color_schemes.html#caret" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color of the caret</p>
+</dd></dl>
 
-        <ul id="toc">
-            <li><a href="color_schemes.html#example">Example</a></li>
-            <li><a href="color_schemes.html#colors">Colors</a></li>
-            <li><a href="color_schemes.html#variables">Variables</a></li>
-            <li>
-                <a href="color_schemes.html#global_settings">Global Settings</a>
-                <ul>
-                    <li><a href="color_schemes.html#global_settings-accents">Accents</a></li>
-                    <li><a href="color_schemes.html#global_settings-css">CSS</a></li>
-                    <li><a href="color_schemes.html#global_settings-gutter">Gutter</a></li>
-                    <li><a href="color_schemes.html#global_settings-diff">Diff</a></li>
-                    <li><a href="color_schemes.html#global_settings-selection">Selection</a></li>
-                    <li><a href="color_schemes.html#global_settings-find">Find</a></li>
-                    <li><a href="color_schemes.html#global_settings-rulers">Rulers</a></li>
-                    <li><a href="color_schemes.html#global_settings-guides">Guides</a></li>
-                    <li><a href="color_schemes.html#global_settings-brackets">Brackets</a></li>
-                    <li><a href="color_schemes.html#global_settings-tags">Tags</a></li>
-                    <li><a href="color_schemes.html#global_settings-shadows">Shadows</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="color_schemes.html#scope_rules">Scope Rules</a>
-                <ul>
-                    <li><a href="color_schemes.html#matching">Matching</a></li>
-                    <li><a href="color_schemes.html#naming">Naming</a></li>
-                    <li><a href="color_schemes.html#style_rules">Style Rules</a></li>
-                    <li><a href="color_schemes.html#hashed_syntax_highlighting">Hashed Syntax Highlighting</a></li>
-                    <li><a href="color_schemes.html#examples">Examples</a></li>
-                </ul>
-            </li>
-            <li><a href="color_schemes.html#customization">Customization</a></li>
-            <li><a href="color_schemes.html#css_colors">Appendix: CSS Colors</a></li>
-        </ul>
-    </section>
+<div class="build-filter build-3190 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3190 sig sig-object docutils container" id="block_caret">
+<dt class="sig sig-object" id="block_caret">
+<span class="key"><span class="pre">&quot;block_caret&quot;</span></span><a class="headerlink" href="color_schemes.html#block_caret" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3190</span></div>
+<dd><p>The color of the caret when using a block caret</p>
+</dd></dl>
 
-    <section class="wide">
-        <h2 id="example">Example</h2>
+</div>
+<div class="build-filter build-4086 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4086 sig sig-object docutils container" id="block_caret_border">
+<dt class="sig sig-object" id="block_caret_border">
+<span class="key"><span class="pre">&quot;block_caret_border&quot;</span></span><a class="headerlink" href="color_schemes.html#block_caret_border" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4086</span></div>
+<dd><p>The color of the border for a block caret</p>
+</dd></dl>
 
-        <p>
-            <em>The following is an example of the format of a
-            <span class="file">.sublime-color-scheme</span> file. A complete color
-            scheme will have many more rules to cover the standard scope
-            names.</em>
-        </p>
+</div>
+<div class="build-filter build-4086 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4086 sig sig-object docutils container" id="block_caret_underline">
+<dt class="sig sig-object" id="block_caret_underline">
+<span class="key"><span class="pre">&quot;block_caret_underline&quot;</span></span><a class="headerlink" href="color_schemes.html#block_caret_underline" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4086</span></div>
+<dd><p>The color of the underline the block caret is drawn as when overlapping with
+a selection</p>
+</dd></dl>
 
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Example Color Scheme</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">globals</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">background</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">rgb(34, 34, 34)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">#EEEEEE</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">caret</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">white</span><span style="color: #5fb4b4">&quot;</span>
-    }<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">rules</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    [
+</div>
+<div class="build-filter build-4086 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4086 sig sig-object docutils container" id="block_caret_corner_style">
+<dt class="sig sig-object" id="block_caret_corner_style">
+<span class="key"><span class="pre">&quot;block_caret_corner_style&quot;</span></span><a class="headerlink" href="color_schemes.html#block_caret_corner_style" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4086</span></div>
+<dd><p>The style of corners to use for block carets. Options include: <code class="docutils literal notranslate"><span class="pre">round</span></code>
+(the default), <code class="docutils literal notranslate"><span class="pre">cut</span></code> or <code class="docutils literal notranslate"><span class="pre">square</span></code>.</p>
+</dd></dl>
+
+</div>
+<div class="build-filter build-4086 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4086 sig sig-object docutils container" id="block_caret_corner_radius">
+<dt class="sig sig-object" id="block_caret_corner_radius">
+<span class="key"><span class="pre">&quot;block_caret_corner_radius&quot;</span></span><a class="headerlink" href="color_schemes.html#block_caret_corner_radius" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4086</span></div>
+<dd><p>The radius to use when the <code class="docutils literal notranslate"><span class="pre">block_caret_corner_style</span></code> is <code class="docutils literal notranslate"><span class="pre">round</span></code> or
+<code class="docutils literal notranslate"><span class="pre">cut</span></code>.</p>
+</dd></dl>
+
+</div>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="line_highlight">
+<span class="key"><span class="pre">&quot;line_highlight&quot;</span></span><a class="headerlink" href="color_schemes.html#line_highlight" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The background color of the line containing the caret. <i>Only used when the
+<code class="docutils literal notranslate"><span class="pre">highlight_line</span></code> setting is enabled.</i></p>
+</dd></dl>
+
+<section id="accents"><h3>Accents<a class="headerlink" href="color_schemes.html#accents" title="Permalink to this headline">🔗</a></h3>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="misspelling">
+<span class="key"><span class="pre">&quot;misspelling&quot;</span></span><a class="headerlink" href="color_schemes.html#misspelling" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color to use for the squiggly underline drawn under misspelled words.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="fold_marker">
+<span class="key"><span class="pre">&quot;fold_marker&quot;</span></span><a class="headerlink" href="color_schemes.html#fold_marker" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color to use for the marker that indicates content has been folded.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="minimap_border">
+<span class="key"><span class="pre">&quot;minimap_border&quot;</span></span><a class="headerlink" href="color_schemes.html#minimap_border" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color of the border drawn around the viewport area of the minimap when
+the setting <code class="docutils literal notranslate"><span class="pre">draw_minimap_border</span></code> is enabled. <i>Note that the viewport is
+normally only visible on hover, unless the <code class="docutils literal notranslate"><span class="pre">always_show_minimap_viewport</span></code>
+setting is enabled.</i></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="accent">
+<span class="key"><span class="pre">&quot;accent&quot;</span></span><a class="headerlink" href="color_schemes.html#accent" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A color made available for use by the theme. <i>The Default theme uses this to
+highlight modified tabs when the <code class="docutils literal notranslate"><span class="pre">highlight_modified_tabs</span></code> setting is
+enabled.</i></p>
+</dd></dl>
+
+</section><section id="css"><h3>CSS<a class="headerlink" href="color_schemes.html#css" title="Permalink to this headline">🔗</a></h3>
+<p>CSS is applied to <a class="reference internal" href="minihtml.html"><span class="doc">minihtml Reference</span></a> content created via the popups and phantoms
+functionality that is exposed through the API. Supported CSS properties are
+discussed in the <a class="reference internal" href="minihtml.html#css"><span class="std std-ref">CSS</span></a></p>
+<p>Plugins that use minihtml are encouraged to set a unique <code class="docutils literal notranslate"><span class="pre">id</span></code> attribute on the
+<code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> tag of generated HTML to allow color schemes to override default
+plugin styles.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="popup_css">
+<span class="key"><span class="pre">&quot;popup_css&quot;</span></span><a class="headerlink" href="color_schemes.html#popup_css" title="Permalink to this definition">🔗</a></dt>
+<dd><p>CSS passed to popups.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="phantom_css">
+<span class="key"><span class="pre">&quot;phantom_css&quot;</span></span><a class="headerlink" href="color_schemes.html#phantom_css" title="Permalink to this definition">🔗</a></dt>
+<dd><p>CSS passed to phantoms. <i>If not specified, uses <code class="docutils literal notranslate"><span class="pre">popup_css</span></code>.</i></p>
+</dd></dl>
+
+<div class="build-filter build-4065 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4065 sig sig-object docutils container" id="sheet_css">
+<dt class="sig sig-object" id="sheet_css">
+<span class="key"><span class="pre">&quot;sheet_css&quot;</span></span><a class="headerlink" href="color_schemes.html#sheet_css" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4065</span></div>
+<dd><p>CSS passed to HTML sheets.</p>
+</dd></dl>
+
+</div>
+</section><section id="gutter"><h3>Gutter<a class="headerlink" href="color_schemes.html#gutter" title="Permalink to this headline">🔗</a></h3>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="id0">
+<span class="key"><span class="pre">&quot;gutter&quot;</span></span><a class="headerlink" href="color_schemes.html#id0" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The background color of the gutter.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="gutter_foreground">
+<span class="key"><span class="pre">&quot;gutter_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#gutter_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color of line numbers in the gutter.</p>
+</dd></dl>
+
+<div class="build-filter build-4050 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4050 sig sig-object docutils container" id="gutter_foreground_highlight">
+<dt class="sig sig-object" id="gutter_foreground_highlight">
+<span class="key"><span class="pre">&quot;gutter_foreground_highlight&quot;</span></span><a class="headerlink" href="color_schemes.html#gutter_foreground_highlight" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4050</span></div>
+<dd><p>The color of line numbers in the gutter when a line is highlighted.</p>
+</dd></dl>
+
+</div>
+</section><section id="diff"><h3>Diff<a class="headerlink" href="color_schemes.html#diff" title="Permalink to this headline">🔗</a></h3>
+<p>The diff functionality is displayed in the gutter as colored lines for added and
+modified lines, and a triangle where lines were deleted.</p>
+<div class="build-filter build-3186 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3186 sig sig-object docutils container" id="line_diff_width">
+<dt class="sig sig-object" id="line_diff_width">
+<span class="key"><span class="pre">&quot;line_diff_width&quot;</span></span><a class="headerlink" href="color_schemes.html#line_diff_width" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3186</span></div>
+<dd><p>The width of the diff lines, between <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p>
+</dd></dl>
+
+</div>
+<div class="build-filter build-3189 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3189 sig sig-object docutils container" id="line_diff_added">
+<dt class="sig sig-object" id="line_diff_added">
+<span class="key"><span class="pre">&quot;line_diff_added&quot;</span></span><a class="headerlink" href="color_schemes.html#line_diff_added" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3189</span></div>
+<dd><p>The color of diff markers for added lines.</p>
+</dd></dl>
+
+</div>
+<div class="build-filter build-3186 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3186 sig sig-object docutils container" id="line_diff_modified">
+<dt class="sig sig-object" id="line_diff_modified">
+<span class="key"><span class="pre">&quot;line_diff_modified&quot;</span></span><a class="headerlink" href="color_schemes.html#line_diff_modified" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3186</span></div>
+<dd><p>The color of diff markers for modified lines.</p>
+</dd></dl>
+
+</div>
+<div class="build-filter build-3189 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3189 sig sig-object docutils container" id="line_diff_deleted">
+<dt class="sig sig-object" id="line_diff_deleted">
+<span class="key"><span class="pre">&quot;line_diff_deleted&quot;</span></span><a class="headerlink" href="color_schemes.html#line_diff_deleted" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3189</span></div>
+<dd><p>The color of diff markers for deleted lines.</p>
+</dd></dl>
+
+</div>
+</section><section id="selection"><h3>Selection<a class="headerlink" href="color_schemes.html#selection" title="Permalink to this headline">🔗</a></h3>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="id1">
+<span class="key"><span class="pre">&quot;selection&quot;</span></span><a class="headerlink" href="color_schemes.html#id1" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The background color of selected text</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="selection_foreground">
+<span class="key"><span class="pre">&quot;selection_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#selection_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A color that will override the scope-based text color of the selection.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="selection_border">
+<span class="key"><span class="pre">&quot;selection_border&quot;</span></span><a class="headerlink" href="color_schemes.html#selection_border" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color for the border of the selection.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="selection_border_width">
+<span class="key"><span class="pre">&quot;selection_border_width&quot;</span></span><a class="headerlink" href="color_schemes.html#selection_border_width" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The width of the selection border, from <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="inactive_selection">
+<span class="key"><span class="pre">&quot;inactive_selection&quot;</span></span><a class="headerlink" href="color_schemes.html#inactive_selection" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The background color of a selection in a view that.</p>
+</dd></dl>
+
+<div class="build-filter build-4074 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4074 sig sig-object docutils container" id="inactive_selection_border">
+<dt class="sig sig-object" id="inactive_selection_border">
+<span class="key"><span class="pre">&quot;inactive_selection_border&quot;</span></span><a class="headerlink" href="color_schemes.html#inactive_selection_border" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4074</span></div>
+<dd><p>The color for the border of the selection in a view that is not currently
+focused.</p>
+</dd></dl>
+
+</div>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="inactive_selection_foreground">
+<span class="key"><span class="pre">&quot;inactive_selection_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#inactive_selection_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A color that will override the scope-based text color of the selection in a
+view that is not currently focused.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="selection_corner_style">
+<span class="key"><span class="pre">&quot;selection_corner_style&quot;</span></span><a class="headerlink" href="color_schemes.html#selection_corner_style" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The style of corners to use on selections. Options include: <code class="docutils literal notranslate"><span class="pre">round</span></code>
+(the default), <code class="docutils literal notranslate"><span class="pre">cut</span></code> or <code class="docutils literal notranslate"><span class="pre">square</span></code>.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="selection_corner_radius">
+<span class="key"><span class="pre">&quot;selection_corner_radius&quot;</span></span><a class="headerlink" href="color_schemes.html#selection_corner_radius" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The radius to use when the <code class="docutils literal notranslate"><span class="pre">selection_corner_style</span></code> is <code class="docutils literal notranslate"><span class="pre">round</span></code> or
+<code class="docutils literal notranslate"><span class="pre">cut</span></code>.</p>
+</dd></dl>
+
+</section><section id="find"><h3>Find<a class="headerlink" href="color_schemes.html#find" title="Permalink to this headline">🔗</a></h3>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="highlight">
+<span class="key"><span class="pre">&quot;highlight&quot;</span></span><a class="headerlink" href="color_schemes.html#highlight" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The border color for “other” matches when the <i>Highlight matches</i> option is
+selected in the Find panel. Also used to highlight matches in Find in Files
+results.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="find_highlight">
+<span class="key"><span class="pre">&quot;find_highlight&quot;</span></span><a class="headerlink" href="color_schemes.html#find_highlight" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The background color of text matched by the Find panel.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="find_highlight_foreground">
+<span class="key"><span class="pre">&quot;find_highlight_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#find_highlight_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>A color that will override the scope-based text color.</p>
+</dd></dl>
+
+<div class="build-filter build-4050 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4050 sig sig-object docutils container" id="scroll_highlight">
+<dt class="sig sig-object" id="scroll_highlight">
+<span class="key"><span class="pre">&quot;scroll_highlight&quot;</span></span><a class="headerlink" href="color_schemes.html#scroll_highlight" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4050</span></div>
+<dd><p>The color search result positions drawn on top of the scroll bar.*</p>
+</dd></dl>
+
+</div>
+<div class="build-filter build-4050 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-4050 sig sig-object docutils container" id="scroll_selected_highlight">
+<dt class="sig sig-object" id="scroll_selected_highlight">
+<span class="key"><span class="pre">&quot;scroll_selected_highlight&quot;</span></span><a class="headerlink" href="color_schemes.html#scroll_selected_highlight" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4050</span></div>
+<dd><p>The color of the selected search result position drawn on top of the scroll
+bar.*</p>
+</dd></dl>
+
+</div>
+</section><section id="rulers"><h3>Rulers<a class="headerlink" href="color_schemes.html#rulers" title="Permalink to this headline">🔗</a></h3>
+<p>Ruler locations are set by the <code class="docutils literal notranslate"><span class="pre">rulers</span></code> setting.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="id2">
+<span class="key"><span class="pre">&quot;rulers&quot;</span></span><a class="headerlink" href="color_schemes.html#id2" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color used to draw rulers.</p>
+</dd></dl>
+
+</section><section id="guides"><h3>Guides<a class="headerlink" href="color_schemes.html#guides" title="Permalink to this headline">🔗</a></h3>
+<p>Guides are controlled globally by the <code class="docutils literal notranslate"><span class="pre">draw_indent_guides</span></code> setting.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="guide">
+<span class="key"><span class="pre">&quot;guide&quot;</span></span><a class="headerlink" href="color_schemes.html#guide" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color used to draw indent guides. <i>Only used if the option
+<code class="docutils literal notranslate"><span class="pre">&quot;draw_normal&quot;</span></code> is present in the setting <code class="docutils literal notranslate"><span class="pre">indent_guide_options</span></code>.</i></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="active_guide">
+<span class="key"><span class="pre">&quot;active_guide&quot;</span></span><a class="headerlink" href="color_schemes.html#active_guide" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color used to draw the indent guides for the indentation levels
+containing the caret. <i>Only used if the option <code class="docutils literal notranslate"><span class="pre">&quot;draw_active&quot;</span></code> is present
+in the setting <code class="docutils literal notranslate"><span class="pre">indent_guide_options</span></code>.</i></p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="stack_guide">
+<span class="key"><span class="pre">&quot;stack_guide&quot;</span></span><a class="headerlink" href="color_schemes.html#stack_guide" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color used to draw the indent guides for the parent indentation levels
+of the indentation level containing the caret. <i>Only used if the option
+<code class="docutils literal notranslate"><span class="pre">&quot;draw_active&quot;</span></code> is present in the setting <code class="docutils literal notranslate"><span class="pre">indent_guide_options</span></code>.</i></p>
+</dd></dl>
+
+</section><section id="brackets"><h3>Brackets<a class="headerlink" href="color_schemes.html#brackets" title="Permalink to this headline">🔗</a></h3>
+<p>Bracket matching is controlled globally by the <code class="docutils literal notranslate"><span class="pre">match_brackets</span></code> setting.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="brackets_options">
+<span class="key"><span class="pre">&quot;brackets_options&quot;</span></span><a class="headerlink" href="color_schemes.html#brackets_options" title="Permalink to this definition">🔗</a></dt>
+<dd><p>How brackets are highlighted when the caret is next to one. Accepts a
+space-separated list from the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stippled_underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squiggly_underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foreground</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">italic</span></code></p></li>
+</ul>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="brackets_foreground">
+<span class="key"><span class="pre">&quot;brackets_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#brackets_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color to use when drawing the style specified by <code class="docutils literal notranslate"><span class="pre">brackets_options</span></code>.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="bracket_contents_options">
+<span class="key"><span class="pre">&quot;bracket_contents_options&quot;</span></span><a class="headerlink" href="color_schemes.html#bracket_contents_options" title="Permalink to this definition">🔗</a></dt>
+<dd><p>How brackets are highlighted when the caret is positioned in between a pair
+of brackets. Accepts a space-separated list from the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stippled_underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squiggly_underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foreground</span></code></p></li>
+</ul>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="bracket_contents_foreground">
+<span class="key"><span class="pre">&quot;bracket_contents_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#bracket_contents_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color to use when drawing the style specified by
+<code class="docutils literal notranslate"><span class="pre">brackets_contents_options</span></code>.</p>
+</dd></dl>
+
+</section><section id="tags"><h3>Tags<a class="headerlink" href="color_schemes.html#tags" title="Permalink to this headline">🔗</a></h3>
+<p>Tag matching is controlled globally by the <code class="docutils literal notranslate"><span class="pre">match_tags</span></code> setting.</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="tags_options">
+<span class="key"><span class="pre">&quot;tags_options&quot;</span></span><a class="headerlink" href="color_schemes.html#tags_options" title="Permalink to this definition">🔗</a></dt>
+<dd><p>How tags are highlighted when the caret is inside of one. Accepts a
+space-separated list from the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stippled_underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">squiggly_underline</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">foreground</span></code></p></li>
+</ul>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="tags_foreground">
+<span class="key"><span class="pre">&quot;tags_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#tags_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color to use when drawing the style specified by <code class="docutils literal notranslate"><span class="pre">tags_options</span></code>.</p>
+</dd></dl>
+
+</section><section id="shadows"><h3>Shadows<a class="headerlink" href="color_schemes.html#shadows" title="Permalink to this headline">🔗</a></h3>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="shadow">
+<span class="key"><span class="pre">&quot;shadow&quot;</span></span><a class="headerlink" href="color_schemes.html#shadow" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The color of the shadow used to show when a text area can be horizontally
+scrolled.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="shadow_width">
+<span class="key"><span class="pre">&quot;shadow_width&quot;</span></span><a class="headerlink" href="color_schemes.html#shadow_width" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The width of the shadow in device-independent pixels.</p>
+</dd></dl>
+
+</section></section><section id="scope-rules"><h2>Scope Rules<a class="headerlink" href="color_schemes.html#scope-rules" title="Permalink to this headline">🔗</a></h2>
+<p>Color schemes interact with the text in a file via scopes. Scopes are set to
+code or prose tokens via the <i>syntax</i>. Scopes are dotted strings, specified
+from least-to-most specific. For example, the <code class="docutils literal notranslate"><span class="pre">if</span></code> keyword in PHP could be
+specified via the scope name <code class="docutils literal notranslate"><span class="pre">keyword.control.php</span></code>.</p>
+<section id="matching"><h3>Matching<a class="headerlink" href="color_schemes.html#matching" title="Permalink to this headline">🔗</a></h3>
+<p>Color schemes apply colors and font styles to the scopes by matching the dotted
+labels, starting with the first. Prefix matching is the standard way to have a
+color scheme apply to multiple syntaxes. Instead of matching
+<code class="docutils literal notranslate"><span class="pre">keyword.control.php</span></code>, most color schemes will instead assign a color to
+<code class="docutils literal notranslate"><span class="pre">keyword</span></code>. Matching the first one or two labels in a scope is most common.
+Including the final label, the syntax name, is uncommon unless a
+syntax-specific override is desired.</p>
+</section><section id="naming"><h3>Naming<a class="headerlink" href="color_schemes.html#naming" title="Permalink to this headline">🔗</a></h3>
+<p>Author of syntaxes can assign whatever scopes they want to a given token. This
+combined with the fact that there are hundreds of community-maintained syntaxes
+means that is can be hard to know what scopes to target. The <a class="reference internal" href="scope_naming.html"><span class="doc">Scope Naming</span></a>
+were established to help syntax and color scheme authors use a common set, for
+better interoperability. The <a class="reference internal" href="scope_naming.html#color-schemes"><span class="std std-ref">Color Schemes</span></a> section provides a
+baseline set of scopes that color scheme authors should strive to handle.</p>
+</section><section id="style-rules"><h3>Style Rules<a class="headerlink" href="color_schemes.html#style-rules" title="Permalink to this headline">🔗</a></h3>
+<p>Each scope style rule consists of an object containing <code class="docutils literal notranslate"><span class="pre">&quot;scope&quot;</span></code> key, along
+with one or more of the following optional keys:</p>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="name">
+<span class="key"><span class="pre">&quot;name&quot;</span></span><a class="headerlink" href="color_schemes.html#name" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The (arbitrary) name for the scope rule.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="foreground">
+<span class="key"><span class="pre">&quot;foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The text color.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="background">
+<span class="key"><span class="pre">&quot;background&quot;</span></span><a class="headerlink" href="color_schemes.html#background" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The background color.</p>
+</dd></dl>
+
+<div class="build-filter build-3179 subl setting docutils container">
+<dl class="subl setting">
+<div class="build-filter build-3179 sig sig-object docutils container" id="foreground_adjust">
+<dt class="sig sig-object" id="foreground_adjust">
+<span class="key"><span class="pre">&quot;foreground_adjust&quot;</span></span><a class="headerlink" href="color_schemes.html#foreground_adjust" title="Permalink to this definition">🔗</a></dt>
+<span class="build">3179</span></div>
+<dd><p>An adjustment to the <code class="docutils literal notranslate"><span class="pre">&quot;foreground&quot;</span></code> color, only valid with
+<code class="docutils literal notranslate"><span class="pre">&quot;background&quot;</span></code>.</p>
+</dd></dl>
+
+</div>
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="selection_foreground">
+<span class="key"><span class="pre">&quot;selection_foreground&quot;</span></span><a class="headerlink" href="color_schemes.html#selection_foreground" title="Permalink to this definition">🔗</a></dt>
+<dd><p>The text color when selected.</p>
+</dd></dl>
+
+<dl class="subl setting">
+<dt class="sig sig-object subl" id="font_style">
+<span class="key"><span class="pre">&quot;font_style&quot;</span></span><a class="headerlink" href="color_schemes.html#font_style" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Zero or more of the following, separated by spaces:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bold</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">italic</span></code></p></li>
+<li><div class="build-filter build-4050 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">glow</span></code></p>
+<span class="build">4050</span></div>
+</li>
+<li><div class="build-filter build-4074 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">underline</span></code></p>
+<span class="build">4074</span></div>
+</li>
+<li><div class="build-filter build-4075 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">stippled_underline</span></code></p>
+<span class="build">4075</span></div>
+</li>
+<li><div class="build-filter build-4075 docutils container">
+<p><code class="docutils literal notranslate"><span class="pre">squiggly_underline</span></code></p>
+<span class="build">4075</span></div>
+</li>
+</ul>
+</dd></dl>
+
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;foreground_adjust&quot;</span></code> key accepts a space-separated list of adjusters that
+are supported by the <a class="reference internal" href="minihtml.html#colors"><span class="std std-ref">minihtml Color</span></a>. It is only
+supported when the <code class="docutils literal notranslate"><span class="pre">&quot;background&quot;</span></code> key is also specified, and thus allows
+modifying all foregrounds used in combination with the background, without
+having to create different rules for every permutation.</p>
+</section><section id="hashed-syntax-highlighting"><h3>Hashed Syntax Highlighting<a class="headerlink" href="color_schemes.html#hashed-syntax-highlighting" title="Permalink to this headline">🔗</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&quot;foreground&quot;</span></code> key supports a special mode called <i>Hashed Syntax
+Highlighting</i>, where each token matching the scope specified will receive a
+unique color from one, or more, gradients. Some editors refer to this style of
+highlighting as <i>Semantic Highlighting</i>.</p>
+<p>To use hashed syntax highlighting, the <code class="docutils literal notranslate"><span class="pre">&quot;foreground&quot;</span></code> key must have a value
+that is an array of two or more colors. Sublime Text will create 256 different
+colors that are linear interpolations(lerp) between the colors provided. The
+interpolation is done in HSL space.</p>
+<p>As Sublime Text highlights the tokens in a file, it will create a hashed value
+of the token, and use that to pick one of the 256 linear interpolations. Every
+instance of a given token will use the same color. For instance, each instance
+of <code class="docutils literal notranslate"><span class="pre">first_name</span></code> would have the same color, but every instance of <code class="docutils literal notranslate"><span class="pre">name</span></code>
+would have a different color.</p>
+<p>For hashed syntax highlighting to be most obvious, the hue difference between
+the start and end points should be as far apart as possible. Here is an example
+of using blues, purples and pinks for variable names:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;source - punctuation - keyword&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;hsl(200, 60%, 70%)&quot;</span><span class="p">,</span> <span class="s2">&quot;hsl(330, 60%, 70%)&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section><section id="examples"><h3>Examples<a class="headerlink" href="color_schemes.html#examples" title="Permalink to this headline">🔗</a></h3>
+<p>The following scope style rule will color all strings as green:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Strings&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;string&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;#00FF00&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>To style all numbers as bold, italic red, use:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Numbers&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;constant.numeric&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;#FF0000&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;font_style&quot;</span><span class="p">:</span> <span class="s2">&quot;bold italic&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section></section><section id="customization"><h2>Customization<a class="headerlink" href="color_schemes.html#customization" title="Permalink to this headline">🔗</a></h2>
+<p>Color schemes based on the <span class="file">.sublime-color-scheme</span> format are specified by
+filename only, not a package-based file path. This allows users to customize a
+color scheme by overriding variables or globals, and adding rules.</p>
+<p>To create a user-specific customization of a color scheme, create a new file
+with the same filename as the color scheme, but save it in
+the <span class="file">Packages/User/</span> directory.</p>
+<p>For example, to customize the default Monokai color scheme, create a file
+named <span class="file">Packages/User/Monokai.sublime-color-scheme</span>. The following
+settings will change the background color to be a fully-desaturated grey, the
+yellow to be more vibrant, and will add a new rule change Python docstrings to
+be colored the same as strings.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;variables&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;yellow&quot;</span><span class="p">:</span> <span class="s2">&quot;hsl(54, 100%, 50%)&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;globals&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;background&quot;</span><span class="p">:</span> <span class="s2">&quot;hsl(70, 0%, 15%)&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;rules&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Python docstrings&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;comment.block.documentation.python&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;foreground&quot;</span><span class="p">:</span> <span class="s2">&quot;var(yellow)&quot;</span>
+        <span class="p">},</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The contents of the <code class="docutils literal notranslate"><span class="pre">&quot;variables&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;globals&quot;</span></code> keys are merged, with the
+user’s copy overwriting keys with the same name. For the <code class="docutils literal notranslate"><span class="pre">&quot;rules&quot;</span></code> array, the
+user’s rules are appended.</p>
+</section><section id="appendix-css-colors"><h2>Appendix: CSS Colors<a class="headerlink" href="color_schemes.html#appendix-css-colors" title="Permalink to this headline">🔗</a></h2>
+<style>
+section#css_colors-section:after
+{
+    content: "";
+    display: table;
+    clear: both;
+}
+span.color-block {
+    width: 50px;
+    height: 20px;
+    display: inline-block;
+    position: relative;top: 5px;
+}
+div.col {
+    float: left;
+    width: 33%;
+}
+</style>
+
+<div class="col">
+    <span style="background-color: #f0f8ff;" class="color-block">&nbsp;</span> <span>aliceblue</span><br>
+    <span style="background-color: #faebd7;" class="color-block">&nbsp;</span> <span>antiquewhite</span><br>
+    <span style="background-color: #00ffff;" class="color-block">&nbsp;</span> <span>aqua</span><br>
+    <span style="background-color: #7fffd4;" class="color-block">&nbsp;</span> <span>aquamarine</span><br>
+    <span style="background-color: #f0ffff;" class="color-block">&nbsp;</span> <span>azure</span><br>
+    <span style="background-color: #f5f5dc;" class="color-block">&nbsp;</span> <span>beige</span><br>
+    <span style="background-color: #ffe4c4;" class="color-block">&nbsp;</span> <span>bisque</span><br>
+    <span style="background-color: #000000;" class="color-block">&nbsp;</span> <span>black</span><br>
+    <span style="background-color: #ffebcd;" class="color-block">&nbsp;</span> <span>blanchedalmond</span><br>
+    <span style="background-color: #0000ff;" class="color-block">&nbsp;</span> <span>blue</span><br>
+    <span style="background-color: #8a2be2;" class="color-block">&nbsp;</span> <span>blueviolet</span><br>
+    <span style="background-color: #a52a2a;" class="color-block">&nbsp;</span> <span>brown</span><br>
+    <span style="background-color: #deb887;" class="color-block">&nbsp;</span> <span>burlywood</span><br>
+    <span style="background-color: #5f9ea0;" class="color-block">&nbsp;</span> <span>cadetblue</span><br>
+    <span style="background-color: #7fff00;" class="color-block">&nbsp;</span> <span>chartreuse</span><br>
+    <span style="background-color: #d2691e;" class="color-block">&nbsp;</span> <span>chocolate</span><br>
+    <span style="background-color: #ff7f50;" class="color-block">&nbsp;</span> <span>coral</span><br>
+    <span style="background-color: #6495ed;" class="color-block">&nbsp;</span> <span>cornflowerblue</span><br>
+    <span style="background-color: #fff8dc;" class="color-block">&nbsp;</span> <span>cornsilk</span><br>
+    <span style="background-color: #dc143c;" class="color-block">&nbsp;</span> <span>crimson</span><br>
+    <span style="background-color: #00ffff;" class="color-block">&nbsp;</span> <span>cyan</span><br>
+    <span style="background-color: #00008b;" class="color-block">&nbsp;</span> <span>darkblue</span><br>
+    <span style="background-color: #008b8b;" class="color-block">&nbsp;</span> <span>darkcyan</span><br>
+    <span style="background-color: #b8860b;" class="color-block">&nbsp;</span> <span>darkgoldenrod</span><br>
+    <span style="background-color: #a9a9a9;" class="color-block">&nbsp;</span> <span>darkgray</span><br>
+    <span style="background-color: #006400;" class="color-block">&nbsp;</span> <span>darkgreen</span><br>
+    <span style="background-color: #a9a9a9;" class="color-block">&nbsp;</span> <span>darkgrey</span><br>
+    <span style="background-color: #bdb76b;" class="color-block">&nbsp;</span> <span>darkkhaki</span><br>
+    <span style="background-color: #8b008b;" class="color-block">&nbsp;</span> <span>darkmagenta</span><br>
+    <span style="background-color: #556b2f;" class="color-block">&nbsp;</span> <span>darkolivegreen</span><br>
+    <span style="background-color: #ff8c00;" class="color-block">&nbsp;</span> <span>darkorange</span><br>
+    <span style="background-color: #9932cc;" class="color-block">&nbsp;</span> <span>darkorchid</span><br>
+    <span style="background-color: #8b0000;" class="color-block">&nbsp;</span> <span>darkred</span><br>
+    <span style="background-color: #e9967a;" class="color-block">&nbsp;</span> <span>darksalmon</span><br>
+    <span style="background-color: #8fbc8f;" class="color-block">&nbsp;</span> <span>darkseagreen</span><br>
+    <span style="background-color: #483d8b;" class="color-block">&nbsp;</span> <span>darkslateblue</span><br>
+    <span style="background-color: #2f4f4f;" class="color-block">&nbsp;</span> <span>darkslategray</span><br>
+    <span style="background-color: #2f4f4f;" class="color-block">&nbsp;</span> <span>darkslategrey</span><br>
+    <span style="background-color: #00ced1;" class="color-block">&nbsp;</span> <span>darkturquoise</span><br>
+    <span style="background-color: #9400d3;" class="color-block">&nbsp;</span> <span>darkviolet</span><br>
+    <span style="background-color: #ff1493;" class="color-block">&nbsp;</span> <span>deeppink</span><br>
+    <span style="background-color: #00bfff;" class="color-block">&nbsp;</span> <span>deepskyblue</span><br>
+    <span style="background-color: #696969;" class="color-block">&nbsp;</span> <span>dimgray</span><br>
+    <span style="background-color: #696969;" class="color-block">&nbsp;</span> <span>dimgrey</span><br>
+    <span style="background-color: #1e90ff;" class="color-block">&nbsp;</span> <span>dodgerblue</span><br>
+    <span style="background-color: #b22222;" class="color-block">&nbsp;</span> <span>firebrick</span><br>
+    <span style="background-color: #fffaf0;" class="color-block">&nbsp;</span> <span>floralwhite</span><br>
+    <span style="background-color: #228b22;" class="color-block">&nbsp;</span> <span>forestgreen</span><br>
+    <span style="background-color: #ff00ff;" class="color-block">&nbsp;</span> <span>fuchsia</span><br>
+    <span style="background-color: #dcdcdc;" class="color-block">&nbsp;</span> <span>gainsboro</span><br>
+</div>
+<div class="col">
+    <span style="background-color: #f8f8ff;" class="color-block">&nbsp;</span> <span>ghostwhite</span><br>
+    <span style="background-color: #ffd700;" class="color-block">&nbsp;</span> <span>gold</span><br>
+    <span style="background-color: #daa520;" class="color-block">&nbsp;</span> <span>goldenrod</span><br>
+    <span style="background-color: #808080;" class="color-block">&nbsp;</span> <span>gray</span><br>
+    <span style="background-color: #008000;" class="color-block">&nbsp;</span> <span>green</span><br>
+    <span style="background-color: #adff2f;" class="color-block">&nbsp;</span> <span>greenyellow</span><br>
+    <span style="background-color: #808080;" class="color-block">&nbsp;</span> <span>grey</span><br>
+    <span style="background-color: #f0fff0;" class="color-block">&nbsp;</span> <span>honeydew</span><br>
+    <span style="background-color: #ff69b4;" class="color-block">&nbsp;</span> <span>hotpink</span><br>
+    <span style="background-color: #cd5c5c;" class="color-block">&nbsp;</span> <span>indianred</span><br>
+    <span style="background-color: #4b0082;" class="color-block">&nbsp;</span> <span>indigo</span><br>
+    <span style="background-color: #fffff0;" class="color-block">&nbsp;</span> <span>ivory</span><br>
+    <span style="background-color: #f0e68c;" class="color-block">&nbsp;</span> <span>khaki</span><br>
+    <span style="background-color: #e6e6fa;" class="color-block">&nbsp;</span> <span>lavender</span><br>
+    <span style="background-color: #fff0f5;" class="color-block">&nbsp;</span> <span>lavenderblush</span><br>
+    <span style="background-color: #7cfc00;" class="color-block">&nbsp;</span> <span>lawngreen</span><br>
+    <span style="background-color: #fffacd;" class="color-block">&nbsp;</span> <span>lemonchiffon</span><br>
+    <span style="background-color: #add8e6;" class="color-block">&nbsp;</span> <span>lightblue</span><br>
+    <span style="background-color: #f08080;" class="color-block">&nbsp;</span> <span>lightcoral</span><br>
+    <span style="background-color: #e0ffff;" class="color-block">&nbsp;</span> <span>lightcyan</span><br>
+    <span style="background-color: #fafad2;" class="color-block">&nbsp;</span> <span>lightgoldenrodyellow</span><br>
+    <span style="background-color: #d3d3d3;" class="color-block">&nbsp;</span> <span>lightgray</span><br>
+    <span style="background-color: #90ee90;" class="color-block">&nbsp;</span> <span>lightgreen</span><br>
+    <span style="background-color: #d3d3d3;" class="color-block">&nbsp;</span> <span>lightgrey</span><br>
+    <span style="background-color: #ffb6c1;" class="color-block">&nbsp;</span> <span>lightpink</span><br>
+    <span style="background-color: #ffa07a;" class="color-block">&nbsp;</span> <span>lightsalmon</span><br>
+    <span style="background-color: #20b2aa;" class="color-block">&nbsp;</span> <span>lightseagreen</span><br>
+    <span style="background-color: #87cefa;" class="color-block">&nbsp;</span> <span>lightskyblue</span><br>
+    <span style="background-color: #778899;" class="color-block">&nbsp;</span> <span>lightslategray</span><br>
+    <span style="background-color: #778899;" class="color-block">&nbsp;</span> <span>lightslategrey</span><br>
+    <span style="background-color: #b0c4de;" class="color-block">&nbsp;</span> <span>lightsteelblue</span><br>
+    <span style="background-color: #ffffe0;" class="color-block">&nbsp;</span> <span>lightyellow</span><br>
+    <span style="background-color: #00ff00;" class="color-block">&nbsp;</span> <span>lime</span><br>
+    <span style="background-color: #32cd32;" class="color-block">&nbsp;</span> <span>limegreen</span><br>
+    <span style="background-color: #faf0e6;" class="color-block">&nbsp;</span> <span>linen</span><br>
+    <span style="background-color: #ff00ff;" class="color-block">&nbsp;</span> <span>magenta</span><br>
+    <span style="background-color: #800000;" class="color-block">&nbsp;</span> <span>maroon</span><br>
+    <span style="background-color: #66cdaa;" class="color-block">&nbsp;</span> <span>mediumaquamarine</span><br>
+    <span style="background-color: #0000cd;" class="color-block">&nbsp;</span> <span>mediumblue</span><br>
+    <span style="background-color: #ba55d3;" class="color-block">&nbsp;</span> <span>mediumorchid</span><br>
+    <span style="background-color: #9370db;" class="color-block">&nbsp;</span> <span>mediumpurple</span><br>
+    <span style="background-color: #3cb371;" class="color-block">&nbsp;</span> <span>mediumseagreen</span><br>
+    <span style="background-color: #7b68ee;" class="color-block">&nbsp;</span> <span>mediumslateblue</span><br>
+    <span style="background-color: #00fa9a;" class="color-block">&nbsp;</span> <span>mediumspringgreen</span><br>
+    <span style="background-color: #48d1cc;" class="color-block">&nbsp;</span> <span>mediumturquoise</span><br>
+    <span style="background-color: #c71585;" class="color-block">&nbsp;</span> <span>mediumvioletred</span><br>
+    <span style="background-color: #191970;" class="color-block">&nbsp;</span> <span>midnightblue</span><br>
+    <span style="background-color: #f5fffa;" class="color-block">&nbsp;</span> <span>mintcream</span><br>
+    <span style="background-color: #ffe4e1;" class="color-block">&nbsp;</span> <span>mistyrose</span><br>
+    <span style="background-color: #ffe4b5;" class="color-block">&nbsp;</span> <span>moccasin</span><br>
+</div>
+<div class="col">
+    <span style="background-color: #ffdead;" class="color-block">&nbsp;</span> <span>navajowhite</span><br>
+    <span style="background-color: #000080;" class="color-block">&nbsp;</span> <span>navy</span><br>
+    <span style="background-color: #fdf5e6;" class="color-block">&nbsp;</span> <span>oldlace</span><br>
+    <span style="background-color: #808000;" class="color-block">&nbsp;</span> <span>olive</span><br>
+    <span style="background-color: #6b8e23;" class="color-block">&nbsp;</span> <span>olivedrab</span><br>
+    <span style="background-color: #ffa500;" class="color-block">&nbsp;</span> <span>orange</span><br>
+    <span style="background-color: #ff4500;" class="color-block">&nbsp;</span> <span>orangered</span><br>
+    <span style="background-color: #da70d6;" class="color-block">&nbsp;</span> <span>orchid</span><br>
+    <span style="background-color: #eee8aa;" class="color-block">&nbsp;</span> <span>palegoldenrod</span><br>
+    <span style="background-color: #98fb98;" class="color-block">&nbsp;</span> <span>palegreen</span><br>
+    <span style="background-color: #afeeee;" class="color-block">&nbsp;</span> <span>paleturquoise</span><br>
+    <span style="background-color: #db7093;" class="color-block">&nbsp;</span> <span>palevioletred</span><br>
+    <span style="background-color: #ffefd5;" class="color-block">&nbsp;</span> <span>papayawhip</span><br>
+    <span style="background-color: #ffdab9;" class="color-block">&nbsp;</span> <span>peachpuff</span><br>
+    <span style="background-color: #cd853f;" class="color-block">&nbsp;</span> <span>peru</span><br>
+    <span style="background-color: #ffc0cb;" class="color-block">&nbsp;</span> <span>pink</span><br>
+    <span style="background-color: #dda0dd;" class="color-block">&nbsp;</span> <span>plum</span><br>
+    <span style="background-color: #b0e0e6;" class="color-block">&nbsp;</span> <span>powderblue</span><br>
+    <span style="background-color: #800080;" class="color-block">&nbsp;</span> <span>purple</span><br>
+    <span style="background-color: #663399;" class="color-block">&nbsp;</span> <span>rebeccapurple</span><br>
+    <span style="background-color: #ff0000;" class="color-block">&nbsp;</span> <span>red</span><br>
+    <span style="background-color: #bc8f8f;" class="color-block">&nbsp;</span> <span>rosybrown</span><br>
+    <span style="background-color: #4169e1;" class="color-block">&nbsp;</span> <span>royalblue</span><br>
+    <span style="background-color: #8b4513;" class="color-block">&nbsp;</span> <span>saddlebrown</span><br>
+    <span style="background-color: #fa8072;" class="color-block">&nbsp;</span> <span>salmon</span><br>
+    <span style="background-color: #f4a460;" class="color-block">&nbsp;</span> <span>sandybrown</span><br>
+    <span style="background-color: #2e8b57;" class="color-block">&nbsp;</span> <span>seagreen</span><br>
+    <span style="background-color: #fff5ee;" class="color-block">&nbsp;</span> <span>seashell</span><br>
+    <span style="background-color: #a0522d;" class="color-block">&nbsp;</span> <span>sienna</span><br>
+    <span style="background-color: #c0c0c0;" class="color-block">&nbsp;</span> <span>silver</span><br>
+    <span style="background-color: #87ceeb;" class="color-block">&nbsp;</span> <span>skyblue</span><br>
+    <span style="background-color: #6a5acd;" class="color-block">&nbsp;</span> <span>slateblue</span><br>
+    <span style="background-color: #708090;" class="color-block">&nbsp;</span> <span>slategray</span><br>
+    <span style="background-color: #708090;" class="color-block">&nbsp;</span> <span>slategrey</span><br>
+    <span style="background-color: #fffafa;" class="color-block">&nbsp;</span> <span>snow</span><br>
+    <span style="background-color: #00ff7f;" class="color-block">&nbsp;</span> <span>springgreen</span><br>
+    <span style="background-color: #4682b4;" class="color-block">&nbsp;</span> <span>steelblue</span><br>
+    <span style="background-color: #d2b48c;" class="color-block">&nbsp;</span> <span>tan</span><br>
+    <span style="background-color: #008080;" class="color-block">&nbsp;</span> <span>teal</span><br>
+    <span style="background-color: #d8bfd8;" class="color-block">&nbsp;</span> <span>thistle</span><br>
+    <span style="background-color: #ff6347;" class="color-block">&nbsp;</span> <span>tomato</span><br>
+    <span style="background-color: #40e0d0;" class="color-block">&nbsp;</span> <span>turquoise</span><br>
+    <span style="background-color: #ee82ee;" class="color-block">&nbsp;</span> <span>violet</span><br>
+    <span style="background-color: #f5deb3;" class="color-block">&nbsp;</span> <span>wheat</span><br>
+    <span style="background-color: #ffffff;" class="color-block">&nbsp;</span> <span>white</span><br>
+    <span style="background-color: #f5f5f5;" class="color-block">&nbsp;</span> <span>whitesmoke</span><br>
+    <span style="background-color: #ffff00;" class="color-block">&nbsp;</span> <span>yellow</span><br>
+    <span style="background-color: #9acd32;" class="color-block">&nbsp;</span> <span>yellowgreen</span><br>
+</div></section></section>
+
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
         {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Comment</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">comment</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">#888888</span><span style="color: #5fb4b4">&quot;</span>
-        }<span style="color: #ac7a68">,</span>
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">String</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">string</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">hsla(50, 100%, 50%, 1)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        }<span style="color: #ac7a68">,</span>
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Number</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">constant.numeric</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">#7F00FF</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">font_style</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">italic</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
         }
-    ]
-}</span></code></pre>
-    </section>
-
-    <section>
-        <h2 id="colors">Colors</h2>
-
-        <p>
-            Colors in color schemes may be specified using one of seven formats:
-        </p>
-        <ul>
-            <li>
-                <strong>Hex RGB</strong>:
-                A <code>#</code> followed by six hex characters, with the first
-                two specifying the red channel, second tow the green channel and
-                the final two the blue channel. Red is written as
-                <code>#FF0000</code>. An abbreviated form is available when each
-                of the three pairs use the same value for both characters. Red
-                is written as <code>#F00</code>.
-            </li>
-            <li>
-                <strong>Hex RGBA</strong>:
-                Same as Hex RGBA, but with an extra pair of hex characters at
-                the end to specify the alpha channel. Red with 67% opacity is
-                written as <code>#FF0000AA</code>. The abbreviated form would
-                be <code>#F00A</code>.
-            </li>
-            <li>
-                <strong>RGB functional notation</strong>:
-                A function named <code>rgb</code> that accepts three integers in
-                the range 0 to 255. The first integer specifies the red channel,
-                the second the green channel and the third the blue channel.
-                Red is written as <code>rgb(255, 0, 0)</code>.
-            </li>
-            <li>
-                <strong>RGBA functional notation</strong>:
-                Identical to the RGB function format, except the name of the
-                function is <code>rgba</code> and a fourth parameter is added
-                accepting a value from <code>0.0</code> to <code>1.0</code>
-                specifying the alpha channel. Red with 50% opacity is written
-                as <code>rgba(255, 0, 0, 0.5)</code>.
-            </li>
-            <li>
-                <strong>HSL functional notation</strong>:
-                A function named <code>hsl</code> that accepts three values.
-                The first is an integer in the range <code>0</code> to <code>360</code> specifying the
-                hue. The second is a percentage specifying the saturation. The
-                third is a percentage specifying the lightness. Red is written
-                as <code>hsl(0, 100%, 50%)</code>.
-            </li>
-            <li>
-                <strong>HSLA functional notation</strong>:
-                Identical to the HSL function format, except the name of the
-                function is <code>hsla</code> and a fourth parameter is added
-                accepting a value from <code>0.0</code> to <code>1.0</code>
-                specifying the alpha channel. Red with 50% opacity is written
-                as <code>hsla(0, 100%, 50%, 0.5)</code>.
-            </li>
-            <li class="build-3181">
-                <strong>HWB functional notation</strong> <span class="build" title="Added in build 3181">3181</span>:
-                A function named <code>hwb</code> that accepts three or four values. The first is an integer in the range <code>0</code> to <code>360</code> specifying the hue. The second is a percentage specifying the percentage of white mixed in. The third is a percentage specifying the black mixed in. The optional fourth parameter is a value from <code>0.0</code> to <code>1.0</code> that controls the opacity. Examples include: <code>hwb(0, 20%, 20%)</code> and <code>hwb(0, 20%, 20%, 0.5)</code>.
-            </li>
-            <li>
-                <strong>Named</strong>:
-                <a href="color_schemes.html#css_colors">CSS color names</a>. <em>Please note
-                that while some share names with X11 named colors used in
-                <span class="file">.tmTheme</span> files, the actual colors
-                tend to differ.</em>
-            </li>
-        </ul>
-        <p>
-            Additionally, colors may be specified as a
-            <a href="color_schemes.html#variables">variable</a>, and then referenced via the syntax
-            <code>var(example_var_name)</code>. Variable references are
-            particularly useful when combined with the
-            <a href="minihtml.html#color-mod_function">minihtml
-            <code>color()</code> mod function</a> and the supported
-            <code>blend()</code>, <code>blenda()</code>, <code>alpha()</code>,
-            <code>saturation()</code>, <code>lightness()</code> and <code>min-contrast()</code> adjusters.
-        </p>
-        <ul>
-            <li>
-                <strong>blend() adjuster</strong>: Blends a color into the base.
-                To blend equal parts grey and a base color referenced via
-                variable, in RGB space:
-                <code>color(var(base_green) blend(#888 50%))</code>. If colors
-                should be blended in HSL space, use the following form:
-                <code>color(var(base_green) blend(#888 50% hsl))</code>. The
-                resulting alpha value is always the alpha channel of the base
-                color.
-            </li>
-            <li>
-                <strong>blenda() adjuster</strong>: Functions the same way as
-                the <code>blend()</code> adjuster, but blends the alpha channel
-                of the two colors instead of just using the alpha channel from
-                the base. An example of the blending a partially transparent
-                grey into a green:
-                <code>color(var(base_green) blenda(#8888 50% hsl))</code>
-            </li>
-            <li>
-                <strong>alpha() adjuster</strong>: Changes the alpha channel
-                of the base color to the value specified, from <code>0.0</code>
-                to <code>1.0</code>.
-                Setting the alpha channel to 90%:
-                <code>color(var(base_green) alpha(0.9))</code>. <i>A shorthand
-                name of <code>a()</code> is also available for this adjuster.</i>
-            </li>
-            <li class="build-3179">
-                <strong>saturation() adjuster</strong> <span class="build" title="Added in build 3179">3179</span>: Changes the saturation
-                channel of the base color, in the HSL color space, to the value
-                specified, from <code>0%</code> to <code>100%</code>.
-                Setting the saturation to 90%:
-                <code>color(var(base_green) saturation(0.9))</code>. Increasing
-                the saturation by 10%:
-                <code>color(var(base_green) s(+ 10%))</code>. <i>A shorthand
-                name of <code>s()</code> is also available for this adjuster.</i>
-            </li>
-            <li class="build-3179">
-                <strong>lightness() adjuster</strong> <span class="build" title="Added in build 3179">3179</span>: Changes the lightness
-                channel of the base color, in the HSL color space, to the value
-                specified, from <code>0%</code> to <code>100%</code>.
-                Setting the lightness to 90%:
-                <code>color(var(base_green) lightness(0.9))</code>. Decreasing
-                the lightness by 10%:
-                <code>color(var(base_green) l(- 10%))</code>. <i>A shorthand
-                name of <code>l()</code> is also available for this adjuster.</i>
-            </li>
-            <li class="build-3181">
-                <strong>min-contrast() adjuster</strong> <span class="build" title="Added in build 3181">3181</span> <span class="proprietary" title="Not part of any spec or draft">Proprietary</span>: Modifies a color to ensure a minimum contrast ratio against a "background" color. The first parameter is the color to calculate the contrast again, the "background", and the second is a decimal number specifying the minimum contrast ratio. Typical values for the contrast ratio range from <code>2.0</code> to <code>4.5</code>. Ensure a contrast ratio of 2.5 against the background:
-                <code>color(var(base_green) min-contrast(var(bg_color) 2.5))</code>
-            </li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 id="variables">Variables</h2>
-
-        <p>
-            Reusable color definitions may be created in the <code>variables</code>
-            key. The names may be any string utilizing the characters
-            <code>a-z</code>, <code>A-Z</code>, <code>0-9</code>, <code>_</code>
-            and <code>-</code>. The values may be any valid color format.
-        </p>
-
-        <p>
-            Variables may be referenced in the global settings and rules, via the
-            syntax <code>var(example_var_name)</code>. The following example shows
-            basic variable usage:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Example Color Scheme</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">variables</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">green</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">hsla(153, 80%, 40%, 1)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">black</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">#111</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">white</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">rgb(242, 242, 242)</span><span style="color: #5fb4b4">&quot;</span>
-    }<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">globals</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">background</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">var(black)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">var(white)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">caret</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">color(var(white) alpha(0.8))</span><span style="color: #5fb4b4">&quot;</span>
-    }<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">rules</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    [
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Comment</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">comment</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">color(var(black) blend(#fff 50%))</span><span style="color: #5fb4b4">&quot;</span>
-        }<span style="color: #ac7a68">,</span>
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">String</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">string</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">var(green)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        }<span style="color: #ac7a68">,</span>
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Number</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">constant.numeric</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">#7F00FF</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">font_style</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">italic</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-        }
-    ]
-}</span></code></pre>
-    </section>
-
-    <section>
-        <h2 id="global_settings">Global Settings</h2>
-
-        <p>
-            The following global settings go in the object with the
-            <span class="key">"globals"</span> key.
-        </p>
-
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"background"</span>
-            </dt>
-            <dd>
-                The default background color
-            </dd>
-            <dt>
-                <span class="key">"foreground"</span>
-            </dt>
-            <dd>
-                The default color for text
-            </dd>
-            <dt>
-                <span class="key">"invisibles"</span>
-            </dt>
-            <dd>
-                The color for whitespace, when rendered. <em>When not specified,
-                defaults to <code>foreground</code> with an opacity of
-                <code>0.35</code>.</em>
-            </dd>
-            <dt>
-                <span class="key">"caret"</span>
-            </dt>
-            <dd>
-                The color of the caret
-            </dd>
-            <dt class="build-3190">
-                <span class="key">"block_caret"</span>
-                <span class="build" title="Added in build 3190">3190</span>
-            </dt>
-            <dd class="build-3190">
-                The color of the caret when using a block caret
-            </dd>
-            <dt class="build-4086">
-                <span class="key">"block_caret_border"</span>
-                <span class="build" title="Added in build 4086">4086</span>
-            </dt>
-            <dd class="build-4086">
-                The color of the border for a block caret
-            </dd>
-            <dt class="build-4086">
-                <span class="key">"block_caret_underline"</span>
-                <span class="build" title="Added in build 4086">4086</span>
-            </dt>
-            <dd class="build-4086">
-                The color of the underline the block caret is drawn as when overlapping with a selection
-            </dd>
-            <dt class="build-4086">
-                <span class="key">"block_caret_corner_style"</span>
-                <span class="build" title="Added in build 4086">4086</span>
-            </dt>
-            <dd class="build-4086">
-                The style of corners to use for block carets. Options include:
-                <code>round</code> (the default), <code>cut</code> or
-                <code>square</code>.
-            </dd>
-            <dt class="build-4086">
-                <span class="key">"block_caret_corner_radius"</span>
-                <span class="build" title="Added in build 4086">4086</span>
-            </dt>
-            <dd class="build-4086">
-                The radius to use when the <code>block_caret_corner_style</code>
-                is <code>round</code> or <code>cut</code>.
-            </dd>
-            <dt>
-                <span class="key">"line_highlight"</span>
-            </dt>
-            <dd>
-                The background color of the line containing the caret. <em>Only used
-                when the <code>highlight_line</code> setting is enabled.</em>
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-accents">Accents</h3>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"misspelling"</span>
-            </dt>
-            <dd>
-                The color to use for the squiggly underline drawn under
-                misspelled words.
-            </dd>
-            <dt>
-                <span class="key">"fold_marker"</span>
-            </dt>
-            <dd>
-                The color to use for the marker that indicates content has
-                been folded.
-            </dd>
-            <dt>
-                <span class="key">"minimap_border"</span>
-            </dt>
-            <dd>
-                The color of the border drawn around the viewport
-                area of the minimap when the setting
-                <code>draw_minimap_border</code> is enabled. <em>Note
-                that the viewport is normally only visible on
-                hover, unless the <code>always_show_minimap_viewport</code>
-                setting is enabled.</em>
-            </dd>
-            <dt>
-                <span class="key">"accent"</span>
-            </dt>
-            <dd>
-                A color made available for use by the theme. <em>The Default
-                theme uses this to highlight modified tabs when the
-                <code>highlight_modified_tabs</code> setting is enabled.</em>
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-css">CSS</h3>
-        <p>
-            CSS is applied to <a href="minihtml.html">minihtml</a> content
-            created via the popups and phantoms functionality that is exposed
-            through the API. Supported CSS properties are discussed in the
-            <a href="minihtml.html#css">minihtml CSS reference</a>.
-        </p>
-        <p>
-            Plugins that use minihtml are encouraged to set a unique <code>id</code>
-            attribute on the <code>&lt;body></code> tag of generated HTML
-            to allow color schemes to override default plugin styles.
-        </p>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"popup_css"</span>
-            </dt>
-            <dd>
-                CSS passed to popups.
-            </dd>
-            <dt>
-                <span class="key">"phantom_css"</span>
-            </dt>
-            <dd>
-                CSS passed to phantoms. <em>If not specified, uses
-                <code>popup_css</code>.</em>
-            </dd>
-            <dt class="build-4065">
-                <span class="key">"sheet_css"</span>
-                <span class="build" title="Added in build 4065">4065</span>
-            </dt>
-            <dd class="build-4065">
-                CSS passed to HTML sheets.
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-gutter">Gutter</h3>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"gutter"</span>
-            </dt>
-            <dd>
-                The background color of the gutter
-            </dd>
-            <dt>
-                <span class="key">"gutter_foreground"</span>
-            </dt>
-            <dd>
-                The color of line numbers in the gutter
-            </dd>
-            <dt class="build-4050">
-                <span class="key">"gutter_foreground_highlight"</span>
-                <span class="build" title="Added in build 4050">4050</span>
-            </dt>
-            <dd class="build-4050">
-                The color of line numbers in the gutter when a line is highlighted
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-diff">Diff</h3>
-        <p>
-            The diff functionality is displayed in the gutter as colored lines
-            for added and modified lines, and a triangle where lines were
-            deleted.
-        </p>
-        <dl class="enum keys">
-            <dt class="build-3186">
-                <span class="key">"line_diff_width"</span>
-                <span class="build" title="Added in build 3186">3186</span>
-            </dt>
-            <dd class="build-3186">
-                The width of the diff lines, between 1 and 8
-            </dd>
-            <dt class="build-3189">
-                <span class="key">"line_diff_added"</span>
-                <span class="build" title="Added in build 3189">3189</span>
-            </dt>
-            <dd class="build-3189">
-                The color of diff markers for added lines
-            </dd>
-            <dt class="build-3186">
-                <span class="key">"line_diff_modified"</span>
-                <span class="build" title="Added in build 3186">3186</span>
-            </dt>
-            <dd class="build-3186">
-                The color of diff markers for modified lines
-            </dd>
-            <dt class="build-3189">
-                <span class="key">"line_diff_deleted"</span>
-                <span class="build" title="Added in build 3189">3189</span>
-            </dt>
-            <dd class="build-3189">
-                The color of diff markers for deleted lines
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-selection">Selection</h3>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"selection"</span>
-            </dt>
-            <dd>
-                The background color of selected text
-            </dd>
-            <dt>
-                <span class="key">"selection_foreground"</span>
-            </dt>
-            <dd>
-                A color that will override the scope-based text color
-                of the selection
-            </dd>
-            <dt>
-                <span class="key">"selection_border"</span>
-            </dt>
-            <dd>
-                The color for the border of the selection
-            </dd>
-            <dt>
-                <span class="key">"selection_border_width"</span>
-            </dt>
-            <dd>
-                The width of the selection border, from <code>0</code> to
-                <code>4</code>.
-            </dd>
-            <dt>
-                <span class="key">"inactive_selection"</span>
-            </dt>
-            <dd>
-                The background color of a selection in a view that
-                is not currently focused
-            </dd>
-            <dt class="build-4074">
-                <span class="key">"inactive_selection_border"</span>
-                <span class="build" title="Added in build 4074">4074</span>
-            </dt>
-            <dd class="build-4074">
-                The color for the border of the selection in a view that is
-                not currently focused
-            </dd>
-            <dt>
-                <span class="key">"inactive_selection_foreground"</span>
-            </dt>
-            <dd>
-                A color that will override the scope-based text color
-                of the selection in a view that is not currently focused
-            </dd>
-            <dt>
-                <span class="key">"selection_corner_style"</span>
-            </dt>
-            <dd>
-                The style of corners to use on selections. Options include:
-                <code>round</code> (the default), <code>cut</code> or
-                <code>square</code>.
-            </dd>
-            <dt>
-                <span class="key">"selection_corner_radius"</span>
-            </dt>
-            <dd>
-                The radius to use when the <code>selection_corner_style</code>
-                is <code>round</code> or <code>cut</code>.
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-find">Find</h3>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"highlight"</span>
-            </dt>
-            <dd>
-                The border color for "other" matches when the
-                <em>Highlight matches</em> option is selected
-                in the Find panel. Also used to highlight matches
-                in Find in Files results.
-            </dd>
-            <dt>
-                <span class="key">"find_highlight"</span>
-            </dt>
-            <dd>
-                The background color of text matched by the Find panel
-            </dd>
-            <dt>
-                <span class="key">"find_highlight_foreground"</span>
-            </dt>
-            <dd>
-                A color that will override the scope-based text color
-                of text matched by the Find panel
-            </dd>
-            <dt class="build-4050">
-                <span class="key">"scroll_highlight"</span>
-                <span class="build" title="Added in build 4050">4050</span>
-            </dt>
-            <dd class="build-4050">
-                The color search result positions drawn on top of the scroll bar.</em>
-            </dd>
-            <dt class="build-4050">
-                <span class="key">"scroll_selected_highlight"</span>
-                <span class="build" title="Added in build 4050">4050</span>
-            </dt>
-            <dd class="build-4050">
-                The color of the selected search result position drawn on top of the scroll bar.</em>
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-rulers">Rulers</h3>
-        <p>
-            Ruler locations are set by the <code>rulers</code>setting.
-        </p>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"rulers"</span>
-            </dt>
-            <dd>
-                The color used to draw rulers.
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-guides">Guides</h3>
-        <p>
-            Guides are controlled globally by the <code>draw_indent_guides</code>
-            setting.
-        </p>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"guide"</span>
-            </dt>
-            <dd>
-                The color used to draw indent guides. <em>Only used if
-                the option <code>"draw_normal"</code> is present in
-                the setting <code>indent_guide_options</code>.</em>
-            </dd>
-            <dt>
-                <span class="key">"active_guide"</span>
-            </dt>
-            <dd>
-                The color used to draw the indent guides for the
-                indentation levels containing the caret. <em>Only used
-                if the option <code>"draw_active"</code> is present in
-                the setting <code>indent_guide_options</code>.</em>
-            </dd>
-            <dt>
-                <span class="key">"stack_guide"</span>
-            </dt>
-            <dd>
-                The color used to draw the indent guides for the
-                parent indentation levels of the indentation level
-                containing the caret. <em>Only used if the option
-                <code>"draw_active"</code> is present in
-                the setting <code>indent_guide_options</code>.</em>
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-brackets">Brackets</h3>
-        <p>
-            Bracket matching is controlled globally by the
-            <code>match_brackets</code> setting.
-        </p>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"brackets_options"</span>
-            </dt>
-            <dd>
-                <p>
-                    How brackets are highlighted when the caret is next to
-                    one. Accepts a space-separated list from the following:
-                </p>
-                <ul>
-                    <li><code>underline</code></li>
-                    <li><code>stippled_underline</code></li>
-                    <li><code>squiggly_underline</code></li>
-                    <li><code>foreground</code></li>
-                    <li><code>bold</code></li>
-                    <li><code>italic</code></li>
-                </ul>
-            </dd>
-            <dt>
-                <span class="key">"brackets_foreground"</span>
-            </dt>
-            <dd>
-                The color to use when drawing the style specified by
-                <code>brackets_options</code>.
-            </dd>
-            <dt>
-                <span class="key">"bracket_contents_options"</span>
-            </dt>
-            <dd>
-                <p>
-                    How brackets are highlighted when the caret is
-                    positioned in between a pair of brackets. Accepts a
-                    space-separated list from the following:
-                </p>
-                <ul>
-                    <li><code>underline</code></li>
-                    <li><code>stippled_underline</code></li>
-                    <li><code>squiggly_underline</code></li>
-                    <li><code>foreground</code></li>
-                </ul>
-            </dd>
-            <dt>
-                <span class="key">"bracket_contents_foreground"</span>
-            </dt>
-            <dd>
-                The color to use when drawing the style specified by
-                <code>brackets_contents_options</code>.
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-tags">Tags</h3>
-        <p>
-            Tag matching is controlled globally by the
-            <code>match_tags</code> setting.
-        </p>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"tags_options"</span>
-            </dt>
-            <dd>
-                <p>
-                    How tags are highlighted when the caret is inside of
-                    one. Accepts a space-separated list from the following:
-                </p>
-                <ul>
-                    <li><code>underline</code></li>
-                    <li><code>stippled_underline</code></li>
-                    <li><code>squiggly_underline</code></li>
-                    <li><code>foreground</code></li>
-                </ul>
-            </dd>
-            <dt>
-                <span class="key">"tags_foreground"</span>
-            </dt>
-            <dd>
-                The color to use when drawing the style specified by
-                <code>tags_options</code>.
-            </dd>
-        </dl>
-
-        <h3 id="global_settings-shadows">Shadows</h3>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"shadow"</span>
-            </dt>
-            <dd>
-                The color of the shadow used to show when a text area
-                can be horizontally scrolled
-            </dd>
-            <dt>
-                <span class="key">"shadow_width"</span>
-            </dt>
-            <dd>
-                The width of the shadow in device-independent pixels
-            </dd>
-        </dl>
-    </section>
-
-    <section>
-        <h2 id="scope_rules">Scope Rules</h2>
-
-        <p>
-            Color schemes interact with the text in a file via scopes. Scopes are set
-            to code or prose tokens via the <em>syntax</em>. Scopes are dotted strings,
-            specified from least-to-most specific. For example, the <code>if</code>
-            keyword in PHP could be specified via the scope name
-            <code>keyword.control.php</code>.
-        </p>
-
-        <h3 id="matching">Matching</h3>
-        <p>
-            Color schemes apply colors and font styles to the scopes by matching the
-            dotted labels, starting with the first. Prefix matching is the standard
-            way to have a color scheme apply to multiple syntaxes. Instead of matching
-            <code>keyword.control.php</code>, most color schemes will instead assign
-            a color to <code>keyword</code>. Matching the first one or two labels
-            in a scope is most common. Including the final label, the syntax name, is
-            uncommon unless a syntax-specific override is desired.
-        </p>
-
-        <h3 id="naming">Naming</h3>
-        <p>
-            Author of syntaxes can assign whatever scopes they want to a given token.
-            This combined with the fact that there are hundreds of community-maintained
-            syntaxes means that is can be hard to know what scopes to target. The
-            <a href="scope_naming.html">official Scope
-            Naming guidelines</a> were established to help syntax and color scheme
-            authors use a common set, for better interoperability. The
-            <a href="scope_naming.html#color_schemes">Usage
-            in Color Schemes</a> section provides a baseline set of scopes that color
-            scheme authors should strive to handle.
-        </p>
-
-        <h3 id="style_rules">Style Rules</h3>
-        <p>
-            Each scope style rule consists of an object containing a <span class="key">"scope"</span>
-            key, along with one or more of the following optional keys:
-        </p>
-        <dl class="enum keys">
-            <dt>
-                <span class="key">"name"</span>
-            </dt>
-            <dd>
-                <p>
-                    The (arbitrary) name for the scope rule
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"foreground"</span>
-            </dt>
-            <dd>
-                <p>
-                    The text color
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"background"</span>
-            </dt>
-            <dd>
-                <p>
-                    The background color
-                </p>
-            </dd>
-            <dt class="build-3179">
-                <span class="key">"foreground_adjust"</span>
-                <span class="build" title="Added in build 3179">3179</span>
-            </dt>
-            <dd>
-                <p>
-                    An adjustment to the <span class="key">"foreground"</span> color, only valid with <span class="key">"background"</span>
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"selection_foreground"</span>
-            </dt>
-            <dd>
-                <p>
-                    The text color when selected
-                </p>
-            </dd>
-            <dt>
-                <span class="key">"font_style"</span>
-            </dt>
-            <dd>
-                <p>
-                    Zero or more of the following, separated by spaces:
-                </p>
-                <ul>
-                    <li><code>bold</code></li>
-                    <li><code>italic</code></li>
-                    <li class="build-4050">
-                        <code>glow</code>
-                        <span class="build" title="Added in build 4050">4050</span>
-                    </li>
-                    <li class="build-4074">
-                        <code>underline</code>
-                        <span class="build" title="Added in build 4074">4074</span>
-                    </li>
-                    <li class="build-4075">
-                        <code>stippled_underline</code>
-                        <span class="build" title="Added in build 4075">4075</span>
-                    </li>
-                    <li class="build-4075">
-                        <code>squiggly_underline</code>
-                        <span class="build" title="Added in build 4075">4075</span>
-                    </li>
-                </ul>
-            </dd>
-        </dl>
-
-        <p>
-            The <span class="key">"foreground_adjust"</span> key accepts a
-            space-separated list of adjusters that are supported by the
-            <a href="minihtml.html#color-mod_function">minihtml
-            <code>color()</code> mod function</a>. It is only supported when the
-            <span class="key">"background"</span> key is also specified, and
-            thus allows modifying all foregrounds used in combination with the
-            background, without having to create different rules for every
-            permutation.
-        </p>
-
-        <h3 id="hashed_syntax_highlighting">Hashed Syntax Highlighting</h3>
-        <p>
-            The <span class="key">"foreground"</span> key supports a special
-            mode called <em>Hashed Syntax Highlighting</em>, where each token
-            matching the scope specified will receive a unique color from one,
-            or more, gradients. Some editors refer to this style of
-            highlighting as <em>Semantic Highlighting</em>.
-        </p>
-        <p>
-            To use hashed syntax highlighting, the
-            <span class="key">"foreground"</span> key must have a value that
-            is an array of two or more colors. Sublime Text
-            will create 256 different colors that are linear interpolations
-            (lerp) between the colors provided. The interpolation is done in
-            HSL space.
-        </p>
-        <p>
-            As Sublime Text highlights the tokens in a file, it will create a
-            hashed value of the token, and use that to pick one of the 256
-            linear interpolations. Every instance of a given token will use the
-            same color. For instance, each instance of <code>first_name</code>
-            would have the same color, but every instance of <code>name</code>
-            would have a different color.
-        </p>
-        <p>
-            For hashed syntax highlighting to be most obvious, the hue
-            difference between the start and end points should be as far apart
-            as possible. Here is an example of using blues, purples and pinks
-            for variable names:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">source - punctuation - keyword</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> [<span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">hsl(200, 60%, 70%)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">hsl(330, 60%, 70%)</span><span style="color: #5fb4b4">&quot;</span>]
-}</span></code></pre>
-
-        <h3 id="examples">Examples</h3>
-        <p>
-            The following scope style rule will color all strings as green:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Strings</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">string</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">#00FF00</span><span style="color: #5fb4b4">&quot;</span>
-}</span></code></pre>
-
-        <p>
-            To style all numbers as bold, italic red, use:
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Numbers</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">constant.numeric</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">#FF0000</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">font_style</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">bold italic</span><span style="color: #5fb4b4">&quot;</span>
-}</span></code></pre>
-    </section>
-
-    <section>
-        <h2 id="customization">Customization</h2>
-
-        <p>
-            Color schemes based on the <span class="file">.sublime-color-scheme</span>
-            format are specified by filename only, not a package-based file path.
-            This allows users to customize a color scheme by overriding
-            variables or globals, and adding rules.
-        </p>
-
-        <p>
-            To create a user-specific customization of a color scheme, create
-            a new file with the same filename as the color scheme, but save it
-            in the <span class="file">Packages/User/</span> directory.
-        </p>
-
-        <p>
-            For example, to customize the default Monokai color scheme, create a
-            file named <span class="file">Packages/User/Monokai.sublime-color-scheme</span>.
-            The following settings will change the background color to be a
-            fully-desaturated grey, the yellow to be more vibrant, and
-            will add a new rule change Python docstrings to be colored the
-            same as strings.
-        </p>
-
-        <pre><code class="syntax-json"><span style="color: #333333">{
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">variables</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">yellow</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">hsl(54, 100%, 50%)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    }<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">globals</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    {
-        <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">background</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">hsl(70, 0%, 15%)</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-    }<span style="color: #ac7a68">,</span>
-    <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">rules</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span>
-    [
-        {
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">name</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">Python docstrings</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">scope</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">comment.block.documentation.python</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">,</span>
-            <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">foreground</span><span style="color: #5fb4b4">&quot;</span><span style="color: #ac7a68">:</span> <span style="color: #5fb4b4">&quot;</span><span style="color: #80b979">var(yellow)</span><span style="color: #5fb4b4">&quot;</span>
-        }<span style="color: #ac7a68">,</span>
-    ]
-}</span></code></pre>
-
-        <p>
-            The contents of the <span class="key">"variables"</span> and
-            <span class="key">"globals"</span> keys are merged, with the
-            user's copy overwriting keys with the same name. For the
-            <span class="key">"rules"</span> array, the user's rules are
-            appended.
-        </p>
-    </section>
-
-    <section id="css_colors-section">
-        <h2 id="css_colors">Appendix: CSS Colors</h2>
-        <style>
-        section#css_colors-section:after
-        {
-            content: "";
-            display: table;
-            clear: both;
-        }
-        span.color-block {
-            width: 50px;
-            height: 20px;
-            display: inline-block;
-            position: relative;top: 5px;
-        }
-        div.col {
-            float: left;
-            width: 33%;
-        }
-        </style>
-
-        <div class="col">
-            <span style="background-color: #f0f8ff;" class="color-block">&nbsp;</span> <span>aliceblue</span><br>
-            <span style="background-color: #faebd7;" class="color-block">&nbsp;</span> <span>antiquewhite</span><br>
-            <span style="background-color: #00ffff;" class="color-block">&nbsp;</span> <span>aqua</span><br>
-            <span style="background-color: #7fffd4;" class="color-block">&nbsp;</span> <span>aquamarine</span><br>
-            <span style="background-color: #f0ffff;" class="color-block">&nbsp;</span> <span>azure</span><br>
-            <span style="background-color: #f5f5dc;" class="color-block">&nbsp;</span> <span>beige</span><br>
-            <span style="background-color: #ffe4c4;" class="color-block">&nbsp;</span> <span>bisque</span><br>
-            <span style="background-color: #000000;" class="color-block">&nbsp;</span> <span>black</span><br>
-            <span style="background-color: #ffebcd;" class="color-block">&nbsp;</span> <span>blanchedalmond</span><br>
-            <span style="background-color: #0000ff;" class="color-block">&nbsp;</span> <span>blue</span><br>
-            <span style="background-color: #8a2be2;" class="color-block">&nbsp;</span> <span>blueviolet</span><br>
-            <span style="background-color: #a52a2a;" class="color-block">&nbsp;</span> <span>brown</span><br>
-            <span style="background-color: #deb887;" class="color-block">&nbsp;</span> <span>burlywood</span><br>
-            <span style="background-color: #5f9ea0;" class="color-block">&nbsp;</span> <span>cadetblue</span><br>
-            <span style="background-color: #7fff00;" class="color-block">&nbsp;</span> <span>chartreuse</span><br>
-            <span style="background-color: #d2691e;" class="color-block">&nbsp;</span> <span>chocolate</span><br>
-            <span style="background-color: #ff7f50;" class="color-block">&nbsp;</span> <span>coral</span><br>
-            <span style="background-color: #6495ed;" class="color-block">&nbsp;</span> <span>cornflowerblue</span><br>
-            <span style="background-color: #fff8dc;" class="color-block">&nbsp;</span> <span>cornsilk</span><br>
-            <span style="background-color: #dc143c;" class="color-block">&nbsp;</span> <span>crimson</span><br>
-            <span style="background-color: #00ffff;" class="color-block">&nbsp;</span> <span>cyan</span><br>
-            <span style="background-color: #00008b;" class="color-block">&nbsp;</span> <span>darkblue</span><br>
-            <span style="background-color: #008b8b;" class="color-block">&nbsp;</span> <span>darkcyan</span><br>
-            <span style="background-color: #b8860b;" class="color-block">&nbsp;</span> <span>darkgoldenrod</span><br>
-            <span style="background-color: #a9a9a9;" class="color-block">&nbsp;</span> <span>darkgray</span><br>
-            <span style="background-color: #006400;" class="color-block">&nbsp;</span> <span>darkgreen</span><br>
-            <span style="background-color: #a9a9a9;" class="color-block">&nbsp;</span> <span>darkgrey</span><br>
-            <span style="background-color: #bdb76b;" class="color-block">&nbsp;</span> <span>darkkhaki</span><br>
-            <span style="background-color: #8b008b;" class="color-block">&nbsp;</span> <span>darkmagenta</span><br>
-            <span style="background-color: #556b2f;" class="color-block">&nbsp;</span> <span>darkolivegreen</span><br>
-            <span style="background-color: #ff8c00;" class="color-block">&nbsp;</span> <span>darkorange</span><br>
-            <span style="background-color: #9932cc;" class="color-block">&nbsp;</span> <span>darkorchid</span><br>
-            <span style="background-color: #8b0000;" class="color-block">&nbsp;</span> <span>darkred</span><br>
-            <span style="background-color: #e9967a;" class="color-block">&nbsp;</span> <span>darksalmon</span><br>
-            <span style="background-color: #8fbc8f;" class="color-block">&nbsp;</span> <span>darkseagreen</span><br>
-            <span style="background-color: #483d8b;" class="color-block">&nbsp;</span> <span>darkslateblue</span><br>
-            <span style="background-color: #2f4f4f;" class="color-block">&nbsp;</span> <span>darkslategray</span><br>
-            <span style="background-color: #2f4f4f;" class="color-block">&nbsp;</span> <span>darkslategrey</span><br>
-            <span style="background-color: #00ced1;" class="color-block">&nbsp;</span> <span>darkturquoise</span><br>
-            <span style="background-color: #9400d3;" class="color-block">&nbsp;</span> <span>darkviolet</span><br>
-            <span style="background-color: #ff1493;" class="color-block">&nbsp;</span> <span>deeppink</span><br>
-            <span style="background-color: #00bfff;" class="color-block">&nbsp;</span> <span>deepskyblue</span><br>
-            <span style="background-color: #696969;" class="color-block">&nbsp;</span> <span>dimgray</span><br>
-            <span style="background-color: #696969;" class="color-block">&nbsp;</span> <span>dimgrey</span><br>
-            <span style="background-color: #1e90ff;" class="color-block">&nbsp;</span> <span>dodgerblue</span><br>
-            <span style="background-color: #b22222;" class="color-block">&nbsp;</span> <span>firebrick</span><br>
-            <span style="background-color: #fffaf0;" class="color-block">&nbsp;</span> <span>floralwhite</span><br>
-            <span style="background-color: #228b22;" class="color-block">&nbsp;</span> <span>forestgreen</span><br>
-            <span style="background-color: #ff00ff;" class="color-block">&nbsp;</span> <span>fuchsia</span><br>
-            <span style="background-color: #dcdcdc;" class="color-block">&nbsp;</span> <span>gainsboro</span><br>
-        </div>
-        <div class="col">
-            <span style="background-color: #f8f8ff;" class="color-block">&nbsp;</span> <span>ghostwhite</span><br>
-            <span style="background-color: #ffd700;" class="color-block">&nbsp;</span> <span>gold</span><br>
-            <span style="background-color: #daa520;" class="color-block">&nbsp;</span> <span>goldenrod</span><br>
-            <span style="background-color: #808080;" class="color-block">&nbsp;</span> <span>gray</span><br>
-            <span style="background-color: #008000;" class="color-block">&nbsp;</span> <span>green</span><br>
-            <span style="background-color: #adff2f;" class="color-block">&nbsp;</span> <span>greenyellow</span><br>
-            <span style="background-color: #808080;" class="color-block">&nbsp;</span> <span>grey</span><br>
-            <span style="background-color: #f0fff0;" class="color-block">&nbsp;</span> <span>honeydew</span><br>
-            <span style="background-color: #ff69b4;" class="color-block">&nbsp;</span> <span>hotpink</span><br>
-            <span style="background-color: #cd5c5c;" class="color-block">&nbsp;</span> <span>indianred</span><br>
-            <span style="background-color: #4b0082;" class="color-block">&nbsp;</span> <span>indigo</span><br>
-            <span style="background-color: #fffff0;" class="color-block">&nbsp;</span> <span>ivory</span><br>
-            <span style="background-color: #f0e68c;" class="color-block">&nbsp;</span> <span>khaki</span><br>
-            <span style="background-color: #e6e6fa;" class="color-block">&nbsp;</span> <span>lavender</span><br>
-            <span style="background-color: #fff0f5;" class="color-block">&nbsp;</span> <span>lavenderblush</span><br>
-            <span style="background-color: #7cfc00;" class="color-block">&nbsp;</span> <span>lawngreen</span><br>
-            <span style="background-color: #fffacd;" class="color-block">&nbsp;</span> <span>lemonchiffon</span><br>
-            <span style="background-color: #add8e6;" class="color-block">&nbsp;</span> <span>lightblue</span><br>
-            <span style="background-color: #f08080;" class="color-block">&nbsp;</span> <span>lightcoral</span><br>
-            <span style="background-color: #e0ffff;" class="color-block">&nbsp;</span> <span>lightcyan</span><br>
-            <span style="background-color: #fafad2;" class="color-block">&nbsp;</span> <span>lightgoldenrodyellow</span><br>
-            <span style="background-color: #d3d3d3;" class="color-block">&nbsp;</span> <span>lightgray</span><br>
-            <span style="background-color: #90ee90;" class="color-block">&nbsp;</span> <span>lightgreen</span><br>
-            <span style="background-color: #d3d3d3;" class="color-block">&nbsp;</span> <span>lightgrey</span><br>
-            <span style="background-color: #ffb6c1;" class="color-block">&nbsp;</span> <span>lightpink</span><br>
-            <span style="background-color: #ffa07a;" class="color-block">&nbsp;</span> <span>lightsalmon</span><br>
-            <span style="background-color: #20b2aa;" class="color-block">&nbsp;</span> <span>lightseagreen</span><br>
-            <span style="background-color: #87cefa;" class="color-block">&nbsp;</span> <span>lightskyblue</span><br>
-            <span style="background-color: #778899;" class="color-block">&nbsp;</span> <span>lightslategray</span><br>
-            <span style="background-color: #778899;" class="color-block">&nbsp;</span> <span>lightslategrey</span><br>
-            <span style="background-color: #b0c4de;" class="color-block">&nbsp;</span> <span>lightsteelblue</span><br>
-            <span style="background-color: #ffffe0;" class="color-block">&nbsp;</span> <span>lightyellow</span><br>
-            <span style="background-color: #00ff00;" class="color-block">&nbsp;</span> <span>lime</span><br>
-            <span style="background-color: #32cd32;" class="color-block">&nbsp;</span> <span>limegreen</span><br>
-            <span style="background-color: #faf0e6;" class="color-block">&nbsp;</span> <span>linen</span><br>
-            <span style="background-color: #ff00ff;" class="color-block">&nbsp;</span> <span>magenta</span><br>
-            <span style="background-color: #800000;" class="color-block">&nbsp;</span> <span>maroon</span><br>
-            <span style="background-color: #66cdaa;" class="color-block">&nbsp;</span> <span>mediumaquamarine</span><br>
-            <span style="background-color: #0000cd;" class="color-block">&nbsp;</span> <span>mediumblue</span><br>
-            <span style="background-color: #ba55d3;" class="color-block">&nbsp;</span> <span>mediumorchid</span><br>
-            <span style="background-color: #9370db;" class="color-block">&nbsp;</span> <span>mediumpurple</span><br>
-            <span style="background-color: #3cb371;" class="color-block">&nbsp;</span> <span>mediumseagreen</span><br>
-            <span style="background-color: #7b68ee;" class="color-block">&nbsp;</span> <span>mediumslateblue</span><br>
-            <span style="background-color: #00fa9a;" class="color-block">&nbsp;</span> <span>mediumspringgreen</span><br>
-            <span style="background-color: #48d1cc;" class="color-block">&nbsp;</span> <span>mediumturquoise</span><br>
-            <span style="background-color: #c71585;" class="color-block">&nbsp;</span> <span>mediumvioletred</span><br>
-            <span style="background-color: #191970;" class="color-block">&nbsp;</span> <span>midnightblue</span><br>
-            <span style="background-color: #f5fffa;" class="color-block">&nbsp;</span> <span>mintcream</span><br>
-            <span style="background-color: #ffe4e1;" class="color-block">&nbsp;</span> <span>mistyrose</span><br>
-            <span style="background-color: #ffe4b5;" class="color-block">&nbsp;</span> <span>moccasin</span><br>
-        </div>
-        <div class="col">
-            <span style="background-color: #ffdead;" class="color-block">&nbsp;</span> <span>navajowhite</span><br>
-            <span style="background-color: #000080;" class="color-block">&nbsp;</span> <span>navy</span><br>
-            <span style="background-color: #fdf5e6;" class="color-block">&nbsp;</span> <span>oldlace</span><br>
-            <span style="background-color: #808000;" class="color-block">&nbsp;</span> <span>olive</span><br>
-            <span style="background-color: #6b8e23;" class="color-block">&nbsp;</span> <span>olivedrab</span><br>
-            <span style="background-color: #ffa500;" class="color-block">&nbsp;</span> <span>orange</span><br>
-            <span style="background-color: #ff4500;" class="color-block">&nbsp;</span> <span>orangered</span><br>
-            <span style="background-color: #da70d6;" class="color-block">&nbsp;</span> <span>orchid</span><br>
-            <span style="background-color: #eee8aa;" class="color-block">&nbsp;</span> <span>palegoldenrod</span><br>
-            <span style="background-color: #98fb98;" class="color-block">&nbsp;</span> <span>palegreen</span><br>
-            <span style="background-color: #afeeee;" class="color-block">&nbsp;</span> <span>paleturquoise</span><br>
-            <span style="background-color: #db7093;" class="color-block">&nbsp;</span> <span>palevioletred</span><br>
-            <span style="background-color: #ffefd5;" class="color-block">&nbsp;</span> <span>papayawhip</span><br>
-            <span style="background-color: #ffdab9;" class="color-block">&nbsp;</span> <span>peachpuff</span><br>
-            <span style="background-color: #cd853f;" class="color-block">&nbsp;</span> <span>peru</span><br>
-            <span style="background-color: #ffc0cb;" class="color-block">&nbsp;</span> <span>pink</span><br>
-            <span style="background-color: #dda0dd;" class="color-block">&nbsp;</span> <span>plum</span><br>
-            <span style="background-color: #b0e0e6;" class="color-block">&nbsp;</span> <span>powderblue</span><br>
-            <span style="background-color: #800080;" class="color-block">&nbsp;</span> <span>purple</span><br>
-            <span style="background-color: #663399;" class="color-block">&nbsp;</span> <span>rebeccapurple</span><br>
-            <span style="background-color: #ff0000;" class="color-block">&nbsp;</span> <span>red</span><br>
-            <span style="background-color: #bc8f8f;" class="color-block">&nbsp;</span> <span>rosybrown</span><br>
-            <span style="background-color: #4169e1;" class="color-block">&nbsp;</span> <span>royalblue</span><br>
-            <span style="background-color: #8b4513;" class="color-block">&nbsp;</span> <span>saddlebrown</span><br>
-            <span style="background-color: #fa8072;" class="color-block">&nbsp;</span> <span>salmon</span><br>
-            <span style="background-color: #f4a460;" class="color-block">&nbsp;</span> <span>sandybrown</span><br>
-            <span style="background-color: #2e8b57;" class="color-block">&nbsp;</span> <span>seagreen</span><br>
-            <span style="background-color: #fff5ee;" class="color-block">&nbsp;</span> <span>seashell</span><br>
-            <span style="background-color: #a0522d;" class="color-block">&nbsp;</span> <span>sienna</span><br>
-            <span style="background-color: #c0c0c0;" class="color-block">&nbsp;</span> <span>silver</span><br>
-            <span style="background-color: #87ceeb;" class="color-block">&nbsp;</span> <span>skyblue</span><br>
-            <span style="background-color: #6a5acd;" class="color-block">&nbsp;</span> <span>slateblue</span><br>
-            <span style="background-color: #708090;" class="color-block">&nbsp;</span> <span>slategray</span><br>
-            <span style="background-color: #708090;" class="color-block">&nbsp;</span> <span>slategrey</span><br>
-            <span style="background-color: #fffafa;" class="color-block">&nbsp;</span> <span>snow</span><br>
-            <span style="background-color: #00ff7f;" class="color-block">&nbsp;</span> <span>springgreen</span><br>
-            <span style="background-color: #4682b4;" class="color-block">&nbsp;</span> <span>steelblue</span><br>
-            <span style="background-color: #d2b48c;" class="color-block">&nbsp;</span> <span>tan</span><br>
-            <span style="background-color: #008080;" class="color-block">&nbsp;</span> <span>teal</span><br>
-            <span style="background-color: #d8bfd8;" class="color-block">&nbsp;</span> <span>thistle</span><br>
-            <span style="background-color: #ff6347;" class="color-block">&nbsp;</span> <span>tomato</span><br>
-            <span style="background-color: #40e0d0;" class="color-block">&nbsp;</span> <span>turquoise</span><br>
-            <span style="background-color: #ee82ee;" class="color-block">&nbsp;</span> <span>violet</span><br>
-            <span style="background-color: #f5deb3;" class="color-block">&nbsp;</span> <span>wheat</span><br>
-            <span style="background-color: #ffffff;" class="color-block">&nbsp;</span> <span>white</span><br>
-            <span style="background-color: #f5f5f5;" class="color-block">&nbsp;</span> <span>whitesmoke</span><br>
-            <span style="background-color: #ffff00;" class="color-block">&nbsp;</span> <span>yellow</span><br>
-            <span style="background-color: #9acd32;" class="color-block">&nbsp;</span> <span>yellowgreen</span><br>
-        </div>
-    </section>
-
-    <script type="text/javascript" src="docs.js"></script>
-
-    </section>
-    </main>
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
 <footer>
     <section>
             <div class="footer_start">
