@@ -1,0 +1,98 @@
+
+Tab Multi-Select
+Added in:  4.0 
+Similar to the popular feature of multiple cursors, Sublime Text also allows users to select multiple tabs at once. Through a combination of UI elements, modifier keys and shortcuts, users can leverage this functionality to more quickly and easily navigate and organize tabs.
+Basics
+Goto File
+Symbol Navigation
+Switch Header/Implementation Plugins
+Basics
+Tab multi-select is an easy-to-use, lightweight and quick way to view multiple tabs at once. It is distinct from the functionality found in the View  Layout menu. When multiple tabs are selected, Sublime Text will automatically split the editor pane to display the tabs horizontally.
+Note: in the following key bindings, Primary refers to the Ctrl key on Windows and Linux, and the Cmd key on Mac.
+Adding to the Selection
+Users may add tabs to the current tab selection by using one of the following:
+Modifiers
+The following actions support adding a tab via modifier:
+Clicking an unselected tab: Primary
+Clicking an unselected filename in the tab dropdown: Primary
+Clicking an unselected filename in the side bar: Primary
+Shortcuts
+Add tab to the left: Primary+J, Primary+Shift+Left
+Add tab to the right: Primary+J, Primary+Shift+Right
+Changing Focus
+Users may switch input focus between selected tabs by using one of the following:
+Shortcuts
+Focus tab to the left Windows/Linux: Ctrl+J, Ctrl+Pageup Mac: Cmd+J, Cmd+Shift+[
+Focus tab to the right Windows/Linux: Ctrl+J, Ctrl+Pagedown Mac: Cmd+J, Cmd+Shift+]
+Removing from the Selection
+Users may remove tabs from the current tab selection by using one of the following:
+Modifiers
+The following actions support removing a tab via modifier:
+Clicking a selected tab: Primary
+Clicking a selected filename in the tab dropdown: Primary
+Clicking a selected filename in the side bar: Primary
+Shortcuts
+Deselect all but focused tab: Primary+J, Primary+Up
+Deselect tabs to left: Primary+J, Primary+Left
+Deselect tabs to right: Primary+J, Primary+Right
+Replacing the Focused Tab
+Users may replace the focused tab in the selection by using one of the following:
+Modifiers
+The following actions support replacing a tab via modifier:
+Clicking an unselected tab: Alt
+Clicking a filename in the tab dropdown: Alt (except Windows)
+Clicking a filename in the side bar: Alt
+Goto File
+When using Goto Anything to open a file, the following modifiers may be used when pressing Enter or clicking with a mouse:
+Modifiers
+The following actions support replacing a tab via modifier:
+Append the tab to the selection: Shift
+Append the tab to the right of the focused tab, replacing others: Primary
+Replace the focused tab: Alt
+Symbol Navigation
+In addition to the basic usage of tab multi-select, the symbol navigation in Sublime Text fully supports this behavior, making it easy to lookup and navigate around code in a very natural way.
+Goto Definition
+The commands Goto Definition and Goto Reference invoked via a key binding support:
+Appends the tab to the right of the focused tab, replacing others: Primary
+Goto Symbol in Project
+When selecting a symbol in the quick panel the following modifiers may be used when pressing Enter or clicking with a mouse:
+Append the tab to the selection: Shift
+Append the tab to the right of the focused tab, replacing others: Primary
+Replace the focused tab: Alt
+Definitions Popup
+When clicking on any of the links in the Definitions popup, the following modifiers work:
+Append the tab to the selection: Shift
+Append the tab to the right of the focused tab, replacing others: Primary
+Replace entire tab selection: Alt
+In this case, the Alt modifier is reversed since the default behavior is to replace the focused tab in the selection.
+To make the tab multi-select functionality more obvious, an icon is displayed at the end of each file path that is equivalent to holding the Primary modifier.
+Switch Header/Implementation
+The command Switch Header/Implementation invoked via a key binding supports:
+Append the tab to the selection: Shift
+Plugins
+A number of API features exist to allow plugins to provide tab multi-selection behavior.
+Event Dictionary
+Both commands and the quick panel on_done callback, can choose to recieve an event dict. The dict contains details about user input, including which modifier keys were pressed.
+For commands, the dict is typically requested when a command is invoked via a link in an HTML popup.
+open_file() Flags
+The Window.open_file() method accepts a number of bitwise flags that allow controlling how the newly-opened file should be presented to the user. See the open_file() documentation for full details.
+sublime.ADD_TO_SELECTION: Add the file to the currently selected sheets in this group
+sublime.REPLACE_MRU: Replace the most-recently used sheet in the current sheet selection
+sublime.SEMI_TRANSIENT: If a sheet is newly created, it will be set to semi-transient.
+sublime.CLEAR_TO_RIGHT: All currently selected sheets to the right of the most-recently used sheet will be unselected before opening the file.
+Window and Sheet APIs
+Window and Sheet objects have a number of methods available for modifying the selected sheets:
+Window.active_sheet()
+Window.active_sheet_in_group()
+Window.selected_sheets()
+Window.selected_sheets_in_group()
+Window.select_sheets()
+Window.num_groups()
+Window.active_group()
+Window.focus_sheet()
+Window.get_sheet_index()
+Window.set_sheet_index()
+Sheet.group()
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

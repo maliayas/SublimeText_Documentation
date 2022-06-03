@@ -1,0 +1,103 @@
+
+Command Line Interface
+
+3.0
+Sublime Text includes a command line tool, subl, to work with files on the command line. This can be used to open files and projects in Sublime Text, as well working as an EDITOR for unix tools, such as git and subversion.
+Setup  Windows
+Mac
+Linux
+Usage  Configuring as EDITOR
+Setup
+Some operating systems and installation methods will require a configuration change to make subl available on the PATH.
+Windows
+On Windows, the command line helper is subl.exe. To use this from the Command Prompt or Powershell, the Sublime Text installation folder needs to be added to the Path environment variable:
+Windows 10
+Show instructions for: Windows 8, Windows 7
+Open the Start Menu and type environ
+Select the item Edit the system environment variables
+Click the button Environment Variables at the bottom of the System Properties dialog
+Select, or create, the Path environment variable in the appropriate section:   For the current user, select Path in the User variables for {username} section
+For all users, select Path in the System variables section
+Click the New button and add an entry with the Sublime Text installation directory  64bit installs are typically in C:\Program Files\Sublime Text\
+32bit installs on a 64bit version of Windows will be in C:\Program Files (x86)\Sublime Text\
+32bit installs on a 32bit version of Windows will be in C:\Program Files\Sublime Text\
+Windows 8
+Show instructions for: Windows 10, Windows 7
+Press the Windows Key and type environ
+Select the item Edit the system environment variables
+Click the button Environment Variables at the bottom of the System Properties dialog
+Select, or create, the Path environment variable in the appropriate section:   For the current user, select Path in the User variables for {username} section
+For all users, select Path in the System variables section
+In the Variable value input, add an entry with the Sublime Text installation directory. If there is an existing value, add a ; before the Sublime Text directory.  64bit installs are typically in C:\Program Files\Sublime Text\
+32bit installs on a 64bit version of Windows will be in C:\Program Files (x86)\Sublime Text\
+32bit installs on a 32bit version of Windows will be in C:\Program Files\Sublime Text\
+Windows 7
+Show instructions for: Windows 10, Windows 8
+Open the Start Menu
+Right-click on Computer and select Properties
+Click on Advanced System Settings in the left-hand sidebar
+Click the button Environment Variables at the bottom of the System Properties dialog
+Select, or create, the Path environment variable in the appropriate section:   For the current user, select Path in the User variables for {username} section
+For all users, select Path in the System variables section
+In the Variable value input, add an entry with the Sublime Text installation directory. If there is an existing value, add a ; before the Sublime Text directory.  64bit installs are typically in C:\Program Files\Sublime Text\
+32bit installs on a 64bit version of Windows will be in C:\Program Files (x86)\Sublime Text\
+32bit installs on a 32bit version of Windows will be in C:\Program Files\Sublime Text\
+Mac
+To use subl, the Sublime Text bin folder needs to be added to the path. For a typical installation of Sublime Text, this will be located at /Applications/Sublime Text.app/Contents/SharedSupport/bin.
+Bash
+If using Bash, the default before macOS 10.15, the following command will add the bin folder to the PATH environment variable:
+echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.bash_profile
+Zsh
+If using Zsh, the default starting with macOS 10.15, the following command will add the bin folder to the PATH environment variable:
+echo 'export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"' >> ~/.zprofile
+Linux
+If Sublime Text is installed via one of the Linux Package Manager Repositories or a package, a subl symlink will automatically be installed into the /usr/bin/ directory.
+If installing from a tarball, the sublime_text executable should be symlinked to subl, with a command such as:
+sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl
+The exact details of the symlink command will depend on the installation location. Most default PATH environment variable values should contain /usr/local/bin, so no further commands should be necessary.
+Usage
+To see the available flags, run subl --help. The available flags will vary per operating system – the following example is from a Mac.
+Sublime Text build 4XXX
+Usage: subl [arguments] [files]         Edit the given files
+or: subl [arguments] [directories]   Open the given directories
+or: subl [arguments] -- [files]      Edit files that may start with '-'
+or: subl [arguments] -               Edit stdin
+Arguments:
+--project <project>: Load the given project
+--command <command>: Run the given command
+-n or --new-window:  Open a new window
+-a or --add:         Add folders to the current window
+-w or --wait:        Wait for the files to be closed before returning
+-b or --background:  Don't activate the application
+-s or --stay:        Keep the application activated after closing the file
+--safe-mode:         Launch using a sandboxed (clean) environment
+-h or --help:        Show help (this message) and exit
+-v or --version:     Show version and exit
+--wait is implied if reading from stdin. Use --stay to not switch back
+to the terminal when a file is closed (only relevant if waiting for a file).
+Filenames may be given a :line or :line:column suffix to open at a specific
+location.
+Sublime Text build 3211
+Usage: %s [arguments] [files]         Edit the given files
+or: %s [arguments] [directories]   Open the given directories
+or: %s [arguments] -               Edit stdin
+Arguments:
+--project <project>: Load the given project
+--command <command>: Run the given command
+-n or --new-window:  Open a new window
+-a or --add:         Add folders to the current window
+-w or --wait:        Wait for the files to be closed before returning
+-b or --background:  Don't activate the application
+-s or --stay:        Keep the application activated after closing the file
+-h or --help:        Show help (this message) and exit
+-v or --version:     Show version and exit
+--wait is implied if reading from stdin. Use --stay to not switch back
+to the terminal when a file is closed (only relevant if waiting for a file).
+Filenames may be given a :line or :line:column suffix to open at a specific location.
+Configuring as EDITOR
+To use Sublime Text as the editor for many commands that prompt for input, set your EDITOR environment variable:
+export EDITOR='subl -w'
+Specifying -w will cause the subl command to not exit until the file is closed.
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

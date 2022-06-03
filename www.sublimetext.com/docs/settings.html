@@ -1,0 +1,55 @@
+
+Settings
+Sublime Text has many different settings to customize its behavior. Settings are changed by editing text files: while this is a little trickier than using a GUI, you're rewarded with a flexible system.
+Settings are accessed via the Preferences  Settings menu item. The left-hand pane contains all of the default settings, along with a description of each. The right-hand pane is where customization can be saved.
+Categories
+Settings Files
+Syntax-Specific Settings
+Project Settings
+Distraction Free Settings
+Key Bindings
+Troubleshooting
+Categories
+The settings in Sublime Text are organized into three categories. The default settings file organizes the settings into sections for easier distinction.
+Editor Settings: These settings affect the behavior and functionality presented when editing text in a file. Examples include the font_face, tab_size and spell_check. These settings are presented in the first section of the default settings file.
+User Interface Settings: These settings affect the general user interface, across all open windows. Examples include the theme, animation_enabled and overlay_scroll_bars. These settings are presented in the second section of the default settings file.
+Application Behavior Settings: These settings affect the behavior of the application, across all open windows. Examples include the hot_exit, index_files and ignored_packages. These settings are presented in the third section of the default settings file.
+The User Interface Settings and Application Behavior Settings are global to the entire application and can not be controlled by a syntax specific settings file, nor the settings key in a .sublime-project.
+Settings Files
+Settings files are consulted in this order:   Packages/Default/Preferences.sublime-settings   Packages/Default/Preferences (<platform>).sublime-settings   Packages/User/Preferences.sublime-settings   <Project settings>   Packages/<syntax>/<syntax>.sublime-settings   Packages/User/<syntax>.sublime-settings   <Buffer-specific settings>    In general, you should place your settings in Packages/User/Preferences.sublime-settings, which is opened in the right-hand pane when selecting the menu item Preferences  Settings. If you want to specify settings for a certain file type, for example, Python, you should place them in Packages/User/Python.sublime-settings. This can be accessed via the right-hand pane when a Python file is open, and the menu item Preferences  Settings – Syntax Specific is selected.
+Syntax-Specific Settings
+Settings may be specified on a per-syntax basis. Common uses for this are to have different indentation settings or the color scheme vary by file type.
+You can edit the settings for the syntax of the current file by selecting the Preferences  Settings – Syntax Specific menu item.
+Note that only Editor Settings can be specified in syntax-specific settings.
+Project Settings
+Settings can be set on a per-project basis, details are in the Project Documentation.
+Note that only Editor Settings can be specified in project settings.
+Distraction Free Settings
+Distraction Free Mode has an additional settings file applied (Distraction Free.sublime-settings). You can place file settings in here to have them only apply when in Distraction Free Mode – access it from the Preferences  Settings – Distraction Free menu item.
+Changing Settings with a Key Binding
+The toggle_setting command can be used to toggle a setting. For example, to make a key binding that toggles the word_wrap setting on the current file, you can use (in Preferences  Key Bindings):
+{
+"keys": ["alt+w"],
+"command": "toggle_setting",
+"args":
+{
+"setting": "word_wrap"
+}
+}
+The set_setting command can be used to set a setting to a specific value. For example, this key binding makes the current file use the Cobalt color scheme:
+{
+"keys": ["ctrl+k", "ctrl+c"],
+"command": "set_setting",
+"args":
+{
+"setting": "color_scheme",
+"value": "Packages/Color Scheme - Default/Cobalt.tmTheme"
+}
+}
+The settings modified here are buffer specific settings: they override any settings placed in a settings file, but apply to the current file only.
+Troubleshooting
+As settings can be specified in several different places, sometimes in can be helpful to view the applied setting that's actually being used by the current file. You can do this by using the console:
+view.settings().get(&#x27;font_face&#x27;)
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

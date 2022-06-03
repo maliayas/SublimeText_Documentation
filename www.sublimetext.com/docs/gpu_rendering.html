@@ -1,0 +1,18 @@
+
+GPU Rendering
+Added in:  4.0 
+Sublime Text includes both a software rendering mode, and a hardware-accelerated mode using the GPU via OpenGL. The OpenGL renderer can improve performance on high DPI screens, although some graphics card drivers may produce incorrect results. By default, Macs will use OpenGL, whereas Windows and Linux machines will use software.
+Setting
+Diagnostics
+Setting
+The setting hardware_acceleration controls the rendering mode. A value of "none" causes Sublime Text to use the software rendering mode, whereas a value of "opengl" results in the OpenGL renderer being used.
+Diagnostics
+When hardware_acceleration is set to "opengl", diagnostic information will be printed in the Console on startup. The following is an example of the output:
+OpenGL Context Information:
+GL API Version: 4.1 INTEL-14.4.23
+GLSL Version: 4.10
+Vendor: Intel Inc.
+Renderer: Intel Iris Pro OpenGL Engine
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

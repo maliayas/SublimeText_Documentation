@@ -1,0 +1,27 @@
+
+Packages
+Packages are a collection of resource files used by Sublime Text: plugins, syntax highlighting definitions, menus, snippets and more. Sublime Text ships with several packages, and more user created ones are available.
+Packages are stored in .sublime-package files, which are zip files with a different extension. Packages may also be stored unzipped within a directory, or a mix of the two: any loose files in the package directory will override files stored in the .sublime-package file.
+Locations
+Special Packages
+Creating a New Package
+Overriding Files From a Zipped Package
+Locations
+Zipped packages may be stored in:
+<executable_path>/Packages/
+<data_path>/Installed Packages/
+Loose packages may be stored in:
+<data_path>/Packages/
+For example, the package Python is stored in <executable_path>/Packages/Python.sublime-package, and any files in the <data_path>/Packages/Python/ directory will override those stored in the .sublime-package file.
+In general, <executable_path>/Packages/ is for packages that ship with Sublime Text, and <data_path>/Installed Packages/ is for packages installed by the user.
+Special Packages
+There are two special packages: Default and User. Default is always ordered first, and User is always ordered last. Package ordering comes into effect when merging files between packages, for example Main.sublime-menu. Any package may contain a file called Main.sublime-menu, however this won't override the main menu, instead the files will be merged according to the order of the packages.
+Packages other than Default and User are ordered alphabetically.
+Creating a New Package
+To create a new package, simply create a new directory under <data_path>/Installed Packages/. You can access this directory from the Preferences  Browse Packages menu.
+Overriding Files From a Zipped Package
+To override a file in an existing package, just create a file with the same name under the Packages/<Package Name>/ directory.
+For example to override the file function.sublime-snippet in the Python.sublime-package package that ships with Sublime Text, create a directory called Python under the <data_path>/Packages/ directory, and place your function.sublime-snippet file there.
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

@@ -1,0 +1,68 @@
+
+Indexing
+
+3.0
+Sublime Text includes an indexing engine that scans all of the files and folders in a window/project and uses that information to provide the ability to jump to definitions and provide context-aware completions 4.0.
+Features  Goto Definition
+Context-Aware Completions 4.0
+Status
+Settings
+Features
+Goto Definition
+When scanning the files in a project, the indexing engine records a list of every symbol and its location. Each syntax has the ability to define what is classified as a symbol, but typically functions, methods, classes and other data types are indexed. In addition to recording the location of definitions, the indexer records references – calls or invocations of known symbols.
+The index of symbols can be accessed via:
+Hovering over a word to show the Goto Definition Popup
+Invoking Goto Symbol in Project to fuzzy-search through symbols   Windows/Linux: Ctrl+Shift+R
+Mac: ⌘+Shift+R
+Executing Goto Definition for the word under the caret   All OSes: F12
+Executing Goto Reference for the word under the caret   All OSes: Shift+F12
+All of the Goto commands can also be invoked via the Goto menu.
+Context-Aware Completions
+4.0
+In addition to providing information about symbols, the index is used to provide context-aware completions. The indexer makes a list of all words present in the project, along with information about sequences of words and any trailing punctuation.
+When completions are shown, the index is queried to provide intelligent suggestions. Without the index, Sublime Text will only suggest matching words from the current file. With the index, it provides completions from all files, uses the preceeeding words to help suggest better matches and will suggest trailing punctuation when appropriate.
+Status
+The current status and activity of the indexing engine can be seen via the Help  Indexing Status… menu entry. This will show a window with the current status, progress bar and log of indexing messages.
+When the indexing engine is active, the status bar will contain a text label with a percentage. This percentage indicates indexing is active, and how far along in the process it is. Clicking the percentage will open the Indexing Status window.
+Settings
+The indexing engine uses low-priority background processes to load and analyse the files in the project. Depending on the machine and available resources, it may be desirable to modify the configuration to ensure the processes don't interfere with other usage of the machine.
+index_files
+boolean
+If the indexing engine is enabled
+Default:
+true
+index_workers
+integer
+The number of background processes to use. A value of 0 causes Sublime Text to automatically pick the number of porcesses based on the number of CPU cores.
+Default: 0
+index_exclude_gitignore
+4.0
+boolean
+If files ignored via .gitignore are excluded from indexing
+Default:
+true
+index_skip_unknown_extensions
+4.0
+boolean
+If files with unknown extensions are excluded from indexing
+Default:
+true
+index_exclude_patterns
+array of strings
+File patterns used to exclude files from indexing
+Default:
+["*.log"]
+show_definitions
+boolean
+If the Goto Definition popup will appear when hovering the mouse over a word that has been indexed
+Default:
+true
+auto_complete_use_index
+4.0
+boolean
+If completions should utilize information from the index
+Default:
+true
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

@@ -1,0 +1,47 @@
+
+File Patterns
+
+3.0
+Various features in Sublime Text use file patterns. These patterns are used to match against file/directory names and paths. They are similar in functionality to shell glob patterns, but have some unique behavior.
+Basic Syntax
+Path Rules
+Uses
+Basic Syntax
+File patterns allow two matching operators:
+*: matches zero or more characters, except /
+?: matches exactly one character, except /
+Neither character classes, [abc], nor the globstar operator, **, from Bash are supported.
+Examples
+The pattern abc will match abc but not abcd
+The pattern a?c will match abc but not ac
+The pattern a*c will match abc, ac and abdc
+Path Rules
+When / is not present in a pattern, it is only compared against the file or directory name and only the basic syntax applies. When a / is included in a pattern, it changes the behavior to:
+The pattern is matched against the entire file or directory path
+In a */ prefix or /* suffix, the * will match / characters
+*/ will be implicitly prefixed if the pattern does not start with a / or *
+* will be implicitly suffixed if the pattern does not start with a / or * 
+If the pattern ends in / it will be treated as a directory pattern, and will match both a directory with that name and 4.0 any contained files or subdirectories
+If a pattern begins with a single /, it will be compared as an absolute path
+If pattern begins with //, it will be compared as a relative path from the project root 4.0
+Examples
+The pattern mydir/one will match /parent/mydir/one, /mydir/one and /mydir/one/sub
+The pattern mydir/two will match /parent/mydir/two and /parent/mydir/two_sub
+The pattern mydir/two will match /parent/mydir/two but not /parent/mydir/two_sub
+The pattern /mydir/three will match /mydir/three but not /nested/mydir/three
+The pattern mydir/three/ will match /parent/mydir/three/sub but not /parent/mydir/three
+The pattern mydir/four/ will match /parent/mydir/four and /parent/mydir/four/sub
+The pattern //mydir/five will match /project1/mydir/five and /project2/mydir/five but not /project1/nested/mydir/five 4.0
+Uses
+File patterns are used in:
+Find in Files panel Where input
+Various settings   folder_exclude_patterns: Settings and Project Folders
+folder_include_patterns: Project Folders
+file_exclude_patterns: Settings and Project Folders
+file_include_patterns: Project Folders
+binary_file_patterns: Settings and Project Folders
+index_exclude_patterns: Settings and Project Folders
+index_include_patterns: Settings and Project Folders
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

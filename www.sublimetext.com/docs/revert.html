@@ -1,0 +1,29 @@
+
+Reverting to a Freshly Installed State
+
+3.0
+Sublime Text can be reverted to a freshly installed state by removing your data directory. Depending on your operating system, this directory is located in:
+Windows: %APPDATA%\Sublime Text
+Mac: ~/Library/Application Support/Sublime Text
+Linux: ~/.config/sublime-text
+If Sublime Text 3 was installed previously, the data directory may include 3 at the end of the name:
+Windows: %APPDATA%\Sublime Text 3
+Mac: ~/Library/Application Support/Sublime Text 3
+Linux: ~/.config/sublime-text-3
+Windows: %APPDATA%\Sublime Text 3
+Mac: ~/Library/Application Support/Sublime Text 3
+Linux: ~/.config/sublime-text-3
+To revert to a freshly installed state, you can:
+Exit Sublime Text
+Move the data directory to a backup location
+Start Sublime Text
+When restarted, a fresh data directory will be created, just as it was the first time you ran Sublime Text. Keep in mind that this will also remove all of your settings and packages. The backup copy of your data directory can be used to retrieve configuration, or custom packages that can not be reinstalled.
+Windows
+In Windows, cache files are stored in a separate location, %LOCALAPPDATA%\Sublime Text 3, to improve performance with roaming profiles.
+Cache
+Cache files are stored in a separate location:  Windows: %LOCALAPPDATA%\Sublime Text Mac: ~/Library/Caches/Sublime Text Linux: ~/.cache/sublime-text 
+Mac
+On Mac, the ~/Library directory is hidden by default. To navigate there, select the Go  Go to Folder menu item in Finder, and type in ~/Library.
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 

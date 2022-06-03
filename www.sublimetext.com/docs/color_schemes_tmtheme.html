@@ -1,0 +1,998 @@
+
+.tmTheme Color Schemes
+As of Sublime Text build 3149, a new color scheme format .sublime-color-scheme was introduced for easier editing, customization and addition of new features. The documentation for the new format is available at the main Color Schemes documentation.
+This page documents Sublime Text's implementation of the legacy .tmTheme format. Support for this legacy format will remain for backwards compatibility, but new features will only be added to the .sublime-color-scheme format.
+The .tmTheme format was created by TextMate. It is an XML format split into a global settings and scope styles.
+Example
+Colors
+Global Settings
+Scope Styles
+Appendix: X11 Colors
+Example
+The following is an example of the format of a .tmTheme file. A complete color scheme will have many more scope styles to cover the standard scope names.
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+<key>name</key>
+<string>Example Color Scheme</string>
+<key>settings</key>
+<array>
+<!-- Global settings -->
+<dict>
+<key>settings</key>
+<dict>
+<key>background</key>
+<string>#222222</string>
+<key>foreground</key>
+<string>#EEEEEE</string>
+<key>caret</key>
+<string>#FFFFFF</string>
+</dict>
+</dict>
+<!-- Scope styles -->
+<dict>
+<key>name</key>
+<string>Comment</string>
+<key>scope</key>
+<string>comment</string>
+<key>settings</key>
+<dict>
+<key>foreground</key>
+<string>#888888</string>
+</dict>
+</dict>
+<dict>
+<key>name</key>
+<string>String</string>
+<key>scope</key>
+<string>string</string>
+<key>settings</key>
+<dict>
+<key>foreground</key>
+<string>#FFD500</string>
+</dict>
+</dict>
+<dict>
+<key>name</key>
+<string>Number</string>
+<key>scope</key>
+<string>constant.numeric</string>
+<key>settings</key>
+<dict>
+<key>foreground</key>
+<string>#7F00FF</string>
+</dict>
+</dict>
+</array>
+</dict>
+Colors
+Colors in color schemes may be specified using of three formats: hex RGB, hex RGBA or (X11) named.
+The hex RGB format consists of the first two characters representing the red channel, the second two green and the final two represent blue. The specify red in hex RGB, write #FF0000.
+The hex RGBA format starts the same as hex RGB, but adds a fourth pair of hex characters that control the opacity. To specify red with 50% opacity in hex RGBA, write #FF000080.
+Named colors use X11 color names. Please note that while some share names with CSS named colors, the actual colors tend to differ.
+Global Settings
+The following global settings go in the first <dict>, and are specified using <key>/<string> pairs.
+background
+The default background color
+foreground
+The default color for text
+caret
+The color of the caret
+lineHighlight
+The background color of the line containing the caret. Only used
+when the highlight_line setting is enabled.
+Accents
+misspelling
+The color to use for the squiggly underline drawn under
+misspelled words.
+minimapBorder
+The color of the border drawn around the viewport
+area of the minimap when the setting
+draw_minimap_border is enabled. Note
+that the viewport is normally only visible on
+hover, unless the always_show_minimap_viewport
+setting is enabled.
+accent
+A color made available for use by the theme. The Default
+theme uses this to highlight modified tabs when the
+highlight_modified_tabs setting is enabled.
+CSS
+CSS is applied to minihtml content created via the popups and phantoms functionality that is exposed through the API. Supported CSS properties are discussed in the minihtml CSS reference.
+Plugins that use minihtml are encouraged to set a unique id attribute on the <body> tag of generated HTML to allow color schemes to override default plugin styles.
+popupCss
+CSS passed to popups.
+phantomCss
+CSS passed to phantoms. If not specified, uses
+popupCss.
+Gutter
+gutter
+The background color of the gutter
+gutterForeground
+The color of line numbers in the gutter
+Selection
+selection
+The background color of selected text
+selectionForeground
+A color that will override the scope-based text color
+of the selection
+selectionBorder
+The color for the border of the selection
+inactiveSelection
+The background color of a selection in a view that
+is not currently focused
+inactiveSelectionForeground
+A color that will override the scope-based text color
+of the selection in a view that is not currently focused
+Find
+highlight
+The border color for "other" matches when the
+Highlight matches option is selected
+in the Find panel. Also used to highlight matches
+in Find in Files results.
+findHighlight
+The background color of text matched by the Find panel
+findHighlightForeground
+A color that will override the scope-based text color
+of text matched by the Find panel
+Guides
+Guides are controlled globally by the draw_indent_guides setting.
+guide
+The color used to draw indent guides. Only used if
+the option "draw_normal" is present in
+the setting indent_guide_options.
+activeGuide
+The color used to draw the indent guides for the
+indentation levels containing the caret. Only used
+if the option "draw_active" is present in
+the setting indent_guide_options.
+stackGuide
+The color used to draw the indent guides for the
+parent indentation levels of the indentation level
+containing the caret. Only used if the option
+"draw_active" is present in
+the setting indent_guide_options.
+Brackets
+Bracket matching is controlled globally by the match_brackets setting.
+bracketsOptions
+How brackets are highlighted when the caret is next to one. Accepts a space-separated list from the following:
+underline
+stippled_underline
+squiggly_underline
+foreground
+bracketsForeground
+The color to use when drawing the style specified by
+bracketsOptions.
+bracketContentsOptions
+How brackets are highlighted when the caret is positioned in between a pair of brackets. Accepts a space-separated list from the following:
+underline
+stippled_underline
+squiggly_underline
+foreground
+bracketContentsForeground
+The color to use when drawing the style specified by
+bracketsContentsOptions.
+Tags
+Tag matching is controlled globally by the match_tags setting.
+tagsOptions
+How tags are highlighted when the caret is inside of one. Accepts a space-separated list from the following:
+underline
+stippled_underline
+squiggly_underline
+foreground
+tagsForeground
+The color to use when drawing the style specified by
+tagsOptions.
+Shadows
+shadow
+The color of the shadow used to show when a text area
+can be horizontally scrolled
+shadowWidth
+The width of the shadow in device-independent pixels
+Scope Styles
+Color schemes interact with the text in a file via scopes. Scopes are set to code or prose tokens via the syntax. Scopes are dotted strings, specified from least-to-most specific. For example, the if keyword in PHP could be specified via the scope name keyword.control.php.
+Matching
+Color schemes apply colors and font styles to the scopes by matching the dotted labels, starting with the first. Prefix matching is the standard way to have a color scheme apply to multiple syntaxes. Instead of matching keyword.control.php, most color schemes will instead assign a color to keyword. Matching the first one or two labels in a scope is most common. Including the final label, the syntax name, is uncommon unless a syntax-specific override is desired.
+Naming
+Author of syntaxes can assign whatever scopes they want to a given token. This combined with the fact that there are hundreds of community-maintained syntaxes means that is can be hard to know what scopes to target. The official Scope Naming guidelines were established to help syntax and color scheme authors use a common set, for better interoperability. The Usage in Color Schemes section provides a baseline set of scopes that color scheme authors should strive to handle.
+Style Rules
+Each scope style rule consists of a <dict> tag containing three pairs of <key>/<string> tags, with the following keys:
+name – the (arbitrary) name for the scope rule
+scope – the scope to apply the settings to
+settings – a <dict> of settings
+The settings <dict> tag may contain one or more of the following <key> tags:
+foreground – the text color
+background – the background color
+fontStyle – zero or more of bold, italic, separated by spaces
+Examples
+The following scope style rule will color all strings as green:
+<dict>
+<key>name</key>
+<string>Strings</string>
+<key>scope</key>
+<string>string</string>
+<key>settings</key>
+<dict>
+<key>foreground</key>
+<string>#00FF00</string>
+</dict>
+</dict>
+To style all numbers as bold, italic red, use:
+<dict>
+<key>name</key>
+<string>Numbers</string>
+<key>scope</key>
+<string>constant.numeric</string>
+<key>settings</key>
+<dict>
+<key>foreground</key>
+<string>#FF0000</string>
+<key>fontStyle</key>
+<string>bold italic</string>
+</dict>
+</dict>
+Appendix: X11 Colors
+&nbsp; aliceblue
+&nbsp; antiquewhite
+&nbsp; antiquewhite1
+&nbsp; antiquewhite2
+&nbsp; antiquewhite3
+&nbsp; antiquewhite4
+&nbsp; aquamarine
+&nbsp; aquamarine1
+&nbsp; aquamarine2
+&nbsp; aquamarine3
+&nbsp; aquamarine4
+&nbsp; azure
+&nbsp; azure1
+&nbsp; azure2
+&nbsp; azure3
+&nbsp; azure4
+&nbsp; barely blushing
+&nbsp; beige
+&nbsp; bisque
+&nbsp; bisque1
+&nbsp; bisque2
+&nbsp; bisque2
+&nbsp; bisque3
+&nbsp; bisque4
+&nbsp; black
+&nbsp; blanchedalmond
+&nbsp; blue
+&nbsp; blue1
+&nbsp; blue2
+&nbsp; blue3
+&nbsp; blue4
+&nbsp; blueviolet
+&nbsp; brown
+&nbsp; brown1
+&nbsp; brown2
+&nbsp; brown3
+&nbsp; brown4
+&nbsp; burlywood
+&nbsp; burlywood1
+&nbsp; burlywood2
+&nbsp; burlywood3
+&nbsp; burlywood4
+&nbsp; cadetblue
+&nbsp; cadetblue1
+&nbsp; cadetblue2
+&nbsp; cadetblue3
+&nbsp; cadetblue4
+&nbsp; carmel tan
+&nbsp; chartreuse
+&nbsp; chartreuse1
+&nbsp; chartreuse2
+&nbsp; chartreuse3
+&nbsp; chartreuse4
+&nbsp; chocolate
+&nbsp; chocolate1
+&nbsp; chocolate2
+&nbsp; chocolate3
+&nbsp; chocolate4
+&nbsp; coral
+&nbsp; coral1
+&nbsp; coral2
+&nbsp; coral3
+&nbsp; coral4
+&nbsp; cornflowerblue
+&nbsp; cornsilk
+&nbsp; cornsilk1
+&nbsp; cornsilk2
+&nbsp; cornsilk3
+&nbsp; cornsilk4
+&nbsp; crimson
+&nbsp; cyan
+&nbsp; cyan1
+&nbsp; cyan2
+&nbsp; cyan3
+&nbsp; cyan4
+&nbsp; darkblue
+&nbsp; darkcyan
+&nbsp; darkgoldenrod
+&nbsp; darkgoldenrod1
+&nbsp; darkgoldenrod2
+&nbsp; darkgoldenrod3
+&nbsp; darkgoldenrod4
+&nbsp; darkgray
+&nbsp; darkgreen
+&nbsp; darkgrey
+&nbsp; darkkhaki
+&nbsp; darkmagenta
+&nbsp; darkolivegreen
+&nbsp; darkolivegreen1
+&nbsp; darkolivegreen2
+&nbsp; darkolivegreen3
+&nbsp; darkolivegreen4
+&nbsp; darkorange
+&nbsp; darkorange1
+&nbsp; darkorange2
+&nbsp; darkorange3
+&nbsp; darkorange4
+&nbsp; darkorchid
+&nbsp; darkorchid1
+&nbsp; darkorchid2
+&nbsp; darkorchid3
+&nbsp; darkorchid4
+&nbsp; darkred
+&nbsp; darksalmon
+&nbsp; darkseagreen
+&nbsp; darkseagreen1
+&nbsp; darkseagreen2
+&nbsp; darkseagreen3
+&nbsp; darkseagreen4
+&nbsp; darkslateblue
+&nbsp; darkslategray
+&nbsp; darkslategray1
+&nbsp; darkslategray2
+&nbsp; darkslategray3
+&nbsp; darkslategray4
+&nbsp; darkslategrey
+&nbsp; darkturquoise
+&nbsp; darkviolet
+&nbsp; deeppink
+&nbsp; deeppink1
+&nbsp; deeppink2
+&nbsp; deeppink3
+&nbsp; deeppink4
+&nbsp; deepskyblue
+&nbsp; deepskyblue1
+&nbsp; deepskyblue2
+&nbsp; deepskyblue3
+&nbsp; deepskyblue4
+&nbsp; dimgray
+&nbsp; dimgrey
+&nbsp; dodgerblue
+&nbsp; dodgerblue1
+&nbsp; dodgerblue2
+&nbsp; dodgerblue3
+&nbsp; dodgerblue4
+&nbsp; dove beige
+&nbsp; dusted pink
+&nbsp; dusty trail
+&nbsp; eggshell cream
+&nbsp; far horizon
+&nbsp; firebrick
+&nbsp; firebrick1
+&nbsp; firebrick2
+&nbsp; firebrick3
+&nbsp; firebrick4
+&nbsp; floralwhite
+&nbsp; forestgreen
+&nbsp; frosted lime
+&nbsp; frosted peach
+&nbsp; gainsboro
+&nbsp; ghostwhite
+&nbsp; gold
+&nbsp; gold1
+&nbsp; gold2
+&nbsp; gold3
+&nbsp; gold4
+&nbsp; goldenrod
+&nbsp; goldenrod1
+&nbsp; goldenrod2
+&nbsp; goldenrod3
+&nbsp; goldenrod4
+&nbsp; gray
+&nbsp; gray cliffs
+&nbsp; gray0
+&nbsp; gray1
+&nbsp; gray10
+&nbsp; gray100
+&nbsp; gray11
+&nbsp; gray12
+&nbsp; gray13
+&nbsp; gray14
+&nbsp; gray15
+&nbsp; gray16
+&nbsp; gray17
+&nbsp; gray18
+&nbsp; gray19
+&nbsp; gray2
+&nbsp; gray20
+&nbsp; gray21
+&nbsp; gray22
+&nbsp; gray23
+&nbsp; gray24
+&nbsp; gray25
+&nbsp; gray26
+&nbsp; gray27
+&nbsp; gray28
+&nbsp; gray29
+&nbsp; gray3
+&nbsp; gray30
+&nbsp; gray31
+&nbsp; gray32
+&nbsp; gray33
+&nbsp; gray34
+&nbsp; gray35
+&nbsp; gray36
+&nbsp; gray37
+&nbsp; gray38
+&nbsp; gray39
+&nbsp; gray4
+&nbsp; gray40
+&nbsp; gray41
+&nbsp; gray42
+&nbsp; gray43
+&nbsp; gray44
+&nbsp; gray45
+&nbsp; gray46
+&nbsp; gray47
+&nbsp; gray48
+&nbsp; gray49
+&nbsp; gray5
+&nbsp; gray50
+&nbsp; gray51
+&nbsp; gray52
+&nbsp; gray53
+&nbsp; gray54
+&nbsp; gray55
+&nbsp; gray56
+&nbsp; gray57
+&nbsp; gray58
+&nbsp; gray59
+&nbsp; gray6
+&nbsp; gray60
+&nbsp; gray61
+&nbsp; gray62
+&nbsp; gray63
+&nbsp; gray64
+&nbsp; gray65
+&nbsp; gray66
+&nbsp; gray67
+&nbsp; gray68
+&nbsp; gray69
+&nbsp; gray7
+&nbsp; gray70
+&nbsp; gray71
+&nbsp; gray72
+&nbsp; gray73
+&nbsp; gray74
+&nbsp; gray75
+&nbsp; gray76
+&nbsp; gray77
+&nbsp; gray78
+&nbsp; gray79
+&nbsp; gray8
+&nbsp; gray80
+&nbsp; gray81
+&nbsp; gray82
+&nbsp; gray83
+&nbsp; gray84
+&nbsp; gray85
+&nbsp; gray86
+&nbsp; gray87
+&nbsp; gray88
+&nbsp; gray89
+&nbsp; gray9
+&nbsp; gray90
+&nbsp; gray91
+&nbsp; gray92
+&nbsp; gray93
+&nbsp; gray94
+&nbsp; gray95
+&nbsp; gray96
+&nbsp; gray97
+&nbsp; gray98
+&nbsp; gray99
+&nbsp; green
+&nbsp; green veil
+&nbsp; green1
+&nbsp; green2
+&nbsp; green3
+&nbsp; green4
+&nbsp; greenyellow
+&nbsp; grey
+&nbsp; grey0
+&nbsp; grey1
+&nbsp; grey10
+&nbsp; grey100
+&nbsp; grey11
+&nbsp; grey12
+&nbsp; grey13
+&nbsp; grey14
+&nbsp; grey15
+&nbsp; grey16
+&nbsp; grey17
+&nbsp; grey18
+&nbsp; grey19
+&nbsp; grey2
+&nbsp; grey20
+&nbsp; grey21
+&nbsp; grey22
+&nbsp; grey23
+&nbsp; grey24
+&nbsp; grey25
+&nbsp; grey26
+&nbsp; grey27
+&nbsp; grey28
+&nbsp; grey29
+&nbsp; grey3
+&nbsp; grey30
+&nbsp; grey31
+&nbsp; grey32
+&nbsp; grey33
+&nbsp; grey34
+&nbsp; grey35
+&nbsp; grey36
+&nbsp; grey37
+&nbsp; grey38
+&nbsp; grey39
+&nbsp; grey4
+&nbsp; grey40
+&nbsp; grey41
+&nbsp; grey42
+&nbsp; grey43
+&nbsp; grey44
+&nbsp; grey45
+&nbsp; grey46
+&nbsp; grey47
+&nbsp; grey48
+&nbsp; grey49
+&nbsp; grey5
+&nbsp; grey50
+&nbsp; grey51
+&nbsp; grey52
+&nbsp; grey53
+&nbsp; grey54
+&nbsp; grey55
+&nbsp; grey56
+&nbsp; grey57
+&nbsp; grey58
+&nbsp; grey59
+&nbsp; grey6
+&nbsp; grey60
+&nbsp; grey61
+&nbsp; grey62
+&nbsp; grey63
+&nbsp; grey64
+&nbsp; grey65
+&nbsp; grey66
+&nbsp; grey67
+&nbsp; grey68
+&nbsp; grey69
+&nbsp; grey7
+&nbsp; grey70
+&nbsp; grey71
+&nbsp; grey72
+&nbsp; grey73
+&nbsp; grey74
+&nbsp; grey75
+&nbsp; grey76
+&nbsp; grey77
+&nbsp; grey78
+&nbsp; grey79
+&nbsp; grey8
+&nbsp; grey80
+&nbsp; grey81
+&nbsp; grey82
+&nbsp; grey83
+&nbsp; grey84
+&nbsp; grey85
+&nbsp; grey86
+&nbsp; grey87
+&nbsp; grey88
+&nbsp; grey89
+&nbsp; grey9
+&nbsp; grey90
+&nbsp; grey91
+&nbsp; grey92
+&nbsp; grey93
+&nbsp; grey94
+&nbsp; grey95
+&nbsp; grey96
+&nbsp; grey97
+&nbsp; grey98
+&nbsp; grey99
+&nbsp; honeydew
+&nbsp; honeydew1
+&nbsp; honeydew2
+&nbsp; honeydew3
+&nbsp; honeydew4
+&nbsp; hotpink
+&nbsp; hotpink1
+&nbsp; hotpink2
+&nbsp; hotpink3
+&nbsp; hotpink4
+&nbsp; indianred
+&nbsp; indianred1
+&nbsp; indianred2
+&nbsp; indianred3
+&nbsp; indianred4
+&nbsp; indigo
+&nbsp; indigo2
+&nbsp; ivory
+&nbsp; ivory tusk
+&nbsp; ivory1
+&nbsp; ivory2
+&nbsp; ivory3
+&nbsp; ivory4
+&nbsp; khaki
+&nbsp; khaki1
+&nbsp; khaki2
+&nbsp; khaki3
+&nbsp; khaki4
+&nbsp; lavender
+&nbsp; lavenderblush
+&nbsp; lavenderblush1
+&nbsp; lavenderblush2
+&nbsp; lavenderblush3
+&nbsp; lavenderblush4
+&nbsp; lawngreen
+&nbsp; lemonchiffon
+&nbsp; lemonchiffon1
+&nbsp; lemonchiffon2
+&nbsp; lemonchiffon3
+&nbsp; lemonchiffon4
+&nbsp; light adobe
+&nbsp; light sand
+&nbsp; lightblue
+&nbsp; lightblue1
+&nbsp; lightblue2
+&nbsp; lightblue3
+&nbsp; lightblue4
+&nbsp; lightcoral
+&nbsp; lightcyan
+&nbsp; lightcyan1
+&nbsp; lightcyan2
+&nbsp; lightcyan3
+&nbsp; lightcyan4
+&nbsp; lightgoldenrod
+&nbsp; lightgoldenrod1
+&nbsp; lightgoldenrod2
+&nbsp; lightgoldenrod3
+&nbsp; lightgoldenrod4
+&nbsp; lightgoldenrodyellow
+&nbsp; lightgray
+&nbsp; lightgreen
+&nbsp; lightgrey
+&nbsp; lightpink
+&nbsp; lightpink1
+&nbsp; lightpink2
+&nbsp; lightpink3
+&nbsp; lightpink4
+&nbsp; lightsalmon
+&nbsp; lightsalmon1
+&nbsp; lightsalmon2
+&nbsp; lightsalmon3
+&nbsp; lightsalmon4
+&nbsp; lightseagreen
+&nbsp; lightskyblue
+&nbsp; lightskyblue1
+&nbsp; lightskyblue2
+&nbsp; lightskyblue3
+&nbsp; lightskyblue4
+&nbsp; lightslateblue
+&nbsp; lightslategray
+&nbsp; lightslategrey
+&nbsp; lightsteelblue
+&nbsp; lightsteelblue1
+&nbsp; lightsteelblue2
+&nbsp; lightsteelblue3
+&nbsp; lightsteelblue4
+&nbsp; lightyellow
+&nbsp; lightyellow1
+&nbsp; lightyellow2
+&nbsp; lightyellow3
+&nbsp; lightyellow4
+&nbsp; limegreen
+&nbsp; linen
+&nbsp; magenta
+&nbsp; magenta1
+&nbsp; magenta2
+&nbsp; magenta3
+&nbsp; magenta4
+&nbsp; maroon
+&nbsp; maroon1
+&nbsp; maroon2
+&nbsp; maroon3
+&nbsp; maroon4
+&nbsp; mediumaquamarine
+&nbsp; mediumblue
+&nbsp; mediumorchid
+&nbsp; mediumorchid1
+&nbsp; mediumorchid2
+&nbsp; mediumorchid3
+&nbsp; mediumorchid4
+&nbsp; mediumpurple
+&nbsp; mediumpurple1
+&nbsp; mediumpurple2
+&nbsp; mediumpurple3
+&nbsp; mediumpurple4
+&nbsp; mediumseagreen
+&nbsp; mediumslateblue
+&nbsp; mediumspringgreen
+&nbsp; mediumturquoise
+&nbsp; mediumvioletred
+&nbsp; midnightblue
+&nbsp; mintcream
+&nbsp; mistyrose
+&nbsp; mistyrose1
+&nbsp; mistyrose2
+&nbsp; mistyrose3
+&nbsp; mistyrose4
+&nbsp; moccasin
+&nbsp; morning fog
+&nbsp; navajowhite
+&nbsp; navajowhite1
+&nbsp; navajowhite2
+&nbsp; navajowhite3
+&nbsp; navajowhite4
+&nbsp; navy
+&nbsp; navyblue
+&nbsp; oldlace
+&nbsp; olivedrab
+&nbsp; olivedrab1
+&nbsp; olivedrab2
+&nbsp; olivedrab3
+&nbsp; olivedrab4
+&nbsp; orange
+&nbsp; orange1
+&nbsp; orange2
+&nbsp; orange3
+&nbsp; orange4
+&nbsp; orangered
+&nbsp; orangered1
+&nbsp; orangered2
+&nbsp; orangered3
+&nbsp; orangered4
+&nbsp; orchid
+&nbsp; orchid1
+&nbsp; orchid2
+&nbsp; orchid3
+&nbsp; orchid4
+&nbsp; ostrich feather
+&nbsp; pale olive
+&nbsp; palegoldenrod
+&nbsp; palegreen
+&nbsp; palegreen1
+&nbsp; palegreen2
+&nbsp; palegreen3
+&nbsp; palegreen4
+&nbsp; paleturquoise
+&nbsp; paleturquoise1
+&nbsp; paleturquoise2
+&nbsp; paleturquoise3
+&nbsp; paleturquoise4
+&nbsp; palevioletred
+&nbsp; palevioletred1
+&nbsp; palevioletred2
+&nbsp; palevioletred3
+&nbsp; palevioletred4
+&nbsp; papayawhip
+&nbsp; peachpuff
+&nbsp; peachpuff1
+&nbsp; peachpuff2
+&nbsp; peachpuff3
+&nbsp; peachpuff4
+&nbsp; pearly gates
+&nbsp; peru
+&nbsp; pink
+&nbsp; pink1
+&nbsp; pink2
+&nbsp; pink3
+&nbsp; pink4
+&nbsp; plantation white
+&nbsp; plum
+&nbsp; plum1
+&nbsp; plum2
+&nbsp; plum3
+&nbsp; plum4
+&nbsp; porcelain white
+&nbsp; powderblue
+&nbsp; purple
+&nbsp; purple1
+&nbsp; purple2
+&nbsp; purple3
+&nbsp; purple4
+&nbsp; red
+&nbsp; red1
+&nbsp; red2
+&nbsp; red3
+&nbsp; red4
+&nbsp; rosybrown
+&nbsp; rosybrown1
+&nbsp; rosybrown2
+&nbsp; rosybrown3
+&nbsp; rosybrown4
+&nbsp; royalblue
+&nbsp; royalblue1
+&nbsp; royalblue2
+&nbsp; royalblue3
+&nbsp; royalblue4
+&nbsp; saddlebrown
+&nbsp; salmon
+&nbsp; salmon1
+&nbsp; salmon2
+&nbsp; salmon3
+&nbsp; salmon4
+&nbsp; sand box
+&nbsp; sandybrown
+&nbsp; seagreen
+&nbsp; seagreen1
+&nbsp; seagreen2
+&nbsp; seagreen3
+&nbsp; seagreen4
+&nbsp; seashell
+&nbsp; seashell1
+&nbsp; seashell2
+&nbsp; seashell3
+&nbsp; seashell4
+&nbsp; sgibeet
+&nbsp; sgibrightgray
+&nbsp; sgibrightgrey
+&nbsp; sgichartreuse
+&nbsp; sgidarkgray
+&nbsp; sgidarkgrey
+&nbsp; sgigray0
+&nbsp; sgigray100
+&nbsp; sgigray12
+&nbsp; sgigray16
+&nbsp; sgigray20
+&nbsp; sgigray24
+&nbsp; sgigray28
+&nbsp; sgigray32
+&nbsp; sgigray36
+&nbsp; sgigray4
+&nbsp; sgigray40
+&nbsp; sgigray44
+&nbsp; sgigray48
+&nbsp; sgigray52
+&nbsp; sgigray56
+&nbsp; sgigray60
+&nbsp; sgigray64
+&nbsp; sgigray68
+&nbsp; sgigray72
+&nbsp; sgigray76
+&nbsp; sgigray8
+&nbsp; sgigray80
+&nbsp; sgigray84
+&nbsp; sgigray88
+&nbsp; sgigray92
+&nbsp; sgigray96
+&nbsp; sgigrey0
+&nbsp; sgigrey100
+&nbsp; sgigrey12
+&nbsp; sgigrey16
+&nbsp; sgigrey20
+&nbsp; sgigrey24
+&nbsp; sgigrey28
+&nbsp; sgigrey32
+&nbsp; sgigrey36
+&nbsp; sgigrey4
+&nbsp; sgigrey40
+&nbsp; sgigrey44
+&nbsp; sgigrey48
+&nbsp; sgigrey52
+&nbsp; sgigrey56
+&nbsp; sgigrey60
+&nbsp; sgigrey64
+&nbsp; sgigrey68
+&nbsp; sgigrey72
+&nbsp; sgigrey76
+&nbsp; sgigrey8
+&nbsp; sgigrey80
+&nbsp; sgigrey84
+&nbsp; sgigrey88
+&nbsp; sgigrey92
+&nbsp; sgigrey96
+&nbsp; sgilightblue
+&nbsp; sgilightgray
+&nbsp; sgilightgrey
+&nbsp; sgimediumgray
+&nbsp; sgimediumgrey
+&nbsp; sgiolivedrab
+&nbsp; sgisalmon
+&nbsp; sgislateblue
+&nbsp; sgiteal
+&nbsp; sgiverydarkgray
+&nbsp; sgiverydarkgrey
+&nbsp; sgiverylightgray
+&nbsp; sgiverylightgrey
+&nbsp; sienna
+&nbsp; sienna1
+&nbsp; sienna2
+&nbsp; sienna3
+&nbsp; sienna4
+&nbsp; skyblue
+&nbsp; skyblue1
+&nbsp; skyblue2
+&nbsp; skyblue3
+&nbsp; skyblue4
+&nbsp; slateblue
+&nbsp; slateblue1
+&nbsp; slateblue2
+&nbsp; slateblue3
+&nbsp; slateblue4
+&nbsp; slategray
+&nbsp; slategray1
+&nbsp; slategray2
+&nbsp; slategray3
+&nbsp; slategray4
+&nbsp; slategrey
+&nbsp; snow
+&nbsp; snow1
+&nbsp; snow2
+&nbsp; snow3
+&nbsp; snow4
+&nbsp; springgreen
+&nbsp; springgreen1
+&nbsp; springgreen2
+&nbsp; springgreen3
+&nbsp; springgreen4
+&nbsp; steelblue
+&nbsp; steelblue1
+&nbsp; steelblue2
+&nbsp; steelblue3
+&nbsp; steelblue4
+&nbsp; subtle white
+&nbsp; tan
+&nbsp; tan1
+&nbsp; tan2
+&nbsp; tan3
+&nbsp; tan4
+&nbsp; thistle
+&nbsp; thistle1
+&nbsp; thistle2
+&nbsp; thistle3
+&nbsp; thistle4
+&nbsp; toasted meringue
+&nbsp; tomato
+&nbsp; tomato1
+&nbsp; tomato2
+&nbsp; tomato3
+&nbsp; tomato4
+&nbsp; turquoise
+&nbsp; turquoise1
+&nbsp; turquoise2
+&nbsp; turquoise3
+&nbsp; turquoise4
+&nbsp; ultra pure white
+&nbsp; violet
+&nbsp; violetred
+&nbsp; violetred1
+&nbsp; violetred2
+&nbsp; violetred3
+&nbsp; violetred4
+&nbsp; warm shadow
+&nbsp; warm summer
+&nbsp; wedding veil
+&nbsp; wheat
+&nbsp; wheat1
+&nbsp; wheat2
+&nbsp; wheat3
+&nbsp; wheat4
+&nbsp; white
+&nbsp; white orchid
+&nbsp; white sail
+&nbsp; whitesmoke
+&nbsp; yellow
+&nbsp; yellow1
+&nbsp; yellow2
+&nbsp; yellow3
+&nbsp; yellow4
+&nbsp; yellowgreen
+© Sublime HQ Pty Ltd
+Woollahra, Sydney.
+Follow @sublimehq 
