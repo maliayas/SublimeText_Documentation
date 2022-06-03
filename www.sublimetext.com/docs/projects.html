@@ -1,13 +1,11 @@
 
 Projects
-
-3.0
 Projects in Sublime Text are made up of two files: the .sublime-project file, which contains the project definition, and the .sublime-workspace file, which contains user specific data, such as the open files and the modifications to each.
 As a general rule, the .sublime-project file would be checked into version control, while the .sublime-workspace file would not.
 Project Format
-"folders" Key
-"settings" Key
-"build_systems" Key
+“folders” Key
+“settings” Key
+“build_systems” Key
 Project Format
 .sublime-project files are JSON, and support three top level sections: "folders", for the included folders, "settings", for file-setting overrides, and "build_systems", for project specific build systems. An example:
 {
@@ -39,33 +37,28 @@ Project Format
 "folders" Key
 The "folders" key contains an array of objects. Each object must have a "path" key, which may be relative to the project directory, or a fully qualified path.
 Additional optional keys include:
-"name"
-string
+"name" string
 A name used in place of the folder name in the side bar
-"file_include_patterns"
-array of strings
+"file_include_patterns" array of strings
 Patterns of files to include from the folder. Anything not matching these patterns will be excluded. This is checked before "file_exclude_patterns".
-"file_exclude_patterns"
-array of strings
+"file_exclude_patterns" array of strings
 Patterns of files to exclude from the folder. This is added to the global setting of the same name. This is checked after "file_include_patterns".
-"folder_include_patterns"
-array of strings
-Patterns of folders to include from the folder. Anything not matching these patterns will be excluded. This is checked before "folder_exclude_patterns".   "folder_exclude_patterns" array of strings    Patterns of folders to exclude from the folder. This is added to the global setting of the same name. This is checked after "folder_include_patterns".
-"binary_file_patterns"
-3.1
-array of strings
+"folder_include_patterns" array of strings
+Patterns of folders to include from the folder. Anything not matching these patterns will be excluded. This is checked before "folder_exclude_patterns".
+"folder_exclude_patterns" array of strings
+Patterns of folders to exclude from the folder. This is added to the global setting of the same name. This is checked after "folder_include_patterns".
+"binary_file_patterns" array of strings
+3158
 Patterns of files to treat as binary files, and thus ignored in Goto Anything and Find in Files.
-"index_include_patterns"
-3.1
-array of strings
+"index_include_patterns" array of strings
+3158
 Patterns of files to index in the folder. This is added to the global setting of the same name. Anything not matching these patterns will be excluded from the index. This is checked before "index_exclude_patterns".
-"index_exclude_patterns"
-3.1
+"index_exclude_patterns" array of strings
+3158
 Patterns of files to excluding from indexing in the folder. This is added to the global setting of the same name. This is checked after "index_include_patterns".
-"follow_symlinks"
-boolean
+"follow_symlinks" boolean
 If symlinks should be followed when building the folder tree.
-Converted projects from earlier versions may have a "mount_points" entry under "folders". If you wish to use the exclude patterns, you'll need to change to the above format.
+Converted projects from earlier versions may have a "mount_points" entry under "folders". If you wish to use the exclude patterns, you’ll need to change to the above format.
 "settings" Key
 Settings may be specified here using the "settings" key, and will override regular user settings. They will not, however, override syntax-specific settings.
 Note that only settings in the category Editor Settings may be controlled by a project.

@@ -1,13 +1,11 @@
 
 Color Schemes
-
-3.0
 The highlighting of source code and prose in Sublime Text is controlled by a color scheme. A color scheme assigns colors and font styles to scopes, which are assigned to the text by the syntax. The rest of the look of the user interface is controlled by the theme. The theme controls such elements as buttons select lists, the sidebar and tabs.
 Sublime Text color schemes are implemented using .sublime-color-scheme files, containing JSON. Sublime Text also supports a subset of features using the TextMate .tmTheme format. Before Sublime Text 3.1, only the .tmTheme format was supported.
 Example
 Colors
 Variables
-Global Settings  Accents
+Global Settings Accents
 CSS
 Gutter
 Diff
@@ -18,7 +16,7 @@ Guides
 Brackets
 Tags
 Shadows
-Scope Rules  Matching
+Scope Rules Matching
 Naming
 Style Rules
 Hashed Syntax Highlighting
@@ -63,15 +61,15 @@ RGB functional notation: A function named rgb that accepts three integers in the
 RGBA functional notation: Identical to the RGB function format, except the name of the function is rgba and a fourth parameter is added accepting a value from 0.0 to 1.0 specifying the alpha channel. Red with 50% opacity is written as rgba(255, 0, 0, 0.5).
 HSL functional notation: A function named hsl that accepts three values. The first is an integer in the range 0 to 360 specifying the hue. The second is a percentage specifying the saturation. The third is a percentage specifying the lightness. Red is written as hsl(0, 100%, 50%).
 HSLA functional notation: Identical to the HSL function format, except the name of the function is hsla and a fourth parameter is added accepting a value from 0.0 to 1.0 specifying the alpha channel. Red with 50% opacity is written as hsla(0, 100%, 50%, 0.5).
-HWB functional notation 3181: A function named hwb that accepts three or four values. The first is an integer in the range 0 to 360 specifying the hue. The second is a percentage specifying the percentage of white mixed in. The third is a percentage specifying the black mixed in. The optional fourth parameter is a value from 0.0 to 1.0 that controls the opacity. Examples include: hwb(0, 20%, 20%) and hwb(0, 20%, 20%, 0.5).
+HWB functional notation: A function named hwb that accepts three or four values. The first is an integer in the range 0 to 360 specifying the hue. The second is a percentage specifying the percentage of white mixed in. The third is a percentage specifying the black mixed in. The optional fourth parameter is a value from 0.0 to 1.0 that controls the opacity. Examples include: hwb(0, 20%, 20%) and hwb(0, 20%, 20%, 0.5). 3181
 Named: CSS color names. Please note that while some share names with X11 named colors used in .tmTheme files, the actual colors tend to differ.
-Additionally, colors may be specified as a variable, and then referenced via the syntax var(example_var_name). Variable references are particularly useful when combined with the minihtml color() mod function and the supported blend(), blenda(), alpha(), saturation(), lightness() and min-contrast() adjusters.
-blend() adjuster: Blends a color into the base. To blend equal parts grey and a base color referenced via variable, in RGB space: color(var(base_green) blend(#888 50%)). If colors should be blended in HSL space, use the following form: color(var(base_green) blend(#888 50% hsl)). The resulting alpha value is always the alpha channel of the base color.
+Additionally, colors may be specified as a variable, and then referenced via the syntax var(example_var_name). Variable references are particularly useful when combined with the minihtml Colors and the supported blend(), blenda(), alpha(), saturation(), lightness() and min-contrast() adjusters.
+blend() adjuster: Blends a color into the base. To blend equal parts grey and a base color referenced via variable, in RGB space: color(var (base_green) blend(#888 50%)). If colors should be blended in HSL space, use the following form: color(var(base_green) blend(#888 50% hsl)). The resulting alpha value is always the alpha channel of the base color.
 blenda() adjuster: Functions the same way as the blend() adjuster, but blends the alpha channel of the two colors instead of just using the alpha channel from the base. An example of the blending a partially transparent grey into a green: color(var(base_green) blenda(#8888 50% hsl))
 alpha() adjuster: Changes the alpha channel of the base color to the value specified, from 0.0 to 1.0. Setting the alpha channel to 90%: color(var(base_green) alpha(0.9)). A shorthand name of a() is also available for this adjuster.
-saturation() adjuster 3179: Changes the saturation channel of the base color, in the HSL color space, to the value specified, from 0% to 100%. Setting the saturation to 90%: color(var(base_green) saturation(0.9)). Increasing the saturation by 10%: color(var(base_green) s(+ 10%)). A shorthand name of s() is also available for this adjuster.
-lightness() adjuster 3179: Changes the lightness channel of the base color, in the HSL color space, to the value specified, from 0% to 100%. Setting the lightness to 90%: color(var(base_green) lightness(0.9)). Decreasing the lightness by 10%: color(var(base_green) l(- 10%)). A shorthand name of l() is also available for this adjuster.
-min-contrast() adjuster 3181 Proprietary: Modifies a color to ensure a minimum contrast ratio against a "background" color. The first parameter is the color to calculate the contrast again, the "background", and the second is a decimal number specifying the minimum contrast ratio. Typical values for the contrast ratio range from 2.0 to 4.5. Ensure a contrast ratio of 2.5 against the background: color(var(base_green) min-contrast(var(bg_color) 2.5))
+saturation() adjuster: Changes the saturation channel of the base color, in the HSL color space, to the value specified, from 0% to 100%. Setting the saturation to 90%: color(var (base_green) saturation(0.9)). Increasing the saturation by 10%: color(var(base_green) s(+ 10%)). A shorthand name of s() is also available for this adjuster. 3179
+lightness() adjuster: Changes the lightness channel of the base color, in the HSL color space, to the value specified, from 0%` to 100%. Setting the lightness to 90%: color(var (base_green) lightness(0.9)). Decreasing the lightness by 10%: color (var(base_green) l(- 10%)). A shorthand name of l() is also available for this adjuster. 3179
+min-contrast() adjuster (Proprietary: Modifies a color to ensure a minimum contrast ratio against a “background” color. The first parameter is the color to calculate the contrast again, the “background”, and the second is a decimal number specifying the minimum contrast ratio. Typical values for the contrast ratio range from 2.0 to 4.5. Ensure a contrast ratio of 2.5 against the background: color(var (base_green) min-contrast(var(bg_color) 2.5)) 3181
 Variables
 Reusable color definitions may be created in the variables key. The names may be any string utilizing the characters a-z, A-Z, 0-9, _ and -. The values may be any valid color format.
 Variables may be referenced in the global settings and rules, via the syntax var(example_var_name). The following example shows basic variable usage:
@@ -112,13 +110,11 @@ Variables may be referenced in the global settings and rules, via the syntax var
 Global Settings
 The following global settings go in the object with the "globals" key.
 "background"
-The default background color
+The default background color.
 "foreground"
-The default color for text
+The default color for text.
 "invisibles"
-The color for whitespace, when rendered. When not specified,
-defaults to foreground with an opacity of
-0.35.
+The color for whitespace, when rendered. When not specified, defaults to foreground with an opacity of 0.35.
 "caret"
 The color of the caret
 "block_caret"
@@ -132,133 +128,98 @@ The color of the border for a block caret
 The color of the underline the block caret is drawn as when overlapping with a selection
 "block_caret_corner_style"
 4086
-The style of corners to use for block carets. Options include:
-round (the default), cut or
-square.
+The style of corners to use for block carets. Options include: round (the default), cut or square.
 "block_caret_corner_radius"
 4086
-The radius to use when the block_caret_corner_style
-is round or cut.
+The radius to use when the block_caret_corner_style is round or cut.
 "line_highlight"
-The background color of the line containing the caret. Only used
-when the highlight_line setting is enabled.
+The background color of the line containing the caret. Only used when the highlight_line setting is enabled.
 Accents
 "misspelling"
-The color to use for the squiggly underline drawn under
-misspelled words.
+The color to use for the squiggly underline drawn under misspelled words.
 "fold_marker"
-The color to use for the marker that indicates content has
-been folded.
+The color to use for the marker that indicates content has been folded.
 "minimap_border"
-The color of the border drawn around the viewport
-area of the minimap when the setting
-draw_minimap_border is enabled. Note
-that the viewport is normally only visible on
-hover, unless the always_show_minimap_viewport
-setting is enabled.
+The color of the border drawn around the viewport area of the minimap when the setting draw_minimap_border is enabled. Note that the viewport is normally only visible on hover, unless the always_show_minimap_viewport setting is enabled.
 "accent"
-A color made available for use by the theme. The Default
-theme uses this to highlight modified tabs when the
-highlight_modified_tabs setting is enabled.
+A color made available for use by the theme. The Default theme uses this to highlight modified tabs when the highlight_modified_tabs setting is enabled.
 CSS
-CSS is applied to minihtml content created via the popups and phantoms functionality that is exposed through the API. Supported CSS properties are discussed in the minihtml CSS reference.
+CSS is applied to minihtml Reference content created via the popups and phantoms functionality that is exposed through the API. Supported CSS properties are discussed in the CSS
 Plugins that use minihtml are encouraged to set a unique id attribute on the <body> tag of generated HTML to allow color schemes to override default plugin styles.
 "popup_css"
 CSS passed to popups.
 "phantom_css"
-CSS passed to phantoms. If not specified, uses
-popup_css.
+CSS passed to phantoms. If not specified, uses popup_css.
 "sheet_css"
 4065
 CSS passed to HTML sheets.
 Gutter
 "gutter"
-The background color of the gutter
+The background color of the gutter.
 "gutter_foreground"
-The color of line numbers in the gutter
+The color of line numbers in the gutter.
 "gutter_foreground_highlight"
 4050
-The color of line numbers in the gutter when a line is highlighted
+The color of line numbers in the gutter when a line is highlighted.
 Diff
 The diff functionality is displayed in the gutter as colored lines for added and modified lines, and a triangle where lines were deleted.
 "line_diff_width"
 3186
-The width of the diff lines, between 1 and 8
+The width of the diff lines, between 1 and 8.
 "line_diff_added"
 3189
-The color of diff markers for added lines
+The color of diff markers for added lines.
 "line_diff_modified"
 3186
-The color of diff markers for modified lines
+The color of diff markers for modified lines.
 "line_diff_deleted"
 3189
-The color of diff markers for deleted lines
+The color of diff markers for deleted lines.
 Selection
 "selection"
 The background color of selected text
 "selection_foreground"
-A color that will override the scope-based text color
-of the selection
+A color that will override the scope-based text color of the selection.
 "selection_border"
-The color for the border of the selection
+The color for the border of the selection.
 "selection_border_width"
-The width of the selection border, from 0 to
-4.
+The width of the selection border, from 0 to 4.
 "inactive_selection"
-The background color of a selection in a view that
-is not currently focused
+The background color of a selection in a view that.
 "inactive_selection_border"
 4074
-The color for the border of the selection in a view that is
-not currently focused
+The color for the border of the selection in a view that is not currently focused.
 "inactive_selection_foreground"
-A color that will override the scope-based text color
-of the selection in a view that is not currently focused
+A color that will override the scope-based text color of the selection in a view that is not currently focused.
 "selection_corner_style"
-The style of corners to use on selections. Options include:
-round (the default), cut or
-square.
+The style of corners to use on selections. Options include: round (the default), cut or square.
 "selection_corner_radius"
-The radius to use when the selection_corner_style
-is round or cut.
+The radius to use when the selection_corner_style is round or cut.
 Find
 "highlight"
-The border color for "other" matches when the
-Highlight matches option is selected
-in the Find panel. Also used to highlight matches
-in Find in Files results.
+The border color for “other” matches when the Highlight matches option is selected in the Find panel. Also used to highlight matches in Find in Files results.
 "find_highlight"
-The background color of text matched by the Find panel
+The background color of text matched by the Find panel.
 "find_highlight_foreground"
-A color that will override the scope-based text color
-of text matched by the Find panel
+A color that will override the scope-based text color.
 "scroll_highlight"
 4050
-The color search result positions drawn on top of the scroll bar.
+The color search result positions drawn on top of the scroll bar.*
 "scroll_selected_highlight"
 4050
-The color of the selected search result position drawn on top of the scroll bar.
+The color of the selected search result position drawn on top of the scroll bar.*
 Rulers
-Ruler locations are set by the rulerssetting.
+Ruler locations are set by the rulers setting.
 "rulers"
 The color used to draw rulers.
 Guides
 Guides are controlled globally by the draw_indent_guides setting.
 "guide"
-The color used to draw indent guides. Only used if
-the option "draw_normal" is present in
-the setting indent_guide_options.
+The color used to draw indent guides. Only used if the option "draw_normal" is present in the setting indent_guide_options.
 "active_guide"
-The color used to draw the indent guides for the
-indentation levels containing the caret. Only used
-if the option "draw_active" is present in
-the setting indent_guide_options.
+The color used to draw the indent guides for the indentation levels containing the caret. Only used if the option "draw_active" is present in the setting indent_guide_options.
 "stack_guide"
-The color used to draw the indent guides for the
-parent indentation levels of the indentation level
-containing the caret. Only used if the option
-"draw_active" is present in
-the setting indent_guide_options.
+The color used to draw the indent guides for the parent indentation levels of the indentation level containing the caret. Only used if the option "draw_active" is present in the setting indent_guide_options.
 Brackets
 Bracket matching is controlled globally by the match_brackets setting.
 "brackets_options"
@@ -270,8 +231,7 @@ foreground
 bold
 italic
 "brackets_foreground"
-The color to use when drawing the style specified by
-brackets_options.
+The color to use when drawing the style specified by brackets_options.
 "bracket_contents_options"
 How brackets are highlighted when the caret is positioned in between a pair of brackets. Accepts a space-separated list from the following:
 underline
@@ -279,8 +239,7 @@ stippled_underline
 squiggly_underline
 foreground
 "bracket_contents_foreground"
-The color to use when drawing the style specified by
-brackets_contents_options.
+The color to use when drawing the style specified by brackets_contents_options.
 Tags
 Tag matching is controlled globally by the match_tags setting.
 "tags_options"
@@ -290,33 +249,31 @@ stippled_underline
 squiggly_underline
 foreground
 "tags_foreground"
-The color to use when drawing the style specified by
-tags_options.
+The color to use when drawing the style specified by tags_options.
 Shadows
 "shadow"
-The color of the shadow used to show when a text area
-can be horizontally scrolled
+The color of the shadow used to show when a text area can be horizontally scrolled.
 "shadow_width"
-The width of the shadow in device-independent pixels
+The width of the shadow in device-independent pixels.
 Scope Rules
 Color schemes interact with the text in a file via scopes. Scopes are set to code or prose tokens via the syntax. Scopes are dotted strings, specified from least-to-most specific. For example, the if keyword in PHP could be specified via the scope name keyword.control.php.
 Matching
 Color schemes apply colors and font styles to the scopes by matching the dotted labels, starting with the first. Prefix matching is the standard way to have a color scheme apply to multiple syntaxes. Instead of matching keyword.control.php, most color schemes will instead assign a color to keyword. Matching the first one or two labels in a scope is most common. Including the final label, the syntax name, is uncommon unless a syntax-specific override is desired.
 Naming
-Author of syntaxes can assign whatever scopes they want to a given token. This combined with the fact that there are hundreds of community-maintained syntaxes means that is can be hard to know what scopes to target. The official Scope Naming guidelines were established to help syntax and color scheme authors use a common set, for better interoperability. The Usage in Color Schemes section provides a baseline set of scopes that color scheme authors should strive to handle.
+Author of syntaxes can assign whatever scopes they want to a given token. This combined with the fact that there are hundreds of community-maintained syntaxes means that is can be hard to know what scopes to target. The Scope Naming were established to help syntax and color scheme authors use a common set, for better interoperability. The Color Schemes section provides a baseline set of scopes that color scheme authors should strive to handle.
 Style Rules
-Each scope style rule consists of an object containing a "scope" key, along with one or more of the following optional keys:
+Each scope style rule consists of an object containing "scope" key, along with one or more of the following optional keys:
 "name"
-The (arbitrary) name for the scope rule
+The (arbitrary) name for the scope rule.
 "foreground"
-The text color
+The text color.
 "background"
-The background color
+The background color.
 "foreground_adjust"
 3179
-An adjustment to the "foreground" color, only valid with "background"
+An adjustment to the "foreground" color, only valid with "background".
 "selection_foreground"
-The text color when selected
+The text color when selected.
 "font_style"
 Zero or more of the following, separated by spaces:
 bold
@@ -325,10 +282,10 @@ glow 4050
 underline 4074
 stippled_underline 4075
 squiggly_underline 4075
-The "foreground_adjust" key accepts a space-separated list of adjusters that are supported by the minihtml color() mod function. It is only supported when the "background" key is also specified, and thus allows modifying all foregrounds used in combination with the background, without having to create different rules for every permutation.
+The "foreground_adjust" key accepts a space-separated list of adjusters that are supported by the minihtml Color. It is only supported when the "background" key is also specified, and thus allows modifying all foregrounds used in combination with the background, without having to create different rules for every permutation.
 Hashed Syntax Highlighting
 The "foreground" key supports a special mode called Hashed Syntax Highlighting, where each token matching the scope specified will receive a unique color from one, or more, gradients. Some editors refer to this style of highlighting as Semantic Highlighting.
-To use hashed syntax highlighting, the "foreground" key must have a value that is an array of two or more colors. Sublime Text will create 256 different colors that are linear interpolations (lerp) between the colors provided. The interpolation is done in HSL space.
+To use hashed syntax highlighting, the "foreground" key must have a value that is an array of two or more colors. Sublime Text will create 256 different colors that are linear interpolations(lerp) between the colors provided. The interpolation is done in HSL space.
 As Sublime Text highlights the tokens in a file, it will create a hashed value of the token, and use that to pick one of the 256 linear interpolations. Every instance of a given token will use the same color. For instance, each instance of first_name would have the same color, but every instance of name would have a different color.
 For hashed syntax highlighting to be most obvious, the hue difference between the start and end points should be as far apart as possible. Here is an example of using blues, purples and pinks for variable names:
 {
@@ -371,7 +328,7 @@ For example, to customize the default Monokai color scheme, create a file named 
 },
 ]
 }
-The contents of the "variables" and "globals" keys are merged, with the user's copy overwriting keys with the same name. For the "rules" array, the user's rules are appended.
+The contents of the "variables" and "globals" keys are merged, with the user’s copy overwriting keys with the same name. For the "rules" array, the user’s rules are appended.
 Appendix: CSS Colors
 &nbsp; aliceblue
 &nbsp; antiquewhite

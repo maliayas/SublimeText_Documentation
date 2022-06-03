@@ -26,8 +26,8 @@ on_clone_async()
 set_timeout_async()
 When writing threaded code, keep in mind that the buffer will be changing underneath you as your function runs.
 Restricted begin_edit() and end_edit()
-begin_end() and end_edit() are no longer directly accessible, except in some special circumstances. The only way to get a valid instance of an Edit object is to place your code in a TextCommand subclass. In general, most code can be refactored by placing the code between begin_edit() and end_edit() in a TextCommand, and then running the command via run_command().
-This approach removes the issue of dangling Edit objects, and ensures the repeat command and macros work as they should.
+begin_end() and end_edit() are no longer directly accessible, except in some special circumstances. The only way to get a valid instance of an sublime.Edit object is to place your code in a sublime_plugin.TextCommand subclass. In general, most code can be refactored by placing the code between begin_edit() and end_edit() in a sublime_plugin.TextCommand, and then running the command via run_command().
+This approach removes the issue of dangling sublime.Edit objects, and ensures the repeat command and macros work as they should.
 Zipped Packages
 Packages in Sublime Text 3 are able to be run from .sublime-package (i.e., renamed .zip files) files directly, in contrast to Sublime Text 2, which unzipped them prior to running.
 While in most changes this should lead to no differences, it is important to keep this in mind if you are accessing files in your package.

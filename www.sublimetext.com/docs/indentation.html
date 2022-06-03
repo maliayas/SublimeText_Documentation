@@ -6,48 +6,36 @@ Indentation Detection
 Converting Between Tabs and Spaces
 Automatic Indentation Settings
 Basic Settings
-tab_size
-integer
-The number of spaces a tab is considered equal to
-translate_tabs_to_spaces
-boolean
-If true, spaces will be inserted up to the next tab stop when Tab is pressed, rather than inserting a tab character
-detect_indentation
-boolean
-If true, the default, tab_size and translate_tabs_to_spaces will be calculated automatically when loading a file
-use_tab_stops
-boolean
-If translate_tabs_to_spaces is true, use_tab_stops will make Tab insert, and Backspace delete, up to the next tab stop
+"tab_size" integer
+The number of spaces a tab is considered equal to.
+"translate_tabs_to_spaces" boolean
+If true, spaces will be inserted up to the next tab stop when Tab is pressed, rather than inserting a tab character.
+"detect_indentation" boolean
+If true, the default, tab_size and translate_tabs_to_spaces will be calculated automatically when loading a file.
+"use_tab_stops" boolean
+If translate_tabs_to_spaces is true, use_tab_stops will make Tab insert, and Backspace delete, up to the next tab stop.
 See Settings for information about how to set global and syntax-specific settings.
 Indentation Detection
 When a file is loaded, its contents are examined, and the tab_size and translate_tabs_to_spaces settings are set for that file. The status area will report when this happens. While this generally works well, you may want to disable it. You can do that with the detect_indentation setting.
 Indentation detection can be run manually via the View  Indentation  Guess Settings From Buffer menu, which runs the detect_indentation command.
 Converting Between Tabs and Spaces
-The View  Indentation menu has commands to convert leading whitespace in the current file between tabs and spaces. These menu items run the expand_tabs and unexpand_tabs commands.
+The View  Indentation menu has commands to convert leading white space in the current file between tabs and spaces. These menu items run the expand_tabs and unexpand_tabs commands.
 Automatic Indentation Settings
-Automatic indentation guesses the amount of leading whitespace to insert on each line when you press enter. It's controlled with these settings:
-auto_indent
-boolean
-Enables auto indent
-Default:
-true
-smart_indent
-boolean
+Automatic indentation guesses the amount of leading white space to insert on each line when you press enter. It’s controlled with these settings:
+"auto_indent" boolean
+Enables auto indent.
+Default: true
+"smart_indent" boolean
 Makes auto indent a little smarter, e.g., by indenting the next line after an if statement in C.
-Default:
-true
-trim_automatic_white_space
-boolean
+Default: true
+"trim_automatic_white_space" boolean
 Trims white space added by auto_indent when moving the caret off the line.
-Default:
-true
-indent_to_bracket
-boolean
-Adds whitespace up to the first open bracket when indenting. Use when indenting like this:
+Default: true
+"indent_to_bracket" boolean
+Adds white space up to the first open bracket when indenting. Use when indenting like this:
 use_indent_to_bracket(to_indent,
 like_this);
-Default:
-false
+Default: false
 © Sublime HQ Pty Ltd
 Woollahra, Sydney.
 Follow @sublimehq 

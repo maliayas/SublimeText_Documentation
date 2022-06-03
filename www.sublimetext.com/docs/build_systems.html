@@ -31,27 +31,22 @@ Menu
 Windows/Linux
 Mac
 All
-Tools
-Build
+Tools  Build
 Ctrl+B
 ⌘+B
 F7
 Output will be shown in an output panel displayed at the bottom of the Sublime Text window.
 Selecting a Build System
-By default, Sublime Text uses automatic selection of build systems. When a user invokes a build, the current file's syntax and filename will be used to pick the appropriate build system.
+By default, Sublime Text uses automatic selection of build systems. When a user invokes a build, the current file’s syntax and filename will be used to pick the appropriate build system.
 If more than one build system matches the current file type, the user will be prompted to pick the build system they wish to use. Once a build system has been selected, Sublime Text will remember it until the user changes their selection.
-To manually choose a build system, use:
-Menu
-Tools
-Build System
+To manually choose a build system, use: Tools  Build System
 To change the build system, within the viable options, use one of the following methods:
 Keyboard
 Menu
 Command Palette
 Windows/Linux
 Mac
-Tools
-Build With…
+Tools  Build With…
 Build With:
 Ctrl+Shift+B
 ⇧+⌘+B
@@ -62,14 +57,10 @@ Keyboard
 Menu
 Next Result
 F4
-Tools
-Build Results
-Next Result
+Tools  Build Results  Next Result
 Previous Result
 Shift+F4
-Tools
-Build Results
-Previous Result
+Tools  Build Results  Previous Result
 Cancelling a Build
 An in-process build can be cancelled via:
 Keyboard
@@ -77,30 +68,22 @@ Menu
 Command Palette
 Windows/Linux
 Mac
-Tools
-Cancel Build
+Tools  Cancel Build
 Build: Cancel
 Ctrl+Break
 Ctrl+C
 Options
 All build systems may use the following top-level keys in the .sublime-build file:
-"selector"
-string
+"selector" string
 A selector to match the syntax that this build system should be enabled for.
-Example:
-"source.python"
-"file_patterns"
-array of strings
+Example: "source.python"
+"file_patterns" array of strings
 Patterns of file names the build system should be enabled for.
-Example:
-["*.py"]
-"keyfiles"
-array of strings
+Example: ["*.py"]
+"keyfiles" array of strings
 File names, if present in one of the opened folders, that will cause the build system to be enabled.
-Example:
-["Makefile"]
-"variants"
-array of objects
+Example: ["Makefile"]
+"variants" array of objects
 Subsidiary build systems that will inherit the options from the top-level build system. Each variant needs to specify a "name" key, and may override or add options to the top-level build system.
 Example:
 [
@@ -109,37 +92,29 @@ Example:
 "cmd": ["my_command", "-D", "$file"]
 }
 ]
-"cancel"
-string, array of strings
+"cancel" string, array of strings
 A string command name, or an array of string options.
 If a string is specified, the command specified will be used to cancel the build.
 If an array of strings, the primary "target" will be called, with these options added on. This only needs to be specified when using a custom "target".
-Examples:
-"cancel_my_build" or
-{"kill": true}
-"target"
-string
+Examples: "cancel_my_build" or { "kill": true }
+"target" string
 The command to run when the build system is invoked. The default value of exec allows use of the additional options specified in exec Target Options.
 If a value other than "exec" is specified, none of the options in exec Target Options will do anything.
 See the Advanced Example for a complete example.
-Example:
-"my_build"
-"windows"
-object
+Example: "my_build"
+"windows" object
 Options to use when the build system is being executed on a Windows machine.
 Example:
 {
 "cmd": ["my_command.exe", "/D", "$file"]
 }
-"osx"
-object
+"osx" object
 Options to use when the build system is being executed on a Mac machine.
 Example:
 {
 "cmd": ["/Applications/MyProgram.app/Contents/MacOS/my_command", "-d", "$file"]
 }
-"linux"
-object
+"linux" object
 Options to use when the build system is being executed on a Linux machine.
 Example:
 {
@@ -147,73 +122,54 @@ Example:
 }
 exec Target Options
 The default target of exec is used by the majority of build systems. It provides the following options to control what program to execute, and how to display the results.
-"cmd"
-array of strings
-The executable to run, plus any arguments to pass to it. Shell constructs such as piping and redirection are not supported – see shell_cmd.
+"cmd" array of strings
+The executable to run, plus any arguments to pass to it. Shell constructs such as piping and redirection are not supported – see "shell_cmd".
 May use variables.
-Example:
-["my_command", "-d", "$file"]
-"shell_cmd"
-string
-A shell command to execute. Unlike the cmd option, this does allow piping and redirection. Will use bash on Mac and Linux machine, and cmd.exe on Windows.
+Example: ["my_command", "-d", "$file"]
+"shell_cmd" string
+A shell command to execute. Unlike the "cmd" option, this does allow piping and redirection. Will use bash on Mac and Linux machine, and cmd.exe on Windows.
 May use variables.
-Example:
-"my_command \"$file\" | other_command"
-"working_dir"
-string
-The directory to execute the cmd or shell_cmd within.
+Example: "my_command \"$file\" | other_command"
+"working_dir" string
+The directory to execute the "cmd" or "shell_cmd" within.
 May use variables.
-Example:
-"$file_path"
-"file_regex"
-string
+Example: "$file_path"
+"file_regex" string
 A regular expression to run on the build output to match file information. The matched file information is used to enable result navigation. The regex should capture 2, 3 or 4 groups.
 The capture groups should be:
 filename
 line number
 column number
 message
-Example:
-"^\s*(\\S[^:]*)\\((\\d+):(\\d+)\\): ([^\\n]+)"
-"line_regex"
-string
+Example: "^\s*(\\S[^:]*)\\((\\d+):(\\d+)\\): ([^\\n]+)"
+"line_regex" string
 A regular expression to run on the build output to match line information. The matched file information is used to enable result navigation. The regex should capture 1, 2 or 3 groups.
 The groups should capture:
 line number
 column number
 error message
-This regular expression is only necessary when some results contain strictly a line number, line and column numbers, or line and column numbers with a message. When such a match is made, the file_regex option will be used to search backwards to find the appropriate file name.
-Example:
-"^\s*line (\\d+) col (\\d+): ([^\\n]+)"
-"encoding"
-string
+This regular expression is only necessary when some results contain strictly a line number, line and column numbers, or line and column numbers with a message. When such a match is made, the "file_regex" option will be used to search backwards to find the appropriate file name.
+Example: "^\s*line (\\d+) col (\\d+): ([^\\n]+)"
+"encoding" string
 The encoding of the build system output. Uses Python codec names. Defaults to "utf-8".
-Example:
-"iso-8859-1"
-"env"
-object
-Environment variable values to use when running the cmd or shell_cmd.
+Example: "iso-8859-1"
+"env" object
+Environment variable values to use when running the "cmd" or "shell_cmd".
 Example:
 {
 "PYTHONIOENCODING": "utf-8"
 }
-"quiet"
-boolean
+"quiet" boolean
 Reduces the amount of output about the build system invocation.
-Example:
-true
-"word_wrap"
-boolean
+Example: true
+"word_wrap" boolean
 Turns on word wrapping in the build system output panel.
-Example:
-true
-"syntax"
-string
+Example: true
+"syntax" string
 The syntax file to use to highlight the build system output panel.
-Example:
-"Packages/JavaScript/JSON.sublime-syntax"
+Example: "Packages/JavaScript/JSON.sublime-syntax"
 Custom Options
-When implementing a command to act as a build system target, the command's keyword arguments are available via options in the .sublime-build file. However, certain parameter names will not work since they conflict with built-in build system functionality.
+When implementing a command to act as a build system target, the command’s keyword arguments are available via options in the .sublime-build file. However, certain parameter names will not work since they conflict with built-in build system functionality.
 The following names will not be passed as arguments to commands. This also applies to other situations, such as options specified in the "cancel", "linux", "osx" and "windows" options.
 "cancel"
 "file_patterns"
@@ -229,16 +185,13 @@ The following names will not be passed as arguments to commands. This also appli
 Variables
 The following variables will be expanded within any string specified in the "cmd", "shell_cmd" or "working_dir" options.
 If a literal $ needs to be specified in one of these options, it must be escaped with a \. Since JSON uses backslashes for escaping also, $ will need to be written as \\$.
-Please note that this substitution will occur for any "target". If a custom target is used, it may implement variable expansion for additional options by using sublime.expand_variables() with the result from self.window.extract_variables().
+Please note that this substitution will occur for any <span class=”key”>”target”</span>. If a custom target is used, it may implement variable expansion for additional options by using sublime.expand_variables() with the result from self.window.extract_variables(). </p>
 Variable
 Description
 $packages
 The path to the Packages/ folder.
 $platform
-The platform Sublime Text is running on:
-"windows",
-"osx" or
-"linux".
+The platform Sublime Text is running on: "windows", "osx" or "linux".
 $file
 The full path, including folder, to the file in the active view.
 $file_path
@@ -263,8 +216,8 @@ $project_extension
 The extension of the current project file.
 Advanced Example
 The following example shows a custom target command, with the ability to cancel a build and navigate results.
-A target for a build system should be a sublime.WindowCommand. This will provide the instance variable of self.window to allow interaction with the current project, window and active view.
-Please note that the following example is somewhat simplistic in its implementation, and it won't handle many common edge cases.
+A target for a build system should be a sublime_plugin.WindowCommand. This will provide the instance variable of self.window to allow interaction with the current project, window and active view.
+Please note that the following example is somewhat simplistic in its implementation, and it won’t handle many common edge cases.
 The following Python can be saved to a file named Package/User/my_example_build.py:
 import sublime
 import sublime_plugin
@@ -272,7 +225,7 @@ import subprocess
 import threading
 import os
 class MyExampleBuildCommand(sublime_plugin.WindowCommand):
-encoding = &#x27;utf-8&#x27;
+encoding = &#39;utf-8&#39;
 killed = False
 proc = None
 panel = None
@@ -290,12 +243,12 @@ self.killed = True
 self.proc.terminate()
 return
 vars = self.window.extract_variables()
-working_dir = vars[&#x27;file_path&#x27;]
+working_dir = vars[&#39;file_path&#39;]
 # A lock is used to ensure only one thread is
 # touching the output panel at a time
 with self.panel_lock:
 # Creating the panel implicitly clears any previous contents
-self.panel = self.window.create_output_panel(&#x27;exec&#x27;)
+self.panel = self.window.create_output_panel(&#39;exec&#39;)
 # Enable result navigation. The result_file_regex does
 # the primary matching, but result_line_regex is used
 # when build output includes some entries that only
@@ -304,24 +257,24 @@ self.panel = self.window.create_output_panel(&#x27;exec&#x27;)
 # path to resolve relative file names against.
 settings = self.panel.settings()
 settings.set(
-&#x27;result_file_regex&#x27;,
-r&#x27;^File "([^"]+)" line (\d+) col (\d+)&#x27;
+&#39;result_file_regex&#39;,
+r&#39;^File "([^"]+)" line (\d+) col (\d+)&#39;
 )
 settings.set(
-&#x27;result_line_regex&#x27;,
-r&#x27;^\s+line (\d+) col (\d+)&#x27;
+&#39;result_line_regex&#39;,
+r&#39;^\s+line (\d+) col (\d+)&#39;
 )
-settings.set(&#x27;result_base_dir&#x27;, working_dir)
-self.window.run_command(&#x27;show_panel&#x27;, {&#x27;panel&#x27;: &#x27;output.exec&#x27;})
+settings.set(&#39;result_base_dir&#39;, working_dir)
+self.window.run_command(&#39;show_panel&#39;, {&#39;panel&#39;: &#39;output.exec&#39;})
 if self.proc is not None:
 self.proc.terminate()
 self.proc = None
-args = [&#x27;my_cli&#x27;]
+args = [&#39;my_cli&#39;]
 if lint:
-args.append(&#x27;-l&#x27;)
+args.append(&#39;-l&#39;)
 elif integration:
-args.append(&#x27;-i&#x27;)
-args.append(vars[&#x27;file_name&#x27;])
+args.append(&#39;-i&#39;)
+args.append(vars[&#39;file_name&#39;])
 self.proc = subprocess.Popen(
 args,
 stdout=subprocess.PIPE,
@@ -335,7 +288,7 @@ args=(self.proc.stdout,)
 ).start()
 def read_handle(self, handle):
 chunk_size = 2 ** 13
-out = b&#x27;&#x27;
+out = b&#39;&#39;
 while True:
 try:
 data = os.read(handle.fileno(), chunk_size)
@@ -345,31 +298,31 @@ data = os.read(handle.fileno(), chunk_size)
 out += data
 if len(data) == chunk_size:
 continue
-if data == b&#x27;&#x27; and out == b&#x27;&#x27;:
-raise IOError(&#x27;EOF&#x27;)
+if data == b&#39;&#39; and out == b&#39;&#39;:
+raise IOError(&#39;EOF&#39;)
 # We pass out to a function to ensure the
 # timeout gets the value of out right now,
 # rather than a future (mutated) version
 self.queue_write(out.decode(self.encoding))
-if data == b&#x27;&#x27;:
-raise IOError(&#x27;EOF&#x27;)
-out = b&#x27;&#x27;
+if data == b&#39;&#39;:
+raise IOError(&#39;EOF&#39;)
+out = b&#39;&#39;
 except (UnicodeDecodeError) as e:
-msg = &#x27;Error decoding output using %s - %s&#x27;
+msg = &#39;Error decoding output using %s - %s&#39;
 self.queue_write(msg  % (self.encoding, str(e)))
 break
 except (IOError):
 if self.killed:
-msg = &#x27;Cancelled&#x27;
+msg = &#39;Cancelled&#39;
 else:
-msg = &#x27;Finished&#x27;
-self.queue_write(&#x27;\n[%s]&#x27; % msg)
+msg = &#39;Finished&#39;
+self.queue_write(&#39;\n[%s]&#39; % msg)
 break
 def queue_write(self, text):
 sublime.set_timeout(lambda: self.do_write(text), 1)
 def do_write(self, text):
 with self.panel_lock:
-self.panel.run_command(&#x27;append&#x27;, {&#x27;characters&#x27;: text})
+self.panel.run_command(&#39;append&#39;, {&#39;characters&#39;: text})
 The custom MyExampleBuildCommand can be configured as a build system using the following JSON saved to a file named Packages/User/My Example Build.sublime-build:
 {
 "target": "my_example_build",

@@ -1,10 +1,8 @@
 
 API Environments
-
-3.0
 Plugins in Sublime Text are Python files located in the root of a package. The following document describes the Python environment the plugins are run in.
 Overview
-Python Version   Selecting the Python Version 4050
+Python Version  Selecting the Python Version 4050
 Modules
 Pre-Installed Packages 4050
 Overview
@@ -14,25 +12,26 @@ All plugins are run in a single plugin_host process, and share a single Python e
 The plugin_host process contains an embedded version of the Python programming language, and exposes an API to plugins. The plugin_host executable always uses its own embedded version of Python, even if the end-user has Python installed on their machine.
 Python Version
 By default, all plugins are run using Python 3.3.6. Sublime Text‘s build of Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix issues with unicode paths and crashes with the ctypes module on 64bit versions of Windows.
-Starting in build 4050, plugins may also be run using Python 3.8. Python 3.8 features many improvements to the language, better performance and continued support and bug fixes from the Python Software Foundtion. 4050
-Selecting the Python Version
+Starting in build 4050, plugins may also be run using Python 3.8. Python 3.8 features many improvements to the language, better performance and continued support and bug fixes from the Python Software Foundtion.
 4050
+Selecting the Python Version
 To provide for backward compatibility, Sublime Text 4050 will continue to run all plugins using Python 3.3.
 Any package that wishes to use Python 3.8 must create a file named .python-version in the root of the packages. This file should contain either the text 3.3 or 3.8 to select the version of Python to use. If a file named .python-version is not present, or it contains any value other than 3.8, then Python 3.3 will be used.
 All plugins in a package will use the same version of Python. Any package with a .python-version file containing 3.8 loaded in older builds of Sublime Text will try to run the plugins using Python 3.3.
+4050
 Modules
 The Python environment within plugin_host contains all of the modules in The Python Standard Library, except for:
 audioop
-crypt Linux
+crypt (Not on Linux)
 curses
-cProfile Linux <4050
-fpectl 3.3
+cProfile (Not on Linux) <4050
+fpectl 4050 3.3
 readline
-lzma 3.3
+lzma 4050 3.3
 msilib
 nis
 ossaudiodev
-resource 3.3
+resource 4050 3.3
 spwd
 syslog
 test
@@ -40,9 +39,9 @@ tkinter
 turtle
 wave
 Pre-Installed Packages
-4050
 The following the packages are pre-installed in both the Python 3.3 and 3.8 environments:
 certifi: A collection of SSL root certs for use with urllib
+4050
 © Sublime HQ Pty Ltd
 Woollahra, Sydney.
 Follow @sublimehq 

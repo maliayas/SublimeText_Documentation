@@ -1,16 +1,14 @@
 
 minihtml Reference
-
-3.0
 Sublime Text contains a custom HTML and CSS engine, named minihtml, for displaying stylized content in editor panes. HTML content can be displayed in both popup windows and phantoms.
 minihtml provides a limited subset of HTML and CSS features found in most web browsers. While only certain CSS and HTML features may be implemented, they are designed to be standards compliant. Any feature implemented should function the same way in minihtml as in a browser.
-HTML  Tags
+HTML Tags
 Attributes
 Protocols 4073
 Inline Formatting 4073
 Best Practices
 Predefined Classes
-CSS  Units
+CSS Units
 Colors
 Variables
 HTML
@@ -30,29 +28,28 @@ The following tags are styled by the default style sheet:
 <a>
 <code>, <var>, <tt>
 Special behavior is implemented for a few tags:
-<a> – a callback can be specified via the API to handle clicks on anchor tags
-<img> – supports PNG, JPG and GIF images from file://, res:// and data: URLs
-<ul> – bullets are displayed for <li> tags
+<a> — a callback can be specified via the API to handle clicks on anchor tags.
+<img> — supports PNG, JPG and GIF images from file://, res:// and data: URLs.
+<ul> — bullets are displayed for <li> tags.
 Other HTML tags with special behavior are not implemented. This includes tags such as <input>, <button>, <table>, etc.
 Attributes
 The following attributes are supported:
-class - for CSS selectors
-id - for CSS selectors
-style - inline CSS
-href - callback-based navigation, protocols support 4073
-title - tooltips 4085
+class — for CSS selectors
+id — for CSS selectors
+style — inline CSS
+href — callback-based navigation, protocols support 4073
+title — tooltips 4085
 Protocols
-4073
 In HTML sheets, popups, annotations and completion item details, the href="" attribute of <a> tags automatically supports three protocols:
-http: - standard URL, will use system default browser to open
-https: - standard URL, will use system default browser to open
-subl: - a command name and args to invoke a command
+http: — standard URL, will use system default browser to open
+https: — standard URL, will use system default browser to open
+subl: — a command name and args to invoke a command
 Valid subl: URL formats include:
 subl:command_name
 subl:command_name {"arg_name": arg_value, …}
 For popups and annotations it is possible to define an on_navigate callback via the API that will be called for any URL except for the subl: protocol. This API-based approach was the only way to handle URLs before build 4073.
-Inline Formatting
 4073
+Inline Formatting
 In the details field of completion items, quick panel items and list input items, there is support for a limited, inline formatting subset of minihtml. This allows for some basic text formatting, that respects the theme and color scheme the user has selected.
 The supported tags are:
 <a href=""> – protocols
@@ -63,8 +60,9 @@ The supported tags are:
 <u>
 <tt>
 <code>
+4073
 Best Practices
-To allow color scheme authors to tweak the look of popups and phantoms, it is best to add a unique id="" attribute to the <body> tag of your plugin's HTML.
+To allow color scheme authors to tweak the look of popups and phantoms, it is best to add a unique id="" attribute to the <body> tag of your plugin’s HTML.
 Within the <body> tag, add a <style> tag containing selectors that do not use the id. Leave that for selectors in color schemes to be able to override the plugin.
 <body id="my-plugin-feature">
 <style>
@@ -80,19 +78,56 @@ When minihtml processes the HTML markup, it will automatically add a single clas
 Which class is added is based on the lightness, in the HSL color space, of the background color of the current color scheme. If the lightness is less than 0.5, dark will be added. If the lightness is greater than or equal to 0.5, light will be added.
 CSS
 The following list provides an overview of supported properties and values:
-display: inline,  inline-block 4085,  block, list-item, none
-margin: positive units margin-top: positive units margin-right: positive units margin-bottom: positive units margin-left: positive units
+display: none, inline, block, list-item, inline-block 4085
+margin: positive units
+margin-top: positive units
+margin-right: positive units
+margin-bottom: positive units
+margin-left: positive units
 position: static, relative
-top: positive and negative units right: positive and negative units bottom: positive and negative units left: positive and negative units
+top: positive and negative units
+right: positive and negative units
+bottom: positive and negative units
+left: positive and negative units
 background-color: colors
-font-family: comma-separated list of font families font-size: positive units font-style: normal, italic font-weight: normal, bold line-height: positive units text-decoration: none, underline  text-align: left, right, center 4085 
+font-family: comma-separated list of font families
+font-size: positive units
+font-style: normal, italic
+font-weight: normal, bold
+line-height: positive units
+text-decoration: none, underline
+text-align: left, right, center 4085
 color: colors
-padding: positive units padding-top: positive units padding-right: positive units padding-bottom: positive units padding-left: positive units
-border: positive units || border-style || colors border-top: positive units || border-style || colors border-right: positive units || border-style || colors border-bottom: positive units || border-style || colors border-left: positive units || border-style || colors
-border-style: none, solid border-top-style: border-style border-right-style: border-style border-bottom-style: border-style border-left-style: border-style
-border-width: positive units border-top-width: positive units border-right-width: positive units border-bottom-width: positive units border-left-width: positive units
-border-color: colors border-top-color: colors border-right-color: colors border-bottom-color: colors border-left-color: colors
-border-radius: positive units border-top-left-radius: positive units border-top-right-radius: positive units border-bottom-right-radius: positive units border-bottom-left-radius: positive units
+padding: positive units
+padding-top: positive units
+padding-right: positive units
+padding-bottom: positive units
+padding-left: positive units
+border: positive units or border-style or colors
+border-top: positive units or border-style or colors
+border-right: positive units or border-style or colors
+border-bottom: positive units or border-style or colors
+border-left: positive units or border-style or colors
+border-style: none, solid
+border-top-style: border-style
+border-right-style: border-style
+border-bottom-style: border-style
+border-left-style: border-style
+border-width: positive units
+border-top-width: positive units
+border-right-width: positive units
+border-bottom-width: positive units
+border-left-width: positive units
+border-color: colors
+border-top-color: colors
+border-right-color: colors
+border-bottom-color: colors
+border-left-color: colors
+border-radius: positive units
+border-top-left-radius: positive units
+border-top-right-radius: positive units
+border-bottom-right-radius: positive units
+border-bottom-left-radius: positive units
 list-style-type: circle, square and disc 4050
 Units
 Supported units of measurement include:
@@ -100,7 +135,7 @@ rem
 em
 px
 pt
-rem units are recommended because they are based on the user's font_size setting, and they will not cascade.
+rem units are recommended because they are based on the user’s font_size setting, and they will not cascade.
 Colors
 Colors may be specified via:
 Named colors: white, tan, etc
@@ -114,15 +149,14 @@ HSL functional notation: hsl(0, 100%, 100%)
 HSLA functional notation: hsla(0, 100%, 100%, 0.5)
 HWB functional notation: hwb(0, 20%, 20%), hwb(0, 20%, 20%, 0.5) 3181
 transparent
-color() Mod Function
-Proprietary
+color() Mod Function (Proprietary)
 Additionally, color values may be modified using the CSS Color Module Level 4 (05 July 2016) color-mod function with the following adjusters. Unfortunately in a later draft of CSS Color Module Level 4, the color-mod function was removed.
 alpha()/a()
 saturation()/s() 3179
 lightness()/l() 3179
 blend()
 blenda()
-min-contrast() 3181 Proprietary
+min-contrast() (Proprietary) 3181
 .error {
 background-color: color(var(--background) alpha(0.25));
 }
@@ -132,7 +166,7 @@ background-color: color(var(--background) blend(red 50%));
 The color-mod function will be most useful in combination with variables.
 min-contrast() Adjuster
 The min-contrast() adjuster for the color() mod function is a non-standard addition that is custom to minihtml. At the time of implementation, the CSS Color Module Level 4 spec had a contrast() adjuster, but it only allowed taking a color and modifying it to provide contrast with itself, as opposed to taking a second color (typically a background) and making sure the foreground has sufficient contrast with the background.
-min-contrast() accepts two parameters: a background color to measure the contrast against, and a minimum contrast ratio between the "base" color and the background color. The ratio will be a decimal number, typically between 2.0 and 4.5.
+min-contrast() accepts two parameters: a background color to measure the contrast against, and a minimum contrast ratio between the “base” color and the background color. The ratio will be a decimal number, typically between 2.0 and 4.5.
 .error {
 background-color: color(var(--redish) min-contrast(var(--background) 2.5));
 }
@@ -150,12 +184,12 @@ Predefined Variables
 When a color scheme is loaded, the background and foreground colors are set to CSS variables, along with the closest color found to a handful of basic colors. These are all set in an html { } rule set in the default CSS style sheet.
 var(--background)
 var(--foreground)
-var(--accent) 3179
+var(–accent) 3179
 var(--redish)
 var(--orangish)
 var(--yellowish)
 var(--greenish)
-var(--cyanish) 3179
+var(–cyanish) 3179
 var(--bluish)
 var(--purplish)
 var(--pinkish)

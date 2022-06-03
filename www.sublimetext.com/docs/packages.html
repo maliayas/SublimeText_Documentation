@@ -15,7 +15,7 @@ Loose packages may be stored in:
 For example, the package Python is stored in <executable_path>/Packages/Python.sublime-package, and any files in the <data_path>/Packages/Python/ directory will override those stored in the .sublime-package file.
 In general, <executable_path>/Packages/ is for packages that ship with Sublime Text, and <data_path>/Installed Packages/ is for packages installed by the user.
 Special Packages
-There are two special packages: Default and User. Default is always ordered first, and User is always ordered last. Package ordering comes into effect when merging files between packages, for example Main.sublime-menu. Any package may contain a file called Main.sublime-menu, however this won't override the main menu, instead the files will be merged according to the order of the packages.
+There are two special packages: Default and User. Default is always ordered first, and User is always ordered last. Package ordering comes into effect when merging files between packages, for example Main.sublime-menu. Any package may contain a file called Main.sublime-menu, however this won’t override the main menu, instead the files will be merged according to the order of the packages.
 Packages other than Default and User are ordered alphabetically.
 Creating a New Package
 To create a new package, simply create a new directory under <data_path>/Installed Packages/. You can access this directory from the Preferences  Browse Packages menu.

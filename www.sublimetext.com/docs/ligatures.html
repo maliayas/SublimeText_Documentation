@@ -6,9 +6,9 @@ In the default configuration, Sublime Text will use ligatures for sequences of s
 To use ligatures from the dlig OpenType table, the font_options setting must have the string "dlig" added. The font_options setting also allows for disabling ligatures from the clig, liga or calt tables by adding the respective "no_clig", "no_liga" or "no_calt" strings.
 Troubleshooting
 If ligatures are not displaying, please check the following:
-Check to see what unicode characters make up the ligature. Sublime Text currently only supports ligatures comprised from the following characters: !, ", #, $, %, &amp;, ', (, ), *, +, ,, -, ., /, :, ;, <, =, >, ?, @, [, \, ], ^, _, `, {, |, }, ~.
+Check to see what unicode characters make up the ligature. Sublime Text currently only supports ligatures comprised from the following characters: !, ", #, $, %, &amp;, ', (, ), *, +, ,, -, ., /, :, ;, <, =, >, ?, &#64;, [, \, ], ^, _, `, {, |, }, ~.
 Make sure Sublime Text build 3146 or newer is installed. If trying to use font_options to control ligatures, ensure build 3158 or newer is installed.
-See if the ligatures appear when using the "Plain Text" syntax for the file. If so, the syntax is likely breaking the symbols into distinct tokens, preventing a ligature from being used.
+See if the ligatures appear when using the “Plain Text” syntax for the file. If so, the syntax is likely breaking the symbols into distinct tokens, preventing a ligature from being used.
 If using Sublime Text on Linux, check and see what version of Pango is installed. Pango 1.38, released in 2015, is required to specify the font_options to control liagures.
 © Sublime HQ Pty Ltd
 Woollahra, Sydney.

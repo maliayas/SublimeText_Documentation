@@ -3,10 +3,10 @@ Scope Naming
 Syntax definitions and color schemes in Sublime Text interact through the use of scope names. Scopes are dotted strings, specified from least-to-most specific. For example, the if keyword in PHP could be specified via the scope name keyword.control.php.
 Sublime Text supports TextMate language grammars, and inherited its default syntaxes from various open-source bundles. The TextMate language grammar documentation provided a base set of scope names that have been slowly expanded and changed by the community.
 This is a living document that attempts to document best practices for using scope names in syntax definitions and color schemes. All of the Sublime Text default packages strive to adhere to these recommendations.
-Usage in Syntax Definitions  Example Syntaxes
+Syntax Definitions Example Syntaxes
 Alphabetical Reference
-Usage in Color Schemes
-Usage in Syntax Definitions
+Color Schemes
+Syntax Definitions
 The scopes documented below are a recommended base set of scope names to use when creating a syntax definition.
 In this documentation, the syntax name is omitted from the end of the dotted scope name. When writing a syntax, unless otherwise noted, the syntax name should be the final segment of a dotted name. For example, a control keyword in Ruby would be keyword.control.ruby, whereas in Python it would be keyword.control.python.
 Example Syntaxes
@@ -111,7 +111,7 @@ Control keywords examples include if, try, end and while. Some syntaxes prefer t
 keyword.control
 keyword.control.conditional
 keyword.control.import
-Keywords that contain punctuation, such as the @ symbol in CSS, add the following scope to the symbols:
+Keywords that contain punctuation, such as the &#64; symbol in CSS, add the following scope to the symbols:
 punctuation.definition.keyword
 All remaining non-operator keywords fall under the other variant:
 keyword.other
@@ -251,7 +251,7 @@ The punctuation for an interpolated expression should be:
 punctuation.section.interpolation.begin
 punctuation.section.interpolation.end
 Between the punctuation, the interpolated expression should get:
-source.language-suffix.embedded
+source.*language-suffix*.embedded
 support.
 Elements provided by a base framework should use one of the following scopes. Examples include Cocoa within Objective-C, or the browser/Node within JavaScript.
 support.constant
@@ -286,7 +286,7 @@ The final label in an identifier that is part of an annotation should use the fo
 variable.annotation
 The leading symbol used to delineate an annotation should use:
 punctuation.definition.annotation
-Usage in Color Schemes
+Color Schemes
 In general, when applying colors and styles to scopes in a color scheme, the most general form of a selector should be styled first. High-quality syntaxes utilizing the scopes outlined in the previous section should result is good user experience for end users.
 Minimal Scope Coverage
 The following is a recommended minimal set of scopes to highlight. Adding extra may result in a slightly improved experience, however being too specific will result in a color scheme that often only looks good for one or two syntaxes.
