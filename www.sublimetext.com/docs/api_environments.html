@@ -116,8 +116,9 @@ programming language, and exposes an <a class="reference internal" href="api_ref
 The <span class="file">plugin_host</span> executable always uses its own embedded version of
 Python, even if the end-user has Python installed on their machine.</p>
 </section><section id="python-version"><h2>Python Version<a class="headerlink" href="api_environments.html#python-version" title="Permalink to this headline">🔗</a></h2>
-<p>By default, all plugins are run using Python 3.3.6. <i>Sublime Text‘s build of
-Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix
+<p>By default all plugins are run using Python 3.3.6, except inside the
+<span class="file">User</span> package which always uses the latest python. <i>Sublime Text‘s build
+of Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix
 issues with unicode paths and crashes with the <code class="docutils literal notranslate"><span class="pre">ctypes</span></code> module on 64bit
 versions of Windows.</i></p>
 <div class="build-filter build-4050 docutils container">

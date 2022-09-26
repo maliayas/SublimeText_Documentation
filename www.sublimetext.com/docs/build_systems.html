@@ -362,6 +362,9 @@ such as piping and redirection are not supported – see <a class="reference int
 <dd><p>A shell command to execute. Unlike the <a class="reference internal" href="build_systems.html#cmd" title="&quot;cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code></a> option, this does allow
 piping and redirection. Will use <code class="docutils literal notranslate"><span class="pre">bash</span></code> on Mac and Linux machine, and
 <code class="docutils literal notranslate"><span class="pre">cmd.exe</span></code> on Windows.</p>
+<p>This takes precedence over <a class="reference internal" href="build_systems.html#cmd" title="&quot;cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code></a>. If you want to override the
+<a class="reference internal" href="build_systems.html#shell_cmd" title="&quot;shell_cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code></a> in a build variant with a <a class="reference internal" href="build_systems.html#cmd" title="&quot;cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code></a> then also set the
+<a class="reference internal" href="build_systems.html#shell_cmd" title="&quot;shell_cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code></a> to <code class="docutils literal notranslate"><span class="pre">null</span></code>.</p>
 <p>May use <a class="reference internal" href="build_systems.html#variables">variables</a>.</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;my_command</span> <span class="pre">\&quot;$file\&quot;</span> <span class="pre">|</span> <span class="pre">other_command&quot;</span></code></p>
 </dd></dl>

@@ -195,7 +195,8 @@ string, the user’s setting will be coerced to an empty string when not set.</p
 </li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;parents&quot;</span></code> key is an array of objects specifying the <code class="docutils literal notranslate"><span class="pre">&quot;class&quot;</span></code> and
-<code class="docutils literal notranslate"><span class="pre">&quot;attributes&quot;</span></code> that must be matched in a parent element.</p>
+<code class="docutils literal notranslate"><span class="pre">&quot;attributes&quot;</span></code> that must be matched in a parent element. Note that the
+parents must be ordered from furthest to closest parent.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;platforms&quot;</span></code> key is an array of strings specifying the what operating
 systems to apply the rule to. Valid options
 include <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;osx&quot;</span></span></code>, <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;windows&quot;</span></span></code> and <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;linux&quot;</span></span></code>.</p>
@@ -505,25 +506,25 @@ supports the following keys:</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">layer0.</span><i><span class="pre">*</span></i></code></dt>
-<dd><p>The bottom-most texture <a class="reference external" href="https://www.sublimetext.com/docs/layer_properties">layer</a> for the element.</p>
+<dd><p>The bottom-most texture <a class="reference internal" href="themes.html#layer-properties">layer</a> for the element.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">layer1.</span><i><span class="pre">*</span></i></code></dt>
-<dd><p>The second texture <a class="reference external" href="https://www.sublimetext.com/docs/layer_properties">layer</a> for the element.</p>
+<dd><p>The second texture <a class="reference internal" href="themes.html#layer-properties">layer</a> for the element.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">layer2.</span><i><span class="pre">*</span></i></code></dt>
-<dd><p>The third texture <a class="reference external" href="https://www.sublimetext.com/docs/layer_properties">layer</a> for the element.</p>
+<dd><p>The third texture <a class="reference internal" href="themes.html#layer-properties">layer</a> for the element.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">layer3.</span><i><span class="pre">*</span></i></code></dt>
-<dd><p>The fourth texture <a class="reference external" href="https://www.sublimetext.com/docs/layer_properties">layer</a> for the element.</p>
+<dd><p>The fourth texture <a class="reference internal" href="themes.html#layer-properties">layer</a> for the element.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
@@ -548,7 +549,7 @@ opacity of the layer.</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">layer</span><i><span class="pre">#</span></i><span class="pre">.tint</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> of a fill color to apply to the layer.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> of a fill color to apply to the layer.</p>
 <p>Example: <code class="code highlight json docutils literal notranslate"><span class="p"><span class="pre">[</span></span><span class="mi"><span class="pre">255</span></span><span class="p"><span class="pre">,</span></span> <span class="mi"><span class="pre">0</span></span><span class="p"><span class="pre">,</span></span> <span class="mi"><span class="pre">0</span></span><span class="p"><span class="pre">,</span></span> <span class="mi"><span class="pre">127</span></span><span class="p"><span class="pre">]</span></span></code></p>
 </dd></dl>
 
@@ -673,7 +674,7 @@ value specifying how much of these RGB modifier values to apply.</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">font.size</span></code></dt>
-<dd><p>The <a class="reference external" href="https://www.sublimetext.com/docs/FontSizes">font size</a>.</p>
+<dd><p>The <a class="reference internal" href="themes.html#font-sizes">font size</a>.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
@@ -691,14 +692,14 @@ value specifying how much of these RGB modifier values to apply.</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">color</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the text - the <code class="docutils literal notranslate"><span class="pre">fg</span></code> property is an
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the text - the <code class="docutils literal notranslate"><span class="pre">fg</span></code> property is an
 alias for this for backwards compatibility.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">shadow_color</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the text shadow.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the text shadow.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
@@ -724,37 +725,37 @@ matching:</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">fg</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for unselected, unmatched text.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for unselected, unmatched text.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">match_fg</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for unselected, matched text.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for unselected, matched text.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">bg</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for the background of an unselected row.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for the background of an unselected row.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">selected_fg</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for selected, unmatched text.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for selected, unmatched text.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">selected_match_fg</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for selected, matched text.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for selected, matched text.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">bg</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for the background of a selected row.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for the background of a selected row.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
@@ -766,7 +767,7 @@ matching:</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">font.size</span></code></dt>
-<dd><p>The <a class="reference external" href="https://www.sublimetext.com/docs/FontSizes">font size</a>.</p>
+<dd><p>The <a class="reference internal" href="themes.html#font-sizes">font size</a>.</p>
 </dd></dl>
 
 </section><section id="data-table-properties"><h3>Data Table Properties<a class="headerlink" href="themes.html#data-table-properties" title="Permalink to this headline">🔗</a></h3>
@@ -781,8 +782,8 @@ scrollbars.</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">row_padding</span></code></dt>
-<dd><p>Padding added to each row, in one of the formats described in <a class="reference internal" href="themes.html#padding-margins">padding &amp;
-margins</a>.</p>
+<dd><p>Padding added to each row, in one of the formats described in <a class="reference internal" href="themes.html#padding-margins">Padding &amp;
+Margins</a>.</p>
 </dd></dl>
 
 </section><section id="styled-label-properties"><h3>Styled Label Properties<a class="headerlink" href="themes.html#styled-label-properties" title="Permalink to this headline">🔗</a></h3>
@@ -791,13 +792,13 @@ the properties:</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">border_color</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for the border of the label.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for the border of the label.</p>
 </dd></dl>
 
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">background_color</span></code></dt>
-<dd><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> for the background of the label.</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for the background of the label.</p>
 </dd></dl>
 
 </section></section><section id="elements"><h2>Elements<a class="headerlink" href="themes.html#elements" title="Permalink to this headline">🔗</a></h2>
@@ -831,17 +832,15 @@ Text UI, along with supported attributes and properties:</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">fg</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the window title text – <i>Mac 10.10
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the window title text – <i>Mac 10.10
 or newer only</i>.</p>
-</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">bg</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the title bar background – <i>Mac
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the title bar background – <i>Mac
 10.10 or newer only</i>.</p>
-</p>
 </dd></dl>
 
 <div class="build-filter build-4050 docutils container">
@@ -899,7 +898,7 @@ a <code class="docutils literal notranslate"><span class="pre">&quot;parents&quo
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the <code class="docutils literal notranslate"><span class="pre">sidebar_tree</span></code>.</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the <code class="docutils literal notranslate"><span class="pre">sidebar_tree</span></code>.</p>
 </dd></dl>
 
 </dd>
@@ -1083,7 +1082,7 @@ index for removal.</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the contained controls.</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the contained controls.</p>
 </dd></dl>
 
 <dl>
@@ -1117,8 +1116,7 @@ index for removal.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1134,8 +1132,7 @@ index for removal.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1151,8 +1148,7 @@ index for removal.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1168,8 +1164,7 @@ index for removal.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1187,8 +1182,7 @@ symlinks.</i></p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1206,8 +1200,7 @@ by <span class="file">.tmPreferences</span> files.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1295,8 +1288,7 @@ index for removal.</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1317,8 +1309,7 @@ index for removal.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the <code class="docutils literal notranslate"><span class="pre">tab_control</span></code>s.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the <code class="docutils literal notranslate"><span class="pre">tab_control</span></code>s.</p>
 </dd></dl>
 
 <dl>
@@ -1498,8 +1489,7 @@ during sheet multi-selection.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the <code class="docutils literal notranslate"><span class="pre">tab_label</span></code>.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the <code class="docutils literal notranslate"><span class="pre">tab_label</span></code>.</p>
 </dd></dl>
 
 <dl>
@@ -1556,8 +1546,7 @@ to apply.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 <dl>
@@ -1589,8 +1578,7 @@ to apply.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1605,8 +1593,7 @@ to apply.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1621,8 +1608,7 @@ to apply.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -1715,8 +1701,7 @@ selectors are available:</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the <code class="docutils literal notranslate"><span class="pre">quick_panel</span></code>.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the <code class="docutils literal notranslate"><span class="pre">quick_panel</span></code>.</p>
 </dd></dl>
 
 </dd>
@@ -1934,8 +1919,7 @@ typically cyan</i>.</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> that is added around the <code class="docutils literal notranslate"><span class="pre">kind_label</span></code>.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#padding-margins">margin</a> that is added around the <code class="docutils literal notranslate"><span class="pre">kind_label</span></code>.</p>
 </dd></dl>
 
 </dd>
@@ -1975,9 +1959,8 @@ Goto Symbol in Project symbol lists.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> that is added around the
+<dd><p>A <a class="reference internal" href="themes.html#padding-margins">margin</a> that is added around the
 <code class="docutils literal notranslate"><span class="pre">quick_panel_label</span></code>.</p>
-</p>
 </dd></dl>
 
 </dd>
@@ -2049,29 +2032,25 @@ Goto Symbol in Project symbol lists.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the text.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the text.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">link_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for links.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for links.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">monospace_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for monospace text.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for monospace text.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">monospace_background_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the background of monospace text.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the background of monospace text.</p>
 </dd></dl>
 
 </dd>
@@ -2138,8 +2117,7 @@ color scheme, however it can be used in a <code class="docutils literal notransl
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">border_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the border.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the border.</p>
 </dd></dl>
 
 <dl>
@@ -2161,8 +2139,7 @@ color scheme, however it can be used in a <code class="docutils literal notransl
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">viewport_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to fill the viewport projection with.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to fill the viewport projection with.</p>
 </dd></dl>
 
 <dl>
@@ -2193,8 +2170,7 @@ viewport projection.</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -2242,8 +2218,7 @@ the editor pane by build systems and third-party packages.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -2367,8 +2342,7 @@ typically cyan</i>.</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> that is added around the <code class="docutils literal notranslate"><span class="pre">kind_label</span></code>.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#padding-margins">margin</a> that is added around the <code class="docutils literal notranslate"><span class="pre">kind_label</span></code>.</p>
 </dd></dl>
 
 </dd>
@@ -2410,9 +2384,8 @@ the auto complete window is being shown for.</i></p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> that is added around the
+<dd><p>A <a class="reference internal" href="themes.html#padding-margins">margin</a> that is added around the
 <code class="docutils literal notranslate"><span class="pre">auto_complete_label</span></code>.</p>
-</p>
 </dd></dl>
 
 </dd>
@@ -2478,8 +2451,7 @@ and <code class="docutils literal notranslate"><span class="pre">auto_complete_d
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> that is added around the child controls.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#padding-margins">margin</a> that is added around the child controls.</p>
 </dd></dl>
 
 </dd>
@@ -2546,38 +2518,33 @@ item.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">font.size</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/FontSizes">font size</a> - <i>the <code class="docutils literal notranslate"><span class="pre">rem</span></code> root font size is based on
+<dd><p>The <a class="reference internal" href="themes.html#font-sizes">font size</a> - <i>the <code class="docutils literal notranslate"><span class="pre">rem</span></code> root font size is based on
 the font size of the editor control the auto complete window is being
 shown for</i>.</p>
-</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the text.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the text.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">link_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for links.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for links.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">monospace_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for monospace text.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for monospace text.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">monospace_background_color</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use for the background of monospace text.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use for the background of monospace text.</p>
 </dd></dl>
 
 </dd>
@@ -2595,8 +2562,7 @@ shown for</i>.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the panel contents.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the panel contents.</p>
 </dd></dl>
 
 </dd>
@@ -2612,8 +2578,7 @@ shown for</i>.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the panel contents.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the panel contents.</p>
 </dd></dl>
 
 </dd>
@@ -2629,8 +2594,7 @@ shown for</i>.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the panel contents.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the panel contents.</p>
 </dd></dl>
 
 </dd>
@@ -2647,8 +2611,7 @@ for things like file renaming.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the panel contents.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the panel contents.</p>
 </dd></dl>
 
 </dd>
@@ -2664,8 +2627,7 @@ for things like file renaming.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the panel contents.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the panel contents.</p>
 </dd></dl>
 
 </dd>
@@ -2682,8 +2644,7 @@ for build results.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the panel contents.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the panel contents.</p>
 </dd></dl>
 
 </dd>
@@ -2699,8 +2660,7 @@ for build results.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the panel contents.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the panel contents.</p>
 </dd></dl>
 
 </dd>
@@ -2744,8 +2704,7 @@ for build results.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -2769,9 +2728,8 @@ for build results.</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the <code class="docutils literal notranslate"><span class="pre">sidebar_button_control</span></code>,
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the <code class="docutils literal notranslate"><span class="pre">sidebar_button_control</span></code>,
 <code class="docutils literal notranslate"><span class="pre">status_container</span></code> and <code class="docutils literal notranslate"><span class="pre">status_buttons</span></code>s.</p>
-</p>
 </dd></dl>
 
 </dd>
@@ -2790,8 +2748,7 @@ for build results.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -2811,8 +2768,7 @@ for build results.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -2829,8 +2785,7 @@ for build results.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the status message.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the status message.</p>
 </dd></dl>
 
 </dd>
@@ -2847,8 +2802,7 @@ syntax, encoding and line endings.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 <dl>
@@ -2875,8 +2829,7 @@ current branch name, and <code class="docutils literal notranslate"><span class=
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the contained controls.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the contained controls.</p>
 </dd></dl>
 
 <dl>
@@ -2902,8 +2855,7 @@ current branch name, and <code class="docutils literal notranslate"><span class=
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -2952,8 +2904,7 @@ window used for updates on Mac and Windows.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the height of the bar.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the height of the bar.</p>
 </dd></dl>
 
 </dd>
@@ -2995,9 +2946,8 @@ track and puck.</p>
 <dd class="field-even"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> that is added around the content being
+<dd><p>A <a class="reference internal" href="themes.html#padding-margins">margin</a> that is added around the content being
 scrolled.</p>
-</p>
 </dd></dl>
 
 <dl>
@@ -3009,9 +2959,8 @@ scrolled.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">left_shadow</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use when drawing a shadow to indicate the
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use when drawing a shadow to indicate the
 area can be scrolled to the left.</p>
-</p>
 </dd></dl>
 
 <dl>
@@ -3024,9 +2973,8 @@ scrolled to the left.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">top_shadow</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use when drawing a shadow to indicate the
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use when drawing a shadow to indicate the
 area can be scrolled to the top.</p>
-</p>
 </dd></dl>
 
 <dl>
@@ -3039,9 +2987,8 @@ scrolled to the top.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">right_shadow</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use when drawing a shadow to indicate the
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use when drawing a shadow to indicate the
 area can be scrolled to the right.</p>
-</p>
 </dd></dl>
 
 <dl>
@@ -3054,9 +3001,8 @@ scrolled to the right.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">bottom_shadow</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use when drawing a shadow to indicate the
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use when drawing a shadow to indicate the
 area can be scrolled to the bottom.</p>
-</p>
 </dd></dl>
 
 <dl>
@@ -3095,8 +3041,7 @@ background color of the element being scrolled.</p>
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> that is added around the scroll track.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#padding-margins">margin</a> that is added around the scroll track.</p>
 </dd></dl>
 
 </dd>
@@ -3186,23 +3131,20 @@ Input panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the text.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the text.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">color_scheme_tint</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use to tint the background of the color scheme.</p>
-</p>
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use to tint the background of the color scheme.</p>
 </dd></dl>
 
 <dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">color_scheme_tint_2</span></code></dt>
-<dd><p><p>A <a class="reference external" href="https://www.sublimetext.com/docs/Colors">color value</a> to use to add a secondary tint to the
+<dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> to use to add a secondary tint to the
 background of the color scheme.</p>
-</p>
 </dd></dl>
 
 </dd>
@@ -3218,8 +3160,7 @@ background of the color scheme.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For buttons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For buttons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3310,8 +3251,7 @@ panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3328,8 +3268,7 @@ Replace panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3346,8 +3285,7 @@ panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3364,8 +3302,7 @@ panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3382,8 +3319,7 @@ panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3400,8 +3336,7 @@ panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3417,8 +3352,7 @@ panels.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3435,8 +3369,7 @@ panel.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3453,8 +3386,7 @@ using the Find in Files panel.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3474,8 +3406,7 @@ Files panel.</p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>For icons, the <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> specifies the dimensions.</p>
-</p>
+<dd><p>For icons, the <a class="reference internal" href="themes.html#padding-margins">margin</a> specifies the dimensions.</p>
 </dd></dl>
 
 </dd>
@@ -3520,8 +3451,7 @@ key.</i></p>
 <dd class="field-odd"><dl>
 <dt class="sig sig-object">
 <code class="docutils literal notranslate"><span class="pre">content_margin</span></code></dt>
-<dd><p><p>The <a class="reference external" href="https://www.sublimetext.com/docs/padding&amp;margin">margin</a> around the tool tip text.</p>
-</p>
+<dd><p>The <a class="reference internal" href="themes.html#padding-margins">margin</a> around the tool tip text.</p>
 </dd></dl>
 
 </dd>
@@ -3549,7 +3479,7 @@ use a float from <code class="code highlight json docutils literal notranslate">
 </section></section><section id="obsolete"><h2>Obsolete<a class="headerlink" href="themes.html#obsolete" title="Permalink to this headline">🔗</a></h2>
 <p>As the UI of Sublime Text has adapted over time, certain elements and properties
 are no longer applicable or supported.</p>
-<section id="id86"><h3>Elements<a class="headerlink" href="themes.html#id86" title="Permalink to this headline">🔗</a></h3>
+<section id="id1"><h3>Elements<a class="headerlink" href="themes.html#id1" title="Permalink to this headline">🔗</a></h3>
 <div class="build-filter build-4050 docutils container">
 <p>The <code class="docutils literal notranslate"><span class="pre">panel_button_control</span></code> element was removed from the status bar and
 replaced by <code class="docutils literal notranslate"><span class="pre">sidebar_button_control</span></code>.</p>
@@ -3561,7 +3491,7 @@ searching would move forward or backwards in the view. This is now controlled
 by the <i>Find</i> and <i>Find Prev</i> buttons.</p>
 <p>The element named <code class="docutils literal notranslate"><span class="pre">quick_panel_score_label</span></code> is no longer present in the Goto
 Anything quick panel.</p>
-</section><section id="id87"><h3>Properties<a class="headerlink" href="themes.html#id87" title="Permalink to this headline">🔗</a></h3>
+</section><section id="id2"><h3>Properties<a class="headerlink" href="themes.html#id2" title="Permalink to this headline">🔗</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">blur</span></code> property used to be supported to blur the pixel data behind an
 element, however it is not currently supported for implementation reasons.</p>
 </section></section><section id="customization"><h2>Customization<a class="headerlink" href="themes.html#customization" title="Permalink to this headline">🔗</a></h2>
