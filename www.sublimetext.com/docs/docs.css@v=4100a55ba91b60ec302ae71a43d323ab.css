@@ -298,6 +298,10 @@ dt.sig
     padding-left: 24px;
     text-indent: -18px;
 }
+dt.sig > *
+{
+    text-indent: 0;
+}
 dl.field-list > dt
 {
     font-weight: bold;
