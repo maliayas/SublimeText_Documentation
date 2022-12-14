@@ -89,7 +89,7 @@ versions released before the date of your license expiry.</p>
 <ol class="arabic simple">
 <li><dl class="simple">
 <dt>Download and install a previous version</dt><dd><ul class="simple">
-<li><p><a class="reference external" href="https://www.sublimetext.com/downloads">Sublime Text 4 Downloads</a></p></li>
+<li><p><a class="reference external" href="https://www.sublimetext.com/download">Sublime Text 4 Downloads</a></p></li>
 <li><p><a class="reference external" href="https://www.sublimetext.com/3">Sublime Text 3 Downloads</a></p></li>
 <li><p><a class="reference external" href="https://www.sublimetext.com/2">Sublime Text 2 Downloads</a></p></li>
 <li><p><a class="reference external" href="https://www.sublimetext.com/1">Sublime Text 1 Downloads</a></p></li>
@@ -100,7 +100,119 @@ versions released before the date of your license expiry.</p>
 <li><p><i>(Optional)</i>: disable update checks by navigating to <span class="menu">Preferences <img src="../images/right.svg" alt="▶">
 Settings</span> and adding <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;update_check&quot;</span></span><span class="err"><span class="pre">:</span></span> <span class="kc"><span class="pre">false</span></span></code>.</p></li>
 </ol>
-</section><section id="support"><h2>Support<a class="headerlink" href="previous_versions.html#support" title="Permalink to this headline">🔗</a></h2>
+</section><section id="downloading-specific-versions"><h2>Downloading specific versions<a class="headerlink" href="previous_versions.html#downloading-specific-versions" title="Permalink to this headline">🔗</a></h2>
+<p>If you need to download a specific build of Sublime Text you can try looking up
+the links using this tool. Note that not all versions are available and some
+links may lead nowhere.</p>
+<input id="version-input" type="number" value="" style="width: 7ex;">
+<button onclick="generate_links()">Generate</button>
+<ul id="link-list"></ul>
+<script type="text/javascript">
+var BASE_URL = 'https://download.sublimetext.com'
+var LINK_LIST_ELEMENT = document.getElementById("link-list");
+var VERSION_INPUT_ELEMENT = document.getElementById("version-input");
+
+var LINK_TEMPLATES = [
+    ['macOS', [
+        [3000, '/Sublime Text Build VERSION.dmg'],
+        [4000, '/sublime_text_build_VERSION_mac.zip'],
+    ]],
+    ['Windows 32bit installer', [
+        [3000, '/Sublime Text Build VERSION Setup.exe'],
+    [4000, '/sublime_text_build_VERSION_x32_setup.exe']
+    ]],
+    ['Windows 32bit portable zip', [
+        [3000, '/Sublime Text Build VERSION.zip'],
+        [4000, '/sublime_text_build_VERSION_x32.zip'],
+    ]],
+    ['Windows 64bit installer', [
+        [3000, '/Sublime Text Build VERSION x64 Setup.exe'],
+        [4000, '/sublime_text_build_VERSION_x64_setup.exe'],
+    ]],
+    ['Windows 64bit portable zip', [
+        [3000, '/Sublime Text Build VERSION x64.zip'],
+        [4000, '/sublime_text_build_VERSION_x64.zip'],
+    ]],
+    ['Linux 64bit deb package', [
+        [3000, '/sublime-text_build-VERSION_amd64.deb'],
+        [4000, '/sublime-text_build-VERSION_amd64.deb'],
+    ]],
+    ['Linux 64bit rpm package', [
+        [3000, '/sublime-text-VERSION-1.x86_64.rpm'],
+        [4000, '/sublime-text-VERSION-1.x86_64.rpm'],
+    ]],
+    ['Linux 64bit pkg package', [
+        [3000, '/sublime-text-VERSION-1-x86_64.pkg.tar.xz'],
+        [4000, '/sublime-text-VERSION-1-x86_64.pkg.tar.xz'],
+    ]],
+    ['Linux 32bit tar archive', [
+        [3000, '/sublime_text_3_build_VERSION_x32.tar.bz2'],
+    [4000, null],
+    ]],
+    ['Linux 64bit tar archive', [
+        [3000, '/sublime_text_3_build_VERSION_x64.tar.bz2'],
+        [4000, '/sublime_text_build_VERSION_x64.tar.xz'],
+    ]],
+    ['Linux arm64 deb package', [
+        [4000, '/sublime-text_build-VERSION_arm64.deb'],
+    ]],
+    ['Linux arm64 pkg package', [
+        [4000, '/sublime-text-VERSION-1-aarch64.pkg.tar.xz'],
+    ]],
+    ['Linux arm64 tar archive', [
+        [4000, '/sublime_text_build_VERSION_arm64.tar.xz'],
+    ]],
+];
+
+function generate_links() {
+    var version = VERSION_INPUT_ELEMENT.valueAsNumber;
+
+    var urls = [];
+    for (var i = 0; i < LINK_TEMPLATES.length; i++) {
+        var url = null;
+        for (var j = 0; j < LINK_TEMPLATES[i][1].length; ++j) {
+            if (LINK_TEMPLATES[i][1][j][0] > version) break;
+
+            url = LINK_TEMPLATES[i][1][j][1];
+        }
+
+        if (url !== null) {
+            urls.push([LINK_TEMPLATES[i][0], BASE_URL + url.replace('VERSION', version)]);
+        }
+    }
+
+    if (urls.length > 0)
+    {
+        LINK_LIST_ELEMENT.textContent = '';
+        for (var i = 0; i < urls.length; ++i) {
+            var li = document.createElement('li');
+            var link = document.createElement('a');
+            link.href = urls[i][1];
+            link.textContent = urls[i][0];
+            li.appendChild(link);
+            LINK_LIST_ELEMENT.appendChild(li);
+        }
+    }
+    else
+    {
+        LINK_LIST_ELEMENT.textContent = 'Invalid build number';
+    }
+}
+
+(function() {
+    var build = VERSION_INPUT_ELEMENT.value;
+
+    var params = new URLSearchParams(window.location.search);
+    var param_build = params.get('build');
+    if (param_build)
+        build = param_build;
+
+    if (build) {
+        VERSION_INPUT_ELEMENT.value = build;
+        generate_links();
+    }
+})();
+</script></section><section id="support"><h2>Support<a class="headerlink" href="previous_versions.html#support" title="Permalink to this headline">🔗</a></h2>
 <p>If anything doesn’t work as expected, don’t hesitate to reach out on <a class="reference external" href="https://forum.sublimetext.com">the forum</a> and we’ll do our best to get things working
 smoothly again for you. Thank you for being part of the Sublime Text family,
 and we hope you continue to enjoy using Sublime Text!</p>
