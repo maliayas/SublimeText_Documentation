@@ -23,11 +23,11 @@ main > section
 
 a
 {
-    color: #6690cc;
+    color: #4075BF;
 }
 a:hover
 {
-    color: #4075bf;
+    color: #3662A1;
 }
 a:not([href]),
 a:not([href]):hover
@@ -836,23 +836,6 @@ div#masthead section div.tagline.minor span
     background-color: transparent;
 }
 
-#screencast-title-bar
-{
-    width: 1200px;
-    margin: 0 auto;
-    display: block;
-    height: 28px;
-    background-color: rgba(32, 32, 32, 0.8);
-}
-#screencast-title-bar.plat_linux
-{
-    height: 47px;
-}
-#screencast-title-bar.plat_windows
-{
-    height: 28px;
-}
-
 canvas
 {
     display: block;
@@ -1020,7 +1003,7 @@ div.download .button span
 div.download .button a
 {
     display: inline-block;
-    background-color: #407fbf;
+    background-color: #3C78B4;
     color: #fff;
     border-radius: 3px;
     letter-spacing: 0.5px;
@@ -1178,16 +1161,6 @@ h2.love span
         padding-left: 20px;
         padding-right: 20px;
         max-width: 100%;
-    }
-    #screencast-title-bar
-    {
-        width: 100%;
-        height: auto;
-        box-sizing: border-box;
-    }
-    #screencast-title-bar.plat_linux, #screencast-title-bar.plat_windows
-    {
-        height: auto;
     }
     section.screencast-meta
     {
@@ -1936,7 +1909,7 @@ img.profile_picture
 a.reviewer
 {
     text-decoration: none;
-    color: #888;
+    color: #555;
     font-size: 0.8rem;
 }
 
@@ -1947,18 +1920,9 @@ a.reviewer
     color: #555;
 }
 
-.twitter_follow i {
-    position: relative;
-    top: 2px;
-    display: inline-block;
-    width: 14px;
-    height: 14px;
-    background-image: url("icons/twitter.svg");
-}
-
 .twitter_follow a:hover
 {
-    background-color: #0c7abf;
+    background-color: #0C66A1;
     color: white;
 }
 
@@ -1967,8 +1931,8 @@ a.reviewer
     display: inline-block;
     height: 20px;
     box-sizing: border-box;
-    padding: 1px 8px 1px 6px;
-    background-color: #1b95e0;
+    padding: 1px 8px 1px 8px;
+    background-color: #157BBC;
     color: white;
     border-radius: 3px;
     font-weight: 500;
@@ -2113,6 +2077,7 @@ div.download .button {
 
 img.product_card_icon
 {
+    border-radius: 4px;
     width: 5em;
     height: 5em;
     margin: 0px 20px 0px 0px;
