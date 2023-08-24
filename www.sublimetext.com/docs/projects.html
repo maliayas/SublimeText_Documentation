@@ -92,7 +92,7 @@ version control, while the <span class="file">.sublime-workspace</span> file wou
 <li><p><a class="reference internal" href="projects.html#settings-key">“settings” Key</a></p></li>
 <li><p><a class="reference internal" href="projects.html#build-systems-key">“build_systems” Key</a></p></li>
 </ul>
-<section id="project-format"><h2>Project Format<a class="headerlink" href="projects.html#project-format" title="Permalink to this headline">🔗</a></h2>
+<section id="project-format"><h2>Project Format<a class="headerlink" href="projects.html#project-format" title="Permalink to this heading">🔗</a></h2>
 <p><span class="file">.sublime-project</span> files are JSON, and support three top level sections:
 <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code>, for the included folders, <code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code>, for file-setting
 overrides, and <code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code>, for project specific build systems. An
@@ -125,7 +125,7 @@ example:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section><section id="folders-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> Key<a class="headerlink" href="projects.html#folders-key" title="Permalink to this headline">🔗</a></h2>
+</section><section id="folders-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> Key<a class="headerlink" href="projects.html#folders-key" title="Permalink to this heading">🔗</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> key contains an array of objects. Each object must have a
 <code class="docutils literal notranslate"><span class="pre">&quot;path&quot;</span></code> key, which may be relative to the project directory, or a fully
 qualified path.</p>
@@ -213,12 +213,12 @@ checked after <code class="docutils literal notranslate"><span class="pre">&quot
 <p>Converted projects from earlier versions may have a <code class="docutils literal notranslate"><span class="pre">&quot;mount_points&quot;</span></code> entry
 under <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code>. If you wish to use the exclude patterns, you’ll need to
 change to the above format.</p>
-</section><section id="settings-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> Key<a class="headerlink" href="projects.html#settings-key" title="Permalink to this headline">🔗</a></h2>
+</section><section id="settings-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> Key<a class="headerlink" href="projects.html#settings-key" title="Permalink to this heading">🔗</a></h2>
 <p><a class="reference internal" href="api_reference.html#sublime.Settings" title="sublime.Settings"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a> may be specified here using the <code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> key, and will override
 regular user settings. They will not, however, override syntax-specific
 settings.</p>
 <p><i>Note that only settings in the category <a class="reference internal" href="settings.html#editor-settings"><span class="std std-ref">Editor Settings</span></a> may be controlled by a project.</i></p>
-</section><section id="build-systems-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> Key<a class="headerlink" href="projects.html#build-systems-key" title="Permalink to this headline">🔗</a></h2>
+</section><section id="build-systems-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> Key<a class="headerlink" href="projects.html#build-systems-key" title="Permalink to this heading">🔗</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> specifies a list of inline <a class="reference internal" href="build_systems.html"><span class="doc">Build Systems</span></a> definitions. In
 addition to the regular build system settings, a <code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code> must be specified
 for each one. Build systems listed here will be available via the

@@ -88,20 +88,20 @@ to shell glob patterns, but have some unique behavior.</p>
 <li><p><a class="reference internal" href="file_patterns.html#path-rules">Path Rules</a></p></li>
 <li><p><a class="reference internal" href="file_patterns.html#uses">Uses</a></p></li>
 </ul>
-<section id="basic-syntax"><h2>Basic Syntax<a class="headerlink" href="file_patterns.html#basic-syntax" title="Permalink to this headline">🔗</a></h2>
+<section id="basic-syntax"><h2>Basic Syntax<a class="headerlink" href="file_patterns.html#basic-syntax" title="Permalink to this heading">🔗</a></h2>
 <p>File patterns allow two matching operators:</p>
 <ul class="simple">
 <li><p><b><code class="docutils literal notranslate"><span class="pre">*</span></code>:</b> matches zero or more characters, except <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
 <li><p><b><code class="docutils literal notranslate"><span class="pre">?</span></code>:</b> matches exactly one character, except <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
 </ul>
 <p><i>Neither character classes, <code class="docutils literal notranslate"><span class="pre">[abc]</span></code>, nor the globstar operator, <code class="docutils literal notranslate"><span class="pre">**</span></code>, from Bash are supported.</i></p>
-<section id="examples"><h3>Examples<a class="headerlink" href="file_patterns.html#examples" title="Permalink to this headline">🔗</a></h3>
+<section id="examples"><h3>Examples<a class="headerlink" href="file_patterns.html#examples" title="Permalink to this heading">🔗</a></h3>
 <ul class="simple">
 <li><p>The pattern <code class="docutils literal notranslate"><span class="pre">abc</span></code> will match <code class="docutils literal notranslate"><span class="pre">abc</span></code> but not <code class="docutils literal notranslate"><span class="pre">abcd</span></code></p></li>
 <li><p>The pattern <code class="docutils literal notranslate"><span class="pre">a?c</span></code> will match <code class="docutils literal notranslate"><span class="pre">abc</span></code> but not <code class="docutils literal notranslate"><span class="pre">ac</span></code></p></li>
 <li><p>The pattern <code class="docutils literal notranslate"><span class="pre">a*c</span></code> will match <code class="docutils literal notranslate"><span class="pre">abc</span></code>, <code class="docutils literal notranslate"><span class="pre">ac</span></code> and <code class="docutils literal notranslate"><span class="pre">abdc</span></code></p></li>
 </ul>
-</section></section><section id="path-rules"><h2>Path Rules<a class="headerlink" href="file_patterns.html#path-rules" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="path-rules"><h2>Path Rules<a class="headerlink" href="file_patterns.html#path-rules" title="Permalink to this heading">🔗</a></h2>
 <p>When <code class="docutils literal notranslate"><span class="pre">/</span></code> <i>is not present</i> in a pattern, it is only compared against the file
 or directory name and only the basic syntax applies. When a <code class="docutils literal notranslate"><span class="pre">/</span></code> <i>is included</i>
 in a pattern, it changes the behavior to:</p>
@@ -122,7 +122,7 @@ files or subdirectories</p></li>
 <span class="build">4066</span></div>
 </li>
 </ul>
-<section id="id1"><h3>Examples<a class="headerlink" href="file_patterns.html#id1" title="Permalink to this headline">🔗</a></h3>
+<section id="id1"><h3>Examples<a class="headerlink" href="file_patterns.html#id1" title="Permalink to this heading">🔗</a></h3>
 <ul>
 <li><p>The pattern <code class="docutils literal notranslate"><span class="pre">mydir/one</span></code> will match <code class="docutils literal notranslate"><span class="pre">/parent/mydir/one</span></code>, <code class="docutils literal notranslate"><span class="pre">/mydir/one</span></code> and
 <code class="docutils literal notranslate"><span class="pre">/mydir/one/sub</span></code></p></li>
@@ -154,7 +154,7 @@ files or subdirectories</p></li>
 <span class="build">4066</span></div>
 </li>
 </ul>
-</section></section><section id="uses"><h2>Uses<a class="headerlink" href="file_patterns.html#uses" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="uses"><h2>Uses<a class="headerlink" href="file_patterns.html#uses" title="Permalink to this heading">🔗</a></h2>
 <p>File patterns are used in:</p>
 <ul class="simple">
 <li><p><i>Find in Files</i> panel <i>Where</i> input</p></li>

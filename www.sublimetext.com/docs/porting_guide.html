@@ -92,16 +92,16 @@ to work. The changes are:</p>
 <li><p><a class="reference internal" href="porting_guide.html#importing-modules">Importing Modules</a></p></li>
 <li><p><a class="reference internal" href="porting_guide.html#restricted-api-usage-at-startup">Restricted API Usage at Startup</a></p></li>
 </ul>
-<section id="python-3-3"><h2>Python 3.3<a class="headerlink" href="porting_guide.html#python-3-3" title="Permalink to this headline">🔗</a></h2>
+<section id="python-3-3"><h2>Python 3.3<a class="headerlink" href="porting_guide.html#python-3-3" title="Permalink to this heading">🔗</a></h2>
 <p>Sublime Text 3 uses Python 3.3, while Sublime Text 2 used Python 2.6.
 Furthermore, on Mac, the system build of Python is no longer used, instead
 Sublime Text is bundled with its own version. Windows and Linux are also
 bundled with their own version, as they were previously.</p>
-</section><section id="out-of-process-plugins"><h2>Out of Process Plugins<a class="headerlink" href="porting_guide.html#out-of-process-plugins" title="Permalink to this headline">🔗</a></h2>
+</section><section id="out-of-process-plugins"><h2>Out of Process Plugins<a class="headerlink" href="porting_guide.html#out-of-process-plugins" title="Permalink to this heading">🔗</a></h2>
 <p>Plugins are now run in a separate process, <code class="docutils literal notranslate"><span class="pre">plugin_host</span></code>. From a plugin
 authors perspective, there should be no observable difference, except that a
 crash in the plugin host will no longer bring down the main application.</p>
-</section><section id="asynchronous-events"><h2>Asynchronous Events<a class="headerlink" href="porting_guide.html#asynchronous-events" title="Permalink to this headline">🔗</a></h2>
+</section><section id="asynchronous-events"><h2>Asynchronous Events<a class="headerlink" href="porting_guide.html#asynchronous-events" title="Permalink to this heading">🔗</a></h2>
 <p>In Sublime Text 2, only the <code class="docutils literal notranslate"><span class="pre">set_timeout()</span></code> method was thread-safe. In Sublime
 Text 3, every API method is thread-safe. Furthermore, there are now
 asynchronous event handlers, to make writing non-blocking code easier:</p>
@@ -119,7 +119,7 @@ asynchronous event handlers, to make writing non-blocking code easier:</p>
 </ul>
 <p>When writing threaded code, keep in mind that the buffer will be changing
 underneath you as your function runs.</p>
-</section><section id="restricted-begin-edit-and-end-edit"><h2>Restricted <code class="docutils literal notranslate"><span class="pre">begin_edit()</span></code> and <code class="docutils literal notranslate"><span class="pre">end_edit()</span></code><a class="headerlink" href="porting_guide.html#restricted-begin-edit-and-end-edit" title="Permalink to this headline">🔗</a></h2>
+</section><section id="restricted-begin-edit-and-end-edit"><h2>Restricted <code class="docutils literal notranslate"><span class="pre">begin_edit()</span></code> and <code class="docutils literal notranslate"><span class="pre">end_edit()</span></code><a class="headerlink" href="porting_guide.html#restricted-begin-edit-and-end-edit" title="Permalink to this heading">🔗</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">begin_end()</span></code> and <code class="docutils literal notranslate"><span class="pre">end_edit()</span></code> are no longer directly accessible, except in
 some special circumstances. The only way to get a valid instance of an
 <a class="reference internal" href="api_reference.html#sublime.Edit" title="sublime.Edit"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime.Edit</span></code></a> object is to place your code in a <a class="reference internal" href="api_reference.html#sublime_plugin.TextCommand" title="sublime_plugin.TextCommand"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime_plugin.TextCommand</span></code></a>
@@ -128,17 +128,17 @@ subclass. In general, most code can be refactored by placing the code between
 running the command via <code class="docutils literal notranslate"><span class="pre">run_command()</span></code>.</p>
 <p>This approach removes the issue of dangling <a class="reference internal" href="api_reference.html#sublime.Edit" title="sublime.Edit"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime.Edit</span></code></a> objects, and ensures
 the repeat command and macros work as they should.</p>
-</section><section id="zipped-packages"><h2>Zipped Packages<a class="headerlink" href="porting_guide.html#zipped-packages" title="Permalink to this headline">🔗</a></h2>
+</section><section id="zipped-packages"><h2>Zipped Packages<a class="headerlink" href="porting_guide.html#zipped-packages" title="Permalink to this heading">🔗</a></h2>
 <p>Packages in Sublime Text 3 are able to be run from <span class="file">.sublime-package</span>
 (i.e., renamed <span class="file">.zip</span> files) files directly, in contrast to Sublime Text
 2, which unzipped them prior to running.</p>
 <p>While in most changes this should lead to no differences, it is important to
 keep this in mind if you are accessing files in your package.</p>
-</section><section id="importing-modules"><h2>Importing Modules<a class="headerlink" href="porting_guide.html#importing-modules" title="Permalink to this headline">🔗</a></h2>
+</section><section id="importing-modules"><h2>Importing Modules<a class="headerlink" href="porting_guide.html#importing-modules" title="Permalink to this heading">🔗</a></h2>
 <p>Importing other plugins is simpler and more robust in Sublime Text 3, and can be
 done with a regular import statement, e.g., <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">Default.comment</span></code> will
 import <span class="file">Packages/Default/Comment.py</span>.</p>
-</section><section id="restricted-api-usage-at-startup"><h2>Restricted API Usage at Startup<a class="headerlink" href="porting_guide.html#restricted-api-usage-at-startup" title="Permalink to this headline">🔗</a></h2>
+</section><section id="restricted-api-usage-at-startup"><h2>Restricted API Usage at Startup<a class="headerlink" href="porting_guide.html#restricted-api-usage-at-startup" title="Permalink to this heading">🔗</a></h2>
 <p>Due to the <code class="docutils literal notranslate"><span class="pre">plugin_host</span></code> loading asynchronously, it is not possible to use the
 API at import time. This means that all top-level statements in your module
 must not call any functions from the <a class="reference internal" href="api_reference.html#module-sublime" title="sublime"><code class="xref any py py-mod docutils literal notranslate"><span class="pre">sublime</span></code></a> module. During startup, the API

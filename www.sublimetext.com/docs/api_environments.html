@@ -100,7 +100,7 @@ plugins are run in.</p>
 <span class="build">4050</span></div>
 </li>
 </ul>
-<section id="overview"><h2>Overview<a class="headerlink" href="api_environments.html#overview" title="Permalink to this headline">🔗</a></h2>
+<section id="overview"><h2>Overview<a class="headerlink" href="api_environments.html#overview" title="Permalink to this heading">🔗</a></h2>
 <p>Sublime Text runs plugins in a separate process from the main editor UI. This
 process runs an executable named <span class="file">plugin_host</span>.</p>
 <p>Running plugins in a separate process ensures the entire editor will not crash
@@ -115,7 +115,7 @@ file <span class="file">MyPackage/my_plugin.py</span> will be loaded as the Pyth
 programming language, and exposes an <a class="reference internal" href="api_reference.html"><span class="doc">API</span></a> to plugins.
 The <span class="file">plugin_host</span> executable always uses its own embedded version of
 Python, even if the end-user has Python installed on their machine.</p>
-</section><section id="python-version"><h2>Python Version<a class="headerlink" href="api_environments.html#python-version" title="Permalink to this headline">🔗</a></h2>
+</section><section id="python-version"><h2>Python Version<a class="headerlink" href="api_environments.html#python-version" title="Permalink to this heading">🔗</a></h2>
 <p>By default all plugins are run using Python 3.3.6, except inside the
 <span class="file">User</span> package which always uses the latest python. <i>Sublime Text‘s build
 of Python 3.3.6 includes a handful of patches backported from Python 3.4 to fix
@@ -127,7 +127,7 @@ features many improvements to the language, better performance and
 continued support and bug fixes from the Python Software Foundtion.</p>
 <span class="build">4050</span></div>
 <div class="build-filter build-4050 docutils container" id="selecting-the-python-version">
-<section id="selecting-the-python-version"><h3>Selecting the Python Version<a class="headerlink" href="api_environments.html#selecting-the-python-version" title="Permalink to this headline">🔗</a></h3>
+<section id="selecting-the-python-version"><h3>Selecting the Python Version<a class="headerlink" href="api_environments.html#selecting-the-python-version" title="Permalink to this heading">🔗</a></h3>
 <p>To provide for backward compatibility, Sublime Text 4050 will continue to run
 all plugins using Python 3.3.</p>
 <p>Any package that wishes to use Python 3.8 must create a file
@@ -139,7 +139,7 @@ any value other than <code class="docutils literal notranslate"><span class="pre
 a <span class="file">.python-version</span> file containing <code class="docutils literal notranslate"><span class="pre">3.8</span></code> loaded in older builds of
 Sublime Text will try to run the plugins using Python 3.3.</i></p>
 </section><span class="build">4050</span></div>
-</section><section id="modules"><h2>Modules<a class="headerlink" href="api_environments.html#modules" title="Permalink to this headline">🔗</a></h2>
+</section><section id="modules"><h2>Modules<a class="headerlink" href="api_environments.html#modules" title="Permalink to this heading">🔗</a></h2>
 <p>The Python environment within <span class="file">plugin_host</span> contains all of the modules in
 <a class="reference external" href="https://docs.python.org/3.3/library/">The Python Standard Library</a>, except
 for:</p>
@@ -163,7 +163,7 @@ for:</p>
 <li><p>wave</p></li>
 </ul>
 </section><div class="build-filter build-4050 docutils container" id="pre-installed-packages">
-<section id="pre-installed-packages"><h2>Pre-Installed Packages<a class="headerlink" href="api_environments.html#pre-installed-packages" title="Permalink to this headline">🔗</a></h2>
+<section id="pre-installed-packages"><h2>Pre-Installed Packages<a class="headerlink" href="api_environments.html#pre-installed-packages" title="Permalink to this heading">🔗</a></h2>
 <p>The following the packages are pre-installed in both the Python 3.3 and 3.8 environments:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/certifi/">certifi</a>: A collection of SSL root certs

@@ -93,7 +93,7 @@ you’d like to contribute, details are in the <a class="reference external" hre
 <li><p><a class="reference internal" href="vintage.html#ctrl-keys">Ctrl Keys</a></p></li>
 <li><p><a class="reference internal" href="vintage.html#ex-mode">Ex Mode</a></p></li>
 </ul>
-<section id="enabling-vintage"><h2>Enabling Vintage<a class="headerlink" href="vintage.html#enabling-vintage" title="Permalink to this headline">🔗</a></h2>
+<section id="enabling-vintage"><h2>Enabling Vintage<a class="headerlink" href="vintage.html#enabling-vintage" title="Permalink to this heading">🔗</a></h2>
 <p>Vintage is disabled by default, via the <code class="docutils literal notranslate"><span class="pre">ignored_packages</span></code> setting. If you
 remove <code class="docutils literal notranslate"><span class="pre">&quot;Vintage&quot;</span></code> from the list of ignored packages, you’ll be able to edit
 with vi keys:</p>
@@ -110,7 +110,7 @@ following setting to your user settings:</p>
 <div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_start_in_command_mode&quot;</span><span class="p">:</span> <span class="kc">true</span>
 </pre></div>
 </div>
-</section><section id="whats-included"><h2>What’s Included<a class="headerlink" href="vintage.html#whats-included" title="Permalink to this headline">🔗</a></h2>
+</section><section id="whats-included"><h2>What’s Included<a class="headerlink" href="vintage.html#whats-included" title="Permalink to this heading">🔗</a></h2>
 <p>Vintage includes most basic actions: <kbd class="kbd docutils literal notranslate">d</kbd> (delete), <kbd class="kbd docutils literal notranslate">y</kbd>
 (copy), <kbd class="kbd docutils literal notranslate">c</kbd> (change), <kbd class="kbd docutils literal notranslate">gu</kbd> (lower case), <kbd class="kbd docutils literal notranslate">gU</kbd>
 (upper case), <kbd class="kbd docutils literal notranslate">g~</kbd> (swap case), <kbd class="kbd docutils literal notranslate">g?</kbd> (rot13), <kbd class="kbd docutils literal notranslate">&lt;</kbd>
@@ -126,12 +126,12 @@ including <kbd class="kbd docutils literal notranslate">l</kbd>, <kbd class="kbd
 motions. Registers are supported, as are macros and bookmarks. Many other
 miscellaneous commands are supported too, such and <kbd class="kbd docutils literal notranslate">*</kbd>, <kbd class="kbd docutils literal notranslate">/</kbd>,
 <kbd class="kbd docutils literal notranslate">n</kbd>, <kbd class="kbd docutils literal notranslate">N</kbd>, <kbd class="kbd docutils literal notranslate">s</kbd>, <kbd class="kbd docutils literal notranslate">S</kbd> and more.</p>
-</section><section id="whats-not"><h2>What’s Not<a class="headerlink" href="vintage.html#whats-not" title="Permalink to this headline">🔗</a></h2>
+</section><section id="whats-not"><h2>What’s Not<a class="headerlink" href="vintage.html#whats-not" title="Permalink to this heading">🔗</a></h2>
 <p>Insert mode is regular Sublime Text editing, with the usual Sublime Text key
 bindings: vi insert mode key bindings are not emulated.</p>
 <p>Ex commands are not implemented, apart from <kbd class="kbd docutils literal notranslate">:w</kbd> and <kbd class="kbd docutils literal notranslate">:e</kbd>, which
 work via the command palette.</p>
-</section><section id="under-the-hood"><h2>Under the Hood<a class="headerlink" href="vintage.html#under-the-hood" title="Permalink to this headline">🔗</a></h2>
+</section><section id="under-the-hood"><h2>Under the Hood<a class="headerlink" href="vintage.html#under-the-hood" title="Permalink to this heading">🔗</a></h2>
 <p>Vintage mode is implemented entirely via key bindings and the plugin API – feel
 free to browse through the Vintage package and see how it’s put together. As an
 example, if you’d like to bind <kbd class="kbd docutils literal notranslate">jj</kbd> to exit insert mode, you can add this
@@ -147,7 +147,7 @@ key binding:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section><section id="mac"><h2>Mac<a class="headerlink" href="vintage.html#mac" title="Permalink to this headline">🔗</a></h2>
+</section><section id="mac"><h2>Mac<a class="headerlink" href="vintage.html#mac" title="Permalink to this heading">🔗</a></h2>
 <p>By default on Mac, holding down a key won’t repeat it, but will instead show a
 popup menu to select between character variations. This doesn’t work well with
 command mode, so you may want to disable it. This can be done via executing the
@@ -155,7 +155,7 @@ following in Terminal.app:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool <span class="nb">false</span>
 </pre></div>
 </div>
-</section><section id="ctrl-keys"><h2>Ctrl Keys<a class="headerlink" href="vintage.html#ctrl-keys" title="Permalink to this headline">🔗</a></h2>
+</section><section id="ctrl-keys"><h2>Ctrl Keys<a class="headerlink" href="vintage.html#ctrl-keys" title="Permalink to this heading">🔗</a></h2>
 <p>Vintage supports these <span class="keys"><b>Ctrl</b></span> key bindings:</p>
 <ul class="simple">
 <li><p><span class="keys"><b>Ctrl</b><i>+</i><b>[</b></span>: Escape</p></li>
@@ -171,7 +171,7 @@ disabled by default on Windows and Linux. They can be enabled with the
 <div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_ctrl_keys&quot;</span><span class="p">:</span> <span class="kc">true</span>
 </pre></div>
 </div>
-</section><section id="ex-mode"><h2>Ex Mode<a class="headerlink" href="vintage.html#ex-mode" title="Permalink to this headline">🔗</a></h2>
+</section><section id="ex-mode"><h2>Ex Mode<a class="headerlink" href="vintage.html#ex-mode" title="Permalink to this heading">🔗</a></h2>
 <p>Please take a look at <a class="reference external" href="https://github.com/SublimeText/VintageEx">VintageEx</a>
 for an Ex mode for Vintage.</p>
 </section></section>

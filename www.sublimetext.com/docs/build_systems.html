@@ -102,7 +102,7 @@ Python.</p>
 <li><p><a class="reference internal" href="build_systems.html#variables">Variables</a></p></li>
 <li><p><a class="reference internal" href="build_systems.html#advanced-example">Advanced Example</a></p></li>
 </ul>
-<section id="basic-example"><h2>Basic Example<a class="headerlink" href="build_systems.html#basic-example" title="Permalink to this headline">🔗</a></h2>
+<section id="basic-example"><h2>Basic Example<a class="headerlink" href="build_systems.html#basic-example" title="Permalink to this heading">🔗</a></h2>
 <p>The following is a basic example of a build system. This build system will
 execute the currently-open Python file.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -114,7 +114,7 @@ execute the currently-open Python file.</p>
 </div>
 <p>The <a class="reference internal" href="build_systems.html#usage">Usage</a> and <a class="reference internal" href="build_systems.html#options">Options</a> sections will discuss how to use and customize a
 build system.</p>
-</section><section id="usage"><h2>Usage<a class="headerlink" href="build_systems.html#usage" title="Permalink to this headline">🔗</a></h2>
+</section><section id="usage"><h2>Usage<a class="headerlink" href="build_systems.html#usage" title="Permalink to this heading">🔗</a></h2>
 <p>Build systems include the following functionality:</p>
 <ul class="simple">
 <li><p>Automatic selection of a build system based on file type</p></li>
@@ -122,7 +122,7 @@ build system.</p>
 <li><p>Navigation of build system results</p></li>
 <li><p>Ability to cancel a build</p></li>
 </ul>
-<section id="running-a-build"><h3>Running a Build<a class="headerlink" href="build_systems.html#running-a-build" title="Permalink to this headline">🔗</a></h3>
+<section id="running-a-build"><h3>Running a Build<a class="headerlink" href="build_systems.html#running-a-build" title="Permalink to this heading">🔗</a></h3>
 <p>A build can be run by one of the following methods:</p>
 <section class="wide"><table class="docutils align-default">
 <colgroup>
@@ -150,7 +150,7 @@ build system.</p>
 </table>
 </section><p>Output will be shown in an output panel displayed at the bottom of the Sublime
 Text window.</p>
-</section><section id="selecting-a-build-system"><h3>Selecting a Build System<a class="headerlink" href="build_systems.html#selecting-a-build-system" title="Permalink to this headline">🔗</a></h3>
+</section><section id="selecting-a-build-system"><h3>Selecting a Build System<a class="headerlink" href="build_systems.html#selecting-a-build-system" title="Permalink to this heading">🔗</a></h3>
 <p>By default, Sublime Text uses automatic selection of build systems. When a user
 invokes a build, the current file’s syntax and filename will be used to pick
 the appropriate build system.</p>
@@ -185,7 +185,7 @@ methods:</p>
 </tr>
 </tbody>
 </table>
-</section></section><section id="navigating-results"><h3>Navigating Results<a class="headerlink" href="build_systems.html#navigating-results" title="Permalink to this headline">🔗</a></h3>
+</section></section><section id="navigating-results"><h3>Navigating Results<a class="headerlink" href="build_systems.html#navigating-results" title="Permalink to this heading">🔗</a></h3>
 <p>Build systems allow navigation of files specified in the build output. Typically
 this is used to jump to the location of errors. Navigation can be performed
 via:</p>
@@ -212,7 +212,7 @@ via:</p>
 </tr>
 </tbody>
 </table>
-</section></section><section id="cancelling-a-build"><h3>Cancelling a Build<a class="headerlink" href="build_systems.html#cancelling-a-build" title="Permalink to this headline">🔗</a></h3>
+</section></section><section id="cancelling-a-build"><h3>Cancelling a Build<a class="headerlink" href="build_systems.html#cancelling-a-build" title="Permalink to this heading">🔗</a></h3>
 <p>An in-process build can be cancelled via:</p>
 <section class="wide"><table class="docutils align-default">
 <colgroup>
@@ -238,7 +238,7 @@ via:</p>
 </tr>
 </tbody>
 </table>
-</section></section></section><section id="options"><h2>Options<a class="headerlink" href="build_systems.html#options" title="Permalink to this headline">🔗</a></h2>
+</section></section></section><section id="options"><h2>Options<a class="headerlink" href="build_systems.html#options" title="Permalink to this heading">🔗</a></h2>
 <p>All build systems may use the following top-level keys in
 the <span class="file">.sublime-build</span> file:</p>
 <dl class="subl setting">
@@ -343,7 +343,7 @@ machine.</p>
 </div>
 </dd></dl>
 
-</section><section id="exec-target-options"><h2><code class="docutils literal notranslate"><span class="pre">exec</span></code> Target Options<a class="headerlink" href="build_systems.html#exec-target-options" title="Permalink to this headline">🔗</a></h2>
+</section><section id="exec-target-options"><h2><code class="docutils literal notranslate"><span class="pre">exec</span></code> Target Options<a class="headerlink" href="build_systems.html#exec-target-options" title="Permalink to this heading">🔗</a></h2>
 <p>The default <code class="docutils literal notranslate"><span class="pre">target</span></code> of <code class="docutils literal notranslate"><span class="pre">exec</span></code> is used by the majority of build systems. It
 provides the following options to control what program to execute, and how to
 display the results.</p>
@@ -454,7 +454,7 @@ to search backwards to find the appropriate file name.</p>
 <p>Example: <code class="docutils literal notranslate"><span class="pre">&quot;Packages/JavaScript/JSON.sublime-syntax&quot;</span></code></p>
 </dd></dl>
 
-</section><section id="custom-options"><h2>Custom Options<a class="headerlink" href="build_systems.html#custom-options" title="Permalink to this headline">🔗</a></h2>
+</section><section id="custom-options"><h2>Custom Options<a class="headerlink" href="build_systems.html#custom-options" title="Permalink to this heading">🔗</a></h2>
 <p>When implementing a command to act as a build system target, the command’s
 keyword arguments are available via options in the <span class="file">.sublime-build</span> file.
 However, certain parameter names will not work since they conflict with
@@ -475,7 +475,7 @@ applies to other situations, such as options specified in the <code class="docut
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;variants&quot;</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&quot;windows&quot;</span></code></p></li>
 </ul>
-</section><section id="variables"><h2>Variables<a class="headerlink" href="build_systems.html#variables" title="Permalink to this headline">🔗</a></h2>
+</section><section id="variables"><h2>Variables<a class="headerlink" href="build_systems.html#variables" title="Permalink to this heading">🔗</a></h2>
 <p>The following variables will be expanded within any string specified in the
 <code class="docutils literal notranslate"><span class="pre">&quot;cmd&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;working_dir&quot;</span></code> options.</p>
 <p>If a literal <code class="docutils literal notranslate"><span class="pre">$</span></code> needs to be specified in one of these options, it must be
@@ -538,7 +538,7 @@ variable expansion for additional options by using
 </tr>
 </tbody>
 </table>
-</section></section><section id="advanced-example"><h2>Advanced Example<a class="headerlink" href="build_systems.html#advanced-example" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="advanced-example"><h2>Advanced Example<a class="headerlink" href="build_systems.html#advanced-example" title="Permalink to this heading">🔗</a></h2>
 <p>The following example shows a custom <code class="docutils literal notranslate"><span class="pre">target</span></code> command, with the ability to
 cancel a build and navigate results.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">target</span></code> for a build system should be a <a class="reference internal" href="api_reference.html#sublime_plugin.WindowCommand" title="sublime_plugin.WindowCommand"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime_plugin.WindowCommand</span></code></a>. This

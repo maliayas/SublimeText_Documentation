@@ -97,7 +97,7 @@ being an array. Each binding is a JSON object.</p>
 </li>
 <li><p><a class="reference internal" href="key_bindings.html#user-bindings">User Bindings</a></p></li>
 </ul>
-<section id="example"><h2>Example<a class="headerlink" href="key_bindings.html#example" title="Permalink to this headline">🔗</a></h2>
+<section id="example"><h2>Example<a class="headerlink" href="key_bindings.html#example" title="Permalink to this heading">🔗</a></h2>
 <p><i>The following is an example of the format of a <span class="file">.sublime-keymap</span> file.</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
     <span class="p">{</span>
@@ -131,11 +131,11 @@ being an array. Each binding is a JSON object.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section><section id="bindings"><h2>Bindings<a class="headerlink" href="key_bindings.html#bindings" title="Permalink to this headline">🔗</a></h2>
+</section><section id="bindings"><h2>Bindings<a class="headerlink" href="key_bindings.html#bindings" title="Permalink to this heading">🔗</a></h2>
 <p>Each key binding requires two keys, <code class="docutils literal notranslate"><span class="pre">&quot;keys&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code>. To pass args
 to a command, the <code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> key should be specified. To restrict a key binding
 to a specific situation, the <code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> key must be included.</p>
-<section id="keys-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;keys&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#keys-key" title="Permalink to this headline">🔗</a></h3>
+<section id="keys-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;keys&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#keys-key" title="Permalink to this heading">🔗</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;keys&quot;</span></code> value must be an array of strings, where each string contains
 a <i>key press</i>, comprised of a key and any modifiers. When multiple key presses
 are present in the array, the command will only be invoked if the presses are
@@ -154,7 +154,7 @@ performed in sequence.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<section id="modifiers"><h4>Modifiers<a class="headerlink" href="key_bindings.html#modifiers" title="Permalink to this headline">🔗</a></h4>
+<section id="modifiers"><h4>Modifiers<a class="headerlink" href="key_bindings.html#modifiers" title="Permalink to this heading">🔗</a></h4>
 <p>The following modifiers may be combined with key names for each <i>key press</i>.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">ctrl</span></code></p></li>
@@ -165,7 +165,7 @@ performed in sequence.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">super</span></code> - the <span class="keys"><b>Windows</b></span> key on Windows and Linux, or <span class="keys"><b>⌘</b></span> on Mac</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">primary</span></code> - <span class="keys"><b>Ctrl</b></span> on Windows and Linux, or <span class="keys"><b>⌘</b></span> on Mac</p></li>
 </ul>
-</section><section id="key-names"><h4>Key Names<a class="headerlink" href="key_bindings.html#key-names" title="Permalink to this headline">🔗</a></h4>
+</section><section id="key-names"><h4>Key Names<a class="headerlink" href="key_bindings.html#key-names" title="Permalink to this heading">🔗</a></h4>
 <dl class="simple">
 <dt>Key names are specified either by the (non-shifted) character</dt><dd><p>printed on the key, or a key name:</p>
 </dd>
@@ -305,7 +305,7 @@ div#key_names-columns:after
         <code>f19</code><br>
         <code>f20</code>
     </div>
-</div></section></section><section id="command-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#command-key" title="Permalink to this headline">🔗</a></h3>
+</div></section></section><section id="command-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#command-key" title="Permalink to this heading">🔗</a></h3>
 <dl class="simple">
 <dt>The <code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> key specifies the name of the command to</dt><dd><p>execute when the key press(es) are detected. The command may be a
 built-in command, or a command implemented by a plugin.</p>
@@ -321,7 +321,7 @@ built-in command, or a command implemented by a plugin.</p>
 commands can be found by looking at the
 <span class="file">Default ({PLATFORM_NAME}).sublime-keymap</span> files in the
 <span class="file">Default/</span> package.</i></p>
-</section><section id="args-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#args-key" title="Permalink to this headline">🔗</a></h3>
+</section><section id="args-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#args-key" title="Permalink to this heading">🔗</a></h3>
 <p>The arguments to send to the <code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> key may be specified by a JSON object
 under the <code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> key.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
@@ -331,7 +331,7 @@ under the <code class="docutils literal notranslate"><span class="pre">&quot;arg
 <span class="p">}</span>
 </pre></div>
 </div>
-</section><section id="context-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#context-key" title="Permalink to this headline">🔗</a></h3>
+</section><section id="context-key"><h3><code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> Key<a class="headerlink" href="key_bindings.html#context-key" title="Permalink to this heading">🔗</a></h3>
 <p>To allow for key bindings that react differently based on the situation, the
 <code class="docutils literal notranslate"><span class="pre">&quot;context&quot;</span></code> key allows specifying one or more conditions that must evaluate
 to true for the key binding to be active.</p>
@@ -482,7 +482,7 @@ selections.</p>
 </tr>
 </tbody>
 </table>
-</section></section></section><section id="user-bindings"><h2>User Bindings<a class="headerlink" href="key_bindings.html#user-bindings" title="Permalink to this headline">🔗</a></h2>
+</section></section></section><section id="user-bindings"><h2>User Bindings<a class="headerlink" href="key_bindings.html#user-bindings" title="Permalink to this heading">🔗</a></h2>
 <p>Users can customize their key bindings by creating a file
 named <span class="file">Default.sublime-keymap</span> in their <span class="file">Packages/User/</span>
 directory.</p>

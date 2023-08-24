@@ -91,7 +91,7 @@ what action it should perform.</p>
 <li><p><a class="reference internal" href="menus.html#adding-to-submenus">Adding to Submenus</a></p></li>
 <li><p><a class="reference internal" href="menus.html#customization">Customization</a></p></li>
 </ul>
-<section id="example"><h2>Example<a class="headerlink" href="menus.html#example" title="Permalink to this headline">🔗</a></h2>
+<section id="example"><h2>Example<a class="headerlink" href="menus.html#example" title="Permalink to this heading">🔗</a></h2>
 <p><i>The following is an example of the format of a <span class="file">.sublime-menu</span> file.</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
     <span class="p">{</span>
@@ -110,7 +110,7 @@ what action it should perform.</p>
 <span class="p">]</span>
 </pre></div>
 </div>
-</section><section id="entries"><h2>Entries<a class="headerlink" href="menus.html#entries" title="Permalink to this headline">🔗</a></h2>
+</section><section id="entries"><h2>Entries<a class="headerlink" href="menus.html#entries" title="Permalink to this heading">🔗</a></h2>
 <p>Each menu entry is a JSON object with one or more keys. The list of supported
 keys includes:</p>
 <dl class="subl setting">
@@ -163,7 +163,7 @@ non-functionality entry, or <code class="docutils literal notranslate"><span cla
 action.</p>
 </dd></dl>
 
-</section><section id="available-menus"><h2>Available Menus<a class="headerlink" href="menus.html#available-menus" title="Permalink to this headline">🔗</a></h2>
+</section><section id="available-menus"><h2>Available Menus<a class="headerlink" href="menus.html#available-menus" title="Permalink to this heading">🔗</a></h2>
 <p>Sublime Text has seven menus that may be customized:</p>
 <dl class="subl setting">
 <dt class="sig sig-object subl">
@@ -216,7 +216,7 @@ can be changed via the <code class="docutils literal notranslate"><span class="p
 of <span class="file">Widget.sublime-settings</span>.*</p>
 </dd></dl>
 
-</section><section id="adding-to-submenus"><h2>Adding to Submenus<a class="headerlink" href="menus.html#adding-to-submenus" title="Permalink to this headline">🔗</a></h2>
+</section><section id="adding-to-submenus"><h2>Adding to Submenus<a class="headerlink" href="menus.html#adding-to-submenus" title="Permalink to this heading">🔗</a></h2>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">&quot;id&quot;</span></code> key of an entry, it is possible to add entries to submenus.
 When adding submenu entries, specify only the <code class="docutils literal notranslate"><span class="pre">&quot;id&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;children&quot;</span></code> keys
 of the parent entry, and set the value of <code class="docutils literal notranslate"><span class="pre">&quot;children&quot;</span></code> to an array of entries
@@ -251,7 +251,7 @@ entry such as:</p>
 <p>To find the <code class="docutils literal notranslate"><span class="pre">&quot;id&quot;</span></code> of entries in the <span class="file">Main.sublime-menu</span>, use the <code class="docutils literal notranslate"><span class="pre">View</span>
 <span class="pre">Package</span> <span class="pre">File</span></code> command from the command palette and select
 <code class="docutils literal notranslate"><span class="pre">Default/Main.sublime-menu</span></code>.</p>
-</section><section id="customization"><h2>Customization<a class="headerlink" href="menus.html#customization" title="Permalink to this headline">🔗</a></h2>
+</section><section id="customization"><h2>Customization<a class="headerlink" href="menus.html#customization" title="Permalink to this heading">🔗</a></h2>
 <p>Users can customize the available menus by creating an appropriately-named file in their <span class="file">Packages/User/</span> directory.</p>
 <p>For example, to customize the context menu for files and folders in the side bar, create a file named <span class="file">Packages/User/Side Bar.sublime-menu</span>. Adding the following would create an entry that would execute a (hypothetical) command that would copy the path to the clipboard.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>

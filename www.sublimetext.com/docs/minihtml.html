@@ -118,8 +118,8 @@ same way in minihtml as in a browser.</p>
 </dl>
 </li>
 </ul>
-<section id="html"><h2>HTML<a class="headerlink" href="minihtml.html#html" title="Permalink to this headline">🔗</a></h2>
-<section id="tags"><h3>Tags<a class="headerlink" href="minihtml.html#tags" title="Permalink to this headline">🔗</a></h3>
+<section id="html"><h2>HTML<a class="headerlink" href="minihtml.html#html" title="Permalink to this heading">🔗</a></h2>
+<section id="tags"><h3>Tags<a class="headerlink" href="minihtml.html#tags" title="Permalink to this heading">🔗</a></h3>
 <p>The following tags are styled by the default style sheet:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code></p></li>
@@ -146,7 +146,7 @@ clicks on anchor tags.</p></li>
 </ul>
 <p>Other HTML tags with special behavior are not implemented. This includes tags
 such as <code class="docutils literal notranslate"><span class="pre">&lt;input&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>, etc.</p>
-</section><section id="attributes"><h3>Attributes<a class="headerlink" href="minihtml.html#attributes" title="Permalink to this headline">🔗</a></h3>
+</section><section id="attributes"><h3>Attributes<a class="headerlink" href="minihtml.html#attributes" title="Permalink to this heading">🔗</a></h3>
 <p>The following attributes are supported:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">class</span></code> — for CSS selectors</p></li>
@@ -162,7 +162,7 @@ such as <code class="docutils literal notranslate"><span class="pre">&lt;input&g
 </li>
 </ul>
 </section><div class="build-filter build-4073 docutils container" id="protocols">
-<section id="protocols"><h3>Protocols<a class="headerlink" href="minihtml.html#protocols" title="Permalink to this headline">🔗</a></h3>
+<section id="protocols"><h3>Protocols<a class="headerlink" href="minihtml.html#protocols" title="Permalink to this heading">🔗</a></h3>
 <p>In HTML sheets, popups, annotations and completion item details, the <code class="docutils literal notranslate"><span class="pre">href=&quot;&quot;</span></code>
 attribute of <code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code> tags automatically supports three protocols:</p>
 <ul class="simple">
@@ -180,7 +180,7 @@ via the API that will be called for any URL except for the <code class="docutils
 This API-based approach was the only way to handle URLs before build 4073.</p>
 </section><span class="build">4073</span></div>
 <div class="build-filter build-4073 docutils container" id="inline-formatting">
-<section id="inline-formatting"><h3>Inline Formatting<a class="headerlink" href="minihtml.html#inline-formatting" title="Permalink to this headline">🔗</a></h3>
+<section id="inline-formatting"><h3>Inline Formatting<a class="headerlink" href="minihtml.html#inline-formatting" title="Permalink to this heading">🔗</a></h3>
 <p>In the details field of completion items, quick panel items and list input
 items, there is support for a limited, inline formatting subset of minihtml.
 This allows for some basic text formatting, that respects the theme and color
@@ -197,7 +197,7 @@ scheme the user has selected.</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code></p></li>
 </ul>
 </section><span class="build">4073</span></div>
-<section id="best-practices"><h3>Best Practices<a class="headerlink" href="minihtml.html#best-practices" title="Permalink to this headline">🔗</a></h3>
+<section id="best-practices"><h3>Best Practices<a class="headerlink" href="minihtml.html#best-practices" title="Permalink to this heading">🔗</a></h3>
 <p>To allow color scheme authors to tweak the look of popups and phantoms, it is
 best to add a unique <code class="docutils literal notranslate"><span class="pre">id=&quot;&quot;</span></code> attribute to the <code class="docutils literal notranslate"><span class="pre">&lt;body&gt;</span></code> tag of your plugin’s
 HTML.</p>
@@ -215,7 +215,7 @@ override the plugin.</p>
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-</section><section id="predefined-classes"><h3>Predefined Classes<a class="headerlink" href="minihtml.html#predefined-classes" title="Permalink to this headline">🔗</a></h3>
+</section><section id="predefined-classes"><h3>Predefined Classes<a class="headerlink" href="minihtml.html#predefined-classes" title="Permalink to this heading">🔗</a></h3>
 <p>When minihtml processes the HTML markup, it will automatically add a single
 class name to the <code class="docutils literal notranslate"><span class="pre">&lt;html&gt;</span></code> tag. The class name will be <code class="docutils literal notranslate"><span class="pre">dark</span></code> or <code class="docutils literal notranslate"><span class="pre">light</span></code>,
 and is designed to allow for advanced use of CSS in styling phantoms and
@@ -224,7 +224,7 @@ popups.</p>
 background color of the current color scheme. If the lightness is less than
 0.5, <code class="docutils literal notranslate"><span class="pre">dark</span></code> will be added. If the lightness is greater than or equal to 0.5,
 <code class="docutils literal notranslate"><span class="pre">light</span></code> will be added.</p>
-</section></section><section id="css"><h2>CSS<a class="headerlink" href="minihtml.html#css" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="css"><h2>CSS<a class="headerlink" href="minihtml.html#css" title="Permalink to this heading">🔗</a></h2>
 <p>The following list provides an overview of supported properties and values:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">display</span></code>: <code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">inline</span></code>, <code class="docutils literal notranslate"><span class="pre">block</span></code>, <code class="docutils literal notranslate"><span class="pre">list-item</span></code>,
@@ -287,7 +287,7 @@ background color of the current color scheme. If the lightness is less than
 <span class="build">4050</span></div>
 </li>
 </ul>
-<section id="units"><h3>Units<a class="headerlink" href="minihtml.html#units" title="Permalink to this headline">🔗</a></h3>
+<section id="units"><h3>Units<a class="headerlink" href="minihtml.html#units" title="Permalink to this heading">🔗</a></h3>
 <p>Supported units of measurement include:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">rem</span></code></p></li>
@@ -297,7 +297,7 @@ background color of the current color scheme. If the lightness is less than
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">rem</span></code> units are recommended because they are based on the user’s <code class="docutils literal notranslate"><span class="pre">font_size</span></code>
 setting, and they will not cascade.</p>
-</section><section id="colors"><h3>Colors<a class="headerlink" href="minihtml.html#colors" title="Permalink to this headline">🔗</a></h3>
+</section><section id="colors"><h3>Colors<a class="headerlink" href="minihtml.html#colors" title="Permalink to this heading">🔗</a></h3>
 <p>Colors may be specified via:</p>
 <ul>
 <li><p>Named colors: <code class="docutils literal notranslate"><span class="pre">white</span></code>, <code class="docutils literal notranslate"><span class="pre">tan</span></code>, etc</p></li>
@@ -315,7 +315,7 @@ setting, and they will not cascade.</p>
 </li>
 <li><p><code class="docutils literal notranslate"><span class="pre">transparent</span></code></p></li>
 </ul>
-<section id="color-mod-function-proprietary"><h4><code class="docutils literal notranslate"><span class="pre">color()</span></code> Mod Function (Proprietary)<a class="headerlink" href="minihtml.html#color-mod-function-proprietary" title="Permalink to this headline">🔗</a></h4>
+<section id="color-mod-function-proprietary"><h4><code class="docutils literal notranslate"><span class="pre">color()</span></code> Mod Function (Proprietary)<a class="headerlink" href="minihtml.html#color-mod-function-proprietary" title="Permalink to this heading">🔗</a></h4>
 <p>Additionally, color values may be modified using the CSS Color Module Level 4
 (05 July 2016) <a class="reference external" href="https://www.w3.org/TR/2016/WD-css-color-4-20160705/#modifying-colors">color-mod function</a> with
 the following adjusters. <i>Unfortunately in a later draft of CSS Color Module
@@ -348,7 +348,7 @@ Level 4, the color-mod function was removed</i>.</p>
 </pre></div>
 </div>
 <p>The color-mod function will be most useful in combination with <a class="reference internal" href="minihtml.html#variables">variables</a>.</p>
-</section><section id="min-contrast-adjuster"><h4><code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> Adjuster<a class="headerlink" href="minihtml.html#min-contrast-adjuster" title="Permalink to this headline">🔗</a></h4>
+</section><section id="min-contrast-adjuster"><h4><code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> Adjuster<a class="headerlink" href="minihtml.html#min-contrast-adjuster" title="Permalink to this heading">🔗</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">min-contrast()</span></code> adjuster for the <code class="docutils literal notranslate"><span class="pre">color()</span></code> mod function is a
 non-standard addition that is custom to minihtml. At the time of
 implementation, the CSS Color Module Level 4 spec had a <code class="docutils literal notranslate"><span class="pre">contrast()</span></code> adjuster,
@@ -367,7 +367,7 @@ and <code class="docutils literal notranslate"><span class="pre">4.5</span></cod
 <p>Please see the documentation for the <a class="reference external" href="https://www.w3.org/TR/2016/WD-css-color-4-20160705/#contrast-adjuster">contrast() adjuster</a> for
 details about how the contrast ratio is calculated and how the color is
 modified to meet it.</p>
-</section></section><section id="variables"><h3>Variables<a class="headerlink" href="minihtml.html#variables" title="Permalink to this headline">🔗</a></h3>
+</section></section><section id="variables"><h3>Variables<a class="headerlink" href="minihtml.html#variables" title="Permalink to this heading">🔗</a></h3>
 <p>CSS variables are also supported using custom properties and the <code class="docutils literal notranslate"><span class="pre">var()</span></code>
 functional notation. Custom properties are those starting with <code class="docutils literal notranslate"><span class="pre">--</span></code>.</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">html</span> <span class="p">{</span>
@@ -381,7 +381,7 @@ functional notation. Custom properties are those starting with <code class="docu
 <p>The one limitation is that the <code class="docutils literal notranslate"><span class="pre">var()</span></code> notation can not be used for part of a
 multi-number value, such as <code class="docutils literal notranslate"><span class="pre">padding</span></code> or <code class="docutils literal notranslate"><span class="pre">margin</span></code>. With those aggregate
 properties, the <code class="docutils literal notranslate"><span class="pre">var()</span></code> notation must be used for the complete value.</p>
-<section id="predefined-variables"><h4>Predefined Variables<a class="headerlink" href="minihtml.html#predefined-variables" title="Permalink to this headline">🔗</a></h4>
+<section id="predefined-variables"><h4>Predefined Variables<a class="headerlink" href="minihtml.html#predefined-variables" title="Permalink to this heading">🔗</a></h4>
 <p>When a color scheme is loaded, the background and foreground colors are set to
 CSS variables, along with the closest color found to a handful of basic colors.
 These are all set in an <code class="docutils literal notranslate"><span class="pre">html</span> <span class="pre">{</span> <span class="pre">}</span></code> rule set in the default CSS style sheet.</p>

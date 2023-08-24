@@ -108,7 +108,7 @@ appearance.</p>
 <li><p><a class="reference internal" href="themes.html#obsolete">Obsolete</a></p></li>
 <li><p><a class="reference internal" href="themes.html#customization">Customization</a></p></li>
 </ul>
-<section id="format"><h2>Format<a class="headerlink" href="themes.html#format" title="Permalink to this headline">🔗</a></h2>
+<section id="format"><h2>Format<a class="headerlink" href="themes.html#format" title="Permalink to this heading">🔗</a></h2>
 <p>A <span class="file">.sublime-theme</span> file contains a single JSON document. The document
 should be <span class="build-filter build-3179">an object containing a key “rules” with the value of <span class="build">3179</span></span>
 an array of rules. <span class="build-filter build-3179">An optional key “variables” with an object
@@ -151,7 +151,7 @@ the UI.</i></p>
 <span class="p p-Indicator">]</span>
 </pre></div>
 </div>
-</section><section id="terminology"><h2>Terminology<a class="headerlink" href="themes.html#terminology" title="Permalink to this headline">🔗</a></h2>
+</section><section id="terminology"><h2>Terminology<a class="headerlink" href="themes.html#terminology" title="Permalink to this heading">🔗</a></h2>
 <p>The primary contents of a theme is an array of <i>rules</i>. Each <i>rule</i> object
 contains a <code class="docutils literal notranslate"><span class="pre">&quot;class&quot;</span></code> key used to match to an element. In addition to the
 <code class="docutils literal notranslate"><span class="pre">&quot;class&quot;</span></code>, matching can be further restricted by specifying <code class="docutils literal notranslate"><span class="pre">&quot;attributes&quot;</span></code>,
@@ -202,13 +202,13 @@ systems to apply the rule to. Valid options
 include <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;osx&quot;</span></span></code>, <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;windows&quot;</span></span></code> and <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;linux&quot;</span></span></code>.</p>
 <p><i>Properties</i> refer to all other keys in the JSON objects. Some properties are
 available on all elements, while others are specific to an individual element.</p>
-</section><section id="general-information"><h2>General Information<a class="headerlink" href="themes.html#general-information" title="Permalink to this headline">🔗</a></h2>
+</section><section id="general-information"><h2>General Information<a class="headerlink" href="themes.html#general-information" title="Permalink to this heading">🔗</a></h2>
 <p>The follow sections discuss information about images and how to specify styles.</p>
-<section id="specificity"><h3>Specificity<a class="headerlink" href="themes.html#specificity" title="Permalink to this headline">🔗</a></h3>
+<section id="specificity"><h3>Specificity<a class="headerlink" href="themes.html#specificity" title="Permalink to this heading">🔗</a></h3>
 <p>Unlike CSS, a Sublime Text theme does not do specificity matching when applying
 rules to elements. All rules are tested, in order, against each element.
 Subsequent rules that match will override properties from previous rules.</p>
-</section><section id="texture-images"><h3>Texture Images<a class="headerlink" href="themes.html#texture-images" title="Permalink to this headline">🔗</a></h3>
+</section><section id="texture-images"><h3>Texture Images<a class="headerlink" href="themes.html#texture-images" title="Permalink to this heading">🔗</a></h3>
 <p>All textures in a theme are specified using PNG images. Each texture should be
 saved at “normal” DPI, where each pixel in the file will be mapped to one
 device pixel. All file paths in the theme definition should reference the
@@ -219,11 +219,11 @@ automatically use the <code class="docutils literal notranslate"><span class="pr
 screen. :since:&lt;It is also possible to specify <code class="docutils literal notranslate"><span class="pre">&#64;3x</span></code> variants of textures for
 screens running at 300% scale or higher &lt;3167&gt;&gt;.</p>
 <p><i>SVG images are not currently supported.</i></p>
-</section><section id="dimensions"><h3>Dimensions<a class="headerlink" href="themes.html#dimensions" title="Permalink to this headline">🔗</a></h3>
+</section><section id="dimensions"><h3>Dimensions<a class="headerlink" href="themes.html#dimensions" title="Permalink to this heading">🔗</a></h3>
 <p>Integer units in a theme referring to dimensions are always specified in
 device-independent pixels (DIP). Sublime Text automatically handles scaling UI
 elements based on the screen density.</p>
-</section><section id="padding-margins"><h3>Padding &amp; Margins<a class="headerlink" href="themes.html#padding-margins" title="Permalink to this headline">🔗</a></h3>
+</section><section id="padding-margins"><h3>Padding &amp; Margins<a class="headerlink" href="themes.html#padding-margins" title="Permalink to this heading">🔗</a></h3>
 <p>Padding and margin may be specified in one of three ways:</p>
 <ul class="simple">
 <li><p>A single integer value – the same value is applied to the left, top, right and
@@ -234,7 +234,7 @@ while the second value is applied to the top and bottom</p></li>
 top, right and bottom</p></li>
 </ul>
 </section></section><div class="build-filter build-3179 docutils container" id="inheritance">
-<section id="inheritance"><h2>Inheritance<a class="headerlink" href="themes.html#inheritance" title="Permalink to this headline">🔗</a></h2>
+<section id="inheritance"><h2>Inheritance<a class="headerlink" href="themes.html#inheritance" title="Permalink to this heading">🔗</a></h2>
 <p>A theme may extend another theme, appending rules and overriding variables. To
 extend a theme, add a top-level key <code class="docutils literal notranslate"><span class="pre">&quot;extends&quot;</span></code> to the JSON object, with a
 string value of the base theme.</p>
@@ -257,7 +257,7 @@ variables with the same name in the base theme. Variable overrides will affect
 rules both in the base theme and the extending theme.</p>
 </section><span class="build">3179</span></div>
 <div class="build-filter build-3179 docutils container" id="variables">
-<section id="variables"><h2>Variables<a class="headerlink" href="themes.html#variables" title="Permalink to this headline">🔗</a></h2>
+<section id="variables"><h2>Variables<a class="headerlink" href="themes.html#variables" title="Permalink to this heading">🔗</a></h2>
 <p>Reusable variables may be defined by a JSON object under the top-level key
 <code class="docutils literal notranslate"><span class="pre">&quot;variables&quot;</span></code>. Variable names are strings, however the value may be a string,
 number, boolean, array or object. Using a variable requires specifying a string
@@ -282,10 +282,10 @@ the variable must be the entire value, it may not be embedded within another
 variable. The only exception to this rule is that variables may be used as the
 base color for the CSS <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">color</span></span><span class="o"><span class="pre">()</span></span></code> mod function.</p>
 </section><span class="build">3179</span></div>
-<section id="colors"><h2>Colors<a class="headerlink" href="themes.html#colors" title="Permalink to this headline">🔗</a></h2>
+<section id="colors"><h2>Colors<a class="headerlink" href="themes.html#colors" title="Permalink to this heading">🔗</a></h2>
 <p>Colors may be specified by CSS or legacy color syntax:</p>
 <div class="build-filter build-3179 docutils container" id="css-color-syntax">
-<section id="css-color-syntax"><h3>CSS Color Syntax<a class="headerlink" href="themes.html#css-color-syntax" title="Permalink to this headline">🔗</a></h3>
+<section id="css-color-syntax"><h3>CSS Color Syntax<a class="headerlink" href="themes.html#css-color-syntax" title="Permalink to this heading">🔗</a></h3>
 <p>Since Sublime Text build 3177, colors in themes may now be specified using CSS
 syntax, as supported by <a class="reference internal" href="minihtml.html"><span class="doc">minihtml Reference</span></a>. This includes support for hex, <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">rgb</span></span><span class="o"><span class="pre">()</span></span></code>,
 <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">hsl</span></span><span class="o"><span class="pre">()</span></span></code>, variables and the color mod function. Additionally, all
@@ -312,10 +312,10 @@ scheme are available for use.</p>
 </pre></div>
 </div>
 </section><span class="build">3179</span></div>
-<section id="legacy-color-syntax"><h3>Legacy Color Syntax<a class="headerlink" href="themes.html#legacy-color-syntax" title="Permalink to this headline">🔗</a></h3>
+<section id="legacy-color-syntax"><h3>Legacy Color Syntax<a class="headerlink" href="themes.html#legacy-color-syntax" title="Permalink to this heading">🔗</a></h3>
 <p>Prior to supporting CSS syntax for colors, themes were only able to specify
 colors using the following formats, which are now deprecated.</p>
-<section id="rgb"><h4>RGB<a class="headerlink" href="themes.html#rgb" title="Permalink to this headline">🔗</a></h4>
+<section id="rgb"><h4>RGB<a class="headerlink" href="themes.html#rgb" title="Permalink to this heading">🔗</a></h4>
 <p>Colors in the RGB color space are specified via an array of 3 or 4 numbers, with
 the first three being integers ranging from <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">0</span></span></code> to <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">255</span></span></code>
 representing the components red, green and blue. The optional fourth number is
@@ -329,7 +329,7 @@ the color.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
 </pre></div>
 </div>
-</section><section id="hsl"><h4>HSL<a class="headerlink" href="themes.html#hsl" title="Permalink to this headline">🔗</a></h4>
+</section><section id="hsl"><h4>HSL<a class="headerlink" href="themes.html#hsl" title="Permalink to this heading">🔗</a></h4>
 <p>Colors may also be specified using the HSL color space by creating an array of 4
 elements, with the first being the string <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;hsl&quot;</span></span></code>. The second element is
 an integer from <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">0</span></span></code> to <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">360</span></span></code> specifying the hue. The third is an
@@ -345,12 +345,12 @@ control the opacity.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;hsl&quot;</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>
 </pre></div>
 </div>
-</section><section id="derived-colors"><h4>Derived Colors<a class="headerlink" href="themes.html#derived-colors" title="Permalink to this headline">🔗</a></h4>
+</section><section id="derived-colors"><h4>Derived Colors<a class="headerlink" href="themes.html#derived-colors" title="Permalink to this heading">🔗</a></h4>
 <p>It is also possible to derive colors from the current global color scheme.
 Colors in this format are specified using arrays with specific formats. In all
 cases, the first element is the base color, which may
 be <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;foreground&quot;</span></span></code>, <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;background&quot;</span></span></code> or <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;accent&quot;</span></span></code>.</p>
-<section id="change-opacity-of-base-color"><h5>Change Opacity of Base Color<a class="headerlink" href="themes.html#change-opacity-of-base-color" title="Permalink to this headline">🔗</a></h5>
+<section id="change-opacity-of-base-color"><h5>Change Opacity of Base Color<a class="headerlink" href="themes.html#change-opacity-of-base-color" title="Permalink to this heading">🔗</a></h5>
 <p>To change the opacity of a base color, specify an array of 2 elements, the first
 being the base color name and the second being a float from <code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">0.0</span></span></code>
 to <code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">1.0</span></span></code>. The opacity will be set to the float value.</p>
@@ -358,7 +358,7 @@ to <code class="code highlight json docutils literal notranslate"><span class="m
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;foreground&quot;</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>
 </pre></div>
 </div>
-</section><section id="de-saturate-base-color"><h5>De-saturate Base Color<a class="headerlink" href="themes.html#de-saturate-base-color" title="Permalink to this headline">🔗</a></h5>
+</section><section id="de-saturate-base-color"><h5>De-saturate Base Color<a class="headerlink" href="themes.html#de-saturate-base-color" title="Permalink to this heading">🔗</a></h5>
 <p>To de-saturate a base color, specify an array with 3 elements. The first is the
 name of the base color, the second is the string <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;grayscale&quot;</span></span></code>, and the
 third is an integer from <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">0</span></span></code> to <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">100</span></span></code> which specifies what
@@ -370,7 +370,7 @@ original value.</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s2">&quot;foreground&quot;</span><span class="p">,</span> <span class="s2">&quot;grayscale&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
 </pre></div>
 </div>
-</section><section id="tint-base-color"><h5>Tint Base Color<a class="headerlink" href="themes.html#tint-base-color" title="Permalink to this headline">🔗</a></h5>
+</section><section id="tint-base-color"><h5>Tint Base Color<a class="headerlink" href="themes.html#tint-base-color" title="Permalink to this heading">🔗</a></h5>
 <p>5 and 6-element derived colors allow blending a color into the base color. A
 5-element colors uses an RGBA color, whereas a 6-element uses an HSLA. In both
 cases, the last element, which normally represents the opacity, controls how
@@ -387,20 +387,20 @@ much of the secondary color is blended into the base.</p>
 scheme, and will not reflect view-specific color schemes. Certain view-specific
 controls in the UI have tinting properties that allow using the view-specific
 color scheme colors.</p>
-</section></section></section></section><section id="font-sizes"><h2>Font Sizes<a class="headerlink" href="themes.html#font-sizes" title="Permalink to this headline">🔗</a></h2>
+</section></section></section></section><section id="font-sizes"><h2>Font Sizes<a class="headerlink" href="themes.html#font-sizes" title="Permalink to this heading">🔗</a></h2>
 <p>Font sizes may be specified in the formats:</p>
-<section id="numeric"><h3>Numeric<a class="headerlink" href="themes.html#numeric" title="Permalink to this headline">🔗</a></h3>
+<section id="numeric"><h3>Numeric<a class="headerlink" href="themes.html#numeric" title="Permalink to this heading">🔗</a></h3>
 <p>An integer or float to specify the size of the font in pixels.</p>
 <p><i>Examples: <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">12</span></span></code>, <code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">13.5</span></span></code>.</i></p>
 </section><div class="build-filter build-4050 docutils container" id="css-format">
-<section id="css-format"><h3>CSS Format<a class="headerlink" href="themes.html#css-format" title="Permalink to this headline">🔗</a></h3>
+<section id="css-format"><h3>CSS Format<a class="headerlink" href="themes.html#css-format" title="Permalink to this heading">🔗</a></h3>
 <p>A string of a <code class="docutils literal notranslate"><span class="pre">px</span></code> or <code class="docutils literal notranslate"><span class="pre">rem</span></code> CSS font size.</p>
 <p><i>Examples: <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">12px</span></span></code>, <code class="code highlight css docutils literal notranslate"><span class="nt"><span class="pre">1</span></span><span class="o"><span class="pre">.</span></span><span class="err"><span class="pre">`</span></span><span class="nt"><span class="pre">2rem</span></span></code></i></p>
 <p><i>The <code class="docutils literal notranslate"><span class="pre">rem</span></code> size is based on the global setting <code class="docutils literal notranslate"><span class="pre">font_size</span></code> for most
 elements. Elements that use a different root font size will specify in the
 description.</i></p>
 </section><span class="build">4050</span></div>
-</section><section id="attributes"><h2>Attributes<a class="headerlink" href="themes.html#attributes" title="Permalink to this headline">🔗</a></h2>
+</section><section id="attributes"><h2>Attributes<a class="headerlink" href="themes.html#attributes" title="Permalink to this heading">🔗</a></h2>
 <p>Attributes are specified as an array of strings. Each string is an attribute
 name. To check for the absence of an attribute, prepend a <code class="docutils literal notranslate"><span class="pre">!</span></code> to the name.</p>
 <p>The following attributes are common to all elements:</p>
@@ -410,7 +410,7 @@ name. To check for the absence of an attribute, prepend a <code class="docutils 
 <dd><p>Set whenever the user’s mouse is hovered over an element.</p>
 </dd></dl>
 
-<section id="luminosity"><span id="luminosity-attributes"></span><h3>Luminosity<a class="headerlink" href="themes.html#luminosity" title="Permalink to this headline">🔗</a></h3>
+<section id="luminosity"><span id="luminosity-attributes"></span><h3>Luminosity<a class="headerlink" href="themes.html#luminosity" title="Permalink to this heading">🔗</a></h3>
 <p>Although not available on all elements, many have attributes set based on the
 approximate luminosity of the current color scheme. Most elements have the
 attributes set based on the global color scheme. Tabs and the tab background,
@@ -442,7 +442,7 @@ when represented as <a class="reference external" href="https://en.wikipedia.org
 <dd><p><code class="docutils literal notranslate"><span class="pre">V</span></code> from <code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">0.00</span></span></code>-<code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">0.09</span></span></code></p>
 </dd></dl>
 
-</section></section><section id="settings"><h2>Settings<a class="headerlink" href="themes.html#settings" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="settings"><h2>Settings<a class="headerlink" href="themes.html#settings" title="Permalink to this heading">🔗</a></h2>
 <p>Certain Sublime Text settings are design to influence the UI. Themes should
 respect these settings and change elements based on them.</p>
 <dl class="subl setting">
@@ -499,7 +499,7 @@ visually de-emphasized using <code class="docutils literal notranslate"><span cl
 </dd></dl>
 
 </div>
-</section><section id="properties"><h2>Properties<a class="headerlink" href="themes.html#properties" title="Permalink to this headline">🔗</a></h2>
+</section><section id="properties"><h2>Properties<a class="headerlink" href="themes.html#properties" title="Permalink to this heading">🔗</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;rules&quot;</span></code> key of a <span class="file">.sublime-theme</span> file is a JSON array of of
 objects describing how UI elements should be styled. Every element in the UI
 supports the following keys:</p>
@@ -534,7 +534,7 @@ supports the following keys:</p>
 considering a “hit”.</p>
 </dd></dl>
 
-<section id="layer-properties"><h3>Layer Properties<a class="headerlink" href="themes.html#layer-properties" title="Permalink to this headline">🔗</a></h3>
+<section id="layer-properties"><h3>Layer Properties<a class="headerlink" href="themes.html#layer-properties" title="Permalink to this heading">🔗</a></h3>
 <p>Every element in the UI supports up to four texture layers for displaying fill
 colors and raster graphics. Each layer has dotted sub-keys in the format
 <code class="docutils literal notranslate"><span class="pre">layer#.sub-key</span></code>. Valid sub-keys include:</p>
@@ -587,7 +587,7 @@ stretched.</p>
 <p>Example: <code class="code highlight json docutils literal notranslate"><span class="kc"><span class="pre">false</span></span></code></p>
 </dd></dl>
 
-<section id="value-animation"><h4>Value Animation<a class="headerlink" href="themes.html#value-animation" title="Permalink to this headline">🔗</a></h4>
+<section id="value-animation"><h4>Value Animation<a class="headerlink" href="themes.html#value-animation" title="Permalink to this heading">🔗</a></h4>
 <p>Properties specified by floats may be animated over time. Instead of providing a
 single numeric value, the animation is specified with an object including
 details of the animation. <i>Value animation is primarily useful for changing
@@ -617,7 +617,7 @@ instead of the default <i>linear</i> function.</p>
 <p>Example: <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;smoothstep&quot;</span></span></code></p>
 </dd></dl>
 
-</section><section id="texture-animation"><h4>Texture Animation<a class="headerlink" href="themes.html#texture-animation" title="Permalink to this headline">🔗</a></h4>
+</section><section id="texture-animation"><h4>Texture Animation<a class="headerlink" href="themes.html#texture-animation" title="Permalink to this heading">🔗</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">layer#.texture</span></code> sub-key may be an object to specify an animation based on
 two or more PNG images. The object keys are:</p>
 <dl class="subl themeprop">
@@ -644,7 +644,7 @@ displayed. <code class="code highlight json docutils literal notranslate"><span 
 <p>Example: <code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">0.0166</span></span></code> (60 fps)</p>
 </dd></dl>
 
-</section></section><section id="texture-tinting-properties"><h3>Texture Tinting Properties<a class="headerlink" href="themes.html#texture-tinting-properties" title="Permalink to this headline">🔗</a></h3>
+</section></section><section id="texture-tinting-properties"><h3>Texture Tinting Properties<a class="headerlink" href="themes.html#texture-tinting-properties" title="Permalink to this heading">🔗</a></h3>
 <p>Certain elements have an available tint value set by the background of current
 color scheme. The tint can be modified and applied to a <code class="docutils literal notranslate"><span class="pre">layer#.texture</span></code>
 image.</p>
@@ -663,7 +663,7 @@ three are blended into the RGB values from the tint color with the fourth
 value specifying how much of these RGB modifier values to apply.</p>
 </dd></dl>
 
-</section><section id="font-properties"><h3>Font Properties<a class="headerlink" href="themes.html#font-properties" title="Permalink to this headline">🔗</a></h3>
+</section><section id="font-properties"><h3>Font Properties<a class="headerlink" href="themes.html#font-properties" title="Permalink to this heading">🔗</a></h3>
 <p>Certain textual elements allow setting the following font properties:</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
@@ -719,7 +719,7 @@ opacity of the <code class="docutils literal notranslate"><span class="pre">colo
 </dd></dl>
 
 </div>
-</section><section id="filter-label-properties"><h3>Filter Label Properties<a class="headerlink" href="themes.html#filter-label-properties" title="Permalink to this headline">🔗</a></h3>
+</section><section id="filter-label-properties"><h3>Filter Label Properties<a class="headerlink" href="themes.html#filter-label-properties" title="Permalink to this heading">🔗</a></h3>
 <p>Labels used in the quick panel have color control based on selection and
 matching:</p>
 <dl class="subl themeprop">
@@ -770,7 +770,7 @@ matching:</p>
 <dd><p>The <a class="reference internal" href="themes.html#font-sizes">font size</a>.</p>
 </dd></dl>
 
-</section><section id="data-table-properties"><h3>Data Table Properties<a class="headerlink" href="themes.html#data-table-properties" title="Permalink to this headline">🔗</a></h3>
+</section><section id="data-table-properties"><h3>Data Table Properties<a class="headerlink" href="themes.html#data-table-properties" title="Permalink to this heading">🔗</a></h3>
 <p>Row-based tables of data provide the following properties:</p>
 <dl class="subl themeprop">
 <dt class="sig sig-object subl">
@@ -786,7 +786,7 @@ scrollbars.</p>
 Margins</a>.</p>
 </dd></dl>
 
-</section><section id="styled-label-properties"><h3>Styled Label Properties<a class="headerlink" href="themes.html#styled-label-properties" title="Permalink to this headline">🔗</a></h3>
+</section><section id="styled-label-properties"><h3>Styled Label Properties<a class="headerlink" href="themes.html#styled-label-properties" title="Permalink to this heading">🔗</a></h3>
 <p>Certain labels allow for additional control over their appearance. They support
 the properties:</p>
 <dl class="subl themeprop">
@@ -801,7 +801,7 @@ the properties:</p>
 <dd><p>A <a class="reference internal" href="themes.html#colors">color value</a> for the background of the label.</p>
 </dd></dl>
 
-</section></section><section id="elements"><h2>Elements<a class="headerlink" href="themes.html#elements" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="elements"><h2>Elements<a class="headerlink" href="themes.html#elements" title="Permalink to this heading">🔗</a></h2>
 <p>The following is an exhaustive list of the elements that comprise the Sublime
 Text UI, along with supported attributes and properties:</p>
 <ul class="simple">
@@ -820,7 +820,7 @@ Text UI, along with supported attributes and properties:</p>
 <li><p><a class="reference internal" href="themes.html#labels">Labels</a></p></li>
 <li><p><a class="reference internal" href="themes.html#tool-tips">Tool Tips</a></p></li>
 </ul>
-<section id="windows"><h3>Windows<a class="headerlink" href="themes.html#windows" title="Permalink to this headline">🔗</a></h3>
+<section id="windows"><h3>Windows<a class="headerlink" href="themes.html#windows" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">title_bar</span></code></dt>
@@ -888,7 +888,7 @@ color scheme.</p>
 a <code class="docutils literal notranslate"><span class="pre">&quot;parents&quot;</span></code> key.</p>
 </dd></dl>
 
-</section><section id="side-bar"><h3>Side Bar<a class="headerlink" href="themes.html#side-bar" title="Permalink to this headline">🔗</a></h3>
+</section><section id="side-bar"><h3>Side Bar<a class="headerlink" href="themes.html#side-bar" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">sidebar_container</span></code></dt>
@@ -1296,7 +1296,7 @@ index for removal.</p>
 </dd></dl>
 
 </div>
-</section><section id="tabs"><h3>Tabs<a class="headerlink" href="themes.html#tabs" title="Permalink to this headline">🔗</a></h3>
+</section><section id="tabs"><h3>Tabs<a class="headerlink" href="themes.html#tabs" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">tabset_control</span></code></dt>
@@ -1645,7 +1645,7 @@ during sheet multi-selection.</p>
 </dd></dl>
 
 </div>
-</section><section id="quick-panel"><h3>Quick Panel<a class="headerlink" href="themes.html#quick-panel" title="Permalink to this headline">🔗</a></h3>
+</section><section id="quick-panel"><h3>Quick Panel<a class="headerlink" href="themes.html#quick-panel" title="Permalink to this heading">🔗</a></h3>
 <p>The quick panel is used for the various Goto functionality, the command palette
 and is available for use by plugins.</p>
 <dl class="subl themeclass">
@@ -2058,7 +2058,7 @@ Goto Symbol in Project symbol lists.</p>
 </dd></dl>
 
 </div>
-</section><section id="sheets"><h3>Sheets<a class="headerlink" href="themes.html#sheets" title="Permalink to this headline">🔗</a></h3>
+</section><section id="sheets"><h3>Sheets<a class="headerlink" href="themes.html#sheets" title="Permalink to this heading">🔗</a></h3>
 <div class="build-filter build-4095 subl themeclass docutils container">
 <dl class="subl themeclass">
 <div class="build-filter build-4095 sig sig-object docutils container">
@@ -2095,7 +2095,7 @@ inactive sheet dimming.</p>
 </dd></dl>
 
 </div>
-</section><section id="views"><h3>Views<a class="headerlink" href="themes.html#views" title="Permalink to this headline">🔗</a></h3>
+</section><section id="views"><h3>Views<a class="headerlink" href="themes.html#views" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">text_area_control</span></code></dt>
@@ -2226,7 +2226,7 @@ the editor pane by build systems and third-party packages.</p>
 </dd></dl>
 
 </div>
-</section><section id="auto-complete"><h3>Auto Complete<a class="headerlink" href="themes.html#auto-complete" title="Permalink to this headline">🔗</a></h3>
+</section><section id="auto-complete"><h3>Auto Complete<a class="headerlink" href="themes.html#auto-complete" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">popup_control</span> <span class="pre">auto_complete_popup</span></code></dt>
@@ -2552,7 +2552,7 @@ shown for</i>.</p>
 </dd></dl>
 
 </div>
-</section><section id="panels"><h3>Panels<a class="headerlink" href="themes.html#panels" title="Permalink to this headline">🔗</a></h3>
+</section><section id="panels"><h3>Panels<a class="headerlink" href="themes.html#panels" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">panel_control</span> <span class="pre">find_panel</span></code></dt>
@@ -2711,7 +2711,7 @@ for build results.</p>
 </dl>
 </dd></dl>
 
-</section><section id="status-bar"><h3>Status Bar<a class="headerlink" href="themes.html#status-bar" title="Permalink to this headline">🔗</a></h3>
+</section><section id="status-bar"><h3>Status Bar<a class="headerlink" href="themes.html#status-bar" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">status_bar</span></code></dt>
@@ -2880,7 +2880,7 @@ current branch name, and <code class="docutils literal notranslate"><span class=
 </dd></dl>
 
 </div>
-</section><section id="dialogs"><h3>Dialogs<a class="headerlink" href="themes.html#dialogs" title="Permalink to this headline">🔗</a></h3>
+</section><section id="dialogs"><h3>Dialogs<a class="headerlink" href="themes.html#dialogs" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">dialog</span></code></dt>
@@ -2911,7 +2911,7 @@ window used for updates on Mac and Windows.</p>
 </dl>
 </dd></dl>
 
-</section><section id="scroll-bars"><h3>Scroll Bars<a class="headerlink" href="themes.html#scroll-bars" title="Permalink to this headline">🔗</a></h3>
+</section><section id="scroll-bars"><h3>Scroll Bars<a class="headerlink" href="themes.html#scroll-bars" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">scroll_area_control</span></code></dt>
@@ -3120,7 +3120,7 @@ the element being scrolled.</p>
 </dl>
 </dd></dl>
 
-</section><section id="inputs"><h3>Inputs<a class="headerlink" href="themes.html#inputs" title="Permalink to this headline">🔗</a></h3>
+</section><section id="inputs"><h3>Inputs<a class="headerlink" href="themes.html#inputs" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">text_line_control</span></code></dt>
@@ -3167,7 +3167,7 @@ background of the color scheme.</p>
 </dl>
 </dd></dl>
 
-</section><section id="buttons"><h3>Buttons<a class="headerlink" href="themes.html#buttons" title="Permalink to this headline">🔗</a></h3>
+</section><section id="buttons"><h3>Buttons<a class="headerlink" href="themes.html#buttons" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">button_control</span></code></dt>
@@ -3414,7 +3414,7 @@ Files panel.</p>
 </dd></dl>
 
 </div>
-</section><section id="labels"><h3>Labels<a class="headerlink" href="themes.html#labels" title="Permalink to this headline">🔗</a></h3>
+</section><section id="labels"><h3>Labels<a class="headerlink" href="themes.html#labels" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">label_control</span></code></dt>
@@ -3441,7 +3441,7 @@ key.</i></p>
 </dl>
 </dd></dl>
 
-</section><section id="tool-tips"><h3>Tool Tips<a class="headerlink" href="themes.html#tool-tips" title="Permalink to this headline">🔗</a></h3>
+</section><section id="tool-tips"><h3>Tool Tips<a class="headerlink" href="themes.html#tool-tips" title="Permalink to this heading">🔗</a></h3>
 <dl class="subl themeclass">
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">tool_tip_control</span></code></dt>
@@ -3469,17 +3469,17 @@ key.</i></p>
 </dl>
 </dd></dl>
 
-</section></section><section id="deprecated"><h2>Deprecated<a class="headerlink" href="themes.html#deprecated" title="Permalink to this headline">🔗</a></h2>
-<section id="color-values"><h3>Color Values<a class="headerlink" href="themes.html#color-values" title="Permalink to this headline">🔗</a></h3>
+</section></section><section id="deprecated"><h2>Deprecated<a class="headerlink" href="themes.html#deprecated" title="Permalink to this heading">🔗</a></h2>
+<section id="color-values"><h3>Color Values<a class="headerlink" href="themes.html#color-values" title="Permalink to this heading">🔗</a></h3>
 <p>Before build 3127, the only way to specify opacity in colors was by using a
 4-element array containing all integers from <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">0</span></span></code> to <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">255</span></span></code>. The
 fourth element controlled the opacity, such that <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">0</span></span></code> was fully
 transparent and <code class="code highlight json docutils literal notranslate"><span class="mi"><span class="pre">255</span></span></code> was fully opaque. The preferred format is now to
 use a float from <code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">0.0</span></span></code> to <code class="code highlight json docutils literal notranslate"><span class="mf"><span class="pre">1.0</span></span></code>.</p>
-</section></section><section id="obsolete"><h2>Obsolete<a class="headerlink" href="themes.html#obsolete" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="obsolete"><h2>Obsolete<a class="headerlink" href="themes.html#obsolete" title="Permalink to this heading">🔗</a></h2>
 <p>As the UI of Sublime Text has adapted over time, certain elements and properties
 are no longer applicable or supported.</p>
-<section id="id1"><h3>Elements<a class="headerlink" href="themes.html#id1" title="Permalink to this headline">🔗</a></h3>
+<section id="id1"><h3>Elements<a class="headerlink" href="themes.html#id1" title="Permalink to this heading">🔗</a></h3>
 <div class="build-filter build-4050 docutils container">
 <p>The <code class="docutils literal notranslate"><span class="pre">panel_button_control</span></code> element was removed from the status bar and
 replaced by <code class="docutils literal notranslate"><span class="pre">sidebar_button_control</span></code>.</p>
@@ -3491,10 +3491,10 @@ searching would move forward or backwards in the view. This is now controlled
 by the <i>Find</i> and <i>Find Prev</i> buttons.</p>
 <p>The element named <code class="docutils literal notranslate"><span class="pre">quick_panel_score_label</span></code> is no longer present in the Goto
 Anything quick panel.</p>
-</section><section id="id2"><h3>Properties<a class="headerlink" href="themes.html#id2" title="Permalink to this headline">🔗</a></h3>
+</section><section id="id2"><h3>Properties<a class="headerlink" href="themes.html#id2" title="Permalink to this heading">🔗</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">blur</span></code> property used to be supported to blur the pixel data behind an
 element, however it is not currently supported for implementation reasons.</p>
-</section></section><section id="customization"><h2>Customization<a class="headerlink" href="themes.html#customization" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="customization"><h2>Customization<a class="headerlink" href="themes.html#customization" title="Permalink to this heading">🔗</a></h2>
 <p>Users can customize a theme by creating a file with new rules that will be
 appended to the original theme definition.</p>
 <p>To create a user-specific customization of a theme, create a new file with the

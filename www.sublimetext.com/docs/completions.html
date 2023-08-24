@@ -122,7 +122,7 @@ provide completions.</p>
 </li>
 <li><p><a class="reference internal" href="completions.html#settings">Settings</a></p></li>
 </ul>
-<section id="usage"><h2>Usage<a class="headerlink" href="completions.html#usage" title="Permalink to this headline">🔗</a></h2>
+<section id="usage"><h2>Usage<a class="headerlink" href="completions.html#usage" title="Permalink to this heading">🔗</a></h2>
 <p>By default, Sublime Text will automatically show the completions popup when a
 user is editing source code or markup, but not within prose in comments,
 strings or markups.</p>
@@ -131,7 +131,7 @@ the completions popup, press <span class="keys"><b>Ctrl</b><i>+</i><b>Space</b><
 available, the message <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">available</span> <span class="pre">completions</span></code> will be displayed in the
 status bar.</i></p>
 </section><div class="build-filter build-4050 docutils container" id="context-aware-suggestions">
-<section id="context-aware-suggestions"><h2>Context-Aware Suggestions<a class="headerlink" href="completions.html#context-aware-suggestions" title="Permalink to this headline">🔗</a></h2>
+<section id="context-aware-suggestions"><h2>Context-Aware Suggestions<a class="headerlink" href="completions.html#context-aware-suggestions" title="Permalink to this heading">🔗</a></h2>
 <p>The completion engine in Sublime Text uses background processes to scan all of
 the files in a project to build a completion index. This index is used to
 provide suggested completions to the user, based on patterns in existing code.</p>
@@ -147,7 +147,7 @@ from existing code in a project. <i>Since completions are based on analysing
 existing code, words not used in a project will not be suggested.</i></p>
 </section><span class="build">4050</span></div>
 <div class="build-filter build-4050 docutils container" id="completion-metadata">
-<section id="completion-metadata"><h2>Completion Metadata<a class="headerlink" href="completions.html#completion-metadata" title="Permalink to this headline">🔗</a></h2>
+<section id="completion-metadata"><h2>Completion Metadata<a class="headerlink" href="completions.html#completion-metadata" title="Permalink to this heading">🔗</a></h2>
 <p>In addition to their textual contents, completions may also provide additional
 details to users. These include the <i>kind</i> of element the completion
 represents, a short <i>annotation</i> to help in picking a completion, and <i>details</i>
@@ -221,7 +221,7 @@ that may contain links to additional resources.</p>
             <em>Details</em>
         </td>
     </tr>
-</table><section id="kind-info"><h3>Kind Info<a class="headerlink" href="completions.html#kind-info" title="Permalink to this headline">🔗</a></h3>
+</table><section id="kind-info"><h3>Kind Info<a class="headerlink" href="completions.html#kind-info" title="Permalink to this heading">🔗</a></h3>
 <p>Completions may provide <i>kind</i> info to be presented with the completion trigger.
 This includes a high-level category, an identifying letter, and a name. The
 following are some of the most common kinds:</p>
@@ -268,16 +268,16 @@ determined by the theme, and may not match what is shown above.</i></p>
 <p><span class="file">.sublime-completions</span> files and plugins can use combinations of any
 category listed above, along with any Unicode character and name for a custom
 presentation.</p>
-</section><section id="annotations"><h3>Annotations<a class="headerlink" href="completions.html#annotations" title="Permalink to this headline">🔗</a></h3>
+</section><section id="annotations"><h3>Annotations<a class="headerlink" href="completions.html#annotations" title="Permalink to this heading">🔗</a></h3>
 <p>Annotations are displayed on the right-hand edge of the completions popup, and
 may contain any information the author deems useful. Typically the annotations
 will be a word or two.</p>
-</section><section id="details"><h3>Details<a class="headerlink" href="completions.html#details" title="Permalink to this headline">🔗</a></h3>
+</section><section id="details"><h3>Details<a class="headerlink" href="completions.html#details" title="Permalink to this heading">🔗</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">details</span></code> field of a completion may contain a rich text description with
 links. The details for a completion is shown at the bottom of the completions
 popup when the completion is selected.</p>
 </section></section><span class="build">4050</span></div>
-<section id="customization"><h2>Customization<a class="headerlink" href="completions.html#customization" title="Permalink to this headline">🔗</a></h2>
+<section id="customization"><h2>Customization<a class="headerlink" href="completions.html#customization" title="Permalink to this heading">🔗</a></h2>
 <p>There exist a number of ways in which the engine can be augmented with new
 completions:</p>
 <ul class="simple">
@@ -285,7 +285,7 @@ completions:</p>
 <li><p><a class="reference internal" href="completions.html#snippets">Snippets</a></p></li>
 <li><p><a class="reference internal" href="completions.html#plugins">Plugins</a></p></li>
 </ul>
-<section id="completion-files"><h3>Completion Files<a class="headerlink" href="completions.html#completion-files" title="Permalink to this headline">🔗</a></h3>
+<section id="completion-files"><h3>Completion Files<a class="headerlink" href="completions.html#completion-files" title="Permalink to this heading">🔗</a></h3>
 <p>The most basic form of adding completions to Sublime Text is by creating
 a <span class="file">.sublime-completions</span> file. Completions files use the JSON format, and
 contain an object with the keys <code class="docutils literal notranslate"><span class="pre">&quot;scope&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;completions&quot;</span></code>.</p>
@@ -293,7 +293,7 @@ contain an object with the keys <code class="docutils literal notranslate"><span
 the syntax the completions apply to. The <code class="docutils literal notranslate"><span class="pre">&quot;completions&quot;</span></code> value is an array of
 completions. Each entry in the array represents a single completion, and may be
 a string or an object.</p>
-<section id="simple-format"><h4>Simple Format<a class="headerlink" href="completions.html#simple-format" title="Permalink to this headline">🔗</a></h4>
+<section id="simple-format"><h4>Simple Format<a class="headerlink" href="completions.html#simple-format" title="Permalink to this heading">🔗</a></h4>
 <p>When a completion is a string, the string reprents both the trigger text and the
 completion contents.</p>
 <p><i>A basic <span class="file">.sublime-completions</span> file:</i></p>
@@ -309,7 +309,7 @@ completion contents.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section><section id="rich-format"><h4>Rich Format<a class="headerlink" href="completions.html#rich-format" title="Permalink to this headline">🔗</a></h4>
+</section><section id="rich-format"><h4>Rich Format<a class="headerlink" href="completions.html#rich-format" title="Permalink to this heading">🔗</a></h4>
 <p>When a completion is an object, the valid keys include:</p>
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="trigger">
@@ -409,7 +409,7 @@ tags for basic formatting:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section></section><section id="snippets"><h3>Snippets<a class="headerlink" href="completions.html#snippets" title="Permalink to this headline">🔗</a></h3>
+</section></section><section id="snippets"><h3>Snippets<a class="headerlink" href="completions.html#snippets" title="Permalink to this heading">🔗</a></h3>
 <p>Snippets are typically used for boilerplate-type content that isn’t easily
 authored using the <span class="file">.sublime-completions</span> format due to spanning
 multiple lines.</p>
@@ -453,7 +453,7 @@ Palette</i>.</p>
 <span class="nt">&lt;/snippet&gt;</span>
 </pre></div>
 </div>
-<section id="fields"><h4>Fields<a class="headerlink" href="completions.html#fields" title="Permalink to this headline">🔗</a></h4>
+<section id="fields"><h4>Fields<a class="headerlink" href="completions.html#fields" title="Permalink to this heading">🔗</a></h4>
 <p>Snippets support <i>fields</i>, locations within the snippet that the user
 may <span class="keys"><b>Tab</b></span> through after inserting the snippet. Fields may be simple
 positions, but may also provide default content.</p>
@@ -472,7 +472,7 @@ Email: ${3:user}@${4:example.com}
 </pre></div>
 </div>
 <p>If a snippet does not contain field <code class="docutils literal notranslate"><span class="pre">$0</span></code>, it is implicitly added at the end.</p>
-</section><section id="variables"><h4>Variables<a class="headerlink" href="completions.html#variables" title="Permalink to this headline">🔗</a></h4>
+</section><section id="variables"><h4>Variables<a class="headerlink" href="completions.html#variables" title="Permalink to this heading">🔗</a></h4>
 <p>The following variables may be added to a snippet to include information from
 the file the snippet is being inserted into:</p>
 <section class="wide"><table class="docutils align-default">
@@ -531,7 +531,7 @@ places.</p>
 Email: ${3:$1}@${4:example.com}
 </pre></div>
 </div>
-</section><section id="variable-substitution"><h4>Variable Substitution<a class="headerlink" href="completions.html#variable-substitution" title="Permalink to this headline">🔗</a></h4>
+</section><section id="variable-substitution"><h4>Variable Substitution<a class="headerlink" href="completions.html#variable-substitution" title="Permalink to this heading">🔗</a></h4>
 <p>Variables can be directly referenced, or they may be modified using a regular
 expression. Variables with substitutions are written in the format
 <code class="docutils literal notranslate"><span class="pre">${name/regex/replace/flags}</span></code>.</p>
@@ -551,12 +551,12 @@ after removing the first whitespace and everything after:</i></p>
 Email: ${2:${1/\s.*//}}@${3:example.com}
 </pre></div>
 </div>
-</section><section id="escaping"><h4>Escaping<a class="headerlink" href="completions.html#escaping" title="Permalink to this headline">🔗</a></h4>
+</section><section id="escaping"><h4>Escaping<a class="headerlink" href="completions.html#escaping" title="Permalink to this heading">🔗</a></h4>
 <p>Since snippets can contain variables, which start with a <code class="docutils literal notranslate"><span class="pre">$</span></code>, literal <code class="docutils literal notranslate"><span class="pre">$</span></code>
 characters must be written as <code class="docutils literal notranslate"><span class="pre">\$</span></code>.</p>
 <p>When performing variable substitution, literal <code class="docutils literal notranslate"><span class="pre">/</span></code> characters must be written
 as <code class="docutils literal notranslate"><span class="pre">\/</span></code>.*</p>
-</section></section><section id="plugins"><h3>Plugins<a class="headerlink" href="completions.html#plugins" title="Permalink to this headline">🔗</a></h3>
+</section></section><section id="plugins"><h3>Plugins<a class="headerlink" href="completions.html#plugins" title="Permalink to this heading">🔗</a></h3>
 <p>The most powerful tool for adding completions are Python plugins.</p>
 <p>Writing a plugin to provide completions involves implementing
 <a class="reference internal" href="api_reference.html#sublime_plugin.EventListener.on_query_completions" title="sublime_plugin.EventListener.on_query_completions"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">EventListener.on_query_completions()</span></code></a> or
@@ -595,7 +595,7 @@ as <code class="docutils literal notranslate"><span class="pre">\/</span></code>
 <a class="reference internal" href="api_reference.html#sublime_plugin.EventListener.on_query_completions" title="sublime_plugin.EventListener.on_query_completions"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">on_query_completions()</span></code></a> returning
 <a class="reference internal" href="api_reference.html#sublime.CompletionItem" title="sublime.CompletionItem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime.CompletionItem</span></code></a> objects.</p>
 <span class="build">4050</span></div>
-</section></section><section id="settings"><h2>Settings<a class="headerlink" href="completions.html#settings" title="Permalink to this headline">🔗</a></h2>
+</section></section><section id="settings"><h2>Settings<a class="headerlink" href="completions.html#settings" title="Permalink to this heading">🔗</a></h2>
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="tab_completion">
 <span class="key"><span class="pre">&quot;tab_completion&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#tab_completion" title="Permalink to this definition">🔗</a></dt>
