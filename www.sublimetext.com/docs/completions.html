@@ -298,14 +298,14 @@ a string or an object.</p>
 completion contents.</p>
 <p><i>A basic <span class="file">.sublime-completions</span> file:</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;completions&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="s2">&quot;def&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;class&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;None&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;True&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;False&quot;</span>
-    <span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;completions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;def&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;class&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;None&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;True&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s2">&quot;False&quot;</span>
+<span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -353,7 +353,7 @@ and <a class="reference internal" href="completions.html#variables">variables</a
 <li><p><code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;type&quot;</span></span></code></p></li>
 <li><p><code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;variable&quot;</span></span></code></p></li>
 </ul>
-<p><i>Example:</i> <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;kind&quot;</span></span><span class="err"><span class="pre">:</span></span> <span class="s2"><span class="pre">&quot;function&quot;</span></span></code></p>
+<p><i>Example:</i> <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;kind&quot;</span></span><span class="err"><span class="pre">:</span></span><span class="w"> </span><span class="s2"><span class="pre">&quot;function&quot;</span></span></code></p>
 <p>If the value is a 3-element array of strings, they must be:</p>
 <ol class="arabic simple">
 <li><p>A string from the list above, which is used by the theme to select the
@@ -362,7 +362,7 @@ color of the kind metadata</p></li>
 <li><p>A description of the kind, viewable in the kind letter tool tip, and the
 detail pane (when visible)</p></li>
 </ol>
-<p><i>Example:</i> <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;kind&quot;</span></span><span class="err"><span class="pre">:</span></span> <span class="p"><span class="pre">[</span></span><span class="s2"><span class="pre">&quot;function&quot;</span></span><span class="p"><span class="pre">,</span></span> <span class="s2"><span class="pre">&quot;m&quot;</span></span><span class="p"><span class="pre">,</span></span> <span class="s2"><span class="pre">&quot;Method&quot;</span></span><span class="p"><span class="pre">]</span></span></code></p>
+<p><i>Example:</i> <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;kind&quot;</span></span><span class="err"><span class="pre">:</span></span><span class="w"> </span><span class="p"><span class="pre">[</span></span><span class="s2"><span class="pre">&quot;function&quot;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s2"><span class="pre">&quot;m&quot;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s2"><span class="pre">&quot;Method&quot;</span></span><span class="p"><span class="pre">]</span></span></code></p>
 </dd></dl>
 
 </div>
@@ -385,27 +385,27 @@ tags for basic formatting:</p>
 <li><p><code class="code highlight html docutils literal notranslate"><span class="p"><span class="pre">&lt;</span></span><span class="nt"><span class="pre">code</span></span><span class="p"><span class="pre">&gt;</span></span></code></p></li>
 </ul>
 <p><i>No other attributes or tags are supported other than those listed above.</i></p>
-<p><i>Example:</i> <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;details&quot;</span></span><span class="err"><span class="pre">:</span></span> <span class="s2"><span class="pre">&quot;Wraps</span> <span class="pre">selection</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">&lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt;</span> <span class="pre">tag&quot;</span></span></code></p>
+<p><i>Example:</i> <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;details&quot;</span></span><span class="err"><span class="pre">:</span></span><span class="w"> </span><span class="s2"><span class="pre">&quot;Wraps</span> <span class="pre">selection</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">&lt;code&gt;&amp;lt;b&amp;gt;&lt;/code&gt;</span> <span class="pre">tag&quot;</span></span></code></p>
 </dd></dl>
 
 </div>
 <p><i>A <span class="file">.sublime-completions</span> file with examples of each field:</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;completions&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;trigger&quot;</span><span class="p">:</span> <span class="s2">&quot;def&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;contents&quot;</span><span class="p">:</span> <span class="s2">&quot;def&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;trigger&quot;</span><span class="p">:</span> <span class="s2">&quot;fun&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;annotation&quot;</span><span class="p">:</span> <span class="s2">&quot;basic function&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;contents&quot;</span><span class="p">:</span> <span class="s2">&quot;def ${1:name}($2):\n    $0\n&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;kind&quot;</span><span class="p">:</span> <span class="s2">&quot;snippet&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;details&quot;</span><span class="p">:</span> <span class="s2">&quot;A simple, non-&lt;code&gt;async&lt;/code&gt; function definition&quot;</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;completions&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;def&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;def&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;keyword&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;trigger&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fun&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;annotation&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;basic function&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;def ${1:name}($2):\n    $0\n&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;kind&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;snippet&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;details&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;A simple, non-&lt;code&gt;async&lt;/code&gt; function definition&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -445,11 +445,11 @@ Palette</i>.</p>
 
 <p><i>An example <span class="file">.sublime-snippet</span> file:</i></p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;snippet&gt;</span>
-    <span class="nt">&lt;scope&gt;</span>source.python<span class="nt">&lt;/scope&gt;</span>
-    <span class="nt">&lt;tabTrigger&gt;</span>fun<span class="nt">&lt;/tabTrigger&gt;</span>
-    <span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[def ${1:name}($2):</span>
+<span class="w">    </span><span class="nt">&lt;scope&gt;</span>source.python<span class="nt">&lt;/scope&gt;</span>
+<span class="w">    </span><span class="nt">&lt;tabTrigger&gt;</span>fun<span class="nt">&lt;/tabTrigger&gt;</span>
+<span class="w">    </span><span class="nt">&lt;content&gt;</span><span class="cp">&lt;![CDATA[def ${1:name}($2):</span>
 <span class="cp">    ${0:pass}]]&gt;</span><span class="nt">&lt;/content&gt;</span>
-    <span class="nt">&lt;description&gt;</span>function, non-async<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>function,<span class="w"> </span>non-async<span class="nt">&lt;/description&gt;</span>
 <span class="nt">&lt;/snippet&gt;</span>
 </pre></div>
 </div>
@@ -647,10 +647,10 @@ and a <code class="docutils literal notranslate"><span class="pre">&quot;charact
 must be present to the left of the caret.</p>
 <p><i>Example:</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;text.html&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;characters&quot;</span><span class="p">:</span> <span class="s2">&quot;&lt;&quot;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;text.html&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;characters&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -778,7 +778,7 @@ manually triggered.</p>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">File Patterns</span></a> specifying which snippet files to ignore.</p>
 <p><i>For example, to ignore all the default C++ snippets:</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="s2">&quot;C++/*&quot;</span>
+<span class="w">    </span><span class="s2">&quot;C++/*&quot;</span>
 <span class="p">]</span>
 </pre></div>
 </div>

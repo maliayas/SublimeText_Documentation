@@ -206,11 +206,11 @@ not use the id. Leave that for selectors in color schemes to be able to
 override the plugin.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-plugin-feature&quot;</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">style</span><span class="p">&gt;</span>
-        <span class="nt">div</span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
-            <span class="k">background-color</span><span class="p">:</span> <span class="kc">red</span><span class="p">;</span>
-            <span class="k">padding</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
+<span class="w">        </span><span class="nt">div</span><span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="kc">red</span><span class="p">;</span>
+<span class="w">            </span><span class="k">padding</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">&lt;/</span><span class="nt">style</span><span class="p">&gt;</span>
     <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;error&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </pre></div>
@@ -337,13 +337,13 @@ Level 4, the color-mod function was removed</i>.</p>
 <span class="build">3181</span></div>
 </li>
 </ul>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span> <span class="kc">alpha</span><span class="err">(</span><span class="mf">0.25</span><span class="p">));</span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span><span class="w"> </span><span class="kc">alpha</span><span class="err">(</span><span class="mf">0.25</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span> <span class="nb">blend</span><span class="p">(</span><span class="kc">red</span> <span class="mi">50</span><span class="kt">%</span><span class="p">));</span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span><span class="w"> </span><span class="nb">blend</span><span class="p">(</span><span class="kc">red</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -359,8 +359,8 @@ sure the foreground has sufficient contrast with the background.</p>
 contrast against, and a minimum contrast ratio between the “base” color and the
 background color. The ratio will be a decimal number, typically between <code class="docutils literal notranslate"><span class="pre">2.0</span></code>
 and <code class="docutils literal notranslate"><span class="pre">4.5</span></code>.</p>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">redish</span><span class="p">)</span> <span class="nf">min-contrast</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span> <span class="mf">2.5</span><span class="p">));</span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">redish</span><span class="p">)</span><span class="w"> </span><span class="nf">min-contrast</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span><span class="w"> </span><span class="mf">2.5</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -370,11 +370,11 @@ modified to meet it.</p>
 </section></section><section id="variables"><h3>Variables<a class="headerlink" href="minihtml.html#variables" title="Permalink to this heading">🔗</a></h3>
 <p>CSS variables are also supported using custom properties and the <code class="docutils literal notranslate"><span class="pre">var()</span></code>
 functional notation. Custom properties are those starting with <code class="docutils literal notranslate"><span class="pre">--</span></code>.</p>
-<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">html</span> <span class="p">{</span>
-    <span class="err">--</span><span class="n">fg</span><span class="p">:</span> <span class="mh">#f00</span><span class="p">;</span>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">html</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="err">--</span><span class="n">fg</span><span class="p">:</span><span class="w"> </span><span class="mh">#f00</span><span class="p">;</span>
 <span class="p">}</span>
-<span class="p">.</span><span class="nc">error</span> <span class="p">{</span>
-    <span class="k">background-color</span><span class="p">:</span> <span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">fg</span><span class="p">);</span>
+<span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">fg</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>

@@ -107,7 +107,7 @@ bar</p></li>
 </ol>
 <p>Vintage starts in insert mode by default. This can be changed by adding the
 following setting to your user settings:</p>
-<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_start_in_command_mode&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_start_in_command_mode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 </pre></div>
 </div>
 </section><section id="whats-included"><h2>What’s Included<a class="headerlink" href="vintage.html#whats-included" title="Permalink to this heading">🔗</a></h2>
@@ -137,13 +137,13 @@ free to browse through the Vintage package and see how it’s put together. As a
 example, if you’d like to bind <kbd class="kbd docutils literal notranslate">jj</kbd> to exit insert mode, you can add this
 key binding:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;j&quot;</span><span class="p">,</span> <span class="s2">&quot;j&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;exit_insert_mode&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;context&quot;</span><span class="p">:</span>
-    <span class="p">[</span>
-        <span class="p">{</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;setting.command_mode&quot;</span><span class="p">,</span> <span class="nt">&quot;operand&quot;</span><span class="p">:</span> <span class="kc">false</span> <span class="p">},</span>
-        <span class="p">{</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;setting.is_widget&quot;</span><span class="p">,</span> <span class="nt">&quot;operand&quot;</span><span class="p">:</span> <span class="kc">false</span> <span class="p">}</span>
-    <span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;j&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;j&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;exit_insert_mode&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;context&quot;</span><span class="p">:</span>
+<span class="w">    </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;setting.command_mode&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;operand&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;setting.is_widget&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;operand&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -152,7 +152,7 @@ key binding:</p>
 popup menu to select between character variations. This doesn’t work well with
 command mode, so you may want to disable it. This can be done via executing the
 following in Terminal.app:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>defaults write com.sublimetext.2 ApplePressAndHoldEnabled -bool <span class="nb">false</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>defaults<span class="w"> </span>write<span class="w"> </span>com.sublimetext.2<span class="w"> </span>ApplePressAndHoldEnabled<span class="w"> </span>-bool<span class="w"> </span><span class="nb">false</span>
 </pre></div>
 </div>
 </section><section id="ctrl-keys"><h2>Ctrl Keys<a class="headerlink" href="vintage.html#ctrl-keys" title="Permalink to this heading">🔗</a></h2>
@@ -168,7 +168,7 @@ following in Terminal.app:</p>
 <p>However, because they conflict with other Sublime Text key bindings, these are
 disabled by default on Windows and Linux. They can be enabled with the
 <code class="docutils literal notranslate"><span class="pre">vintage_ctrl_keys</span></code> setting:</p>
-<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_ctrl_keys&quot;</span><span class="p">:</span> <span class="kc">true</span>
+<div class="highlight-json-object notranslate"><div class="highlight"><pre><span></span><span class="nt">&quot;vintage_ctrl_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 </pre></div>
 </div>
 </section><section id="ex-mode"><h2>Ex Mode<a class="headerlink" href="vintage.html#ex-mode" title="Permalink to this heading">🔗</a></h2>

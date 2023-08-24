@@ -115,16 +115,16 @@ followed by a list of contexts. Each context has a list of patterns that
 describe how to highlight text in that context, and how to change the current
 text.</p>
 <p>Here’s a small example of a syntax file designed to highlight C.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">%YAML</span> <span class="m">1.2</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">%YAML</span><span class="w"> </span><span class="m">1.2</span>
 <span class="nn">---</span>
-<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
-<span class="nt">file_extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">c</span><span class="p p-Indicator">,</span> <span class="nv">h</span><span class="p p-Indicator">]</span>
-<span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.c</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span>
+<span class="nt">file_extensions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">c</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">h</span><span class="p p-Indicator">]</span>
+<span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.c</span>
 
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\b(if|else|for|while)\b</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyword.control.c</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b(if|else|for|while)\b</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control.c</span>
 </pre></div>
 </div>
 <p>At its core, a syntax definition assigns scopes (e.g., <code class="docutils literal notranslate"><span class="pre">keyword.control.c</span></code>) to
@@ -219,25 +219,25 @@ assigned by plugins, or included by other syntax definitions.</p>
 <p>For most languages, you’ll need more than one context. For example, in C, we
 don’t want a <code class="docutils literal notranslate"><span class="pre">for</span></code> word in the middle of a string to be highlighted as a
 keyword. Here’s an example of how to handle this:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">%YAML</span> <span class="m">1.2</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">%YAML</span><span class="w"> </span><span class="m">1.2</span>
 <span class="nn">---</span>
-<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
-<span class="nt">file_extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">c</span><span class="p p-Indicator">,</span> <span class="nv">h</span><span class="p p-Indicator">]</span>
-<span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.c</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span>
+<span class="nt">file_extensions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">c</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">h</span><span class="p p-Indicator">]</span>
+<span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.c</span>
 
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\b(if|else|for|while)\b</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyword.control.c</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;&quot;&#39;</span>
-      <span class="nt">push</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b(if|else|for|while)\b</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control.c</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&quot;&#39;</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
 
-  <span class="nt">string</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string.quoted.double.c</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\\.</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">constant.character.escape.c</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;&quot;&#39;</span>
-      <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">string</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string.quoted.double.c</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\\.</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constant.character.escape.c</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&quot;&#39;</span>
+<span class="w">      </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p>A second pattern has been added to the main context that matches a double quote
@@ -480,46 +480,46 @@ specified per match pattern:</p>
 </ul>
 <section id="match-examples"><h4>Match Examples<a class="headerlink" href="syntax.html#match-examples" title="Permalink to this heading">🔗</a></h4>
 <p>A basic match assigning a single scope to the entire match:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\w+</span>
-  <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">variable.parameter.c++</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\w+</span>
+<span class="w">  </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">variable.parameter.c++</span>
 </pre></div>
 </div>
 <p>Assigning different scopes to the regex capture groups:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^\\s*(#)\\s*\\b(include)\\b</span>
-  <span class="nt">captures</span><span class="p">:</span>
-    <span class="nt">1</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.preprocessor.c++</span>
-    <span class="nt">2</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyword.control.include.c++</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^\\s*(#)\\s*\\b(include)\\b</span>
+<span class="w">  </span><span class="nt">captures</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.preprocessor.c++</span>
+<span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control.include.c++</span>
 </pre></div>
 </div>
 <p>Pushing into another context named <code class="docutils literal notranslate"><span class="pre">function-parameters</span></code>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\b\w+(?=\()</span>
-  <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">entity.name.function.c++</span>
-  <span class="nt">push</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">function-parameters</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b\w+(?=\()</span>
+<span class="w">  </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity.name.function.c++</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function-parameters</span>
 </pre></div>
 </div>
 <p>Popping out of a context:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-  <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.end.c++</span>
-  <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">  </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.end.c++</span>
+<span class="w">  </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p>Popping out of the current context and pushing into another:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\}</span>
-  <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.block.end.c++</span>
-  <span class="nt">set</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file-global</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\}</span>
+<span class="w">  </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.block.end.c++</span>
+<span class="w">  </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">file-global</span>
 </pre></div>
 </div>
 <div class="build-filter build-3153 docutils container">
 <p>Embedding another syntax</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">(```)(js|javascript)</span>
-  <span class="nt">captures</span><span class="p">:</span>
-    <span class="nt">1</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.code.begin.markdown</span>
-    <span class="nt">2</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">constant.other.markdown</span>
-  <span class="nt">embed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scope:source.js</span>
-  <span class="nt">embed_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.embedded.js.markdown</span>
-  <span class="nt">escape</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^```</span>
-  <span class="nt">escape_captures</span><span class="p">:</span>
-    <span class="nt">0</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.code.end.markdown</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(```)(js|javascript)</span>
+<span class="w">  </span><span class="nt">captures</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.code.begin.markdown</span>
+<span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constant.other.markdown</span>
+<span class="w">  </span><span class="nt">embed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scope:source.js</span>
+<span class="w">  </span><span class="nt">embed_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.embedded.js.markdown</span>
+<span class="w">  </span><span class="nt">escape</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^```</span>
+<span class="w">  </span><span class="nt">escape_captures</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.code.end.markdown</span>
 </pre></div>
 </div>
 <span class="build">3153</span></div>
@@ -527,55 +527,55 @@ specified per match pattern:</p>
 <p>Using <code class="docutils literal notranslate"><span class="pre">branch</span></code> to attempt one highlighting, with the ability to fallback
 to another:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">expression</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">(?=\()</span>
-    <span class="nt">branch_point</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">open_parens</span>
-    <span class="nt">branch</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">paren_group</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">arrow_function</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(?=\()</span>
+<span class="w">    </span><span class="nt">branch_point</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">open_parens</span>
+<span class="w">    </span><span class="nt">branch</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">paren_group</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arrow_function</span>
 
 <span class="nt">paren_group</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\(</span>
-    <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
-    <span class="nt">push</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expressions</span>
-      <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-        <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
-        <span class="nt">set</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">=&gt;</span>
-            <span class="nt">fail</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">open_parens</span>
-          <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">(?=\S)</span>
-            <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
+<span class="w">    </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expressions</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
+<span class="w">        </span><span class="nt">set</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">=&gt;</span>
+<span class="w">            </span><span class="nt">fail</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">open_parens</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(?=\S)</span>
+<span class="w">            </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 
 <span class="nt">arrow_function</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\(</span>
-    <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
-    <span class="nt">push</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\w+</span>
-        <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">variable.parameter.js</span>
-      <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;,&#39;</span>
-        <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.separator.comma.js</span>
-      <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-        <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
-        <span class="nt">set</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">=&gt;</span>
-            <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">storage.type.function.arrow.js</span>
-            <span class="nt">push</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">arrow_function_body</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
+<span class="w">    </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\w+</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">variable.parameter.js</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;,&#39;</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.separator.comma.js</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">        </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.parens.begin.js</span>
+<span class="w">        </span><span class="nt">set</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">=&gt;</span>
+<span class="w">            </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">storage.type.function.arrow.js</span>
+<span class="w">            </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">arrow_function_body</span>
 </pre></div>
 </div>
 <span class="build">4050</span></div>
 <div class="build-filter build-4075 docutils container">
 <p>Using <code class="docutils literal notranslate"><span class="pre">pop</span></code> with another action:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">paragraph</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;(```)(py|python)&#39;</span>
-    <span class="nt">captures</span><span class="p">:</span>
-      <span class="nt">1</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.definition.code.begin.md</span>
-      <span class="nt">2</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">constant.other.language-name.md</span>
-    <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="nt">embed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scope:source.python</span>
-    <span class="nt">embed_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.python.embedded</span>
-    <span class="nt">escape</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^```</span>
-    <span class="nt">escape_captures</span><span class="p">:</span>
-      <span class="nt">0</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.definition.code.end.md</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;(```)(py|python)&#39;</span>
+<span class="w">    </span><span class="nt">captures</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.definition.code.begin.md</span>
+<span class="w">      </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constant.other.language-name.md</span>
+<span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="nt">embed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scope:source.python</span>
+<span class="w">    </span><span class="nt">embed_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.python.embedded</span>
+<span class="w">    </span><span class="nt">escape</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^```</span>
+<span class="w">    </span><span class="nt">escape_captures</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.definition.code.end.md</span>
 </pre></div>
 </div>
 <span class="build">4075</span></div>
@@ -585,10 +585,10 @@ another. For example, you may define several different contexts for parsing the
 C language, and almost all of them can include comments. Rather than copying
 the relevant match patterns into each of these contexts, you can include them:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">expr</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">comments</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\b[0-9]+\b</span>
-    <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">constant.numeric.c</span>
-  <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">comments</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b[0-9]+\b</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">constant.numeric.c</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 <p>Here, all the match patterns and include patterns defined in the comments
@@ -603,8 +603,8 @@ pattern does <i>not</i> include such a prototype. If the key/value pair
 specify <code class="docutils literal notranslate"><span class="pre">meta_include_prototype:</span> <span class="pre">false</span></code> and the other syntax has a
 <code class="docutils literal notranslate"><span class="pre">prototype</span></code> context, then those patterns will also be included.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">tags</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scope:source.html.basic</span>
-    <span class="nt">apply_prototype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scope:source.html.basic</span>
+<span class="w">    </span><span class="nt">apply_prototype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </section></section><section id="prototype-context"><h3>Prototype Context<a class="headerlink" href="syntax.html#prototype-context" title="Permalink to this heading">🔗</a></h3>
@@ -614,11 +614,11 @@ exceptions instead. You can do this by creating a context named <code class="doc
 it will be included automatically at the top of every other context, unless the
 context contains the <code class="docutils literal notranslate"><span class="pre">meta_include_prototype</span></code> key. For example:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">prototype</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">comments</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">comments</span>
 
 <span class="nt">string</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">meta_include_prototype</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="l l-Scalar l-Scalar-Plain">...</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_include_prototype</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </pre></div>
 </div>
 <p>In C, a <code class="docutils literal notranslate"><span class="pre">/*</span></code> inside a string does not start a comment, so the string context
@@ -627,19 +627,19 @@ indicates that the prototype should not be included.</p>
 <p>Sublime Syntax files support the notion of one syntax definition including
 another. For example, HTML can contain embedded JavaScript. Here’s an example
 of a basic syntax defintion for HTML that does so:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text.html</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text.html</span>
 
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;script&gt;</span>
-      <span class="nt">push</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Packages/JavaScript/JavaScript.sublime-syntax</span>
-      <span class="nt">with_prototype</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">(?=&lt;/script&gt;)</span>
-          <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;&lt;&quot;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.definition.tag.begin</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;&gt;&quot;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.definition.tag.end</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;script&gt;</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Packages/JavaScript/JavaScript.sublime-syntax</span>
+<span class="w">      </span><span class="nt">with_prototype</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(?=&lt;/script&gt;)</span>
+<span class="w">          </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;&quot;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.definition.tag.begin</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.definition.tag.end</span>
 </pre></div>
 </div>
 <p>Note the first rule above. It indicates that when we encounter a <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code>
@@ -663,20 +663,20 @@ and <span class="file">.tmLanguage</span> files, it’s not possible to include
 a <span class="file">.tmLanguage</span> file within a <span class="file">.sublime-syntax</span> one.</p>
 <p>Another common scenario is a templating language including HTML. Here’s an
 example of that, this time with a subset of <a class="reference external" href="http://jinja.pocoo.org/">Jinja</a>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">text.jinja</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text.jinja</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;&quot;</span>
-      <span class="nt">push</span><span class="p">:</span> <span class="s">&quot;Packages/HTML/HTML.sublime-syntax&quot;</span>
-      <span class="nt">with_prototype</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;{{&quot;</span>
-          <span class="nt">push</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expr</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Packages/HTML/HTML.sublime-syntax&quot;</span>
+<span class="w">      </span><span class="nt">with_prototype</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{&quot;</span>
+<span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expr</span>
 
-  <span class="nt">expr</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;}}&quot;</span>
-      <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\b(if|else)\b</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyword.control</span>
+<span class="w">  </span><span class="nt">expr</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;}}&quot;</span>
+<span class="w">      </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b(if|else)\b</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control</span>
 </pre></div>
 </div>
 <p>This is quite different from the HTML-embedding-JavaScript example, because
@@ -693,11 +693,11 @@ into every context in the HTML syntax (and JavaScript, by transitivity).</p>
 <p>It’s not uncommon for several regexes to have parts in common. To avoid
 repetitious typing, you can use variables:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">variables</span><span class="p">:</span>
-  <span class="nt">ident</span><span class="p">:</span> <span class="s">&#39;[A-Za-z_][A-Za-z_0-9]*&#39;</span>
+<span class="w">  </span><span class="nt">ident</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[A-Za-z_][A-Za-z_0-9]*&#39;</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;\b{{ident}}\b&#39;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyword.control</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;\b{{ident}}\b&#39;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control</span>
 </pre></div>
 </div>
 <p>Variables must be defined at the top level of the <span class="file">.sublime-syntax</span> file,
@@ -713,12 +713,12 @@ or changes, inheritance is a useful tool.</p>
 the <i>packages path</i> to the parent syntax. The <i>packages path</i> will start
 with <span class="file">Packages/</span> and will contain the package name and syntax filename.
 For example:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">%YAML</span> <span class="m">1.2</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">%YAML</span><span class="w"> </span><span class="m">1.2</span>
 <span class="nn">---</span>
-<span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C++</span>
-<span class="nt">file_extensions</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">cc</span><span class="p p-Indicator">,</span> <span class="nv">cpp</span><span class="p p-Indicator">]</span>
-<span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.c++</span>
-<span class="nt">extends</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Packages/C++/C.sublime-syntax</span>
+<span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C++</span>
+<span class="nt">file_extensions</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">cc</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">cpp</span><span class="p p-Indicator">]</span>
+<span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.c++</span>
+<span class="nt">extends</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Packages/C++/C.sublime-syntax</span>
 </pre></div>
 </div>
 <p>A syntax using inheritance will inherit the <code class="docutils literal notranslate"><span class="pre">variables</span></code> and <code class="docutils literal notranslate"><span class="pre">contexts</span></code>
@@ -762,45 +762,45 @@ enforced limits on extending, other than that all syntaxes must share the same
 <section id="selected-examples"><h2>Selected Examples<a class="headerlink" href="syntax.html#selected-examples" title="Permalink to this heading">🔗</a></h2>
 <section id="bracket-balancing"><h3>Bracket Balancing<a class="headerlink" href="syntax.html#bracket-balancing" title="Permalink to this heading">🔗</a></h3>
 <p>This example highlights closing brackets without a corresponding open bracket:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">C</span>
-<span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.c</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">C</span>
+<span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.c</span>
 
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\(</span>
-      <span class="nt">push</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">brackets</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">invalid.illegal.stray-bracket-end</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brackets</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">invalid.illegal.stray-bracket-end</span>
 
-  <span class="nt">brackets</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-      <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">main</span>
+<span class="w">  </span><span class="nt">brackets</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">      </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">main</span>
 </pre></div>
 </div>
 </section><section id="sequential-contexts"><h3>Sequential Contexts<a class="headerlink" href="syntax.html#sequential-contexts" title="Permalink to this heading">🔗</a></h3>
 <p>This example will highlight a C style for statement containing too many semicolons:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">for_stmt</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\(</span>
-    <span class="nt">set</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">for_stmt_expr1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
+<span class="w">    </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">for_stmt_expr1</span>
 <span class="nt">for_stmt_expr1</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;;&quot;</span>
-    <span class="nt">set</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">for_stmt_expr2</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-    <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expr</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;;&quot;</span>
+<span class="w">    </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">for_stmt_expr2</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expr</span>
 <span class="nt">for_stmt_expr2</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;;&quot;</span>
-    <span class="nt">set</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">for_stmt_expr3</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-    <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expr</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;;&quot;</span>
+<span class="w">    </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">for_stmt_expr3</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expr</span>
 <span class="nt">for_stmt_expr3</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-    <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;;&quot;</span>
-    <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">invalid.illegal.stray-semi-colon</span>
-  <span class="p p-Indicator">-</span> <span class="nt">include</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">expr</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;;&quot;</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">invalid.illegal.stray-semi-colon</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expr</span>
 </pre></div>
 </div>
 </section><section id="advanced-stack-usage"><h3>Advanced Stack Usage<a class="headerlink" href="syntax.html#advanced-stack-usage" title="Permalink to this heading">🔗</a></h3>
@@ -809,37 +809,37 @@ Definition</i> can pick these up, the symbols should have the <code class="docut
 scope attached to them.</p>
 <p>Doing this can be a little tricky, as while typedefs are sometimes simple, they
 can get quite complex:</p>
-<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span> <span class="kt">int</span> <span class="n">coordinate_t</span><span class="p">;</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">coordinate_t</span><span class="p">;</span>
 
-<span class="k">typedef</span> <span class="k">struct</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span>
 <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
-    <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
-<span class="p">}</span> <span class="n">point_t</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">y</span><span class="p">;</span>
+<span class="p">}</span><span class="w"> </span><span class="n">point_t</span><span class="p">;</span>
 </pre></div>
 </div>
 <p>To recognise these, after matching the typedef keyword, two contexts will be
 pushed onto the stack: the first will recognise a typename, and then pop off,
 while the second will recognise the introduced name for the type:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">main</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\btypedef\b</span>
-    <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyword.control.c</span>
-    <span class="nt">set</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">typedef_after_typename</span><span class="p p-Indicator">,</span> <span class="nv">typename</span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\btypedef\b</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control.c</span>
+<span class="w">    </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">typedef_after_typename</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">typename</span><span class="p p-Indicator">]</span>
 
 <span class="nt">typename</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\bstruct\b</span>
-    <span class="nt">set</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;{&quot;</span>
-        <span class="nt">set</span><span class="p">:</span>
-          <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&quot;}&quot;</span>
-            <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\b[A-Za-z_][A-Za-z_0-9]*\b</span>
-    <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\bstruct\b</span>
+<span class="w">    </span><span class="nt">set</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{&quot;</span>
+<span class="w">        </span><span class="nt">set</span><span class="p">:</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;}&quot;</span>
+<span class="w">            </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b[A-Za-z_][A-Za-z_0-9]*\b</span>
+<span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 
 <span class="nt">typedef_after_typename</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\b[A-Za-z_][A-Za-z_0-9]*\b</span>
-    <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">entity.name.type</span>
-    <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b[A-Za-z_][A-Za-z_0-9]*\b</span>
+<span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">entity.name.type</span>
+<span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p>In the above example, <code class="docutils literal notranslate"><span class="pre">typename</span></code> is a reusable context, that will read in a
@@ -857,18 +857,18 @@ stack. Once the <code class="docutils literal notranslate"><span class="pre">typ
 in PHP. The match pattern in the main context captures the heredoc identifier,
 and the corresponding pop pattern in the heredoc context refers to this
 captured text with the <code class="docutils literal notranslate"><span class="pre">\1</span></code> symbol:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">PHP</span>
-<span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.php</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PHP</span>
+<span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.php</span>
 
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">&lt;&lt;&lt;([A-Za-z][A-Za-z0-9_]*)</span>
-      <span class="nt">push</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">heredoc</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">&lt;&lt;&lt;([A-Za-z][A-Za-z0-9_]*)</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">heredoc</span>
 
-  <span class="nt">heredoc</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">string.unquoted.heredoc</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">^\1;</span>
-        <span class="l l-Scalar l-Scalar-Plain">pop</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">heredoc</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string.unquoted.heredoc</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^\1;</span>
+<span class="w">        </span><span class="l l-Scalar l-Scalar-Plain">pop</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 </section></section><section id="testing"><h2>Testing<a class="headerlink" href="syntax.html#testing" title="Permalink to this heading">🔗</a></h2>
@@ -878,7 +878,7 @@ checking for you:</p>
 <div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="c1">// SYNTAX TEST &quot;Packages/C/C.sublime-syntax&quot;</span>
 <span class="cp">#pragma once</span>
 <span class="c1">// &lt;- source.c meta.preprocessor.c++</span>
- <span class="c1">// &lt;- keyword.control.import</span>
+<span class="w"> </span><span class="c1">// &lt;- keyword.control.import</span>
 
 <span class="c1">// foo</span>
 <span class="c1">// ^ source.c comment.line</span>
@@ -889,16 +889,16 @@ checking for you:</p>
 <span class="c1">// &lt;- punctuation.definition.comment.begin</span>
 <span class="c1">//     ^ punctuation.definition.comment.end</span>
 
-<span class="cp">#include</span> <span class="cpf">&quot;stdio.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;stdio.h&quot;</span><span class="cp"></span>
 <span class="c1">// &lt;- meta.preprocessor.include.c++</span>
 <span class="c1">//       ^ meta string punctuation.definition.string.begin</span>
 <span class="c1">//               ^ meta string punctuation.definition.string.end</span>
-<span class="kt">int</span> <span class="nf">square</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">)</span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
 <span class="c1">// &lt;- storage.type</span>
 <span class="c1">//  ^ meta.function entity.name.function</span>
 <span class="c1">//         ^ storage.type</span>
 <span class="p">{</span>
-    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="c1">//  ^^^^^^ keyword.control</span>
 <span class="p">}</span>
 
@@ -949,24 +949,24 @@ will be combined with the <code class="docutils literal notranslate"><span class
 syntaxes, the <code class="docutils literal notranslate"><span class="pre">scope</span></code> of the other syntax will only be included if
 <code class="docutils literal notranslate"><span class="pre">embed_scope</span></code> is not specified.</p>
 <p><i>Syntax 1</i>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.lang</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.lang</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">paragraph</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\(</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.begin</span>
-      <span class="nt">embed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scope:source.other</span>
-      <span class="nt">embed_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.other.embedded</span>
-      <span class="nt">escape</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-      <span class="nt">escape_captures</span><span class="p">:</span>
-        <span class="nt">0</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.end</span>
+<span class="w">  </span><span class="nt">paragraph</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.begin</span>
+<span class="w">      </span><span class="nt">embed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scope:source.other</span>
+<span class="w">      </span><span class="nt">embed_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.other.embedded</span>
+<span class="w">      </span><span class="nt">escape</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">      </span><span class="nt">escape_captures</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.end</span>
 </pre></div>
 </div>
 <p><i>Syntax 2</i>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.other</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.other</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;[a-zA-Z0-9_]+&#39;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">identifier</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[a-zA-Z0-9_]+&#39;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">identifier</span>
 </pre></div>
 </div>
 <p><i>Text</i>:</p>
@@ -984,21 +984,21 @@ syntaxes, the <code class="docutils literal notranslate"><span class="pre">scope
 <code class="docutils literal notranslate"><span class="pre">meta_content_scope</span></code> of the context being popped, even though <code class="docutils literal notranslate"><span class="pre">pop</span></code>
 actions don’t, and a <code class="docutils literal notranslate"><span class="pre">set</span></code> is the equivalent of a <code class="docutils literal notranslate"><span class="pre">pop</span></code> then <code class="docutils literal notranslate"><span class="pre">push</span></code>.</p>
 <p><i>Syntax</i>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.lang</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.lang</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">function</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_content_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.function</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;[a-zA-Z0-9_]+&#39;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">variable.function</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\(</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.begin</span>
-      <span class="nt">set</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">function-params</span>
+<span class="w">  </span><span class="nt">function</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_content_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.function</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[a-zA-Z0-9_]+&#39;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">variable.function</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.begin</span>
+<span class="w">      </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function-params</span>
 
-  <span class="nt">function-params</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.function.params</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.end</span>
-      <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">function-params</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.function.params</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.end</span>
+<span class="w">      </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p><i>Text</i>:</p>
@@ -1015,31 +1015,31 @@ actions don’t, and a <code class="docutils literal notranslate"><span class="p
 <p>If a <code class="docutils literal notranslate"><span class="pre">set</span></code> action has a target with a <code class="docutils literal notranslate"><span class="pre">clear_scopes</span></code> value, scopes will
 not be cleared properly.</p>
 <p><i>Syntax</i>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.lang</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.lang</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\bdef\b</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">keyword</span>
-      <span class="nt">push</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">function</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">function-name</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\bdef\b</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function-name</span>
 
-  <span class="nt">function</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.function</span>
+<span class="w">  </span><span class="nt">function</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.function</span>
 
-  <span class="nt">function-name</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;[a-zA-Z0-9_]+&#39;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">variable.function</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\(</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.begin</span>
-      <span class="nt">set</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">function-params</span>
+<span class="w">  </span><span class="nt">function-name</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[a-zA-Z0-9_]+&#39;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">variable.function</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.begin</span>
+<span class="w">      </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">function-params</span>
 
-  <span class="nt">function-params</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.function.params</span>
-    <span class="p p-Indicator">-</span> <span class="nt">clear_scopes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\)</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.end</span>
-      <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">2</span>
+<span class="w">  </span><span class="nt">function-params</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.function.params</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">clear_scopes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.section.group.end</span>
+<span class="w">      </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 </pre></div>
 </div>
 <p><i>Text</i>:</p>
@@ -1056,21 +1056,21 @@ not be cleared properly.</p>
 <p>The text matched by the <code class="docutils literal notranslate"><span class="pre">escape</span></code> pattern of an <code class="docutils literal notranslate"><span class="pre">embed</span></code> action will not get
 the <code class="docutils literal notranslate"><span class="pre">meta_scope</span></code> or <code class="docutils literal notranslate"><span class="pre">meta_content_scope</span></code> of the context that contains it.</p>
 <p><i>Syntax</i>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.lang</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.lang</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">context1</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.group</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_content_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.content</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\&#39;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.begin</span>
-      <span class="nt">embed</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">embed</span>
-      <span class="nt">escape</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\&#39;</span>
-      <span class="nt">escape_captures</span><span class="p">:</span>
-        <span class="nt">0</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">punctuation.end</span>
+<span class="w">  </span><span class="nt">context1</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.group</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_content_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.content</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\&#39;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.begin</span>
+<span class="w">      </span><span class="nt">embed</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embed</span>
+<span class="w">      </span><span class="nt">escape</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\&#39;</span>
+<span class="w">      </span><span class="nt">escape_captures</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.end</span>
 
-  <span class="nt">embed</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;[a-z]+&#39;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">word</span>
+<span class="w">  </span><span class="nt">embed</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[a-z]+&#39;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">word</span>
 </pre></div>
 </div>
 <p><i>Text</i>:</p>
@@ -1087,25 +1087,25 @@ the <code class="docutils literal notranslate"><span class="pre">meta_scope</spa
 <code class="docutils literal notranslate"><span class="pre">clear_scopes</span></code> with a value greater than <code class="docutils literal notranslate"><span class="pre">1</span></code>, the resulting scopes are
 incorrect.</p>
 <p><i>Syntax</i>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.lang</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.lang</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_content_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.main</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;[a-zA-Z0-9]+\b&#39;</span>
-      <span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">identifier</span>
-      <span class="nt">push</span><span class="p">:</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">context2</span>
-        <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">context3</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_content_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.main</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;[a-zA-Z0-9]+\b&#39;</span>
+<span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">identifier</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">context2</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">context3</span>
 
-  <span class="nt">context2</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.ctx2</span>
-    <span class="p p-Indicator">-</span> <span class="nt">clear_scopes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">context2</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.ctx2</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">clear_scopes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 
-  <span class="nt">context3</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">meta_scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">meta.ctx3</span>
-    <span class="p p-Indicator">-</span> <span class="nt">clear_scopes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">\n</span>
-      <span class="nt">pop</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">  </span><span class="nt">context3</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">meta_scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meta.ctx3</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">clear_scopes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\n</span>
+<span class="w">      </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 </pre></div>
 </div>
 <p><i>Text</i>:</p>
@@ -1124,13 +1124,13 @@ instead of the correct scope of <code class="docutils literal notranslate"><span
 by a higher-numbered capture group, the lower-numbered capture group will not
 have its capture scope applied.</p>
 <p><i>Syntax</i>:</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">source.lang</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">source.lang</span>
 <span class="nt">contexts</span><span class="p">:</span>
-  <span class="nt">main</span><span class="p">:</span>
-    <span class="p p-Indicator">-</span> <span class="nt">match</span><span class="p">:</span> <span class="s">&#39;(?:(x)|(y))+&#39;</span>
-      <span class="nt">captures</span><span class="p">:</span>
-        <span class="nt">1</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">identifier.x</span>
-        <span class="nt">2</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">identifier.y</span>
+<span class="w">  </span><span class="nt">main</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;(?:(x)|(y))+&#39;</span>
+<span class="w">      </span><span class="nt">captures</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">identifier.x</span>
+<span class="w">        </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">identifier.y</span>
 </pre></div>
 </div>
 <p><i>Text</i>:</p>

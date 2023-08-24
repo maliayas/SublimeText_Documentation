@@ -106,9 +106,9 @@ Python.</p>
 <p>The following is a basic example of a build system. This build system will
 execute the currently-open Python file.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;file_regex&quot;</span><span class="p">:</span> <span class="s2">&quot;^\\s*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>
+<span class="w">    </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.python&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;file_regex&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;^\\s*File \&quot;(...*?)\&quot;, line ([0-9]*)&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -273,10 +273,10 @@ build system. Each variant needs to specify a <code class="docutils literal notr
 override or add options to the top-level build system.</p>
 <p>Example:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Debug Symbols&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;my_command&quot;</span><span class="p">,</span> <span class="s2">&quot;-D&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Debug Symbols&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;my_command&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -313,7 +313,7 @@ Target Options</a> will do anything.</p>
 machine.</p>
 <p>Example:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;my_command.exe&quot;</span><span class="p">,</span> <span class="s2">&quot;/D&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;my_command.exe&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/D&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -325,7 +325,7 @@ machine.</p>
 <dd><p>Options to use when the build system is being executed on a Mac machine.</p>
 <p>Example:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/Applications/MyProgram.app/Contents/MacOS/my_command&quot;</span><span class="p">,</span> <span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/Applications/MyProgram.app/Contents/MacOS/my_command&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-d&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -337,7 +337,7 @@ machine.</p>
 <dd><p>Options to use when the build system is being executed on a Linux machine.</p>
 <p>Example:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;/usr/local/bin/my_command&quot;</span><span class="p">,</span> <span class="s2">&quot;-d&quot;</span><span class="p">,</span> <span class="s2">&quot;$file&quot;</span><span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;cmd&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;/usr/local/bin/my_command&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-d&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -427,7 +427,7 @@ to search backwards to find the appropriate file name.</p>
 <a class="reference internal" href="build_systems.html#shell_cmd" title="&quot;shell_cmd&quot;"><code class="docutils literal notranslate"><span class="pre">&quot;shell_cmd&quot;</span></code></a>.</p>
 <p>Example:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;PYTHONIOENCODING&quot;</span><span class="p">:</span> <span class="s2">&quot;utf-8&quot;</span>
+<span class="w">    </span><span class="nt">&quot;PYTHONIOENCODING&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;utf-8&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -674,19 +674,19 @@ named <span class="file">Package/User/my_example_build.py</span>:</p>
 the following JSON saved to a file named <span class="file">Packages/User/My Example
 Build.sublime-build</span>:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;my_example_build&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;selector&quot;</span><span class="p">:</span> <span class="s2">&quot;source.mylang&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;cancel&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;kill&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">},</span>
-    <span class="nt">&quot;variants&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Lint&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;lint&quot;</span><span class="p">:</span> <span class="kc">true</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Integration Tests&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;integration&quot;</span><span class="p">:</span> <span class="kc">true</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
+<span class="w">    </span><span class="nt">&quot;target&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my_example_build&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;selector&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;source.mylang&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;cancel&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;kill&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;variants&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Lint&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;lint&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Integration Tests&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;integration&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>

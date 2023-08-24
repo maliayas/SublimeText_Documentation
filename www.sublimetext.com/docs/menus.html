@@ -94,19 +94,19 @@ what action it should perform.</p>
 <section id="example"><h2>Example<a class="headerlink" href="menus.html#example" title="Permalink to this heading">🔗</a></h2>
 <p><i>The following is an example of the format of a <span class="file">.sublime-menu</span> file.</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;File&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span> <span class="s2">&quot;F&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;file&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;children&quot;</span><span class="p">:</span>
-        <span class="p">[</span>
-            <span class="p">{</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;new_file&quot;</span><span class="p">,</span> <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;New File&quot;</span><span class="p">,</span> <span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span> <span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;File&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;F&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;children&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new_file&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;New File&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;N&quot;</span><span class="w"> </span><span class="p">},</span>
 
-            <span class="p">{</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;prompt_open_file&quot;</span><span class="p">,</span> <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;Open File…&quot;</span><span class="p">,</span> <span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;!OSX&quot;</span> <span class="p">},</span>
-            <span class="p">{</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;prompt_open_folder&quot;</span><span class="p">,</span> <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;Open Folder…&quot;</span><span class="p">,</span> <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;!OSX&quot;</span> <span class="p">},</span>
-            <span class="p">{</span> <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;prompt_open&quot;</span><span class="p">,</span> <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;Open…&quot;</span><span class="p">,</span> <span class="nt">&quot;platform&quot;</span><span class="p">:</span> <span class="s2">&quot;OSX&quot;</span> <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prompt_open_file&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Open File…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;O&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;!OSX&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prompt_open_folder&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Open Folder…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;!OSX&quot;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;prompt_open&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Open…&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;platform&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OSX&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -182,11 +182,11 @@ action.</p>
 <span class="sig-name descname"><span class="pre">Side</span> <span class="pre">Bar.sublime-menu</span></span></dt>
 <dd><p>Context menu for files and folders in the side bar. Has “magic” args for
 passing file and folder names to commands.</p>
-<p>Entries with an arg <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;files&quot;</span></span><span class="err"><span class="pre">:</span></span> <span class="p"><span class="pre">[]</span></span></code> will be enabled for files and will
+<p>Entries with an arg <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;files&quot;</span></span><span class="err"><span class="pre">:</span></span><span class="w"> </span><span class="p"><span class="pre">[]</span></span></code> will be enabled for files and will
 pass file names to the command via the arg <code class="docutils literal notranslate"><span class="pre">files</span></code>. Entries with an
-arg <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;dirs&quot;</span></span><span class="err"><span class="pre">:</span></span> <span class="p"><span class="pre">[]</span></span></code> will be enabled for folders and will pass file names
-to the command via the arg <code class="docutils literal notranslate"><span class="pre">dirs</span></code>. Entries with an arg <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;paths&quot;</span></span><span class="err"><span class="pre">:</span></span>
-<span class="p"><span class="pre">[]</span></span></code> will be enabled for files and folders and will pass file and folder
+arg <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;dirs&quot;</span></span><span class="err"><span class="pre">:</span></span><span class="w"> </span><span class="p"><span class="pre">[]</span></span></code> will be enabled for folders and will pass file names
+to the command via the arg <code class="docutils literal notranslate"><span class="pre">dirs</span></code>. Entries with an arg <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;paths&quot;</span></span><span class="err"><span class="pre">:</span></span><span class="w">
+</span><span class="p"><span class="pre">[]</span></span></code> will be enabled for files and folders and will pass file and folder
 names to the command via the arg <code class="docutils literal notranslate"><span class="pre">paths</span></code>.</p>
 </dd></dl>
 
@@ -224,27 +224,27 @@ to append to the submenu.</p>
 <p>For example, to add a new layout to the <span class="menu">View <img src="../images/right.svg" alt="▶"> Layout</span> menu, create an
 entry such as:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;layout&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;children&quot;</span><span class="p">:</span>
-        <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;Grid: 9&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;set_layout&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;args&quot;</span><span class="p">:</span>
-                <span class="p">{</span>
-                    <span class="nt">&quot;cols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-                    <span class="nt">&quot;rows&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-                    <span class="nt">&quot;cells&quot;</span><span class="p">:</span>
-                    <span class="p">[</span>
-                        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-                        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-                    <span class="p">]</span>
-                <span class="p">}</span>
-            <span class="p">},</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;layout&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;children&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Grid: 9&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;set_layout&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;args&quot;</span><span class="p">:</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nt">&quot;cols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.33</span><span class="p">,</span><span class="w"> </span><span class="mf">0.66</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;rows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.33</span><span class="p">,</span><span class="w"> </span><span class="mf">0.66</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
+<span class="w">                    </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span>
+<span class="w">                    </span><span class="p">[</span>
+<span class="w">                        </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">                        </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span>
+<span class="w">                        </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+<span class="w">                    </span><span class="p">]</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -255,12 +255,12 @@ entry such as:</p>
 <p>Users can customize the available menus by creating an appropriately-named file in their <span class="file">Packages/User/</span> directory.</p>
 <p>For example, to customize the context menu for files and folders in the side bar, create a file named <span class="file">Packages/User/Side Bar.sublime-menu</span>. Adding the following would create an entry that would execute a (hypothetical) command that would copy the path to the clipboard.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;caption&quot;</span><span class="p">:</span> <span class="s2">&quot;Copy Full Path&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;copy_path&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;paths&quot;</span><span class="p">:</span> <span class="p">[]}</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;caption&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Copy Full Path&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;mnemonic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;copy_path&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;paths&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]}</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>

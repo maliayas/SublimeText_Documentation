@@ -188,13 +188,13 @@ at <span class="file">/Applications/Sublime Text.app/Contents/SharedSupport/bin<
 </section><section id="bash"><h3>Bash<a class="headerlink" href="command_line.html#bash" title="Permalink to this heading">🔗</a></h3>
 <p>If using Bash, the default before macOS 10.15, the following command will add
 the <span class="file">bin</span> folder to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.bash_profile
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=&quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bash_profile
 </pre></div>
 </div>
 </section><section id="zsh"><h3>Zsh<a class="headerlink" href="command_line.html#zsh" title="Permalink to this heading">🔗</a></h3>
 <p>If using Zsh, the default starting with macOS 10.15, the following command will
 add the <span class="file">bin</span> folder to the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable:</p>
-<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;export PATH=&quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH&quot;&#39;</span> &gt;&gt; ~/.zprofile
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;export PATH=&quot;/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH&quot;&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.zprofile
 </pre></div>
 </div>
 </section><section id="linux"><h3>Linux<a class="headerlink" href="command_line.html#linux" title="Permalink to this heading">🔗</a></h3>
@@ -203,7 +203,7 @@ a <span class="file">subl</span> symlink will automatically be installed into
 the <span class="file">/usr/bin/</span> directory.</p>
 <p>If installing from a tarball, the <span class="file">sublime_text</span> executable should be
 symlinked to <span class="file">subl</span>, with a command such as:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo ln -s /opt/sublime_text/sublime_text /usr/local/bin/subl
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/opt/sublime_text/sublime_text<span class="w"> </span>/usr/local/bin/subl
 </pre></div>
 </div>
 <p>The exact details of the symlink command will depend on the installation
@@ -239,7 +239,7 @@ location.
 <section id="configuring-as-editor"><h3>Configuring as EDITOR<a class="headerlink" href="command_line.html#configuring-as-editor" title="Permalink to this heading">🔗</a></h3>
 <p>To use Sublime Text as the editor for many commands that prompt for input, set
 your <code class="docutils literal notranslate"><span class="pre">EDITOR</span></code> environment variable:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">EDITOR</span><span class="o">=</span><span class="s1">&#39;subl -w&#39;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">EDITOR</span><span class="o">=</span><span class="s1">&#39;subl -w&#39;</span>
 </pre></div>
 </div>
 <p>Specifying <code class="docutils literal notranslate"><span class="pre">-w</span></code> will cause the <code class="docutils literal notranslate"><span class="pre">subl</span></code> command to not exit until the file is

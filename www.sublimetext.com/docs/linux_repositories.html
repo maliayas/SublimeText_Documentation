@@ -99,129 +99,129 @@ channel.</p>
 <section id="apt"><h2>apt<a class="headerlink" href="linux_repositories.html#apt" title="Permalink to this heading">🔗</a></h2>
 <p>The apt repository contains packages for both x86-64 and arm64.</p>
 <p>Install the GPG key:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg <span class="p">|</span> gpg --dearmor <span class="p">|</span> sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg &gt; /dev/null
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>-qO<span class="w"> </span>-<span class="w"> </span>https://download.sublimetext.com/sublimehq-pub.gpg<span class="w"> </span><span class="p">|</span><span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/trusted.gpg.d/sublimehq-archive.gpg<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 </pre></div>
 </div>
 <p>Select the channel to use:</p>
 <ul>
 <li><p><b>Stable</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;deb https://download.sublimetext.com/ apt/stable/&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/sublime-text.list
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb https://download.sublimetext.com/ apt/stable/&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/sublime-text.list
 </pre></div>
 </div>
 </li>
 <li><p><b>Dev</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;deb https://download.sublimetext.com/ apt/dev/&quot;</span> <span class="p">|</span> sudo tee /etc/apt/sources.list.d/sublime-text.list
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb https://download.sublimetext.com/ apt/dev/&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/sublime-text.list
 </pre></div>
 </div>
 </li>
 </ul>
 <p>Update apt sources and install Sublime Text:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
-sudo apt-get install sublime-text
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>sublime-text
 </pre></div>
 </div>
 <p>If this fails ensure apt is set up to work with https sources:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get install apt-transport-https
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>apt-transport-https
 </pre></div>
 </div>
 </section><section id="pacman"><h2>pacman<a class="headerlink" href="linux_repositories.html#pacman" title="Permalink to this heading">🔗</a></h2>
 <p>Install the GPG key:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl -O https://download.sublimetext.com/sublimehq-pub.gpg <span class="o">&amp;&amp;</span> sudo pacman-key --add sublimehq-pub.gpg <span class="o">&amp;&amp;</span> sudo pacman-key --lsign-key 8A8F901A <span class="o">&amp;&amp;</span> rm sublimehq-pub.gpg
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-O<span class="w"> </span>https://download.sublimetext.com/sublimehq-pub.gpg<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>pacman-key<span class="w"> </span>--add<span class="w"> </span>sublimehq-pub.gpg<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>pacman-key<span class="w"> </span>--lsign-key<span class="w"> </span>8A8F901A<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>rm<span class="w"> </span>sublimehq-pub.gpg
 </pre></div>
 </div>
 <p>Select the channel to use:</p>
 <ul>
 <li><p><b>Stable x86_64</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -e <span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64&quot;</span> <span class="p">|</span> sudo tee -a /etc/pacman.conf
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/x86_64&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/pacman.conf
 </pre></div>
 </div>
 </li>
 <li><p><b>Dev x86_64</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -e <span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64&quot;</span> <span class="p">|</span> sudo tee -a /etc/pacman.conf
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/x86_64&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/pacman.conf
 </pre></div>
 </div>
 </li>
 <li><p><b>Stable aarch64</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -e <span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/aarch64&quot;</span> <span class="p">|</span> sudo tee -a /etc/pacman.conf
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/stable/aarch64&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/pacman.conf
 </pre></div>
 </div>
 </li>
 <li><p><b>Dev aarch64</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -e <span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/aarch64&quot;</span> <span class="p">|</span> sudo tee -a /etc/pacman.conf
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;\n[sublime-text]\nServer = https://download.sublimetext.com/arch/dev/aarch64&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/pacman.conf
 </pre></div>
 </div>
 </li>
 </ul>
 <p>Update pacman and install Sublime Text:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo pacman -Syu sublime-text
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>pacman<span class="w"> </span>-Syu<span class="w"> </span>sublime-text
 </pre></div>
 </div>
 </section><section id="yum"><h2>yum<a class="headerlink" href="linux_repositories.html#yum" title="Permalink to this heading">🔗</a></h2>
 <p>Install the GPG key:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rpm<span class="w"> </span>-v<span class="w"> </span>--import<span class="w"> </span>https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 </pre></div>
 </div>
 <p>Select the channel to use:</p>
 <ul>
 <li><p><b>Stable</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>yum-config-manager<span class="w"> </span>--add-repo<span class="w"> </span>https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 </pre></div>
 </div>
 </li>
 <li><p><b>Dev</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo yum-config-manager --add-repo https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>yum-config-manager<span class="w"> </span>--add-repo<span class="w"> </span>https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
 </pre></div>
 </div>
 </li>
 </ul>
 <p>Update yum and install Sublime Text:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo yum install sublime-text
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>sublime-text
 </pre></div>
 </div>
 <p><i>Note there are no RPM packages for ARM currently.</i></p>
 </section><section id="dnf"><h2>dnf<a class="headerlink" href="linux_repositories.html#dnf" title="Permalink to this heading">🔗</a></h2>
 <p>Install the GPG key:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rpm<span class="w"> </span>-v<span class="w"> </span>--import<span class="w"> </span>https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 </pre></div>
 </div>
 <p>Select the channel to use:</p>
 <ul>
 <li><p><b>Stable</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--add-repo<span class="w"> </span>https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 </pre></div>
 </div>
 </li>
 <li><p><b>Dev</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo dnf config-manager --add-repo https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>config-manager<span class="w"> </span>--add-repo<span class="w"> </span>https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
 </pre></div>
 </div>
 </li>
 </ul>
 <p>Update dnf and install Sublime Text:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo dnf install sublime-text
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>sublime-text
 </pre></div>
 </div>
 <p><i>Note there are no RPM packages for ARM currently.</i></p>
 </section><section id="zypper"><h2>zypper<a class="headerlink" href="linux_repositories.html#zypper" title="Permalink to this heading">🔗</a></h2>
 <p>Install the GPG key:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo rpm -v --import https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rpm<span class="w"> </span>-v<span class="w"> </span>--import<span class="w"> </span>https://download.sublimetext.com/sublimehq-rpm-pub.gpg
 </pre></div>
 </div>
 <p>Select the channel to use:</p>
 <ul>
 <li><p><b>Stable</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo zypper addrepo -g -f https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>zypper<span class="w"> </span>addrepo<span class="w"> </span>-g<span class="w"> </span>-f<span class="w"> </span>https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
 </pre></div>
 </div>
 </li>
 <li><p><b>Dev</b></p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo zypper addrepo -g -f https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>zypper<span class="w"> </span>addrepo<span class="w"> </span>-g<span class="w"> </span>-f<span class="w"> </span>https://download.sublimetext.com/rpm/dev/x86_64/sublime-text.repo
 </pre></div>
 </div>
 </li>
 </ul>
 <p>Update zypper and install Sublime Text:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo zypper install sublime-text
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>zypper<span class="w"> </span>install<span class="w"> </span>sublime-text
 </pre></div>
 </div>
 <p><i>Note there are no RPM packages for ARM currently.</i></p>

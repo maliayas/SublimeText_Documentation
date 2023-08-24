@@ -100,34 +100,34 @@ being an array. Each binding is a JSON object.</p>
 <section id="example"><h2>Example<a class="headerlink" href="key_bindings.html#example" title="Permalink to this heading">🔗</a></h2>
 <p><i>The following is an example of the format of a <span class="file">.sublime-keymap</span> file.</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;super+ctrl+m&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;convert_syntax&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;super+shift+9&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;set_layout&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;args&quot;</span><span class="p">:</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;cols&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-            <span class="nt">&quot;rows&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.33</span><span class="p">,</span> <span class="mf">0.66</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
-            <span class="nt">&quot;cells&quot;</span><span class="p">:</span>
-            <span class="p">[</span>
-                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
-                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-            <span class="p">]</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;super+alt+up&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;noop&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;context&quot;</span><span class="p">:</span>
-        <span class="p">[</span>
-            <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;panel&quot;</span><span class="p">,</span> <span class="nt">&quot;operand&quot;</span><span class="p">:</span> <span class="s2">&quot;find&quot;</span><span class="p">},</span>
-            <span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;panel_has_focus&quot;</span><span class="p">},</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;super+ctrl+m&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;convert_syntax&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;super+shift+9&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;set_layout&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;args&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;cols&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.33</span><span class="p">,</span><span class="w"> </span><span class="mf">0.66</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;rows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mf">0.0</span><span class="p">,</span><span class="w"> </span><span class="mf">0.33</span><span class="p">,</span><span class="w"> </span><span class="mf">0.66</span><span class="p">,</span><span class="w"> </span><span class="mf">1.0</span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;cells&quot;</span><span class="p">:</span>
+<span class="w">            </span><span class="p">[</span>
+<span class="w">                </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">],</span>
+<span class="w">                </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">],</span>
+<span class="w">                </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">],</span><span class="w"> </span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">]</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;super+alt+up&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;noop&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;context&quot;</span><span class="p">:</span>
+<span class="w">        </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;panel&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;operand&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;find&quot;</span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;panel_has_focus&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -142,8 +142,8 @@ are present in the array, the command will only be invoked if the presses are
 performed in sequence.</p>
 <p><i>A key binding for the <span class="keys"><b>Escape</b></span> key</i></p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;escape&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;noop&quot;</span>
+<span class="w">    </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;escape&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;noop&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -312,8 +312,8 @@ built-in command, or a command implemented by a plugin.</p>
 </dd>
 </dl>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ctrl+a&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;select_all&quot;</span>
+<span class="w">    </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ctrl+a&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;select_all&quot;</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -325,9 +325,9 @@ commands can be found by looking at the
 <p>The arguments to send to the <code class="docutils literal notranslate"><span class="pre">&quot;command&quot;</span></code> key may be specified by a JSON object
 under the <code class="docutils literal notranslate"><span class="pre">&quot;args&quot;</span></code> key.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;primary+shift+b&quot;</span><span class="p">],</span>
-    <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;build&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;args&quot;</span><span class="p">:</span> <span class="p">{</span><span class="nt">&quot;select&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">}</span>
+<span class="w">    </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;primary+shift+b&quot;</span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;build&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="nt">&quot;select&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -489,10 +489,10 @@ directory.</p>
 <p>For example, the following will create a key binding to show unsaved changes, if
 any exist, via <span class="keys"><b>Ctrl</b><i>+</i><b>Shift</b><i>+</i><b>`</b></span>.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;keys&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;ctrl+shift+`&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;command&quot;</span><span class="p">:</span> <span class="s2">&quot;diff_changes&quot;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;ctrl+shift+`&quot;</span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;diff_changes&quot;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">]</span>
 </pre></div>
 </div>
