@@ -218,7 +218,7 @@ selection, quick panel selection or HTML document. The follow methods are
 used to signal that an event <code class="docutils literal notranslate"><span class="pre">dict</span></code> is desired:</p>
 <ul>
 <li><p>Commands may opt-in to receive an arg named <code class="docutils literal notranslate"><span class="pre">event</span></code> by implementing the
-method <code class="code highlight py docutils literal notranslate"><span class="n"><span class="pre">want_event</span></span><span class="p"><span class="pre">(</span></span><span class="bp"><span class="pre">self</span></span><span class="p"><span class="pre">)</span></span></code> and returning <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">True</span></span></code>.</p></li>
+method <code class="code highlight py docutils literal notranslate"><span class="n"><span class="pre">want_event</span></span><span class="p"><span class="pre">(</span></span><span class="bp"><span class="pre">self</span></span><span class="p"><span class="pre">)</span></span></code> and returning <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">True</span></span></code>.</p></li>
 <li><div class="build-filter build-4096 docutils container">
 <p>A call to <a class="reference internal" href="api_reference.html#sublime.Window.show_quick_panel" title="sublime.Window.show_quick_panel"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">show_quick_panel()</span></code></a> may opt-in to receive a second arg to the
 <code class="docutils literal notranslate"><span class="pre">on_done</span></code> callback by specifying the flag
@@ -229,7 +229,7 @@ method <code class="code highlight py docutils literal notranslate"><span class=
 <p><a class="reference internal" href="api_reference.html#sublime_plugin.ListInputHandler" title="sublime_plugin.ListInputHandler"><code class="xref any py py-class docutils literal notranslate"><span class="pre">ListInputHandler</span></code></a> classes may opt-in to receive a second arg to the
 <a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler.validate" title="sublime_plugin.CommandInputHandler.validate"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">validate()</span></code></a> and <a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler.confirm" title="sublime_plugin.CommandInputHandler.confirm"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">confirm()</span></code></a> methods by by implementing the method
 <a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler.want_event" title="sublime_plugin.CommandInputHandler.want_event"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">want_event()</span></code></a> and
-returning <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">True</span></span></code>.</p>
+returning <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">True</span></span></code>.</p>
 <span class="build">4096</span></div>
 </li>
 </ul>
@@ -5747,7 +5747,7 @@ the <i>Command Palette</i>.</p>
 <dt class="sig sig-object py" id="sublime_plugin.CommandInputHandler.validate">
 <span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.CommandInputHandler.validate" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Called whenever the user presses enter in the text entry box.
-Return <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">False</span></span></code> to disallow the current value.</p>
+Return <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">False</span></span></code> to disallow the current value.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -5768,7 +5768,7 @@ the text has been validated.</p>
 <dt class="sig sig-object py" id="sublime_plugin.CommandInputHandler.next_input">
 <span class="sig-name descname"><span class="pre">next_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler" title="sublime_plugin.CommandInputHandler"><span class="pre">CommandInputHandler</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.CommandInputHandler.next_input" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Return the next input after the user has completed this one. May return
-<code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">None</span></span></code> to indicate no more input is required, or
+<code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">None</span></span></code> to indicate no more input is required, or
 <a class="reference internal" href="api_reference.html#sublime_plugin.BackInputHandler" title="sublime_plugin.BackInputHandler"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime_plugin.BackInputHandler()</span></code></a> to indicate that the input handler
 should be popped off the stack instead.</p>
 </dd></dl>
@@ -5780,7 +5780,7 @@ should be popped off the stack instead.</p>
 <span class="sig-name descname"><span class="pre">want_event</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.CommandInputHandler.want_event" title="Permalink to this definition">🔗</a></dt>
 <span class="build">4096</span></div>
 <dd><p>Whether the <a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler.validate" title="sublime_plugin.CommandInputHandler.validate"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">validate()</span></code></a> and <a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler.confirm" title="sublime_plugin.CommandInputHandler.confirm"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">confirm()</span></code></a> methods should received a
-second <a class="reference internal" href="api_reference.html#sublime.Event" title="sublime.Event"><code class="xref any py py-alias docutils literal notranslate"><span class="pre">Event</span></code></a> parameter. Returns <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">False</span></span></code> by default.</p>
+second <a class="reference internal" href="api_reference.html#sublime.Event" title="sublime.Event"><code class="xref any py py-alias docutils literal notranslate"><span class="pre">Event</span></code></a> parameter. Returns <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">False</span></span></code> by default.</p>
 </dd></dl>
 
 </div>
@@ -5866,7 +5866,7 @@ of the class.</p>
 <span class="sig-name descname"><span class="pre">is_enabled</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.Command.is_enabled" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Return whether the command is able to be run at this time. Command
 arguments are passed as keyword arguments. The default implementation
-simply always returns <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">True</span></span></code>.</p>
+simply always returns <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">True</span></span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -5874,7 +5874,7 @@ simply always returns <code class="code highlight py docutils literal notranslat
 <span class="sig-name descname"><span class="pre">is_visible</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.Command.is_visible" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Return whether the command should be shown in the menu at this time.
 Command arguments are passed as keyword arguments. The default
-implementation always returns <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">True</span></span></code>.</p>
+implementation always returns <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">True</span></span></code>.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -5891,7 +5891,7 @@ be used.</p>
 <span class="sig-name descname"><span class="pre">description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.Command.description" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Return a description of the command with the given arguments. Command
 arguments are passed as keyword arguments. Used in the menu, if no
-caption is provided. Return <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">None</span></span></code> to get the default description.</p>
+caption is provided. Return <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">None</span></span></code> to get the default description.</p>
 </dd></dl>
 
 <dl class="py method">
@@ -5900,7 +5900,7 @@ caption is provided. Return <code class="code highlight py docutils literal notr
 <dd><p>Return whether to receive an <a class="reference internal" href="api_reference.html#sublime.Event" title="sublime.Event"><code class="xref any py py-alias docutils literal notranslate"><span class="pre">Event</span></code></a> argument when the command is
 triggered by a mouse action. The event information allows commands to
 determine which portion of the view was clicked on. The default
-implementation returns <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">False</span></span></code>.</p>
+implementation returns <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">False</span></span></code>.</p>
 </dd></dl>
 
 <div class="build-filter build-3154 py method docutils container">
@@ -5909,7 +5909,7 @@ implementation returns <code class="code highlight py docutils literal notransla
 <dt class="sig sig-object" id="sublime_plugin.Command.input">
 <span class="sig-name descname"><span class="pre">input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><span class="pre">dict</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.11)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler" title="sublime_plugin.CommandInputHandler"><span class="pre">CommandInputHandler</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.Command.input" title="Permalink to this definition">🔗</a></dt>
 <span class="build">3154</span></div>
-<dd><p>If this returns something other than <code class="code highlight py docutils literal notranslate"><span class="bp"><span class="pre">None</span></span></code>, the user will be
+<dd><p>If this returns something other than <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">None</span></span></code>, the user will be
 prompted for an input before the command is run in the <i>Command
 Palette</i>.</p>
 </dd></dl>

@@ -532,22 +532,22 @@ named <span class="file">Package/User/my_example_build.py</span>:</p>
 <span class="k">class</span> <span class="nc">MyExampleBuildCommand</span><span class="p">(</span><span class="n">sublime_plugin</span><span class="o">.</span><span class="n">WindowCommand</span><span class="p">):</span>
 
     <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
-    <span class="n">killed</span> <span class="o">=</span> <span class="bp">False</span>
-    <span class="n">proc</span> <span class="o">=</span> <span class="bp">None</span>
-    <span class="n">panel</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">killed</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">panel</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">panel_lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">is_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lint</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">integration</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">kill</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">is_enabled</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">integration</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kill</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="c1"># The Cancel build option should only be available</span>
         <span class="c1"># when the process is still running</span>
         <span class="k">if</span> <span class="n">kill</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="bp">None</span>
-        <span class="k">return</span> <span class="bp">True</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lint</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">integration</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">kill</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lint</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">integration</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">kill</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">kill</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">killed</span> <span class="o">=</span> <span class="bp">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">killed</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
             <span class="k">return</span>
 
@@ -579,9 +579,9 @@ named <span class="file">Package/User/my_example_build.py</span>:</p>
 
             <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="o">.</span><span class="n">run_command</span><span class="p">(</span><span class="s1">&#39;show_panel&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;panel&#39;</span><span class="p">:</span> <span class="s1">&#39;output.exec&#39;</span><span class="p">})</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">proc</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="o">=</span> <span class="bp">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">proc</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;my_cli&#39;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">lint</span><span class="p">:</span>
@@ -595,7 +595,7 @@ named <span class="file">Package/User/my_example_build.py</span>:</p>
             <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
             <span class="n">cwd</span><span class="o">=</span><span class="n">working_dir</span>
         <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">killed</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">killed</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span>
             <span class="n">target</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">read_handle</span><span class="p">,</span>
@@ -605,7 +605,7 @@ named <span class="file">Package/User/my_example_build.py</span>:</p>
     <span class="k">def</span> <span class="nf">read_handle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">handle</span><span class="p">):</span>
         <span class="n">chunk_size</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">13</span>
         <span class="n">out</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;&#39;</span>
-        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">data</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">handle</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="n">chunk_size</span><span class="p">)</span>
                 <span class="c1"># If exactly the requested number of bytes was</span>
