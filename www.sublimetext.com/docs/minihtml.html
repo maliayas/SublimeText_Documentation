@@ -228,7 +228,7 @@ background color of the current color scheme. If the lightness is less than
 <p>The following list provides an overview of supported properties and values:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">display</span></code>: <code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">inline</span></code>, <code class="docutils literal notranslate"><span class="pre">block</span></code>, <code class="docutils literal notranslate"><span class="pre">list-item</span></code>,
-<span class="build-filter build-4085">inline-block <span class="build">4085</span></span></p></li>
+<span class="build-filter build-4085"><code class="docutils literal notranslate"><span class="pre">inline-block</span> </code><span class="build">4085</span></span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">margin</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">margin-top</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">margin-right</span></code>: positive <a class="reference internal" href="minihtml.html#units">units</a></p></li>
@@ -338,12 +338,12 @@ Level 4, the color-mod function was removed</i>.</p>
 </li>
 </ul>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span><span class="w"> </span><span class="kc">alpha</span><span class="err">(</span><span class="mf">0.25</span><span class="p">));</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="nv">--background</span><span class="p">)</span><span class="w"> </span><span class="kc">alpha</span><span class="err">(</span><span class="mf">0.25</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span><span class="w"> </span><span class="nb">blend</span><span class="p">(</span><span class="kc">red</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">));</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="nv">--background</span><span class="p">)</span><span class="w"> </span><span class="nb">blend</span><span class="p">(</span><span class="kc">red</span><span class="w"> </span><span class="mi">50</span><span class="kt">%</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -360,7 +360,7 @@ contrast against, and a minimum contrast ratio between the “base” color and 
 background color. The ratio will be a decimal number, typically between <code class="docutils literal notranslate"><span class="pre">2.0</span></code>
 and <code class="docutils literal notranslate"><span class="pre">4.5</span></code>.</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">redish</span><span class="p">)</span><span class="w"> </span><span class="nf">min-contrast</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">background</span><span class="p">)</span><span class="w"> </span><span class="mf">2.5</span><span class="p">));</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">color</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="nv">--redish</span><span class="p">)</span><span class="w"> </span><span class="nf">min-contrast</span><span class="p">(</span><span class="nf">var</span><span class="p">(</span><span class="nv">--background</span><span class="p">)</span><span class="w"> </span><span class="mf">2.5</span><span class="p">));</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -371,10 +371,10 @@ modified to meet it.</p>
 <p>CSS variables are also supported using custom properties and the <code class="docutils literal notranslate"><span class="pre">var()</span></code>
 functional notation. Custom properties are those starting with <code class="docutils literal notranslate"><span class="pre">--</span></code>.</p>
 <div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="nt">html</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="err">--</span><span class="n">fg</span><span class="p">:</span><span class="w"> </span><span class="mh">#f00</span><span class="p">;</span>
+<span class="w">    </span><span class="nv">--fg</span><span class="p">:</span><span class="w"> </span><span class="mh">#f00</span><span class="p">;</span>
 <span class="p">}</span>
 <span class="p">.</span><span class="nc">error</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="o">--</span><span class="n">fg</span><span class="p">);</span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="nf">var</span><span class="p">(</span><span class="nv">--fg</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -388,12 +388,12 @@ These are all set in an <code class="docutils literal notranslate"><span class="
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--background)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--foreground)</span></code></p></li>
-<li><p><span class="build-filter build-3179">var(–accent) <span class="build">3179</span></span></p></li>
+<li><p><span class="build-filter build-3179"><code class="docutils literal notranslate"><span class="pre">var(--accent)</span> </code><span class="build">3179</span></span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--redish)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--orangish)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--yellowish)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--greenish)</span></code></p></li>
-<li><p><span class="build-filter build-3179">var(–cyanish) <span class="build">3179</span></span></p></li>
+<li><p><span class="build-filter build-3179"><code class="docutils literal notranslate"><span class="pre">var(--cyanish)</span> </code><span class="build">3179</span></span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--bluish)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--purplish)</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">var(--pinkish)</span></code></p></li>
