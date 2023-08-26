@@ -626,7 +626,7 @@ indicates that the prototype should not be included.</p>
 </section></section><section id="including-other-files"><h2>Including Other Files<a class="headerlink" href="syntax.html#including-other-files" title="Permalink to this heading">🔗</a></h2>
 <p>Sublime Syntax files support the notion of one syntax definition including
 another. For example, HTML can contain embedded JavaScript. Here’s an example
-of a basic syntax defintion for HTML that does so:</p>
+of a basic syntax definition for HTML that does so:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text.html</span>
 
 <span class="nt">contexts</span><span class="p">:</span>
@@ -701,10 +701,10 @@ repetitious typing, you can use variables:</p>
 </pre></div>
 </div>
 <p>Variables must be defined at the top level of the <span class="file">.sublime-syntax</span> file,
-and are referenced within regxes via <code class="docutils literal notranslate"><span class="pre">{{varname}}</span></code>. Variables may themselves
+and are referenced within regexes via <code class="docutils literal notranslate"><span class="pre">{{varname}}</span></code>. Variables may themselves
 include other variables. Note that any text that doesn’t match
 <code class="docutils literal notranslate"><span class="pre">{{[A-Za-z0-9_]+}}</span></code> won’t be considered as a variable, so regexes can still
-include literal <code class="docutils literal notranslate"><span class="pre">{{</span></code> characers, for example.</p>
+include literal <code class="docutils literal notranslate"><span class="pre">{{</span></code> characters, for example.</p>
 </section><div class="build-filter build-4075 docutils container" id="inheritance">
 <section id="inheritance"><h2>Inheritance<a class="headerlink" href="syntax.html#inheritance" title="Permalink to this heading">🔗</a></h2>
 <p>In situations where a syntax is a slight variant of another, with some additions
@@ -818,9 +818,9 @@ can get quite complex:</p>
 <span class="p">}</span><span class="w"> </span><span class="n">point_t</span><span class="p">;</span>
 </pre></div>
 </div>
-<p>To recognise these, after matching the typedef keyword, two contexts will be
-pushed onto the stack: the first will recognise a typename, and then pop off,
-while the second will recognise the introduced name for the type:</p>
+<p>To recognize these, after matching the typedef keyword, two contexts will be
+pushed onto the stack: the first will recognize a typename, and then pop off,
+while the second will recognize the introduced name for the type:</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">main</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\btypedef\b</span>
 <span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control.c</span>
