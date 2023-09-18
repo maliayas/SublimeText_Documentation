@@ -1585,6 +1585,29 @@ the callback will be called with a list.</p>
 </dd></dl>
 
 </div>
+<div class="build-filter build-next py function docutils container">
+<dl class="py function">
+<div class="build-filter build-next sig sig-object docutils container" id="sublime.choose_font_dialog">
+<dt class="sig sig-object" id="sublime.choose_font_dialog">
+<span class="sig-prename descclassname"><span class="pre">sublime.</span></span><span class="sig-name descname"><span class="pre">choose_font_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.choose_font_dialog" title="Permalink to this definition">🔗</a></dt>
+<span class="build">next</span></div>
+<dd><p>Show a dialog for selecting a font.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">callback</span></code></dt>
+<dd><p>Called with the font options, matching the format used in
+settings (eg. <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;font_face&quot;:</span> <span class="pre">&quot;monospace&quot;</span> <span class="pre">}</span></code>). May be
+called more than once, or will be called with <code class="docutils literal notranslate"><span class="pre">None</span></code> if
+the dialog is cancelled.</p>
+</dd></dl>
+
+</dd>
+</dl>
+</dd></dl>
+
+</div>
 <dl class="py function">
 <dt class="sig sig-object py" id="sublime.run_command">
 <span class="sig-prename descclassname"><span class="pre">sublime.</span></span><span class="sig-name descname"><span class="pre">run_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cmd</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.CommandArgs" title="sublime.CommandArgs"><span class="pre">CommandArgs</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.run_command" title="Permalink to this definition">🔗</a></dt>
@@ -1910,7 +1933,7 @@ selector is a better match for the scope.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="sublime.encode_value">
-<span class="sig-prename descclassname"><span class="pre">sublime.</span></span><span class="sig-name descname"><span class="pre">encode_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="api_reference.html#sublime.encode_value" title="Permalink to this definition">🔗</a></dt>
+<span class="sig-prename descclassname"><span class="pre">sublime.</span></span><span class="sig-name descname"><span class="pre">encode_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">pretty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">update_text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></span><a class="headerlink" href="api_reference.html#sublime.encode_value" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Encode a JSON compatible <a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><code class="xref any py py-alias docutils literal notranslate"><span class="pre">Value</span></code></a> into a string representation.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1920,6 +1943,20 @@ selector is a better match for the scope.</p>
 <dd><p>Whether the result should include newlines and be indented.</p>
 </dd></dl>
 
+<div class="build-filter build-next docutils container">
+<dl>
+<div class="build-filter build-next sig sig-object docutils container">
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">update_text</span></code></dt>
+<span class="build">next</span></div>
+<dd><p><p>Incrementally update the value encoded in this text. Best effort is made
+to preserve the contents of <code class="docutils literal notranslate"><span class="pre">update_text</span></code> - comments, indentation,
+etc. This is the same algorithm used to change settings values.
+Providing this makes <code class="docutils literal notranslate"><span class="pre">pretty</span></code> have no effect.</p>
+</p>
+</dd></dl>
+
+</div>
 </dd>
 </dl>
 </dd></dl>
