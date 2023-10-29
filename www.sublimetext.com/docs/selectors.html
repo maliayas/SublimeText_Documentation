@@ -239,7 +239,22 @@ not match for the expression to be a match.</p>
 </tr>
 </tbody>
 </table>
-</section></section></section></section>
+</section></section><section id="order-of-operations"><h3>Order of Operations<a class="headerlink" href="selectors.html#order-of-operations" title="Permalink to this heading">🔗</a></h3>
+<p>Operators have the following precedence:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">()</span></code> Grouping</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> Logical NOT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;</span></code> Logical AND</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|</span></code> Logical OR</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">,</span></code> Logical OR</p></li>
+</ul>
+<p>Otherwise they are ordered left-to-right. So the following are equivalent:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="p">,</span> <span class="n">b</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">c</span> <span class="o">|</span> <span class="n">d</span> <span class="p">,</span> <span class="n">e</span>
+
+<span class="p">(</span><span class="n">a</span> <span class="p">,</span> <span class="p">((</span><span class="n">b</span> <span class="o">&amp;</span> <span class="p">(</span><span class="o">-</span> <span class="n">c</span><span class="p">))</span> <span class="o">|</span> <span class="n">d</span><span class="p">))</span> <span class="p">,</span> <span class="n">e</span>
+</pre></div>
+</div>
+</section></section></section>
 
 </div>
 <aside>

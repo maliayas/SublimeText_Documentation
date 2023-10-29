@@ -1585,12 +1585,12 @@ the callback will be called with a list.</p>
 </dd></dl>
 
 </div>
-<div class="build-filter build-next py function docutils container">
+<div class="build-filter build-4157 py function docutils container">
 <dl class="py function">
-<div class="build-filter build-next sig sig-object docutils container" id="sublime.choose_font_dialog">
+<div class="build-filter build-4157 sig sig-object docutils container" id="sublime.choose_font_dialog">
 <dt class="sig sig-object" id="sublime.choose_font_dialog">
-<span class="sig-prename descclassname"><span class="pre">sublime.</span></span><span class="sig-name descname"><span class="pre">choose_font_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.choose_font_dialog" title="Permalink to this definition">🔗</a></dt>
-<span class="build">next</span></div>
+<span class="sig-prename descclassname"><span class="pre">sublime.</span></span><span class="sig-name descname"><span class="pre">choose_font_dialog</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.choose_font_dialog" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4157</span></div>
 <dd><p>Show a dialog for selecting a font.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -1601,6 +1601,13 @@ the callback will be called with a list.</p>
 settings (eg. <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;font_face&quot;:</span> <span class="pre">&quot;monospace&quot;</span> <span class="pre">}</span></code>). May be
 called more than once, or will be called with <code class="docutils literal notranslate"><span class="pre">None</span></code> if
 the dialog is cancelled.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">default</span></code></dt>
+<dd><p>The default values to select/return. Same format as the
+argument passed to <a class="reference external" href="https://docs.python.org/3/glossary.html#term-callback" title="(in Python v3.11)"><code class="xref any docutils literal notranslate"><span class="pre">callback</span></code></a>.</p>
 </dd></dl>
 
 </dd>
@@ -2430,7 +2437,7 @@ destination group.</p>
 <span class="build">4083</span></div>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>All selected sheets in the window.</p>
+<dd class="field-odd"><p>All selected sheets in the window’s currently selected group.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -3313,7 +3320,7 @@ existing regions if intersecting.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sublime.Selection.add_all">
-<span class="sig-name descname"><span class="pre">add_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.11)"><span class="pre">Iterator</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Region" title="sublime.Region"><span class="pre">Region</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.Selection.add_all" title="Permalink to this definition">🔗</a></dt>
+<span class="sig-name descname"><span class="pre">add_all</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Iterable</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Region" title="sublime.Region"><span class="pre">Region</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="api_reference.html#sublime.Point" title="sublime.Point"><span class="pre">Point</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.Selection.add_all" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Add all the regions from the given iterable.</p>
 </dd></dl>
 
@@ -5408,7 +5415,7 @@ updating them and removing them from a <a class="reference internal" href="api_r
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sublime.PhantomSet.update">
-<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phantoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterator" title="(in Python v3.11)"><span class="pre">Iterator</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Phantom" title="sublime.Phantom"><span class="pre">Phantom</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.PhantomSet.update" title="Permalink to this definition">🔗</a></dt>
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">phantoms</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Iterable" title="(in Python v3.11)"><span class="pre">Iterable</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Phantom" title="sublime.Phantom"><span class="pre">Phantom</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.PhantomSet.update" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Update the set of phantoms. If the <a class="reference internal" href="api_reference.html#sublime.Phantom.region" title="sublime.Phantom.region"><code class="xref any py py-attr docutils literal notranslate"><span class="pre">Phantom.region</span></code></a> of existing phantoms
 have changed they will be moved; new phantoms are added and ones not
 present are removed.</p>

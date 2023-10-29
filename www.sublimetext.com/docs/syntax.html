@@ -636,9 +636,9 @@ of a basic syntax definition for HTML that does so:</p>
 <span class="w">      </span><span class="nt">with_prototype</span><span class="p">:</span>
 <span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">(?=&lt;/script&gt;)</span>
 <span class="w">          </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&lt;&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&lt;&#39;</span>
 <span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.definition.tag.begin</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&gt;&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&gt;&#39;</span>
 <span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">punctuation.definition.tag.end</span>
 </pre></div>
 </div>
@@ -666,14 +666,14 @@ example of that, this time with a subset of <a class="reference external" href="
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">text.jinja</span>
 <span class="nt">contexts</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">main</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span>
-<span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Packages/HTML/HTML.sublime-syntax&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;&#39;</span>
+<span class="w">      </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Packages/HTML/HTML.sublime-syntax</span>
 <span class="w">      </span><span class="nt">with_prototype</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{{&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{{&#39;</span>
 <span class="w">          </span><span class="nt">push</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expr</span>
 
 <span class="w">  </span><span class="nt">expr</span><span class="p">:</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;}}&quot;</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;}}&#39;</span>
 <span class="w">      </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b(if|else)\b</span>
 <span class="w">      </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyword.control</span>
@@ -784,13 +784,13 @@ enforced limits on extending, other than that all syntaxes must share the same
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\(</span>
 <span class="w">    </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">for_stmt_expr1</span>
 <span class="nt">for_stmt_expr1</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;;&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;;&#39;</span>
 <span class="w">    </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">for_stmt_expr2</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
 <span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expr</span>
 <span class="nt">for_stmt_expr2</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;;&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;;&#39;</span>
 <span class="w">    </span><span class="nt">set</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">for_stmt_expr3</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
 <span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -798,7 +798,7 @@ enforced limits on extending, other than that all syntaxes must share the same
 <span class="nt">for_stmt_expr3</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\)</span>
 <span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;;&quot;</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;;&#39;</span>
 <span class="w">    </span><span class="nt">scope</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">invalid.illegal.stray-semi-colon</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">include</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expr</span>
 </pre></div>
@@ -829,9 +829,9 @@ while the second will recognize the introduced name for the type:</p>
 <span class="nt">typename</span><span class="p">:</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\bstruct\b</span>
 <span class="w">    </span><span class="nt">set</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;{&quot;</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;{&#39;</span>
 <span class="w">        </span><span class="nt">set</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;}&quot;</span>
+<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;}&#39;</span>
 <span class="w">            </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">\b[A-Za-z_][A-Za-z_0-9]*\b</span>
 <span class="w">    </span><span class="nt">pop</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
@@ -897,7 +897,11 @@ checking for you:</p>
 <span class="c1">// &lt;- storage.type</span>
 <span class="c1">//  ^ meta.function entity.name.function</span>
 <span class="c1">//         ^ storage.type</span>
+<span class="c1">//  @@@@@@ definition</span>
 <span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;check %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">);</span>
+<span class="c1">//  @@@@@@ reference</span>
+
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="p">;</span>
 <span class="c1">//  ^^^^^^ keyword.control</span>
 <span class="p">}</span>
@@ -922,15 +926,55 @@ the results in an output panel. <i>Next Result</i> (<span class="keys"><b>F4</b>
 navigate to the first failing test.</p>
 <p>Each test in the syntax test file must first start the comment token
 (established on the first line, it doesn’t actually have to be a comment
-according to the syntax), and then either a <code class="docutils literal notranslate"><span class="pre">^</span></code> or <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> token.</p>
-<p>The two types of tests are:</p>
-<ul class="simple">
+according to the syntax), and then either a <code class="docutils literal notranslate"><span class="pre">^</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> token.</p>
+<p>The three types of tests are:</p>
+<ul>
 <li><p>Caret: <code class="docutils literal notranslate"><span class="pre">^</span></code> this will test the following selector against the scope on the
 most recent non-test line. It will test it at the same column the <code class="docutils literal notranslate"><span class="pre">^</span></code> is
 in. Consecutive <code class="docutils literal notranslate"><span class="pre">^</span></code>s will test each column against the selector.</p></li>
 <li><p>Arrow: <code class="docutils literal notranslate"><span class="pre">&lt;-</span></code> this will test the following selector against the scope on the
 most recent non-test line. It will test it at the same column as the comment
 character is in.</p></li>
+<div class="build-filter build-4087 docutils container">
+<li><p>At: <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> this will test the following symbol type against the text on the
+most recent non-test line. The symbol type must be one of the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">none</span></code>: The text is not a symbol</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local-definition</span></code>: The text is the definition of a symbol but not indexed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">global-definition</span></code>: The text is the definition of a symbol that is indexed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">definition</span></code>: The text is the definition of a symbol, indexed or not</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reference</span></code>: The text is a reference to a symbol</p></li>
+</ul>
+<p>When one of these tests is present all symbols in the file are checked
+exhaustively. This can be disabled with the <code class="docutils literal notranslate"><span class="pre">partial-symbols</span></code> options.</p>
+</li>
+<span class="build">4087</span></div>
+</ul>
+<p>Test options may be specified directly after <code class="docutils literal notranslate"><span class="pre">SYNTAX</span> <span class="pre">TEST</span></code> separated by spaces
+and can be any of the following:</p>
+<ul>
+<div class="build-filter build-4087 docutils container">
+<li><p><code class="docutils literal notranslate"><span class="pre">partial-symbols</span></code>: Normally when a symbol test (<code class="docutils literal notranslate"><span class="pre">&#64;</span></code>) is present all
+symbols in the file are required to be checked. This option disables that
+behavior.</p>
+</li>
+<span class="build">4087</span></div>
+<div class="build-filter build-4069 docutils container">
+<li><p><code class="docutils literal notranslate"><span class="pre">reindent-unchanged</span></code>: Take the whole file as a test for indentation rules.
+Check that when the reindent command is run on the whole file that no line is
+changed.</p>
+</li>
+<span class="build">4069</span></div>
+<div class="build-filter build-4069 docutils container">
+<li><p><code class="docutils literal notranslate"><span class="pre">reindent-unindented</span></code>: Take the whole file as a test for indentation rules.
+Check that if all lines were unindented that the reindent command reproduces
+the file.</p>
+</li>
+<span class="build">4069</span></div>
+<div class="build-filter build-4069 docutils container">
+<li><p><code class="docutils literal notranslate"><span class="pre">reindent</span></code>: Both <code class="docutils literal notranslate"><span class="pre">reindent-unchanged</span></code> and <code class="docutils literal notranslate"><span class="pre">reindent-unintented</span></code>.</p>
+</li>
+<span class="build">4069</span></div>
 </ul>
 </section><section id="compatibility"><h2>Compatibility<a class="headerlink" href="syntax.html#compatibility" title="Permalink to this heading">🔗</a></h2>
 <p>When the syntax highlighting engine of Sublime Text requires changes that will
