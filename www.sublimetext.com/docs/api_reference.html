@@ -3417,7 +3417,10 @@ if it doesn’t exist on disk.</p>
 <span class="build">4080</span></div>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Whether this sheet is transient.</p>
+<dd class="field-odd"><p><p>Whether this sheet is exclusively transient.</p>
+<p>Note that a sheet may be both open as a regular file and be
+transient. In this case <a class="reference internal" href="api_reference.html#sublime.Sheet.is_transient" title="sublime.Sheet.is_transient"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">is_transient</span></code></a> will still return <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+</p>
 </dd>
 </dl>
 </dd></dl>
