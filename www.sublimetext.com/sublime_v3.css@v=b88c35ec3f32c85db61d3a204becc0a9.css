@@ -192,7 +192,7 @@ h1 a:hover
 }
 h2
 {
-    color: #777;
+    color: #444;
     font-size: 1.5em;
     font-weight: normal;
     margin-top: 1em;
@@ -806,17 +806,26 @@ div#masthead section div.tagline
     text-align: center;
     box-sizing: border-box;
     width: 100%;
-    font-weight: bold;
-    font-size: 3em;
-    line-height: inherit;
 }
-div#masthead section div.tagline span
+
+div#masthead section div.tagline h1
+{
+    line-height: inherit;
+    font-size: 3em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+div#masthead section div.tagline h1 span
 {
     padding: 5px 10px;
     background-color: rgba(0, 0, 0, 0.1);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     border-radius: 3px;
+    left: unset;
+    position: unset;
+    color: #fff;
+    font-weight: bold;
 }
 
 div#masthead section div.tagline.minor
@@ -1071,23 +1080,6 @@ h2.love span
         right: 20px;
     }
 }
-@media only screen and (max-width: 1024px)
-{
-    div#masthead section div.tagline
-    {
-        text-align: left;
-    }
-
-    div#masthead div.download
-    {
-        text-align: left;
-    }
-
-    div#masthead div.download .button
-    {
-        padding-left: 0;
-    }
-}
 
 @media only screen and (max-width: 820px)
 {
@@ -1114,7 +1106,7 @@ h2.love span
         height: auto;
     }
 
-    div#masthead section div.tagline
+    div#masthead section div.tagline h1
     {
         font-size: 30px;
         line-height: 46px;
@@ -2005,6 +1997,9 @@ section.swimlane h2.centered
 {
     margin-top: 0;
     text-align: center;
+}
+section.swimlane h2.inverted
+{
     color: white;
 }
 
@@ -2013,6 +2008,12 @@ section.swimlane h3
     text-align: center;
     font-size: 1.5em;
     margin-top: 0;
+}
+
+section .product_card_header h3
+{
+    text-transform: unset;
+    font-size: 2em;
 }
 
 div.badge
