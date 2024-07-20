@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     continue;
                 }
 
-                console.log(parts);
                 const build = parts[1] === 'next' ? 99999 : parseInt(parts[1]);
                 const removed = parts[2] === 'removed';
 
