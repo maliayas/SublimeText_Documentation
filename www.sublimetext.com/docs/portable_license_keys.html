@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portable License Keys</title>
+    <script type="text/javascript" src="docs.js@v=a39adbf106ab7bd08270f5a660845d18"></script>
+    <link rel="stylesheet" type="text/css" href="docs.css@v=4100a55ba91b60ec302ae71a43d323ab.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=480, user-scalable=yes">
+    <link rel="stylesheet" type="text/css" href="../sublime_v3.css@v=6e932e79f2ebb209bbb9a003f0510496.css">
+    <link rel="icon" href="../favicon.ico">
+    <link rel="icon" size="64x64" href="../favicon.ico">
+    <link rel="icon" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="192x192" href="https://www.sublimetext.com/images/icon.png">
+    <script type="text/javascript">
+    var plat = 'windows'
+    if (/Mac OS X/.test(navigator.userAgent))
+        plat = 'osx'
+    else if (/Linux|FreeBSD/.test(navigator.userAgent))
+        plat = 'linux'
+    var arch = /WOW64|Win64|x86_64/.test(navigator.userAgent) ? '64' : '32'
+    document.documentElement.className += ' plat_' + plat + ' arch_' + arch
+    function byid(x)
+    {
+        return document.getElementById(x)
+    }
+    var scale = 1
+    function res()
+    {
+        scale = window.devicePixelRatio >= 1.3 ? 2 : 1
+        return scale == 2 ? '@2x' : ''
+    }
+    </script>
+    <!--[if lt IE 9]>
+    <script>
+        var els = ['header', 'nav', 'section', 'main', 'article', 'aside', 'footer']
+        for (var i = 0; i < els.length; ++i)
+            document.createElement(els[i]);
+    </script>
+    <style>
+        header, nav, section, main, article, aside, footer {
+            display: block;
+        }
+    </style>
+    <![endif]-->
+</head>
+<body class="docs">
+    <header>
+        <section>
+            <a id="logo" href="https://www.sublimetext.com/">
+                <img src="../images/logo.svg" alt="Sublime Text">
+            </a>
+            <nav>
+                <a href="https://www.sublimetext.com/download">Download</a>
+                <a href="https://www.sublimehq.com/store/text">Buy</a>
+                <a href="https://www.sublimetext.com/support">Support</a>
+                <span class="vr"></span>
+                <a href="https://www.sublimetext.com/blog/">News</a>
+                <a href="https://forum.sublimetext.com">Forum</a>
+            </nav>
+        </section>
+    </header>
+<main>
+<section>
+<h1>
+<div class="background"></div>
+<div class="placeholder"></div>
+<span>
+    <nav>
+        <a href="index.html">Documentation</a>
+        <a class="divider"></a>
+        <a class="jump toc" href="portable_license_keys.html#toc">TOC</a>
+        <a class="jump top" href="portable_license_keys.html#">TOP</a>
+    </nav>
+    Portable License Keys
+</span>
+<div class="versions">
+    Ver<span class="expanded">sion</span>:<br>
+</div>
+</h1>
+<div class="primary">
+
+  <section id="portable-license-keys"><p>Sublime Text stores license keys in a format specific to the computer it’s
+entered on. In some scenarios, such as a home directory that’s shared between
+multiple computers, this can cause difficulties.</p>
+<p>This can be worked around by manually saving the license key as plain text,
+which Sublime Text will read from, but not write to.</p>
+<section id="steps"><h2>Steps<a class="headerlink" href="portable_license_keys.html#steps" title="Permalink to this heading">🔗</a></h2>
+<ol class="arabic">
+<li><p>Create a new file in Sublime Text, and paste your license key in.</p></li>
+<li><p>Save this file as <span class="file">License.sublime_license</span>. The location depends on
+your operating system:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><b>Windows</b>: <span class="file">%LOCALAPPDATA%Sublime TextLocal</span></p></li>
+<li><p><b>OSX</b>: <span class="file">~/Library/Application Support/Sublime Text/Local</span></p></li>
+<li><p><b>Linux</b>: <span class="file">~/.config/sublime-text/Local</span></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Run Sublime Text, and verify that it’s running in registered mode (i.e., there’s no UNREGISTERED text in the title bar)</p></li>
+</ol>
+<div class="admonition note">
+<p>If Sublime Text 3 was installed previously, the data directory may include a
+<code class="docutils literal notranslate"><span class="pre">3</span></code> at the end of the name:</p>
+<ul class="simple">
+<li><p><b>Windows:</b> <span class="file">%APPDATA%\Sublime Text 3\Local</span></p></li>
+<li><p><b>Mac:</b> <span class="file">~/Library/Application Support/Sublime Text 3/Local</span></p></li>
+<li><p><b>Linux:</b> <span class="file">~/.config/sublime-text-3/Local</span></p></li>
+</ul>
+</div>
+<section id="network-deployment"><h3>Network Deployment<a class="headerlink" href="portable_license_keys.html#network-deployment" title="Permalink to this heading">🔗</a></h3>
+<p>If you are installing Sublime Text for a group of users, and wish to pre-enter
+the license key, then you’ll want to follow the above steps, ensuring that each
+user gets the <span class="file">License.sublime_license</span> file written to the correct
+location for them. Alternatively, simply have each user enter the license key
+themselves.</p>
+<p>Under Windows, the installer can be run in the background using the <code class="docutils literal notranslate"><span class="pre">/SILENT</span></code>
+flag.</p>
+</section></section></section>
+
+</div>
+<aside>
+<div id="callout">
+    <a href="https://www.sublimemerge.com">
+        <span class="subhead">Introducing our Git client</span><br>
+        <b><img src="../images/merge_icon.svg" class="icon"> Sublime Merge</b>
+        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="merge-screenshot">
+    </a>
+    <script>
+        function show_callout()
+        {
+            var callout = byid('merge-screenshot')
+            callout.src = '/images/merge_callout_' + plat + res() + '.png'
+            callout.onload = function()
+            {
+                callout.style.backgroundColor = 'transparent'
+            }
+        }
+        show_callout()
+    </script>
+</div>
+</aside>
+</section>
+</main>
+<footer>
+    <section>
+            <div class="footer_start">
+                <p>© <a href="https://www.sublimehq.com">Sublime HQ Pty Ltd</a></p>
+                <p>Woollahra, Sydney.</p>
+            </div>
+            <div class="footer_end">
+                <p>
+                    <div class="twitter_follow">
+                        <a target="_blank" rel="noopener noreferrer" href="https://twitter.com/sublimehq?ref_src=twsrc%5Etfw">Follow @sublimehq</a>
+                    </div>
+                </p>
+            </div>
+    </section>
+</footer>
+<!--[if lt IE 9]>
+<script>
+    var logo_img = byid('logo').getElementsByTagName('IMG')[0]
+    logo_img.src = logo_img.src.replace('.svg', '.png')
+</script>
+<![endif]-->
+</body>
+</html>
