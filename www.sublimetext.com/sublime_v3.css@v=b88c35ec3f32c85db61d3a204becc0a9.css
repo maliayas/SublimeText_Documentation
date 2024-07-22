@@ -1266,10 +1266,10 @@ p.unmaintained a
     list-style-type: circle;
 }
 
-html.plat_osx #dl_osx,
-html.plat_linux #dl_linux,
-html.plat_windows.arch_64 #dl_win_64,
-html.plat_windows.arch_32 #dl_win_32
+html.plat_osx .dl_osx,
+html.plat_linux .dl_linux,
+html.plat_windows.arch_64 .dl_win_64,
+html.plat_windows.arch_32 .dl_win_32
 {
     list-style-type: disc;
     font-weight: bold;
