@@ -3292,6 +3292,16 @@ empty.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="sublime.Selection.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="api_reference.html#sublime.Region" title="sublime.Region"><span class="pre">Region</span></a></span></span><a class="headerlink" href="api_reference.html#sublime.Selection.__getitem__" title="Permalink to this definition">🔗</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The region at the given <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="sublime.Selection.__delitem__">
 <span class="sig-name descname"><span class="pre">__delitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.Selection.__delitem__" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Delete the region at the given <code class="docutils literal notranslate"><span class="pre">index</span></code>.</p>
@@ -4796,7 +4806,7 @@ border of the annotation. See <a class="reference internal" href="minihtml.html#
 <dl>
 <div class="build-filter build-4050 sig sig-object docutils container">
 <dt class="sig sig-object">
-<code class="docutils literal notranslate"><span class="pre">on_navitate</span></code></dt>
+<code class="docutils literal notranslate"><span class="pre">on_navigate</span></code></dt>
 <span class="build">4050</span></div>
 <dd><p>Called when a link in an annotation is clicked. Will be passed the
 <code class="docutils literal notranslate"><span class="pre">href</span></code> of the link. </p>
@@ -5285,6 +5295,16 @@ it doesn’t exist on disk.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">dict</span></code> like object that a settings hierarchy.</p>
 <div class="build-filter build-4023 py method docutils container">
 <dl class="py method">
+<div class="build-filter build-4023 sig sig-object docutils container" id="sublime.Settings.__getitem__">
+<dt class="sig sig-object" id="sublime.Settings.__getitem__">
+<span class="sig-name descname"><span class="pre">__getitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a></span></span><a class="headerlink" href="api_reference.html#sublime.Settings.__getitem__" title="Permalink to this definition">🔗</a></dt>
+<span class="build">4023</span> <span class="python">3.8</span></div>
+<dd><p>Returns the named setting.</p>
+</dd></dl>
+
+</div>
+<div class="build-filter build-4023 py method docutils container">
+<dl class="py method">
 <div class="build-filter build-4023 sig sig-object docutils container" id="sublime.Settings.__setitem__">
 <dt class="sig sig-object" id="sublime.Settings.__setitem__">
 <span class="sig-name descname"><span class="pre">__setitem__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.Settings.__setitem__" title="Permalink to this definition">🔗</a></dt>
@@ -5354,6 +5374,12 @@ returned.</p>
 </dd></dl>
 
 </div>
+<dl class="py method">
+<dt class="sig sig-object py" id="sublime.Settings.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="api_reference.html#sublime.Value" title="sublime.Value"><span class="pre">Value</span></a></span></span><a class="headerlink" href="api_reference.html#sublime.Settings.get" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Same as <a class="reference internal" href="api_reference.html#sublime.Settings.__getitem__" title="sublime.Settings.__getitem__"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">__getitem__</span></code></a>.</p>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="sublime.Settings.has">
 <span class="sig-name descname"><span class="pre">has</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">key</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="api_reference.html#sublime.Settings.has" title="Permalink to this definition">🔗</a></dt>
@@ -5526,6 +5552,11 @@ before the completions will be displayed to the user.</p>
 <span class="sig-name descname"><span class="pre">set_completions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">completions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><span class="pre">list</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.CompletionValue" title="sublime.CompletionValue"><span class="pre">CompletionValue</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flags</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">AutoCompleteFlags.NONE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.CompletionList.set_completions" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Sets the list of completions, allowing the list to be displayed to the
 user.</p>
+<div class="build-filter build-4184 docutils container">
+<p>This function is thread-safe. If you’re generating a lot of
+completions you’re encouraged to call this function from a
+background thread to avoid blocking the UI.</p>
+<span class="build">4184</span></div>
 </dd></dl>
 
 </dd></dl>
@@ -6253,8 +6284,8 @@ not block the application.</p>
 <dt class="sig sig-object" id="sublime_plugin.EventListener.on_pre_move">
 <span class="sig-name descname"><span class="pre">on_pre_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime_plugin.EventListener.on_pre_move" title="Permalink to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
-<dd><p>Called right before a view is moved between two windows, passed the View
-object.</p>
+<dd><p>Called right before a view is moved between two windows or within a
+window. Passed the View object.</p>
 </dd></dl>
 
 </div>
@@ -6264,8 +6295,8 @@ object.</p>
 <dt class="sig sig-object" id="sublime_plugin.EventListener.on_post_move">
 <span class="sig-name descname"><span class="pre">on_post_move</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime_plugin.EventListener.on_post_move" title="Permalink to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
-<dd><p>Called right after a view is moved between two windows, passed the View
-object.</p>
+<dd><p>Called right after a view is moved between two windows or within a
+window. Passed the View object.</p>
 </dd></dl>
 
 </div>
@@ -6275,8 +6306,9 @@ object.</p>
 <dt class="sig sig-object" id="sublime_plugin.EventListener.on_post_move_async">
 <span class="sig-name descname"><span class="pre">on_post_move_async</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">view</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime_plugin.EventListener.on_post_move_async" title="Permalink to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
-<dd><p>Called right after a view is moved between two windows, passed the View
-object. Runs in a separate thread, and does not block the application.</p>
+<dd><p>Called right after a view is moved between two windows or within a
+window. Passed the View object. Runs in a separate thread, and does not
+block the application.</p>
 </dd></dl>
 
 </div>
@@ -6695,7 +6727,8 @@ application.</p>
 <dt class="sig sig-object" id="sublime_plugin.ViewEventListener.on_pre_move">
 <span class="sig-name descname"><span class="pre">on_pre_move</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime_plugin.ViewEventListener.on_pre_move" title="Permalink to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
-<dd><p>Called right before a view is moved between two windows.</p>
+<dd><p>Called right before a view is moved between two windows or within a
+window.</p>
 </dd></dl>
 
 </div>
@@ -6705,7 +6738,8 @@ application.</p>
 <dt class="sig sig-object" id="sublime_plugin.ViewEventListener.on_post_move">
 <span class="sig-name descname"><span class="pre">on_post_move</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime_plugin.ViewEventListener.on_post_move" title="Permalink to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
-<dd><p>Called right after a view is moved between two windows.</p>
+<dd><p>Called right after a view is moved between two windows or within a
+window.</p>
 </dd></dl>
 
 </div>

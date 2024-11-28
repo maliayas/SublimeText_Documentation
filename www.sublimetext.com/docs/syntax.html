@@ -911,6 +911,16 @@ checking for you:</p>
 <span class="c1">//                  ^ string.quoted.double - comment</span>
 </pre></div>
 </div>
+<div class="highlight-Java notranslate"><div class="highlight"><pre><span></span><span class="c1">// SYNTAX TEST partial-symbols &quot;Packages/Java/Java.sublime-syntax&quot;</span>
+
+<span class="k">switch</span><span class="w"> </span><span class="p">(</span><span class="n">foo</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">//     ^^^^^ meta.statement.conditional.switch.java meta.group.java</span>
+<span class="c1">//      ^^^ variable.other.java</span>
+
+<span class="w">  </span><span class="k">case</span><span class="w"> </span><span class="n">bar</span><span class="p">:</span>
+<span class="c1">//     @@@ local-definition &quot;case bar&quot;</span>
+</pre></div>
+</div>
 <p>To make one, follow these rules</p>
 <ul class="simple">
 <li><p>Ensure the file name starts with <span class="file">syntax_test_</span>.</p></li>
@@ -947,6 +957,10 @@ most recent non-test line. The symbol type must be one of the following:</p>
 </ul>
 <p>When one of these tests is present all symbols in the file are checked
 exhaustively. This can be disabled with the <code class="docutils literal notranslate"><span class="pre">partial-symbols</span></code> options.</p>
+<div class="build-filter build-4184 docutils container">
+<p>Symbols that are transformed by a <code class="docutils literal notranslate"><span class="pre">symbolTransformation</span></code> setting can be
+tested for by specifying the result of the transformation in quotes</p>
+<span class="build">4184</span></div>
 </li>
 <span class="build">4087</span></div>
 </ul>
