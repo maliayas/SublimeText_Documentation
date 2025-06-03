@@ -2575,12 +2575,26 @@ destination group.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="sublime.Window.create_output_panel">
 <span class="sig-name descname"><span class="pre">create_output_panel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">unlisted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a></span></span><a class="headerlink" href="api_reference.html#sublime.Window.create_output_panel" title="Permalink to this definition">🔗</a></dt>
-<dd><p>Find the view associated with the named output panel, creating it if
+<dd><p>Find the <a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><code class="xref any py py-class docutils literal notranslate"><span class="pre">View</span></code></a> associated with the named output panel, creating it if
 required. The output panel can be shown by running the <code class="docutils literal notranslate"><span class="pre">show_panel</span></code>
 window command, with the <code class="docutils literal notranslate"><span class="pre">panel</span></code> argument set to the name with
 an <code class="docutils literal notranslate"><span class="pre">&quot;output.&quot;</span></code> prefix.</p>
-<p>The optional <code class="docutils literal notranslate"><span class="pre">unlisted</span></code> parameter is a boolean to control if the output
-panel should be listed in the panel switcher.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
+<dd><p>The name of the output panel.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">unlisted</span></code></dt>
+<dd><p>Control if the output panel should be listed in the panel switcher.</p>
+</dd></dl>
+
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -2598,6 +2612,54 @@ the output panel does not exist.</p>
 <dt class="sig sig-object py" id="sublime.Window.destroy_output_panel">
 <span class="sig-name descname"><span class="pre">destroy_output_panel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime.Window.destroy_output_panel" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Destroy the named output panel, hiding it if currently open.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sublime.Window.create_io_panel">
+<span class="sig-name descname"><span class="pre">create_io_panel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_input</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Callable" title="(in Python v3.13)"><span class="pre">Callable</span></a><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.13)"><span class="pre">None</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unlisted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="api_reference.html#sublime.Window.create_io_panel" title="Permalink to this definition">🔗</a></dt>
+<dd><p>Just like <a class="reference internal" href="api_reference.html#sublime.Window.create_output_panel" title="sublime.Window.create_output_panel"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">create_output_panel</span></code></a>, find the view(s) associated with the
+named output panel, creating it if required. The output panel will
+additionally be configured with an input box. The panel can be shown by
+running the <code class="docutils literal notranslate"><span class="pre">show_panel</span></code> window command, with the <code class="docutils literal notranslate"><span class="pre">panel</span></code> argument
+set to the name with an <code class="docutils literal notranslate"><span class="pre">&quot;output.&quot;</span></code> prefix.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">name</span></code></dt>
+<dd><p>The name of the output panel.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">on_input</span></code></dt>
+<dd><p>Called with any text submitted from the input box.</p>
+</dd></dl>
+
+<dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">unlisted</span></code></dt>
+<dd><p>Control if the output panel should be listed in the panel switcher.</p>
+</dd></dl>
+
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A <code class="docutils literal notranslate"><span class="pre">tuple</span></code> containing the <a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><code class="xref any py py-class docutils literal notranslate"><span class="pre">View</span></code></a> for the output and another <a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><code class="xref any py py-class docutils literal notranslate"><span class="pre">View</span></code></a>
+for the input.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sublime.Window.find_io_panel">
+<span class="sig-name descname"><span class="pre">find_io_panel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.13)"><span class="pre">Tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Optional" title="(in Python v3.13)"><span class="pre">Optional</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><span class="pre">View</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="api_reference.html#sublime.Window.find_io_panel" title="Permalink to this definition">🔗</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The output <a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><code class="xref any py py-class docutils literal notranslate"><span class="pre">View</span></code></a> associated with the named output panel and if the
+output panel has an input box it also returns its <a class="reference internal" href="api_reference.html#sublime.View" title="sublime.View"><code class="xref any py py-class docutils literal notranslate"><span class="pre">View</span></code></a>; or ``
+(None, None)`` if the output panel does not exist.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -5959,9 +6021,19 @@ the <i>Command Palette</i>.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sublime_plugin.CommandInputHandler.validate">
-<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.CommandInputHandler.validate" title="Permalink to this definition">🔗</a></dt>
+<span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Event" title="sublime.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)"><span class="pre">bool</span></a></span></span><a class="headerlink" href="api_reference.html#sublime_plugin.CommandInputHandler.validate" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Called whenever the user presses enter in the text entry box.
 Return <code class="code highlight py docutils literal notranslate"><span class="kc"><span class="pre">False</span></span></code> to disallow the current value.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">event</span></code></dt>
+<dd><p>Only passed when <a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler.want_event" title="sublime_plugin.CommandInputHandler.want_event"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">want_event</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd></dl>
+
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -5973,9 +6045,19 @@ backspace or escape.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sublime_plugin.CommandInputHandler.confirm">
-<span class="sig-name descname"><span class="pre">confirm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime_plugin.CommandInputHandler.confirm" title="Permalink to this definition">🔗</a></dt>
+<span class="sig-name descname"><span class="pre">confirm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.13)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="api_reference.html#sublime.Event" title="sublime.Event"><span class="pre">Event</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="api_reference.html#sublime_plugin.CommandInputHandler.confirm" title="Permalink to this definition">🔗</a></dt>
 <dd><p>Called when the input is accepted, after the user has pressed enter and
 the text has been validated.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt class="sig sig-object">
+<code class="docutils literal notranslate"><span class="pre">event</span></code></dt>
+<dd><p>Only passed when <a class="reference internal" href="api_reference.html#sublime_plugin.CommandInputHandler.want_event" title="sublime_plugin.CommandInputHandler.want_event"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">want_event</span></code></a> returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+</dd></dl>
+
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
