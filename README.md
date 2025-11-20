@@ -7,7 +7,7 @@ The source is automatically fetched daily and if something new is found, it gets
 committed automatically. Then I review it and push to this repo manually.
 
 I create git tags for notesworthy commits, so you can subscribe to the
-[releases](https://github.com/maliayas/SublimeText_Documentation/releases)
+[tags](https://github.com/maliayas/SublimeText_Documentation/tags)
 
 ## Update Script
 
