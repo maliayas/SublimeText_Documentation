@@ -122,7 +122,7 @@ provide completions.</p>
 </li>
 <li><p><a class="reference internal" href="completions.html#settings">Settings</a></p></li>
 </ul>
-<section id="usage"><h2>Usage<a class="headerlink" href="completions.html#usage" title="Permalink to this heading">🔗</a></h2>
+<section id="usage"><h2>Usage<a class="headerlink" href="completions.html#usage" title="Link to this heading">🔗</a></h2>
 <p>By default, Sublime Text will automatically show the completions popup when a
 user is editing source code or markup, but not within prose in comments,
 strings or markups.</p>
@@ -131,7 +131,7 @@ the completions popup, press <span class="keys"><b>Ctrl</b><i>+</i><b>Space</b><
 available, the message <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">available</span> <span class="pre">completions</span></code> will be displayed in the
 status bar.</i></p>
 </section><div class="build-filter build-4050 docutils container" id="context-aware-suggestions">
-<section id="context-aware-suggestions"><h2>Context-Aware Suggestions<a class="headerlink" href="completions.html#context-aware-suggestions" title="Permalink to this heading">🔗</a></h2>
+<section id="context-aware-suggestions"><h2>Context-Aware Suggestions<a class="headerlink" href="completions.html#context-aware-suggestions" title="Link to this heading">🔗</a></h2>
 <p>The completion engine in Sublime Text uses background processes to scan all of
 the files in a project to build a completion index. This index is used to
 provide suggested completions to the user, based on patterns in existing code.</p>
@@ -147,7 +147,7 @@ from existing code in a project. <i>Since completions are based on analyzing
 existing code, words not used in a project will not be suggested.</i></p>
 </section><span class="build">4050</span></div>
 <div class="build-filter build-4050 docutils container" id="completion-metadata">
-<section id="completion-metadata"><h2>Completion Metadata<a class="headerlink" href="completions.html#completion-metadata" title="Permalink to this heading">🔗</a></h2>
+<section id="completion-metadata"><h2>Completion Metadata<a class="headerlink" href="completions.html#completion-metadata" title="Link to this heading">🔗</a></h2>
 <p>In addition to their textual contents, completions may also provide additional
 details to users. These include the <i>kind</i> of element the completion
 represents, a short <i>annotation</i> to help in picking a completion, and <i>details</i>
@@ -221,7 +221,7 @@ that may contain links to additional resources.</p>
             <em>Details</em>
         </td>
     </tr>
-</table><section id="kind-info"><h3>Kind Info<a class="headerlink" href="completions.html#kind-info" title="Permalink to this heading">🔗</a></h3>
+</table><section id="kind-info"><h3>Kind Info<a class="headerlink" href="completions.html#kind-info" title="Link to this heading">🔗</a></h3>
 <p>Completions may provide <i>kind</i> info to be presented with the completion trigger.
 This includes a high-level category, an identifying letter, and a name. The
 following are some of the most common kinds:</p>
@@ -268,16 +268,16 @@ determined by the theme, and may not match what is shown above.</i></p>
 <p><span class="file">.sublime-completions</span> files and plugins can use combinations of any
 category listed above, along with any Unicode character and name for a custom
 presentation.</p>
-</section><section id="annotations"><h3>Annotations<a class="headerlink" href="completions.html#annotations" title="Permalink to this heading">🔗</a></h3>
+</section><section id="annotations"><h3>Annotations<a class="headerlink" href="completions.html#annotations" title="Link to this heading">🔗</a></h3>
 <p>Annotations are displayed on the right-hand edge of the completions popup, and
 may contain any information the author deems useful. Typically the annotations
 will be a word or two.</p>
-</section><section id="details"><h3>Details<a class="headerlink" href="completions.html#details" title="Permalink to this heading">🔗</a></h3>
+</section><section id="details"><h3>Details<a class="headerlink" href="completions.html#details" title="Link to this heading">🔗</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">details</span></code> field of a completion may contain a rich text description with
 links. The details for a completion is shown at the bottom of the completions
 popup when the completion is selected.</p>
 </section></section><span class="build">4050</span></div>
-<section id="customization"><h2>Customization<a class="headerlink" href="completions.html#customization" title="Permalink to this heading">🔗</a></h2>
+<section id="customization"><h2>Customization<a class="headerlink" href="completions.html#customization" title="Link to this heading">🔗</a></h2>
 <p>There exist a number of ways in which the engine can be augmented with new
 completions:</p>
 <ul class="simple">
@@ -285,7 +285,7 @@ completions:</p>
 <li><p><a class="reference internal" href="completions.html#snippets">Snippets</a></p></li>
 <li><p><a class="reference internal" href="completions.html#plugins">Plugins</a></p></li>
 </ul>
-<section id="completion-files"><h3>Completion Files<a class="headerlink" href="completions.html#completion-files" title="Permalink to this heading">🔗</a></h3>
+<section id="completion-files"><h3>Completion Files<a class="headerlink" href="completions.html#completion-files" title="Link to this heading">🔗</a></h3>
 <p>The most basic form of adding completions to Sublime Text is by creating
 a <span class="file">.sublime-completions</span> file. Completions files use the JSON format, and
 contain an object with the keys <code class="docutils literal notranslate"><span class="pre">&quot;scope&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;completions&quot;</span></code>.</p>
@@ -293,7 +293,7 @@ contain an object with the keys <code class="docutils literal notranslate"><span
 the syntax the completions apply to. The <code class="docutils literal notranslate"><span class="pre">&quot;completions&quot;</span></code> value is an array of
 completions. Each entry in the array represents a single completion, and may be
 a string or an object.</p>
-<section id="simple-format"><h4>Simple Format<a class="headerlink" href="completions.html#simple-format" title="Permalink to this heading">🔗</a></h4>
+<section id="simple-format"><h4>Simple Format<a class="headerlink" href="completions.html#simple-format" title="Link to this heading">🔗</a></h4>
 <p>When a completion is a string, the string represents both the trigger text and
 the completion contents.</p>
 <p><i>A basic <span class="file">.sublime-completions</span> file:</i></p>
@@ -309,17 +309,17 @@ the completion contents.</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section><section id="rich-format"><h4>Rich Format<a class="headerlink" href="completions.html#rich-format" title="Permalink to this heading">🔗</a></h4>
+</section><section id="rich-format"><h4>Rich Format<a class="headerlink" href="completions.html#rich-format" title="Link to this heading">🔗</a></h4>
 <p>When a completion is an object, the valid keys include:</p>
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="trigger">
-<span class="key"><span class="pre">&quot;trigger&quot;</span></span> <span class="data-type"><span class="pre">string</span> <span class="pre">(REQUIRED)</span></span><a class="headerlink" href="completions.html#trigger" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;trigger&quot;</span></span> <span class="data-type"><span class="pre">string</span> <span class="pre">(REQUIRED)</span></span><a class="headerlink" href="completions.html#trigger" title="Link to this definition">🔗</a></dt>
 <dd><p>The text the user must enter to match the completion.</p>
 </dd></dl>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="contents">
-<span class="key"><span class="pre">&quot;contents&quot;</span></span> <span class="data-type"><span class="pre">string</span> <span class="pre">(REQUIRED)</span></span><a class="headerlink" href="completions.html#contents" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;contents&quot;</span></span> <span class="data-type"><span class="pre">string</span> <span class="pre">(REQUIRED)</span></span><a class="headerlink" href="completions.html#contents" title="Link to this definition">🔗</a></dt>
 <dd><p>The contents that will be inserted into the file. Supports snippet <a class="reference internal" href="completions.html#fields">fields</a>
 and <a class="reference internal" href="completions.html#variables">variables</a>.</p>
 </dd></dl>
@@ -328,7 +328,7 @@ and <a class="reference internal" href="completions.html#variables">variables</a
 <dl class="subl setting">
 <div class="build-filter build-4073 sig sig-object docutils container" id="annotation">
 <dt class="sig sig-object" id="annotation">
-<span class="key"><span class="pre">&quot;annotation&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#annotation" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;annotation&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#annotation" title="Link to this definition">🔗</a></dt>
 <span class="build">4073</span></div>
 <dd><p>The annotation to display for the completion.</p>
 </dd></dl>
@@ -338,7 +338,7 @@ and <a class="reference internal" href="completions.html#variables">variables</a
 <dl class="subl setting">
 <div class="build-filter build-4073 sig sig-object docutils container" id="kind">
 <dt class="sig sig-object" id="kind">
-<span class="key"><span class="pre">&quot;kind&quot;</span></span> <span class="data-type"><span class="pre">string,</span> <span class="pre">3-element</span> <span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="completions.html#kind" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;kind&quot;</span></span> <span class="data-type"><span class="pre">string,</span> <span class="pre">3-element</span> <span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="completions.html#kind" title="Link to this definition">🔗</a></dt>
 <span class="build">4073</span></div>
 <dd><p>The kind metadata for the completion.</p>
 <p>If the value is a string, it must be one of:</p>
@@ -370,7 +370,7 @@ detail pane (when visible)</p></li>
 <dl class="subl setting">
 <div class="build-filter build-4073 sig sig-object docutils container" id="id0">
 <dt class="sig sig-object" id="id0">
-<span class="key"><span class="pre">&quot;details&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#id0" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;details&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#id0" title="Link to this definition">🔗</a></dt>
 <span class="build">4073</span></div>
 <dd><p>A single line description of the completion. May contain the following HTML
 tags for basic formatting:</p>
@@ -409,7 +409,7 @@ tags for basic formatting:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section></section><section id="snippets"><h3>Snippets<a class="headerlink" href="completions.html#snippets" title="Permalink to this heading">🔗</a></h3>
+</section></section><section id="snippets"><h3>Snippets<a class="headerlink" href="completions.html#snippets" title="Link to this heading">🔗</a></h3>
 <p>Snippets are typically used for boilerplate-type content that isn’t easily
 authored using the <span class="file">.sublime-completions</span> format due to spanning
 multiple lines.</p>
@@ -453,7 +453,7 @@ Palette</i>.</p>
 <span class="nt">&lt;/snippet&gt;</span>
 </pre></div>
 </div>
-<section id="fields"><h4>Fields<a class="headerlink" href="completions.html#fields" title="Permalink to this heading">🔗</a></h4>
+<section id="fields"><h4>Fields<a class="headerlink" href="completions.html#fields" title="Link to this heading">🔗</a></h4>
 <p>Snippets support <i>fields</i>, locations within the snippet that the user
 may <span class="keys"><b>Tab</b></span> through after inserting the snippet. Fields may be simple
 positions, but may also provide default content.</p>
@@ -472,7 +472,7 @@ Email: ${3:user}@${4:example.com}
 </pre></div>
 </div>
 <p>If a snippet does not contain field <code class="docutils literal notranslate"><span class="pre">$0</span></code>, it is implicitly added at the end.</p>
-</section><section id="variables"><h4>Variables<a class="headerlink" href="completions.html#variables" title="Permalink to this heading">🔗</a></h4>
+</section><section id="variables"><h4>Variables<a class="headerlink" href="completions.html#variables" title="Link to this heading">🔗</a></h4>
 <p>The following variables may be added to a snippet to include information from
 the file the snippet is being inserted into:</p>
 <section class="wide"><table class="docutils align-default">
@@ -531,7 +531,7 @@ places.</p>
 Email: ${3:$1}@${4:example.com}
 </pre></div>
 </div>
-</section><section id="variable-substitution"><h4>Variable Substitution<a class="headerlink" href="completions.html#variable-substitution" title="Permalink to this heading">🔗</a></h4>
+</section><section id="variable-substitution"><h4>Variable Substitution<a class="headerlink" href="completions.html#variable-substitution" title="Link to this heading">🔗</a></h4>
 <p>Variables can be directly referenced, or they may be modified using a regular
 expression. Variables with substitutions are written in the format
 <code class="docutils literal notranslate"><span class="pre">${name/regex/replace/flags}</span></code>.</p>
@@ -551,12 +551,12 @@ after removing the first whitespace and everything after:</i></p>
 Email: ${2:${1/\s.*//}}@${3:example.com}
 </pre></div>
 </div>
-</section><section id="escaping"><h4>Escaping<a class="headerlink" href="completions.html#escaping" title="Permalink to this heading">🔗</a></h4>
+</section><section id="escaping"><h4>Escaping<a class="headerlink" href="completions.html#escaping" title="Link to this heading">🔗</a></h4>
 <p>Since snippets can contain variables, which start with a <code class="docutils literal notranslate"><span class="pre">$</span></code>, literal <code class="docutils literal notranslate"><span class="pre">$</span></code>
 characters must be written as <code class="docutils literal notranslate"><span class="pre">\$</span></code>.</p>
 <p>When performing variable substitution, literal <code class="docutils literal notranslate"><span class="pre">/</span></code> characters must be written
 as <code class="docutils literal notranslate"><span class="pre">\/</span></code>.*</p>
-</section></section><section id="plugins"><h3>Plugins<a class="headerlink" href="completions.html#plugins" title="Permalink to this heading">🔗</a></h3>
+</section></section><section id="plugins"><h3>Plugins<a class="headerlink" href="completions.html#plugins" title="Link to this heading">🔗</a></h3>
 <p>The most powerful tool for adding completions are Python plugins.</p>
 <p>Writing a plugin to provide completions involves implementing
 <a class="reference internal" href="api_reference.html#sublime_plugin.EventListener.on_query_completions" title="sublime_plugin.EventListener.on_query_completions"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">EventListener.on_query_completions()</span></code></a> or
@@ -595,10 +595,10 @@ as <code class="docutils literal notranslate"><span class="pre">\/</span></code>
 <a class="reference internal" href="api_reference.html#sublime_plugin.EventListener.on_query_completions" title="sublime_plugin.EventListener.on_query_completions"><code class="xref any py py-meth docutils literal notranslate"><span class="pre">on_query_completions()</span></code></a> returning
 <a class="reference internal" href="api_reference.html#sublime.CompletionItem" title="sublime.CompletionItem"><code class="xref any py py-class docutils literal notranslate"><span class="pre">sublime.CompletionItem</span></code></a> objects.</p>
 <span class="build">4050</span></div>
-</section></section><section id="settings"><h2>Settings<a class="headerlink" href="completions.html#settings" title="Permalink to this heading">🔗</a></h2>
+</section></section><section id="settings"><h2>Settings<a class="headerlink" href="completions.html#settings" title="Link to this heading">🔗</a></h2>
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="tab_completion">
-<span class="key"><span class="pre">&quot;tab_completion&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#tab_completion" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;tab_completion&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#tab_completion" title="Link to this definition">🔗</a></dt>
 <dd><p>When enabled, pressing <span class="keys"><b>Tab</b></span> will insert the best matching completion.
 When disabled, <span class="keys"><b>Tab</b></span> will only trigger snippets or insert a tab
 character. <span class="keys"><b>Shift</b><i>+</i><b>Tab</b></span> can be used to insert an explicit tab when
@@ -608,28 +608,28 @@ character. <span class="keys"><b>Shift</b><i>+</i><b>Tab</b></span> can be used 
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete">
-<span class="key"><span class="pre">&quot;auto_complete&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete" title="Link to this definition">🔗</a></dt>
 <dd><p>Automatically show the completions popup when typing.</p>
 <p><i>This behavior is not influenced by the setting <code class="docutils literal notranslate"><span class="pre">tab_completion</span></code>.</i></p>
 </dd></dl>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_size_limit">
-<span class="key"><span class="pre">&quot;auto_complete_size_limit&quot;</span></span> <span class="data-type"><span class="pre">integer</span></span><a class="headerlink" href="completions.html#auto_complete_size_limit" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_size_limit&quot;</span></span> <span class="data-type"><span class="pre">integer</span></span><a class="headerlink" href="completions.html#auto_complete_size_limit" title="Link to this definition">🔗</a></dt>
 <dd><p>If the file size in bytes of the current file is larger than this, the
 completions popup will not be automatically shown.</p>
 </dd></dl>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_delay">
-<span class="key"><span class="pre">&quot;auto_complete_delay&quot;</span></span> <span class="data-type"><span class="pre">integer</span></span><a class="headerlink" href="completions.html#auto_complete_delay" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_delay&quot;</span></span> <span class="data-type"><span class="pre">integer</span></span><a class="headerlink" href="completions.html#auto_complete_delay" title="Link to this definition">🔗</a></dt>
 <dd><p>The number of milliseconds to wait before showing the completions popup
 automatically.</p>
 </dd></dl>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_selector">
-<span class="key"><span class="pre">&quot;auto_complete_selector&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#auto_complete_selector" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_selector&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#auto_complete_selector" title="Link to this definition">🔗</a></dt>
 <dd><p>A <a class="reference internal" href="selectors.html"><span class="doc">selector</span></a> to limit when the completions popup will be
 automatically shown.</p>
 <p><i>Example:</i> <code class="code highlight json docutils literal notranslate"><span class="s2"><span class="pre">&quot;meta.tag,</span> <span class="pre">source</span> <span class="pre">-</span> <span class="pre">comment</span> <span class="pre">-</span> <span class="pre">string.quoted.double.block</span> <span class="pre">-</span> <span class="pre">string.quoted.single.block</span> <span class="pre">-</span> <span class="pre">string.unquoted.heredoc&quot;</span></span></code></p>
@@ -639,7 +639,7 @@ automatic completions popup in specific situations.</i></p>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_triggers">
-<span class="key"><span class="pre">&quot;auto_complete_triggers&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">objects</span></span><a class="headerlink" href="completions.html#auto_complete_triggers" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_triggers&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">objects</span></span><a class="headerlink" href="completions.html#auto_complete_triggers" title="Link to this definition">🔗</a></dt>
 <dd><p>Provides explicit triggers for when to automatically show the completions popup.</p>
 <p>Each object must contain the keys <code class="docutils literal notranslate"><span class="pre">&quot;selector&quot;</span></code> with a string value
 containing a <a class="reference internal" href="selectors.html"><span class="doc">selector</span></a> to match the caret position against,
@@ -659,7 +659,7 @@ must be present to the left of the caret.</p>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_commit_on_tab">
-<span class="key"><span class="pre">&quot;auto_complete_commit_on_tab&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_commit_on_tab" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_commit_on_tab&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_commit_on_tab" title="Link to this definition">🔗</a></dt>
 <dd><p>By default, auto complete will commit the current completion
 on <span class="keys"><b>Enter</b></span>. This setting can be used to make it complete on <span class="keys"><b>Tab</b></span>
 instead.</p>
@@ -669,14 +669,14 @@ ambiguity between committing the completion and inserting a newline.</p>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_with_fields">
-<span class="key"><span class="pre">&quot;auto_complete_with_fields&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_with_fields" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_with_fields&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_with_fields" title="Link to this definition">🔗</a></dt>
 <dd><p>Controls if the completions popup is automatically shown when snippet fields
 are active. Only relevant if <code class="docutils literal notranslate"><span class="pre">auto_complete_commit_on_tab</span></code> is enabled.</p>
 </dd></dl>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_cycle">
-<span class="key"><span class="pre">&quot;auto_complete_cycle&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_cycle" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_cycle&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_cycle" title="Link to this definition">🔗</a></dt>
 <dd><p>Controls what happens when pressing <span class="keys"><b>⬆</b></span> while the first item in the
 completions popup is selected: if <code class="docutils literal notranslate"><span class="pre">false</span></code>, the popup is hidden, otherwise
 the last completion in the popup is selected.</p>
@@ -686,7 +686,7 @@ the last completion.</p>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_use_history">
-<span class="key"><span class="pre">&quot;auto_complete_use_history&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_use_history" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_use_history&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_use_history" title="Link to this definition">🔗</a></dt>
 <dd><p>If previously-selected completions should be automatically selected.</p>
 </dd></dl>
 
@@ -694,7 +694,7 @@ the last completion.</p>
 <dl class="subl setting">
 <div class="build-filter build-4052 sig sig-object docutils container" id="auto_complete_use_index">
 <dt class="sig sig-object" id="auto_complete_use_index">
-<span class="key"><span class="pre">&quot;auto_complete_use_index&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_use_index" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_use_index&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_use_index" title="Link to this definition">🔗</a></dt>
 <span class="build">4052</span></div>
 <dd><p>When enabled, the completions popup will show context-aware suggestions
 based on other files in the project.</p>
@@ -705,7 +705,7 @@ based on other files in the project.</p>
 <dl class="subl setting">
 <div class="build-filter build-4052 sig sig-object docutils container" id="auto_complete_preserve_order">
 <dt class="sig sig-object" id="auto_complete_preserve_order">
-<span class="key"><span class="pre">&quot;auto_complete_preserve_order&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#auto_complete_preserve_order" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_preserve_order&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="completions.html#auto_complete_preserve_order" title="Link to this definition">🔗</a></dt>
 <span class="build">4052</span></div>
 <dd><p>Controls how the auto complete results are reordered when typing:</p>
 <ul class="simple">
@@ -729,7 +729,7 @@ completion</p>
 <dl class="subl setting">
 <div class="build-filter build-4050 sig sig-object docutils container" id="auto_complete_trailing_symbols">
 <dt class="sig sig-object" id="auto_complete_trailing_symbols">
-<span class="key"><span class="pre">&quot;auto_complete_trailing_symbols&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_trailing_symbols" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_trailing_symbols&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_trailing_symbols" title="Link to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
 <dd><p>Add trailing symbols (e.g., <code class="docutils literal notranslate"><span class="pre">.</span></code>, <code class="docutils literal notranslate"><span class="pre">()</span></code>) if the completion engine thinks
 they‘re likely enough.</p>
@@ -740,7 +740,7 @@ they‘re likely enough.</p>
 <dl class="subl setting">
 <div class="build-filter build-4050 sig sig-object docutils container" id="auto_complete_trailing_spaces">
 <dt class="sig sig-object" id="auto_complete_trailing_spaces">
-<span class="key"><span class="pre">&quot;auto_complete_trailing_spaces&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_trailing_spaces" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_trailing_spaces&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_trailing_spaces" title="Link to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
 <dd><p>Add a space after completions if the completion engine thinks they‘re likely
 enough.</p>
@@ -751,7 +751,7 @@ enough.</p>
 <dl class="subl setting">
 <div class="build-filter build-4050 sig sig-object docutils container" id="auto_complete_include_snippets">
 <dt class="sig sig-object" id="auto_complete_include_snippets">
-<span class="key"><span class="pre">&quot;auto_complete_include_snippets&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_include_snippets" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_include_snippets&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_include_snippets" title="Link to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
 <dd><p>Controls if snippets will not be included in the completions popup.</p>
 <p><i>When disabled, snippets can still be triggered by typing their tab trigger
@@ -761,7 +761,7 @@ in, and pressing <span class="keys"><b>Tab</b></span> when the completion popup 
 </div>
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="auto_complete_include_snippets_when_typing">
-<span class="key"><span class="pre">&quot;auto_complete_include_snippets_when_typing&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_include_snippets_when_typing" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;auto_complete_include_snippets_when_typing&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="completions.html#auto_complete_include_snippets_when_typing" title="Link to this definition">🔗</a></dt>
 <dt class="sig sig-object subl">
 <span class="sig-name descname"><span class="pre">..</span> <span class="pre">since::</span> <span class="pre">4052</span></span></dt>
 <dd><p>When this is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, snippets won‘t be present in the completions
@@ -773,7 +773,7 @@ manually triggered.</p>
 <dl class="subl setting">
 <div class="build-filter build-4050 sig sig-object docutils container" id="ignored_snippets">
 <dt class="sig sig-object" id="ignored_snippets">
-<span class="key"><span class="pre">&quot;ignored_snippets&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="completions.html#ignored_snippets" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;ignored_snippets&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="completions.html#ignored_snippets" title="Link to this definition">🔗</a></dt>
 <span class="build">4050</span></div>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">File Patterns</span></a> specifying which snippet files to ignore.</p>
 <p><i>For example, to ignore all the default C++ snippets:</i></p>
