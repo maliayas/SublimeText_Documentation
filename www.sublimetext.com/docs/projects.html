@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Projects</title>
-    <script type="text/javascript" src="docs.js@v=a39adbf106ab7bd08270f5a660845d18"></script>
+    <script type="text/javascript" src="docs.js@v=8e965901211a2d7b1e98728dcfde112c"></script>
     <link rel="stylesheet" type="text/css" href="docs.css@v=4100a55ba91b60ec302ae71a43d323ab.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -92,7 +92,7 @@ version control, while the <span class="file">.sublime-workspace</span> file wou
 <li><p><a class="reference internal" href="projects.html#settings-key">“settings” Key</a></p></li>
 <li><p><a class="reference internal" href="projects.html#build-systems-key">“build_systems” Key</a></p></li>
 </ul>
-<section id="project-format"><h2>Project Format<a class="headerlink" href="projects.html#project-format" title="Permalink to this heading">🔗</a></h2>
+<section id="project-format"><h2>Project Format<a class="headerlink" href="projects.html#project-format" title="Link to this heading">🔗</a></h2>
 <p><span class="file">.sublime-project</span> files are JSON, and support three top level sections:
 <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code>, for the included folders, <code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code>, for file-setting
 overrides, and <code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code>, for project specific build systems. An
@@ -125,20 +125,20 @@ example:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section><section id="folders-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> Key<a class="headerlink" href="projects.html#folders-key" title="Permalink to this heading">🔗</a></h2>
+</section><section id="folders-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> Key<a class="headerlink" href="projects.html#folders-key" title="Link to this heading">🔗</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code> key contains an array of objects. Each object must have a
 <code class="docutils literal notranslate"><span class="pre">&quot;path&quot;</span></code> key, which may be relative to the project directory, or a fully
 qualified path.</p>
 <p>Additional optional keys include:</p>
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="name">
-<span class="key"><span class="pre">&quot;name&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="projects.html#name" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;name&quot;</span></span> <span class="data-type"><span class="pre">string</span></span><a class="headerlink" href="projects.html#name" title="Link to this definition">🔗</a></dt>
 <dd><p>A name used in place of the folder name in the side bar</p>
 </dd></dl>
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="file_include_patterns">
-<span class="key"><span class="pre">&quot;file_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#file_include_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;file_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#file_include_patterns" title="Link to this definition">🔗</a></dt>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to include from the folder. Anything not
 matching these patterns will be excluded. This is checked before
 <code class="docutils literal notranslate"><span class="pre">&quot;file_exclude_patterns&quot;</span></code>.</p>
@@ -146,7 +146,7 @@ matching these patterns will be excluded. This is checked before
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="file_exclude_patterns">
-<span class="key"><span class="pre">&quot;file_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#file_exclude_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;file_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#file_exclude_patterns" title="Link to this definition">🔗</a></dt>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to exclude from the folder. This is
 added to the global setting of the same name. This is checked after
 <code class="docutils literal notranslate"><span class="pre">&quot;file_include_patterns&quot;</span></code>.</p>
@@ -154,7 +154,7 @@ added to the global setting of the same name. This is checked after
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="folder_include_patterns">
-<span class="key"><span class="pre">&quot;folder_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#folder_include_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;folder_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#folder_include_patterns" title="Link to this definition">🔗</a></dt>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of folders</span></a> to include from the folder. Anything
 not matching these patterns will be excluded. This is checked before
 <code class="docutils literal notranslate"><span class="pre">&quot;folder_exclude_patterns&quot;</span></code>.</p>
@@ -162,7 +162,7 @@ not matching these patterns will be excluded. This is checked before
 
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="folder_exclude_patterns">
-<span class="key"><span class="pre">&quot;folder_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#folder_exclude_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;folder_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#folder_exclude_patterns" title="Link to this definition">🔗</a></dt>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of folders</span></a> to exclude from the folder. This is
 added to the global setting of the same name. This is checked after
 <code class="docutils literal notranslate"><span class="pre">&quot;folder_include_patterns&quot;</span></code>.</p>
@@ -172,7 +172,7 @@ added to the global setting of the same name. This is checked after
 <dl class="subl setting">
 <div class="build-filter build-3158 sig sig-object docutils container" id="binary_file_patterns">
 <dt class="sig sig-object" id="binary_file_patterns">
-<span class="key"><span class="pre">&quot;binary_file_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#binary_file_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;binary_file_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#binary_file_patterns" title="Link to this definition">🔗</a></dt>
 <span class="build">3158</span></div>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to treat as binary files, and thus
 ignored in <i>Goto Anything</i> and <i>Find in Files</i>.</p>
@@ -183,7 +183,7 @@ ignored in <i>Goto Anything</i> and <i>Find in Files</i>.</p>
 <dl class="subl setting">
 <div class="build-filter build-3158 sig sig-object docutils container" id="index_include_patterns">
 <dt class="sig sig-object" id="index_include_patterns">
-<span class="key"><span class="pre">&quot;index_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#index_include_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;index_include_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#index_include_patterns" title="Link to this definition">🔗</a></dt>
 <span class="build">3158</span></div>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to index in the folder. This is added to
 the global setting of the same name. Anything not matching these patterns
@@ -196,7 +196,7 @@ will be excluded from the index. This is checked before
 <dl class="subl setting">
 <div class="build-filter build-3158 sig sig-object docutils container" id="index_exclude_patterns">
 <dt class="sig sig-object" id="index_exclude_patterns">
-<span class="key"><span class="pre">&quot;index_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#index_exclude_patterns" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;index_exclude_patterns&quot;</span></span> <span class="data-type"><span class="pre">array</span> <span class="pre">of</span> <span class="pre">strings</span></span><a class="headerlink" href="projects.html#index_exclude_patterns" title="Link to this definition">🔗</a></dt>
 <span class="build">3158</span></div>
 <dd><p><a class="reference internal" href="file_patterns.html"><span class="doc">Patterns of files</span></a> to excluding from indexing in the
 folder. This is added to the global setting of the same name. This is
@@ -206,19 +206,19 @@ checked after <code class="docutils literal notranslate"><span class="pre">&quot
 </div>
 <dl class="subl setting">
 <dt class="sig sig-object subl" id="follow_symlinks">
-<span class="key"><span class="pre">&quot;follow_symlinks&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="projects.html#follow_symlinks" title="Permalink to this definition">🔗</a></dt>
+<span class="key"><span class="pre">&quot;follow_symlinks&quot;</span></span> <span class="data-type"><span class="pre">boolean</span></span><a class="headerlink" href="projects.html#follow_symlinks" title="Link to this definition">🔗</a></dt>
 <dd><p>If symlinks should be followed when building the folder tree.</p>
 </dd></dl>
 
 <p>Converted projects from earlier versions may have a <code class="docutils literal notranslate"><span class="pre">&quot;mount_points&quot;</span></code> entry
 under <code class="docutils literal notranslate"><span class="pre">&quot;folders&quot;</span></code>. If you wish to use the exclude patterns, you’ll need to
 change to the above format.</p>
-</section><section id="settings-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> Key<a class="headerlink" href="projects.html#settings-key" title="Permalink to this heading">🔗</a></h2>
+</section><section id="settings-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> Key<a class="headerlink" href="projects.html#settings-key" title="Link to this heading">🔗</a></h2>
 <p><a class="reference internal" href="api_reference.html#sublime.Settings" title="sublime.Settings"><code class="xref any py py-class docutils literal notranslate"><span class="pre">Settings</span></code></a> may be specified here using the <code class="docutils literal notranslate"><span class="pre">&quot;settings&quot;</span></code> key, and will override
 regular user settings. They will not, however, override syntax-specific
 settings.</p>
 <p><i>Note that only settings in the category <a class="reference internal" href="settings.html#editor-settings"><span class="std std-ref">Editor Settings</span></a> may be controlled by a project.</i></p>
-</section><section id="build-systems-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> Key<a class="headerlink" href="projects.html#build-systems-key" title="Permalink to this heading">🔗</a></h2>
+</section><section id="build-systems-key"><h2><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> Key<a class="headerlink" href="projects.html#build-systems-key" title="Link to this heading">🔗</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;build_systems&quot;</span></code> specifies a list of inline <a class="reference internal" href="build_systems.html"><span class="doc">Build Systems</span></a> definitions. In
 addition to the regular build system settings, a <code class="docutils literal notranslate"><span class="pre">&quot;name&quot;</span></code> must be specified
 for each one. Build systems listed here will be available via the

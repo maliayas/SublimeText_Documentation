@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Selectors</title>
-    <script type="text/javascript" src="docs.js@v=a39adbf106ab7bd08270f5a660845d18"></script>
+    <script type="text/javascript" src="docs.js@v=8e965901211a2d7b1e98728dcfde112c"></script>
     <link rel="stylesheet" type="text/css" href="docs.css@v=4100a55ba91b60ec302ae71a43d323ab.css">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -94,16 +94,11 @@ see the <a class="reference internal" href="scope_naming.html"><span class="doc"
 <li><p><a class="reference internal" href="selectors.html#basic-matching">Basic Matching</a></p></li>
 <li><p><a class="reference internal" href="selectors.html#logical-operators">Logical Operators</a></p></li>
 </ul>
-<section id="basic-matching"><h2>Basic Matching<a class="headerlink" href="selectors.html#basic-matching" title="Permalink to this heading">🔗</a></h2>
+<section id="basic-matching"><h2>Basic Matching<a class="headerlink" href="selectors.html#basic-matching" title="Link to this heading">🔗</a></h2>
 <p>A basic selector specifies one or more scope names, and is matched against a
 token‘s scope names starting with the left-most scope. For a selector to match
 a token‘s scope name, all of its labels must be present in the same order.</p>
 <section class="wide"><table class="docutils align-default">
-<colgroup>
-<col style="width: 23%" />
-<col style="width: 33%" />
-<col style="width: 44%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Scope Name</p></th>
 <th class="head"><p>Selector</p></th>
@@ -136,11 +131,6 @@ a token‘s scope name, all of its labels must be present in the same order.</p>
 </section><p>When a selector has multiple scope names, each must match one of the token‘s
 scope names, in order.</p>
 <section class="wide"><table class="docutils align-default">
-<colgroup>
-<col style="width: 42%" />
-<col style="width: 11%" />
-<col style="width: 47%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Scope Name</p></th>
 <th class="head"><p>Selector</p></th>
@@ -162,18 +152,38 @@ scope names, in order.</p>
 </tr>
 </tbody>
 </table>
-</section></section><section id="logical-operators"><h2>Logical Operators<a class="headerlink" href="selectors.html#logical-operators" title="Permalink to this heading">🔗</a></h2>
+</section><section id="child-operator"><h3>Child Operator<a class="headerlink" href="selectors.html#child-operator" title="Link to this heading">🔗</a></h3>
+<p>Using <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> a selector can signify that the next scope name must follow
+immediately after the previous.</p>
+<section class="wide"><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Scope Name</p></th>
+<th class="head"><p>Selector</p></th>
+<th class="head"><p>Matches</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>source.php meta.block.php keyword.control.php</p></td>
+<td><p>source &gt; keyword</p></td>
+<td><p>no</p></td>
+</tr>
+<tr class="row-odd"><td><p>source.php meta.block.php keyword.control.php</p></td>
+<td><p>meta.block &gt; keyword</p></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="row-even"><td><p>source.php meta.block.php keyword.control.php</p></td>
+<td><p>source.php &gt; &gt; keyword.control</p></td>
+<td><p>yes</p></td>
+</tr>
+</tbody>
+</table>
+</section></section></section><section id="logical-operators"><h2>Logical Operators<a class="headerlink" href="selectors.html#logical-operators" title="Link to this heading">🔗</a></h2>
 <p>In addition to matching scope names based of label prefix matches, selectors may
 also specify logical operators.</p>
-<section id="logical-or"><h3>Logical OR<a class="headerlink" href="selectors.html#logical-or" title="Permalink to this heading">🔗</a></h3>
+<section id="logical-or"><h3>Logical OR<a class="headerlink" href="selectors.html#logical-or" title="Link to this heading">🔗</a></h3>
 <p>The logical OR operator is <code class="docutils literal notranslate"><span class="pre">|</span></code> or <code class="docutils literal notranslate"><span class="pre">,</span></code>. If either the selector to the right
 or left of the operator is matched, the expression will be a match.</p>
 <section class="wide"><table class="docutils align-default">
-<colgroup>
-<col style="width: 58%" />
-<col style="width: 26%" />
-<col style="width: 16%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Scope Name</p></th>
 <th class="head"><p>Selector</p></th>
@@ -191,16 +201,11 @@ or left of the operator is matched, the expression will be a match.</p>
 </tr>
 </tbody>
 </table>
-</section></section><section id="logical-and"><h3>Logical AND<a class="headerlink" href="selectors.html#logical-and" title="Permalink to this heading">🔗</a></h3>
+</section></section><section id="logical-and"><h3>Logical AND<a class="headerlink" href="selectors.html#logical-and" title="Link to this heading">🔗</a></h3>
 <p>The logical AND operator is <code class="docutils literal notranslate"><span class="pre">&amp;</span></code>. It will require the selector to the right and
 left of the operator are both matched for the expression to be a match. This is
 different than a space between selectors, since that denoted hierarchy.</p>
 <section class="wide"><table class="docutils align-default">
-<colgroup>
-<col style="width: 68%" />
-<col style="width: 21%" />
-<col style="width: 11%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Scope Name</p></th>
 <th class="head"><p>Selector</p></th>
@@ -218,15 +223,10 @@ different than a space between selectors, since that denoted hierarchy.</p>
 </tr>
 </tbody>
 </table>
-</section></section><section id="logical-not"><h3>Logical NOT<a class="headerlink" href="selectors.html#logical-not" title="Permalink to this heading">🔗</a></h3>
+</section></section><section id="logical-not"><h3>Logical NOT<a class="headerlink" href="selectors.html#logical-not" title="Link to this heading">🔗</a></h3>
 <p>The logical NOT operator is <code class="docutils literal notranslate"><span class="pre">-</span></code>. It will require the selector to the right to
 not match for the expression to be a match.</p>
 <section class="wide"><table class="docutils align-default">
-<colgroup>
-<col style="width: 66%" />
-<col style="width: 24%" />
-<col style="width: 10%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Scope Name</p></th>
 <th class="head"><p>Selector</p></th>
@@ -244,14 +244,9 @@ not match for the expression to be a match.</p>
 </tr>
 </tbody>
 </table>
-</section></section><section id="grouping"><h3>Grouping<a class="headerlink" href="selectors.html#grouping" title="Permalink to this heading">🔗</a></h3>
+</section></section><section id="grouping"><h3>Grouping<a class="headerlink" href="selectors.html#grouping" title="Link to this heading">🔗</a></h3>
 <p>When working with logical operators, parentheses may be used to group selectors.</p>
 <section class="wide"><table class="docutils align-default">
-<colgroup>
-<col style="width: 42%" />
-<col style="width: 47%" />
-<col style="width: 12%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Scope Name</p></th>
 <th class="head"><p>Selector</p></th>
@@ -269,7 +264,7 @@ not match for the expression to be a match.</p>
 </tr>
 </tbody>
 </table>
-</section></section><section id="order-of-operations"><h3>Order of Operations<a class="headerlink" href="selectors.html#order-of-operations" title="Permalink to this heading">🔗</a></h3>
+</section></section><section id="order-of-operations"><h3>Order of Operations<a class="headerlink" href="selectors.html#order-of-operations" title="Link to this heading">🔗</a></h3>
 <p>Operators have the following precedence:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">()</span></code> Grouping</p></li>

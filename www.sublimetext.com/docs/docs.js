@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const className = element.classList[j];
 
             if (className.startsWith('build-')) {
-                const parts = className.match(/build-([0-9]+)(?:-(\w+))?/);
+                const parts = className.match(/build-([0-9]+|next)(?:-(\w+))?/);
                 if (!parts) {
                     continue;
                 }
