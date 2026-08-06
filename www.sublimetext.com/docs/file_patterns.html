@@ -107,12 +107,7 @@ or directory name and only the basic syntax applies. When a <code class="docutil
 in a pattern, it changes the behavior to:</p>
 <ul>
 <li><p>The pattern is matched against the entire file or directory path</p></li>
-<li><p>In a <code class="docutils literal notranslate"><span class="pre">*/</span></code> prefix or <code class="docutils literal notranslate"><span class="pre">/*</span></code> suffix, the <code class="docutils literal notranslate"><span class="pre">*</span></code> will match <code class="docutils literal notranslate"><span class="pre">/</span></code> characters</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">*/</span></code> will be implicitly prefixed if the pattern does not start with a <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">*</span></code></p></li>
-<li><div class="build-filter build-4066-removed docutils container">
-<p><code class="docutils literal notranslate"><span class="pre">*</span></code> will be implicitly suffixed if the pattern does not start with a <code class="docutils literal notranslate"><span class="pre">/</span></code> or <code class="docutils literal notranslate"><span class="pre">*</span></code></p>
-<span class="build">&lt;4066</span></div>
-</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code> will match <code class="docutils literal notranslate"><span class="pre">/</span></code> characters</p></li>
 <li><p>If the pattern ends in <code class="docutils literal notranslate"><span class="pre">/</span></code> it will be treated as a directory pattern, and
 will match <span class="build-filter build-4066">both a directory with that name and <span class="build">4066</span></span> any contained
 files or subdirectories</p></li>

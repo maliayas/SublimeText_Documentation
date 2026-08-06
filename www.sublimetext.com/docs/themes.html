@@ -106,7 +106,7 @@ appearance.</p>
 <li><p><a class="reference internal" href="themes.html#elements"><span class="std std-ref">Elements</span></a></p></li>
 <li><p><a class="reference internal" href="themes.html#deprecated">Deprecated</a></p></li>
 <li><p><a class="reference internal" href="themes.html#obsolete">Obsolete</a></p></li>
-<li><p><a class="reference internal" href="themes.html#file-type-icons">File Type Icons</a></p></li>
+<li><p><a class="reference internal" href="themes.html#file-icon-themes">File Icon Themes</a></p></li>
 <li><p><a class="reference internal" href="themes.html#customization">Customization</a></p></li>
 </ul>
 <section id="format"><h2>Format<a class="headerlink" href="themes.html#format" title="Link to this heading">🔗</a></h2>
@@ -1235,7 +1235,7 @@ symlinks.</i></p>
 <dt class="sig sig-object subl">
 <code class="docutils literal notranslate"><span class="pre">icon_file_type</span></code></dt>
 <dd><p>The icon for a file. The <code class="docutils literal notranslate"><span class="pre">layer0.texture</span></code> should not be set since it is
-determined dynamically. See <a class="reference internal" href="themes.html#file-type-icons">file type icons</a> for more details.</p>
+determined dynamically. See <a class="reference internal" href="themes.html#file-icon-themes">file icon themes</a> for more details.</p>
 <dl class="field-list">
 <dt class="field-odd">Properties<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
@@ -3602,24 +3602,31 @@ Anything quick panel.</p>
 </section><section id="id2"><h3>Properties<a class="headerlink" href="themes.html#id2" title="Link to this heading">🔗</a></h3>
 <p>The <code class="docutils literal notranslate"><span class="pre">blur</span></code> property used to be supported to blur the pixel data behind an
 element, however it is not currently supported for implementation reasons.</p>
-</section></section><div class="build-filter build-4201 docutils container" id="file-type-icons">
-<section id="file-type-icons"><h2>File Type Icons<a class="headerlink" href="themes.html#file-type-icons" title="Link to this heading">🔗</a></h2>
-<p>File icons for the <code class="docutils literal notranslate"><span class="pre">icon_file_type</span></code> class are determined dynamically using
-syntax metadata from <span class="file">.tmPreferences</span> files. The texture files are
-searched for in an <span class="file">icons/</span> folder next to the active
-theme’s <span class="file">.sublime-theme</span> file. By default the textures used are
-<span class="file">file_type_source.png</span>, <span class="file">file_type_text.png</span>,
-<span class="file">file_type_markup.png</span>, <span class="file">file_type_default.png</span>,
-<span class="file">file_type_binary.png</span> and <span class="file">file_type_image.png</span>.</p>
-<p>File icons can also be overridden using a <span class="file">File Icons.sublime-settings</span>
-file, which maps file extensions to textures:</p>
+</section></section><div class="build-filter build-4206 docutils container" id="file-icon-themes">
+<section id="file-icon-themes"><h2>File Icon Themes<a class="headerlink" href="themes.html#file-icon-themes" title="Link to this heading">🔗</a></h2>
+<p>When an icon is shown associated with a file, such as the side-bar in Sublime
+Text, those icons are derived from a File Icon Theme.</p>
+<p>A <span class="file">.sublime-file-icons</span> file contains a single JSON document. It should be
+an object containing a key “icons” with an object mapping extensions/paths to
+file icons.</p>
+<p>The file icons should be the name of a <span class="file">.png</span> file inside a package,
+without the <span class="file">.png</span> extension. This file should be located either at the
+top level of a package, or inside the <span class="file">icons</span> folder.</p>
+<p>The file icon theme is loaded both from the global <code class="docutils literal notranslate"><span class="pre">&quot;file_icon_theme&quot;</span></code> setting
+and from an icon theme with the same name as the <span class="file">.sublime-theme</span> file.
+These are loaded in-order, with later sources overriding earlier ones.</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;c&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Packages/MyIconPackage/file_type_c.png&quot;</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">&quot;h&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Packages/MyIconPackage/file_type_c.png&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;icons&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// This matches any file with a .txt extension</span>
+<span class="w">        </span><span class="nt">&quot;txt&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file_type_text&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="c1">// This matches any file called &quot;Makefile&quot;</span>
+<span class="w">        </span><span class="nt">&quot;Makefile&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file_type_make&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;make&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;file_type_make&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-</section><span class="build">4201</span></div>
+</section><span class="build">4206</span></div>
 <section id="customization"><h2>Customization<a class="headerlink" href="themes.html#customization" title="Link to this heading">🔗</a></h2>
 <p>Users can customize a theme by creating a file with new rules that will be
 appended to the original theme definition.</p>
